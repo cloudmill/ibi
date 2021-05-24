@@ -1,3 +1,51 @@
 mixin header
   header.header
-    |header
+    .container
+      .header__inner
+        .header__row
+          .header__col
+            .header__container
+              .header__logo
+                a.header__logo-link(href='#')
+                  +logo-svg('header__logo-svg')
+          .header__col
+            .header__panel
+              .header__panel-item
+                .header__items.header__container
+                  .header__items-item
+                    .header__drop
+                      .header__drop-button.header__drop-button--active
+                        .header__drop-text.header__text
+                          |Базальная имплантация
+                        .header__drop-image
+                          +arrow-svg('header__drop-svg')
+                  .header__items-item
+                    .header__drop
+                      .header__drop-button
+                        .header__drop-text.header__text
+                          |Услуги
+                        .header__drop-image
+                          +arrow-svg('header__drop-svg')
+                  .header__items-item
+                    a.header__link.header__text(href='#')
+                      |До и После
+              .header__panel-item
+                .header__items.header__items--large.header__container
+                  .header__items-item
+                    .header__phone
+                      a.header__phone-call.header__text(href='#')
+                        |Заказать звонок
+                      a.header__phone-link.header__text(href='#')
+                        |8 499 490 63 49
+                  .header__items-item
+                    .header__drop
+                      .header__drop-button
+                        .header__drop-text.header__text
+                          |Ru
+                        .header__drop-image
+                          +arrow-svg('header__drop-svg')
+                  .header__items-item.header__items-item--mobile
+                    .header__button
+                      .header__button-button
+                        .header__button-image
+
