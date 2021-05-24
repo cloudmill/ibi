@@ -1,5 +1,28 @@
 mixin footer
   footer.footer
-    +logo-svg('footer__svg', {
-      mod: 'white',
-    })
+    .container  
+      .footer__inner
+        .footer__logo
+          +logo-svg('footer__logo-svg', {
+            mod: 'white',
+          })
+        ul.footer__links
+          li.footer__links-item
+            a.footer__link(href='#')
+              |8 499 490 63 49
+            p.footer__link-caption
+              |Бесплатно по России
+          li.footer__links-item
+            a.footer__link(href='#')
+              |info@ibi.clinic
+            p.footer__link-caption
+              |По любым вопросам
+        address.footer__address
+          |Россия, г. Москва,
+          br
+          |1-й Спасоналивковский переулок, 17,
+          br
+          |корп. 1
+
+
+

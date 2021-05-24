@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&display=swap');
 
-@import "helpers/index";
+@import "helpers/*";
 
-@import "vendors/index";
+@import "vendors/*";
 
-@import "base/index";
+@import "base/*";
 
-@import "modules/index";
+@import "modules/*";

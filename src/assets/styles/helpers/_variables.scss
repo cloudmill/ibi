@@ -4,8 +4,8 @@ $fw-main: 500;
 
 // breakpoints
 $breakpoint-m: 768px;
-$breakpoint: 1024px;
-$breakpoint-hd: 1280px;
+$breakpoint-t: 1024px;
+$breakpoint: 1280px;
 $breakpoint-l: 1366px;
 $breakpoint-ll: 1440px;
 $breakpoint-xl: 1680px;
@@ -14,6 +14,7 @@ $breakpoint-xxl: 1920px;
 // colors
 $color-white: white;
 $color-black: #303032;
+$color-main: #29A5B1;
 
 // animations
 $transition: 0.5s;
