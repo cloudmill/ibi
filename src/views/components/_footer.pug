@@ -2,27 +2,111 @@ mixin footer
   footer.footer
     .container  
       .footer__inner
-        .footer__logo
-          +logo-svg('footer__logo-svg', {
-            mod: 'white',
-          })
-        ul.footer__links
-          li.footer__links-item
-            a.footer__link(href='#')
-              |8 499 490 63 49
-            p.footer__link-caption
-              |Бесплатно по России
-          li.footer__links-item
-            a.footer__link(href='#')
-              |info@ibi.clinic
-            p.footer__link-caption
-              |По любым вопросам
-        address.footer__address
-          |Россия, г. Москва,
-          br
-          |1-й Спасоналивковский переулок, 17,
-          br
-          |корп. 1
-
-
+        .footer__grid.footer__grid--mobile
+          .footer__block
+            .footer__logo
+              +logo-svg('footer__logo-svg', {
+                mod: 'white',
+              })
+          .footer__block
+            ul.footer__links
+              li.footer__links-item
+                .footer__links-wrapper
+                  a.footer__links-link(href='#')
+                    |8 499 490 63 49
+                p.footer__links-caption
+                  |Бесплатно по России
+              li.footer__links-item
+                .footer__links-wrapper
+                  a.footer__links-link(href='#')
+                    |info@ibi.clinic
+                p.footer__links-caption
+                  |По любым вопросам
+          .footer__block
+            address.footer__address
+              |Россия, г. Москва,
+              br
+              |1-й Спасоналивковский переулок, 17,
+              br
+              |корп. 1
+          .footer__block
+            ul.footer__socials
+              li.footer__socials-item
+                a.footer__socials-link(href='#')
+                  +facebook-svg('footer__socials-svg')
+              li.footer__socials-item
+                a.footer__socials-link(href='#')
+                  +instagram-svg('footer__socials-svg')
+              li.footer__socials-item
+                a.footer__socials-link(href='#')
+                  +vk-svg('footer__socials-svg')
+              li.footer__socials-item
+                a.footer__socials-link(href='#')
+                  +youtube-svg('footer__socials-svg')
+          .footer__block
+            .footer__info
+              .footer__copyright
+                |© 2020 Институт Базальной Стоматологии
+              .footer__dev
+                span.footer__dev-text
+                  |Сделано в&nbsp;
+                a.footer__dev-text.footer__dev-link(href='#')
+                  |CloudMill
+        .footer__grid.footer__grid--desktop
+          .footer__row.footer__row--outer
+            .footer__col
+              .footer__logo
+                +logo-svg('footer__logo-svg', {
+                  mod: 'white',
+                })
+            .footer__col
+              .footer__block
+                .footer__row.footer__row--inner
+                  .footer__col
+                    ul.footer__links
+                      li.footer__links-item
+                        .footer__links-wrapper
+                          a.footer__links-link(href='#')
+                            |8 499 490 63 49
+                        p.footer__links-caption
+                          |Бесплатно по России
+                      li.footer__links-item
+                        .footer__links-wrapper
+                          a.footer__links-link(href='#')
+                            |info@ibi.clinic
+                        p.footer__links-caption
+                          |По любым вопросам
+                  .footer__col
+                    ul.footer__socials
+                      li.footer__socials-item
+                        a.footer__socials-link(href='#')
+                          +facebook-svg('footer__socials-svg')
+                      li.footer__socials-item
+                        a.footer__socials-link(href='#')
+                          +instagram-svg('footer__socials-svg')
+                      li.footer__socials-item
+                        a.footer__socials-link(href='#')
+                          +vk-svg('footer__socials-svg')
+                      li.footer__socials-item
+                        a.footer__socials-link(href='#')
+                          +youtube-svg('footer__socials-svg')
+              .footer__block
+                .footer__row.footer__row--inner
+                  .footer__col
+                    .footer__info
+                      .footer__copyright
+                        |© 2020 Институт Базальной Стоматологии
+                      .footer__dev
+                        span.footer__dev-text
+                          |Сделано в&nbsp;
+                        a.footer__dev-text.footer__dev-link(href='#')
+                          |CloudMill
+                  .footer__col
+                    address.footer__address
+                      |Россия, г. Москва,
+                      br
+                      |1-й Спасоналивковский переулок, 17,
+                      br
+                      |корп. 1
+            
 

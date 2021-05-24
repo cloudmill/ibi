@@ -1,6 +1,6 @@
 .container {
-  padding: 0 20px;
+  padding: 0 $gap-m;
   @media (min-width: $breakpoint) {
-    padding: 0 40px;
+    padding: 0 $gap-d;
   }
 }
