@@ -45,9 +45,7 @@ module.exports = env => {
 			maxEntrypointSize: 512000,
 			maxAssetSize: 512000
 		},
-		/*
-      Loaders with configurations
-    */
+
 		module: {
 			rules: [
 				{
@@ -101,8 +99,7 @@ module.exports = env => {
 							loader: 'pug-html-loader',
 							options: {
 								data: {
-									menu: require('../src/views/data/menu.json'),
-									index: require('../src/views/data/index.json'),
+									// menu: require('../src/views/data/menu.json'),
 								}
 							}
 						}
@@ -171,9 +168,9 @@ module.exports = env => {
 		plugins: [
 			new CopyWebpackPlugin({
 				patterns: [
-					{from: 'assets/images/favicons/favicon.ico', to: 'assets/favicon.ico'},
+					// {from: 'assets/images/favicons/favicon.ico', to: 'assets/favicon.ico'},
+					// {from: 'assets/fonts', to: 'assets/fonts'},
 					{from: 'assets/images', to: 'assets/images'},
-					{from: 'assets/fonts', to: 'assets/fonts'},
 				]
 			}),
 
@@ -210,9 +207,6 @@ module.exports = env => {
 				chunkFilename: 'vendors.css',
 			}),
 
-			/*
-        Pages
-      */
 			...utils.pages(env.NODE_ENV),
 
 			new HtmlBeautifyPlugin({
