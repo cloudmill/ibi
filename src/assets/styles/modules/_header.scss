@@ -12,7 +12,12 @@
   left: 0;
   right: 0;
 
-  background-color: lightblue; // test
+  &__header {
+    position: relative;
+    z-index: 1;
+
+    background-color: lightblue; // test
+  }
 
   &__inner {
     padding: 20px 0;
@@ -102,7 +107,7 @@
   &__text {
     font-size: 18px;
     line-height: 25px;
-    white-space: nowrap;
+    white-space: nowrap; // ?
   }
 
   &__drop {
@@ -114,7 +119,7 @@
 
     cursor: pointer;
 
-    &--active {
+    &[data-modal-active] {
       #{$component}__drop-text {
         color: $color-main;
       }
@@ -160,30 +165,35 @@
     line-height: 31px;
   }
 
+  &__link {
+    transition: $transition;
+
+    &:hover {
+      color: $color-main; // ?
+    }
+  }
+
   // ?
   &__button {
     display: flex;
   }
   &__button-button {
-    position: relative;
-    z-index: 0;
-
     $size: 70px;
     width: $size;
     height: $size;
-    display: flex;
     @media (max-width: $breakpoint - 1px) {
       $size: 38px;
       width: $size;
       height: $size;
     }
+    display: flex;
 
     background-color: $color-white;
     border-radius: 50%;
     cursor: pointer;
     transition: $transition;
 
-    &--active {
+    &[data-modal-active] {
       background-color: $color-main;
 
       #{$component}__button-image {
@@ -247,5 +257,55 @@
       bottom: 0;
       transform-origin: right center;
     }
+  }
+
+  &__modals {
+    position: relative;
+    z-index: 0;
+  }
+}
+
+.header-modal {
+  $comp: &;
+  
+  $col-count: 12;
+  $col-gap: $gap-d;
+  $col-width: '((100% - (#{$col-gap} * #{$col-count - 1})) / #{$col-count})';
+  $col-part: '(#{$col-width} + #{$col-gap})';
+
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+
+  background-color: lightblue; // test
+  color: $color-white;
+  transition: $transition;
+
+  &[data-modal-active] {
+    z-index: 1;
+    transform: translate(0);
+  }
+
+  &__row {
+    display: flex;
+  }
+  &__col {
+    width: calc(#{$col-part} * 3 - #{$col-gap});
+    flex-shrink: 0;
+
+    &:not(:first-child) {
+      margin-left: $col-gap;
+    }
+
+    &--highlight {
+      border-top: 1px solid $color-main;
+    }
+  }
+
+  &__inner {
+    padding: 40px 0 80px;
   }
 }
