@@ -7,7 +7,7 @@
   $col-part: '(#{$col-width} + #{$col-gap})';
     
   position: fixed;
-  z-index: 0;
+  z-index: 1;
   top: 0;
   left: 0;
   right: 0;
@@ -16,7 +16,7 @@
     position: relative;
     z-index: 1;
 
-    background-color: lightblue; // test
+    background-color: lightblue; // ?
   }
 
   &__inner {
@@ -118,6 +118,12 @@
     align-items: center;
 
     cursor: pointer;
+
+    &:hover {
+      #{$component}__drop-text {
+        color: $color-main;
+      }
+    }
 
     &[data-modal-active] {
       #{$component}__drop-text {
@@ -262,50 +268,5 @@
   &__modals {
     position: relative;
     z-index: 0;
-  }
-}
-
-.header-modal {
-  $comp: &;
-  
-  $col-count: 12;
-  $col-gap: $gap-d;
-  $col-width: '((100% - (#{$col-gap} * #{$col-count - 1})) / #{$col-count})';
-  $col-part: '(#{$col-width} + #{$col-gap})';
-
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  transform: translateY(-100%);
-
-  background-color: lightblue; // test
-  color: $color-white;
-  transition: $transition;
-
-  &[data-modal-active] {
-    z-index: 1;
-    transform: translate(0);
-  }
-
-  &__row {
-    display: flex;
-  }
-  &__col {
-    width: calc(#{$col-part} * 3 - #{$col-gap});
-    flex-shrink: 0;
-
-    &:not(:first-child) {
-      margin-left: $col-gap;
-    }
-
-    &--highlight {
-      border-top: 1px solid $color-main;
-    }
-  }
-
-  &__inner {
-    padding: 40px 0 80px;
   }
 }
