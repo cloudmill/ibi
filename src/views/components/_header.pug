@@ -16,14 +16,14 @@ mixin header
                     .header__items-item
                       .header__drop
                         .header__drop-button(data-modal-button='1')
-                          .header__drop-text.header__text.header__link
+                          .header__drop-text.header__text
                             |Базальная имплантация
                           .header__drop-image
                             +arrow-svg('header__drop-svg')
                     .header__items-item
                       .header__drop
                         .header__drop-button(data-modal-button='2')
-                          .header__drop-text.header__text.header__link
+                          .header__drop-text.header__text
                             |Услуги
                           .header__drop-image
                             +arrow-svg('header__drop-svg')
@@ -41,7 +41,7 @@ mixin header
                     .header__items-item
                       .header__drop
                         .header__drop-button
-                          .header__drop-text.header__text.header__link
+                          .header__drop-text.header__text
                             |Ru
                           .header__drop-image
                             +arrow-svg('header__drop-svg')
@@ -50,39 +50,268 @@ mixin header
                         .header__button-button(data-modal-button='3')
                           .header__button-image
     .header__modals
-      .header-modal(data-modal-id='1')
+      .header-modal.header-modal--desktop(data-modal-id='1')
         .container
           .header-modal__row
-            .header-modal__col.header-modal__col--highlight
+            .header-modal__col.header-modal__col--highlight--main
               .header-modal__inner
-                |test
-            .header-modal__col.header-modal__col--highlight
+                ul.header-modal__list
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Метод
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Преимущества
+            .header-modal__col.header-modal__col--highlight--main
               .header-modal__inner
-                |test
-            .header-modal__col.header-modal__col--highlight
+                ul.header-modal__list
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Этапы имплантации
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Иплантаты Strategic Implant
+            .header-modal__col.header-modal__col--highlight--main
               .header-modal__inner
-                |test
-      .header-modal(data-modal-id='2')
+                ul.header-modal__list
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Стоимость
+      .header-modal.header-modal--desktop(data-modal-id='2')
         .container
           .header-modal__row
-            .header-modal__col.header-modal__col--highlight
+            .header-modal__col.header-modal__col--highlight--main
               .header-modal__inner
-                |test
-            .header-modal__col.header-modal__col--highlight
+                ul.header-modal__list
+                  li.header-modal__list-item
+                    .header-modal__text.header-modal__link(data-tabs-id='1' data-tabs-button='1')
+                      |Диагностика
+                  li.header-modal__list-item
+                    .header-modal__text.header-modal__link(data-tabs-id='1' data-tabs-button='2')
+                      |Профилактика
+                  li.header-modal__list-item
+                    .header-modal__text.header-modal__link(data-tabs-id='1' data-tabs-button='3' data-tabs-active)
+                      |Протезирование
+                  li.header-modal__list-item
+                    .header-modal__text.header-modal__link(data-tabs-id='1' data-tabs-button='4')
+                      |Удаление зубов
+                  li.header-modal__list-item
+                    .header-modal__text.header-modal__link(data-tabs-id='1' data-tabs-button='5')
+                      |Лечение зубов
+            .header-modal__col.header-modal__col--highlight--gray-border
               .header-modal__inner
-                |test
-            .header-modal__col.header-modal__col--highlight
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='1')
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Оклюзивные накладки
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Культевая вкладка
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='2')
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Оклюзивные накладки
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Культевая вкладка
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Накладки  циркониевые Prettau
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Накладки циркониевые под нанесение керамики
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='3' data-tabs-active)
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Оклюзивные накладки
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Культевая вкладка
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Накладки  циркониевые Prettau
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Накладки циркониевые под нанесение керамики
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки металлокерамические
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые KATANA
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='4')
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='5')
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Оклюзивные накладки
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Культевая вкладка
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Накладки  циркониевые Prettau
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Накладки циркониевые под нанесение керамики
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+            .header-modal__col.header-modal__col--highlight--gray-border
               .header-modal__inner
-                |test
-      .header-modal(data-modal-id='3')
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='1')
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые под нанесение керамики
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые Prettau
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Винир (люминир)
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='2')
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые под нанесение керамики
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='3' data-tabs-active)
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые под нанесение керамики
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые Prettau
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Винир (люминир)
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Накладки циркониевые KATANA
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Безметалловые вкладки
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='4')
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые под нанесение керамики
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые Prettau
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Винир (люминир)
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Накладки циркониевые KATANA
+                ul.header-modal__list.header-modal__list--small.header-modal__list--tabs(data-tabs-id='1' data-tabs-tab='5')
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые под нанесение керамики
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Коронки циркониевые Prettau
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                      |Винир (люминир)
+      .header-modal.header-modal--desktop(data-modal-id='3')
         .container
           .header-modal__row
-            .header-modal__col.header-modal__col--highlight
+            .header-modal__col.header-modal__col--highlight--main
               .header-modal__inner
-                |test
-            .header-modal__col.header-modal__col--highlight
+                ul.header-modal__list
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Гарантии
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Способы оплаты
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Трансфер
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Вопрос–ответ
+            .header-modal__col.header-modal__col--highlight--main
               .header-modal__inner
-                |test
-            .header-modal__col.header-modal__col--highlight
+                ul.header-modal__list
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Стоимость
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Лаборатория
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Публикации
+            .header-modal__col.header-modal__col--highlight--main
               .header-modal__inner
-                |test
+                ul.header-modal__list
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |О нас
+                  li.header-modal__list-item
+                    ul.header-modal__list.header-modal__list--small
+                      li.header-modal__list-item
+                        a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                          |Миссия и ценности
+                      li.header-modal__list-item
+                        a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                          |Наша команда
+                      li.header-modal__list-item
+                        a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                          |Вакансии
+                      li.header-modal__list-item
+                        a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                          |Новости
+                      li.header-modal__list-item
+                        a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                          |Контакты
+            .header-modal__col.header-modal__col--highlight--main
+              .header-modal__inner
+                ul.header-modal__list
+                  li.header-modal__list-item
+                    a.header-modal__text.header-modal__link(href='#')
+                      |Специалистам
+                  li.header-modal__list-item
+                    ul.header-modal__list.header-modal__list--small
+                      li.header-modal__list-item
+                        a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                          |Обучение
+                      li.header-modal__list-item
+                        a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                          |Бибилотека
+                      li.header-modal__list-item
+                        a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                          |Юридическая помошь
+                      li.header-modal__list-item
+                        a.header-modal__text.header-modal__text--small.header-modal__link(href='#')
+                          |Концепция Strategic Implant
+      .header-modal.header-modal--mobile(data-modal-id='3')
+        .container
+          .header-modal__row.header-modal__row--mobile
+            .header-modal__col
+              .header__phone
+                a.header__phone-call.header__text(href='#')
+                  |Заказать звонок
+                a.header__phone-link.header__text.header__link(href='#')
+                  |8 499 490 63 49
+            .header-modal__col
+              .header__drop
+                .header__drop-button
+                  .header__drop-text.header__text
+                    |Ru
+                  .header__drop-image
+                    +arrow-svg('header__drop-svg')
+                    
