@@ -16,8 +16,7 @@ $col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
 $col-part-d: '(#{$col-width-d} + #{$col-gap-d})';
 
 // colors
-$color-blue-light: #F1FBFD;
-
+$color-blue-light: #F1FBFD; // ?
 
 // просто секция <section>
 // меняет фон
@@ -294,6 +293,10 @@ $color-blue-light: #F1FBFD;
 // стили компонентом (элементов) страницы О компании
 // с возможность переиспользования во вне
 .about {
+  $comp: &;
+
+  $grid-gap-d: 40px;
+
   // features list
   &__list {
 
@@ -357,5 +360,198 @@ $color-blue-light: #F1FBFD;
   }
   &__list-link {
     color: $color-main;
+  }
+
+  // текст, информация
+  // используется как подпись/заголовок к grid
+  &__caption {
+    max-width: 730px;
+
+    font-size: 22px;
+    line-height: 31px;
+    @media (min-width: $breakpoint) {
+      font-size: 30px;
+      line-height: 42px;
+    }
+  }
+
+  // grid, 3 колонки
+  &__grid {
+    &--margin-top {
+      margin-top: 30px;
+      @media (min-width: $breakpoint) {
+        margin-top: 80px;
+      }
+    }
+  }
+  &__grid-list {
+    @media (min-width: $breakpoint) {
+      margin-top: -$grid-gap-d;
+      margin-left: -$grid-gap-d;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+  }
+  &__grid-item {
+    @media (min-width: $breakpoint) {
+      margin-top: $grid-gap-d;
+      margin-left: $grid-gap-d;
+      width: calc(#{$col-part-d} * 3 - #{$col-gap-d})
+    }
+
+    &:not(:first-child) {
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 10px;
+      }
+    }
+  }
+  &__grid-card {
+    padding: 20px;
+    @media (min-width: $breakpoint) {
+      padding: 30px 40px;
+    }
+    min-height: 145px;
+    @media (min-width: $breakpoint) {
+      min-height: 240px;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: $color-blue-light;
+
+    &--height-100p {
+      height: 100%;
+    }
+  }
+  &__grid-title {
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid $color-main;
+    font-size: 18px;
+    line-height: 25px;
+    @media (min-width: $breakpoint) {
+      font-size: 22px;
+      line-height: 31px;
+    }
+  }
+  &__grid-info {
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      margin-top: 40px;
+    }
+  }
+  &__grid-info-item {
+    &:not(:first-child) {
+      margin-top: 10px;
+      @media (min-width: $breakpoint) {
+        margin-top: 20px;
+      }
+    }
+
+    &--display-flex {
+      display: flex;
+    }
+  }
+  &__grid-text {
+    font-size: 14px;
+    line-height: 20px;
+    @media (min-width: $breakpoint) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  &__grid-link {
+    transition: $transition;
+
+    &:hover {
+      color: $color-main;
+    }
+  }
+
+  // post
+  &__post {
+    padding: 40px;     
+    min-height: 500px;
+
+    background-image: url('../images/about-post-m.jpg');
+    @media (min-width: $breakpoint) {
+      background-image: url('../images/about-post-d.jpg'); // ?
+    }
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  &__post-title {
+    max-width: 150px;
+    @media (min-width: $breakpoint) {
+      max-width: 230px;
+    }
+
+    font-size: 32px;
+    line-height: 38px;
+    @media (min-width: $breakpoint) {
+      font-size: 50px;
+      line-height: 50px;
+    }
+    color: $color-white;
+  }
+  &__post-text {
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      margin-top: 40px;
+    }
+    max-width: 450px;
+
+    font-size: 14px;
+    line-height: 20px;
+    @media (min-width: $breakpoint) {
+      font-size: 18px;
+      line-height: 25px;
+    }
+    color: $color-white;
+  }
+
+  // download
+  &__download {
+    position: relative;
+    z-index: 0;
+
+    &--margin-top {
+      margin-top: 20px;
+      @media (min-width: $breakpoint) {
+        margin-top: 40px;
+      }
+    }
+  }
+  &__download-row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+  }
+  &__download-col {
+    position: relative;
+    z-index: 0;
+
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 7 + 1px);
+      }
+    }
+    &:nth-child(2) {
+      z-index: 1;
+
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: -1px;
+      }
+      @media (min-width: $breakpoint) {
+        margin-left: -1px;
+        width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      }
+    }
   }
 }

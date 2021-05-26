@@ -22,7 +22,7 @@ block content
                 |О нас
               .section__block.section__block--small
                 |image
-              .section__block
+              //- .section__block
                 ul.about__list
                   li.about__list-item
                     .about__list-row
@@ -71,14 +71,57 @@ block content
                         p.about__list-text
                           |DGOI  ведущая имплантологическая ассоциация Германии.  Обеспечивает основные обучающие мероприятия по имплантологической реабилитации пациентов. Проводит подготовку и повышает квалификацию специалистов для работы в различных клинических ситуациях. Членство в организации обеспечивает непрерывный обмен опытом между специалистами Института и представителями ассоциации. Институт получает информацию о передовых методах в имплантации зубов
               .section__block
-                |garant
+                .about__post.about__post--color-white
+                  h2.about__post-title
+                    |5 лет гарантии
+                  p.about__post-text
+                    |Гарантия на имплантацию с применением Швейцарских имплантатов STRATEGIC IMPLANT 5 лет. На протяжении которых вы проходите 8 бесплатных обязательных контрольных осмотров. Все гарантийные обязательства четко закреплены в Положении о гарантиях.
+                .about__download
+                  .about__download-row
+                    .about__download-col
+                    .about__download-col
               .section__block
-                |grid
+                p.about__caption
+                  |Авторизованные клиники базальной имплантации по всему миру, в которых вы сможете обратиться за контрольным осмотром
+                .about__grid.about__grid--margin-top
+                  ul.about__grid-list
+                    - for (let i=0; i<3; i++)
+                      li.about__grid-item
+                        .about__grid-card.about__grid-card--height-100p
+                          h3.about__grid-title
+                            |Англия
+                          ul.about__grid-info
+                            li.about__grid-info-item
+                              address.about__grid-text
+                                |London, st. Strawberry Fields Forever 67
+                            li.about__grid-info-item.about__grid-info-item--display-flex
+                              a.about__grid-text.about__grid-link(href='tel:+44898228228333')
+                                |+44 8982 282 283 33
+                      li.about__grid-item
+                        .about__grid-card.about__grid-card--height-100p
+                          h3.about__grid-title
+                            |Швейцария
+                          ul.about__grid-info
+                            li.about__grid-info-item
+                              address.about__grid-text
+                                |Zurich, Wünnewil-Flamatt 23
+                            li.about__grid-info-item.about__grid-info-item--display-flex
+                              a.about__grid-text.about__grid-link(href='tel:+44898228228333')
+                                |+44 8982 282 283 33
+                      li.about__grid-item
+                        .about__grid-card.about__grid-card--height-100p
+                          h3.about__grid-title
+                            |Англия
+                          ul.about__grid-info
+                            li.about__grid-info-item
+                              address.about__grid-text
+                                |London, st. Strawberry Fields Forever 67
+                            li.about__grid-info-item.about__grid-info-item--display-flex
+                              a.about__grid-text.about__grid-link(href='tel:+44898228228333')
+                                |+44 8982 282 283 33
     section.section.section--blue-light
       .row
         .row__col
-          .section__inner
-            |test
         .row__col
           .section__inner
             .container
