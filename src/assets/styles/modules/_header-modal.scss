@@ -40,24 +40,24 @@
     display: flex;
 
     &--mobile {
-      $col-count: 4;
-      $col-gap: $gap-m;
-      $col-width: '((100% - (#{$col-gap} * #{$col-count - 1})) / #{$col-count})';
-      $col-part: '(#{$col-width} + #{$col-gap})';
+      // $col-count: 4;
+      // $col-gap: $gap-m;
+      // $col-width: '((100% - (#{$col-gap} * #{$col-count - 1})) / #{$col-count})';
+      // $col-part: '(#{$col-width} + #{$col-gap})';
       
 
-      #{$component}__col {
-        &:nth-child(1) {
-          width: calc(#{$col-part} * 3 - #{$col-gap});
-        }
-        &:nth-child(2) {
-          width: calc(#{$col-width});
-        }
+      // #{$component}__col {
+      //   &:nth-child(1) {
+      //     width: calc(#{$col-part} * 3 - #{$col-gap});
+      //   }
+      //   &:nth-child(2) {
+      //     width: calc(#{$col-width});
+      //   }
 
-        &:not(:first-child) {
-          margin-left: $col-gap;
-        }
-      }
+      //   &:not(:first-child) {
+      //     margin-left: $col-gap;
+      //   }
+      // }
     }
   }
   &__col {

@@ -1,5 +1,15 @@
 extends ../layouts/master.pug
 
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+  
 block content
   .about
     section.section.section--gradient
@@ -22,7 +32,7 @@ block content
                 |О нас
               .section__block.section__block--small
                 |image
-              //- .section__block
+              .section__block
                 ul.about__list
                   li.about__list-item
                     .about__list-row
@@ -76,10 +86,21 @@ block content
                     |5 лет гарантии
                   p.about__post-text
                     |Гарантия на имплантацию с применением Швейцарских имплантатов STRATEGIC IMPLANT 5 лет. На протяжении которых вы проходите 8 бесплатных обязательных контрольных осмотров. Все гарантийные обязательства четко закреплены в Положении о гарантиях.
-                .about__download
+                .about__download.about__download--margin-top
                   .about__download-row
                     .about__download-col
+                      .about__download-title-block
+                        h3.about__download-title
+                          |Все гарантийные обязательства закреплены в договоре
                     .about__download-col
+                      a.about__download-button(href='#')
+                        .about__download-button-row
+                          .about__download-button-col
+                            h6.about__download-button-title
+                              |Скачать типовой договор
+                          .about__download-button-col
+                            .about__download-button-image
+                              +download-svg('about__download-button-svg')
               .section__block
                 p.about__caption
                   |Авторизованные клиники базальной имплантации по всему миру, в которых вы сможете обратиться за контрольным осмотром
@@ -155,4 +176,8 @@ block content
                         .button-arrow.button-arrow--right
                           .button-arrow__button
                             +arrow-svg('button-arrow__svg')
-                  
+
+
+
+block footer
+  +footer

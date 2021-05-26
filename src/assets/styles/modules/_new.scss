@@ -529,6 +529,7 @@ $color-blue-light: #F1FBFD; // ?
   &__download-row {
     @media (min-width: $breakpoint) {
       display: flex;
+      align-items: stretch;
     }
   }
   &__download-col {
@@ -552,6 +553,98 @@ $color-blue-light: #F1FBFD; // ?
         margin-left: -1px;
         width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
       }
+    }
+  }
+  // download button
+  &__download-button {
+    padding: 20px;
+    height: 100%;
+    @media (min-width: $breakpoint) {
+      min-height: 200px;
+    }
+    display: block; // ?
+
+    background-color: $color-white;
+    border: 1px solid $color-gray-border;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-main; // ?
+      border-color: $color-main; // ?
+      // background-color: $color-blue-light;
+      // border-color: $color-blue-light;
+
+      #{$comp}__download-button-title {
+        color: $color-white; // ?
+      }
+
+      #{$comp}__download-button-svg {
+        path {
+          fill: $color-white; // ?
+        }
+      }
+    }
+  }
+  &__download-button-row {
+    height: 100%;
+    display: flex;
+    @media (min-width: $breakpoint) {
+      flex-direction: column;
+    }
+    justify-content: space-between;
+  }
+  &__download-button-col {
+    &:not(:first-child) {
+      @media (max-width: $breakpoint - 1px) {
+        margin-left: 20px;
+      }
+      @media (min-width: $breakpoint) {
+        margin-top: 20px;
+      }
+    }
+  }
+  &__download-button-title {
+    @media (max-width: $breakpoint - 1px) {
+      max-width: 140px;
+    }
+
+    font-size: 14px;
+    line-height: 20px;
+    @media (min-width: $breakpoint) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    transition: $transition;
+  }
+  &__download-button-image {
+    display: flex;
+    @media (min-width: $breakpoint) {
+      justify-content: flex-end;
+    }
+  }
+  &__download-button-svg {
+    path {
+      transition: $transition;
+    }
+  }
+  // download title
+  &__download-title-block {
+    padding: 20px;
+    @media (min-width: $breakpoint) {
+      padding: 60px 100px;
+    }
+    height: 100%;
+
+    border: 1px solid $color-gray-border;
+  }
+  &__download-title {
+    max-width: 490px;
+
+    font-size: 16px;
+    line-height: 22px;
+    @media (min-width: $breakpoint) {
+      font-size: 30px;
+      line-height: 42px;
     }
   }
 }
