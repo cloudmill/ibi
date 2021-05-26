@@ -1,0 +1,115 @@
+extends ../layouts/master.pug
+
+block content
+  .about
+    section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            nav.nav.nav--padding-top
+              ul.nav__list
+                li.nav__item.nav__item--active
+                  a.nav__link(href='#')
+                    |О нас
+                each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
+                  li.nav__item
+                    a.nav__link(href='#')
+                      |#{item}
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |О нас
+              .section__block.section__block--small
+                |image
+              .section__block
+                ul.about__list
+                  li.about__list-item
+                    .about__list-row
+                      .about__list-col
+                        h3.about__list-title
+                          |Мы — авторизованный центр компании IhdeDental
+                      .about__list-col
+                        p.about__list-text
+                          |Официально работаем по европейской системе имплантат Strategic Implant
+                  li.about__list-item
+                    .about__list-row
+                      .about__list-col
+                        h3.about__list-title
+                          |Единственный центр России, в котором официально оперирует профессор Стефан Иде
+                      .about__list-col
+                        p.about__list-text
+                          |Сотрудники нашей клиники проходят 
+                          a.about__list-link(href='#')
+                            |постоянное повышение квалификации
+                          |#{' '}и имеют сертификаты международных образовательных программ
+                  li.about__list-item
+                    .about__list-row
+                      .about__list-col
+                        h3.about__list-title
+                          |Работаем исключительно с имплантатами изготовленными в Швейцарии
+                      .about__list-col
+                        p.about__list-text
+                          |Каждый установленный имплантат имеет индивидуальный паспорт
+                  li.about__list-item
+                    .about__list-row
+                      .about__list-col
+                        h3.about__list-title
+                          |Проводим обучение профильных специалистов и занимаемся научной деятельностью
+                      .about__list-col
+                        p.about__list-text
+                          |Собственная 
+                          a.about__list-link(href='#')
+                            |зуботехническая лаборатория
+                          |#{' '}позволяет вносить научный вклад в развитие и популиризацию метода базальной имплантации
+                  li.about__list-item
+                    .about__list-row
+                      .about__list-col
+                        h3.about__list-title
+                          |Состоим в членстве с немецкой ассоциацией оральных имплантологов Германии DGOI
+                      .about__list-col
+                        p.about__list-text
+                          |DGOI  ведущая имплантологическая ассоциация Германии.  Обеспечивает основные обучающие мероприятия по имплантологической реабилитации пациентов. Проводит подготовку и повышает квалификацию специалистов для работы в различных клинических ситуациях. Членство в организации обеспечивает непрерывный обмен опытом между специалистами Института и представителями ассоциации. Институт получает информацию о передовых методах в имплантации зубов
+              .section__block
+                |garant
+              .section__block
+                |grid
+    section.section.section--blue-light
+      .row
+        .row__col
+          .section__inner
+            |test
+        .row__col
+          .section__inner
+            .container
+              .section__block
+                .section__title-row
+                  .section__title-row-col
+                    h2.section__title
+                      |Лицензии и сертификаты
+                  .section__title-row-col.section__title-row-col--desktop
+                    .slider-control.slider-control--desktop
+                      .slider-control__item
+                        .button-arrow.button-arrow--left
+                          .button-arrow__button
+                            +arrow-svg('button-arrow__svg')
+                      .slider-control__item
+                        .button-arrow.button-arrow--right
+                          .button-arrow__button
+                            +arrow-svg('button-arrow__svg')
+              .section__block
+                .section__title-row
+                  .section__title-row-col
+                    h2.section__title
+                      |Наши партнеры
+                  .section__title-row-col.section__title-row-col--desktop
+                    .slider-control.slider-control--desktop
+                      .slider-control__item
+                        .button-arrow.button-arrow--left
+                          .button-arrow__button
+                            +arrow-svg('button-arrow__svg')
+                      .slider-control__item
+                        .button-arrow.button-arrow--right
+                          .button-arrow__button
+                            +arrow-svg('button-arrow__svg')
+                  

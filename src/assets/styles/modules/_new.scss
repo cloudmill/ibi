@@ -1,0 +1,361 @@
+// параметры grid'a на сайте
+// за основу взято vw (боковой скроллбар страниц не учитываем)
+$col-count-m: 4;
+$col-count-d: 12;
+
+$col-pad-m: 20px;
+$col-pad-d: 40px;
+
+$col-gap-m: 20px;
+$col-gap-d: 40px;
+
+$col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap-m} * #{$col-count-m - 1})) / #{$col-count-m})';
+$col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap-d} * #{$col-count-d - 1})) / #{$col-count-d})';
+
+$col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
+$col-part-d: '(#{$col-width-d} + #{$col-gap-d})';
+
+// colors
+$color-blue-light: #F1FBFD;
+
+
+// просто секция <section>
+// меняет фон
+.section {
+  // внешний вид
+  &--blue-light {
+    background-color: $color-blue-light;
+  }
+  &--gradient {
+    background: linear-gradient(180deg, #D7F1F7 0%, #FFFFFF 100%);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 364px;
+    @media (min-width: $breakpoint) {
+      background-size: 100% 570px;
+    }
+  }
+
+  // вертикальные падинги внутреннего содержимого секции
+  // добавляется в .row__col для однородного отступа в 2х колонках
+  &__inner {
+    padding: 60px 0;
+    @media (min-width: $breakpoint) {
+      padding: 160px 0;
+    }
+
+    &--top {
+      padding-top: 100px;
+      @media (min-width: $breakpoint) {
+        padding-top: 230px;
+      }
+    }
+  }
+
+  // блоки внутри секции
+  // верт. отступы между блоками
+  &__block {
+    &:not(:first-child) {
+      margin-top: 60px;
+      @media (min-width: $breakpoint) {
+        margin-top: 160px;
+      }
+    }
+
+    // уменьшенный верт. отступ
+    &--small {
+      &:not(:first-child) {
+        margin-top: 40px;
+        @media (min-width: $breakpoint) {
+          margin-top: 120px;
+        }
+      }
+    }
+  }
+
+  // заглавный ряд секции
+  // для добавления заголовка, кнопок управления слайдером и др
+  &__title-row {
+    display: flex;
+    align-items: center;
+  }
+  &__title-row-col {
+    &:not(:first-child) {
+      margin-left: $col-gap-m;
+      @media (min-width: $breakpoint) {
+        margin-left: $col-gap-d;
+      }
+    }
+
+    // only desktop
+    &--desktop {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+  }
+
+  // заголовок секции
+  &__title {
+    font-size: 22px;
+    line-height: 31px;
+    @media (min-width: $breakpoint) {
+      font-size: 50px;
+      line-height: 70px;
+    }
+  }
+}
+
+// 2 колонки без gap'a
+// вместо gap'a - .container во 2 колонке
+// 2 колонка основная, 1 - пропадает на мобиле
+.row {
+  @media (min-width: $breakpoint) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      width: calc(#{$col-pad-d} + #{$col-part-d} * 3 - #{$col-gap-d});
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 9 + #{$col-pad-d});
+      }
+    }
+  }
+}
+
+// уже написан
+.container {
+
+}
+
+// типовый тайтл страницы
+.title {
+  padding-bottom: 10px;
+  @media (min-width: $breakpoint) {
+    padding-bottom: 20px;
+  }
+
+  border-bottom: 1px solid $color-main;
+  font-size: 22px;
+  line-height: 31px;
+  @media (min-width: $breakpoint) {
+    font-size: 70px;
+    line-height: 98px;
+  }
+}
+
+// кнопка стрелка
+// например для управления слайдером
+.button-arrow {
+  $comp: &;
+
+  display: flex;
+
+  &--left {
+    #{$comp}__svg {
+      transform: rotate(90deg);
+    }
+  }
+  &--right {
+    #{$comp}__svg {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__button {
+    $size: 70px;
+    width: $size;
+    height: $size;
+    display: flex;
+
+    background-color: $color-white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-main;
+
+      #{$comp}__svg {
+        path {
+          fill: $color-white;
+        }
+      }
+    }
+  }
+
+  &__svg {
+    transform: rotate(90deg);
+    
+    margin: auto;
+    max-width: 13px;
+    max-height: 8px;
+
+    path {
+      transition: $transition;
+    }
+  }
+}
+
+// две кнопки стрелки в ряд
+// управление слайдером
+.slider-control {
+  display: flex;
+
+  // only desktop
+  &--desktop {
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
+  }
+
+  &__item {
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+}
+
+// десктоп боковая постраничная навигация
+.nav {
+  $comp: &;
+
+  @media (max-width: $breakpoint - 1px) {
+    display: none;
+  }
+
+  &--padding-top {
+    padding-top: 20px;
+  }
+  
+  &__list {
+
+  }
+  &__item {
+    position: relative;
+    z-index: 0;
+
+    padding-left: $col-pad-d;
+    display: flex;
+
+    &::before {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+
+      content: '';
+      $size: 7px;
+      width: $size;
+      height: $size;
+
+      background-color: $color-main;
+      border-radius: 50%;
+      opacity: 0;
+      transition: $transition;
+    }
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    &--active {
+      &::before {
+        opacity: 1;
+      }
+
+      #{$comp}__link {
+        font-size: 30px;
+        line-height: 42px;
+        color: $color-main;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 18px;
+    line-height: 25px;
+    transition: $transition;
+
+    &:hover {
+      color: $color-main;
+    }
+  }
+}
+
+// стили компонентом (элементов) страницы О компании
+// с возможность переиспользования во вне
+.about {
+  // features list
+  &__list {
+
+  }
+  &__list-item {
+    padding-top: 10px;
+    @media (min-width: $breakpoint) {
+      padding-top: 40px;
+    }
+
+    border-top: 1px solid $color-gray-border;
+
+    &:not(:first-child) {
+      margin-top: 40px;
+      @media (min-width: $breakpoint) {
+        margin-top: 120px;
+      }
+    }
+  }
+  &__list-row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__list-col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+      }
+    }
+    &:nth-child(2) {
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 10px;
+      }
+      @media (min-width: $breakpoint) {
+        margin-left: $col-gap-d;
+        width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+      }
+    }
+  }
+  &__list-title {
+    min-width: 547px;
+
+    font-size: 18px;
+    line-height: 25px;
+    @media (min-width: $breakpoint) {
+      font-size: 30px;
+      line-height: 42px;
+    }
+  }
+  &__list-text {
+    font-size: 14px;
+    line-height: 20px;
+    @media (min-width: $breakpoint) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  &__list-link {
+    color: $color-main;
+  }
+}
