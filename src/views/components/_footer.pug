@@ -5,9 +5,10 @@ mixin footer
         .footer__grid.footer__grid--mobile
           .footer__block
             .footer__logo
-              +logo-svg('footer__logo-svg', {
-                mod: 'white',
-              })
+              a.footer__logo-link(href='#')
+                +logo-svg('footer__logo-svg', {
+                  mod: 'white',
+                })
           .footer__block
             ul.footer__links
               li.footer__links-item
@@ -56,9 +57,10 @@ mixin footer
           .footer__row.footer__row--outer
             .footer__col
               .footer__logo
-                +logo-svg('footer__logo-svg', {
-                  mod: 'white',
-                })
+                a.footer__logo-link(href='#')
+                  +logo-svg('footer__logo-svg', {
+                    mod: 'white',
+                  })
             .footer__col
               .footer__block
                 .footer__row.footer__row--inner

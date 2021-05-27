@@ -17,7 +17,11 @@
   &__logo {
     display: flex;
   }
+  &__logo-link {
+    display: flex;
+  }
   &__logo-svg {
+    height: auto;
     max-width: 130px;
     @media (min-width: $breakpoint) {
       max-width: 100%;
