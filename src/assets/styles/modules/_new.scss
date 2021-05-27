@@ -715,6 +715,9 @@ $color-blue-light: #F1FBFD; // ?
     }
   }
   &__image-background {
+    position: relative;
+    z-index: 0;
+
     height: 186px;
     @media (min-width: $breakpoint) {
       height: 570px;
@@ -727,7 +730,50 @@ $color-blue-light: #F1FBFD; // ?
       background-position: center center;
     }
     background-size: cover;
-  } 
+  }
+  &__image-svg {
+    position: absolute;
+
+    height: auto;
+
+    &:nth-child(1) {
+      top: 20px;
+      @media (min-width: $breakpoint) {
+        top: 80px;
+      }
+      left: 0;
+      transform: translateX(-50%);
+
+      max-width: 25px;
+      @media (min-width: $breakpoint) {
+        max-width: 60px;
+      }
+    }
+    &:nth-child(2) {
+      bottom: 0;
+      right: 0;
+      transform: translate(50%, 50%);
+      @media (min-width: $breakpoint) {
+        bottom: -170px;
+        transform: translateX(50%);
+      }
+
+      max-width: 164px;
+      @media (min-width: $breakpoint) {
+        max-width: 430px;
+      }
+
+      mix-blend-mode: multiply;
+    }
+  }
+
+  // to-front
+  // вспомогательный элемент
+  // position: relative; z-index: 0;
+  &__to-front {
+    position: relative;
+    z-index: 0;
+  }
 }
 
 // модификации swiper слайдера
