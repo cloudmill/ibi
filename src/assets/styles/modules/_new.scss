@@ -683,7 +683,6 @@ $color-blue-light: #F1FBFD; // ?
   // используется в слайдере
   &__partner {
     padding: 20px;
-    height: 100%;
     width: 178px;
     min-height: 136px;
     @media (min-width: $breakpoint) {
@@ -695,6 +694,10 @@ $color-blue-light: #F1FBFD; // ?
     align-items: center;
 
     background-color: $color-white;
+
+    &--height-100p {
+      height: 100%;
+    }
   }
   &__partner-img {
 
