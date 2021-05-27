@@ -702,6 +702,32 @@ $color-blue-light: #F1FBFD; // ?
   &__partner-img {
 
   }
+
+  // image
+  // используется для заглавного фото на странице О компании
+  &__image {
+    @media (min-width: $breakpoint) {
+      padding-left: calc(#{$col-part-d});
+    }
+    width: calc(100% + #{$col-pad-m});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 9 - #{$col-gap-d} + #{$col-pad-d});
+    }
+  }
+  &__image-background {
+    height: 186px;
+    @media (min-width: $breakpoint) {
+      height: 570px;
+    }
+
+    // background-image: url('../images/about-images.jpeg'); // указано в html, атр. style
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    @media (min-width: $breakpoint) {
+      background-position: center center;
+    }
+    background-size: cover;
+  } 
 }
 
 // модификации swiper слайдера
