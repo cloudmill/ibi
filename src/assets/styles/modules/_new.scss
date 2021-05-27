@@ -341,7 +341,7 @@ $color-blue-light: #F1FBFD; // ?
     }
   }
   &__list-title {
-    min-width: 547px;
+    max-width: 547px;
 
     font-size: 18px;
     line-height: 25px;
