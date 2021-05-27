@@ -155,12 +155,40 @@ block content
                     .slider-control.slider-control--desktop
                       .slider-control__item
                         .button-arrow.button-arrow--left
-                          .button-arrow__button
+                          .button-arrow__button(data-slider-button='1')
                             +arrow-svg('button-arrow__svg')
                       .slider-control__item
                         .button-arrow.button-arrow--right
-                          .button-arrow__button
+                          .button-arrow__button(data-slider-button='2')
                             +arrow-svg('button-arrow__svg')
+                .about__slider
+                  .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='1' data-slider-prev='1' data-slider-next='2')
+                    .swiper-wrapper
+                      - for (let i=0; i<3; i++)
+                        .swiper-slide
+                          .about__license
+                            .about__license-frame
+                              img.about__license-img(src='assets/images/about-license.jpeg' alt='')
+                            h6.about__license-title
+                              |Сертификат специалиста
+                        .swiper-slide
+                          .about__license
+                            .about__license-frame
+                              img.about__license-img.qwe(src='assets/images/about-license-1.jpeg' alt='')
+                            h6.about__license-title
+                              |Сертификат о допущении к осуществлению медицинской или фармацевтической деятельности по специальности
+                        .swiper-slide
+                          .about__license
+                            .about__license-frame
+                              img.about__license-img(src='assets/images/about-license-2.jpeg' alt='')
+                            h6.about__license-title
+                              |Лицензия на осуществление медицинской деятельности
+                        .swiper-slide
+                          .about__license
+                            .about__license-frame
+                              img.about__license-img(src='assets/images/about-license-3.jpeg' alt='')
+                            h6.about__license-title
+                              |Удостоверение о повышении квалификации
               .section__block
                 .section__title-row
                   .section__title-row-col
@@ -170,12 +198,28 @@ block content
                     .slider-control.slider-control--desktop
                       .slider-control__item
                         .button-arrow.button-arrow--left
-                          .button-arrow__button
+                          .button-arrow__button(data-slider-button='3')
                             +arrow-svg('button-arrow__svg')
                       .slider-control__item
                         .button-arrow.button-arrow--right
-                          .button-arrow__button
+                          .button-arrow__button(data-slider-button='4')
                             +arrow-svg('button-arrow__svg')
+                .about__slider
+                  .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='2' data-slider-prev='3' data-slider-next='4')
+                    .swiper-wrapper
+                      - for (let i=0; i<3; i++)
+                        .swiper-slide
+                          .about__partner
+                            img.about__partner-img(src='assets/images/about-partner.png' alt='')
+                        .swiper-slide
+                          .about__partner
+                            img.about__partner-img(src='assets/images/about-partner-1.jpeg' alt='')
+                        .swiper-slide
+                          .about__partner
+                            img.about__partner-img(src='assets/images/about-partner-2.png' alt='')
+                        .swiper-slide
+                          .about__partner
+                            img.about__partner-img(src='assets/images/about-partner-3.jpeg' alt='')
 
 
 

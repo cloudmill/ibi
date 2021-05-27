@@ -647,4 +647,73 @@ $color-blue-light: #F1FBFD; // ?
       line-height: 42px;
     }
   }
+
+  // slider
+  &__slider {
+    margin-top: 40px;
+    @media (min-width: $breakpoint) {
+      margin-top: 80px;
+    }
+  }
+
+  // license
+  &__license {
+    width: 233px;
+  }
+  &__license-frame {
+    padding: 30px;
+    height: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $color-white;
+  }
+  &__license-img {
+    
+  }
+  &__license-title {
+    margin-top: 20px;
+
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  // карточка партнера
+  // используется в слайдере
+  &__partner {
+    padding: 20px;
+    height: 100%;
+    width: 178px;
+    min-height: 136px;
+    @media (min-width: $breakpoint) {
+      width: 233px;
+      min-height: 178px;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $color-white;
+  }
+  &__partner-img {
+
+  }
+}
+
+// модификации swiper слайдера
+.swiper-container {
+  &--visible {
+    overflow: visible;
+  }
+  &--slide-width-auto {
+    .swiper-slide {
+      width: auto;
+    }
+  }
+  &--slide-height-max {
+    .swiper-slide {
+      height: auto;
+    }
+  }
 }
