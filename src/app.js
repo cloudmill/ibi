@@ -182,3 +182,62 @@ const BREAKPOINT = 1280;
     });
   }
 }
+
+// sticky
+{
+  $(() => {
+    const elements = $('[data-sticky-id]');
+
+    if (elements.length !== 0) {
+      elements.each(function () {
+        const element = $(this);
+        const element_id = element.data('sticky-id');
+        const element_end = $(`[data-sticky-end="${element_id}"]`);
+
+        const top = element.data('sticky-top');
+        const start = ($(element).offset().top - top >= 0) ? $(element).offset().top - top : 0;
+        console.log(($(element).offset().top - top >= 0) ? $(element).offset().top - top : 0);
+
+        const bottom = element.data('sticky-bottom');
+        const end = (element_end.length !== 0 ? element_end.offset().top : $(document).height()) - bottom - element.height() - top;
+
+        const state = {
+          isSticky: false,
+          isStickyPrev: false,
+          isChange: false,
+          
+          init: function () {
+            this.update();
+
+            this.isStickyPrev = this.isSticky; // первое состояние (после инициализации) - предыдущее состояние принимаем равным текущему
+            this.isChange = false; // соответственно изменения с предыдущего апдейта не произошло
+          },
+
+          update: function () {
+            const scrollTop = window.pageYOffset;
+
+            this.isStickyPrev = this.isSticky;
+            this.isSticky = scrollTop >= start && scrollTop <= end;
+
+            this.isChange = this.isStickyPrev !== this.isSticky;
+          },
+        }
+        state.init();
+        
+        $(window).on('scroll', () => {
+          state.update();
+
+
+
+          if (state.isChange) {
+            if (state.isSticky) {
+              element.css('position', 'fixed').css('top', `${top}px`);
+            } else {
+              element.css('position', '').css('top', '');
+            }
+          }
+        });
+      });
+    }
+  });
+}

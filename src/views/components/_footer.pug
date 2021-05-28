@@ -1,6 +1,6 @@
-mixin footer
-  footer.footer
-    .container  
+mixin footer(opt={})
+  footer.footer&attributes(opt.attrs)
+    .container
       .footer__inner
         .footer__grid.footer__grid--mobile
           .footer__block
@@ -111,4 +111,3 @@ mixin footer
                       br
                       |корп. 1
             
-

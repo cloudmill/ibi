@@ -232,10 +232,13 @@ $color-blue-light: #F1FBFD; // ?
     display: none;
   }
 
-  &--padding-top {
+  &__container {
     padding-top: 20px;
   }
   
+  &__nav {
+    
+  }
   &__list {
 
   }
@@ -791,4 +794,8 @@ $color-blue-light: #F1FBFD; // ?
       height: auto;
     }
   }
+}
+
+.footer {
+  min-height: 300vh; // test
 }
