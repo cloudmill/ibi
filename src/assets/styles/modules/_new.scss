@@ -1169,4 +1169,26 @@ $color-blue-light: #F1FBFD; // ?
   &__missions-img {
     z-index: -1;
   }
+
+  // history
+  // блок на стр. Миссия и ценности с двойным слайдером
+  &__history {
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      margin-top: 30px;
+    }
+  }
+  // thumbs
+  // слайдер с датами, в роли пагинации
+  &__thumbs {
+
+  }
+  // slider
+  // основной слайдер, с контентом
+  &__slider {
+    margin-top: 40px;
+    @media (min-width: $breakpoint) {
+      margin-top: 30px;
+    }
+  }
 }

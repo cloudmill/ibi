@@ -160,17 +160,19 @@ const BREAKPOINT = 1280;
         },
       };
 
-      // example
-      // switch (slider_id) {
-      //   case 1:
-      //   case 2:
-      //     slider_options = {
-      //       ...slider_options,
+      switch (slider_id) {
+        case 3:
+          slider_options = {
+            ...slider_options,
 
-      //       spaceBetween: 80,
-      //     }
-      //     break;
-      // }
+            breakpoints: {
+              [BREAKPOINT]: {
+                spaceBetween: 60,
+              },
+            },
+          }
+          break;
+      }
 
       const slider_swiper = new Swiper(slider_el[0], slider_options);
 
