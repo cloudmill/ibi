@@ -36,28 +36,211 @@ block content
               h1.title
                 |Миссия и ценности
               .section__block.section__block--small
-                |миссия
+                .mission__missions-title
+                  |Миссия
+                ul.mission__missions-list
+                  li.mission__missions-item
+                    .mission__missions-text.mission__missions-text--max-width--730
+                      |Делать жизнь 
+                      span.mission__missions-text-highlight
+                        |комфортной и полноценной
+                      |#{' '}с помощью базальной имплантации.
+                    ul.mission__missions-links
+                      li.mission__missions-links-item
+                        .mission__missions-links-container
+                          a.mission__missions-links-link(href='#')
+                            +arrow-link-svg('mission__missions-links-svg')
+                            .mission__missions-links-text
+                              |О методе
+                      li.mission__missions-links-item
+                        .mission__missions-links-container
+                          a.mission__missions-links-link(href='#')
+                            +arrow-link-svg('mission__missions-links-svg')
+                            .mission__missions-links-text
+                              |Приемущества метода
+                    ul.mission__missions-images.mission__missions-images--top
+                      li.mission__missions-image
+                        img.mission__missions-img(src='assets/images/mission-1.jpeg' alt='')
+                      li.mission__missions-image
+                        img.mission__missions-img(src='assets/images/mission-2.jpeg' alt='')
+                  li.mission__missions-item
+                    .mission__missions-text.mission__missions-text--max-width--1180
+                      |Предоставлять и развивать передовые технологии в области базальной имплантации, посредством 
+                      span.mission__missions-text-highlight
+                        |обучения и повышения квалификации
+                      |#{' '}специалистов
+                    ul.mission__missions-links
+                      li.mission__missions-links-item
+                        .mission__missions-links-container
+                          a.mission__missions-links-link(href='#')
+                            +arrow-link-svg('mission__missions-links-svg')
+                            .mission__missions-links-text
+                              |Лаборатория ИБИ
+                      li.mission__missions-links-item
+                        .mission__missions-links-container
+                          a.mission__missions-links-link(href='#')
+                            +arrow-link-svg('mission__missions-links-svg')
+                            .mission__missions-links-text
+                              |Наши разработки
+                      li.mission__missions-links-item
+                        .mission__missions-links-container
+                          a.mission__missions-links-link(href='#')
+                            +arrow-link-svg('mission__missions-links-svg')
+                            .mission__missions-links-text
+                              |Наши публикации
+                  li.mission__missions-item.mission__missions-item--margin
+                    .mission__missions-text.mission__missions-text--max-width--900
+                      |Дарить людям 
+                      span.mission__missions-text-highlight
+                        |улыбки и радость
+                      |, помочь 
+                      span.mission__missions-text-highlight
+                        |обрести спокойствие и улучшить здоровье
+                    ul.mission__missions-links
+                      li.mission__missions-links-item
+                        .mission__missions-links-container
+                          a.mission__missions-links-link(href='#')
+                            +arrow-link-svg('mission__missions-links-svg')
+                            .mission__missions-links-text
+                              |Результаты нашей работы
+                    ul.mission__missions-images.mission__missions-images--bottom
+                      li.mission__missions-image
+                        img.mission__missions-img(src='assets/images/mission-3.jpeg' alt='')
+                      li.mission__missions-image
+                        img.mission__missions-img(src='assets/images/mission-4.jpeg' alt='')
               .section__block
                 .section__title
                   |Ценности
-                .mission__spoilers.mission__spoilers--margin-top
-                  each spoiler in [1, 2, 3]
-                    .mission__spoilers-item
-                      .mission__spoiler
-                        .mission__spoiler-button
-                          h5.mission__spoiler-title
-                            |По отношению к пациентам
-                          .mission__spoiler-image
-                        .mission__spoiler-drop
-                          ul.mission__spoiler-list
-                            each item in [1, 2, 3, 4, 5, 6, 7]
-                              li.mission__spoiler-list-item
-                                h6.mission__spoiler-list-title
-                                  |Заботимся о пациентах, как о близких
-                                p.mission__spoiler-list-text
-                                  |Забота о человеке — фундаментальный принцип. Искусство, которое мы постоянно совершенствуем.
-
-
+                ul.mission__spoilers.mission__spoilers--margin-top
+                  li.mission__spoilers-item
+                    .mission__spoiler
+                      .mission__spoiler-button
+                        h5.mission__spoiler-title
+                          |По отношению к пациентам
+                        .mission__spoiler-image
+                      .mission__spoiler-drop
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Заботимся о пациентах, как о близких
+                            p.mission__spoiler-list-text
+                              |Забота о человеке — фундаментальный принцип. Искусство, которое мы постоянно совершенствуем.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Каждый пациент для нас значим
+                            p.mission__spoiler-list-text
+                              |Каждый пациент для нас равнозначим и ценен. Все наши тактики будут направлены на скорейшее решение его индивидуальных  задач.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Мы оправдываем ожидания пациента
+                            p.mission__spoiler-list-text
+                              |Даем реальные представления о всех этапах услуги, не обещаем того, чего нет.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Ориентированы на долгосрочный результат
+                            p.mission__spoiler-list-text
+                              |Мы понимаем, что вам нужна долгосрочная улыбка с стабильной жевательной функцией на протяжении многих лет.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Ценим время и комфорт пациента
+                            p.mission__spoiler-list-text
+                              |Ценим ваше время и успешно применяем выбранный метод имплантации, чтобы максимально сохранить ваш комфортный ритм жизни.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Принимаем рациональные решения
+                            p.mission__spoiler-list-text
+                              |Интерес пациента - наш интерес. Поэтому ваш план лечения будет максимально экономически выгодным и обоснованным.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Готовы делиться
+                            p.mission__spoiler-list-text
+                              |Чтобы ваших улыбок стало больше, мы открыто и инициативно делимся своими знаниями и опытом, и поэтому мы Институт.
+                  li.mission__spoilers-item
+                    .mission__spoiler
+                      .mission__spoiler-button
+                        h5.mission__spoiler-title
+                          |По отношению к партнерам
+                        .mission__spoiler-image
+                      .mission__spoiler-drop
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Заботимся о пациентах, как о близких
+                            p.mission__spoiler-list-text
+                              |Забота о человеке — фундаментальный принцип. Искусство, которое мы постоянно совершенствуем.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Каждый пациент для нас значим
+                            p.mission__spoiler-list-text
+                              |Каждый пациент для нас равнозначим и ценен. Все наши тактики будут направлены на скорейшее решение его индивидуальных  задач.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Мы оправдываем ожидания пациента
+                            p.mission__spoiler-list-text
+                              |Даем реальные представления о всех этапах услуги, не обещаем того, чего нет.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Ориентированы на долгосрочный результат
+                            p.mission__spoiler-list-text
+                              |Мы понимаем, что вам нужна долгосрочная улыбка с стабильной жевательной функцией на протяжении многих лет.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Ценим время и комфорт пациента
+                            p.mission__spoiler-list-text
+                              |Ценим ваше время и успешно применяем выбранный метод имплантации, чтобы максимально сохранить ваш комфортный ритм жизни.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Принимаем рациональные решения
+                            p.mission__spoiler-list-text
+                              |Интерес пациента - наш интерес. Поэтому ваш план лечения будет максимально экономически выгодным и обоснованным.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Готовы делиться
+                            p.mission__spoiler-list-text
+                              |Чтобы ваших улыбок стало больше, мы открыто и инициативно делимся своими знаниями и опытом, и поэтому мы Институт.
+                  li.mission__spoilers-item
+                    .mission__spoiler
+                      .mission__spoiler-button
+                        h5.mission__spoiler-title
+                          |По отношению к конкурентам
+                        .mission__spoiler-image
+                      .mission__spoiler-drop
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Заботимся о пациентах, как о близких
+                            p.mission__spoiler-list-text
+                              |Забота о человеке — фундаментальный принцип. Искусство, которое мы постоянно совершенствуем.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Каждый пациент для нас значим
+                            p.mission__spoiler-list-text
+                              |Каждый пациент для нас равнозначим и ценен. Все наши тактики будут направлены на скорейшее решение его индивидуальных  задач.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Мы оправдываем ожидания пациента
+                            p.mission__spoiler-list-text
+                              |Даем реальные представления о всех этапах услуги, не обещаем того, чего нет.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Ориентированы на долгосрочный результат
+                            p.mission__spoiler-list-text
+                              |Мы понимаем, что вам нужна долгосрочная улыбка с стабильной жевательной функцией на протяжении многих лет.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Ценим время и комфорт пациента
+                            p.mission__spoiler-list-text
+                              |Ценим ваше время и успешно применяем выбранный метод имплантации, чтобы максимально сохранить ваш комфортный ритм жизни.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Принимаем рациональные решения
+                            p.mission__spoiler-list-text
+                              |Интерес пациента - наш интерес. Поэтому ваш план лечения будет максимально экономически выгодным и обоснованным.
+                          li.mission__spoiler-list-item
+                            h6.mission__spoiler-list-title
+                              |Готовы делиться
+                            p.mission__spoiler-list-text
+                              |Чтобы ваших улыбок стало больше, мы открыто и инициативно делимся своими знаниями и опытом, и поэтому мы Институт.
               .section__block
                 .section__title
                   |Наша история

@@ -1,0 +1,38 @@
+.grid-test {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+
+  width: 100vw;
+  overflow: hidden;
+  pointer-events: none;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    width: calc(#{$col-width-m});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-width-d});
+    }
+    flex-shrink: 0;
+    min-height: 100vh;
+
+    background-color: rgba($color: black, $alpha: 0.1);
+
+    &:nth-child(2n) {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+    &:nth-child(3n) {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+  }
+}

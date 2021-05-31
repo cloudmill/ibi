@@ -1,5 +1,6 @@
 // font
 $ff-main: 'Manrope', sans-serif;
+$ff-alt: 'PFRegalDisplayPro', serif;
 $fw-main: 500;
 
 // breakpoints
@@ -21,6 +22,22 @@ $color-gray-border: #CCE3E6; // ?
 // animations
 $transition: 0.5s;
 
-// grid
+// параметры grid'a на сайте
+// за основу взято vw (боковой скроллбар страниц не учитываем)
 $gap-m: 20px;
 $gap-d: 40px;
+
+$col-count-m: 4;
+$col-count-d: 12;
+
+$col-pad-m: 20px;
+$col-pad-d: 40px;
+
+$col-gap-m: 20px;
+$col-gap-d: 40px;
+
+$col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap-m} * #{$col-count-m - 1})) / #{$col-count-m})';
+$col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap-d} * #{$col-count-d - 1})) / #{$col-count-d})';
+
+$col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
+$col-part-d: '(#{$col-width-d} + #{$col-gap-d})';

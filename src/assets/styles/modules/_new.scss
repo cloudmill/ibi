@@ -1,20 +1,3 @@
-// параметры grid'a на сайте
-// за основу взято vw (боковой скроллбар страниц не учитываем)
-$col-count-m: 4;
-$col-count-d: 12;
-
-$col-pad-m: 20px;
-$col-pad-d: 40px;
-
-$col-gap-m: 20px;
-$col-gap-d: 40px;
-
-$col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap-m} * #{$col-count-m - 1})) / #{$col-count-m})';
-$col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap-d} * #{$col-count-d - 1})) / #{$col-count-d})';
-
-$col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
-$col-part-d: '(#{$col-width-d} + #{$col-gap-d})';
-
 // colors
 $color-blue-light: #F1FBFD; // ?
 
@@ -872,6 +855,10 @@ $color-blue-light: #F1FBFD; // ?
     position: relative;
     z-index: 0;
 
+    margin-left: $gap-m;
+    @media (min-width: $breakpoint) {
+      margin-left: $gap-d;
+    }
     $size: 20px;
     width: $size;
     height: $size;
@@ -952,5 +939,234 @@ $color-blue-light: #F1FBFD; // ?
       font-size: 16px;
       line-height: 22px;
     }
+  }
+
+  // секция с миссиями на стр. Миссия и ценности
+  &__missions-title {
+    font-size: 16px;
+    line-height: 22px;
+    @media (min-width: $breakpoint) {
+      font-size: 22px;
+      line-height: 31px;
+    }
+  }
+  // missions list
+  &__missions-list {
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      margin-top: 40px;
+    }
+  }
+  &__missions-item {
+    position: relative;
+    z-index: 0;
+
+    margin-top: 60px;
+    @media (min-width: $breakpoint) {
+      margin-top: 160px;
+    }
+
+    &--margin {
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 153px;
+        margin-bottom: 285px;
+      }
+      @media (min-width: $breakpoint) {
+        margin-bottom: 265px;
+      }
+    }
+  }
+  // missions text
+  &__missions-text {
+    margin: 0 auto;
+
+    font-size: 20px;
+    line-height: 28px;
+    @media (min-width: $breakpoint) {
+      font-size: 50px;
+      line-height: 70px;
+    }
+    text-align: center;
+
+    &--max-width {
+      &--730 {
+        max-width: 730px;
+      }
+      &--900 {
+        max-width: 900px;
+      }
+      &--1180 {
+        max-width: 1180px;
+      }
+    }
+  }
+  &__missions-text-highlight {
+    font-family: $ff-alt;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 36px;
+    @media (min-width: $breakpoint) {
+      font-size: 60px;
+      line-height: 84px;
+    }
+    text-align: center;
+    color: $color-main;
+  }
+  // missions links
+  &__missions-links {
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__missions-links-item {
+    @media (max-width: $breakpoint - 1px) {
+      margin-top: 10px;
+    }
+    
+    &:not(:first-child) {
+      @media (min-width: $breakpoint) {
+        margin-left: $gap-d;
+      }
+    }
+  }
+  // missions link
+  &__missions-links-container {
+    display: flex;
+  }
+  &__missions-links-link {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      #{$comp}__missions-links-text {
+        color: $color-main;
+      }
+    }
+  }
+  &__missions-links-svg {
+    @media (max-width: $breakpoint - 1px) {
+      height: auto;
+      max-width: 30px;
+    }
+  }
+  &__missions-links-text {
+    margin-left: 10px;
+    @media (min-width: $breakpoint) {
+      margin-left: 20px;
+    }
+
+    transition: $transition;
+  }
+  // missions images
+  &__missions-images {
+    &--top {
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #{$comp}__missions-image {
+        @media (max-width: $breakpoint - 1px) {
+          flex-shrink: 0;
+          max-width: calc((100% - #{$col-gap-m}) / 2);
+        }
+
+        &:nth-child(1) {
+          #{$comp}__missions-img {
+            @media (min-width: $breakpoint) {
+              bottom: -75px;
+              left: 0;
+            }
+
+            max-width: 158px;
+            @media (min-width: $breakpoint) {
+              max-width: 233px;
+            }
+          }
+        }
+        &:nth-child(2) {
+          @media (max-width: $breakpoint - 1px) {
+            position: relative;
+            top: -20px;
+          }
+
+          #{$comp}__missions-img {
+            @media (min-width: $breakpoint) {
+              top: -70px;
+              right: 0;
+            }
+
+            max-width: 157px;
+            @media (min-width: $breakpoint) {
+              max-width: 137px;
+            }
+          }
+        }
+      }
+
+      #{$comp}__missions-img {
+        @media (max-width: $breakpoint - 1px) {
+          width: 100%;
+        }
+
+        @media (min-width: $breakpoint) {
+          position: absolute;
+        }
+      }
+    }
+
+    &--bottom {
+      #{$comp}__missions-image {
+        &:nth-child(1) {
+          #{$comp}__missions-img {
+            top: calc(100% + 40px);
+            left: 0;
+            @media (min-width: $breakpoint) {
+              top: auto;
+              bottom: -105px;
+            }
+
+            width: 246px;
+            min-height: 185px; // ?
+            @media (min-width: $breakpoint) {
+              width: 370px;
+              min-height: 278px; // ?
+            }
+          }
+        }
+        &:nth-child(2) {
+          #{$comp}__missions-img {
+            top: -93px;
+            right: 0;
+            @media (min-width: $breakpoint) {
+              top: -140px;
+              right: calc(#{$col-width-d});
+            }
+
+            max-width: 177px;
+            @media (min-width: $breakpoint) {
+              max-width: 313px;
+            }
+          }
+        }
+      }
+
+      #{$comp}__missions-img {
+        position: absolute;
+      }
+    }
+  }
+  &__missions-image {
+    display: flex;
+    align-items: flex-start;
+  }
+  &__missions-img {
+    z-index: -1;
   }
 }
