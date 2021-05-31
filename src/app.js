@@ -172,6 +172,13 @@ const BREAKPOINT = 1280;
             },
           }
           break;
+        case 4:
+          slider_options = {
+            ...slider_options,
+
+            allowTouchMove: false,
+          }
+          break;
       }
 
       const slider_swiper = new Swiper(slider_el[0], slider_options);

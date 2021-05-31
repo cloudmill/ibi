@@ -153,11 +153,22 @@ $color-blue-light: #F1FBFD; // ?
     }
   }
 
+  &--blue-light {
+    #{$comp}__button {
+      background-color: $color-blue-light;
+    }
+  }
+
   &__button {
     $size: 70px;
     width: $size;
     height: $size;
     display: flex;
+    @media (max-width: $breakpoint - 1px) {
+      $size: 47px;
+      width: $size;
+      height: $size;
+    }
 
     background-color: $color-white;
     border-radius: 50%;
@@ -174,13 +185,16 @@ $color-blue-light: #F1FBFD; // ?
       }
     }
   }
-
   &__svg {
     transform: rotate(90deg);
     
     margin: auto;
     max-width: 13px;
     max-height: 8px;
+    @media (max-width: $breakpoint - 1px) {
+      max-width: 9px;
+      max-height: 6px;
+    }
 
     path {
       transition: $transition;
@@ -203,6 +217,9 @@ $color-blue-light: #F1FBFD; // ?
   &__item {
     &:not(:first-child) {
       margin-left: 10px;
+      @media (max-width: $breakpoint - 1px) {
+        margin-left: 7px;
+      }
     }
   }
 }
@@ -1181,7 +1198,108 @@ $color-blue-light: #F1FBFD; // ?
   // thumbs
   // слайдер с датами, в роли пагинации
   &__thumbs {
+    .swiper-container {
+      max-width: 200px; // ???
+      margin-left: 0; // ???
+    }
 
+    .swiper-wrapper { // ?
+      min-height: 235px; // ?
+    }
+
+    .swiper-slide-active { // ???
+      #{$comp}__thumb {
+        padding: 0;
+
+        font-size: 60px;
+        line-height: 93px;
+        @media (min-width: $breakpoint) {
+          font-size: 200px;
+          line-height: 235px;
+        }
+        color: $color-main;
+
+        #{$comp}__thumb-svg {
+          max-width: 17px;
+          
+          path {
+            fill: $color-main;
+          }
+        }
+      }
+    }
+  }
+  &__thumb {
+    position: relative;
+    z-index: 0;
+
+    padding-bottom: 20px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 45px;
+    }
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    font-family: $ff-alt;
+    font-size: 26px;
+    line-height: 36px;
+    @media (min-width: $breakpoint) {
+      font-size: 50px;
+      line-height: 70px;
+    }
+    color: $color-gray-border;
+    cursor: pointer;
+    transition: $transition;
+
+    &--line {
+      &::before {
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        content: '';
+        width: 500vw; // ?
+
+        border: 1px dashed $color-gray-border;
+      }
+    }
+    &--active {
+      padding: 0;
+
+      font-size: 60px;
+      line-height: 93px;
+      @media (min-width: $breakpoint) {
+        font-size: 200px;
+        line-height: 235px;
+      }
+      color: $color-main;
+
+      #{$comp}__thumb-svg {
+        max-width: 17px;
+        
+        path {
+          fill: $color-main;
+        }
+      }
+    }
+  }
+  &__thumb-svg {
+    position: absolute;
+    z-index: -1;
+    bottom: 1px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    max-width: 9px;
+
+    path {
+      fill: $color-gray-border;
+      transition: $transition;
+    }
   }
   // slider
   // основной слайдер, с контентом
@@ -1190,5 +1308,65 @@ $color-blue-light: #F1FBFD; // ?
     @media (min-width: $breakpoint) {
       margin-top: 30px;
     }
+  }
+  &__slide {
+
+  }
+  // top
+  &__slide-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  // date
+  &__slide-date {
+    @media (max-width: $breakpoint - 1px) {
+      margin-left: $gap-m;
+    }
+    @media (min-width: $breakpoint) {
+      margin-top: 30px;
+    }
+
+    font-size: 14px;
+    line-height: 20px;
+    @media (min-width: $breakpoint) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    color: $color-main;
+  }
+  // text
+  &__slide-text {
+    @media (max-width: $breakpoint - 1px) {
+      margin-top: 30px;
+    }
+
+    font-size: 14px;
+    line-height: 20px;
+    @media (min-width: $breakpoint) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  // image
+  &__slide-image-container {
+    display: flex;
+    @media (max-width: $breakpoint - 1px) {
+      justify-content: center;
+    }
+  }
+  &__slide-image {
+    @media (max-width: $breakpoint - 1px) {
+      margin-top: 30px;
+    }
+    max-width: 334px;
+    @media (min-width: $breakpoint) {
+      max-width: 370px;
+    }
+    display: flex;
+    align-items: flex-start;
+  }
+  &__slide-img {
+    margin: 0 auto;
   }
 }

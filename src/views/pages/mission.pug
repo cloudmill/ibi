@@ -247,8 +247,44 @@ block content
                 .mission__history
                   .mission__thumbs
                     .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='3' data-slider-prev='5' data-slider-next='6')
+                      .swiper-wrapper
+                        -
+                          var dates = [
+                            '2015',
+                            '2020',
+                            '2019',
+                            '2018',
+                            '2017',
+                            '2016',
+                          ]
+                        each date, index in dates
+                          .swiper-slide
+                            .mission__thumb(class=(index === 0 ? ['mission__thumb--line'] : ''))
+                              |#{date}
+                              +hexagon-svg('mission__thumb-svg')
                   .mission__slider
-                    .swiper-container.swiper-container--slide-width-auto(data-slider-id='4' data-slider-prev='5' data-slider-next='6')
+                    .swiper-container(data-slider-id='4' data-slider-prev='5' data-slider-next='6')
+                      .swiper-wrapper
+                        - for (let i=0; i<dates.length; i++)
+                          .swiper-slide
+                            .mission__slide
+                              .mission__slide-top
+                                .slider-control
+                                  .slider-control__item
+                                    .button-arrow.button-arrow--blue-light.button-arrow--left
+                                      .button-arrow__button(data-slider-button='5')
+                                        +arrow-svg('button-arrow__svg')
+                                  .slider-control__item
+                                    .button-arrow.button-arrow--blue-light.button-arrow--right
+                                      .button-arrow__button(data-slider-button='6')
+                                        +arrow-svg('button-arrow__svg')
+                                .mission__slide-date
+                                  |20.06.2020
+                              .mission__slide-text
+                                |Институт Базальной Имплантации инициирует постклинические испытания базальных имплантатов Strategic implant совместно с ассоциацией стоматологом России, на базе Санкт петербургского медицинского института им Павлова
+                              .mission__slide-image-container
+                                .mission__slide-image
+                                  img.mission__slide-img(src='assets/images/history.jpeg' alt='')
 
 
 
