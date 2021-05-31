@@ -15,6 +15,24 @@
 	</head>
 
 	<body class="body">
+		<div class="grid-test">
+			<div class="container">
+				<div class="grid-test__row">
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+					<div class="grid-test__col"></div>
+				</div>
+			</div>
+		</div>
 		<div class="wrapper">
 			<header class="header">
 				<div class="header__header">
@@ -326,15 +344,19 @@
 						<div class="row">
 							<div class="row__col">
 								<div class="section__inner section__inner--top">
-									<nav class="nav nav--padding-top">
-										<ul class="nav__list">
-											<li class="nav__item nav__item--active"><a class="nav__link" href="#">О нас</a></li>
-											<li class="nav__item"><a class="nav__link" href="#">Миссия и ценности</a></li>
-											<li class="nav__item"><a class="nav__link" href="#">Наша команда</a></li>
-											<li class="nav__item"><a class="nav__link" href="#">Новости</a></li>
-											<li class="nav__item"><a class="nav__link" href="#">Контакты</a></li>
-										</ul>
-									</nav>
+									<div class="nav">
+										<div class="nav__container">
+											<nav class="nav__nav" data-sticky-id="1" data-sticky-top="250" data-sticky-bottom="120">
+												<ul class="nav__list">
+													<li class="nav__item nav__item--active"><a class="nav__link" href="#">О нас</a></li>
+													<li class="nav__item"><a class="nav__link" href="#">Миссия и ценности</a></li>
+													<li class="nav__item"><a class="nav__link" href="#">Наша команда</a></li>
+													<li class="nav__item"><a class="nav__link" href="#">Новости</a></li>
+													<li class="nav__item"><a class="nav__link" href="#">Контакты</a></li>
+												</ul>
+											</nav>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="row__col">
@@ -725,7 +747,7 @@
 					</section>
 				</div>
 			</main>
-			<footer class="footer">
+			<footer class="footer" data-sticky-end="1">
 				<div class="container">
 					<div class="footer__inner">
 						<div class="footer__grid footer__grid--mobile">
