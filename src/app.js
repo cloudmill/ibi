@@ -1,3 +1,4 @@
+import { each } from 'jquery';
 import 'Styles/_app.scss';
 import Swiper from 'swiper';
 
@@ -196,7 +197,6 @@ const BREAKPOINT = 1280;
 
         const top = element.data('sticky-top');
         const start = ($(element).offset().top - top >= 0) ? $(element).offset().top - top : 0;
-        console.log(($(element).offset().top - top >= 0) ? $(element).offset().top - top : 0);
 
         const bottom = element.data('sticky-bottom');
         const end = (element_end.length !== 0 ? element_end.offset().top : $(document).height()) - bottom - element.height() - top;
@@ -239,5 +239,23 @@ const BREAKPOINT = 1280;
         });
       });
     }
+  });
+}
+
+// spoiler
+{
+  $(() => {
+    const spoilers = $('.mission__spoiler');
+
+    spoilers.each(function () {
+      const spoiler = $(this);
+      const spoiler_button = spoiler.find('.mission__spoiler-button');
+      const spoiler_drop = spoiler.find('.mission__spoiler-drop');
+
+      spoiler_button.on('click', () => {
+        spoiler.toggleClass('mission__spoiler--active');
+        spoiler_drop.slideToggle();
+      });
+    });
   });
 }

@@ -1,0 +1,72 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+  
+block content
+  .mission
+    section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |О нас
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Миссия и ценности
+                    each item in ['Наша команда', 'Новости', 'Контакты']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Миссия и ценности
+              .section__block.section__block--small
+                |миссия
+              .section__block
+                .section__title
+                  |Ценности
+                .mission__spoilers.mission__spoilers--margin-top
+                  each spoiler in [1, 2, 3]
+                    .mission__spoilers-item
+                      .mission__spoiler
+                        .mission__spoiler-button
+                          h5.mission__spoiler-title
+                            |По отношению к пациентам
+                          .mission__spoiler-image
+                        .mission__spoiler-drop
+                          ul.mission__spoiler-list
+                            each item in [1, 2, 3, 4, 5, 6, 7]
+                              li.mission__spoiler-list-item
+                                h6.mission__spoiler-list-title
+                                  |Заботимся о пациентах, как о близких
+                                p.mission__spoiler-list-text
+                                  |Забота о человеке — фундаментальный принцип. Искусство, которое мы постоянно совершенствуем.
+
+
+              .section__block
+                .section__title
+                  |Наша история
+
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })
