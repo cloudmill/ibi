@@ -164,7 +164,7 @@
 
     &--outer {
       &>#{$component}__col {
-        $col-width: 410px / (1680px - ($gap-d * 2) - $gap-d) * 100%;
+        $col-width: 410px / (1680px - ($col-gap-d * 2) - $col-gap-d) * 100%;
         &:nth-child(1) {
           width: $col-width;
         }
@@ -176,7 +176,7 @@
     &--inner {
       &>#{$component}__col {
         &:nth-child(2) {
-          margin-left: $gap-d;
+          margin-left: $col-gap-d;
         }
       }
     }

@@ -3,7 +3,7 @@
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 2000;
+  z-index: 2000; // ?
 
   width: 100vw;
   overflow: hidden;
@@ -22,14 +22,10 @@
     flex-shrink: 0;
     min-height: 100vh;
 
-    background-color: rgba($color: black, $alpha: 0.1);
+    background-color: rgba($color: black, $alpha: 0.1); // ?
 
-    &:nth-child(2n) {
-      @media (max-width: $breakpoint - 1px) {
-        display: none;
-      }
-    }
-    &:nth-child(3n) {
+    // скрываем на мобильном лишние колонки (12(десктоп) - 4(мобильный))
+    &:nth-child(-n + #{$col-count-d - $col-count-m}) {
       @media (max-width: $breakpoint - 1px) {
         display: none;
       }

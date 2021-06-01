@@ -18,15 +18,13 @@ $color-white-transparent: rgba(white, 0.4);
 $color-black: #303032;
 $color-main: #29A5B1;
 $color-gray-border: #CCE3E6; // ?
+$color-blue-light: #F1FBFD; // ?
 
 // animations
 $transition: 0.5s;
 
 // параметры grid'a на сайте
-// за основу взято vw (боковой скроллбар страниц не учитываем)
-$gap-m: 20px;
-$gap-d: 40px;
-
+// за основу взято 100vw (боковой скроллбар страниц не учитываем)
 $col-count-m: 4;
 $col-count-d: 12;
 

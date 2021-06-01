@@ -2,7 +2,7 @@
   $component: &;
 
   $col-count: 12;
-  $col-gap: $gap-d;
+  $col-gap: $col-gap-d;
   $col-width: '((100% - (#{$col-gap} * #{$col-count - 1})) / #{$col-count})';
   $col-part: '(#{$col-width} + #{$col-gap})';
     
