@@ -1,4 +1,3 @@
-import { each } from 'jquery';
 import 'Styles/_app.scss';
 import Swiper from 'swiper';
 
@@ -74,11 +73,11 @@ const BREAKPOINT = 1280;
     // data-tabs-active: id активного таба
 
     const tabs_el = $('[data-tabs-id]');
-    
+
     // проверка на существование компонентов
     if (tabs_el.length !== 0) {
       const tabs_id = [];
-      
+
       // сбор id компонентов
       tabs_el.each(function () {
         const cur_id = $(this).data('tabs-id');
@@ -147,7 +146,7 @@ const BREAKPOINT = 1280;
       const slider_next_id = slider_el.data('slider-next');
       const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
       const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
-      
+
       let slider_options = {
         slidesPerView: 'auto',
 
@@ -214,7 +213,7 @@ const BREAKPOINT = 1280;
           isSticky: false,
           isStickyPrev: false,
           isChange: false,
-          
+
           init: function () {
             this.update();
 
@@ -232,7 +231,7 @@ const BREAKPOINT = 1280;
           },
         }
         state.init();
-        
+
         $(window).on('scroll', () => {
           state.update();
 

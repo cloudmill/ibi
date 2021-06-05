@@ -24,7 +24,7 @@
 
     background-color: rgba($color: black, $alpha: 0.1); // ?
 
-    // скрываем на мобильном лишние колонки (12(десктоп) - 4(мобильный))
+    // скрываем на мобильном лишние колонки
     &:nth-child(-n + #{$col-count-d - $col-count-m}) {
       @media (max-width: $breakpoint - 1px) {
         display: none;
