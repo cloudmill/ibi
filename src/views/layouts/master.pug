@@ -1,17 +1,21 @@
-include ../mixins/_mixins.pug
+include ../components/icons
 
-include ../components/_grid-test.pug
+include ../components/header
+include ../components/footer
+
+include ../components/grid-test
 
 
 
-block variables
+block vars
+  - var gridTest = true;
 
 
 
 doctype html
-html(lang='en')
+html(lang='ru')
   head
-    meta(charset="UTF-8")
+    meta(charset="UTF-8") 
     block title
       title ibi
     <!--[if IE]>
@@ -22,10 +26,13 @@ html(lang='en')
     meta(name="format-detection", content="address=no")
 
   body.body
-    +grid-test
     .wrapper
       block header
+        +header 
       main.main
         block content
       block footer
+        +footer
       block scripts
+    if gridTest
+      +grid-test

@@ -1,12 +1,4 @@
-extends ../layouts/master.pug
-
-include ../components/_header.pug
-include ../components/_footer.pug
-
-
-
-block header
-  +header
+extends ../layouts/master
 
 
   
@@ -49,13 +41,13 @@ block content
                       li.mission__missions-links-item
                         .mission__missions-links-container
                           a.mission__missions-links-link(href='#')
-                            +arrow-link-svg('mission__missions-links-svg')
+                            +svg-link.mission__missions-links-svg
                             .mission__missions-links-text
                               |О методе
                       li.mission__missions-links-item
                         .mission__missions-links-container
                           a.mission__missions-links-link(href='#')
-                            +arrow-link-svg('mission__missions-links-svg')
+                            +svg-link.mission__missions-links-svg
                             .mission__missions-links-text
                               |Приемущества метода
                     ul.mission__missions-images.mission__missions-images--top
@@ -73,19 +65,19 @@ block content
                       li.mission__missions-links-item
                         .mission__missions-links-container
                           a.mission__missions-links-link(href='#')
-                            +arrow-link-svg('mission__missions-links-svg')
+                            +svg-link.mission__missions-links-svg
                             .mission__missions-links-text
                               |Лаборатория ИБИ
                       li.mission__missions-links-item
                         .mission__missions-links-container
                           a.mission__missions-links-link(href='#')
-                            +arrow-link-svg('mission__missions-links-svg')
+                            +svg-link.mission__missions-links-svg
                             .mission__missions-links-text
                               |Наши разработки
                       li.mission__missions-links-item
                         .mission__missions-links-container
                           a.mission__missions-links-link(href='#')
-                            +arrow-link-svg('mission__missions-links-svg')
+                            +svg-link.mission__missions-links-svg
                             .mission__missions-links-text
                               |Наши публикации
                   li.mission__missions-item.mission__missions-item--margin
@@ -100,7 +92,7 @@ block content
                       li.mission__missions-links-item
                         .mission__missions-links-container
                           a.mission__missions-links-link(href='#')
-                            +arrow-link-svg('mission__missions-links-svg')
+                            +svg-link.mission__missions-links-svg
                             .mission__missions-links-text
                               |Результаты нашей работы
                     ul.mission__missions-images.mission__missions-images--bottom
@@ -261,7 +253,7 @@ block content
                           .swiper-slide
                             .mission__thumb(class=(index === 0 ? ['mission__thumb--line'] : ''))
                               |#{date}
-                              +hexagon-svg('mission__thumb-svg')
+                              +svg-hexagon.mission__thumb-svg
                   .mission__slider
                     .swiper-container(data-slider-id='4' data-slider-prev='5' data-slider-next='6')
                       .swiper-wrapper
@@ -273,11 +265,11 @@ block content
                                   .slider-control__item
                                     .button-arrow.button-arrow--blue-light.button-arrow--left
                                       .button-arrow__button(data-slider-button='5')
-                                        +arrow-svg('button-arrow__svg')
+                                        +svg-arrow.button-arrow__svg
                                   .slider-control__item
                                     .button-arrow.button-arrow--blue-light.button-arrow--right
                                       .button-arrow__button(data-slider-button='6')
-                                        +arrow-svg('button-arrow__svg')
+                                        +svg-arrow.button-arrow__svg
                                 .mission__slide-date
                                   |20.06.2020
                               .mission__slide-text
@@ -285,12 +277,3 @@ block content
                               .mission__slide-image-container
                                 .mission__slide-image
                                   img.mission__slide-img(src='assets/images/history.jpeg' alt='')
-
-
-
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })

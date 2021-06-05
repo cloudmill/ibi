@@ -1,14 +1,12 @@
-mixin footer(opt={})
-  footer.footer&attributes(opt.attrs)
+mixin footer
+  footer.footer&attributes(attributes.attributes)
     .container
       .footer__inner
         .footer__grid.footer__grid--mobile
           .footer__block
             .footer__logo
               a.footer__logo-link(href='#')
-                +logo-svg('footer__logo-svg', {
-                  mod: 'white',
-                })
+                +svg-logo.footer__logo-svg(mod='white')
           .footer__block
             ul.footer__links
               li.footer__links-item
@@ -34,16 +32,16 @@ mixin footer(opt={})
             ul.footer__socials
               li.footer__socials-item
                 a.footer__socials-link(href='#')
-                  +facebook-svg('footer__socials-svg')
+                  +svg-fb.footer__socials-svg
               li.footer__socials-item
                 a.footer__socials-link(href='#')
-                  +instagram-svg('footer__socials-svg')
+                  +svg-ig.footer__socials-svg
               li.footer__socials-item
                 a.footer__socials-link(href='#')
-                  +vk-svg('footer__socials-svg')
+                  +svg-vk.footer__socials-svg
               li.footer__socials-item
                 a.footer__socials-link(href='#')
-                  +youtube-svg('footer__socials-svg')
+                  +svg-yt.footer__socials-svg
           .footer__block
             .footer__info
               .footer__copyright
@@ -58,9 +56,7 @@ mixin footer(opt={})
             .footer__col
               .footer__logo
                 a.footer__logo-link(href='#')
-                  +logo-svg('footer__logo-svg', {
-                    mod: 'white',
-                  })
+                  +svg-logo.footer__logo-svg(mod='white')
             .footer__col
               .footer__block
                 .footer__row.footer__row--inner
@@ -82,16 +78,16 @@ mixin footer(opt={})
                     ul.footer__socials
                       li.footer__socials-item
                         a.footer__socials-link(href='#')
-                          +facebook-svg('footer__socials-svg')
+                          +svg-fb.footer__socials-svg
                       li.footer__socials-item
                         a.footer__socials-link(href='#')
-                          +instagram-svg('footer__socials-svg')
+                          +svg-ig.footer__socials-svg
                       li.footer__socials-item
                         a.footer__socials-link(href='#')
-                          +vk-svg('footer__socials-svg')
+                          +svg-vk.footer__socials-svg
                       li.footer__socials-item
                         a.footer__socials-link(href='#')
-                          +youtube-svg('footer__socials-svg')
+                          +svg-yt.footer__socials-svg
               .footer__block
                 .footer__row.footer__row--inner
                   .footer__col

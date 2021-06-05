@@ -8,7 +8,7 @@ mixin header
               .header__container
                 .header__logo
                   a.header__logo-link(href='#')
-                    +logo-svg('header__logo-svg')
+                    +svg-logo.header__logo-svg
             .header__col
               .header__panel
                 .header__panel-item
@@ -19,14 +19,14 @@ mixin header
                           .header__drop-text.header__text
                             |Базальная имплантация
                           .header__drop-image
-                            +arrow-svg('header__drop-svg')
+                            +svg-arrow.header__drop-svg
                     .header__items-item
                       .header__drop
                         .header__drop-button(data-modal-button='2')
                           .header__drop-text.header__text
                             |Услуги
                           .header__drop-image
-                            +arrow-svg('header__drop-svg')
+                            +svg-arrow.header__drop-svg
                     .header__items-item
                       a.header__link.header__text(href='#')
                         |До и После
@@ -44,7 +44,7 @@ mixin header
                           .header__drop-text.header__text
                             |Ru
                           .header__drop-image
-                            +arrow-svg('header__drop-svg')
+                            +svg-arrow.header__drop-svg
                     .header__items-item.header__items-item--mobile
                       .header__button
                         .header__button-button(data-modal-button='3')
@@ -313,5 +313,5 @@ mixin header
                   .header__drop-text.header__text
                     |Ru
                   .header__drop-image
-                    +arrow-svg('header__drop-svg')
+                    +svg-arrow.header__drop-svg
                     

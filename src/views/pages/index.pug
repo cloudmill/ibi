@@ -1,27 +1,7 @@
-extends ../layouts/master.pug
-
-include ../components/_header.pug
-include ../components/_footer.pug
-
-
-
-block header
-  +header
+extends ../layouts/master
 
 
 
 block content
-  .main
-    .section
-      .section__inner
-        .container
-          section.section__block
-            |публикации иби
-          section.section__block
-            |новости
-
-
-
-
-block footer
-  +footer
+  .test
+    +svg-logo.test__svg(mod='white')
