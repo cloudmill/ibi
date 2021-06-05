@@ -1,0 +1,4 @@
+.test {
+  @include f-3();
+  @include fsl(20px, 200%);
+}
