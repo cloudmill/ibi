@@ -1,10 +1,37 @@
 // fonts
+// families
 $ff-1: 'Manrope', sans-serif;
 $ff-2: 'PFRegalDisplayPro', serif;
-
-$fw-1: 500;
-
-$fs-1: 16;
+$ff-3: 'Montserrat', sans-serif;
+// base size (тэг <html>)
+$fs: 16px;
+// миксины для установки шрифтов (с часто используемым начертанием)
+// по-умолчанию (тэг <body>) @include f-1();
+// Manrope
+@mixin f-1($font-weight: 500) {
+  font-family: $ff-1;
+  font-weight: $font-weight;
+}
+// PFRegalDisplayPro
+@mixin f-2($font-weight: 400, $font-style: italic) {
+  font-family: $ff-2;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+// Montserrat
+@mixin f-3($font-weight: 500) {
+  font-family: $ff-3;
+  font-weight: $font-weight;
+}
+// миксин для установки font-size [и line-height]
+// переводит из px в rem
+// для вычислений используется базовый font-size $fs (тэг <html>)
+@mixin fsl($font-size, $line-height: null) {
+  font-size: unquote('#{$font-size / $fs}rem');
+  @if $line-height {
+    line-height: $line-height;
+  }
+}
 
 // breakpoints
 $breakpoint-m: 768px;

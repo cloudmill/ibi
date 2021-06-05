@@ -1021,7 +1021,7 @@
     }
   }
   &__missions-text-highlight {
-    font-family: $ff-alt;
+    font-family: $ff-2;
     font-weight: normal;
     font-style: italic;
     font-size: 26px;
@@ -1245,7 +1245,7 @@
     flex-direction: column;
     justify-content: flex-end;
 
-    font-family: $ff-alt;
+    font-family: $ff-2;
     font-size: 26px;
     line-height: 36px;
     @media (min-width: $breakpoint) {
