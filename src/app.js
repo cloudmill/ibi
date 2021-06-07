@@ -178,6 +178,19 @@ const BREAKPOINT = 1280;
             allowTouchMove: false,
           }
           break;
+        case 7:
+          slider_options = {
+            ...slider_options,
+
+            breakpoints: {
+              [BREAKPOINT]: {
+                spaceBetween: 100,
+                
+                allowTouchMove: false,
+              },
+            },
+          }
+          break;
       }
 
       const slider_swiper = new Swiper(slider_el[0], slider_options);
