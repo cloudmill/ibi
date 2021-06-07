@@ -153,6 +153,55 @@
       max-height: 600px;
     }
   }
+
+  // second section
+  &__second {
+
+  }
+  // grid
+  &__second-row {
+    
+  }
+  &__second-col {
+    &:not(:first-child) {
+      margin-top: 40px;
+    }
+  }
+  // title
+  &__second-title {
+    @include fsl(22px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(50px);
+    }
+  }
+  // list
+  &__second-list {
+
+  }
+  &__second-list-item {
+    padding-top: 10px;
+
+    border-top: 1px solid $color-main;
+
+    &:not(:first-child) {
+      margin-top: 40px;
+    }
+  }
+  &__second-list-text {
+    @include fsl(16px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(18px);
+    }
+  }
+  // links
+  &__second-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__second-link {
+    width: calc((100% - #{$col-gap-m}) / 2);
+    flex-shrink: 0;
+  }
 }
 
 .index-publications {
