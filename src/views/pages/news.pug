@@ -48,25 +48,16 @@ block content
               .section__block.about__to-front
                 ul.about__list
                   li.about__list-item
-                    .about__list-row
-                        .news__date 3 ноября 2020
-                        .news__img
-                            img(src="assets/images/news-1.jpg", alt="News")
-                        a.news__title(href="#")
-                            h3 Обучение Strategic Implant в Новосибирске
-                        .mission__missions-links-container.news__link
-                            a.mission__missions-links-link(href='#')
-                                +arrow-link-svg('mission__missions-links-svg')
-                  li.about__list-item
-                    .about__list-row
-                        .news__date 3 ноября 2020
-                        .news__img
-                            img(src="assets/images/news-1.jpg", alt="News")
-                        a.news__title(href="#")
-                            h3 Обучение Strategic Implant в Новосибирске
-                        .mission__missions-links-container.news__link
-                            a.mission__missions-links-link(href='#')
-                                +arrow-link-svg('mission__missions-links-svg')
+                    .about__list-row.news__list-row
+                      //- .news__date-img
+                      .news__date 3 ноября 2020
+                      .news__img
+                          img(src="assets/images/news-2.jpg", alt="News")
+                      a.news__title(href="#")
+                          h3 Обучение Strategic Implant в Новосибирске
+                      .mission__missions-links-container.news__link
+                          a.mission__missions-links-link(href='#')
+                              +arrow-link-svg('mission__missions-links-svg')
                 .news-show-more
                     button.news-show-more-btn
                         .news-show-more-ico
@@ -76,14 +67,14 @@ block content
                 h2.news-subscribe__title Подпишитесь на публикации и новости
                 form.news-subscribe__form
                     div
-                        label
+                        label.news-subscribe__form-placeholder
                             input.news-subscribe__form-email(type="email" placeholder="E-mail")
                         label.news-subscribe__form-checkbox
                             input(type="checkbox")
                             p Согласен на обработку персональных данных в соответствии с 
                                 a(href="#") политикой конфиденциальности
                     button.news-subscribe__form-btn
-                        +arrow-link-svg('mission__missions-links-svg')
+                        +arrow-send('mission__missions-links-svg')
 
 
 
