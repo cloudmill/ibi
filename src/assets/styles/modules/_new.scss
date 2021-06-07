@@ -1080,6 +1080,10 @@
       margin-left: 20px;
     }
 
+    @include fsl(14px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(16px, 140%);
+    }
     transition: $transition;
   }
   // missions images
