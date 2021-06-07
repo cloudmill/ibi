@@ -8,76 +8,130 @@ block vars
 
 block content
   .index.mission
-    section.index__section.index__section--target.index__section--gradient.index__section--spiral
-      .container
-        .index__paragraph
-          span.index__paragraph-text
-            |Одна из наших целей — 
-          span.index__paragraph-text.index__paragraph-text--highlight
-            |развитие 
-          img.index__paragraph-img(src='assets/images/test.jpg')
-          span.index__paragraph-text
-            |&nbsp;технологии базальной имплантации посредством 
-          span.index__paragraph-text.index__paragraph-text--highlight
-            |обучения и повышения квалификации 
-          img.index__paragraph-img(src='assets/images/test.jpg')
-          span.index__paragraph-text
-            |&nbsp;специалистов.
-    section.index__section.index__section--default
-      .container
-        .index-publications
-          .index-publications__top
-            .index-publications__top-left
-              h2.index-publications__title
-                |Публикации ИБИ
-              .index-publications__control.slider-control.slider-control--desktop
-                .slider-control__item
-                  .button-arrow.button-arrow--blue-light.button-arrow--left
-                    .button-arrow__button(data-slider-button='3')
-                      +svg-arrow.button-arrow__svg
-                .slider-control__item
-                  .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
-                    .button-arrow__button(data-slider-button='4')
-                      +svg-arrow.button-arrow__svg
-            .index-publications__top-right
+    .index__inner
+      section.index__section.index__section--target.index__section--gradient.index__section--spiral
+        .container
+          .index__paragraph
+            span.index__paragraph-text
+              |Одна из наших целей — 
+            span.index__paragraph-text.index__paragraph-text--highlight
+              |развитие 
+            img.index__paragraph-img(src='assets/images/test.jpg')
+            span.index__paragraph-text
+              |&nbsp;технологии базальной имплантации посредством 
+            span.index__paragraph-text.index__paragraph-text--highlight
+              |обучения и повышения квалификации 
+            img.index__paragraph-img(src='assets/images/test.jpg')
+            span.index__paragraph-text
+              |&nbsp;специалистов.
+      section.index__section.index__section--default
+        .container
+          .index-publications
+            .index-publications__top
+              .index-publications__top-left
+                h2.index-publications__title
+                  |Публикации ИБИ
+                .index-publications__control.slider-control.slider-control--desktop
+                  .slider-control__item
+                    .button-arrow.button-arrow--blue-light.button-arrow--left
+                      .button-arrow__button(data-slider-button='7')
+                        +svg-arrow.button-arrow__svg
+                  .slider-control__item
+                    .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
+                      .button-arrow__button(data-slider-button='8')
+                        +svg-arrow.button-arrow__svg
+              .index-publications__top-right
+                .mission__missions-links-container
+                  a.mission__missions-links-link(href='#')
+                    +svg-link.mission__missions-links-svg
+                    .mission__missions-links-text
+                      |Все публикации
+            .index-publications__slider
+              .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='5' data-slider-prev='7' data-slider-next='8')
+                .swiper-wrapper
+                  - for (let i=0; i<9; i++)
+                    .swiper-slide
+                      a.card(href='#')
+                        .card__top
+                          h3.card__title
+                            |Обучение Strategic Implant в Новосибирске
+                          p.card__text
+                            |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
+                        .card__bottom
+                          .card__row
+                            .card__col
+                              .tags
+                                ul.tags__list
+                                  li.tags__item
+                                    .tags__tag
+                                      |#кейсы
+                                  li.tags__item
+                                    .tags__tag
+                                      |#исследования
+                                  li.tags__item
+                                    .tags__tag
+                                      |#центр
+                              .card__date
+                                |28 января 2021
+                            .card__col
+                              .card__image
+                                +svg-link(class='card__svg')
+            .index-publications__link
               .mission__missions-links-container
                 a.mission__missions-links-link(href='#')
                   +svg-link.mission__missions-links-svg
                   .mission__missions-links-text
                     |Все публикации
-          .index-publications__slider
-            .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='5' data-slider-prev='7' data-slider-next='8')
-              .swiper-wrapper
-                - for (let i=0; i<9; i++)
-                  .swiper-slide
-                    a.card(href='#')
-                      .card__top
-                        h3.card__title
-                          |Обучение Strategic Implant в Новосибирске
-                        p.card__text
-                          |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
-                      .card__bottom
-                        .card__row
-                          .card__col
-                            .tags
-                              ul.tags__list
-                                li.tags__item
-                                  .tags__tag
-                                    |#кейсы
-                                li.tags__item
-                                  .tags__tag
-                                    |#исследования
-                                li.tags__item
-                                  .tags__tag
-                                    |#центр
-                            .card__date
-                              |28 января 2021
-                          .card__col
-                            .card__image
+      section.index__section.index__section--default
+        .container
+          .index-news
+            .index-news__row
+              .index-news__col
+                h2.index-news__title
+                  |Новости
+                .index-news__link
+                  .mission__missions-links-container
+                    a.mission__missions-links-link(href='#')
+                      +svg-link.mission__missions-links-svg
+                      .mission__missions-links-text
+                        |Все новости
+              .index-news__col
+                h2.index-news__title.index-news__title--mobile
+                  |Новости
+                .index-news__slider
+                  .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='6')
+                    .swiper-wrapper
+                      - for (let i=0; i<9; i++)
+                        .swiper-slide
+                          a.card-news-mobile(href='#')
+                            .card-news-mobile__top
+                              .card-news-mobile__date
+                                |3 ноября 2020
+                              h3.card-news-mobile__title
+                                |Обучение Strategic Implant в Новосибирске
+                            .card-news-mobile__bottom
+                              .card-news-mobile__row
+                                .card-news-mobile__col
+                                  .card-news-mobile__image
+                                    img.card-news-mobile__img(src=`assets/images/index/news-${i % 3 + 1}.jpg` alt='')
+                                .card-news-mobile__col
+                                  .card-news-mobile__image
+                                    +svg-link(class='card__svg')
+                .index-news__list
+                  - for (let i=0; i<3; i++)
+                    .index-news__list-item
+                      a.card-news(href='#')
+                        .card-news__row
+                          .card-news__col
+                            .card-news__content-row
+                              .card-news__content-col
+                                .card-news__date
+                                  |3 ноября 2020
+                              .card-news__content-col
+                                .card-news__image
+                                  img.card-news__img(src=`assets/images/index/news-${i % 3 + 1}.jpg` alt='')
+                                h3.card-news__title
+                                  |Обучение Strategic Implant в Новосибирске
+                          .card-news__col
+                            .card-news__image
                               +svg-link(class='card__svg')
-          .index-publications__link
-            .mission__missions-links-container
-              a.mission__missions-links-link(href='#')
-                +svg-link.mission__missions-links-svg
-                .mission__missions-links-text
-                  |Все публикации
