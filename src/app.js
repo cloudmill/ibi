@@ -136,81 +136,83 @@ const BREAKPOINT = 1280;
 
 // slider
 {
-  const slider = $('[data-slider-id]');
+  $(window).on('load', () => { // ?
+    const slider = $('[data-slider-id]');
 
-  if (slider.length !== 0) {
-    slider.each(function () {
-      const slider_el = $(this);
-      const slider_id = slider_el.data('slider-id');
-      const slider_prev_id = slider_el.data('slider-prev');
-      const slider_next_id = slider_el.data('slider-next');
-      const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
-      const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
+    if (slider.length !== 0) {
+      slider.each(function () {
+        const slider_el = $(this);
+        const slider_id = slider_el.data('slider-id');
+        const slider_prev_id = slider_el.data('slider-prev');
+        const slider_next_id = slider_el.data('slider-next');
+        const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
+        const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
 
-      let slider_options = {
-        slidesPerView: 'auto',
+        let slider_options = {
+          slidesPerView: 'auto',
 
-        spaceBetween: 20,
+          spaceBetween: 20,
 
-        breakpoints: {
-          [BREAKPOINT]: {
-            spaceBetween: 40,
+          breakpoints: {
+            [BREAKPOINT]: {
+              spaceBetween: 40,
+            },
           },
-        },
-      };
+        };
 
-      switch (slider_id) {
-        case 3:
-          slider_options = {
-            ...slider_options,
+        switch (slider_id) {
+          case 3:
+            slider_options = {
+              ...slider_options,
 
-            breakpoints: {
-              [BREAKPOINT]: {
-                spaceBetween: 60,
+              breakpoints: {
+                [BREAKPOINT]: {
+                  spaceBetween: 60,
+                },
               },
-            },
-          }
-          break;
-        case 4:
-          slider_options = {
-            ...slider_options,
+            }
+            break;
+          case 4:
+            slider_options = {
+              ...slider_options,
 
-            allowTouchMove: false,
-          }
-          break;
-        case 7:
-          slider_options = {
-            ...slider_options,
+              allowTouchMove: false,
+            }
+            break;
+          case 7:
+            slider_options = {
+              ...slider_options,
 
-            breakpoints: {
-              [BREAKPOINT]: {
-                spaceBetween: 100,
-                
-                allowTouchMove: false,
+              breakpoints: {
+                [BREAKPOINT]: {
+                  spaceBetween: 100,
+
+                  allowTouchMove: false,
+                },
               },
-            },
-          }
-          break;
-        case 8:
-          slider_options = {
-            ...slider_options,
+            }
+            break;
+          case 8:
+            slider_options = {
+              ...slider_options,
 
-            loop: true,
-            centeredSlides: true,
-          }
-          break;
-      }
+              loop: true,
+              centeredSlides: true,
+            }
+            break;
+        }
 
-      const slider_swiper = new Swiper(slider_el[0], slider_options);
+        const slider_swiper = new Swiper(slider_el[0], slider_options);
 
-      slider_prev.on('click', () => {
-        slider_swiper.slidePrev();
+        slider_prev.on('click', () => {
+          slider_swiper.slidePrev();
+        });
+        slider_next.on('click', () => {
+          slider_swiper.slideNext();
+        });
       });
-      slider_next.on('click', () => {
-        slider_swiper.slideNext();
-      });
-    });
-  }
+    }
+  });
 }
 
 // sticky
