@@ -1085,6 +1085,12 @@
       @include fsl(16px, 140%);
     }
     transition: $transition;
+
+    &--video {
+      @media (min-width: $breakpoint) {
+        max-width: 115px;
+      }
+    }
   }
   // missions images
   &__missions-images {

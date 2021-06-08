@@ -12,6 +12,13 @@
       @media (min-width: $breakpoint) {
         padding: 170px 0;
       }
+      min-height: 338px;
+      @media (min-width: $breakpoint) {
+        min-height: 680px;
+      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
     } 
     &--gradient {
       background: linear-gradient(90deg, #3CC4D1, #31BBA2); // ?
@@ -68,8 +75,10 @@
   }
 
   &__paragraph {
-    margin: 0 auto;
-    max-width: 1100px;
+    max-width: 335px;
+    @media (min-width: $breakpoint) {
+      max-width: 1100px;
+    }
 
     @media (min-width: $breakpoint) {
       text-align: center;
@@ -160,15 +169,49 @@
   }
   // grid
   &__second-row {
-    
+    @media (min-width: $breakpoint) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
   &__second-col {
+    flex-shrink: 0;
+
     &:not(:first-child) {
-      margin-top: 40px;
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 40px;
+      }
+    }
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc((100% - #{$col-gap-d}) / 2);
+      }
+    }
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        width: calc((100% - #{$col-gap-d}) / 2);
+        height: 0;
+      }
+    }
+    &:nth-child(3) {
+      @media (min-width: $breakpoint-m) {
+        width: calc((100% - #{$col-gap-m}) / 2);
+      }
+      @media (min-width: $breakpoint) {
+        margin-top: 40px;
+        width: 100%;
+      }
     }
   }
   // title
   &__second-title {
+    max-width: 340px;
+    @media (min-width: $breakpoint) {
+      max-width: 580px;
+    }
+
     @include fsl(22px, 140%);
     @media (min-width: $breakpoint) {
       @include fsl(50px);
@@ -176,15 +219,45 @@
   }
   // list
   &__second-list {
-
+    @media (min-width: $breakpoint-m) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @media (min-width: $breakpoint) {
+      justify-content: flex-end;
+    }
   }
   &__second-list-item {
     padding-top: 10px;
+    @media (min-width: $breakpoint-m) {
+      width: calc((100% - #{$col-gap-m}) / 2);
+    }
+    @media (min-width: $breakpoint) {
+      padding-top: 20px;
+      width: calc((100% - #{$col-gap-d}) / 2)
+    }
+    flex-shrink: 0;
 
     border-top: 1px solid $color-main;
 
     &:not(:first-child) {
-      margin-top: 40px;
+      @media (max-width: $breakpoint-m - 1px) {
+        margin-top: 40px;
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint-m) {
+        margin-left: $col-gap-m;
+      }
+      @media (min-width: $breakpoint) {
+        margin-left: $col-gap-d;
+      }
+    }
+    &:nth-child(3) {
+      @media (min-width: $breakpoint-m) {
+        margin-top: 40px;
+      }
     }
   }
   &__second-list-text {
@@ -200,6 +273,9 @@
   }
   &__second-link {
     width: calc((100% - #{$col-gap-m}) / 2);
+    @media (min-width: $breakpoint) {
+      width: calc((100% - #{$col-gap-d}) / 2);
+    }
     flex-shrink: 0;
   }
 }
