@@ -63,10 +63,14 @@ block content
           .section__inner.section__inner--top
             .container
               h3.other-news__title Другие новости
-              ul.about__list
-                  include ../components/_news-list-card
-                  include ../components/_news-list-card
-                  include ../components/_news-list-card
+              .swiper-container
+                ul.about__list.swiper-wrapper
+                  .swiper-slide
+                    include ../components/_news-list-card
+                  .swiper-slide
+                    include ../components/_news-list-card
+                  .swiper-slide
+                    include ../components/_news-list-card
       
 
 
