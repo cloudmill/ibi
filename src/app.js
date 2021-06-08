@@ -179,6 +179,16 @@ const BREAKPOINT = 1280;
             allowTouchMove: false,
           }
           break;
+        
+        case 100:
+          slider_options = {
+            ...slider_options,
+
+            allowTouchMove: false,
+            autoHeight: true,
+          }
+          break;
+        
       }
 
       const slider_swiper = new Swiper(slider_el[0], slider_options);
