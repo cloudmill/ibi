@@ -1,0 +1,138 @@
+.block {
+  // context
+  position: relative;
+  z-index: 0;
+
+  // height
+  height: 100vh;
+  @media (min-width: $breakpoint-m) {
+    height: 611px;
+  }
+  @media (min-width: $breakpoint) {
+    height: 800px;
+  }
+  // mask
+  overflow: hidden;
+
+  // appearance
+  border: 1px solid black; // test
+
+  // content (interactive)
+  &__content {
+    position: absolute;
+    z-index: 1;
+    // pos (cover)
+    @each $prop in (top, bottom, left, right) {
+      #{$prop}: 0;
+    }
+
+    // size (cover)
+    width: 100%;
+    height: 100%;
+  }
+
+  // scrollbar (non interactive)
+  &__scrollbar {
+    position: absolute;
+    // over content + context
+    z-index: 2;
+    // position (in block)
+    top: 60px;
+    bottom: 120px;
+    right: 35px;
+    @media (min-width: $breakpoint-m) {
+      bottom: 60px;
+    }
+    @media (min-width: $breakpoint) {
+      top: 160px;
+      bottom: 160px;
+      right: 60px;
+    }
+
+    // non interactive
+    pointer-events: none;
+
+    // line appearance
+    border-right: 1px dashed #6CBAC4;
+
+    // start/end point (decor)
+    @mixin pseudo() {
+      position: absolute;
+      // like bg
+      z-index: -1;
+      left: 0;
+      transform: translate(-50%, -50%);
+
+      content: '';
+      $size: 13px;
+      width: $size;
+      height: $size;
+
+      background-color: #B9E3E8;
+      border-radius: 50%;
+    }
+    // start point
+    &::before {
+      @include pseudo();
+
+      top: 0;
+    }
+    // end point
+    &::after {
+      @include pseudo();
+
+      top: 100%;
+    }
+  }
+  &__scrollbar-thumb {
+    position: absolute;
+    // over decor + context
+    z-index: 0;
+    // pos (start)
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+
+    // size
+    $size: 27px;
+    width: $size;
+    height: $size;
+    @media (min-width: $breakpoint) {
+      $size: 41px;
+      width: $size;
+      height: $size;
+    }
+    display: flex;
+
+    // appearance
+    background-color: $color-main;
+    border-radius: 50%;
+  }
+  &__scrollbar-svg {
+    // centered
+    margin: auto;
+    // height fix
+    height: auto;
+    // sizes
+    max-width: 12px;
+    @media (min-width: $breakpoint) {
+      max-width: 15px;
+    }
+
+    // breakpoint image swap
+    &--mobile {
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
+    &--desktop {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.block {
+  position: 
+}

@@ -290,3 +290,53 @@ const BREAKPOINT = 1280;
     });
   });
 }
+
+// block
+// {
+//   // прогресс скролла эл-та
+//   function getProgress(elem) {
+//     const pos = elem.scrollTop
+//     const dist = elem.scrollHeight - elem.clientHeight
+
+//     return pos / dist
+//   }
+
+//   function updateScrollThumb(elem, progress) {
+//     requestAnimationFrame(() => {
+//       elem.css('top', `${progress * 100}%`)
+//     })
+//   }
+
+//   $(() => {
+//     const block = $('.block')
+//     const scrollThumb = $('.block__ui-thumb')
+
+//     block.each(function () {
+//       updateScrollThumb(scrollThumb, getProgress())
+
+//       $(this).on('scroll', () => {
+//         updateScrollThumb(scrollThumb, getProgress())
+//       })
+//     })
+//   })
+// }
+
+// block
+{
+  $(() => {
+    const blocks = $('.block')
+
+    blocks.each(function () {
+      const block = $(this);
+
+      let y = 0
+
+      // wheel
+      block.on('wheel', event => {
+        const move = event.originalEvent.deltaY
+
+        
+      })
+    })
+  })
+}
