@@ -157,7 +157,7 @@
   &__mid-img {
     max-width: calc(100vw - #{$col-pad-m} * 2);
     max-height: 152px;
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint-m) {
       max-height: 337px;
     }
     @media (min-width: $breakpoint) {
