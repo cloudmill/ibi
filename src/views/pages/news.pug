@@ -33,35 +33,36 @@ block content
               h1.title
                 |Новости
               .section__block.section__block--small
-                .first-news
-                    .news__desc
-                        .news__date.first-news-date 3 ноября 2020
-                        a.news__title.first-news-title(href="#")
-                          h3 Экспресс-имплантация All-on-4/6: интервью с хирургом
-                        .mission__missions-links-container.first-news-link
-                            a.mission__missions-links-link(href='#')
-                                +arrow-link-svg('mission__missions-links-svg')
-                                .mission__missions-links-text
-                                    |Подробнее
-                    //- .news__img.first-news-img
-                    img.first-news-img(src="assets/images/news-1.jpg", alt="News")
+                a.first-news(href="#")
+                  .first-news__desc
+                    .first-news__date 3 ноября 2020
+                    .first-news__title
+                      h3 Экспресс-имплантация All-on-4/6: интервью с хирургом
+                    .mission__missions-links-container.first-news__link
+                      .mission__missions-links-link
+                        +arrow-link-svg('news__link-ico')
+                        .mission__missions-links-text
+                          |Подробнее
+                  .first-news__img
+                    +news-img-mask-1('first-news__img-mask-1')
+                    +news-img-mask-2('first-news__img-mask-2')
+                    img(src="assets/images/news-2.jpg", alt="News photo")
               .section__block.about__to-front
                 ul.about__list
                   li.about__list-item
-                    .about__list-row.news__list-row
-                      //- .news__date-img
+                    a.about__list-row.news(href="#")
                       .news__date 3 ноября 2020
                       .news__img
                           img(src="assets/images/news-2.jpg", alt="News")
-                      a.news__title(href="#")
+                      .news__title
                           h3 Обучение Strategic Implant в Новосибирске
                       .mission__missions-links-container.news__link
-                          a.mission__missions-links-link(href='#')
-                              +arrow-link-svg('mission__missions-links-svg')
+                          .mission__missions-links-link
+                              +arrow-link-svg('news__link-ico')
                 .news-show-more
                     button.news-show-more-btn
                         .news-show-more-ico
-                            +arrow-link-svg('mission__missions-links-svg')
+                            +arrow-link-svg('news__link-ico')
                         .news-show-more-txt Показать еще
               .news-subscribe
                 h2.news-subscribe__title Подпишитесь на публикации и новости
@@ -74,7 +75,7 @@ block content
                             p Согласен на обработку персональных данных в соответствии с 
                                 a(href="#") политикой конфиденциальности
                     button.news-subscribe__form-btn
-                        +arrow-send('mission__missions-links-svg')
+                        +arrow-send('news-subscribe__form-btn-ico')
 
 
 
