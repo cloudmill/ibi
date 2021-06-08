@@ -49,16 +49,9 @@ block content
                     img(src="assets/images/news-2.jpg", alt="News photo")
               .section__block.about__to-front
                 ul.about__list
-                  li.about__list-item
-                    a.about__list-row.news(href="#")
-                      .news__date 3 ноября 2020
-                      .news__img
-                          img(src="assets/images/news-2.jpg", alt="News")
-                      .news__title
-                          h3 Обучение Strategic Implant в Новосибирске
-                      .mission__missions-links-container.news__link
-                          .mission__missions-links-link
-                              +arrow-link-svg('news__link-ico')
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
                 .news-show-more
                     button.news-show-more-btn
                         .news-show-more-ico

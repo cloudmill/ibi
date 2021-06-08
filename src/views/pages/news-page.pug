@@ -30,8 +30,46 @@ block content
         .row__col
           .section__inner.section__inner--top
             .container
-              h1.title
+              h1.title.single-news__title
                 |Обучение Strategic Implant в новосибирске
+              .single-news__body
+                .single-news__head
+                  .single-news__back-link
+                    a(href="#") Вернуться
+                  .single-news__date 3 ноября 2020
+                .single-news__img
+                  img(src="assets/images/single-news-img.jpg", alt="News photo")
+                .single-news__txt
+                  p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi excepturi doloribus odit ullam adipisci, facilis autem quidem exercitationem suscipit impedit quos, fuga necessitatibus, ea natus iste sapiente inventore debitis quibusdam!
+                  p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit placeat necessitatibus ratione aut officia quam totam, nam tempora sequi architecto cupiditate laboriosam velit nisi molestias esse dolore soluta voluptatibus ad.
+                h4.single-news__blockquote Lorem, ipsum dolor sit amet consectetur adipisicing
+                .single-news__txt
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro iure, sed veritatis odio amet omnis modi rem cumque blanditiis hic consequuntur architecto praesentium a reiciendis, asperiores velit facilis voluptatibus fugit.
+                  ul
+                    li Lorem ipsum dolor sit amet, consectetur adipisicing
+                    li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                    li Lorem ipsum dolor sit amet, consectetur adipisicing
+                    li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                    li Lorem ipsum dolor sit amet, consectetur adipisicing
+                    li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+              aside.share-social
+                .share-social__title Поделиться
+                +facebook-svg('footer__socials-svg')
+                +vk-svg('footer__socials-svg')
+    section.other-news
+      .row
+        .row__col
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h3.other-news__title Другие новости
+              ul.about__list
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+      
+
+
 
 
 
