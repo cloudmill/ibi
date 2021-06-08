@@ -158,6 +158,9 @@
     max-width: calc(100vw - #{$col-pad-m} * 2);
     max-height: 152px;
     @media (min-width: $breakpoint) {
+      max-height: 337px;
+    }
+    @media (min-width: $breakpoint) {
       max-width: calc(100vw - #{$col-pad-d} * 2);
       max-height: 600px;
     }
@@ -720,6 +723,8 @@
     }
   }
   &__price {
+    flex-shrink: 0;
+
     @include info-text();
   }
   &__visits {
@@ -727,6 +732,7 @@
     @media (min-width: $breakpoint) {
       margin-left: $col-gap-d;
     }
+    flex-shrink: 0;
 
     @include info-text();
   }
