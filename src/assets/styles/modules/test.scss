@@ -11,16 +11,56 @@
   @media (min-width: $breakpoint) {
     height: 800px;
   }
-  // mask
+  // mask (for content)
   overflow: hidden;
 
   // appearance
   border: 1px solid black; // test
 
-  // content (interactive)
-  &__content {
+  // background
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    @each $prop in (top, bottom, left, right) {
+      #{$prop}: 0;
+    }
+
+    // size (cover)
+    width: 100%;
+    height: 100%;
+
+    background-color: $color-blue-light;
+  }
+
+  // scroll
+  &__scroll {
+    @mixin hide-scrollbar() {
+
+    }
+
     position: absolute;
     z-index: 1;
+    @each $prop in (top, bottom, left, right) {
+      #{$prop}: 0;
+    }
+
+    // size (cover)
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  &__scroll-height {
+    min-height: 300%;
+    visibility: hidden;
+
+    opacity: 0;
+  }
+
+  // content
+  &__content {
+    position: absolute;
+    z-index: 2;
     // pos (cover)
     @each $prop in (top, bottom, left, right) {
       #{$prop}: 0;
@@ -29,13 +69,15 @@
     // size (cover)
     width: 100%;
     height: 100%;
+    // non interactive
+    pointer-events: none;
   }
 
-  // scrollbar (non interactive)
+  // scrollbar
   &__scrollbar {
     position: absolute;
     // over content + context
-    z-index: 2;
+    z-index: 3;
     // position (in block)
     top: 60px;
     bottom: 120px;
@@ -131,8 +173,9 @@
       }
     }
   }
-}
 
-.block {
-  position: 
+  &__interactive {
+    pointer-events: all;
+  }
 }
+  
