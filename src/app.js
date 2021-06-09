@@ -351,8 +351,8 @@ const BREAKPOINT = 1280;
       updateScrollbarThumb(scrollbarThumb, scrollProgress)
 
       const updateAll = () => {
-        updateSlide1(slide1, scrollProgress, 0, 0.75)
-        updateSlide2(slide2, scrollProgress, 0.25, 1)
+        updateSlide1(slide1, scrollProgress, 0.3, 0.8)
+        updateSlide2(slide2, scrollProgress, 0.2, 0.7)
       }
 
       updateAll()
