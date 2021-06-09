@@ -329,14 +329,9 @@ const BREAKPOINT = 1280;
     blocks.each(function () {
       const block = $(this);
 
-      let y = 0
+      const blockScrollArea = block.find('.block__scroll')
 
-      // wheel
-      block.on('wheel', event => {
-        const move = event.originalEvent.deltaY
 
-        
-      })
     })
   })
 }
