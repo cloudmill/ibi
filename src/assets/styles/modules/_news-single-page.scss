@@ -180,54 +180,171 @@
 
 .other-news {
   background-color: $color-blue-light;
+  padding: 160px 0;
+  @media (max-width: $breakpoint) {
+    padding: 60px 0;
+  }
+
+  &__top {
+    margin-bottom: 80px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 40px;
+    }
+  }
 
   &__title {
     font-weight: 500;
     font-size: 50px;
     line-height: 140%;
 
-    margin-bottom: 80px;
+    @media (max-width: $breakpoint) {
+      font-size: 22px;
+    }
+  }
+
+  &__controls {
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $breakpoint) {
+      display: none;
+    }
+
+    &-left {
+      transform: rotate(90deg);
+    }
+
+    &-right {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__slider {
+
+    &-desktop {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+
+    &-mobile {
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
+
+    &-img {
+
+    }
+    
   }
 }
 
-// .index-publications {
-//   &__top {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//   }
-//   &__top-left {
-//     display: flex;
-//     align-items: center;
-//   }
-//   &__top-right {
-//     margin-left: 40px;
-//     @media (max-width: $breakpoint - 1px) {
-//       display: none;
-//     }
-//   }
 
-//   &__slider {
-//     margin-top: 40px;
-//     @media (min-width: $breakpoint) {
-//       margin-top: 80px;
-//     }
-//   }
 
-//   &__link {
-//     margin-top: 20px;
-//     @media (min-width: $breakpoint) {
-//       display: none;
-//     }
-//   }
 
-//   &__title {
-//     @include fsl(22px, 140%);
-//     @media (min-width: $breakpoint) {
-//       @include fsl(50px);
-//     }
-//   }
-//   &__control {
-//     margin-left: 40px;
-//   }
-// }
+
+// Дубль стилей с мастер ветки
+
+.index-publications {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__top-left {
+    display: flex;
+    align-items: center;
+  }
+  &__top-right {
+    margin-left: 40px;
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
+  }
+
+  &__slider {
+    margin-top: 40px;
+    @media (min-width: $breakpoint) {
+      margin-top: 80px;
+    }
+  }
+
+  &__link {
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+  }
+
+  // &__title {
+  //   @include fsl(22px, 140%);
+  //   @media (min-width: $breakpoint) {
+  //     @include fsl(50px);
+  //   }
+  // }
+  &__control {
+    margin-left: 40px;
+  }
+}
+
+.card-news-mobile {
+  padding-top: 10px;
+  // width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+  width: 246px;
+  min-height: 305px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-top: 1px solid $color-main;
+
+  &__top {
+
+  }
+  &__bottom {
+    margin-top: 20px;
+  }
+
+  &__date {
+    // @include fsl(12px, 140%);
+    color: $color-main;
+  }
+  &__title {
+    margin-top: 20px;
+
+    // @include fsl(18px, 110%);
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+
+    }
+    &:nth-child(2) {
+      margin-left: $col-gap-m;
+    }
+  }
+
+  &__image {
+    display: flex;
+    align-items: flex-end;
+  }
+  &__img {
+    width: auto;
+    height: auto;
+    max-width: 160px;
+    max-height: 160px;
+  }
+  &__svg {
+    height: auto;
+    max-width: 34px;
+  }
+}

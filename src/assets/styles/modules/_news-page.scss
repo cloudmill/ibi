@@ -105,6 +105,17 @@
 
 .news {
 
+    &-box {
+        border-top: 1px solid #CCE3E6;
+        padding-top: 20px;
+        margin-bottom: 60px;
+
+        @media (max-width: $breakpoint) {
+            padding-top: 10px;
+            margin-bottom: 40px;
+        }
+    }
+
     display: flex;
     justify-content: flex-start;
 

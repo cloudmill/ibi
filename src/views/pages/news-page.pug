@@ -63,29 +63,42 @@ block content
       .row
         .row__col
         .row__col
-          .section__inner.section__inner--top
+
             .container
-              //- .index-publications
-              //-   .index-publications__top
-              //-     .index-publications__top-left
-              //-       h2.index-publications__title
-              //-         |Публикации ИБИ
-              //-       .index-publications__control.slider-control.slider-control--desktop
-              //-         .slider-control__item
-              //-           .button-arrow.button-arrow--blue-light.button-arrow--left
-              //-             .button-arrow__button(data-slider-button='7')
-              //-               +svg-arrow.button-arrow__svg
-              //-         .slider-control__item
-              //-           .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
-              //-             .button-arrow__button(data-slider-button='8')
-              //-               +svg-arrow.button-arrow__svg
-              //-     .index-publications__top-right
-              //-       .mission__missions-links-container
-              //-         a.mission__missions-links-link(href='#')
-              //-           +svg-link.mission__missions-links-svg
-              //-           .mission__missions-links-text
-              //-             |Все публикации 
-              .swiper-container(data-slider-id="100" data-slider-prev='111' data-slider-next='112')
+              .index-publications
+                .index-publications__top
+                  .index-publications__top-left.other-news__top
+                    h2.index-publications__title.other-news__title
+                      |Другие новости
+                    .index-publications__control.slider-control.slider-control--desktop
+                      .slider-control__item
+                        .button-arrow.button-arrow--left
+                          .button-arrow__button.other-news__controls(data-slider-button='111')
+                            +arrow-svg('other-news__controls-left')
+                      .slider-control__item
+                        .button-arrow.button-arrow.button-arrow--right
+                          .button-arrow__button.other-news__controls(data-slider-button='112')
+                            +arrow-svg('other-news__controls-right')
+              .index-news__slider.other-news__slider-mobile
+                .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='6')
+                  .swiper-wrapper
+                    - for (let i=0; i<9; i++)
+                      .swiper-slide
+                        a.card-news-mobile(href='#')
+                          .card-news-mobile__top
+                            .card-news-mobile__date
+                              |3 ноября 2020
+                            h3.card-news-mobile__title
+                              |Обучение Strategic Implant в Новосибирске
+                          .card-news-mobile__bottom
+                            .card-news-mobile__row
+                              .card-news-mobile__col
+                                .card-news-mobile__image
+                                  img.card-news-mobile__img(src='assets/images/news-2.jpg' alt='')
+                              .card-news-mobile__col
+                                .card-news-mobile__image
+                                  +arrow-link-svg(class='card__svg')
+              .other-news__slider-desktop.swiper-container(data-slider-id="100" data-slider-prev='111' data-slider-next='112')
                 ul.about__list.swiper-wrapper
                   .swiper-slide
                     include ../components/_news-list-card
