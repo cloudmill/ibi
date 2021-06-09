@@ -1,5 +1,21 @@
 // Стили страницы Новости
 
+.news-spoiler {
+    &__drop {
+        padding: 0 0 40px 20px;
+    }
+
+    &__image {
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid $color-black;
+        border-right: 2px solid $color-black;
+        margin-right: 20px;
+        transform: rotate(135deg);
+    }
+
+}
+
 .first-news {
     background-color: $color-blue-light;
     display: flex;

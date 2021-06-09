@@ -146,24 +146,26 @@
 }
 
 .share-social {
-  width: calc(#{$col-part-d} * 3);
   padding-top: 174px;
   display: flex;
   justify-content: flex-end;
-  position: relative;
+  // position: relative;
+
+  width: calc(#{$col-part-d} * 3);
 
   @media (max-width: $breakpoint) {
     padding-top: 0;
     margin: 60px 0;
     justify-content: flex-start;
+    width: 100%;
   }
 
   &__box {
-    position: fixed;
+    // position: fixed;
 
-    @media (max-width: $breakpoint) {
-      position: static;
-    }
+    // @media (max-width: $breakpoint) {
+    //   position: static;
+    // }
   }
 
   &__title {
