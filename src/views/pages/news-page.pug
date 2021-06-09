@@ -31,7 +31,7 @@ block content
           .section__inner.section__inner--top
             .container
               h1.title.single-news__title
-                |Обучение Strategic Implant в новосибирске
+                |Обучение Strategic Implant в Новосибирске
               .single-news__body
                 .single-news__head
                   .single-news__back-link
@@ -62,8 +62,27 @@ block content
         .row__col
           .section__inner.section__inner--top
             .container
-              h3.other-news__title Другие новости
-              .swiper-container(data-slider-id="100")
+              //- .index-publications
+              //-   .index-publications__top
+              //-     .index-publications__top-left
+              //-       h2.index-publications__title
+              //-         |Публикации ИБИ
+              //-       .index-publications__control.slider-control.slider-control--desktop
+              //-         .slider-control__item
+              //-           .button-arrow.button-arrow--blue-light.button-arrow--left
+              //-             .button-arrow__button(data-slider-button='7')
+              //-               +svg-arrow.button-arrow__svg
+              //-         .slider-control__item
+              //-           .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
+              //-             .button-arrow__button(data-slider-button='8')
+              //-               +svg-arrow.button-arrow__svg
+              //-     .index-publications__top-right
+              //-       .mission__missions-links-container
+              //-         a.mission__missions-links-link(href='#')
+              //-           +svg-link.mission__missions-links-svg
+              //-           .mission__missions-links-text
+              //-             |Все публикации 
+              .swiper-container(data-slider-id="100" data-slider-prev='111' data-slider-next='112')
                 ul.about__list.swiper-wrapper
                   .swiper-slide
                     include ../components/_news-list-card

@@ -184,7 +184,7 @@ const BREAKPOINT = 1280;
           slider_options = {
             ...slider_options,
 
-            allowTouchMove: false,
+            // allowTouchMove: false,
             autoHeight: true,
           }
           break;
