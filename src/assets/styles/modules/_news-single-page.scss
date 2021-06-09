@@ -1,5 +1,13 @@
 .single-news {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+  }
+
   &__title {
+    width: 100%;
     font-weight: 500;
     font-size: 40px;
     line-height: 110%;
@@ -134,6 +142,39 @@
       font-size: 18px;
       margin: 60px 0 20px;
     }
+  }
+}
+
+.share-social {
+  width: calc(#{$col-part-d} * 3);
+  padding-top: 174px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+  @media (max-width: $breakpoint) {
+    padding-top: 0;
+    margin: 60px 0;
+    justify-content: flex-start;
+  }
+
+  &__box {
+    position: fixed;
+
+    @media (max-width: $breakpoint) {
+      position: static;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    margin-right: 10px;
+  }
+  &__link:last-child {
+    margin-right: 0;
   }
 }
 

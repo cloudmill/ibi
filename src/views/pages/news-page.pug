@@ -29,7 +29,7 @@ block content
                           |#{item}
         .row__col
           .section__inner.section__inner--top
-            .container
+            .container.single-news
               h1.title.single-news__title
                 |Обучение Strategic Implant в Новосибирске
               .single-news__body
@@ -42,7 +42,7 @@ block content
                 .single-news__txt
                   p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi excepturi doloribus odit ullam adipisci, facilis autem quidem exercitationem suscipit impedit quos, fuga necessitatibus, ea natus iste sapiente inventore debitis quibusdam!
                   p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit placeat necessitatibus ratione aut officia quam totam, nam tempora sequi architecto cupiditate laboriosam velit nisi molestias esse dolore soluta voluptatibus ad.
-                h4.single-news__blockquote Lorem, ipsum dolor sit amet consectetur adipisicing
+                blockquote.single-news__blockquote Lorem, ipsum dolor sit amet consectetur adipisicing
                 .single-news__txt
                   p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro iure, sed veritatis odio amet omnis modi rem cumque blanditiis hic consequuntur architecto praesentium a reiciendis, asperiores velit facilis voluptatibus fugit.
                   ul
@@ -53,9 +53,12 @@ block content
                     li Lorem ipsum dolor sit amet, consectetur adipisicing
                     li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
               aside.share-social
-                .share-social__title Поделиться
-                +facebook-svg('footer__socials-svg')
-                +vk-svg('footer__socials-svg')
+                .share-social__box
+                  .share-social__title Поделиться
+                  a.share-social__link(href="#") 
+                    +social-share-fb('share-social__ico')
+                  a.share-social__link(href="") 
+                    +social-share-vk('share-social__ico')
     section.other-news
       .row
         .row__col
