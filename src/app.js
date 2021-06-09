@@ -292,36 +292,6 @@ const BREAKPOINT = 1280;
 }
 
 // block
-// {
-//   // прогресс скролла эл-та
-//   function getProgress(elem) {
-//     const pos = elem.scrollTop
-//     const dist = elem.scrollHeight - elem.clientHeight
-
-//     return pos / dist
-//   }
-
-//   function updateScrollThumb(elem, progress) {
-//     requestAnimationFrame(() => {
-//       elem.css('top', `${progress * 100}%`)
-//     })
-//   }
-
-//   $(() => {
-//     const block = $('.block')
-//     const scrollThumb = $('.block__ui-thumb')
-
-//     block.each(function () {
-//       updateScrollThumb(scrollThumb, getProgress())
-
-//       $(this).on('scroll', () => {
-//         updateScrollThumb(scrollThumb, getProgress())
-//       })
-//     })
-//   })
-// }
-
-// block
 {
   function getScrollProgress(scrollArea) {
     const scrollPos = scrollArea[0].scrollTop
@@ -336,6 +306,34 @@ const BREAKPOINT = 1280;
     })
   }
 
+  function getSlideProgress(scrollProgress, startProgress, endProgress) {
+    if (scrollProgress < startProgress) {
+      return 0
+    } else if (scrollProgress > endProgress) {
+      return 1
+    } else {
+      return (scrollProgress - startProgress) / (endProgress - startProgress)
+    }
+  }
+
+  function updateSlide1(slide, scrollProgress, startProgress, endProgress) {
+    const slideProgress = getSlideProgress(scrollProgress, startProgress, endProgress)
+
+    requestAnimationFrame(() => {
+      slide.css('transform', `translateY(-${slideProgress * 100}%)`);
+      slide.css('opacity', 1 - slideProgress);
+    })
+  }
+
+  function updateSlide2(slide, scrollProgress, startProgress, endProgress) {
+    const slideProgress = getSlideProgress(scrollProgress, startProgress, endProgress)
+
+    requestAnimationFrame(() => {
+      slide.css('transform', `translateY(${(1 - slideProgress) * 100}%)`);
+      slide.css('opacity', slideProgress);
+    })
+  }
+
   $(() => {
     const blocks = $('.block')
 
@@ -347,10 +345,21 @@ const BREAKPOINT = 1280;
       
       const scrollbarThumb = block.find('.block__scrollbar-thumb')
 
+      const slide1 = block.find('.block__slide--1');
+      const slide2 = block.find('.block__slide--2');
+
+      updateScrollbarThumb(scrollbarThumb, scrollProgress)
+
+      updateSlide1(slide1, scrollProgress, (1/2), (1/2) + (1/2 / 2))
+      updateSlide2(slide2, scrollProgress, (1/2) - (1/2 / 2), (1/2) + (1/2 / 2))
+
       scrollArea.on('scroll', () => {
         scrollProgress = getScrollProgress(scrollArea)
 
         updateScrollbarThumb(scrollbarThumb, scrollProgress)
+
+        updateSlide1(slide1, scrollProgress, (1/2), (1/2) + (1/2 / 2))
+        updateSlide2(slide2, scrollProgress, (1/2) - (1/2 / 2), (1/2) + (1/2 / 2))
       })
     })
   })

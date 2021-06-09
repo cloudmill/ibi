@@ -24,7 +24,7 @@
 
   &__scroll {
     @include cover();
-    // @include scrollbar-hidden();
+    @include scrollbar-hidden();
 
     position: absolute;
     z-index: 1;
@@ -137,6 +137,20 @@
       @media (max-width: $breakpoint - 1px) {
         display: none;
       }
+    }
+  }
+
+  &__slide {
+    @include cover();
+
+    position: absolute;
+    z-index: 0;
+
+    &--1 {
+      background-color: rgba(red, 0.7); // test
+    }
+    &--2 {
+      background-color:rgba(green, 0.7); // test
     }
   }
 }

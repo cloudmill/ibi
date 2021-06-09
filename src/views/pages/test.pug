@@ -1,16 +1,25 @@
 include ../components/icons
 
-each block in [1, 2, 3]
-  .block
-    .block__background
-    .block__scroll
-      .block__scroll-height
-    .block__content
-      button.block__button
-        |button
-      button.block__button.block__interactive
-        |button
-    .block__scrollbar
-      .block__scrollbar-thumb
-        +svg-scroll-mobile.block__scrollbar-svg.block__scrollbar-svg--mobile
-        +svg-scroll-desktop.block__scrollbar-svg.block__scrollbar-svg--desktop
+.container
+  each block in [1, 2, 3]
+    .block
+      .block__background
+      .block__scroll
+        .block__scroll-height
+      .block__content
+        .block__slide.block__slide--1
+          |1
+          button.block__button
+            |button
+          button.block__button.block__interactive
+            |button
+        .block__slide.block__slide--2
+          |2
+          button.block__button
+            |button
+          button.block__button.block__interactive
+            |button
+      .block__scrollbar
+        .block__scrollbar-thumb
+          +svg-scroll-mobile.block__scrollbar-svg.block__scrollbar-svg--mobile
+          +svg-scroll-desktop.block__scrollbar-svg.block__scrollbar-svg--desktop
