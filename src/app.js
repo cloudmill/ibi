@@ -350,16 +350,19 @@ const BREAKPOINT = 1280;
 
       updateScrollbarThumb(scrollbarThumb, scrollProgress)
 
-      updateSlide1(slide1, scrollProgress, (1/2), (1/2) + (1/2 / 2))
-      updateSlide2(slide2, scrollProgress, (1/2) - (1/2 / 2), (1/2) + (1/2 / 2))
+      const updateAll = () => {
+        updateSlide1(slide1, scrollProgress, 0, 0.75)
+        updateSlide2(slide2, scrollProgress, 0.25, 1)
+      }
+
+      updateAll()
 
       scrollArea.on('scroll', () => {
         scrollProgress = getScrollProgress(scrollArea)
 
         updateScrollbarThumb(scrollbarThumb, scrollProgress)
 
-        updateSlide1(slide1, scrollProgress, (1/2), (1/2) + (1/2 / 2))
-        updateSlide2(slide2, scrollProgress, (1/2) - (1/2 / 2), (1/2) + (1/2 / 2))
+        updateAll()
       })
     })
   })
