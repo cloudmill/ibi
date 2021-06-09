@@ -323,15 +323,35 @@ const BREAKPOINT = 1280;
 
 // block
 {
+  function getScrollProgress(scrollArea) {
+    const scrollPos = scrollArea[0].scrollTop
+    const scrollDist = scrollArea[0].scrollHeight - scrollArea[0].clientHeight
+
+    return scrollPos / scrollDist
+  }
+
+  function updateScrollbarThumb(scrollbarThumb, scrollProgress) {
+    requestAnimationFrame(() => {
+      scrollbarThumb.css('top', `${scrollProgress * 100}%`)
+    })
+  }
+
   $(() => {
     const blocks = $('.block')
 
     blocks.each(function () {
-      const block = $(this);
+      const block = $(this)
+      
+      const scrollArea = block.find('.block__scroll')
+      let scrollProgress = getScrollProgress(scrollArea)
+      
+      const scrollbarThumb = block.find('.block__scrollbar-thumb')
 
-      const blockScrollArea = block.find('.block__scroll')
+      scrollArea.on('scroll', () => {
+        scrollProgress = getScrollProgress(scrollArea)
 
-
+        updateScrollbarThumb(scrollbarThumb, scrollProgress)
+      })
     })
   })
 }

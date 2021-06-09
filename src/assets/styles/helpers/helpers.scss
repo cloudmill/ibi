@@ -71,3 +71,28 @@ $col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap-d} * #{$col-count-d -
 
 $col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
 $col-part-d: '(#{$col-width-d} + #{$col-gap-d})';
+
+// scrollbar
+@mixin scrollbar-hidden() {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+// cover
+@mixin cover-size() {
+  width: 100%;
+  height: 100%;
+}
+@mixin cover-position() {
+  @each $prop in (top, bottom, left, right) {
+    #{$prop}: 0;
+  }
+}
+@mixin cover() {
+  @include cover-position();
+  @include cover-size();
+}
