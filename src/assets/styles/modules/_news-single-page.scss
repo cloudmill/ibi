@@ -242,9 +242,9 @@
       }
     }
 
-    &-img {
+    // &-img {
 
-    }
+    // }
     
   }
 }
@@ -308,9 +308,9 @@
 
   border-top: 1px solid $color-main;
 
-  &__top {
+  // &__top {
 
-  }
+  // }
   &__bottom {
     margin-top: 20px;
   }
@@ -333,9 +333,9 @@
   &__col {
     flex-shrink: 0;
 
-    &:nth-child(1) {
+    // &:nth-child(1) {
 
-    }
+    // }
     &:nth-child(2) {
       margin-left: $col-gap-m;
     }
