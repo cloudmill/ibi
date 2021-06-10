@@ -37,18 +37,26 @@ block content
                   h5.mission__spoiler-title
                     |Новости
                   .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
                 .mission__spoiler-drop.news-spoiler__drop
-                  .nav.news-spoiler__nav
-                    .nav__container
-                      nav.nav__nav
-                        ul.nav__list
-                          li.nav__item.nav__item--active
-                            a.nav__link(href='#')
-                              |О нас
-                          each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
-                            li.nav__item
-                              a.nav__link(href='#')
-                                |#{item}
+                  //- .nav.news-spoiler__nav
+                  //-   .nav__container
+                  //-     nav.nav__nav
+                  //-       ul.nav__list
+                  //-         li.nav__item.nav__item--active
+                  //-           a.nav__link(href='#')
+                  //-             |О нас
+                  //-         each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
+                  //-           li.nav__item
+                  //-             a.nav__link(href='#')
+                  //-               |#{item}
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+                    
               .section__block.section__block--small
                 a.first-news(href="#")
                   .first-news__desc

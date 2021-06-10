@@ -53,64 +53,63 @@ block content
                     li Lorem ipsum dolor sit amet, consectetur adipisicing
                     li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
               aside.share-social
-                .share-social__box(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                .share-social__box(data-sticky-id='2' data-sticky-top='250' data-sticky-bottom='120')
                   .share-social__title Поделиться
                   div
                     a.share-social__link(href="#")
                       +social-share-fb('share-social__ico')
                     a.share-social__link(href="")
                       +social-share-vk('share-social__ico')
-    section.other-news
+    section.other-news(data-sticky-end='2')
       .row
         .row__col
         .row__col
-
-            .container
-              .index-publications
-                .index-publications__top
-                  .index-publications__top-left.other-news__top
-                    h2.index-publications__title.other-news__title
-                      |Другие новости
-                    .index-publications__control.slider-control.slider-control--desktop
-                      .slider-control__item
-                        .button-arrow.button-arrow--left
-                          .button-arrow__button.other-news__controls(data-slider-button='111')
-                            +arrow-svg('other-news__controls-left')
-                      .slider-control__item
-                        .button-arrow.button-arrow.button-arrow--right
-                          .button-arrow__button.other-news__controls(data-slider-button='112')
-                            +arrow-svg('other-news__controls-right')
-              .index-news__slider.other-news__slider-mobile
-                .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='6')
-                  .swiper-wrapper
-                    - for (let i=0; i<9; i++)
-                      .swiper-slide
-                        a.card-news-mobile(href='#')
-                          .card-news-mobile__top
-                            .card-news-mobile__date
-                              |3 ноября 2020
-                            h3.card-news-mobile__title
-                              |Обучение Strategic Implant в Новосибирске
-                          .card-news-mobile__bottom
-                            .card-news-mobile__row
-                              .card-news-mobile__col
-                                .card-news-mobile__image
-                                  img.card-news-mobile__img(src='assets/images/news-2.jpg' alt='')
-                              .card-news-mobile__col
-                                .card-news-mobile__image
-                                  +arrow-link-svg(class='card__svg')
-              .other-news__slider-desktop.swiper-container(data-slider-id="100" data-slider-prev='111' data-slider-next='112')
-                ul.about__list.swiper-wrapper
-                  .swiper-slide
-                    include ../components/_news-list-card
-                    include ../components/_news-list-card
-                    include ../components/_news-list-card
-                  .swiper-slide
-                    include ../components/_news-list-card
-                    include ../components/_news-list-card
-                    include ../components/_news-list-card
-                  .swiper-slide
-                    include ../components/_news-list-card
+          .container
+            .index-publications
+              .index-publications__top
+                .index-publications__top-left.other-news__top
+                  h2.index-publications__title.other-news__title
+                    |Другие новости
+                  .index-publications__control.slider-control.slider-control--desktop
+                    .slider-control__item
+                      .button-arrow.button-arrow--left
+                        .button-arrow__button.other-news__controls(data-slider-button='111')
+                          +arrow-svg('other-news__controls-left')
+                    .slider-control__item
+                      .button-arrow.button-arrow.button-arrow--right
+                        .button-arrow__button.other-news__controls(data-slider-button='112')
+                          +arrow-svg('other-news__controls-right')
+            .index-news__slider.other-news__slider-mobile
+              .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='6')
+                .swiper-wrapper
+                  - for (let i=0; i<9; i++)
+                    .swiper-slide
+                      a.card-news-mobile(href='#')
+                        .card-news-mobile__top
+                          .card-news-mobile__date
+                            |3 ноября 2020
+                          h3.card-news-mobile__title
+                            |Обучение Strategic Implant в Новосибирске
+                        .card-news-mobile__bottom
+                          .card-news-mobile__row
+                            .card-news-mobile__col
+                              .card-news-mobile__image
+                                img.card-news-mobile__img(src='assets/images/news-2.jpg' alt='')
+                            .card-news-mobile__col
+                              .card-news-mobile__image
+                                +arrow-link-svg(class='card__svg')
+            .other-news__slider-desktop.swiper-container(data-slider-id="100" data-slider-prev='111' data-slider-next='112')
+              ul.about__list.swiper-wrapper
+                .swiper-slide
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                .swiper-slide
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                .swiper-slide
+                  include ../components/_news-list-card
 
       
 

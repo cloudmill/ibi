@@ -1,3 +1,5 @@
+// Стили страницы отдельной новости
+
 .single-news {
   display: flex;
   flex-wrap: wrap;
@@ -145,6 +147,8 @@
   }
 }
 
+// Боковая плашка с кнопками соцсетей
+
 .share-social {
   padding-top: 174px;
   display: flex;
@@ -160,13 +164,13 @@
     width: 100%;
   }
 
-  &__box {
-    // position: fixed;
+  // &__box {
+  //   position: fixed;
 
-    // @media (max-width: $breakpoint) {
-    //   position: static;
-    // }
-  }
+  //   @media (max-width: $breakpoint) {
+  //     position: static;
+  //   }
+  // }
 
   &__title {
     margin-bottom: 30px;
@@ -179,6 +183,8 @@
     margin-right: 0;
   }
 }
+
+//  Блок со слайдером Другие новости
 
 .other-news {
   background-color: $color-blue-light;
