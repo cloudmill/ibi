@@ -1,19 +1,36 @@
 // Стили страницы Новости
 
 .news-spoiler {
+    display: none;
+    border: none;
+    border-bottom: 1px solid $color-gray-border;
+
+    @media (max-width: $breakpoint) {
+        display: block;
+    }
+
     &__drop {
         padding: 0 0 40px 20px;
     }
 
     &__image {
-        width: 10px;
-        height: 10px;
+        width: 13px;
+        height: 13px;
         border-top: 2px solid $color-black;
         border-right: 2px solid $color-black;
-        margin-right: 20px;
         transform: rotate(135deg);
+
+        margin-right: 2px;
     }
 
+    &__button {
+        align-items: center;
+        padding: 20px 0 20px 20px;
+    }
+
+    &__nav {
+        display: block;
+    }
 }
 
 .first-news {
