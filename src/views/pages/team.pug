@@ -1,0 +1,55 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+block content
+  .about
+    section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |О нас
+                    each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Наша команда
+              .team
+                include ../components/_team-member-card
+                include ../components/_team-member-card
+                include ../components/_team-member-card
+                include ../components/_team-member-card
+
+                include ../components/_team-member-card
+                include ../components/_team-member-card
+                include ../components/_team-member-card
+                include ../components/_team-member-card
+
+                include ../components/_team-member-card
+                include ../components/_team-member-card
+                include ../components/_team-member-card
+                include ../components/_team-member-card
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })
