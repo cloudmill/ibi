@@ -85,7 +85,12 @@
   }
 }
 
-.share-social {
+.member-page-aside {
+
+  @media (max-width: $breakpoint) {
+    margin: 0;
+  }
+
   .member-page__badge {
     position: static;
 
@@ -95,6 +100,68 @@
   }
 }
 
+.member-page-ask {
+  padding-left: $col-gap-d;
+  align-items: unset;
+  flex-direction: column;
+  // justify-content: space-between;
 
-// Дубль стилей с ветки мастер для слайдера с операциями
+  &__title {
+    width: 100%;
+    margin-bottom: 80px;
 
+    @media (max-width: $breakpoint) {
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__form {
+    align-self: flex-end;
+    width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+    // padding-right: calc(#{$col-part-d} * 2 - #{$col-width-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      padding-right: 0;
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .news-subscribe__form-btn {
+        @media (max-width: $breakpoint) {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+
+        &-ico {
+          margin-right: 20px;
+
+          @media (max-width: $breakpoint) {
+            margin-right: 10px;
+            max-width: 34px;
+          }
+        }
+      }
+    }
+  }
+
+  &__label {
+    width: 100%;
+  }
+
+  &__checkbox {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+    }
+
+    p {
+      width: 100%;
+    }
+  }
+}

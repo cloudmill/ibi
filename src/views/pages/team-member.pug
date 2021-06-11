@@ -56,7 +56,7 @@ block content
                     li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
                     li Lorem ipsum dolor sit amet, consectetur adipisicing
                     li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
-              aside.share-social
+              aside.share-social.member-page-aside
                 .team-member__badge.member-page__badge
                   .team-member__badge-item
                     .team-member__badge-txt Статей в блоге
@@ -206,22 +206,25 @@ block content
       .row
         .row__col
         .row__col
-          .news-subscribe
-                h2.news-subscribe__title Задать вопрос врачу
-                form.news-subscribe__form
-                    div
-                        label.news-subscribe__form-placeholder
-                            input.news-subscribe__form-email(type="email" placeholder="Имя*")
-                        label.news-subscribe__form-placeholder
-                            input.news-subscribe__form-email(type="email" placeholder="E-mail")
-                        label.news-subscribe__form-placeholder
-                            input.news-subscribe__form-email(type="email" placeholder="E-mail")
-                        label.news-subscribe__form-checkbox
-                            input(type="checkbox")
-                            p Согласен на обработку персональных данных в соответствии с 
-                                a(href="#") политикой конфиденциальности
-                    button.news-subscribe__form-btn
-                        +arrow-send('news-subscribe__form-btn-ico')
+          .container.news-subscribe.member-page-ask
+            h2.news-subscribe__title.member-page-ask__title Задать вопрос врачу
+            form.news-subscribe__form.member-page-ask__form
+              .member-page-ask__form-wrapper
+                label.news-subscribe__form-placeholder.member-page-ask__label
+                    input.news-subscribe__form-email(type="text" placeholder="Имя*")
+                label.news-subscribe__form-placeholder.member-page-ask__label
+                    input.news-subscribe__form-email(type="tel" placeholder="Телефон")
+                label.news-subscribe__form-placeholder.member-page-ask__label
+                    input.news-subscribe__form-email(type="email" placeholder="E-mail*")
+                label.news-subscribe__form-placeholder.member-page-ask__label
+                    textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+                label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                    input(type="checkbox")
+                    p Согласен на обработку персональных данных в соответствии с 
+                        a(href="#") политикой конфиденциальности
+                button.news-subscribe__form-btn
+                    +arrow-link-svg('news-subscribe__form-btn-ico')
+                    |Отправить
 
 block footer
   +footer({

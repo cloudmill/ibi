@@ -337,6 +337,9 @@
             background: transparent;
             cursor: pointer;
 
+            display: flex;
+            align-items: center;
+
             margin-left: 30px;
 
             &-ico{
@@ -364,6 +367,18 @@
         }
 
         &-placeholder input::placeholder {
+            color: $color-black;
+            opacity: 1;
+
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 140%;
+            @media (max-width: $breakpoint-m) {
+                font-size: 16px;
+            }
+        }
+
+        &-placeholder textarea::placeholder {
             color: $color-black;
             opacity: 1;
 
