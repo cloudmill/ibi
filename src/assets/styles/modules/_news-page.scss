@@ -1,5 +1,6 @@
 // Стили страницы Новости
 
+// Выпадающее меню
 .news-spoiler {
     display: none;
     border: none;
@@ -43,110 +44,118 @@
             fill: $color-main;
           }
     }
+
+    .news-spoiler__drop {
+        background-color: unset;
+    }
 }
 
+// Блок с большой первой новостью
+
 .first-news {
-    background-color: $color-blue-light;
-    display: flex;
-    justify-content: space-between;
-    @media (max-width: $breakpoint-m) {
+  background-color: $color-blue-light;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: $breakpoint-m) {
       flex-direction: column;
-    }
+  }
 
-    &__desc {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: space-between;
-        justify-content: space-between;
-    
-        padding: 40px;
+  &__desc {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
 
-        width: calc(#{$col-part-d} * 6);
-        @media (max-width: $breakpoint) {
-            width: auto;
-        }
-      }
-  
-    &__date {
-      width: 100%;
-      margin-bottom: 130px;
-      color: $color-main;
+    padding: 40px;
 
-      @media (max-width: $breakpoint-m) {
-        margin-bottom: 20px;
-      }
-
-      @media (max-width: $breakpoint-m) {
-        font-size: 12px;
-        }
-    }
-    
-    &__title {
-        width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
-
-        h3 {
-            font-size: 40px;
-            line-height: 110%;
-            font-weight: 500;
-
-            @media (max-width: $breakpoint-m) {
-                font-size: 18px;
-            }
-        }
-
-        @media (max-width: $breakpoint-m) {
-            width: auto;
-        }
-    }
-  
-    &__img {
-        position: relative;
-        width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
-        @media (max-width: $breakpoint) {
-            width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
-        }
-        @media (max-width: $breakpoint-m) {
-            width: 100%;
-        }
-
-        img {
-            object-fit: cover;
-            object-position: center;
-            position: relative;
-
-            width: 100%;
-            height: 100%;
-        }
-
-        &-mask-1 {
-            position: absolute;
-            z-index: 5;
-
-            top: 0;
-            left: 0;
-        }
-
-        &-mask-2 {
-            position: absolute;
-            z-index: 5;
-            opacity: 0.7;
-            max-width: 100%;
-
-            bottom: 0;
-            right: 0;
-        }
-    }
-  
-    &__link {
-      align-items: flex-end;
-      justify-content: flex-end;
-      width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
-  
-      @media (max-width: $breakpoint) {
-        display: none;
-      }
+    width: calc(#{$col-part-d} * 6);
+    @media (max-width: $breakpoint) {
+        width: auto;
     }
   }
+
+  &__date {
+    width: 100%;
+    margin-bottom: 130px;
+    color: $color-main;
+
+    @media (max-width: $breakpoint-m) {
+    margin-bottom: 20px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+    font-size: 12px;
+    }
+  }
+
+  &__title {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+    h3 {
+      font-size: 40px;
+      line-height: 110%;
+      font-weight: 500;
+
+      @media (max-width: $breakpoint-m) {
+          font-size: 18px;
+      }
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: auto;
+    }
+  }
+
+  &__img {
+    position: relative;
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    @media (max-width: $breakpoint) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+    }
+    @media (max-width: $breakpoint-m) {
+        width: 100%;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    &-mask-1 {
+      position: absolute;
+      z-index: 5;
+
+      top: 0;
+      left: 0;
+    }
+
+    &-mask-2 {
+      position: absolute;
+      z-index: 5;
+      opacity: 0.7;
+      max-width: 100%;
+
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__link {
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+    display: none;
+    }
+  }
+}
+
+// Блок со списком новостей
 
 .news {
 
@@ -271,13 +280,16 @@
     }
 }
 
+// Кнопка с загрузкой следующих новостей
+
 .news-show-more-ico {
 .arrow-rotate {
     transform-origin: center;
     transform: rotate(90deg);
     }
 }
-  
+
+// Блок с подпиской на новости
   
 .news-subscribe {
     margin: 160px 0;

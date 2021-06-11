@@ -25,11 +25,42 @@ block content
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
+            .team-filter
+              .team-filter__container
+                a.team-filter__item(href="#") #врачи
+                a.team-filter__item(href="#") #зубныетехники
+                a.team-filter__item(href="#") #администраторы
+                a.team-filter__item(href="#") #координаторы
+              button.team-filter__reset
+                +reset-svg('team-filter__reset-ico')
+                |Сбросить
         .row__col
           .section__inner.section__inner--top
             .container
               h1.title
                 |Наша команда
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Наша команда
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              .team-filter.team-filter-mobile
+                .team-filter__container
+                  a.team-filter__item(href="#") #врачи
+                  a.team-filter__item(href="#") #зубныетехники
+                  a.team-filter__item(href="#") #администраторы
+                  a.team-filter__item(href="#") #координаторы
+                button.team-filter__reset
+                  +reset-svg('team-filter__reset-ico')
+                  |Сбросить
               .team
                 include ../components/_team-member-card
                 include ../components/_team-member-card

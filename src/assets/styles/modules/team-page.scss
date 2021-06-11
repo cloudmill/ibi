@@ -1,5 +1,53 @@
 // Стили страницы Наша команда
 
+.team-filter {
+  &-mobile {
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+  }
+
+  margin-top: 60px;
+  padding-left: $col-gap-d;
+
+  @media (max-width: $breakpoint) {
+    margin-top: 20px;
+    padding-left: 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__item {
+    margin-right: 10px;
+
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  &__reset {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    display: flex;
+
+    font-size: 14px;
+    line-height: 140%;
+
+    &-ico {
+      margin-right: 15px;
+    }
+  }
+}
+
 .team {
   display: flex;
   flex-wrap: wrap;
@@ -7,11 +55,20 @@
 
   margin-top: 120px;
 
+  @media (max-width: $breakpoint) {
+    margin-top: 40px;
+  }
+
 // Большая карточка
 
   &-member {
     width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
     margin-bottom: 100px;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
 
     &__img {
       width: 100%;
@@ -19,6 +76,11 @@
       margin-bottom: 50px;
       
       position: relative;
+
+      @media (max-width: $breakpoint) {
+        height: auto;
+        margin-bottom: 30px;
+      }
 
       img {
         width: 100%;
@@ -41,31 +103,51 @@
       margin: 0 20px -20px 0;
 
       &-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+
         width: 112px;
         height: 112px;
         background-color: #fff;
         border-radius: 50%;
         border: 1px solid $color-gray-border;
 
-        padding: 20px 27px;
+        padding: 15px 27px;
         margin-left: 10px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        @media (max-width: $breakpoint) {
+          width: 88px;
+          height: 88px;
+
+          padding: 15px 20px 10px;
+        }
       }
 
       &-txt {
         font-size: 14px;
         line-height: 140%;
+
+        height: 50%;
         text-align: center;
+        
+        display: flex;
+        align-items: center;
+
+        @media (max-width: $breakpoint) {
+          font-size: 10px;
+        }
       }
 
       &-count {
         font-size: 30px;
         line-height: 140%;
         text-align: center;
+
+        @media (max-width: $breakpoint) {
+          font-size: 24px;
+        }
       }
     }
 
@@ -73,6 +155,10 @@
       width: 100%;
       border-left: 1px solid $color-main;
       padding: 0 40px 0 40px;
+
+      @media (max-width: $breakpoint) {
+        padding: 0 20px 0 20px;
+      }
     }
 
     &__name {
@@ -80,6 +166,10 @@
       line-height: 140%;
 
       margin-bottom: 10px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 18px;
+      }
     }
 
     &__position {
@@ -87,6 +177,10 @@
       line-height: 140%;
 
       color: $color-main;
+
+      @media (max-width: $breakpoint) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -96,8 +190,17 @@
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     margin-top: 100px;
 
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-top: 0;
+    }
+
     .team-member__img {
       height: 390px;
+
+      @media (max-width: $breakpoint) {
+        height: auto;
+      }
     }
   }
 
@@ -105,8 +208,17 @@
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     margin-top: 100px;
 
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-top: 0;
+    }
+
     .team-member__img {
       height: 390px;
+
+      @media (max-width: $breakpoint) {
+        height: auto;
+      }
     }
   }
 }
