@@ -30,6 +30,8 @@
 
     font-size: 14px;
     line-height: 140%;
+
+    cursor: pointer;
   }
 
   &__reset {
@@ -45,6 +47,22 @@
     &-ico {
       margin-right: 15px;
     }
+  }
+}
+
+.hide {
+  opacity: 1;
+  animation: cardHide 2s;
+}
+
+@keyframes cardHide {
+  to {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0 ;
   }
 }
 

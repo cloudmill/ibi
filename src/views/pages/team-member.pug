@@ -208,21 +208,21 @@ block content
         .row__col
           .container.news-subscribe.member-page-ask
             h2.news-subscribe__title.member-page-ask__title Задать вопрос врачу
-            form.news-subscribe__form.member-page-ask__form
+            form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
               .member-page-ask__form-wrapper
                 label.news-subscribe__form-placeholder.member-page-ask__label
-                    input.news-subscribe__form-email(type="text" placeholder="Имя*")
+                    input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
                 label.news-subscribe__form-placeholder.member-page-ask__label
-                    input.news-subscribe__form-email(type="tel" placeholder="Телефон")
+                    input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
                 label.news-subscribe__form-placeholder.member-page-ask__label
-                    input.news-subscribe__form-email(type="email" placeholder="E-mail*")
+                    input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
                 label.news-subscribe__form-placeholder.member-page-ask__label
                     textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
                 label.news-subscribe__form-checkbox.member-page-ask__checkbox
-                    input(type="checkbox")
+                    input(type="checkbox" required="")
                     p Согласен на обработку персональных данных в соответствии с 
                         a(href="#") политикой конфиденциальности
-                button.news-subscribe__form-btn
+                button.news-subscribe__form-btn(type="submit")
                     +arrow-link-svg('news-subscribe__form-btn-ico')
                     |Отправить
 

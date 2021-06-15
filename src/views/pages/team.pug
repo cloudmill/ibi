@@ -26,11 +26,11 @@ block content
                         a.nav__link(href='#')
                           |#{item}
             .team-filter
-              .team-filter__container
-                a.team-filter__item(href="#") #врачи
-                a.team-filter__item(href="#") #зубныетехники
-                a.team-filter__item(href="#") #администраторы
-                a.team-filter__item(href="#") #координаторы
+              ul.team-filter__container
+                li.team-filter__item(data-id="doctor") #врачи
+                li.team-filter__item(data-id="dentist") #зубныетехники
+                li.team-filter__item(data-id="admin") #администраторы
+                li.team-filter__item(data-id="coordinator") #координаторы
               button.team-filter__reset
                 +reset-svg('team-filter__reset-ico')
                 |Сбросить
@@ -62,25 +62,111 @@ block content
                   +reset-svg('team-filter__reset-ico')
                   |Сбросить
               .team
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-                include ../components/_team-member-card
-                include ../components/_team-member-card
+                a.team-member.doctor(href="#")
+                  .team-member__img
+                    .team-member__badge
+                      .team-member__badge-item
+                        .team-member__badge-txt Статей в блоге
+                        .team-member__badge-count 14
+                      .team-member__badge-item
+                        .team-member__badge-txt Операций
+                        .team-member__badge-count 26
+                    img(src="assets/images/team-1.jpg", alt="")
+                  .team-member__desc
+                    .team-member__name Шмойлов Андрей Евгеньевич
+                    .team-member__position Главный врач центра
+                a.team-member.dentist(href="#")
+                  .team-member__img
+                    .team-member__badge
+                      .team-member__badge-item
+                        .team-member__badge-txt Статей в блоге
+                        .team-member__badge-count 14
+                      .team-member__badge-item
+                        .team-member__badge-txt Операций
+                        .team-member__badge-count 26
+                    img(src="assets/images/team-1.jpg", alt="")
+                  .team-member__desc
+                    .team-member__name Шмойлов Андрей Евгеньевич
+                    .team-member__position Главный врач центра
+                a.team-member.dentist(href="#")
+                  .team-member__img
+                    .team-member__badge
+                      .team-member__badge-item
+                        .team-member__badge-txt Статей в блоге
+                        .team-member__badge-count 14
+                      .team-member__badge-item
+                        .team-member__badge-txt Операций
+                        .team-member__badge-count 26
+                    img(src="assets/images/team-1.jpg", alt="")
+                  .team-member__desc
+                    .team-member__name Шмойлов Андрей Евгеньевич
+                    .team-member__position Главный врач центра
+                a.team-member.admin(href="#")
+                  .team-member__img
+                    .team-member__badge
+                      .team-member__badge-item
+                        .team-member__badge-txt Статей в блоге
+                        .team-member__badge-count 14
+                      .team-member__badge-item
+                        .team-member__badge-txt Операций
+                        .team-member__badge-count 26
+                    img(src="assets/images/team-1.jpg", alt="")
+                  .team-member__desc
+                    .team-member__name Шмойлов Андрей Евгеньевич
+                    .team-member__position Главный врач центра
+                a.team-member.coordinator(href="#")
+                  .team-member__img
+                    .team-member__badge
+                      .team-member__badge-item
+                        .team-member__badge-txt Статей в блоге
+                        .team-member__badge-count 14
+                      .team-member__badge-item
+                        .team-member__badge-txt Операций
+                        .team-member__badge-count 26
+                    img(src="assets/images/team-1.jpg", alt="")
+                  .team-member__desc
+                    .team-member__name Шмойлов Андрей Евгеньевич
+                    .team-member__position Главный врач центра
+                a.team-member.admin(href="#")
+                  .team-member__img
+                    .team-member__badge
+                      .team-member__badge-item
+                        .team-member__badge-txt Статей в блоге
+                        .team-member__badge-count 14
+                      .team-member__badge-item
+                        .team-member__badge-txt Операций
+                        .team-member__badge-count 26
+                    img(src="assets/images/team-1.jpg", alt="")
+                  .team-member__desc
+                    .team-member__name Шмойлов Андрей Евгеньевич
+                    .team-member__position Главный врач центра
+                a.team-member.dentist(href="#")
+                  .team-member__img
+                    .team-member__badge
+                      .team-member__badge-item
+                        .team-member__badge-txt Статей в блоге
+                        .team-member__badge-count 14
+                      .team-member__badge-item
+                        .team-member__badge-txt Операций
+                        .team-member__badge-count 26
+                    img(src="assets/images/team-1.jpg", alt="")
+                  .team-member__desc
+                    .team-member__name Шмойлов Андрей Евгеньевич
+                    .team-member__position Главный врач центра
+                a.team-member.doctor(href="#")
+                  .team-member__img
+                    .team-member__badge
+                      .team-member__badge-item
+                        .team-member__badge-txt Статей в блоге
+                        .team-member__badge-count 14
+                      .team-member__badge-item
+                        .team-member__badge-txt Операций
+                        .team-member__badge-count 26
+                    img(src="assets/images/team-1.jpg", alt="")
+                  .team-member__desc
+                    .team-member__name Шмойлов Андрей Евгеньевич
+                    .team-member__position Главный врач центра
+                  
 
 
 block footer
