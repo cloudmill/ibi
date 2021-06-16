@@ -1,0 +1,84 @@
+.vacancies {
+  &-tagline {
+    margin: 0 0 120px 0;
+    padding-right: calc(#{$col-width-d});
+    max-width: unset;
+
+    text-align: left;
+    font-size: 70px;
+  }
+
+  &-blockquote {
+    font-size: 22px;
+    line-height: 140%;
+
+    border-left: 1px solid $color-main;
+
+    margin: 160px 0 0 calc(#{$col-part-d});
+    padding: 0 calc(#{$col-part-d} * 2) 0 calc(#{$col-part-d} * 2);
+  }
+}
+
+.vacancies-achievements {
+  display: flex;
+  justify-content: space-between;
+
+  &__box {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+  }
+
+  &__img {
+    object-position: center;
+    object-fit: cover;
+
+    margin-bottom: 20px;
+  }
+
+  &__txt {
+    font-size: 18px;
+  }
+}
+
+.vacancies-list {
+
+  &__subtitle {
+    margin: 60px 0 40px;
+  }
+
+  &__subtitle:first-child {
+    margin: 0 0 40px;
+  }
+
+  &__extra {
+    margin-top: 160px;
+    width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+
+    &-txt {
+      font-size: 30px;
+    }
+
+    &-btn {
+      border: none;
+      background-color: $color-main;
+      border-radius: 8px;
+      cursor: pointer;
+
+      color: #fff;
+      font-size: 16px;
+
+      display: flex;
+      align-items: center;
+
+      padding: 10px 20px 10px 8px;
+      margin-top: 60px;
+
+      .extra-btn {
+        margin-right: 20px;
+        stroke: #fff;
+        &-fill {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}

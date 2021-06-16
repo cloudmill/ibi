@@ -308,7 +308,7 @@ const BREAKPOINT = 1280;
 {
   document.addEventListener("DOMContentLoaded", function () {
     var phoneInputs = document.querySelectorAll('input[data-tel-input]');
-    console.log(phoneInputs);
+    // console.log(phoneInputs);
 
     var getInputNumbersValue = function (input) {
         // Удаление любых символов крме цифр

@@ -50,21 +50,21 @@
   }
 }
 
-.hide {
-  opacity: 1;
-  animation: cardHide 2s;
-}
+// .hide {
+//   opacity: 1;
+//   animation: cardHide 2s;
+// }
 
-@keyframes cardHide {
-  to {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    border: 0 ;
-  }
-}
+// @keyframes cardHide {
+//   to {
+//     opacity: 0;
+//     width: 0;
+//     height: 0;
+//     margin: 0;
+//     padding: 0;
+//     border: 0 ;
+//   }
+// }
 
 .team {
   display: flex;
