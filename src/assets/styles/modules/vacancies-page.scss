@@ -6,6 +6,11 @@
 
     text-align: left;
     font-size: 70px;
+
+    @media (max-width: $breakpoint) {
+      font-size: 22px;
+      padding-right: calc(#{$col-width-m});
+    }
   }
 
   &-blockquote {
@@ -16,6 +21,11 @@
 
     margin: 160px 0 0 calc(#{$col-part-d});
     padding: 0 calc(#{$col-part-d} * 2) 0 calc(#{$col-part-d} * 2);
+
+    @media (max-width: $breakpoint) {
+      margin: 90px 0 0 0;
+      padding: 0 0 0 20px;
+    }
   }
 }
 
@@ -23,14 +33,24 @@
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+  }
+
   &__box {
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
   }
 
   &__img {
     object-position: center;
     object-fit: cover;
 
+    width: 100%;
     margin-bottom: 20px;
   }
 
@@ -53,8 +73,17 @@
     margin-top: 160px;
     width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
 
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-top: 60px;
+    }
+
     &-txt {
       font-size: 30px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 18px;
+      }
     }
 
     &-btn {
