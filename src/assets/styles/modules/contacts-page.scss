@@ -1,0 +1,145 @@
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    display: flex;
+    width: 100%;
+
+    margin-bottom: 40px;
+
+    @media (max-width: $breakpoint) {
+      flex-direction: column;
+    }
+
+    &-ttl {
+      width: calc(#{$col-part-d} * 2);
+      font-size: 16px;
+
+      @media (max-width: $breakpoint) {
+        width: auto;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+    }
+
+    &-link {
+      font-size: 50px;
+      color: $color-main;
+
+      @media (max-width: $breakpoint) {
+        font-size: 22px;
+      }
+    }
+  }
+
+  &-6col {
+    width: calc(#{$col-part-d} * 6);
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+    }
+  }
+
+  &-3col {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+  }
+
+  &__weekdays {
+    width: calc(#{$col-part-d});
+    
+
+    @media (max-width: $breakpoint) {
+      width: auto;
+      margin-bottom: 20px;
+      
+    }
+  }
+
+  &__weekdays, &__weekend {
+    font-size: 16px;
+
+    @media (max-width: $breakpoint) {
+      font-size: 12px;
+    }
+  }
+
+  &__address {
+    font-size: 22px;
+
+    @media (max-width: $breakpoint) {
+      font-size: 16px;
+    }
+  }
+  
+  &__social {
+    @media (max-width: $breakpoint) {
+      margin-top: 15px;
+    }
+
+    &-link {
+      margin-right: 10px;
+      width: 60px;
+      height: 60px;
+
+      
+    }
+  }
+
+  &-ico-stroke {
+    stroke: $color-black;
+  }
+
+  &-ico-fill {
+    fill: $color-black;
+  }
+}
+
+.contacts-map-big {
+  margin-bottom: 120px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.contacts-map-small {
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-gray-border;
+
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+  }
+
+  &-item {
+    border-top: 1px solid $color-main;
+    width: calc( (#{$col-part-d} * 9 - (#{$col-gap-d} * 2)) / 2);
+    padding: 20px 0 40px 0;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+    }
+
+    &__ttl {
+      margin-bottom: 40px;
+      font-size: 22px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 16px;
+      }
+    }
+
+    &__map {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    &__desc {
+      color: #7A9598;
+      font-size: 14px;
+    }
+  }  
+
+}
