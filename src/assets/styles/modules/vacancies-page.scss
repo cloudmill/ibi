@@ -10,7 +10,34 @@
     @media (max-width: $breakpoint) {
       font-size: 22px;
       padding-right: calc(#{$col-width-m});
+      position: relative;
+      padding-bottom: 200px;
     }
+
+    span {
+      font-size: 70px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 22px;
+      }
+    }
+
+    // &-img {
+    //   @media (max-width: $breakpoint) {
+    //     width: 100%;
+    //     text-align: right;
+    //     display: inline;
+    //   }
+    // }
+    img {
+      @media (max-width: $breakpoint) {
+        position: absolute;
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+        bottom: 0;
+        right: 0;
+      }
+    }
+    
   }
 
   &-blockquote {
