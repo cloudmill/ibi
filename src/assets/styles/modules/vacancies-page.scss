@@ -11,6 +11,12 @@
       font-size: 22px;
       padding-right: calc(#{$col-width-m});
       position: relative;
+      padding-bottom: 350px;
+    }
+    @media (max-width: $breakpoint-t) {
+      padding-bottom: 300px;
+    }
+    @media (max-width: $breakpoint-m) {
       padding-bottom: 200px;
     }
 
