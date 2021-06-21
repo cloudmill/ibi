@@ -132,6 +132,8 @@
       justify-content: space-between;
 
       .news-subscribe__form-btn {
+        margin-right: 20px;
+
         @media (max-width: $breakpoint) {
           margin-left: 0;
           margin-top: 20px;
@@ -151,7 +153,20 @@
 
   &__label {
     width: 100%;
+
+    textarea {
+      margin-bottom: 40px;
+      resize: none;
+
+      @media (max-width: $breakpoint) {
+        margin-bottom: 30px;
+      }
+    }
   }
+
+  // &__label:last-child {
+  //   margin-bottom: 100px;
+  // }
 
   &__checkbox {
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});

@@ -73,16 +73,17 @@
   }
   
   &__social {
+
     @media (max-width: $breakpoint) {
       margin-top: 15px;
     }
 
     &-link {
-      margin-right: 10px;
-      width: 60px;
-      height: 60px;
+      border: 1px solid $color-black;
 
-      
+      svg path {
+        fill: $color-black;
+      }
     }
   }
 
@@ -97,6 +98,7 @@
 
 .contacts-map-big {
   margin-bottom: 120px;
+  margin-top: 80px;
 
   img {
     width: 100%;

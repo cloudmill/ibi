@@ -11,13 +11,17 @@
       font-size: 22px;
       padding-right: calc(#{$col-width-m});
       position: relative;
-      padding-bottom: 350px;
+      padding-bottom: 300px;
+      margin: 0 0 40px 0;
     }
     @media (max-width: $breakpoint-t) {
-      padding-bottom: 300px;
+      padding-bottom: 200px;
     }
     @media (max-width: $breakpoint-m) {
-      padding-bottom: 200px;
+      padding-bottom: 150px;
+    }
+    @media (max-width: 400px) {
+      padding-bottom: 100px;
     }
 
     span {
@@ -28,20 +32,23 @@
       }
     }
 
-    // &-img {
-    //   @media (max-width: $breakpoint) {
-    //     width: 100%;
-    //     text-align: right;
-    //     display: inline;
-    //   }
-    // }
     img {
+      padding-top: 50px;
+      object-position: center;
+      object-fit: cover;
+
       @media (max-width: $breakpoint) {
         position: absolute;
         width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+        // height: 85px;
         bottom: 0;
         right: 0;
       }
+
+      // @media (max-width: $breakpoint-t) {
+      //   // height: 85px;
+      //   max-width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      // }
     }
     
   }
