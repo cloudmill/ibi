@@ -1,0 +1,159 @@
+.lab {
+  &__subtitle {
+    font-size: 30px;
+    width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+    margin-bottom: 70px;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &-target {
+    
+    display: flex;
+    margin: 160px 0;
+
+    border-bottom: 1px solid $color-gray-border;
+
+    &__title {
+      font-size: 40px;
+
+      width: calc(#{$col-part-d} * 6);
+    }
+
+    &__txt {
+      font-size: 18px;
+      line-height: 160%;
+
+      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+      p {
+        margin-bottom: 40px;
+      }
+
+      &-highlight {
+        font-family: "PFRegalDisplayPro", serif;
+        font-weight: 700;
+        font-style: italic;
+        color: $color-main;
+      }
+    }
+  }
+
+  &-block {
+    display: flex;
+    margin: 80px 0;
+
+    &__video {
+      width: calc(#{$col-part-d} * 3);
+
+      &-link {
+        display: flex;
+        align-items: center;
+
+        width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+        font-size: 18px;
+      }
+
+      &-svg {
+        margin-right: 20px;
+        width: calc(#{$col-part-d});
+      }
+    }
+
+    &__txt {
+      width: calc(#{$col-part-d} * 9 - #{$col-gap-d});
+
+      font-size: 30px;
+      line-height: 140%;
+
+      &-highlight {
+        font-family: "PFRegalDisplayPro", serif;
+        font-weight: 700;
+        font-style: italic;
+        color: $color-main;
+      }
+    }
+  }
+}
+
+.development {
+  margin: 160px 0 150px;
+
+  &__title {
+    font-size: 40px;
+    margin-bottom: 80px;
+  }
+
+  &__names {
+    display: flex;
+    padding-bottom: 80px;
+    border-bottom: 1px solid $color-main;
+
+    &-item {
+      margin-right: 40px;
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+    &-item:hover {
+      color: $color-main;
+      border-bottom: 1px solid $color-main;
+    }
+  }
+
+  &__desc {
+    margin-top: 55px;
+
+    &-item {
+      display: flex;
+    }
+  }
+
+  &__img {
+    width: calc(#{$col-part-d} * 5);
+    height: 460px;
+    background-color: $color-gray-border;
+
+    margin-right: calc(#{$col-part-d});
+  }
+
+  &__txt {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+    p {
+      font-size: 22px;
+    }
+
+    ul {
+      margin-top: 60px;
+      counter-reset: list1;
+    }
+
+    ul li {
+      padding-left: calc(#{$col-width-d});
+      margin-bottom: 30px;
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 160%;
+    }
+    
+    ul li:before {
+      counter-increment: list1;
+      content: counter(list1) " ";
+      display: block;
+      background: url('assets/images/lab-list.svg') no-repeat;
+      width: 57px;
+      height: 63px;
+      text-align: center;
+      color: $color-main;
+      padding-top: 17px;
+      margin-left: calc(#{$col-width-d} * (-1));
+      margin-right: calc(#{$col-width-d} - 57px);
+    }
+  }
+}

@@ -1,0 +1,94 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+block content
+  .lab
+    section.section.section--gradient
+      .row
+        .row__col
+        .row__col
+          .section__inner--top
+            .container
+              h1.title
+                |Лаборатория IBI
+              .section__block.section__block--small
+                .lab__subtitle IBI Lab – современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
+    section
+      .container
+        img.lab__img(src="assets/images/laboratory.jpg", alt="")
+        .lab-target
+          .lab-target__title Цель лаборатории
+          .lab-target__txt
+            p Конструкции с опорой на базальные имплантаты имеют свою специфику в изготовлении и работе с ними. Клиника, не имеющая знаний и опыта работы с опорой на базальных имплантатах, не в состоянии изготовить качественный и правильный мост для установки на базальные имплантаты SI.
+            p Мы специализруемся на производстве мостов, коронок и любых ортопедических конструкций. Наши подходы 
+              span.lab-target__txt-highlight отвечают требованиям качества и соответсвенния стандртам IIF.
+        .lab-block
+          .lab-block__video
+            .lab-block__video-link
+              +presentation-svg('lab-block__video-svg')
+              |Смотреть видео
+          .lab-block__txt Штат лаборатории укомплектован 
+            span.lab-block__txt-highlight высококвалифицированными зубными техниками
+            |, которые 
+            span.lab-block__txt-highlight прошли расширенное обучение и подготовку для работы на базальных имплантатах Strategic Implant за рубежом 
+            |и в своей практике ежедневно изготавливают различные ортопедические конструкции в протоколе немедленной нагрузки.
+    //- section
+    //-   .index__block
+    //-     .index__mid
+    //-       .index__mid-slider
+    //-         .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='8' data-slider-prev='11' data-slider-next='12')
+    //-           .swiper-wrapper
+    //-             .swiper-slide
+    //-               .index__mid-slide
+    //-                 img.index__mid-img(src=`assets/images/lab-slider.jpg` alt='')
+    //-             .swiper-slide
+    //-               .index__mid-slide
+    //-                 img.index__mid-img(src=`assets/images/lab-slider.jpg` alt='')
+    //-             .swiper-slide
+    //-               .index__mid-slide
+    //-                 img.index__mid-img(src=`assets/images/lab-slider.jpg` alt='')
+    //-       .index__mid-controls
+    //-         .index__mid-control.index__mid-control--left
+    //-           .button-arrow.button-arrow--left
+    //-             .button-arrow__button(data-slider-button='11')
+    //-               +arrow-svg.button-arrow__svg
+    //-         .index__mid-control.index__mid-control--right
+    //-           .button-arrow.button-arrow--right
+    //-             .button-arrow__button(data-slider-button='12')
+    //-               +arrow-svg.button-arrow__svg
+    section.development
+      .container
+        .development__title Наши разработки
+        .development__names
+          .development__names-item Металлокерамический мост
+          .development__names-item Металлоакриловый мост
+          .development__names-item Мост ПММА
+          .development__names-item Протез (PRETTAU Zircon)
+          .development__names-item Керамокомпозитный мост
+          .development__names-item Металлоакриловый мост
+          .development__names-item Керамокомпозитный мост
+        .development__desc
+          .development__desc-item
+            .development__img
+            .development__txt
+              p Для восстановление одной или двух челюстей
+              ul
+                li Этот вид протезирования обычно используется при первичном или временном протезировании.
+                li Срок службы при нормальной эксплуатации и обслуживании составляет 2-3 года.
+                li Это довольно известная конструкция и повсеместно применяемая в протезировании на базальных имплантатах, но в ИБИ протокол изготовления этого моста усовершенствован и позволяет изготовить даже первичный, временный мост оптимальным и высококачественным. 
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })
