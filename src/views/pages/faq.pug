@@ -1,0 +1,154 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+block content
+  section.section.section--gradient
+    .row
+      .row__col
+        .section__inner.section__inner--top
+          .nav
+            .nav__container
+              nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                ul.nav__list
+                  li.nav__item.nav__item--active
+                    a.nav__link(href='#')
+                      |О нас
+                  each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |#{item}
+          .team-filter
+            ul.team-filter__container
+              li.team-filter__item(data-id="doctor") #имплантация
+              li.team-filter__item(data-id="dentist") #протезирование
+              li.team-filter__item(data-id="admin") #оплата
+              li.team-filter__item(data-id="coordinator") #операция
+              li.team-filter__item(data-id="doctor") #протезирование
+              li.team-filter__item(data-id="dentist") #операция
+              li.team-filter__item(data-id="admin") #оплата
+              li.team-filter__item(data-id="coordinator") #операция
+            button.team-filter__reset
+              +reset-svg('team-filter__reset-ico')
+              |Сбросить
+      .row__col
+        .section__inner.section__inner--top
+          .container
+            h1.title
+              |Вопрос-ответ
+            .mission__spoiler.news-spoiler
+              .mission__spoiler-button.news-spoiler__button
+                h5.mission__spoiler-title
+                  |Вопрос-ответ
+                .news-spoiler__image
+                  +arrow-svg('header__drop-svg')
+              .mission__spoiler-drop.news-spoiler__drop
+                nav.news-spoiler__nav
+                  ul
+                    each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                      li.news-spoiler__nav-item
+                        a.nav__link(href='#')
+                          |#{item}
+            .team-filter.team-filter-mobile
+              .team-filter__container
+                li.team-filter__item(data-id="doctor") #имплантация
+                li.team-filter__item(data-id="dentist") #протезирование
+                li.team-filter__item(data-id="admin") #оплата
+                li.team-filter__item(data-id="coordinator") #операция
+                li.team-filter__item(data-id="doctor") #протезирование
+                li.team-filter__item(data-id="dentist") #операция
+                li.team-filter__item(data-id="admin") #оплата
+                li.team-filter__item(data-id="coordinator") #операция
+              button.team-filter__reset
+                +reset-svg('team-filter__reset-ico')
+                |Сбросить
+            
+            .section__block.section__block--small
+              ul.mission__spoilers.mission__spoilers--margin-top
+                li.mission__spoilers-item
+                  .mission__spoiler
+                    .mission__spoiler-button
+                      h5.mission__spoiler-title
+                        |Могут ли задеть нерв при установке имплантатов?
+                      .mission__spoiler-image
+                    .mission__spoiler-drop
+                      .mission__spoiler-list
+                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum facere dolor exercitationem nisi rerum tempora sapiente aut voluptatum laboriosam eligendi animi sed, quam consectetur impedit quaerat cumque, alias omnis!
+                li.mission__spoilers-item
+                  .mission__spoiler
+                    .mission__spoiler-button
+                      h5.mission__spoiler-title
+                        |Если имплантаты устанавливают сразу после удаления зубов, то как они держатся? Зуб то большой и с корнями, а имплантат узкий и может вывалиться.
+                      .mission__spoiler-image
+                    .mission__spoiler-drop
+                      .mission__spoiler-list
+                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus illo numquam a ipsa beatae? Ipsa, explicabo, quas illo minima qui sapiente, pariatur ipsum natus delectus voluptates similique quaerat aliquam porro.
+                li.mission__spoilers-item
+                  .mission__spoiler
+                    .mission__spoiler-button
+                      h5.mission__spoiler-title
+                        |Если доктор, который наблюдает уедет в отпуск, а возникла форс-мажорная ситуация с зубами и необходимо срочно на прием?
+                      .mission__spoiler-image
+                    .mission__spoiler-drop
+                      .mission__spoiler-list
+                        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. At ratione, quibusdam consequuntur optio, fugiat aperiam quam eum, et fuga delectus provident debitis quisquam modi adipisci dolore ducimus dignissimos maiores! Assumenda!
+                li.mission__spoilers-item
+                  .mission__spoiler
+                    .mission__spoiler-button
+                      h5.mission__spoiler-title
+                        |Какие возрастные ограничения?
+                      .mission__spoiler-image
+                    .mission__spoiler-drop
+                      .mission__spoiler-list
+                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum facere dolor exercitationem nisi rerum tempora sapiente aut voluptatum laboriosam eligendi animi sed, quam consectetur impedit quaerat cumque, alias omnis!
+                li.mission__spoilers-item
+                  .mission__spoiler
+                    .mission__spoiler-button
+                      h5.mission__spoiler-title
+                        |Всем ли подходит метод базальной имплантации?
+                      .mission__spoiler-image
+                    .mission__spoiler-drop
+                      .mission__spoiler-list
+                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus illo numquam a ipsa beatae? Ipsa, explicabo, quas illo minima qui sapiente, pariatur ipsum natus delectus voluptates similique quaerat aliquam porro.
+                li.mission__spoilers-item
+                  .mission__spoiler
+                    .mission__spoiler-button
+                      h5.mission__spoiler-title
+                        |Будут ли мне устанавливать БОИ имплантаты?
+                      .mission__spoiler-image
+                    .mission__spoiler-drop
+                      .mission__spoiler-list
+                        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. At ratione, quibusdam consequuntur optio, fugiat aperiam quam eum, et fuga delectus provident debitis quisquam modi adipisci dolore ducimus dignissimos maiores! Assumenda!
+            .section__block.section__block--small
+              .news-subscribe.member-page-ask
+                h2.news-subscribe__title.member-page-ask__title Задать свой вопрос
+                form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+                  .member-page-ask__form-wrapper
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+                    label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                        input(type="checkbox" required="")
+                        p Согласен на обработку персональных данных в соответствии с 
+                            a(href="#") политикой конфиденциальности
+                    button.news-subscribe__form-btn(type="submit")
+                        +arrow-link-svg('news-subscribe__form-btn-ico')
+                        |Отправить
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })
