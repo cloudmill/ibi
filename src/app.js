@@ -190,6 +190,32 @@ const BREAKPOINT = 1280;
             loop: true,
           }
           break;
+
+        case 106:
+          slider_options = {
+            ...slider_options,
+
+            // allowTouchMove: false,
+            // autoHeight: true,
+            // loop: true,
+            slideToClickedSlide: true,
+            
+          }
+          break;
+        
+        case 105:
+          slider_options = {
+            ...slider_options,
+
+            // allowTouchMove: false,
+            autoHeight: true,
+            // loop: true,
+
+            thumbs: {
+              swiper: 106,
+            },
+          }
+          break;
         
       }
 
