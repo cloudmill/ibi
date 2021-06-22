@@ -30,12 +30,27 @@ block content
             .container
               h1.title
                 |Гарантии
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Гарантии
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['Способы оплаты', 'Трансфер', 'Вопрос-ответ']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
               .section__block.section__block--small
                 .guarantee__img
                   .guarantee__img-txt
                     h2 5 лет гарантии
                     p Гарантия на имплантацию с применением Швейцарских имплантатов STRATEGIC IMPLANT 5 лет. На протяжении которых вы проходите 8 бесплатных обязательных контрольных осмотров. Все гарантийные обязательства четко закреплены в Положении о гарантиях.
-                  img(src="assets/images/garantee.jpg", alt="")
+                  img.guarantee__img-effects-mob(src="assets/images/guarantee-effects-mobile.png", alt="")
+                  img.guarantee__img-effects-desk(src="assets/images/guarantee-effects-desktop.png", alt="")
+                  img.guarantee__img-main(src="assets/images/guarantee-2.jpg", alt="")
                 .guarantee-contract
                   h3.guarantee-contract__title Все гарантийные обязательства закреплены в договоре
                   .guarantee-contract__download
