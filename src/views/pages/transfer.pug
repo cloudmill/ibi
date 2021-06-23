@@ -32,6 +32,19 @@ block content
           .container
             h1.title
               |Трансфер
+            .mission__spoiler.news-spoiler
+              .mission__spoiler-button.news-spoiler__button
+                h5.mission__spoiler-title
+                  |Трансфер
+                .news-spoiler__image
+                  +arrow-svg('header__drop-svg')
+              .mission__spoiler-drop.news-spoiler__drop
+                nav.news-spoiler__nav
+                  ul
+                    each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                      li.news-spoiler__nav-item
+                        a.nav__link(href='#')
+                          |#{item}
             .section__block.section__block--small
               .transfer__subtitle.index__paragraph
                 span.index__paragraph-text

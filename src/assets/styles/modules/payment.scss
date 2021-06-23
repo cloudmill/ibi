@@ -1,0 +1,76 @@
+.payment {
+
+  margin-top: 100px;
+
+  &__row {
+    display: flex;
+    @media (max-width: $breakpoint) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__row-credit {
+    display: flex;
+    margin-top: 160px;
+
+    @media (max-width: $breakpoint) {
+      flex-direction: column;
+      margin-top: 60px;
+    }
+  }
+
+  &__method {
+    width: calc(#{$col-part-d} * 3);
+
+    @media (max-width: $breakpoint) {
+      width: 50%;
+      margin-bottom: 40px;
+    }
+
+    &-ttl {
+      margin: 40px 0 10px;
+      font-size: 22px;
+      line-height: 140%;
+    }
+
+    &-txt {
+      font-size: 16px;
+      line-height: 140%;
+    }
+  }
+
+  // &__method:nth-child(2n) {
+  //   @media (max-width: $breakpoint) {
+  //     width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+  //   }
+  // }
+
+  &__credit-img {
+    background-color: $color-blue-light;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: calc(#{$col-part-d} * 2);
+    flex: none;
+    margin-right: calc(#{$col-part-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    img {width: 100%}
+  }
+
+  &__credit-txt {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    font-size: 22px;
+    line-height: 140%;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+}

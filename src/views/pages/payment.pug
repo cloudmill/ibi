@@ -1,0 +1,76 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+block content
+  section.section.section--gradient
+    .row
+      .row__col
+        .section__inner.section__inner--top
+          .nav
+            .nav__container
+              nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                ul.nav__list
+                  li.nav__item
+                    a.nav__link(href='#')
+                      |Способы оплаты
+                  li.nav__item.nav__item--active
+                    a.nav__link(href='#')
+                      |Способы оплаты
+                  each item in ['Трансфер', 'Вопрос-ответ']
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |#{item}
+                  
+                  
+      .row__col
+        .section__inner.section__inner--top
+          .container
+            h1.title
+              |Способы оплаты
+            .mission__spoiler.news-spoiler
+              .mission__spoiler-button.news-spoiler__button
+                h5.mission__spoiler-title
+                  |Способы оплаты
+                .news-spoiler__image
+                  +arrow-svg('header__drop-svg')
+              .mission__spoiler-drop.news-spoiler__drop
+                nav.news-spoiler__nav
+                  ul
+                    each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                      li.news-spoiler__nav-item
+                        a.nav__link(href='#')
+                          |#{item}
+            .payment
+              .payment__row
+                .payment__method
+                  +payment-1-svg('io')
+                  .payment__method-ttl Банковская карта
+                  .payment__method-txt Visa, MasterCard, МИР
+                .payment__method
+                  +payment-2-svg('io')
+                  .payment__method-ttl Наличными
+                  .payment__method-txt В офисе нашей клиники
+                .payment__method
+                  +payment-3-svg('io')
+                  .payment__method-ttl Оплата по счету
+                  .payment__method-txt Вы можете провести оплату как юридическое лицо
+              .payment__row-credit
+                .payment__credit-img
+                  img(src="assets/images/payment-credit.png", alt="")
+                .payment__credit-txt
+                  |В нашей клинике возможно оформить кредит на лечение от банка–партнера. Также мы предоставляем полный пакет документов на получение налогового вычета.
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })
