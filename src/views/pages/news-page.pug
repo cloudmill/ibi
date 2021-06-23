@@ -20,10 +20,14 @@ block content
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
                   ul.nav__list
+                    each item in ['О нас', 'Миссия и ценности', 'Наша команда']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
-                        |О нас
-                    each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
+                        |Новости
+                    each item in ['Вакансии', 'Контакты']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
@@ -53,13 +57,15 @@ block content
                     li Lorem ipsum dolor sit amet, consectetur adipisicing
                     li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
               aside.share-social
-                .share-social__box(data-sticky-id='2' data-sticky-top='250' data-sticky-bottom='120')
+                .share-social__box
                   .share-social__title Поделиться
-                  div
-                    a.share-social__link(href="#")
-                      +social-share-fb('share-social__ico')
-                    a.share-social__link(href="")
-                      +social-share-vk('share-social__ico')
+                  ul.footer__socials
+                    li.footer__socials-item
+                      a.footer__socials-link.share-social__link(href='#')
+                        +facebook-svg('footer__socials-svg')
+                    li.footer__socials-item
+                      a.footer__socials-link.share-social__link(href='#')
+                        +vk-svg('footer__socials-svg')
     section.other-news(data-sticky-end='2')
       .row
         .row__col

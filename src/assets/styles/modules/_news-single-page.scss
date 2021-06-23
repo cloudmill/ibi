@@ -153,7 +153,7 @@
   padding-top: 174px;
   display: flex;
   justify-content: flex-end;
-  // position: relative;
+  position: relative;
 
   width: calc(#{$col-part-d} * 3);
 
@@ -164,23 +164,27 @@
     width: 100%;
   }
 
-  // &__box {
-  //   position: fixed;
+  &__box {
+    position: fixed;
+    z-index: 1;
 
-  //   @media (max-width: $breakpoint) {
-  //     position: static;
-  //   }
-  // }
+    @media (max-width: $breakpoint) {
+      position: static;
+    }
+  }
 
   &__title {
     margin-bottom: 30px;
   }
 
   &__link {
-    margin-right: 10px;
-  }
-  &__link:last-child {
-    margin-right: 0;
+    border: 1px solid $color-main;
+    width: 80px;
+    height: 80px;
+
+      svg path {
+        fill: $color-main;
+      }
   }
 }
 
@@ -189,6 +193,8 @@
 .other-news {
   background-color: $color-blue-light;
   padding: 160px 0;
+  position: relative;
+  z-index: 2;
   @media (max-width: $breakpoint) {
     padding: 60px 0;
   }

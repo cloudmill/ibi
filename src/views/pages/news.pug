@@ -20,10 +20,14 @@ block content
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
                   ul.nav__list
+                    each item in ['О нас', 'Миссия и ценности', 'Наша команда']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
-                        |О нас
-                    each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
+                        |Новости
+                    each item in ['Вакансии', 'Контакты']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
