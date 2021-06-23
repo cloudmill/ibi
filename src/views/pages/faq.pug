@@ -17,13 +17,13 @@ block content
             .nav__container
               nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
                 ul.nav__list
-                  li.nav__item.nav__item--active
-                    a.nav__link(href='#')
-                      |О нас
-                  each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
+                  each item in ['Способы оплаты', 'Способы оплаты', 'Трансфер']
                     li.nav__item
                       a.nav__link(href='#')
                         |#{item}
+                  li.nav__item.nav__item--active
+                    a.nav__link(href='#')
+                      |Вопрос-ответ
           .team-filter
             ul.team-filter__container
               li.team-filter__item(data-id="doctor") #имплантация
@@ -57,14 +57,14 @@ block content
                           |#{item}
             .team-filter.team-filter-mobile
               .team-filter__container
-                li.team-filter__item(data-id="doctor") #имплантация
-                li.team-filter__item(data-id="dentist") #протезирование
-                li.team-filter__item(data-id="admin") #оплата
-                li.team-filter__item(data-id="coordinator") #операция
-                li.team-filter__item(data-id="doctor") #протезирование
-                li.team-filter__item(data-id="dentist") #операция
-                li.team-filter__item(data-id="admin") #оплата
-                li.team-filter__item(data-id="coordinator") #операция
+                li.team-filter__item(data-id="") #имплантация
+                li.team-filter__item(data-id="") #протезирование
+                li.team-filter__item(data-id="") #оплата
+                li.team-filter__item(data-id="") #операция
+                li.team-filter__item(data-id="") #протезирование
+                li.team-filter__item(data-id="") #операция
+                li.team-filter__item(data-id="") #оплата
+                li.team-filter__item(data-id="") #операция
               button.team-filter__reset
                 +reset-svg('team-filter__reset-ico')
                 |Сбросить
