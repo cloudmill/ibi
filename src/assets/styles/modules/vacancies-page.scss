@@ -6,39 +6,44 @@
 
     text-align: left;
     font-size: 70px;
+    line-height: 140%;
 
     @media (max-width: $breakpoint) {
+      font-size: 50px;
+    }
+
+    @media (max-width: $breakpoint-m) {
       font-size: 22px;
       padding-right: calc(#{$col-width-m});
       position: relative;
       padding-bottom: 300px;
       margin: 0 0 40px 0;
     }
-    @media (max-width: $breakpoint-t) {
-      padding-bottom: 200px;
-    }
-    @media (max-width: $breakpoint-m) {
-      padding-bottom: 150px;
-    }
-    @media (max-width: 400px) {
-      padding-bottom: 100px;
-    }
+    // @media (max-width: $breakpoint-t) {
+    //   padding-bottom: 200px;
+    // }
+    // @media (max-width: $breakpoint-m) {
+    //   padding-bottom: 150px;
+    // }
+    // @media (max-width: 400px) {
+    //   padding-bottom: 100px;
+    // }
 
     span {
       font-size: 70px;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint-m) {
         font-size: 22px;
       }
     }
 
     img {
-      padding-top: 50px;
+      // padding-top: 50px;
       object-position: center;
       object-fit: cover;
       max-height: unset;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint-m) {
         position: absolute;
         width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
         // height: 85px;

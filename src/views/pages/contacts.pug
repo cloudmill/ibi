@@ -32,6 +32,19 @@ block content
             .container
               h1.title
                 |Контакты
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Контакты
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
               .contacts.section__block.section__block--small
                 .contacts__item.contacts-6col
                   .contacts__item-ttl Телефон в Москве
