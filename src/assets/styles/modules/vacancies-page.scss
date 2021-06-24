@@ -16,7 +16,7 @@
       font-size: 22px;
       padding-right: calc(#{$col-width-m});
       position: relative;
-      padding-bottom: 300px;
+      padding-bottom: 200px;
       margin: 0 0 40px 0;
     }
     // @media (max-width: $breakpoint-t) {
@@ -80,6 +80,10 @@
   justify-content: space-between;
 
   @media (max-width: $breakpoint) {
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: $breakpoint-m) {
     flex-direction: column;
   }
 
@@ -87,8 +91,12 @@
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
 
     @media (max-width: $breakpoint) {
-      width: 100%;
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
       margin-bottom: 40px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
     }
   }
 
@@ -102,6 +110,14 @@
 
   &__txt {
     font-size: 18px;
+  }
+
+  &__tagline {
+    padding: 120px 0 160px;
+
+    @media (max-width: $breakpoint) {
+      padding: 20px 0 60px;
+    }
   }
 }
 
