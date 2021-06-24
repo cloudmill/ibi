@@ -101,15 +101,20 @@
     margin-bottom: 100px;
 
     @media (max-width: $breakpoint) {
-      width: 100%;
+      width: 50%;
+      // width: calc(#{$col-part-m} * 2);
       margin-bottom: 10px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
     }
   }
 
   &__item:first-child {
     margin-bottom: 120px;
     @media (max-width: 1300px) {
-      margin-bottom: 250px;
+      margin-bottom: 200px;
     }
     @media (max-width: $breakpoint) {
       margin-bottom: 10px;
@@ -121,15 +126,27 @@
   }
 
   &__item:nth-child(2n) {
-    padding-left: calc(#{$col-part-d} * 3);
+    margin-left: calc(#{$col-part-d} * 3);
 
     .transfer-numbers__count .transfer-numbers__big p {
       margin-left: -55px;
     }
 
     @media (max-width: $breakpoint) {
-      padding-left: 0;
+      // padding-left: 0;
+      margin-left: calc(#{$col-part-m} * 2);
+      // width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      width: 50%;
     }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    // @media (max-width: $breakpoint) {
+    //   padding-left: 0;
+    // }
 
     .transfer-numbers__count .transfer-numbers__desc {
       padding-top: 67px;
@@ -208,8 +225,8 @@
     // padding-left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
 
     @media (max-width: $breakpoint) {
-      padding-top: 20px;
-      padding-left: 40px;
+      padding: 20px 20px 20px 40px;
+      // padding-left: 40px;
       margin-left: -80px;
       width: 100%;
     }
