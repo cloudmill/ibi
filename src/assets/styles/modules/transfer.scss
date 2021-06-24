@@ -47,8 +47,12 @@
     padding-left: calc(#{$col-part-d} + 10px);
 
     @media (max-width: $breakpoint) {
-      font-size: 20px;
+      font-size: 35px;
       padding-left: 0;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      font-size: 20px;
     }
 
     .index__paragraph-text {
@@ -79,10 +83,15 @@
   line-height: 140%;
 
   @media (max-width: $breakpoint) {
-    width: 100%;
+    width: 50%;
     font-size: 16px;
     margin-top: 40px;
   }
+
+  @media (max-width: $breakpoint-m) {
+    width: 100%;
+  }
+
 }
 
 .transfer-numbers {
@@ -96,32 +105,80 @@
   }
 
   &__item {
-    position: relative;
+    // position: relative;
     width: calc(#{$col-part-d} * 5);
     margin-bottom: 100px;
 
     @media (max-width: $breakpoint) {
-      width: 100%;
+      width: 50%;
+      // width: calc(#{$col-part-m} * 2);
       margin-bottom: 10px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+    }
+  }
+
+  &__item:first-child {
+    margin-bottom: 120px;
+    @media (max-width: 1300px) {
+      margin-bottom: 200px;
+    }
+    @media (max-width: $breakpoint) {
+      margin-bottom: 10px;
+
+      .transfer-numbers__count .transfer-numbers__big p {
+        margin-left: -25px;
+      }
     }
   }
 
   &__item:nth-child(2n) {
-    padding-left: calc(#{$col-part-d} * 3);
+    margin-left: calc(#{$col-part-d} * 3);
+
+    .transfer-numbers__count .transfer-numbers__big p {
+      margin-left: -55px;
+    }
 
     @media (max-width: $breakpoint) {
-      padding-left: 0;
+      // padding-left: 0;
+      margin-left: calc(#{$col-part-m} * 2);
+      // width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      width: 50%;
     }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    // @media (max-width: $breakpoint) {
+    //   padding-left: 0;
+    // }
 
     .transfer-numbers__count .transfer-numbers__desc {
       padding-top: 67px;
+
+      @media (max-width: $breakpoint) {
+        padding-top: 20px;
+      }
+    }
+  }
+
+  &__item:nth-child(3n) {
+    .transfer-numbers__count .transfer-numbers__big p {
+      margin-left: -35px;
+      margin-bottom: -10px;
+
+      @media (max-width: $breakpoint) {
+        margin-left: -41px;
+      }
     }
   }
 
   &__count {
     // position: relative;
-    // top: 0;
-    // left: 0;
 
     background-color: #fff;
     width: calc(#{$col-part-d} * 3);
@@ -141,17 +198,25 @@
   }
 
   &__big {
-    width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+    min-width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
     flex: none;
     align-self: flex-end;
-    // overflow: hidden;
+    overflow: hidden;
+    // position: relative;
+
+    @media (max-width: $breakpoint) {
+      min-width: unset;
+      width: 80px;
+    }
 
     p {
       color: #CDF5FA;
       font-weight: 500;
       font-size: 380px;
       line-height: 77%;
-      margin: 0 22px 0 -22px;
+      text-overflow: clip;
+      overflow: hidden;
+      margin-left: -50px;
 
       @media (max-width: $breakpoint) {
         font-size: 240px;
@@ -160,18 +225,18 @@
   }
 
   &__desc {
-    // // position: absolute;
-    // z-index: 1;
-    // // bottom: 0;
-    // right: 0;
+    // position: absolute;
 
-    width: calc(#{$col-part-d} * 3 + #{$col-gap-d});
+    // width: calc(#{$col-part-d} * 3 + #{$col-gap-d});
     color: $color-black;
     padding-top: 178px;
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
+    // padding-left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
 
     @media (max-width: $breakpoint) {
-      padding-top: 20px;
+      padding: 20px 20px 20px 40px;
+      // padding-left: 40px;
+      margin-left: -80px;
       width: 100%;
     }
 
@@ -196,16 +261,30 @@
 
       @media (max-width: $breakpoint) {
         font-size: 14px;
+        display: flex;
       }
 
       p {
         border-left: 1px solid $color-main;
         padding-left: calc(#{$col-gap-d});
+
+        @media (max-width: $breakpoint) {
+          border-left: none;
+          padding-left: 0;
+        }
       }
       
+      p, ul {
+        margin-left: 40px;
+      }
+
       li {
-        margin: 20px 0;
+        margin-bottom: 20px;
         // padding-left: calc(#{$col-part-d} - #{$col-gap-d});
+
+        @media (max-width: $breakpoint) {
+          width: 100%;
+        }
       }
   
       li::before {
@@ -223,6 +302,17 @@
         }
       }
     }
+
+    &-txt::before {
+      @media (max-width: $breakpoint) {
+        content: ' ';
+        display: inline-block;
+        width: 1px;
+        height: 83px;
+        background-color: $color-main;
+        flex: none;
+      }
+    }
   }
 }
 
@@ -234,6 +324,11 @@
 
     @media (max-width: $breakpoint) {
       width: 100%;
+      font-size: 35px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      font-size: 22px;
     }
   }
 

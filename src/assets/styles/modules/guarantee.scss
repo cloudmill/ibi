@@ -22,6 +22,7 @@
         font-size: 50px;
         line-height: 100%;
         font-weight: 500;
+        color: #fff;
         margin-bottom: 40px;
 
         width: calc(#{$col-part-d} * 2);
@@ -37,6 +38,7 @@
       p {
         font-size: 18px;
         line-height: 140%;
+        color: #fff;
 
         @media (max-width: $breakpoint) {
           font-size: 14px;
@@ -58,6 +60,7 @@
       width: 100%;
       object-fit: cover;
       object-position: center;
+      height: 100%;
 
       @media (max-width: $breakpoint) {
         display: none;
@@ -70,6 +73,7 @@
       width: 100%;
       object-fit: cover;
       object-position: center;
+      height: 100%;
 
       @media (min-width: $breakpoint) {
         display: none;
@@ -88,8 +92,11 @@
   border: 1px solid $color-gray-border;
 
   @media (max-width: $breakpoint) {
-    flex-direction: column;
     margin-bottom: 60px;
+  }
+
+  @media (max-width: $breakpoint-m) {
+    flex-direction: column;
   }
 
   &__title {
@@ -100,8 +107,13 @@
     line-height: 140%;
 
     @media (max-width: $breakpoint) {
-      width: 100%;
+      width: calc(#{$col-part-m} * 3);
       padding: 20px;
+      font-size: 22px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
       font-size: 16px;
     }
   }
@@ -117,6 +129,10 @@
     align-items: center;
 
     @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} - #{$col-gap-m});
+    }
+
+    @media (max-width: $breakpoint-m) {
       width: 100%;
       border-left: none;
       border-top: 1px solid $color-gray-border;
@@ -129,7 +145,7 @@
 
       padding-right: 30%;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint-m) {
         font-size: 14px;
       }
     }
