@@ -1,0 +1,283 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+  
+block content
+  .about
+    section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Новости']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Вакансии
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |Контакты
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Вакансии
+              .section__block.section__block--small
+                .mission__missions-text.mission__missions-text--max-width--730.vacancies-tagline
+                  span.mission__missions-text-highlight
+                    |Работа в ИБИ
+                  |#{' '} — это ежедневный челлендж и непрерывное развитие 
+                  //- .vacancies-tagline-img
+                  img.index__paragraph-img(src='assets/images/test.jpg')
+                .about__image
+                  .about__image-background(style='background-image: url("assets/images/vacancy-1.jpg")')
+                    +hexagon-svg('about__image-svg')
+                    +hexagon-svg('about__image-svg')
+              blockquote.vacancies-blockquote
+                |В ИБИ вас ждут интересные задачи, работа с ведущими специалистами, постоянное повышение квалификации, возможность использовать современные технологии и приносить пользу людям.
+    section.section.section--blue-light
+      .row
+        .row__col
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              .section__block
+                .vacancies-achievements
+                  .vacancies-achievements__box
+                    img.vacancies-achievements__img(src="assets/images/vacancy-2.jpg", alt="")
+                    .vacancies-achievements__txt Авторы метода базальной имплантации
+                  .vacancies-achievements__box
+                    img.vacancies-achievements__img(src="assets/images/vacancy-3.jpg", alt="")
+                    .vacancies-achievements__txt Собственная лаборатория
+                  .vacancies-achievements__box
+                    img.vacancies-achievements__img(src="assets/images/vacancy-4.jpg", alt="")
+                    .vacancies-achievements__txt Лидер ниши, участвуем в международных конференциях
+              .section__block
+                .mission__missions-text.mission__missions-text--max-width--730
+                  |Именно персонал ИБИ формирует 
+                  span.mission__missions-text-highlight
+                    | репутацию компании 
+                  | и обеспечивает ее 
+                  span.mission__missions-text-highlight
+                    | высокую конкурентоспособность 
+                  | на рынке стоматологии
+    section.section
+      .row
+        .row__col
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              .vacancies-list
+                .section__title
+                  |Актуальные вакансии
+                ul.mission__spoilers.mission__spoilers--margin-top
+                  li.mission__spoilers-item
+                    .mission__spoiler
+                      .mission__spoiler-button
+                        h5.mission__spoiler-title
+                          |Администратор стоматологического центра
+                        .mission__spoiler-image
+                      .mission__spoiler-drop
+                        h6.mission__spoiler-list-title.vacancies-list__subtitle
+                          |Обязанности
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Прием и консультирование пациентов в рамках специализации «Ортодонтия»
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Проведение совместных консультаций пациентов с врачами-стоматологами других специальностей (терапевтами, хирургами-имплантологами, ортопедами)
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Ведение медицинской документации, расчет пациентов
+                        h6.mission__spoiler-list-title.vacancies-list__subtitle
+                          |Требования
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Наличие диплома и действующего сертификата по специальности «Ортодонтия»
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Опыт работы врачом-стоматологом-ортодонтом от 3-х лет
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Владение всеми ортодонтическими навыками
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Предупреждение, диагностика и лечение зубочелюстных аномалий, составление комплексного плана лечения
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Коммуникабельность, умение найти подход к пациенту
+                        h6.mission__spoiler-list-title.vacancies-list__subtitle
+                          |Условия работы
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Работа в современной стоматологической клинике (наличие визиографа в каждой клинике, 28 ортопонтомографов по сети, 14 КТ-аппаратов)
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Профессиональный коллектив
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Плотная запись пациентов
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Высокая заработная плата
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Сменный график работы
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Официальное оформление
+                        button.vacancies-list__extra-btn
+                          +arrow-link-svg('extra-btn')
+                          |Откликнуться
+                  li.mission__spoilers-item
+                    .mission__spoiler
+                      .mission__spoiler-button
+                        h5.mission__spoiler-title
+                          |Оператор call–центра
+                        .mission__spoiler-image
+                      .mission__spoiler-drop
+                        h6.mission__spoiler-list-title.vacancies-list__subtitle
+                          |Обязанности
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Прием и консультирование пациентов в рамках специализации «Ортодонтия»
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Проведение совместных консультаций пациентов с врачами-стоматологами других специальностей (терапевтами, хирургами-имплантологами, ортопедами)
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Ведение медицинской документации, расчет пациентов
+                        h6.mission__spoiler-list-title.vacancies-list__subtitle
+                          |Требования
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Наличие диплома и действующего сертификата по специальности «Ортодонтия»
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Опыт работы врачом-стоматологом-ортодонтом от 3-х лет
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Владение всеми ортодонтическими навыками
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Предупреждение, диагностика и лечение зубочелюстных аномалий, составление комплексного плана лечения
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Коммуникабельность, умение найти подход к пациенту
+                        h6.mission__spoiler-list-title.vacancies-list__subtitle
+                          |Условия работы
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Работа в современной стоматологической клинике (наличие визиографа в каждой клинике, 28 ортопонтомографов по сети, 14 КТ-аппаратов)
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Профессиональный коллектив
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Плотная запись пациентов
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Высокая заработная плата
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Сменный график работы
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Официальное оформление
+                        button.vacancies-list__extra-btn
+                          +arrow-link-svg('extra-btn')
+                          |Откликнуться
+                  li.mission__spoilers-item
+                    .mission__spoiler
+                      .mission__spoiler-button
+                        h5.mission__spoiler-title
+                          |Аккаунт менеджер Инстаграм
+                        .mission__spoiler-image
+                      .mission__spoiler-drop
+                        h6.mission__spoiler-list-title.vacancies-list__subtitle
+                          |Обязанности
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Прием и консультирование пациентов в рамках специализации «Ортодонтия»
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Проведение совместных консультаций пациентов с врачами-стоматологами других специальностей (терапевтами, хирургами-имплантологами, ортопедами)
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Ведение медицинской документации, расчет пациентов
+                        h6.mission__spoiler-list-title.vacancies-list__subtitle
+                          |Требования
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Наличие диплома и действующего сертификата по специальности «Ортодонтия»
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Опыт работы врачом-стоматологом-ортодонтом от 3-х лет
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Владение всеми ортодонтическими навыками
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Предупреждение, диагностика и лечение зубочелюстных аномалий, составление комплексного плана лечения
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Коммуникабельность, умение найти подход к пациенту
+                        h6.mission__spoiler-list-title.vacancies-list__subtitle
+                          |Условия работы
+                        ul.mission__spoiler-list
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Работа в современной стоматологической клинике (наличие визиографа в каждой клинике, 28 ортопонтомографов по сети, 14 КТ-аппаратов)
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Профессиональный коллектив
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Плотная запись пациентов
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Высокая заработная плата
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Сменный график работы
+                          li.mission__spoiler-list-item
+                            p.mission__spoiler-list-text
+                              |Официальное оформление
+                        button.vacancies-list__extra-btn
+                          +arrow-link-svg('extra-btn')
+                          |Откликнуться
+                .vacancies-list__extra
+                  .vacancies-list__extra-txt
+                    |Мы всегда ищем талантливых и амбициозных специалистов. Присылайте свое резюме, даже если в данный момент нет активных вакансий.
+                  button.vacancies-list__extra-btn
+                    +arrow-link-svg('extra-btn')
+                    |Откликнуться
+                        
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })

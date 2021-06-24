@@ -1,0 +1,145 @@
+.guarantee {
+
+
+  &__img {
+    position: relative;
+    margin-bottom: 40px;
+    height: 500px;
+
+    &-txt {
+      position: absolute;
+      z-index: 3;
+
+      color: #fff;
+      padding: 40px;
+      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+      @media (max-width: $breakpoint) {
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 50px;
+        line-height: 100%;
+        font-weight: 500;
+        margin-bottom: 40px;
+
+        width: calc(#{$col-part-d} * 2);
+
+        @media (max-width: $breakpoint) {
+          width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+
+          font-size: 32px;
+          line-height: 120%;
+        }
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 140%;
+
+        @media (max-width: $breakpoint) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+    }
+
+    &-effects-desk {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+
+      @media (max-width: $breakpoint) {
+        display: none;
+      }
+    }
+
+    &-effects-mob {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
+  }
+}
+
+.guarantee-contract {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 160px;
+
+  border: 1px solid $color-gray-border;
+
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+
+  &__title {
+    width: calc(#{$col-part-d} * 7);
+    padding: 60px calc(#{$col-part-d} * 2 + #{$col-gap-d}) 60px calc(#{$col-width-d});
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 140%;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      padding: 20px;
+      font-size: 16px;
+    }
+  }
+
+  &__download {
+    width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+    padding: 20px;
+    border-left: 1px solid $color-gray-border;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      border-left: none;
+      border-top: 1px solid $color-gray-border;
+      flex-direction: row;
+    }
+
+    &-txt {
+      font-size: 16px;
+      line-height: 140%;
+
+      padding-right: 30%;
+
+      @media (max-width: $breakpoint) {
+        font-size: 14px;
+      }
+    }
+
+    &-btn {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      align-self: flex-end;
+    }
+  }
+}

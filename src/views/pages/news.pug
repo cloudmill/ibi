@@ -1,0 +1,98 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+  
+block content
+  .about
+    section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    each item in ['О нас', 'Миссия и ценности', 'Наша команда']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Новости
+                    each item in ['Вакансии', 'Контакты']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Новости
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Новости
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+                    
+              .section__block.section__block--small
+                a.first-news(href="#")
+                  .first-news__desc
+                    .first-news__date 3 ноября 2020
+                    .first-news__title
+                      h3 Экспресс-имплантация All-on-4/6: интервью с хирургом
+                    .mission__missions-links-container.first-news__link
+                      .mission__missions-links-link
+                        +arrow-link-svg('news__link-ico')
+                        .mission__missions-links-text
+                          |Подробнее
+                  .first-news__img
+                    +news-img-mask-1('first-news__img-mask-1')
+                    +news-img-mask-2('first-news__img-mask-2')
+                    img(src="assets/images/news-2.jpg", alt="News photo")
+              .section__block.about__to-front
+                ul.about__list
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                .news-show-more
+                    button.news-show-more-btn
+                        .news-show-more-ico
+                            +arrow-link-svg('news__link-ico')
+                        .news-show-more-txt Показать еще
+              .news-subscribe
+                h2.news-subscribe__title Подпишитесь на публикации и новости
+                form.news-subscribe__form
+                    div
+                        label.news-subscribe__form-placeholder
+                            input.news-subscribe__form-email(type="email" placeholder="E-mail")
+                        label.news-subscribe__form-checkbox
+                            input(type="checkbox")
+                            p Согласен на обработку персональных данных в соответствии с 
+                                a(href="#") политикой конфиденциальности
+                    button.news-subscribe__form-btn
+                        +arrow-send('news-subscribe__form-btn-ico')
+
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })

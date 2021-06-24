@@ -1,0 +1,182 @@
+.member-page {
+
+  &__head {
+    border-bottom: 1px solid $color-main;
+  }
+
+  &__title {
+    border-bottom: none;
+    padding-bottom: 14px;
+  }
+
+  &__position {
+    width: 100%;
+    padding-bottom: 18px;
+
+    font-size: 20px;
+    line-height: 140%;
+    color: $color-main;
+
+    border-bottom: 1px solid $color-main;
+
+    @media (max-width: $breakpoint) {
+      font-size: 14px;
+    }
+  }
+
+  &__img {
+    position: relative;
+    display: flex;
+
+    @media (max-width: $breakpoint) {
+      flex-direction: column;
+    }
+
+    &-container {
+      width: 100%;
+      position: relative;
+      img {
+        position: relative;
+        width: 100%;
+
+        object-position: center;
+        object-fit: cover;
+      }
+    }
+
+    .team-member__badge {
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
+  }
+
+  &__presentation {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    right: 0;
+    margin: 0 -223px 41px 0;
+
+    @media (max-width: $breakpoint) {
+      position: static;
+      margin: 40px 0 0 0;
+    }
+
+    display: flex;
+    align-items: center;
+
+    &-title {
+      margin-left: 20px;
+      width: 50%;
+
+      @media (max-width: $breakpoint) {
+        font-size: 14px;
+        margin-left: 10px;
+      }
+    }
+
+    &-ico {
+      @media (max-width: $breakpoint) {
+        max-width: 34px;
+      }
+    }
+  }
+}
+
+.member-page-aside {
+
+  @media (max-width: $breakpoint) {
+    margin: 0;
+  }
+
+  .member-page__badge {
+    position: static;
+
+    @media (max-width: $breakpoint) {
+      display: none;
+    }
+  }
+}
+
+.member-page-ask {
+  padding-left: $col-gap-d;
+  align-items: unset;
+  flex-direction: column;
+  // justify-content: space-between;
+
+  &__title {
+    width: 100%;
+    margin-bottom: 80px;
+
+    @media (max-width: $breakpoint) {
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__form {
+    align-self: flex-end;
+    width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+    // padding-right: calc(#{$col-part-d} * 2 - #{$col-width-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      padding-right: 0;
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .news-subscribe__form-btn {
+        margin-right: 20px;
+
+        @media (max-width: $breakpoint) {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+
+        &-ico {
+          margin-right: 20px;
+
+          @media (max-width: $breakpoint) {
+            margin-right: 10px;
+            max-width: 34px;
+          }
+        }
+      }
+    }
+  }
+
+  &__label {
+    width: 100%;
+
+    textarea {
+      margin-bottom: 40px;
+      resize: none;
+
+      @media (max-width: $breakpoint) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  // &__label:last-child {
+  //   margin-bottom: 100px;
+  // }
+
+  &__checkbox {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+    }
+
+    p {
+      width: 100%;
+    }
+  }
+}

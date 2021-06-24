@@ -1,0 +1,432 @@
+// Стили страницы Новости
+
+// Выпадающее меню
+.news-spoiler {
+    display: none;
+    border: none;
+    border-bottom: 1px solid $color-gray-border;
+
+    @media (max-width: $breakpoint) {
+        display: block;
+    }
+
+    &__drop {
+        padding: 0 0 40px 0;
+    }
+
+    &__image {
+        transition: .5s linear;
+    }
+
+    &__button {
+        align-items: center;
+        padding: 20px 2px 20px 0;
+    }
+
+    &__nav {
+        
+        &-item {
+            margin-bottom: 10px;
+        }
+
+        &-item:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.mission__spoiler--active {
+    .news-spoiler__image {
+        transform: rotate(180deg);
+        transition: .5s linear;
+
+        path {
+            fill: $color-main;
+          }
+    }
+
+    .news-spoiler__drop {
+        background-color: unset;
+    }
+}
+
+// Блок с большой первой новостью
+
+.first-news {
+  background-color: $color-blue-light;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: $breakpoint-m) {
+      flex-direction: column;
+  }
+
+  &__desc {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+
+    padding: 40px;
+
+    width: calc(#{$col-part-d} * 6);
+    @media (max-width: $breakpoint) {
+        width: auto;
+    }
+  }
+
+  &__date {
+    width: 100%;
+    margin-bottom: 130px;
+    color: $color-main;
+
+    @media (max-width: $breakpoint-m) {
+    margin-bottom: 20px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+    font-size: 12px;
+    }
+  }
+
+  &__title {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+    h3 {
+      font-size: 40px;
+      line-height: 110%;
+      font-weight: 500;
+
+      @media (max-width: $breakpoint-m) {
+          font-size: 18px;
+      }
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: auto;
+    }
+  }
+
+  &__img {
+    position: relative;
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    @media (max-width: $breakpoint) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+    }
+    @media (max-width: $breakpoint-m) {
+        width: 100%;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    &-mask-1 {
+      position: absolute;
+      z-index: 5;
+
+      top: 0;
+      left: 0;
+    }
+
+    &-mask-2 {
+      position: absolute;
+      z-index: 5;
+      opacity: 0.7;
+      max-width: 100%;
+
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__link {
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+    display: none;
+    }
+  }
+}
+
+// Блок со списком новостей
+
+.news {
+
+    &-box {
+        border-top: 1px solid #CCE3E6;
+        padding-top: 20px;
+        margin-bottom: 60px;
+
+        @media (max-width: $breakpoint) {
+            padding-top: 10px;
+            margin-bottom: 40px;
+        }
+    }
+
+    display: flex;
+    justify-content: flex-start;
+
+    @media (max-width: $breakpoint) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+  
+    &__date {
+      width: calc(#{$col-part-d});
+      color: $color-main;
+
+      @media (max-width: $breakpoint) {
+          order: -1;
+          width: 100%;
+          margin-bottom: 20px;
+      }
+
+      @media (max-width: $breakpoint-m) {
+        font-size: 12px;
+        }
+    }
+
+    &__img {
+        width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+        text-align: right;
+
+        img {
+            width: 160px;
+            @media (max-width: $breakpoint) {
+                width: auto;
+            }
+        }
+        
+        @media (max-width: $breakpoint) {
+            order: 1;
+            width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+            text-align: unset;
+        }
+    }
+  
+    &__title {
+      width: calc(#{$col-part-d} * 4);
+      padding-left: 40px;
+      
+  
+      @media (max-width: $breakpoint) {
+        order: -1;
+        width: auto;
+        padding-left: 0;
+        margin-bottom: 60px;
+    }
+  
+      h3 {
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 110%;
+
+        @media (max-width: $breakpoint-m) {
+            font-size: 18px;
+        }
+      }
+    }
+  
+    &__link {
+      align-self: flex-start;
+      margin: 0 0 0 auto;
+
+      @media (max-width: $breakpoint) {
+        order: 1;
+        margin: 0;
+        align-self: flex-end;
+    }
+    }
+  }
+  
+.news-show-more {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 100px;
+    @media (max-width: $breakpoint) {
+        margin-top: 40px;
+        }
+
+    &-btn {
+        background: transparent;
+        border: 1px solid #CCE3E6;
+        border-radius: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 11px 20px 11px 8px;
+
+        cursor: pointer;
+    }
+
+    &-txt {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        padding-left: 20px;
+
+        @media (max-width: $breakpoint-m) {
+            font-size: 14px;
+        }
+    }
+}
+
+// Кнопка с загрузкой следующих новостей
+
+.news-show-more-ico {
+.arrow-rotate {
+    transform-origin: center;
+    transform: rotate(90deg);
+    }
+}
+
+// Блок с подпиской на новости
+  
+.news-subscribe {
+    margin: 160px 0;
+    @media (max-width: $breakpoint) {
+        margin: 60px 0;
+    }
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @media (max-width: $breakpoint) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 50px;
+        line-height: 140%;
+        @media (max-width: $breakpoint-m) {
+            font-size: 22px;
+            }
+
+        width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+        @media (max-width: $breakpoint) {
+        width: auto;
+        margin-bottom: 40px;
+        }
+    }
+
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+        @media (max-width: $breakpoint) {
+            width: 100%;
+            justify-content: unset;
+        }
+
+        &-btn {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+
+            margin-left: 30px;
+
+            &-ico{
+                max-width: 105px;
+                @media (max-width: $breakpoint-m) {
+                    max-width: 51px;
+                }
+            }
+        }
+
+        &-email {
+            border: none;
+            border-bottom: 1px solid $color-gray-border;
+            width: 100%;
+
+            font-family: Manrope;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 140%;
+            color: $color-black;
+
+            margin-bottom: 23px;
+            padding: 20px 0;
+        }
+
+        &-placeholder input::placeholder {
+            color: $color-black;
+            opacity: 1;
+
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 140%;
+            @media (max-width: $breakpoint-m) {
+                font-size: 16px;
+            }
+        }
+
+        &-placeholder textarea::placeholder {
+            color: $color-black;
+            opacity: 1;
+
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 140%;
+            @media (max-width: $breakpoint-m) {
+                font-size: 16px;
+            }
+        }
+
+        &-checkbox {
+            display: flex;
+
+            input[type="checkbox"] {
+                display: none;
+            }
+
+            input[type="checkbox"]:checked + p::before {
+                background-image: url(assets/images/checkbox.png);
+                background-position: center;
+            }
+            
+            p::before {
+                content: '';
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                border-radius: 5px;
+                border: 2px solid $color-main;
+
+                margin-left: -40px;
+                margin-right: 15px;
+                vertical-align: middle;
+                transition: 0.1s;
+            }
+            
+            p {
+                font-size: 12px;
+                line-height: 140%;
+
+                padding-left: 40px;
+                width: 70%;
+            }
+
+            a {
+                color: $color-main;
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import 'Styles/_app.scss';
 import Swiper from 'swiper';
+import Parsley from 'parsleyjs';
 
 const BREAKPOINT = 1280;
 
@@ -196,10 +197,46 @@ const BREAKPOINT = 1280;
             slider_options = {
               ...slider_options,
 
-              loop: true,
-              centeredSlides: true,
+              allowTouchMove: false,
             }
             break;
+
+          case 100:
+            slider_options = {
+              ...slider_options,
+
+              allowTouchMove: false,
+              autoHeight: true,
+              loop: true,
+            }
+            break;
+
+          case 106:
+            slider_options = {
+              ...slider_options,
+
+              // allowTouchMove: false,
+              // autoHeight: true,
+              // loop: true,
+              slideToClickedSlide: true,
+
+            }
+            break;
+
+          case 105:
+            slider_options = {
+              ...slider_options,
+
+              // allowTouchMove: false,
+              autoHeight: true,
+              // loop: true,
+
+              thumbs: {
+                swiper: 106,
+              },
+            }
+            break;
+
         }
 
         const slider_swiper = new Swiper(slider_el[0], slider_options);
@@ -339,10 +376,10 @@ const BREAKPOINT = 1280;
 
     blocks.each(function () {
       const block = $(this)
-      
+
       const scrollArea = block.find('.block__scroll')
       let scrollProgress = getScrollProgress(scrollArea)
-      
+
       const scrollbarThumb = block.find('.block__scrollbar-thumb')
 
       const slide1 = block.find('.block__slide--1');
@@ -366,4 +403,247 @@ const BREAKPOINT = 1280;
       })
     })
   })
+}
+// team filter
+
+{
+  // let memberCard = document.querySelectorAll('.team-member');
+
+  // document.querySelector('.team-filter').addEventListener('click', event => {
+  //   if (event.target.tagName != 'LI') return false;
+
+  //   let filterClass = event.target.dataset['id'];
+  //   // console.log(filterClass);
+
+  //   memberCard.forEach(elem => {
+  //     elem.classList.remove('hide');
+  //     if (!elem.classList.contains(filterClass)) {
+  //       elem.classList.add('hide'); 
+  //     }
+  //   });
+  // });
+
+
+}
+
+// tel mask
+
+{
+  document.addEventListener("DOMContentLoaded", function () {
+    var phoneInputs = document.querySelectorAll('input[data-tel-input]');
+    // console.log(phoneInputs);
+
+    var getInputNumbersValue = function (input) {
+      // Удаление любых символов крме цифр
+      return input.value.replace(/\D/g, '');
+    }
+
+    // Очистка скопированного и вставленного в поле номера
+    var onPhonePaste = function (e) {
+      var input = e.target,
+        inputNumbersValue = getInputNumbersValue(input);
+      var pasted = e.clipboardData || window.clipboardData;
+      if (pasted) {
+        var pastedText = pasted.getData('Text');
+        if (/\D/g.test(pastedText)) {
+          input.value = inputNumbersValue;
+          return;
+        }
+      }
+    }
+
+    // Обработка вписанного вручную номера
+    var onPhoneInput = function (e) {
+      var input = e.target,
+        inputNumbersValue = getInputNumbersValue(input),
+        selectionStart = input.selectionStart,
+        formattedInputValue = "";
+
+      if (!inputNumbersValue) {
+        return input.value = "";
+      }
+
+      if (input.value.length != selectionStart) {
+        if (e.data && /\D/g.test(e.data)) {
+          input.value = inputNumbersValue;
+        }
+        return;
+      }
+
+      if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
+        if (inputNumbersValue[0] == "9") inputNumbersValue = "7" + inputNumbersValue;
+        var firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+7";
+        formattedInputValue = input.value = firstSymbols + " ";
+        if (inputNumbersValue.length > 1) {
+          formattedInputValue += '(' + inputNumbersValue.substring(1, 4);
+        }
+        if (inputNumbersValue.length >= 5) {
+          formattedInputValue += ') ' + inputNumbersValue.substring(4, 7);
+        }
+        if (inputNumbersValue.length >= 8) {
+          formattedInputValue += '-' + inputNumbersValue.substring(7, 9);
+        }
+        if (inputNumbersValue.length >= 10) {
+          formattedInputValue += '-' + inputNumbersValue.substring(9, 11);
+        }
+      } else {
+        formattedInputValue = '+' + inputNumbersValue.substring(0, 16);
+      }
+      input.value = formattedInputValue;
+    }
+    var onPhoneKeyDown = function (e) {
+      // Удаление первого символа после удаления номера
+      var inputValue = e.target.value.replace(/\D/g, '');
+      if (e.keyCode == 8 && inputValue.length == 1) {
+        e.target.value = "";
+      }
+    }
+    for (var phoneInput of phoneInputs) {
+      phoneInput.addEventListener('keydown', onPhoneKeyDown);
+      phoneInput.addEventListener('input', onPhoneInput, false);
+      phoneInput.addEventListener('paste', onPhonePaste, false);
+    }
+  })
+}
+
+// map
+
+{
+  ymaps.ready(() => {
+    const mapContainer = $('#map');
+
+    if (mapContainer.length !== 0) {
+      // vars
+      const markWidth = 42;
+      const markHeight = 53;
+
+      // init
+      const map = new ymaps.Map('map', {
+        center: [55.732433, 37.616144],
+        zoom: 14,
+        controls: [],
+      });
+      const zoomControl = new ymaps.control.ZoomControl({
+        options: {
+          size: 'small',
+          position: {
+            top: 205,
+            right: 10,
+          },
+        }
+      });
+
+      // adaptive
+      const mediaQuery = window.matchMedia(`(min-width: ${MAIN_BREAKPOINT}px)`);
+      function mediaQueryChange() {
+        if (mediaQuery.matches) {
+          // desktop
+          map.controls.add(zoomControl);
+        } else {
+          // mobile
+          map.controls.remove(zoomControl);
+        }
+      }
+      mediaQueryChange();
+      mediaQuery.addListener(mediaQueryChange);
+
+      // balloon layout
+      const layout = ymaps.templateLayoutFactory.createClass(
+        [
+          '<div class="balloon">',
+          '<div class="balloon__content">',
+          '<p class="balloon__text">',
+          '{{properties.balloon}}',
+          '</p>',
+          '</div>',
+          '<div class="balloon__arrow"></div>',
+          '</div>',
+        ].join(''),
+        {
+          build: function () {
+            this.constructor.superclass.build.call(this);
+
+            this._$element = $('.balloon', this.getParentElement());
+
+            this.applyElementOffset();
+          },
+          onSublayoutSizeChange: function () {
+            layout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+            if (!this._isElement(this._$element)) {
+              return;
+            }
+
+            this.applyElementOffset();
+
+            this.events.fire('shapechange');
+          },
+          applyElementOffset: function () {
+            this._$element.css({
+              left: -(this._$element[0].offsetWidth / 2),
+              top: -(this._$element[0].offsetHeight + markHeight),
+            });
+          },
+          getShape: function () {
+            if (!this._isElement(this._$element)) {
+              return layout.superclass.getShape.call(this);
+            }
+
+            var position = this._$element.position();
+
+            return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+              [position.left, position.top], [
+                position.left + this._$element[0].offsetWidth,
+                position.top + this._$element[0].offsetHeight,
+              ]
+            ]));
+          },
+          _isElement: function (element) {
+            return element && element[0];
+          }
+        }
+      );
+
+      // balloon close
+      map.events.add('click', () => {
+        if (map.balloon.isOpen()) {
+          map.balloon.close();
+        }
+      });
+
+      // добавление точек
+      const placemarks = new ymaps.GeoObjectCollection();
+      $('.placemarks__item').each(function () {
+        // данные
+        const balloon = $(this).find('.placemarks__balloon').text().trim();
+        const latitude = $(this).find('.placemarks__latitude').text().trim();
+        const longitude = $(this).find('.placemarks__longitude').text().trim();
+
+        // placemark
+        const coordinates = [latitude, longitude];
+        const placemark = new ymaps.Placemark(coordinates, {
+          balloon,
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'assets/images/placemark.svg',
+          iconImageSize: [markWidth, markHeight],
+          iconImageOffset: [-markWidth / 2, -markHeight],
+
+          balloonLayout: layout,
+          balloonPanelMaxMapArea: 0,
+          hideIconOnBalloonOpen: false,
+        });
+
+        placemarks.add(placemark);
+      });
+
+      // добавление на карту
+      map.geoObjects.add(placemarks);
+
+      // позиционирование на точках
+      map.setBounds(placemarks.getBounds(), {
+        zoomMargin: Math.max(markWidth, markHeight),
+      });
+    }
+  });
 }

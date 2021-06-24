@@ -1,0 +1,131 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+  
+block content
+  .about
+    section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    each item in ['О нас', 'Миссия и ценности', 'Наша команда']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Новости
+                    each item in ['Вакансии', 'Контакты']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+        .row__col
+          .section__inner.section__inner--top
+            .container.single-news
+              h1.title.single-news__title
+                |Обучение Strategic Implant в Новосибирске
+              .single-news__body
+                .single-news__head
+                  .single-news__back-link
+                    a(href="#") Вернуться
+                  .single-news__date 3 ноября 2020
+                .single-news__img
+                  img(src="assets/images/single-news-img.jpg", alt="News photo")
+                .single-news__txt
+                  p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi excepturi doloribus odit ullam adipisci, facilis autem quidem exercitationem suscipit impedit quos, fuga necessitatibus, ea natus iste sapiente inventore debitis quibusdam!
+                  p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit placeat necessitatibus ratione aut officia quam totam, nam tempora sequi architecto cupiditate laboriosam velit nisi molestias esse dolore soluta voluptatibus ad.
+                blockquote.single-news__blockquote Lorem, ipsum dolor sit amet consectetur adipisicing
+                .single-news__txt
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro iure, sed veritatis odio amet omnis modi rem cumque blanditiis hic consequuntur architecto praesentium a reiciendis, asperiores velit facilis voluptatibus fugit.
+                  ul
+                    li Lorem ipsum dolor sit amet, consectetur adipisicing
+                    li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                    li Lorem ipsum dolor sit amet, consectetur adipisicing
+                    li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                    li Lorem ipsum dolor sit amet, consectetur adipisicing
+                    li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+              aside.share-social
+                .share-social__box
+                  .share-social__title Поделиться
+                  ul.footer__socials
+                    li.footer__socials-item
+                      a.footer__socials-link.share-social__link(href='#')
+                        +facebook-svg('footer__socials-svg')
+                    li.footer__socials-item
+                      a.footer__socials-link.share-social__link(href='#')
+                        +vk-svg('footer__socials-svg')
+    section.other-news(data-sticky-end='2')
+      .row
+        .row__col
+        .row__col
+          .container
+            .index-publications
+              .index-publications__top
+                .index-publications__top-left.other-news__top
+                  h2.index-publications__title.other-news__title
+                    |Другие новости
+                  .index-publications__control.slider-control.slider-control--desktop
+                    .slider-control__item
+                      .button-arrow.button-arrow--left
+                        .button-arrow__button.other-news__controls(data-slider-button='111')
+                          +arrow-svg('other-news__controls-left')
+                    .slider-control__item
+                      .button-arrow.button-arrow.button-arrow--right
+                        .button-arrow__button.other-news__controls(data-slider-button='112')
+                          +arrow-svg('other-news__controls-right')
+            .index-news__slider.other-news__slider-mobile
+              .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='6')
+                .swiper-wrapper
+                  - for (let i=0; i<9; i++)
+                    .swiper-slide
+                      a.card-news-mobile(href='#')
+                        .card-news-mobile__top
+                          .card-news-mobile__date
+                            |3 ноября 2020
+                          h3.card-news-mobile__title
+                            |Обучение Strategic Implant в Новосибирске
+                        .card-news-mobile__bottom
+                          .card-news-mobile__row
+                            .card-news-mobile__col
+                              .card-news-mobile__image
+                                img.card-news-mobile__img(src='assets/images/news-2.jpg' alt='')
+                            .card-news-mobile__col
+                              .card-news-mobile__image
+                                +arrow-link-svg(class='card__svg')
+            .other-news__slider-desktop.swiper-container(data-slider-id="100" data-slider-prev='111' data-slider-next='112')
+              ul.about__list.swiper-wrapper
+                .swiper-slide
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                .swiper-slide
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                  include ../components/_news-list-card
+                .swiper-slide
+                  include ../components/_news-list-card
+
+      
+
+
+
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })

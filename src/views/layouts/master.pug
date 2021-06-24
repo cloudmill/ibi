@@ -7,11 +7,6 @@ include ../components/grid-test
 
 
 
-block vars
-  - var gridTest = true;
-
-
-
 doctype html
 html(lang='ru')
   head
@@ -24,15 +19,14 @@ html(lang='ru')
     meta(name="viewport", content="width=device-width, initial-scale=1")
     meta(name="format-detection", content="telephone=no")
     meta(name="format-detection", content="address=no")
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")
 
   body.body
     .wrapper
       block header
-        +header 
+        +header
       main.main
         block content
       block footer
         +footer
       block scripts
-    if gridTest
-      +grid-test

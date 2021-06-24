@@ -1,0 +1,153 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+  
+block content
+  .about
+    section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    each item in ['О нас','Миссия и ценности', 'Наша команда', 'Новости', 'Вакансии']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Контакты
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Контакты
+              .contacts.section__block.section__block--small
+                .contacts__item.contacts-6col
+                  .contacts__item-ttl Телефон в Москве
+                  a.contacts__item-link(href="tel:84994906349") 8 499 490 63 49
+                .contacts__item.contacts-3col
+                  .contacts__weekdays Пнд — Сб<br/>10 — 20
+                  .contacts__weekend Воскресенье<br/>выходной
+                .contacts__item
+                  .contacts__item-ttl По любым вопросам
+                  a.contacts__item-link(href="mailto:info@ibi.clinic") info@ibi.clinic
+                .contacts__item
+                  .contacts__item-ttl Адрес клиники
+                  .contacts__address Россия, г. Москва,<br/>1-й Спасоналивковский переулок, 17, корп. 1
+                .contacts__item
+                  .contacts__item-ttl Мы в социальных сетях
+                  .contacts__social
+                    ul.footer__socials
+                      li.footer__socials-item
+                        a.footer__socials-link.contacts__social-link(href='#')
+                          +facebook-svg('footer__socials-svg')
+                      li.footer__socials-item
+                        a.footer__socials-link.contacts__social-link(href='#')
+                          +instagram-svg('footer__socials-svg')
+                      li.footer__socials-item
+                        a.footer__socials-link.contacts__social-link(href='#')
+                          +vk-svg('footer__socials-svg')
+                      li.footer__socials-item
+                        a.footer__socials-link.contacts__social-link(href='#')
+                          +youtube-svg('footer__socials-svg')
+              .contacts-map-big
+                #map
+              .contacts-map-small
+                .contacts-map-small-item
+                  .contacts-map-small-item__ttl Путь от м. Октябрьская
+                  img.contacts-map-small-item__map(src="assets/images/map-2.jpg", alt="")
+                  .contacts-map-small-item__desc
+                .contacts-map-small-item
+                  .contacts-map-small-item__ttl Путь от м. Полянка
+                  img.contacts-map-small-item__map(src="assets/images/map-3.jpg", alt="")
+                  .contacts-map-small-item__desc
+                    |Чтобы проложить правильный путь, введите в поисковую строку не адрес (1-й Спасоналивковский переулок, 17, корп. 1), а  название компании («Институт Базальной Имплантации»).
+              .contacts-map-small
+                .contacts-map-small-item
+                  .contacts-map-small-item__ttl Панорама улицы с указанием входа
+                  img.contacts-map-small-item__map(src="assets/images/map-4.jpg", alt="")
+                  .contacts-map-small-item__desc
+    section
+      .row
+        .row__col
+        .row__col
+          .container        
+            p.about__caption
+              |Авторизированные клиники базальной имплантации
+            .about__grid.about__grid--margin-top
+              ul.about__grid-list
+                - for (let i=0; i<3; i++)
+                  li.about__grid-item
+                    .about__grid-card.about__grid-card--height-100p
+                      h3.about__grid-title
+                        |Англия
+                      ul.about__grid-info
+                        li.about__grid-info-item
+                          address.about__grid-text
+                            |London, st. Strawberry Fields Forever 67
+                        li.about__grid-info-item.about__grid-info-item--display-flex
+                          a.about__grid-text.about__grid-link(href='tel:+44898228228333')
+                            |+44 8982 282 283 33
+                  li.about__grid-item
+                    .about__grid-card.about__grid-card--height-100p
+                      h3.about__grid-title
+                        |Швейцария
+                      ul.about__grid-info
+                        li.about__grid-info-item
+                          address.about__grid-text
+                            |Zurich, Wünnewil-Flamatt 23
+                        li.about__grid-info-item.about__grid-info-item--display-flex
+                          a.about__grid-text.about__grid-link(href='tel:+44898228228333')
+                            |+44 8982 282 283 33
+                  li.about__grid-item
+                    .about__grid-card.about__grid-card--height-100p
+                      h3.about__grid-title
+                        |Англия
+                      ul.about__grid-info
+                        li.about__grid-info-item
+                          address.about__grid-text
+                            |London, st. Strawberry Fields Forever 67
+                        li.about__grid-info-item.about__grid-info-item--display-flex
+                          a.about__grid-text.about__grid-link(href='tel:+44898228228333')
+                            |+44 8982 282 283 33
+    section.section
+      .row
+        .row__col
+        .row__col
+          .container.news-subscribe.member-page-ask
+            h2.news-subscribe__title.member-page-ask__title Свяжитесь с нами
+            form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+              .member-page-ask__form-wrapper
+                label.news-subscribe__form-placeholder.member-page-ask__label
+                    input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+                label.news-subscribe__form-placeholder.member-page-ask__label
+                    input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+                label.news-subscribe__form-placeholder.member-page-ask__label
+                    input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+                label.news-subscribe__form-placeholder.member-page-ask__label
+                    textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+                label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                    input(type="checkbox" required="")
+                    p Согласен на обработку персональных данных в соответствии с 
+                        a(href="#") политикой конфиденциальности
+                button.news-subscribe__form-btn(type="submit")
+                    +arrow-link-svg('news-subscribe__form-btn-ico')
+                    |Отправить
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })

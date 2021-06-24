@@ -1,0 +1,43 @@
+// font
+$ff-main: 'Manrope', sans-serif;
+$ff-alt: 'PFRegalDisplayPro', serif;
+$fw-main: 500;
+
+// breakpoints
+$breakpoint-m: 768px;
+$breakpoint-t: 1024px;
+$breakpoint: 1280px;
+$breakpoint-l: 1366px;
+$breakpoint-ll: 1440px;
+$breakpoint-xl: 1680px;
+$breakpoint-xxl: 1920px;
+
+// colors
+$color-white: white;
+$color-white-transparent: rgba(white, 0.4);
+$color-black: #303032;
+$color-main: #29A5B1;
+$color-gray-border: #CCE3E6; // ?
+$color-blue-light: #F1FBFD; // ?
+$color-blue-highlight: #94FFFA;
+$color-red: #E62B3E;
+
+// animations
+$transition: 0.5s;
+
+// параметры grid'a на сайте
+// за основу взято 100vw (боковой скроллбар страниц не учитываем)
+$col-count-m: 4;
+$col-count-d: 12;
+
+$col-pad-m: 20px;
+$col-pad-d: 40px;
+
+$col-gap-m: 20px;
+$col-gap-d: 40px;
+
+$col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap-m} * #{$col-count-m - 1})) / #{$col-count-m})';
+$col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap-d} * #{$col-count-d - 1})) / #{$col-count-d})';
+
+$col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
+$col-part-d: '(#{$col-width-d} + #{$col-gap-d})';
