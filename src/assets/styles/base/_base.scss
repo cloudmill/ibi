@@ -23,12 +23,18 @@ button:active, button:focus {outline: none;}
 button::-moz-focus-inner {border: 0;}
 
 html {
+  font-size: $fs;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-body {
-  font-family: $ff-main;
-  font-weight: $fw-main;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include f-1();
   color: $color-black;
 }
 

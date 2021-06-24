@@ -1,0 +1,98 @@
+// fonts
+// families
+$ff-1: 'Manrope', sans-serif;
+$ff-2: 'PFRegalDisplayPro', serif;
+$ff-3: 'Montserrat', sans-serif;
+// base size (тэг <html>)
+$fs: 16px;
+// миксины для установки шрифтов (с часто используемым начертанием)
+// по-умолчанию (тэг <body>) @include f-1();
+// Manrope
+@mixin f-1($font-weight: 500) {
+  font-family: $ff-1;
+  font-weight: $font-weight;
+}
+// PFRegalDisplayPro
+@mixin f-2($font-weight: 400, $font-style: italic) {
+  font-family: $ff-2;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+// Montserrat
+@mixin f-3($font-weight: 500) {
+  font-family: $ff-3;
+  font-weight: $font-weight;
+}
+// миксин для установки font-size [и line-height]
+// переводит из px в rem
+// для вычислений используется базовый font-size $fs (тэг <html>)
+@mixin fsl($font-size, $line-height: null) {
+  font-size: unquote('#{$font-size / $fs}rem');
+  @if $line-height {
+    line-height: $line-height;
+  }
+}
+
+// breakpoints
+$breakpoint-m: 768px;
+$breakpoint-t: 1024px;
+$breakpoint: 1280px;
+$breakpoint-l: 1366px;
+$breakpoint-ll: 1440px;
+$breakpoint-xl: 1680px;
+$breakpoint-xxl: 1920px;
+
+// colors
+$color-white: white;
+$color-white-transparent: rgba(white, 0.4);
+$color-black: #303032;
+$color-main: #29A5B1;
+$color-blue-highlight: #94FFFA;
+$color-gray-border: #CCE3E6; // ?
+$color-blue-light: #F1FBFD; // ?
+$color-red: #E62B3E;
+
+// animations
+$transition: 0.5s;
+
+// параметры grid'a на сайте
+// за основу взято 100vw (боковой скроллбар страниц не учитываем)
+$col-count-m: 4;
+$col-count-d: 12;
+
+$col-pad-m: 20px;
+$col-pad-d: 40px;
+
+$col-gap-m: 20px;
+$col-gap-d: 40px;
+
+$col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap-m} * #{$col-count-m - 1})) / #{$col-count-m})';
+$col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap-d} * #{$col-count-d - 1})) / #{$col-count-d})';
+
+$col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
+$col-part-d: '(#{$col-width-d} + #{$col-gap-d})';
+
+// scrollbar
+@mixin scrollbar-hidden() {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+// cover
+@mixin cover-size() {
+  width: 100%;
+  height: 100%;
+}
+@mixin cover-position() {
+  @each $prop in (top, bottom, left, right) {
+    #{$prop}: 0;
+  }
+}
+@mixin cover() {
+  @include cover-position();
+  @include cover-size();
+}

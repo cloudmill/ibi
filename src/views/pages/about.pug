@@ -1,12 +1,8 @@
-extends ../layouts/master.pug
-
-include ../components/_header.pug
-include ../components/_footer.pug
+extends ../layouts/master
 
 
 
-block header
-  +header
+block vars
 
 
   
@@ -35,8 +31,8 @@ block content
               .section__block.section__block--small
                 .about__image
                   .about__image-background(style='background-image: url("assets/images/about-image.jpeg")')
-                    +hexagon-svg('about__image-svg')
-                    +hexagon-svg('about__image-svg')
+                    +svg-hexagon.about__image-svg
+                    +svg-hexagon.about__image-svg
               .section__block.about__to-front
                 ul.about__list
                   li.about__list-item
@@ -105,7 +101,7 @@ block content
                               |Скачать типовой договор
                           .about__download-button-col
                             .about__download-button-image
-                              +download-svg('about__download-button-svg')
+                              +svg-download.about__download-button-svg
               .section__block
                 p.about__caption
                   |Авторизованные клиники базальной имплантации по всему миру, в которых вы сможете обратиться за контрольным осмотром
@@ -161,11 +157,11 @@ block content
                       .slider-control__item
                         .button-arrow.button-arrow--left
                           .button-arrow__button(data-slider-button='1')
-                            +arrow-svg('button-arrow__svg')
+                            +svg-arrow.button-arrow__svg
                       .slider-control__item
                         .button-arrow.button-arrow--right
                           .button-arrow__button(data-slider-button='2')
-                            +arrow-svg('button-arrow__svg')
+                            +svg-arrow.button-arrow__svg
                 .about__slider
                   .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='1' data-slider-prev='1' data-slider-next='2')
                     .swiper-wrapper
@@ -204,11 +200,11 @@ block content
                       .slider-control__item
                         .button-arrow.button-arrow--left
                           .button-arrow__button(data-slider-button='3')
-                            +arrow-svg('button-arrow__svg')
+                            +svg-arrow.button-arrow__svg
                       .slider-control__item
                         .button-arrow.button-arrow--right
                           .button-arrow__button(data-slider-button='4')
-                            +arrow-svg('button-arrow__svg')
+                            +svg-arrow.button-arrow__svg
                 .about__slider
                   .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='2' data-slider-prev='3' data-slider-next='4')
                     .swiper-wrapper
@@ -229,8 +225,6 @@ block content
 
 
 block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
+  +footer(attributes={
+    'data-sticky-end': 1,
   })

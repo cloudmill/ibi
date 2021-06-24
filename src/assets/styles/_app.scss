@@ -1,7 +1,41 @@
 // fonts
-// Manrope (from google fonts ?)
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
-// PFRegalDisplayPro (from files)
+// Manrope
+@font-face {
+  font-family: 'Manrope';
+  src: url('../fonts/Manrope-Regular.woff') format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../fonts/Manrope-Medium.woff') format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../fonts/Manrope-Semibold.woff') format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../fonts/Manrope-Bold.woff') format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../fonts/Manrope-ExtraBold.woff') format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+// PFRegalDisplayPro
 @font-face {
   font-family: 'PFRegalDisplayPro';
   src: url('../fonts/PFRegalDisplayPro-Regular.woff') format("woff");
@@ -11,9 +45,31 @@
 }
 @font-face {
   font-family: 'PFRegalDisplayPro';
+  src: url('../fonts/PFRegalDisplayPro-Bold.woff') format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PFRegalDisplayPro';
   src: url('../fonts/PFRegalDisplayPro-Italic.woff') format("woff");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PFRegalDisplayPro';
+  src: url('../fonts/PFRegalDisplayPro-BoldItalic.woff') format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+// Montserrat
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Medium.woff') format("woff");
+  font-weight: 500;
+  font-style: normal;
   font-display: swap;
 }
 

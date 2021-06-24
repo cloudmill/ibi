@@ -1,0 +1,293 @@
+.block {
+  $comp: &;
+
+  position: relative;
+  z-index: 0;
+
+  height: 666px;
+  @media (min-width: $breakpoint-m) {
+    height: 611px;
+  }
+  @media (min-width: $breakpoint) {
+    height: 800px;
+  }
+  overflow: hidden;
+
+  // border: 1px solid black; // test
+
+  &__background {
+    @include cover();
+
+    position: absolute;
+    z-index: -1;
+
+    background: linear-gradient(#F8FEFF, #F0FAFC);
+  }
+
+  &__scroll {
+    @include cover();
+    @include scrollbar-hidden();
+
+    position: absolute;
+    z-index: 1;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  &__scroll-height {
+    min-height: 200%;
+    visibility: hidden;
+
+    opacity: 0;
+  }
+
+  &__content {
+    @include cover();
+
+    position: absolute;
+    z-index: 2;
+
+    pointer-events: none;
+  }
+  &__interactive {
+    pointer-events: all;
+  }
+
+  &__scrollbar {
+    @mixin pseudo() {
+      position: absolute;
+      z-index: -1;
+      // place
+      left: 0;
+      transform: translate(-50%, -50%);
+
+      content: '';
+      $size: 13px;
+      width: $size;
+      height: $size;
+
+      background-color: #B9E3E8; // ?
+      border-radius: 50%;
+    }
+
+    position: absolute;
+    z-index: 3;
+    // place
+    top: 60px;
+    bottom: 120px;
+    right: 35px;
+    @media (min-width: $breakpoint-m) {
+      bottom: 60px;
+    }
+    @media (min-width: $breakpoint) {
+      top: 160px;
+      bottom: 160px;
+      right: 60px;
+    }
+
+    pointer-events: none;
+
+    border-right: 1px dashed #6CBAC4; // ?
+
+    &::before {
+      @include pseudo();
+
+      top: 0;
+    }
+    &::after {
+      @include pseudo();
+
+      top: 100%;
+    }
+  }
+  &__scrollbar-thumb {
+    position: absolute;
+    // place
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+
+    // size
+    $size: 27px;
+    width: $size;
+    height: $size;
+    @media (min-width: $breakpoint) {
+      $size: 41px;
+      width: $size;
+      height: $size;
+    }
+    display: flex;
+
+    // appearance
+    background-color: $color-main;
+    border-radius: 50%;
+  }
+  &__scrollbar-svg {
+    margin: auto;
+    height: auto;
+    max-width: 12px;
+    @media (min-width: $breakpoint) {
+      max-width: 15px;
+    }
+
+    &--mobile {
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
+    &--desktop {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+  }
+
+  &__slide {
+    @include cover();
+
+    position: absolute;
+    z-index: 0;
+
+    &--1 {
+
+    }
+    &--2 {
+      #{$comp}__slide-img {
+        bottom: 45px;
+        @media (min-width: $breakpoint) {
+          bottom: 60px;
+        }
+
+        max-width: 320px;
+        @media (min-width: $breakpoint-m) {
+          max-width: 350px;
+        }
+        @media (min-width: $breakpoint) {
+          max-width: 745px;
+        }
+      }
+    }
+  }
+  &__slide-inner {
+    padding: 60px 0;
+    @media (min-width: $breakpoint) {
+      padding: 160px 0;
+    }
+  }
+  &__slide-title {
+    @media (min-width: $breakpoint) {
+      max-width: 370px;
+    }
+    
+    @include fsl(22px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(50px);
+    }
+  }
+  &__slide-desc {
+    @media (min-width: $breakpoint) {
+      position: absolute;
+      z-index: 2;
+      bottom: 160px;
+      right: calc(#{$col-pad-d} + #{$col-width-d});
+    }
+
+    margin-top: 40px;
+    padding-top: 10px;
+    max-width: 250px;
+    @media (min-width: $breakpoint) {
+      margin-top: 0;
+      padding-top: 20px;
+      width: calc(#{$col-part-d} * 2 + #{$col-gap-d});
+      max-width: none;
+    }
+
+    border-top: 1px solid $color-main;
+    @include fsl(14px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px);
+    }
+  }
+  &__slide-link {
+    margin-top: 30px;
+    @media (min-width: $breakpoint) {
+      margin-top: 40px;
+    }
+  }
+  &__slide-img {
+    position: absolute;
+    z-index: -1;
+    bottom: 20px;
+    @media (min-width: $breakpoint-m) {
+      bottom: 25px;
+    }
+    @media (min-width: $breakpoint) {
+      bottom: 60px;
+    }
+    left: 50%;
+    transform: translateX(-50%);
+
+    max-width: 300px;
+    @media (min-width: $breakpoint-m) {
+      max-width: 325px;
+    }
+    @media (min-width: $breakpoint) {
+      max-width: 606px;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    z-index: 1;
+    left: $col-pad-d;
+    bottom: 160px;
+
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
+  }
+  &__nav-item {
+    position: relative;
+    z-index: 0;
+    
+    padding-left: 33px;
+
+    &::before {
+      position: absolute;
+      top: 13px;
+      left: 6px;
+      left: 0;
+      transform: translate(-50%, -50%);
+
+      content: '';
+      $size: 7px;
+      width: $size;
+      height: $size;
+
+      background-color: $color-black;
+      border-radius: 50%;
+    }
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    &--active {
+      &::before {
+        $size: 13px;
+        width: $size;
+        height: $size;
+
+        background-color: $color-main;
+      }
+      
+      #{$comp}__nav-link {
+        color: $color-main;
+      }
+    }
+  }
+  &__nav-link {
+    @include fsl(20px, 140%);
+  }
+}
+  

@@ -1,27 +1,73 @@
 extends ../layouts/master.pug
 
-include ../components/_header.pug
-include ../components/_footer.pug
-
-
-
 block header
-  +header
-
-
 
 block content
-  .main
-    .section
-      .section__inner
-        .container
-          section.section__block
-            |публикации иби
-          section.section__block
-            |новости
-
-
-
-
-block footer
-  +footer
+  .pages
+    -
+      var pages = [
+        {
+          href: 'main.html',
+          title: 'Главная',
+        },
+        {
+          href: 'mission.html',
+          title: 'Миссия',
+        },
+        {
+          href: 'news.html',
+          title: 'Новости',
+        },
+        {
+          href: 'news-page.html',
+          title: 'Отдельная новость',
+        },
+        {
+          href: 'about.html',
+          title: 'О нас',
+        },
+        {
+          href: 'contacts.html',
+          title: 'Контакты',
+        },
+        {
+          href: 'team.html',
+          title: 'Команда',
+        },
+        {
+          href: 'team-member.html',
+          title: 'Отдельный врач',
+        },
+        {
+          href: 'vacancies.html',
+          title: 'Вакансии',
+        },
+        {
+          href: 'laboratory.html',
+          title: 'Лаборатория',
+        },
+        {
+          href: 'guarantee.html',
+          title: 'Гарантии',
+        },
+        {
+          href: 'faq.html',
+          title: 'Вопросы и ответы',
+        },
+        {
+          href: 'payment.html',
+          title: 'Способы оплаты',
+        },
+        {
+          href: 'transfer.html',
+          title: 'Трансфер',
+        },
+      ];
+    .container
+      .pages__container
+        .pages__list
+          each page in pages
+            .pages__list-item
+              .button
+                a.button__btn(href=page.href)
+                  |#{page.title}
