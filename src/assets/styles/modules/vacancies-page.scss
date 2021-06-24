@@ -36,6 +36,7 @@
       padding-top: 50px;
       object-position: center;
       object-fit: cover;
+      max-height: unset;
 
       @media (max-width: $breakpoint) {
         position: absolute;
