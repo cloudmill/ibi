@@ -47,8 +47,12 @@
     padding-left: calc(#{$col-part-d} + 10px);
 
     @media (max-width: $breakpoint) {
-      font-size: 20px;
+      font-size: 35px;
       padding-left: 0;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      font-size: 20px;
     }
 
     .index__paragraph-text {
@@ -79,10 +83,15 @@
   line-height: 140%;
 
   @media (max-width: $breakpoint) {
-    width: 100%;
+    width: 50%;
     font-size: 16px;
     margin-top: 40px;
   }
+
+  @media (max-width: $breakpoint-m) {
+    width: 100%;
+  }
+
 }
 
 .transfer-numbers {
@@ -315,6 +324,11 @@
 
     @media (max-width: $breakpoint) {
       width: 100%;
+      font-size: 35px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      font-size: 22px;
     }
   }
 
