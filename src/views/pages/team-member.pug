@@ -52,7 +52,7 @@ block content
                   a.member-page__presentation(href="#")
                     +presentation-svg('member-page__presentation-ico')
                     .member-page__presentation-title Видео презентация
-                .single-news__txt
+                .single-news__txt.member-page__txt
                   ul
                     li Lorem ipsum dolor sit amet, consectetur adipisicing
                     li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
@@ -117,94 +117,152 @@ block content
                               img.about__license-img(src='assets/images/about-license-3.jpeg' alt='')
                             h6.about__license-title
                               |Удостоверение о повышении квалификации
-    //- section.index__section.index__section--default.index__section--mid
-    //-     .container
-    //-       .index__block.index-publications.index-operations
-    //-         .index-publications__top
-    //-           .index-publications__top-left
-    //-             h2.index-publications__title
-    //-               |Последние проведенные операции
-    //-           .index-publications__top-right
-    //-             .mission__missions-links-container
-    //-               a.mission__missions-links-link(href='#')
-    //-                 +svg-link.mission__missions-links-svg
-    //-                 .mission__missions-links-text
-    //-                   |Все операции
-    //-         .index-operations__slider
-    //-           .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='7' data-slider-prev='9' data-slider-next='10')
-    //-             .swiper-wrapper
-    //-               - for (let i=0; i<9; i++)
-    //-                 .swiper-slide
-    //-                   .operation-card
-    //-                     .operation-card__row
-    //-                       .operation-card__col
-    //-                         .operation-card__image
-    //-                           img.operation-card__img(src=`assets/images/index/operation-${i % 2 + 1}.jpeg`)
-    //-                       .operation-card__col
-    //-                         .operation-card__content
-    //-                           .operation-card__block
-    //-                             .operation-card__top
-    //-                               .operation-card__top-row
-    //-                                 .operation-card__top-col
-    //-                                   .operation-card__info
-    //-                                     .operation-card__price
-    //-                                       |456 000 ₽
-    //-                                     .operation-card__visits
-    //-                                       |4 визита
-    //-                                 .operation-card__top-col
-    //-                                   .operation-card__rating
-    //-                                     ul.operation-card__rating-list
-    //-                                       - for (let i=0; i<5; i++)
-    //-                                         li.operation-card__rating-item(class=(i < 3 ? 'operation-card__rating-item--active' : ''))
-    //-                                           +svg-rating(class='operation-card__rating-svg')
-    //-                             .tags.operation-card__tags
-    //-                               ul.tags__list
-    //-                                 li.tags__item
-    //-                                   a.tags__tag(href='#')
-    //-                                     |#имплантация
-    //-                                 li.tags__item
-    //-                                   a.tags__tag(href='#')
-    //-                                     |#протезирование
-    //-                             h3.operation-card__title
-    //-                               |Жильцов Сергей Васильевич
-    //-                             .operation-card__desc
-    //-                               .operation-card__desc-block
-    //-                                 h6.operation-card__desc-title.operation-card__desc-title--red
-    //-                                   |Проблема
-    //-                                 p.operation-card__desc-text
-    //-                                   |Отсутствием зубов на верхней и нижней челюсти и серьезной атрофией костной ткани.
-    //-                               .operation-card__desc-block
-    //-                                 h6.operation-card__desc-title
-    //-                                   |Предложенное решение
-    //-                                 p.operation-card__desc-text
-    //-                                   |По результатам врачебного консилиума было принято решение проводить базальную имплантацию.
-    //-                           .operation-card__bottom
-    //-                             .operation-card__bottom-row
-    //-                               .operation-card__bottom-col
-    //-                                 ul.operation-card__links
-    //-                                   li.operation-card__link
-    //-                                     .mission__missions-links-container
-    //-                                       a.mission__missions-links-link(href='#')
-    //-                                         +svg-link.mission__missions-links-svg
-    //-                                         .mission__missions-links-text
-    //-                                           |Подробнее
-    //-                                   if !(i % 2)
-    //-                                     li.operation-card__link.operation-card__link--mobile
-    //-                                       .mission__missions-links-container
-    //-                                         a.mission__missions-links-link(href='#')
-    //-                                           +svg-link.mission__missions-links-svg
-    //-                                           .mission__missions-links-text
-    //-                                             |Все операции
-    //-                               .operation-card__bottom-col.operation-card__bottom-col--desktop
-    //-                                 .slider-control.slider-control--desktop
-    //-                                   .slider-control__item
-    //-                                     .button-arrow.button-arrow--left
-    //-                                       .button-arrow__button(data-slider-button='9')
-    //-                                         +svg-arrow.button-arrow__svg
-    //-                                   .slider-control__item
-    //-                                     .button-arrow.button-arrow.button-arrow--right
-    //-                                       .button-arrow__button(data-slider-button='10')
-    //-                                         +svg-arrow.button-arrow__svg
+    section.index__section.section--blue-light
+        .container
+          .index__block.index-publications.index-operations
+            .index-publications__top
+              .index-publications__top-left
+                h2.index-publications__title
+                  |Последние проведенные операции
+              .index-publications__top-right
+                .mission__missions-links-container
+                  a.mission__missions-links-link(href='#')
+                    +svg-link.mission__missions-links-svg
+                    .mission__missions-links-text
+                      |Все операции
+            .index-operations__slider
+              .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='7' data-slider-prev='9' data-slider-next='10')
+                .swiper-wrapper
+                  - for (let i=0; i<9; i++)
+                    .swiper-slide
+                      .operation-card
+                        .operation-card__row
+                          .operation-card__col
+                            .operation-card__image
+                              img.operation-card__img(src=`assets/images/index/operation-${i % 2 + 1}.jpeg`)
+                          .operation-card__col
+                            .operation-card__content
+                              .operation-card__block
+                                .operation-card__top
+                                  .operation-card__top-row
+                                    .operation-card__top-col
+                                      .operation-card__info
+                                        .operation-card__price
+                                          |456 000 ₽
+                                        .operation-card__visits
+                                          |4 визита
+                                    .operation-card__top-col
+                                      .operation-card__rating
+                                        ul.operation-card__rating-list
+                                          - for (let i=0; i<5; i++)
+                                            li.operation-card__rating-item(class=(i < 3 ? 'operation-card__rating-item--active' : ''))
+                                              +svg-rating(class='operation-card__rating-svg')
+                                .tags.operation-card__tags
+                                  ul.tags__list
+                                    li.tags__item
+                                      a.tags__tag(href='#')
+                                        |#имплантация
+                                    li.tags__item
+                                      a.tags__tag(href='#')
+                                        |#протезирование
+                                h3.operation-card__title
+                                  |Жильцов Сергей Васильевич
+                                .operation-card__desc
+                                  .operation-card__desc-block
+                                    h6.operation-card__desc-title.operation-card__desc-title--red
+                                      |Проблема
+                                    p.operation-card__desc-text
+                                      |Отсутствием зубов на верхней и нижней челюсти и серьезной атрофией костной ткани.
+                                  .operation-card__desc-block
+                                    h6.operation-card__desc-title
+                                      |Предложенное решение
+                                    p.operation-card__desc-text
+                                      |По результатам врачебного консилиума было принято решение проводить базальную имплантацию.
+                              .operation-card__bottom
+                                .operation-card__bottom-row
+                                  .operation-card__bottom-col
+                                    ul.operation-card__links
+                                      li.operation-card__link
+                                        .mission__missions-links-container
+                                          a.mission__missions-links-link(href='#')
+                                            +svg-link.mission__missions-links-svg
+                                            .mission__missions-links-text
+                                              |Подробнее
+                                      if !(i % 2)
+                                        li.operation-card__link.operation-card__link--mobile
+                                          .mission__missions-links-container
+                                            a.mission__missions-links-link(href='#')
+                                              +svg-link.mission__missions-links-svg
+                                              .mission__missions-links-text
+                                                |Все операции
+                                  .operation-card__bottom-col.operation-card__bottom-col--desktop
+                                    .slider-control.slider-control--desktop
+                                      .slider-control__item
+                                        .button-arrow.button-arrow--left
+                                          .button-arrow__button(data-slider-button='9')
+                                            +svg-arrow.button-arrow__svg
+                                      .slider-control__item
+                                        .button-arrow.button-arrow.button-arrow--right
+                                          .button-arrow__button(data-slider-button='10')
+                                            +svg-arrow.button-arrow__svg
+    section.index__section.section--blue-light.section__inner
+      .container
+        .index-publications
+          .index-publications__top
+            .index-publications__top-left
+              h2.index-publications__title
+                |Публикации ИБИ
+              .index-publications__control.slider-control.slider-control--desktop
+                .slider-control__item
+                  .button-arrow.button-arrow--left
+                    .button-arrow__button(data-slider-button='7')
+                      +svg-arrow.button-arrow__svg
+                .slider-control__item
+                  .button-arrow.button-arrow.button-arrow--right
+                    .button-arrow__button(data-slider-button='8')
+                      +svg-arrow.button-arrow__svg
+            .index-publications__top-right
+              .mission__missions-links-container
+                a.mission__missions-links-link(href='#')
+                  +svg-link.mission__missions-links-svg
+                  .mission__missions-links-text
+                    |Все публикации 
+          .index-publications__slider
+            .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='5' data-slider-prev='7' data-slider-next='8')
+              .swiper-wrapper
+                - for (let i=0; i<9; i++)
+                  .swiper-slide
+                    a.card.member-page__publications-card(href='#')
+                      .card__top
+                        h3.card__title
+                          |Обучение Strategic Implant в Новосибирске
+                        p.card__text
+                          |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
+                      .card__bottom
+                        .card__row
+                          .card__col
+                            .tags
+                              ul.tags__list
+                                li.tags__item
+                                  .tags__tag
+                                    |#кейсы
+                                li.tags__item
+                                  .tags__tag
+                                    |#исследования
+                                li.tags__item
+                                  .tags__tag
+                                    |#центр
+                            .card__date
+                              |28 января 2021
+                          .card__col
+                            .card__image
+                              +svg-link(class='card__svg')
+          .index-publications__link
+            .mission__missions-links-container
+              a.mission__missions-links-link(href='#')
+                +svg-link.mission__missions-links-svg
+                .mission__missions-links-text
+                  |Все публикации
     
     section.section
       .row
