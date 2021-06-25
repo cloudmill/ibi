@@ -1,0 +1,97 @@
+.price {
+  &__note {
+    font-size: 14px;
+    line-height: 160%;
+    margin-left: calc(#{$col-gap-d});
+
+    margin-top: 60px;
+  }
+
+  &__btn {
+    margin-left: calc(#{$col-gap-d});
+
+    .extra-btn {
+      width: 44px;
+    }
+  }
+}
+
+.price-subtitle {
+  margin: 120px 0 80px;
+  font-size: 40px;
+  line-height: 140%;
+
+  @media (max-width: $breakpoint) {
+    margin: 40px 0;
+    font-size: 18px;
+  }
+}
+
+.price-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 160px;
+
+  @media (max-width: $breakpoint) {
+    margin-bottom: 60px;
+  }
+
+  &__img {
+    width: 100%;
+    margin-bottom: 60px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__ttl {
+    width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+    margin-bottom: 60px;
+
+    font-size: 30px;
+    line-height: 140%;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__price {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    font-size: 50px;
+    line-height: 140%;
+    color: $color-main;
+    text-align: right;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      // margin-top: 20px;
+      font-size: 20px;
+      text-align: left;
+      order: 2;
+    }
+  }
+
+  &__desc {
+    @media (max-width: $breakpoint) {
+      margin-bottom: 20px;
+    }
+    ul {
+      margin: 0;
+    }
+  }
+}
+
+.price-ask {
+  margin: 0;
+}

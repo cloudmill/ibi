@@ -1,0 +1,113 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+  
+block content
+  section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |Протезирование
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Имплантация
+            .price__note Стоимость может меняться в зависимости клинического состояния зубов
+            button.vacancies-list__extra-btn.price__btn
+              +arrow-link-svg('extra-btn')
+              |Получить точный расчет
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Стоимость
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Трансфер
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              h2.price-subtitle
+               |Имплантация
+              .price-item
+                .price-item__img
+                  img(src="assets/images/0price.jpg", alt="")
+                .price-item__ttl Проведение операции на сегменте от 3-х до 5-ти зубов Strategic Implant + протезирование несъемным мостовидным протезом
+                .price-item__price 130 500 ₽
+                .price-item__desc.single-news__txt
+                  ul
+                    li Имплантаты устанавливаются в местах отсутствующих или удаленных зубов
+                    li При восстановлении сегмента (3-5 зубов) рекомендуется устанавливать диоксид циркониевые (постоянные) или металлоакриловые (условно-временные) зубные мосты
+                    li Диоксид циркониевые зубы на имплантатах Strategic implant являются постоянными конструкциями
+              .price-item
+                .price-item__img
+                  img(src="assets/images/0price.jpg", alt="")
+                .price-item__ttl Проведение операции на сегменте от 3-х до 5-ти зубов Strategic Implant + протезирование несъемным мостовидным протезом
+                .price-item__price 130 500 ₽
+                .price-item__desc.single-news__txt
+                  ul
+                    li Имплантаты устанавливаются в местах отсутствующих или удаленных зубов
+                    li При восстановлении сегмента (3-5 зубов) рекомендуется устанавливать диоксид циркониевые (постоянные) или металлоакриловые (условно-временные) зубные мосты
+                    li Диоксид циркониевые зубы на имплантатах Strategic implant являются постоянными конструкциями
+              .price-item
+                .price-item__img
+                  img(src="assets/images/0price.jpg", alt="")
+                .price-item__ttl Проведение операции на сегменте от 3-х до 5-ти зубов Strategic Implant + протезирование несъемным мостовидным протезом
+                .price-item__price 130 500 ₽
+                .price-item__desc.single-news__txt
+                  ul
+                    li Имплантаты устанавливаются в местах отсутствующих или удаленных зубов
+                    li При восстановлении сегмента (3-5 зубов) рекомендуется устанавливать диоксид циркониевые (постоянные) или металлоакриловые (условно-временные) зубные мосты
+                    li Диоксид циркониевые зубы на имплантатах Strategic implant являются постоянными конструкциями
+              .news-subscribe.member-page-ask.transfer-consult.price-ask
+                h2.news-subscribe__title Получить персональную консультацию бесплатно
+                .transfer-consult__img
+                form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+                  .member-page-ask__form-wrapper
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Дополнительная информация")
+                    label.transfer-consult__add-file(for="")
+                      button
+                        +add-file-svg('transfer-consult__add-file-ico')
+                        |Прикрепить файл
+                      p Снимки, ретнген, заключение врача 
+                    label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                        input(type="checkbox" required="")
+                        p Согласен на обработку персональных данных в соответствии с 
+                            a(href="#") политикой конфиденциальности
+                    button.news-subscribe__form-btn(type="submit")
+                        +arrow-link-svg('news-subscribe__form-btn-ico')
+                        |Отправить
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })

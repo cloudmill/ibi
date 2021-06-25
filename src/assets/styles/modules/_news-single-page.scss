@@ -120,6 +120,10 @@
       }
     }
 
+    li:last-child {
+      margin-bottom: 0;
+    }
+
     li::before {
       content: '';
       display: inline-block;
