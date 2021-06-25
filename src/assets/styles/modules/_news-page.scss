@@ -96,6 +96,10 @@
       line-height: 110%;
       font-weight: 500;
 
+      @media (max-width: $breakpoint) {
+        font-size: 35px;
+    }
+
       @media (max-width: $breakpoint-m) {
           font-size: 18px;
       }
@@ -164,7 +168,7 @@
         padding-top: 20px;
         margin-bottom: 60px;
 
-        @media (max-width: $breakpoint) {
+        @media (max-width: $breakpoint-m) {
             padding-top: 10px;
             margin-bottom: 40px;
         }
@@ -173,7 +177,7 @@
     display: flex;
     justify-content: flex-start;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint-m) {
         flex-wrap: wrap;
         justify-content: space-between;
     }
@@ -183,6 +187,11 @@
       color: $color-main;
 
       @media (max-width: $breakpoint) {
+        width: calc(#{$col-part-m} / 2);
+        padding-right: 10px;
+      }
+
+      @media (max-width: $breakpoint-m) {
           order: -1;
           width: 100%;
           margin-bottom: 20px;
@@ -197,26 +206,34 @@
         width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
         text-align: right;
 
-        img {
-            width: 160px;
-            @media (max-width: $breakpoint) {
-                width: auto;
-            }
-        }
-        
         @media (max-width: $breakpoint) {
+            width: calc(#{$col-part-m} / 2);
+          }
+        
+        @media (max-width: $breakpoint-m) {
             order: 1;
             width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
             text-align: unset;
+        }
+
+        img {
+            width: 160px;
+            @media (max-width: $breakpoint-m) {
+                width: auto;
+            }
         }
     }
   
     &__title {
       width: calc(#{$col-part-d} * 4);
       padding-left: 40px;
+
+      @media (max-width: $breakpoint) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
       
   
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint-m) {
         order: -1;
         width: auto;
         padding-left: 0;
@@ -228,6 +245,10 @@
         font-size: 40px;
         line-height: 110%;
 
+        @media (max-width: $breakpoint) {
+            font-size: 30px;
+        }
+
         @media (max-width: $breakpoint-m) {
             font-size: 18px;
         }
@@ -238,7 +259,7 @@
       align-self: flex-start;
       margin: 0 0 0 auto;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint-m) {
         order: 1;
         margin: 0;
         align-self: flex-end;
