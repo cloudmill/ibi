@@ -218,7 +218,7 @@ const BREAKPOINT = 1280;
               // allowTouchMove: false,
               // autoHeight: true,
               // loop: true,
-              slideToClickedSlide: true,
+              // slideToClickedSlide: true,
 
             }
             break;

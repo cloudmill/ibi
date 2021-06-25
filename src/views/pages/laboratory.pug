@@ -41,30 +41,25 @@ block content
             |, которые 
             span.lab-block__txt-highlight прошли расширенное обучение и подготовку для работы на базальных имплантатах Strategic Implant за рубежом 
             |и в своей практике ежедневно изготавливают различные ортопедические конструкции в протоколе немедленной нагрузки.
-    //- section
-    //-   .index__block
-    //-     .index__mid
-    //-       .index__mid-slider
-    //-         .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='8' data-slider-prev='11' data-slider-next='12')
-    //-           .swiper-wrapper
-    //-             .swiper-slide
-    //-               .index__mid-slide
-    //-                 img.index__mid-img(src=`assets/images/lab-slider.jpg` alt='')
-    //-             .swiper-slide
-    //-               .index__mid-slide
-    //-                 img.index__mid-img(src=`assets/images/lab-slider.jpg` alt='')
-    //-             .swiper-slide
-    //-               .index__mid-slide
-    //-                 img.index__mid-img(src=`assets/images/lab-slider.jpg` alt='')
-    //-       .index__mid-controls
-    //-         .index__mid-control.index__mid-control--left
-    //-           .button-arrow.button-arrow--left
-    //-             .button-arrow__button(data-slider-button='11')
-    //-               +arrow-svg.button-arrow__svg
-    //-         .index__mid-control.index__mid-control--right
-    //-           .button-arrow.button-arrow--right
-    //-             .button-arrow__button(data-slider-button='12')
-    //-               +arrow-svg.button-arrow__svg
+    section
+      .index__block
+        .index__mid
+          .index__mid-slider
+            .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='8' data-slider-prev='11' data-slider-next='12')
+              .swiper-wrapper
+                - for (let i=0; i<3; i++)
+                  .swiper-slide
+                    .index__mid-slide
+                      img.index__mid-img(src=`assets/images/index/mid-${i + 1}.jpeg` alt='')
+          .index__mid-controls
+            .index__mid-control.index__mid-control--left
+              .button-arrow.button-arrow--left
+                .button-arrow__button(data-slider-button='11')
+                  +svg-arrow.button-arrow__svg
+            .index__mid-control.index__mid-control--right
+              .button-arrow.button-arrow--right
+                .button-arrow__button(data-slider-button='12')
+                  +svg-arrow.button-arrow__svg
     section.development
       .container
         .development__title Наши разработки
