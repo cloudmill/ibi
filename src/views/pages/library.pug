@@ -1,0 +1,100 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+block content
+  section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    each item in ['Strategic Implant', 'Обучение']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Библиотека
+                    each item in ['Юридическая помощь', 'Наши разработки']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+            .team-filter
+              ul.team-filter__container
+                li.team-filter__item(data-id="doctor") #книги
+                li.team-filter__item(data-id="dentist") #журналы
+                li.team-filter__item(data-id="admin") #публикации
+                li.team-filter__item(data-id="coordinator") #методички
+              button.team-filter__reset
+                +reset-svg('team-filter__reset-ico')
+                |Сбросить
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Библиотека
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Библиотека
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              .library-cards
+                - for (let i=0; i<9; i++)
+                  a.card(href='#')
+                    .card__top
+                      h3.card__title
+                        |Основы зубопротезной техники. Учебное пособие
+                      //- p.card__text
+                      //-   |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
+                      .library-cards__img
+                        img(src="assets/images/library-1.jpg", alt="")
+                    .card__bottom
+                      .card__row
+                        .card__col
+                          .tags
+                            ul.tags__list
+                              li.tags__item
+                                .tags__tag
+                                  |#журнал
+                              li.tags__item
+                                .tags__tag
+                                  |#методичка
+                              li.tags__item
+                                .tags__tag
+                                  |#центр
+                          .card__date
+                            |PDF
+                        .card__col
+                          .card__image
+                            +svg-link(class='card__svg')
+                .news-show-more
+                    button.news-show-more-btn
+                        .news-show-more-ico
+                            +arrow-link-svg('news__link-ico')
+                        .news-show-more-txt Показать еще
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })

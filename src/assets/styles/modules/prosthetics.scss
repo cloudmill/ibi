@@ -1,0 +1,182 @@
+.prosthetics {
+
+  &__image {
+    .about__image-background .about__image-svg:nth-child(1) {
+      top: unset;
+      left: calc(#{$col-part-d});
+      bottom: 0;
+      transform: translateY(50%);
+    }
+  }
+
+  
+}
+
+.prosthetics-block {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 160px;
+
+  &__ttl {
+    font-size: 40px;
+    width: 100%;
+    margin-bottom: 80px;
+  }
+
+  &__img {
+    object-fit: cover;
+    object-position: center;
+
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    margin-right: calc(#{$col-part-d});
+  }
+
+  &__desc {
+    width: calc(#{$col-part-d} * 3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &-txt {
+      font-size: 16px;
+      border-left: 1px solid $color-main;
+      padding-left: calc(#{$col-gap-d});
+      margin-bottom: 60px;
+    }
+
+    &-txt:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.prosthetics-block__lab {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 160px;
+  padding-top: 40px;
+  border-top: 1px solid $color-main;
+
+  h2 {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+  }
+
+  p {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    margin-bottom: 80px;
+  }
+}
+
+.prosthetics-block__practice {
+  display: flex;
+  // flex-wrap: wrap;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &-desc {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+    h2 {
+      font-size: 40px;
+      line-height: 140%;
+      margin-bottom: 40px;
+    }
+  
+    p {
+      font-size: 18px;
+    }
+  }
+  
+
+  &-circle {
+    border: 1px solid $color-main;
+    border-radius: 50%;
+    width: calc(#{$col-part-d} * 4);
+    height: calc(#{$col-part-d} * 4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+    padding: 10px 70px;
+
+    .practice-circle {
+      // margin: 40px 0;
+      width: 27px;
+      flex: none;
+      // @media (max-width: $breakpoint) {
+      //   min-width: 27px;
+      // }
+    }
+
+    .practice-circle:last-child {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-ttl {
+    font-family: $ff-2;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 100px;
+    line-height: 80%;
+
+    // margin-bottom: 40px;
+    margin: 10px 0;
+
+    @media (max-width: $breakpoint) {
+      font-size: 50px;
+    }
+  }
+
+  &-txt {
+    font-size: 20px;
+    line-height: 140%;
+
+    margin: 10px 0;
+
+    @media (max-width: $breakpoint) {
+      font-size: 14px;
+    }
+  }
+}
+
+.prosthetics-block__practice-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  h2 {
+    font-size: 40px;
+    line-height: 140%;
+    width: calc(#{$col-part-d} * 4);
+    margin-bottom: 60px;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  li {
+    margin-right: 90px;
+    font-size: 16px;
+    line-height: 140%;
+    width: 20%;
+    padding-left: 30px;
+  }
+
+  li::before {
+    content: ' ';
+    display: block;
+    color: $color-main;
+
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}

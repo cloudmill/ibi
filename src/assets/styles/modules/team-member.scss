@@ -79,9 +79,25 @@
 
     &-ico {
       @media (max-width: $breakpoint) {
-        max-width: 34px;
+        max-width: 50px;
+        max-height: 50px;
       }
     }
+  }
+
+  &__txt {
+
+    ul:first-child {
+      margin: 40px 0 60px;
+    }
+
+    ul:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__publications-card {
+    background-color: #fff;
   }
 }
 

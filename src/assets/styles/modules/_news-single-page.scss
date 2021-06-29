@@ -114,6 +114,14 @@
     li {
       margin: 20px 0;
       // padding-left: calc(#{$col-part-d} - #{$col-gap-d});
+
+      @media (max-width: $breakpoint-m) {
+        font-size: 14px;
+      }
+    }
+
+    li:last-child {
+      margin-bottom: 0;
     }
 
     li::before {
