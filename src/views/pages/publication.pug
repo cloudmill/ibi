@@ -1,0 +1,168 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block content 
+  section.section.section--gradient 
+    .row 
+      .row__col 
+        .section__inner.section__inner--top
+          .articles-authors
+              .articles-authors__container
+                .articles-authors__title 
+                  |Авторы статей
+                ul.articles-authors__list 
+                  li.articles-authors__item 
+                    .article-author 
+                      .article-author__row 
+                        .article-author__col
+                          .article-author__img 
+                            img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
+                          .article-author__label 
+                            |14 статей
+                        .article-author__col
+                          .article-author__name 
+                            |Шмойлов Андрей Евгеньевич
+                          .article-author__prof 
+                            |Главный врач центра
+      .row__col 
+        .section__inner.section__inner--top
+          .container.single-news 
+            h1.title.single-news__title
+              |Исследования
+            .mission
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Исследования
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .single-news__body
+              .single-news__head.single-news__head--small
+                .single-news__back-link
+                    a(href="#") Вернуться
+                .single-news__date 3 ноября 2020
+              .articles-authors.articles-authors--mobile
+                .articles-authors__container
+                  .articles-authors__title 
+                    |Авторы статей
+                  ul.articles-authors__list 
+                    li.articles-authors__item 
+                      .article-author 
+                        .article-author__row 
+                          .article-author__col
+                            .article-author__img 
+                              img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
+                            .article-author__label 
+                              |14 статей
+                          .article-author__col
+                            .article-author__name 
+                              |Шмойлов Андрей Евгеньевич
+                            .article-author__prof 
+                              |Главный врач центра
+              .team-filter.team-filter--long
+                ul.team-filter__container
+                  li.team-filter__item(data-id="doctor") #имплантация
+                  li.team-filter__item(data-id="dentist") #протезирование
+                  li.team-filter__item(data-id="admin") #оплата
+              .article
+                .single-news__txt 
+                  p
+                    |Жалобы потребителей, связанные со стоматологическими имплантатами, поступившие от стоматологов и  хирургов  во всем мире, были проанализированы производителем имплантатов в течение определенного периода.
+                  p
+                    |Частота«жалоб, связанныхсимплантатами»по сравнению с«количеством проданных имплантатов» показывает, что имплантаты с полированной эндооссальной поверхностью, предназначенные для протоколов немедленной нагрузки, а также одиночные имплантаты вызывают существенно меньше жалоб клиентов по сравнению с традиционными 2-этапнымисистемами (р&lt;0,001) с грубой поверхностью (пескоструйная обработка/ протравка) (р&lt;0,001) и большим эндооссальным диаметром. Поскольку мы планировали опубликовать эти данные и собирали их тщательным образом, данное исследование является перспективным.
+                  p
+                    |Ключевые слова: жалобы, связанные с имплантатами, поверхность имплантата, конструкция имплантата, немедленная нагрузка
+                .article__inner
+                  img.article__img(src="assets/images/article-1.jpg", alt="")
+                  .article__label 
+                    |Стоматологический кабинет ИБИ
+                h3.article__title 
+                  |Обучение Strategic Implant
+                .article__wrapper 
+                  p.article__text 
+                    |Далее участники слушали выступление президента-элект СтАР, профессора, доктора медицинских наук, заведующего кафедрой хирургической стоматологии и челюстно-лицевой хирургии Яременко Андрея Ильича. Он рассказал о проблемах имплантологии в России. Отметил, что имплантация становится все более распространенной и ее качество должно непрерывно расти. Тем не менее, в современной стоматологии встречаются случаи осложнений при имплантации, которые необходимо свести к минимуму.
+                .single-news__txt
+                  ul
+                    - for (i = 0; i < 6; i++)
+                      li 
+                        |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г 
+            aside.share-social 
+              .share-social__box
+                .share-social__title Поделиться
+                ul.footer__socials
+                  li.footer__socials-item
+                    a.footer__socials-link.share-social__link(href='#')
+                      +facebook-svg('footer__socials-svg')
+                  li.footer__socials-item
+                    a.footer__socials-link.share-social__link(href='#')
+                      +vk-svg('footer__socials-svg')
+  .section 
+    .row 
+      .row__col
+      .row__col
+        .container
+          .index-publications
+            .index-publications__top
+              .index-publications__top-left
+                h2.index-publications__title
+                  |Похожие статьи
+                .index-publications__control.slider-control.slider-control--desktop
+                  .slider-control__item
+                    .button-arrow.button-arrow--blue-light.button-arrow--left
+                      .button-arrow__button(data-slider-button='7')
+                        +svg-arrow.button-arrow__svg
+                  .slider-control__item
+                    .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
+                      .button-arrow__button(data-slider-button='8')
+                        +svg-arrow.button-arrow__svg
+            .index-publications__slider
+              .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='5' data-slider-prev='7' data-slider-next='8')
+                .swiper-wrapper
+                  - for (let i=0; i<9; i++)
+                    .swiper-slide
+                      a.card(href='#')
+                        .card__top
+                          h3.card__title
+                            |Обучение Strategic Implant в Новосибирске
+                          p.card__text
+                            |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
+                        .card__bottom
+                          .card__row
+                            .card__col
+                              .tags
+                                ul.tags__list
+                                  li.tags__item
+                                    .tags__tag
+                                      |#кейсы
+                                  li.tags__item
+                                    .tags__tag
+                                      |#исследования
+                                  li.tags__item
+                                    .tags__tag
+                                      |#центр
+                              .card__date
+                                |28 января 2021
+                            .card__col
+                              .card__image
+                                +svg-link(class='card__svg')
+          .news-subscribe
+            h2.news-subscribe__title Подпишитесь на публикации и новости
+            form.news-subscribe__form
+              div
+                label.news-subscribe__form-placeholder
+                    input.news-subscribe__form-email(type="email" placeholder="E-mail")
+                label.news-subscribe__form-checkbox
+                    input(type="checkbox")
+                    p Согласен на обработку персональных данных в соответствии с 
+                      a(href="#") политикой конфиденциальности
+              button.news-subscribe__form-btn
+                  +arrow-send('news-subscribe__form-btn-ico')
