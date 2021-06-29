@@ -1,5 +1,5 @@
 import 'Styles/_app.scss';
-import Swiper from 'swiper';
+import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
 
 const BREAKPOINT = 1280;
@@ -646,4 +646,19 @@ const BREAKPOINT = 1280;
       });
     }
   });
+}
+
+// test
+{
+  $(() => {
+    const swiperThumbs = new Swiper($('[data-test-thumbs]')[0], {
+      freeMode: true,
+    })
+    const swiperSlider = new Swiper($('[data-test-slider]')[0], {
+      thumbs: {
+        swiper: swiperThumbs,
+      },
+    })
+    swiperThumbs.update()
+  })
 }
