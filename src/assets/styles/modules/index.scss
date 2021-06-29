@@ -345,6 +345,18 @@
 
   background-color: $color-blue-light;
 
+  &--research {
+    width: 100%;
+    @media (min-width: $breakpoint) {
+      width: 575px;
+      height: 360px;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      min-height: 212px;
+      height: auto;
+    }
+  }
+
   &__top {
     @media (min-width: $breakpoint) {
       max-width: 390px;

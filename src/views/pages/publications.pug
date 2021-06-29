@@ -1,0 +1,138 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block content 
+  .section.section--gradient
+    .row 
+      .row__col
+        .section__inner.section__inner--top
+          .articles-authors
+            .articles-authors__container
+              .articles-authors__title 
+                |Авторы статей
+              ul.articles-authors__list 
+                - for (i = 0; i < 3; i++)
+                  li.articles-authors__item 
+                    .article-author 
+                      .article-author__row 
+                        .article-author__col
+                          .article-author__img 
+                            img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
+                          .article-author__label 
+                            |14 статей
+                        .article-author__col
+                          .article-author__name 
+                            |Шмойлов Андрей Евгеньевич
+                          .article-author__prof 
+                            |Главный врач центра
+      .row__col
+        .section__inner.section__inner--top
+          .container 
+            h1.title
+              |Исследования
+            .mission__spoiler.news-spoiler
+              .mission__spoiler-button.news-spoiler__button
+                h5.mission__spoiler-title
+                  |Исследования
+                .news-spoiler__image
+                  +arrow-svg('header__drop-svg')
+              .mission__spoiler-drop.news-spoiler__drop
+                nav.news-spoiler__nav
+                  ul
+                    each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                      li.news-spoiler__nav-item
+                        a.nav__link(href='#')
+                          |#{item}
+            .articles-authors.articles-authors--mobile
+              .articles-authors__container
+                .articles-authors__title 
+                  |Авторы статей
+                ul.articles-authors__list 
+                  - for (i = 0; i < 3; i++)
+                    li.articles-authors__item 
+                      .article-author 
+                        .article-author__row 
+                          .article-author__col
+                            .article-author__img 
+                              img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
+                            .article-author__label 
+                              |14 статей
+                          .article-author__col
+                            .article-author__name 
+                              |Шмойлов Андрей Евгеньевич
+                            .article-author__prof 
+                              |Главный врач центра
+            .category 
+              ul.category__list
+                li.category__item 
+                  a.category__link.category__link--active(href="#") 
+                    |Все
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Исследования
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Статьи
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Центр
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Инновациии
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Научная деятельность
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Публикации СМИ
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Кейсы
+            .research 
+              ul.research__list 
+                - for (i = 0; i < 8; i++)
+                  li.research__item 
+                    a.card.card--research(href='#')
+                      .card__top
+                        h3.card__title
+                          |Обучение Strategic Implant в Новосибирске
+                        p.card__text
+                          |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
+                      .card__bottom
+                        .card__row
+                          .card__col
+                            .tags
+                              ul.tags__list
+                                li.tags__item
+                                  .tags__tag
+                                    |#кейсы
+                                li.tags__item
+                                  .tags__tag
+                                    |#исследования
+                                li.tags__item
+                                  .tags__tag
+                                    |#центр
+                            .card__date
+                              |28 января 2021
+                          .card__col
+                            .card__image
+                              +svg-link(class='card__svg')
+            .news-show-more
+              button.news-show-more-btn
+                  .news-show-more-ico
+                      +arrow-link-svg('news__link-ico')
+                  .news-show-more-txt Показать еще
+            .news-subscribe
+              h2.news-subscribe__title Подпишитесь на публикации и новости
+              form.news-subscribe__form
+                  div
+                      label.news-subscribe__form-placeholder
+                          input.news-subscribe__form-email(type="email" placeholder="E-mail")
+                      label.news-subscribe__form-checkbox
+                          input(type="checkbox")
+                          p Согласен на обработку персональных данных в соответствии с 
+                              a(href="#") политикой конфиденциальности
+                  button.news-subscribe__form-btn
+                      +arrow-send('news-subscribe__form-btn-ico')
