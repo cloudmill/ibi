@@ -1,0 +1,86 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+  
+block content
+  section.section.section--gradient
+    .row
+      .row__col
+        .section__inner.section__inner--top
+          .nav
+            .nav__container
+              nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                ul.nav__list
+                  each item in ['О нас', 'Миссия и ценности', 'Наша команда']
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |#{item}
+                  li.nav__item.nav__item--active
+                    a.nav__link(href='#')
+                      |Новости
+                  each item in ['Вакансии', 'Контакты']
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |#{item}
+      .row__col
+        .section__inner.section__inner--top
+          .container.prosthetics
+            h1.title
+              |Протезирование
+            .section__block.section__block--small
+              .prosthetics__image
+                .about__image-background(style='background-image: url("assets/images/about-image.jpeg")')
+                  +svg-hexagon.about__image-svg
+                  +svg-hexagon.about__image-svg
+            .section__block.section__block--small.prosthetics-block
+              h2.prosthetics-block__ttl Сильная команда
+              img.prosthetics-block__img(src="assets/images/prosthetics-1.jpg", alt="")
+              .prosthetics-block__desc
+                p.prosthetics-block__desc-txt
+                  |Стоматологи-ортопеды 
+                  span ежесезонно 
+                  |проходят курсы по тотальному протезированию и реконструкции улыбки. Мы создаем индивидуальную эстетику 
+                  span с учетом всех пожеланий нашего пациента.
+                p.prosthetics-block__desc-txt
+                  |Зубные техники проходят обучение за рубежом имеет 
+                  span сертификаты международных учебных организаций.
+                p.prosthetics-block__desc-txt
+                  |Одна из ценностей нашей клиники — процесс 
+                  span постоянного обучения и обмена опытом. 
+                  |Знания циркулриюут между специалистами, позволяя развивать смежные компетенции тем самым усиливая всю команду.
+            .section__block.section__block--small.prosthetics-block__lab
+              h2 Зуботехническая лаборатория IBI Lab
+              p IBI Lab – современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации. Собственная лаборатория позволяет усиливать экспертизу в прозводстве мостов, коронок и любых ортопедических конструкций. Наши подходы отвечают требованиям качества и соответсвенния стандртам IIF.
+              img.lab__img(src="assets/images/laboratory.jpg", alt="")
+            .section__block.section__block--small.prosthetics-block__practice
+              .prosthetics-block__practice-desc
+                h2 Премиальные материалы
+                p В практике протезирования мы выбираем материалы премиум-сегмента от фирм-лидеров. Никакого китайского циркония и сомнительного композита. С каждым материалом собственный опты работы 3-8 лет.
+              .prosthetics-block__practice-circle
+                +brilliant-svg('practice-circle')
+                .prosthetics-block__practice-ttl Best practice
+                .prosthetics-block__practice-txt Перенимаем лучшие европейские практики, ведь наши техники обучаются у евпропейских коллег с опытом 10-20 лет.
+                +brilliant-svg('practice-circle')
+              .prosthetics-block__practice-list
+                h2 Все это позволяет сделать вам зубы, которые
+                ul
+                  li Смотрятся естественно
+                  li Удерживают эстетику во время длительной эксплуатации
+                  li Устойчивы к сколам и не требуют постоянной коррекции
+                  li Биосовместимы и не влияют на здоровье, на них не размножаются микробы, они не вызывают аллергию
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })
