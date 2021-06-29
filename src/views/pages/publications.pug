@@ -4,7 +4,7 @@ include ../components/_header.pug
 include ../components/_footer.pug
 
 block content 
-  .section.section--gradient
+  section.section.section--gradient
     .row 
       .row__col
         .section__inner.section__inner--top
@@ -32,19 +32,20 @@ block content
           .container 
             h1.title
               |Исследования
-            .mission__spoiler.news-spoiler
-              .mission__spoiler-button.news-spoiler__button
-                h5.mission__spoiler-title
-                  |Исследования
-                .news-spoiler__image
-                  +arrow-svg('header__drop-svg')
-              .mission__spoiler-drop.news-spoiler__drop
-                nav.news-spoiler__nav
-                  ul
-                    each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
-                      li.news-spoiler__nav-item
-                        a.nav__link(href='#')
-                          |#{item}
+            .mission
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Исследования
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
             .articles-authors.articles-authors--mobile
               .articles-authors__container
                 .articles-authors__title 
