@@ -152,7 +152,6 @@
   &__list {
     @media (min-width: $breakpoint) {
       margin-top: -40px;
-      margin-left: -40px;
 
       display: flex;
       flex-wrap: wrap;
@@ -162,7 +161,12 @@
   &__item {
     @media (min-width: $breakpoint) {
       margin-top: 40px;
-      margin-left: 40px;
+      flex-shrink: 0;
+      width: calc((#{$col-part-d} * 9 - #{$col-gap-d}) / 2 - 20px);
+
+      &:nth-child(2n) {
+        margin-left: 40px;
+      }
     }
     @media (max-width: $breakpoint - 1px) {
       &:not(:first-child) {

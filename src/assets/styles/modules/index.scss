@@ -348,7 +348,7 @@
   &--research {
     width: 100%;
     @media (min-width: $breakpoint) {
-      width: 575px;
+      // width: 575px;
       height: 360px;
     }
     @media (max-width: $breakpoint - 1px) {
