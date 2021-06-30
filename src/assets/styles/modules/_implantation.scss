@@ -1,0 +1,9 @@
+.implantation {
+
+  &__inner {
+    margin-top: 40px;
+    @media (min-width: $breakpoint) {
+      margin-top: 80px;
+    }
+  }
+}
