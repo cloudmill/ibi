@@ -648,13 +648,15 @@ const BREAKPOINT = 1280;
   });
 }
 
-// test
+// Development slider
 {
   $(() => {
-    const swiperThumbs = new Swiper($('[data-test-thumbs]')[0], {
+    const swiperThumbs = new Swiper($('.development__names')[0], {
       freeMode: true,
+      slidesPerView: 'auto',
+
     })
-    const swiperSlider = new Swiper($('[data-test-slider]')[0], {
+    const swiperSlider = new Swiper($('.development__desc')[0], {
       thumbs: {
         swiper: swiperThumbs,
       },

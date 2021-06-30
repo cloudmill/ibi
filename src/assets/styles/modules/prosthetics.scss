@@ -15,12 +15,21 @@
 .prosthetics-block {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 160px;
+  // margin-bottom: 160px;
+
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+  }
 
   &__ttl {
     font-size: 40px;
     width: 100%;
     margin-bottom: 80px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 40px;
+      font-size: 22px;
+    }
   }
 
   &__img {
@@ -29,6 +38,12 @@
 
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     margin-right: calc(#{$col-part-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
   }
 
   &__desc {
@@ -37,11 +52,20 @@
     flex-direction: column;
     justify-content: flex-end;
 
+    @media (max-width: $breakpoint) {
+      width: 100%;
+    }
+
     &-txt {
       font-size: 16px;
       border-left: 1px solid $color-main;
       padding-left: calc(#{$col-gap-d});
       margin-bottom: 60px;
+
+      @media (max-width: $breakpoint) {
+        margin-bottom: 40px;
+        font-size: 14px;
+      }
     }
 
     &-txt:last-child {
@@ -54,17 +78,44 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 160px;
+  // margin-bottom: 160px;
   padding-top: 40px;
   border-top: 1px solid $color-main;
 
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
   h2 {
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    font-size: 40px;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
   }
 
   p {
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
-    margin-bottom: 80px;
+    margin-bottom: 125px;
+    font-size: 16px;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      font-size: 14px;
+    }
+  }
+
+  img {
+    transform: translateY(50%);
+    margin-top: -250px;
+
+    @media (max-width: $breakpoint) {
+      margin-top: -190px;
+    }
   }
 }
 
@@ -73,18 +124,37 @@
   // flex-wrap: wrap;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 360px 0 160px;
+
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+    padding: 180px 0 60px;
+  }
 
   &-desc {
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
 
     h2 {
       font-size: 40px;
       line-height: 140%;
       margin-bottom: 40px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 22px;
+      }
     }
   
     p {
       font-size: 18px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 16px;
+      }
     }
   }
   
@@ -101,6 +171,12 @@
     text-align: center;
 
     padding: 10px 70px;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      height: calc(100vw - 40px);
+      margin-bottom: 60px;
+    }
 
     .practice-circle {
       // margin: 40px 0;
@@ -153,12 +229,22 @@
     line-height: 140%;
     width: calc(#{$col-part-d} * 4);
     margin-bottom: 60px;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
   }
 
   ul {
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    @media (max-width: $breakpoint) {
+      flex-direction: column;
+    }
   }
 
   li {
@@ -167,16 +253,57 @@
     line-height: 140%;
     width: 20%;
     padding-left: 30px;
+
+    // display: flex;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
   }
 
   li::before {
-    content: ' ';
-    display: block;
-    color: $color-main;
+    content:url('assets/images/hexagon.svg');
+    margin-left: -30px;
+    // display: block;
+    // color: $color-main;
 
   }
 
   li:last-child {
     margin-right: 0;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.prosthetics-stages {
+  ul {
+    margin-left: calc(#{$col-part-d});
+
+    @media (max-width: $breakpoint) {
+      margin-left: 0;
+    }
+  }
+}
+
+.prosthetic-slider {
+  margin-bottom: 160px;
+
+  &__ttl {
+    margin-bottom: 80px;
+  }
+
+  &__slide {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    // display: flex;
+
+    p {
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 160%;
+    }
   }
 }
