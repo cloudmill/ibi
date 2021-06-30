@@ -1,0 +1,72 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block content 
+  .section.section--gradient 
+    .row 
+      .row__col 
+        .section__inner.section__inner--top
+          nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+            ul.nav__list
+              each item in ['О нас', 'Миссия и ценности', 'Наша команда']
+                li.nav__item
+                  a.nav__link(href='#')
+                    |#{item}
+              li.nav__item.nav__item--active
+                a.nav__link(href='#')
+                  |Новости
+              each item in ['Вакансии', 'Контакты']
+                li.nav__item
+                  a.nav__link(href='#')
+                    |#{item}
+      .row__col 
+        .section__inner.section__inner--top
+          .container 
+            h1.title 
+              |Этапы имплантации
+            .mission
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Исследования
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .advantages
+              ul.advantages__list 
+                li.advantages__item
+                  .advantages__row 
+                    .advantages__col
+                      .advantages__container
+                        .advantages__num 
+                          |1
+                    .advantages__col
+                      .advantages__content
+                        h4.advantages__title 
+                          |Имплантаты цельнолитые, с абатментом
+                        .advantages__wrapper
+                          p.advantages__text 
+                            |И являются единой завершенной системой. Отсутствие стыка не позволяет скапливаться бактериям в области шейки и абатмента и обеспечивает чистоту поверхности, прилегающей к десне.
+                li.advantages__item.advantages__item--revers
+                  .advantages__row 
+                    .advantages__col
+                      .advantages__container
+                        .advantages__num 
+                          |2
+                    .advantages__col
+                      .advantages__content
+                        h4.advantages__title 
+                          |Имплантаты цельнолитые, с абатментом
+                        .advantages__wrapper
+                          p.advantages__text 
+                            |И являются единой завершенной системой. Отсутствие стыка не позволяет скапливаться бактериям в области шейки и абатмента и обеспечивает чистоту поверхности, прилегающей к десне.
+
+
