@@ -1,6 +1,57 @@
-.blockk {
-  width: 100px;
-  height: 100px;
+.qwe {
+  min-height: 100vh;
+}
 
-  border: 1px solid black;
+.component {
+  $gap-vertical-m: 10px;
+  $gap-horizontal-m: 10px;
+
+  $gap-vertical-d: 20px;
+  $gap-horizontal-d: 20px;
+
+  $item-height-m: 20px;
+  $item-height-d: 40px;
+
+  overflow: hidden;
+  resize: both;
+
+  &__list {
+    margin-top: -$gap-vertical-m;
+    margin-left: -$gap-horizontal-m;
+    @media (min-width: $breakpoint) {
+      margin-top: -$gap-vertical-d;
+      margin-left: -$gap-horizontal-d;
+    }
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    margin-top: $gap-vertical-m;
+    margin-left: $gap-horizontal-m;
+    @media (min-width: $breakpoint) {
+      margin-top: $gap-vertical-d;
+      margin-left: $gap-horizontal-d;
+    }
+    height: $item-height-m;
+    @media (min-width: $breakpoint) {
+      height: $item-height-d;
+    }
+    flex-shrink: 0;
+
+    border: 1px solid black; // test
+
+    &--active {
+      background-color: red; // test
+    }
+  }
+}
+
+.ewq {
+  transform-origin: left;
+  transform: scaleX(100); // => 100px (from 1px)
+
+  width: 1px;
+  height: 5px;
+
+  background-color: red;
 }

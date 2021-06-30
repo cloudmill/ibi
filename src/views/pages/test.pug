@@ -4,15 +4,11 @@ block header
 block footer
 
 block content
-  .swiper-container(data-test-thumbs)
-    .swiper-wrapper
-      each i in [1, 2, 3]
-        .swiper-slide
-          .blockk
-            |#{i}
-  .swiper-container(data-test-slider)
-    .swiper-wrapper
-      each i in [1, 2, 3]
-        .swiper-slide
-          .blockk
-            |#{i}
+  .qwe
+    .component
+      .component__list
+        - for (let i = 0; i < 25; i++)
+          .component__item(class = (i === 0 ? 'component__item--active' : ''))
+            |test
+    .ewq
+    .qwe123

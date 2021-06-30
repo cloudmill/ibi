@@ -664,3 +664,112 @@ const BREAKPOINT = 1280;
     swiperThumbs.update()
   })
 }
+
+// component
+{
+  $(() => {
+    const COMPONENT_CLASS = 'component'
+
+    const components = $(`.${COMPONENT_CLASS}`)
+
+    components.each(function () {
+      // elements
+      const component = $(this)
+      
+      const list = component.find(`.${COMPONENT_CLASS}__list`)
+      const items = component.find(`.${COMPONENT_CLASS}__item`)
+
+      // state
+      const state = {
+        isMultiLine: false,
+      }
+
+      function topEqual(top1, top2) {
+        return Math.abs(top1 - top2) < 1
+      }
+
+      function updateState() {
+        // isMultiLine
+        {
+          const firstItem = items.filter(':first')
+          const lastItem = items.filter(':last')
+
+          const firstItemY = firstItem.offset().top
+          const lastItemY = lastItem.offset().top
+
+          state.isMultiLine = !topEqual(firstItemY, lastItemY)
+        }
+
+        console.log(state);
+      }
+
+      // init state
+      updateState()
+
+      // window resize
+      $(window).on('resize', updateState)
+
+      // move thumb
+      items.on('click', function () {
+        const prevItem = $(`.${COMPONENT_CLASS}__item--active`)
+        const nextItem = $(this)
+
+        const prevIndex = prevItem.index()
+        const nextIndex = nextItem.index()
+
+        // move
+        if (prevIndex !== nextIndex) {
+          const direction = prevIndex < nextIndex ? 'right' : 'left'
+
+          const prevTop = prevItem.offset().top
+          const nextTop = nextItem.offset().top
+
+          const prevLeft = prevItem.offset().left
+          const nextLeft = nextItem.offset().left
+
+          // one line
+          if (topEqual(prevTop, nextTop)) {
+            const distance = Math.abs(prevLeft - nextLeft)
+
+            // *здесь движение на одной строке*
+          } else { // cross line
+            const componentWidth = component.width()
+
+            const componentLeft = component.offset().left
+            
+            const prevLeftComponent = prevLeft - componentLeft
+            const nextLeftComponent = nextLeft - componentLeft
+
+            // to the right
+            if (direction === 'right') {
+              const prevDistance = componentWidth - prevLeftComponent
+              const nextDistance = nextLeftComponent
+
+              const distance = prevDistance + nextDistance
+
+              // *здесь движение между строк вправо*
+            } else { // to the left
+              // расстояние такое же, как если бы prev было next, а next - prev И direction === 'right'
+              // 'зеркально'
+              const prevDistance = prevLeftComponent
+              const nextDistance = componentWidth - nextLeftComponent
+
+              const distance = prevDistance + nextDistance
+
+              // *здесь движение между строк влево*
+            }
+          }
+        }
+      })
+
+      // switch active
+      items.on('click', function () {
+        items.removeClass(`${COMPONENT_CLASS}__item--active`)
+
+        const clickedItem = $(this)
+
+        clickedItem.addClass(`${COMPONENT_CLASS}__item--active`)
+      })
+    })
+  })
+}
