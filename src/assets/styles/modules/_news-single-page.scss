@@ -1,6 +1,8 @@
 // Стили страницы отдельной новости
 
 .single-news {
+  $comp: &;
+
   display: flex;
   flex-wrap: wrap;
 
@@ -37,6 +39,19 @@
       flex-direction: column;
 
       margin: 30px 0 20px;
+    }
+
+    &--small {
+      margin: 20px 0 0;
+      @media (min-width: $breakpoint) {
+        margin: 30px 0 100px;
+      }
+
+      #{$comp}__back-link {
+        @media (max-width: $breakpoint - 1px) {
+          margin-bottom: 20px;
+        }
+      }
     }
   }
 

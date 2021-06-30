@@ -1,6 +1,8 @@
 // Стили страницы Наша команда
 
 .team-filter {
+  $comp: &;
+
   &-mobile {
     @media (min-width: $breakpoint) {
       display: none;
@@ -13,6 +15,21 @@
   @media (max-width: $breakpoint) {
     margin-top: 20px;
     padding-left: 0;
+  }
+
+  &--long {
+    margin-top: 20px;
+    padding-left: 0;
+    padding-bottom: 10px;
+    @media (min-width) {
+      padding-bottom: 30px;
+      margin-top: 0;
+    }
+    border-bottom: 1px solid $color-main;
+
+    #{$comp}__container {
+      margin-bottom: 0;
+    }
   }
 
   &__container {
