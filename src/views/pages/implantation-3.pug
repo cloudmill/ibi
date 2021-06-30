@@ -45,10 +45,10 @@ block content
                 li.category__item
                   a.category__link(href="#") 
                     |Консультация
-                li.category__item.category__item--active
+                li.category__item 
                   a.category__link(href="#") 
                     |Моделирование операции
-                li.category__item 
+                li.category__item.category__item--active
                   a.category__link(href="#") 
                     |Операция
                 li.category__item 
@@ -59,14 +59,28 @@ block content
                     |Наблюдение
             .single-news 
               .single-news__body
-                .article
+                .article 
                   h3.article__title.article__title--default
-                    |Второй этап  — рентген снимки челюстей.
-                  .implantation__inner 
-                    p.article__text.article__text--xs 
-                      |Обязательным исследованием для проведения операции  является компьютерная томография (КЛКТ). Позволяет в трехмерном расширении изучить топографию челюстей и провести планирование имплантации.
-                    p.article__text.article__text--xs
-                      |Фундаментальные снимки обязательны, все дополнительные рентгенологические методы должны назначаться индивидуально для каждого пациента.
+                    |Первым этапом подготовки к операции по установке имплантатов является оценка состояния здоровья пациента.
+                  .single-news__txt.single-news__txt--default
+                    ul
+                      h5 
+                        |До имплантации
+                      - for (i = 0; i < 2; i++)
+                        li 
+                          |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г 
+                    ul
+                      h5 
+                        |Первый день после имплантации
+                      - for (i = 0; i < 3; i++)
+                        li 
+                          |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г
+                    ul
+                      h5 
+                        |Третий день после имплантации
+                      - for (i = 0; i < 3; i++)
+                        li 
+                          |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г
         .index 
           .container 
             .index__block
