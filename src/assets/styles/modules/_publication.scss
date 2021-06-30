@@ -23,7 +23,14 @@
     @include fsl(16px, 160%);
 
     &:not(:first-child) {
-      margin-top: 30px;
+      margin-top: 25px;
+    }
+
+    &--xs {
+      @include fsl(14px, 160%);
+      @media (min-width: $breakpoint) {
+        @include fsl(18px);
+      }
     }
   }
 
