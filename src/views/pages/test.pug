@@ -7,8 +7,10 @@ block content
   .qwe
     .component
       .component__list
-        - for (let i = 0; i < 25; i++)
-          .component__item(class = (i === 0 ? 'component__item--active' : ''))
-            |test
-    .ewq
-    .qwe123
+        - for (let i = 0; i < 30; i++)
+          .component__item(class = (i === 0 ? ['component__item--active', 'component__item--thumb'] : ''))
+            if (i % 2)
+              |test
+            else
+              |test1231231
+

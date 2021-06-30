@@ -731,7 +731,84 @@ const BREAKPOINT = 1280;
           if (topEqual(prevTop, nextTop)) {
             const distance = Math.abs(prevLeft - nextLeft)
 
-            // *здесь движение на одной строке*
+            // создаем thumb
+            const thumb = document.createElement('div')
+
+            const thumbTop = prevItem.position().top + prevItem.height()
+            const thumbLeft = prevItem.position().left
+
+            const thumbWidth = prevItem.width()
+            
+            thumb.style.cssText = [
+              `transform: `,
+              `translate(${thumbLeft}px, ${thumbTop}px) `,
+              `scaleX(${thumbWidth}) `,
+            ].join('')
+
+            thumb.classList.add(`${COMPONENT_CLASS}__thumb`)
+
+            component[0].append(thumb)
+
+            // удаляем нативный (css) thumb (модификатор --thumb) у item'a
+            prevItem.removeClass(`${COMPONENT_CLASS}__item--thumb`)
+
+            // анимируем thumb
+            const thumbWidthEnd = nextItem.width()
+            const thumbLeftEnd = nextItem.position().left
+
+            const animation = {
+              FPS: 60,
+              DURATION: 1000,
+
+              startTimestamp: performance.now(),
+
+              time: null,
+              progress: null,
+            }
+
+            function frame() {
+              const currentTimestamp = performance.now()
+
+              animation.time = currentTimestamp - animation.startTimestamp
+              animation.progress = animation.time / animation.DURATION
+
+              if (animation.progress > 1) {
+                animation.progress = 1
+              }
+
+              // update позиции и размера (анимация)
+              {
+                // размер
+                const thumbWidthCurrent = thumbWidth + ((thumbWidthEnd - thumbWidth) * animation.progress)
+
+                // позиция
+                const thumbLeftCurrent = thumbLeft + (distance * animation.progress * (direction === 'right' ? 1 : -1))
+
+                // "рендер" свойств
+                thumb.style.cssText = [
+                  `transform: `,
+                  `translate(${thumbLeftCurrent}px, ${thumbTop}px) `,
+                  `scaleX(${thumbWidthCurrent}) `,
+                ].join('')
+              }
+
+              if (animation.progress < 1) {
+                requestAnimationFrame(frame)
+              } else {
+                animationEnd()
+              }
+            }
+
+            requestAnimationFrame(frame)
+
+            // после анимации
+            function animationEnd() {
+              // добавляем нативный (css) thumb (модификатор --thumb) item'у
+              nextItem.addClass(`${COMPONENT_CLASS}__item--thumb`)
+
+              // удаляем анимируемый, временный thumb (js)
+              thumb.remove()
+            }
           } else { // cross line
             const componentWidth = component.width()
 
