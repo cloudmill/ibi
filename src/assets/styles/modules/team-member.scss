@@ -117,7 +117,9 @@
 }
 
 .member-page-ask {
-  padding-left: $col-gap-d;
+  @media (min-width: $breakpoint) {
+    padding-left: $col-gap-d;
+  } 
   align-items: unset;
   flex-direction: column;
   // justify-content: space-between;
