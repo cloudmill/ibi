@@ -30,6 +30,9 @@
       @include fsl(14px, 160%);
       @media (min-width: $breakpoint) {
         @include fsl(18px);
+        &:not(:first-child) {
+          margin-top: 40px;
+        }
       }
     }
   }

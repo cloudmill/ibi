@@ -1,0 +1,109 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block content 
+  .section.section--gradient 
+    .row 
+      .row__col 
+        .section__inner.section__inner--top
+          nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+            ul.nav__list
+              each item in ['О нас', 'Миссия и ценности', 'Наша команда']
+                li.nav__item
+                  a.nav__link(href='#')
+                    |#{item}
+              li.nav__item.nav__item--active
+                a.nav__link(href='#')
+                  |Новости
+              each item in ['Вакансии', 'Контакты']
+                li.nav__item
+                  a.nav__link(href='#')
+                    |#{item}
+      .row__col 
+        .section__inner.section__inner--top
+          .container 
+            h1.title 
+              |Этапы имплантации
+            .mission
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Исследования
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .category.category--counter
+              ul.category__list
+                li.category__item
+                  a.category__link(href="#") 
+                    |Консультация
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Моделирование операции
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Операция
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Протезирование
+                li.category__item.category__item--active
+                  a.category__link(href="#") 
+                    |Наблюдение
+            .single-news 
+              .single-news__body
+                .article.implantation
+                  h3.article__title 
+                    |В первые дни (7 дней) после операции не рекомендуется употреблять молочные продукты, очень острую и соленую пищу. Твердые виды пищи также лучше отложить хотя бы на неделю после операции.
+                  .implantation__wrapper
+                    p.article__text.article__text--xs 
+                      |Посещение контрольных осмотров, очень важный и необходимый этап профилактики пациентам с установленными имплантатами и мостами.
+                    p.article__text.article__text--xs 
+                      |Контрольные осмотры проводятся через 1, 3, 6, 12 месяцев с момента операции и далее каждый год в течение четырёх лет. Коррекции и контрольные посещения в течение гарантийного периода не оплачиваются.
+                  h3.article__title 
+                    |Каждый пациент получает памятки
+                  .files 
+                    ul.files__list 
+                      li.files__item 
+                        a.file(href="#") 
+                          .file__container
+                            .file__img 
+                              +pdf-svg
+                            p.file__text 
+                              |Памятка пациенту при проведении базальной имплантации
+                      li.files__item 
+                        a.file(href="#") 
+                          .file__container
+                            .file__img 
+                              +pdf-svg
+                            p.file__text 
+                              |Памятка по уходу за полостью рта после протезирования коронками и мостовидными протезами на имплантатах     
+        .container.news-subscribe.news-subscribe--bottom.member-page-ask
+          h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md
+            |Получить персональную консультацию бесплатно
+          .block-photo
+            .block-photo__image
+          form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+            .member-page-ask__form-wrapper
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Дополнительная информация")
+              label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                  input(type="checkbox" required="")
+                  p Согласен на обработку персональных данных в соответствии с 
+                      a(href="#") политикой конфиденциальности
+              button.news-subscribe__form-btn(type="submit")
+                  +arrow-link-svg('news-subscribe__form-btn-ico')
+                  |Отправить      
