@@ -3,6 +3,7 @@ extends ../layouts/master.pug
 include ../components/_header.pug
 include ../components/_footer.pug
 
+
 block content 
   .section.section--gradient 
     .row 
@@ -25,7 +26,7 @@ block content
         .section__inner.section__inner--top
           .container 
             h1.title 
-              |Этапы имплантации
+              |Операция методом базальной имплантации Strategic Implant проходит под местным обезболиванием.
             .mission
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
@@ -64,23 +65,9 @@ block content
                     |Первым этапом подготовки к операции по установке имплантатов является оценка состояния здоровья пациента.
                   .single-news__txt.single-news__txt--default
                     ul
-                      h5 
-                        |До имплантации
-                      - for (i = 0; i < 2; i++)
+                      - for (i = 0; i < 7; i++)
                         li 
                           |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г 
-                    ul
-                      h5 
-                        |Первый день после имплантации
-                      - for (i = 0; i < 3; i++)
-                        li 
-                          |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г
-                    ul
-                      h5 
-                        |Третий день после имплантации
-                      - for (i = 0; i < 3; i++)
-                        li 
-                          |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г
         .index 
           .container 
             .index__block
