@@ -33,7 +33,21 @@ block content
           .container 
             h1.title 
               |Имплантаты Strategic Implant
-            .implant  
+            .mission
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Имплантаты Strategic Implant
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['Метод', 'Преимущества', 'Этапы имплантации', 'Стоимость']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .implant
               h3.implant__title 
                 |BECES импланты представляет собой имплантат с монолитным соединением имплантат-абатмент, обладающий полностью полированной поверхностью
               .implant__inner 
@@ -60,7 +74,9 @@ block content
                             |Оснащен активной резьбой диаметром от 2.7 до 9 мм, предназначена для фиксации во втором кортикальном слое.
                   .implant__col
                     .implant__container
-                      img(src="assets/images/implant-1.png", alt="")
+                      img.implant__img(src="assets/images/implant-1.png", alt="")
+                    .implant__shadowbox
+                      .implant__shadow
                   .implant__col
                     .implant__inner.implant__inner--xl 
                       ul.implant__list 
@@ -72,4 +88,96 @@ block content
                           .implant__wrapper
                             p.implant__text
                               |Абатмент имплантата может иметь форму цельной фрезерованной оторы или мультиюнит.
-
+                .implants.implants--mobile
+                  .implants__row 
+                    .implants__col
+                      .implants__card 
+                        .implants__wrapper
+                          .implant__type
+                            |BECES
+                        .implants__container 
+                          img.implants__img(src="assets/images/implant-1.png", alt="")
+                          .implant__shadowbox 
+                            .implant__shadow
+                    .implants__col
+                      ul.implant__list 
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-1-svg
+                          p.implant__text
+                            |Длина имплантата типа BCS варьируется от 8 до 29 мм
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-2-svg
+                          p.implant__text
+                            |Тело имплантата имеет диаметр 2 мм
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-3-svg
+                          p.implant__text
+                            |Оснащен активной резьбой диаметром от 2.7 до 9 мм, предназначена для фиксации во втором кортикальном слое.
+                      .implant__inner.implant__inner--xl
+                        ul.implant__list 
+                          li.implant__item
+                            .implant__wrapper
+                              p.implant__text 
+                                |Активная резьба на конце имплантата предназначена для пенетрации и фиксации во втором кортикальном слое костной ткани, что обеспечивает высокую первичную стабилизацию и долгосрочный прогноз
+                          li.implant__item
+                            .implant__wrapper
+                              p.implant__text
+                                |Абатмент имплантата может иметь форму цельной фрезерованной оторы или мультиюнит.
+              .implants 
+                .implants__inner 
+                  h3.implant__title 
+                    |Семейство KOS представляет собой монолитное соединение имплантат-абатмент
+                  .implants__inner
+                    .implants__row 
+                      .implants__col
+                        .implants__card 
+                          .implants__wrapper
+                            .implant__type
+                              |KOS+
+                          .implants__container 
+                            img.implants__img(src="assets/images/implant-2.png", alt="")
+                            .implant__shadowbox 
+                              .implant__shadow
+                        .implants__inner 
+                          .implants__card
+                            .implants__wrapper.implants__wrapper--alt
+                              .implant__type
+                                |KOS
+                            .implants__container 
+                              img.implants__img(src="assets/images/implant-3.png", alt="")
+                              .implant__shadowbox.implant__shadowbox--default
+                                .implant__shadow
+                      .implants__col
+                        ul.implant__list 
+                          li.implant__item 
+                            .implant__icon 
+                              +implant-1-svg
+                            p.implant__text
+                              |Длина имплантатов варьируется от 10 до 17 мм
+                          li.implant__item 
+                            .implant__icon 
+                              +implant-2-svg
+                            p.implant__text
+                              |Диаметр устройств от 3.0 до 4.1 мм
+                        .implant__inner.implant__inner--xl
+                          ul.implant__list 
+                            li.implant__item
+                              .implant__wrapper
+                                p.implant__text 
+                                  |Соединение между имплантатом и абатментом представлено 3х мм зоной полированной шейки, диаметром 2 мм, для предотвращения инфицирования и обсеменения микроорганизмами. Такой диаметр способствует быстрому заживлению окружающих тканей.
+                            li.implant__item
+                              .implant__wrapper
+                                p.implant__text
+                                  |Нижняя часть представлена активной шероховатой резьбовой поверхностью с переменной конусностью. Протокол установки регламентирует  погружение имплантата в губчатый и базальный слой костной ткани, в некоторых случаях с установкой в кортикальную пластину без пенетрации
+                            li.implant__item
+                              .implant__wrapper
+                                p.implant__text 
+                                  |Данной хирургический протокол обеспечивает высокий уровень первичной стабилизации. Для КоS имплантатов  доступен протокол немедленной нагрузки.
+                            li.implant__item
+                              .implant__wrapper
+                                p.implant__text
+                                  |Абатмент может быть представлен цельфрезерованой опорой или мультиюнитом для винтовой или цементной фиксации
+        
