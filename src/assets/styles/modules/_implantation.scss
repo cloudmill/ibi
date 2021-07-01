@@ -74,3 +74,128 @@
     }
   }
 }
+
+.advantages-section {
+  padding: 60px 0;
+  @media (min-width: $breakpoint) {
+    padding: 120px 0;
+    height: 1240px;
+  }
+  position: relative;
+
+  &__title {
+    @include fsl(22px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(50px);
+    }
+  }
+
+  &__layout {
+    @media (min-width: $breakpoint) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+    }
+  }
+
+  &__item {
+
+    @media (min-width: $breakpoint) {
+      position: absolute;
+    }
+    @media (max-width: $breakpoint) {
+      
+      &:first-child {
+        margin-top: 40px;
+      }
+      &:last-child {
+        margin-top: 40px;
+      }
+    }
+
+    &--top {
+      @media (min-width: $breakpoint) {
+        top: 270px;
+        left: 0;
+      }
+    }
+    &--mid {
+      @media (min-width: $breakpoint) {
+        top: 368px;
+        right: calc(#{$col-width-d} / 2);
+      }
+    }
+    &--bot {
+      @media (min-width: $breakpoint) {
+        bottom: 138px;
+        left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      }
+    }
+  }
+}
+
+.advantages-card {
+  position: relative;
+  width: 246px;
+  @media (min-width: $breakpoint) {
+    width: 500px;
+  }
+
+  &--right {
+    @media (max-width: $breakpoint - 1px) {
+      margin-left: auto;
+    }
+  }
+
+  &__image {
+    position: absolute;
+  }
+
+  &__img {
+    @media (max-width: $breakpoint - 1px) {
+      width: 246px;
+    }
+  }
+
+  &__wrapper {
+    padding-top: 62px;
+    @media (min-width: $breakpoint) {
+      padding-top: 97px;
+      padding-left: 72px;
+    }
+  }
+
+  &__title {
+    padding-bottom: 10px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 20px;
+
+      width: 398px;
+      @include fsl(40px);
+    }
+    @include fsl(20px, 110%);
+    text-align: center;
+    @include f-2();
+    color: $color-main;
+
+    @media (max-width: $breakpoint - 1px) {
+      margin: 0 auto;
+      width: 195px;
+    }
+  }
+
+  &__text {
+    @media (max-width: $breakpoint - 1px) {
+      padding: 0 10px;
+    }
+    width: 229px;
+    @media (min-width: $breakpoint) {
+      width: 430px;
+      @include fsl(18px);
+    }
+    @include fsl(14px, 150%);
+  }
+}
