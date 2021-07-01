@@ -125,7 +125,7 @@
     @include f-2();
     @include fsl(30px, 110%);
     @media (min-width: $breakpoint) {
-      @include fsl(150px);
+      font-size: calc((150 / 1680) * 100vw);
     }
     color: #CDF5FA;
   }
