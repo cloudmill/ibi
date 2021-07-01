@@ -1,0 +1,106 @@
+.implant {
+  padding-top: 40px;
+  @media (min-width: $breakpoint) {
+    padding-top: 180px; // ?
+  }
+
+  &__title {
+    @include fsl(18px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(40px);
+    }
+  }
+
+  &__inner {
+    padding-top: 60px;
+    @media (min-width: $breakpoint) {
+      padding-top: 100px;
+    }
+
+    &--xl {
+      @media (min-width: $breakpoint) {
+        padding-top: 120px;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    @media (min-width: $breakpoint) {
+      justify-content: space-between;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 3);
+      }
+    }
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+
+      }
+    }
+    &:nth-child(3) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 3);
+      }
+    }
+  }
+
+  &__type {
+    padding-top: 10px;
+
+    text-transform: uppercase;
+    @include fsl(18px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px);
+    }
+
+    &--bordered {
+      width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+      border-top: 1px solid $color-main;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+    @media (min-width: $breakpoint) {
+      &:not(:first-child) {
+        margin-top: 60px;
+      }
+    }
+  }
+
+  &__icon {
+    @media (min-width: $breakpoint) {
+      flex-shrink: 0;
+      width: calc(#{$col-part-d});
+    }
+    @media (max-width: $breakpoint - 1px) {
+      padding-right: 20px;
+    }
+  }
+
+  &__text {
+    @include fsl(14px, 160%);
+    @media (min-width: $breakpoint) {
+      @include fsl(16px);
+    }
+  }
+
+  &__wrapper {
+    padding-top: 10px;
+    @media (min-width: $breakpoint) {
+      padding-top: 20px;
+    }
+    border-top: 1px solid $color-main;
+  }
+}

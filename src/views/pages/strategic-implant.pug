@@ -1,0 +1,75 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block content 
+  .section.section--gradient 
+    .row 
+      .row__col 
+        .section__inner.section__inner--top
+          .nav 
+            .nav__container
+              nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                ul.nav__list
+                  each item in ['Метод', 'Преимущества', 'Этапы имплантации']
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |#{item}
+                  li.nav__item.nav__item--active
+                    a.nav__link(href='#')
+                      |Имплантаты Strategic Implant
+                  each item in ['Стоимость']
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |#{item}
+          .price.vacancies-list
+            .price__note Стоимость может меняться в зависимости клинического состояния зубов
+            button.vacancies-list__extra-btn.price__btn
+              +arrow-link-svg('extra-btn')
+              |Получить точный расчет
+      .row__col 
+        .section__inner.section__inner--top
+          .container 
+            h1.title 
+              |Имплантаты Strategic Implant
+            .implant  
+              h3.implant__title 
+                |BECES импланты представляет собой имплантат с монолитным соединением имплантат-абатмент, обладающий полностью полированной поверхностью
+              .implant__inner 
+                .implant__row 
+                  .implant__col
+                    .implant__type.implant__type--bordered
+                      |BECES
+                    .implant__inner.implant__inner--xl
+                      ul.implant__list 
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-1-svg
+                          p.implant__text
+                            |Длина имплантата типа BCS варьируется от 8 до 29 мм
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-2-svg
+                          p.implant__text
+                            |Тело имплантата имеет диаметр 2 мм
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-3-svg
+                          p.implant__text
+                            |Оснащен активной резьбой диаметром от 2.7 до 9 мм, предназначена для фиксации во втором кортикальном слое.
+                  .implant__col
+                    .implant__container
+                      img(src="assets/images/implant-1.png", alt="")
+                  .implant__col
+                    .implant__inner.implant__inner--xl 
+                      ul.implant__list 
+                        li.implant__item
+                          .implant__wrapper
+                            p.implant__text 
+                              |Активная резьба на конце имплантата предназначена для пенетрации и фиксации во втором кортикальном слое костной ткани, что обеспечивает высокую первичную стабилизацию и долгосрочный прогноз
+                        li.implant__item
+                          .implant__wrapper
+                            p.implant__text
+                              |Абатмент имплантата может иметь форму цельной фрезерованной оторы или мультиюнит.
+
