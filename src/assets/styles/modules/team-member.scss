@@ -117,7 +117,9 @@
 }
 
 .member-page-ask {
-  padding-left: $col-gap-d;
+  @media (min-width: $breakpoint) {
+    padding-left: $col-gap-d;
+  } 
   align-items: unset;
   flex-direction: column;
   // justify-content: space-between;
@@ -126,9 +128,15 @@
     width: 100%;
     margin-bottom: 80px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 22px;
       margin-bottom: 40px;
+    }
+
+    &--md {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+      }
     }
   }
 

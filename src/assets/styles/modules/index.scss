@@ -142,6 +142,12 @@
     @media (max-width: $breakpoint - 1px) {
       display: none;
     }
+
+    // implatation
+    &--md {
+      padding-left: calc(#{$col-part-d} - 6px);
+      padding-right: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+    }
   }
   &__mid-control {
     flex-shrink: 0;
@@ -169,6 +175,31 @@
     @media (min-width: $breakpoint) {
       max-width: calc(100vw - #{$col-pad-d} * 2);
       max-height: 600px;
+    }
+
+    // implatation
+    &--md {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+        height: 520px;
+      }
+    }
+  }
+
+  &__mid-discription {
+    margin: 20px 0 0;
+    @include f-2();
+    text-align: center;
+    @include fsl(12px, 160%);
+    @media (min-width: $breakpoint) {
+      @include fsl(16px);
+    }
+    @media (max-width: $breakpoint - 1px) {
+
+    }
+    @media (max-width: $breakpoint-m - 1px) {
+      margin: 20px auto 0;
+      width: 230px;
     }
   }
 

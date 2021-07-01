@@ -108,6 +108,7 @@
 }
 
 .category {
+  $comp: &;
   padding: 40px 0;
 
   display: none;
@@ -116,30 +117,86 @@
   }
   border-bottom: 1px solid $color-gray-border;
 
-  &__list {
-    margin-left: -40px;
-    margin-top: -20px;
+  &--counter {
+    display: block;
 
+    #{$comp}__list {
+      width: 100%;
+      overflow-x: auto;
+      counter-reset: index;
+    }
+
+    #{$comp}__item {
+      padding-left: 20px;
+      position: relative;
+
+      &::before {
+        counter-increment: index;
+        content: counter(index) ". ";
+        position: absolute;
+        top: 1px;
+        @media (min-width: $breakpoint) {
+          top: 0;
+        }
+        left: 0;
+
+        @include fsl(14px, 160%);
+        @media (min-width: $breakpoint) {
+          @include fsl(18px);
+        }
+      }
+    }
+  }
+
+  &__list {
+    @media (min-width: $breakpoint) {
+      margin-left: -40px;
+      margin-top: -20px;
+
+      flex-wrap: wrap;
+    }
     display: flex;
-    flex-wrap: wrap;
   }
 
   &__item {
-    margin-left: 40px;
-    margin-top: 20px;
-  }
-
-  &__link {
-    @include fsl(18px, 160%);
-    white-space: nowrap;
+    
+    @media (min-width: $breakpoint) {
+      margin-left: 40px;
+      margin-top: 20px;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      &:not(:first-child) {
+        margin-left: 20px;
+      }
+    }
     transition: $transition;
+    &:hover {
+      color: $color-main;
+      #{$comp}__link {
+        color: $color-main;
+      }
+    }
 
     &--active {
       padding-bottom: 5px;
 
       color: $color-main;
       border-bottom: 1px solid $color-main;
+
+      #{$comp}__link {
+        color: $color-main;
+      }
     }
+  }
+
+  &__link {
+    position: relative;
+    @include fsl(14px, 160%);
+    @media (min-width: $breakpoint) {
+      @include fsl(18px);
+    }
+    white-space: nowrap;
+    transition: $transition;
   }
 }
 

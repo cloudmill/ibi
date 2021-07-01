@@ -314,7 +314,7 @@
   
 .news-subscribe {
     margin: 160px 0;
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
         margin: 60px 0;
     }
 
@@ -322,9 +322,17 @@
     justify-content: space-between;
     align-items: flex-end;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    &--bottom {
+        margin-top: 0;
+        margin-bottom: 60px;
+        @media (min-width: $breakpoint) {
+            margin-bottom: 160px;
+        }
     }
 
     &__title {
@@ -341,6 +349,8 @@
         margin-bottom: 40px;
         }
     }
+
+    
 
     &__form {
         display: flex;
