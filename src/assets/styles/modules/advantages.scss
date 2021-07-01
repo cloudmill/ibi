@@ -1,20 +1,32 @@
 .advantages {
   $comp: &;
 
-  &__list {
-    margin-top: 40px;
-    @media (min-width: $breakpoint) {
-      margin-top: 120px;
-    }
+  padding-top: 40px;
+  @media (min-width: $breakpoint) {
+    padding-top: 120px;
   }
 
   &__item {
     @media (min-width: $breakpoint) {
+      position: relative;
       border-top: 1px solid $color-gray-border;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      border-top: 1px solid $color-gray-border;
+      border-left: 1px solid $color-gray-border;
     }
 
     &:not(:first-child) {
       margin-top: -1px;
+    }
+
+    &--no-border {
+      @media (min-width: $breakpoint) {
+        border-top: 0;
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+      }
     }
 
     &--revers {
@@ -38,13 +50,23 @@
   }
 
   &__row {
-    display: flex;
+    position: relative;
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
   }
 
   &__col {
+    @media (min-width: $breakpoint) {
+      position: relative;
+    }
 
     &:nth-child(1) {
-
+      @media (max-width: $breakpoint - 1px) {
+        position: absolute;
+        top: -1px;
+        left: -1px;
+      }
     }
 
     &:nth-child(2) {
@@ -52,13 +74,32 @@
         padding-left: calc(#{$col-part-d});
 
         width: 100%;
-        
+      }
+      @media (max-width: $breakpoint - 1px) {
+        padding-left: calc(#{$col-width-m});
       }
     }
   }
 
+  &__layout {
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: block;
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      
+      width: calc(#{$col-width-d} + 8px);
+      
+      border-left: 1px solid $color-main;
+      border-bottom: 1px solid $color-main;
+    }
+  }
+
   &__container {
-    $size-d: calc(#{$col-part-d});
+    $size-d: calc(#{$col-part-d}); //  137px?
     $size-m: 40px;
 
     width: $size-m;
@@ -69,15 +110,14 @@
     }
     display: flex;
     align-items: stretch;
+    @media (max-width: $breakpoint - 1px) {
+      align-items: center;
+    }
     justify-content: center;
 
     border: 1px solid $color-gray-border;
     @media (min-width: $breakpoint) {
-      // border-top: 0;
-    }
-    @media (max-width: $breakpoint - 1px) {
-      // border-top: 0;
-      // border-left: 0;
+      margin-top: -1px;
     }
   }
 
@@ -91,11 +131,27 @@
   }
 
   &__content {
-    padding: 20px 0 40px;
     @media (min-width: $breakpoint) {
-      padding: 60px 0;
+      padding-top: 60px;
 
       border-right: 1px solid $color-main;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      padding: 20px 0 40px;
+    }
+  }
+
+  &__layer {
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: block;
+
+      position: absolute;
+      left: 8px;
+      right: 0;
+      z-index: 1;
+
+      height: 100%;
       border-bottom: 1px solid $color-main;
     }
   }
@@ -105,6 +161,7 @@
     @media (min-width: $breakpoint) {
       margin-bottom: 20px;
 
+      width: calc(#{$col-part-d} * 6);
       @include fsl(34px);
     }
     @include fsl(18px, 110%);
@@ -114,15 +171,77 @@
 
   &__wrapper {
     @media (min-width: $breakpoint) {
+      padding-bottom: 60px;
       padding-left: calc(#{$col-part-d});
+
+      position: relative;
+    }
+  }
+
+  &__svg {
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      &--center {
+        top: 40px;
+      }
+    }
+  }
+
+  &__line {
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+
+      width: 1px;
+      background-color: $color-main;
+
+      &--center {
+        top: 40px;
+      }
     }
   }
 
   &__text {
     @media (min-width: $breakpoint) {
-      width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+      width: calc(#{$col-part-d} * 5);
       @include fsl(16px);
     }
     @include fsl(14px, 150%);
+  }
+}
+
+.advantages-bg {
+  display: none;
+  @media (min-width: $breakpoint) {
+    display: block;
+
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__svg {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    right: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+    &--small {
+      right: auto;
+      left: calc(#{$col-part-d});
+      bottom: -111px;
+    }
   }
 }
