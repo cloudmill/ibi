@@ -18,23 +18,148 @@ block content
           .nav
             .nav__container
               nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
-                ul.nav__list
-                  each item in ['О нас', 'Миссия и ценности', 'Наша команда']
-                    li.nav__item
+                ul.nav__list.prosthetics-nav
+                  .mission__spoiler
+                    li.nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
                       a.nav__link(href='#')
-                        |#{item}
-                  li.nav__item.nav__item--active
-                    a.nav__link(href='#')
-                      |Новости
-                  each item in ['Вакансии', 'Контакты']
-                    li.nav__item
+                        |Протезирование
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+                  .mission__spoiler
+                    li.nav__item.mission__spoiler-button.news-spoiler__button
                       a.nav__link(href='#')
-                        |#{item}
+                        |Диагностика
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+                  .mission__spoiler
+                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      a.nav__link(href='#')
+                        |Профилактика
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+                  .mission__spoiler
+                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      a.nav__link(href='#')
+                        |Удаление зубов
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+                  .mission__spoiler
+                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      a.nav__link(href='#')
+                        |Лечение зубов
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+
       .row__col
         .section__inner--top
           .container.prosthetics
             h1.title
               |Протезирование
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Протезирование
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Диагностика
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Профилактика
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Удаление зубов
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Лечение зубов
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
             .section__block.section__block--small
               .prosthetics__image
                 .about__image-background(style='background-image: url("assets/images/about-image.jpeg")')
@@ -145,6 +270,19 @@ block content
       .row__col
         .container.prosthetic-slider
           h2.prosthetic-slider__ttl Типы протезирования
+          .prosthetic-slider__top
+            .prosthetic-slider__filter
+              .development__names-item На зубах
+              .development__names-item На имплантатах
+            .index-publications__control.slider-control.slider-control--desktop
+              .slider-control__item
+                .button-arrow.button-arrow--blue-light.button-arrow--left
+                  .button-arrow__button(data-slider-button='141')
+                    +svg-arrow.button-arrow__svg
+              .slider-control__item
+                .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
+                  .button-arrow__button(data-slider-button='142')
+                    +svg-arrow.button-arrow__svg
           .swiper-container(data-slider-id='140' data-slider-prev='141' data-slider-next='142')
             .swiper-wrapper
               .swiper-slide.prosthetic-slider__slide
