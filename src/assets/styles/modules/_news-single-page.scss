@@ -114,6 +114,20 @@
       padding-left: 0;
     }
 
+    &--default {
+      padding-left: 0;
+    }
+
+    h5 {
+      margin-bottom: 20px;
+      @media (min-width: $breakpoint) {
+        margin-bottom: 40px;
+
+        @include fsl(22px);
+      }
+      @include fsl(16px, 140%);
+    }
+
     p {
       margin: 20px 0;
 

@@ -1,0 +1,128 @@
+.advantages {
+  $comp: &;
+
+  &__list {
+    margin-top: 40px;
+    @media (min-width: $breakpoint) {
+      margin-top: 120px;
+    }
+  }
+
+  &__item {
+    @media (min-width: $breakpoint) {
+      border-top: 1px solid $color-gray-border;
+    }
+
+    &:not(:first-child) {
+      margin-top: -1px;
+    }
+
+    &--revers {
+
+      #{$comp}__col {
+        @media (min-width: $breakpoint) {
+          &:nth-child(1) {
+            order: 2;
+          }
+          &:nth-child(2) {
+            padding-left: calc(#{$col-width-d});
+            order: 1;
+          }
+        }
+      }
+
+      #{$comp}__content {
+        border: 0;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__col {
+
+    &:nth-child(1) {
+
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        padding-left: calc(#{$col-part-d});
+
+        width: 100%;
+        
+      }
+    }
+  }
+
+  &__container {
+    $size-d: calc(#{$col-part-d});
+    $size-m: 40px;
+
+    width: $size-m;
+    height: $size-m;
+    @media (min-width: $breakpoint) {
+      width: $size-d;
+      height: $size-d;
+    }
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    border: 1px solid $color-gray-border;
+    @media (min-width: $breakpoint) {
+      // border-top: 0;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      // border-top: 0;
+      // border-left: 0;
+    }
+  }
+
+  &__num {
+    @include f-2();
+    @include fsl(30px, 110%);
+    @media (min-width: $breakpoint) {
+      @include fsl(150px);
+    }
+    color: #CDF5FA;
+  }
+
+  &__content {
+    padding: 20px 0 40px;
+    @media (min-width: $breakpoint) {
+      padding: 60px 0;
+
+      border-right: 1px solid $color-main;
+      border-bottom: 1px solid $color-main;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 20px;
+
+      @include fsl(34px);
+    }
+    @include fsl(18px, 110%);
+    color: $color-main;
+    @include f-2();
+  }
+
+  &__wrapper {
+    @media (min-width: $breakpoint) {
+      padding-left: calc(#{$col-part-d});
+    }
+  }
+
+  &__text {
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+      @include fsl(16px);
+    }
+    @include fsl(14px, 150%);
+  }
+}
