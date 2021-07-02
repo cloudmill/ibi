@@ -5,30 +5,54 @@
 }
 
 .specialists-card {
-position: relative;
-width: 100%;
-
+  position: relative;
   width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
-  // background: linear-gradient(90deg, #D4F5F9 0%, rgba(195, 241, 246, 0) 60.32%);
+  background: #C2EFF4;
   margin-bottom: 40px;
 
-  &__img {
-    position: relative;
-    object-fit: cover;
-    object-position: right;
+  @media (max-width: $breakpoint) {
+    width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+  }
+
+  @media (max-width: $breakpoint-m) {
     width: 100%;
   }
 
-  &__desc {
+  &__img {
     position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
+
+    @media (max-width: $breakpoint) {
+      object-position: right bottom;
+      // margin-top: 150px;
+      padding-top: 200px;
+    }
+  }
+
+  &__desc {
+    position: relative;
     z-index: 1;
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
     height: 100%;
     padding: 40px 0 40px 40px;
 
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     flex-wrap: wrap;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      padding: 40px 40px 360px 40px;
+    }
   }
 
   &__ttl {
@@ -36,12 +60,23 @@ width: 100%;
     font-size: 30px;
     line-height: 140%;
     width: 100%;
+
+    @media (max-width: $breakpoint) {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
   }
 
   &__txt {
     font-size: 16px;
     line-height: 140%;
     width: 100%;
+    margin-bottom: 80px;
+
+    @media (max-width: $breakpoint) {
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
   }
 
   &__link {
@@ -57,19 +92,41 @@ width: 100%;
     justify-content: space-between;
 
     margin-bottom: 80px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 40px;
+    }
   }
 
   &__ttl {
     font-size: 50px;
     line-height: 140%;
+
+    @media (max-width: $breakpoint) {
+      font-size: 22px;
+    }
+  }
+
+  &__link {
+    @media (max-width: $breakpoint) {
+      display: none;
+    }
   }
 
   &__wrapper {
-    padding-left: calc(#{$col-part-d} * 3)
+    padding-left: calc(#{$col-part-d} * 3);
+
+    @media (max-width: $breakpoint) {
+      padding-left: 0;
+    }
   }
 
   &__tags {
     display: flex;
+
+    @media (max-width: $breakpoint) {
+      display: none;
+    }
 
     &-items {
       margin-right: 10px;
@@ -87,6 +144,28 @@ width: 100%;
 
     .news__date {
       color: unset;
+
+      @media (max-width: $breakpoint) {
+        display: flex;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+
+      div:first-child {
+        margin-bottom: 15px;
+
+        @media (max-width: $breakpoint) {
+          margin-bottom: 0;
+          margin-right: 20px;
+        }
+      }
     }
 
     .news__title {
@@ -94,6 +173,9 @@ width: 100%;
       flex-direction: column;
       justify-content: space-between;
       
+      @media (max-width: $breakpoint) {
+        margin-bottom: 20px;
+      }
     }
   }
 }
