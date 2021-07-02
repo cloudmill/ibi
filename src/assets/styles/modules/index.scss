@@ -683,6 +683,7 @@
 }
 
 .operation-card {
+  $comp: &;
   @mixin info-text() {
     @include fsl(18px, 110%);
     @media (min-width: $breakpoint) {
@@ -695,6 +696,32 @@
   }
   @media (min-width: $breakpoint) {
     height: 100%;
+  }
+
+  &--responsive {
+    #{$comp}__col {
+      &:nth-child(1) {
+        @media (min-width: $breakpoint) {
+          width: calc(#{$col-part-d} * 4);
+        }
+      }
+      &:nth-child(2) {
+        @media (min-width: $breakpoint) {
+          margin-left: calc(#{$col-width-d});
+          width: calc(#{$col-part-d} * 4);
+        }
+      }
+    }
+    #{$comp}__image {
+      @media (min-width: $breakpoint) {
+        width: auto;
+      }  
+    }
+    #{$comp}__img {
+      @media (min-width: $breakpoint) {
+        max-height: 100%;
+      } 
+    }
   }
 
   &__row {

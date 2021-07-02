@@ -1,0 +1,13 @@
+.works {
+
+  &__item {
+    &:not(:first-child) {
+      margin-top: 40px;
+    }
+    @media (min-width: $breakpoint) {
+      &:not(:first-child) {
+        margin-top: 80px;
+      }
+    }
+  }
+}
