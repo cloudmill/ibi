@@ -1,6 +1,7 @@
 import 'Styles/_app.scss';
 import Swiper from 'swiper';
 import Parsley from 'parsleyjs';
+import '@fancyapps/fancybox';
 
 const BREAKPOINT = 1280;
 
@@ -645,5 +646,21 @@ const BREAKPOINT = 1280;
         zoomMargin: Math.max(markWidth, markHeight),
       });
     }
+  });
+}
+
+// fancybox
+{
+  $(() => {
+    $.fancybox.defaults.closeExisting = true;
+
+    $('[data-fancy-button]').on('click', function (event) {
+      event.preventDefault();
+
+      const id = $(this).data('fancy-button');
+      const modal = $(`[data-fancy-modal="${id}"]`);
+
+      $.fancybox.open(modal);
+    });
   });
 }
