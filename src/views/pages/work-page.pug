@@ -1,0 +1,58 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block content 
+  section.section.section--gradient 
+    .row 
+      .row__col 
+        .section__inner.section__inner--top
+      .row__col 
+        .section__inner.section__inner--top
+          .container.single-news 
+            h1.title.single-news__title
+              |Жильцов Сергей Васильевич
+            .single-news__body.single-news__body--wide
+              .single-news__head.single-news__head--small
+                .single-news__back-link
+                    a(href="#") Вернуться
+              .team-filter.team-filter--long
+                  ul.team-filter__container
+                    li.team-filter__item(data-id="doctor") #имплантация
+                    li.team-filter__item(data-id="dentist") #протезирование
+                    li.team-filter__item(data-id="admin") #оплата
+            .work-card 
+              .operation-card.operation-card--wide
+                .work-card__row 
+                  .work-card__col
+                    .work-card__content
+                      .operation-card__desc-block
+                        h6.operation-card__desc-title.operation-card__desc-title--red
+                          |Проблема
+                        p.operation-card__desc-text
+                          |Отсутствием зубов на верхней и нижней челюсти и серьезной атрофией костной ткани.
+                      .operation-card__desc-block
+                        h6.operation-card__desc-title
+                          |Предложенное решение
+                        p.operation-card__desc-text
+                          |По результатам врачебного консилиума было принято решение проводить базальную имплантацию.
+                  .work-card__col
+                    .work-card__item
+                      .work-card__label
+                        |Стоимость
+                      .operation-card__price
+                        |456 000 ₽
+                    .work-card__item
+                      .work-card__label
+                        |Срок
+                      .operation-card__visits
+                        |4 визита
+                    .work-card__item
+                      .work-card__label
+                        |Сложность
+                      ul.operation-card__rating-list
+                        - for (let i=0; i<5; i++)
+                          li.operation-card__rating-item(class=(i < 3 ? 'operation-card__rating-item--active' : ''))
+                            +svg-rating(class='operation-card__rating-svg')
+                    

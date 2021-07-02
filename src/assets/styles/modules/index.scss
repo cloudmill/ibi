@@ -698,6 +698,7 @@
     height: 100%;
   }
 
+  // works
   &--responsive {
     #{$comp}__col {
       &:nth-child(1) {
@@ -721,6 +722,20 @@
       @media (min-width: $breakpoint) {
         max-height: 100%;
       } 
+    }
+  }
+
+  // work-page
+  &--wide {
+    width: 100%;
+    #{$comp}__desc-title {
+      @media (min-width: $breakpoint) {
+        @include fsl(30px);
+      }
+    }
+
+    #{$comp}__visits {
+      margin-left: 0;
     }
   }
 
