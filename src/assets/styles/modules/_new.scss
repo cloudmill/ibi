@@ -1083,6 +1083,8 @@
   &__missions-links-link {
     display: flex;
     align-items: center;
+    
+    cursor: pointer;
 
     &:hover {
       #{$comp}__missions-links-text {

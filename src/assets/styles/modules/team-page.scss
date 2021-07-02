@@ -98,6 +98,15 @@
     margin-top: 40px;
   }
 
+  // страница work-page
+  &--bot {
+    margin-top: 0;
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 160px;
+    }
+  }
+
 // Большая карточка
 
   &-member {

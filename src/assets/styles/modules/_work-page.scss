@@ -194,3 +194,70 @@
     }
   }
 }
+
+.review {
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 6);
+  }
+
+  &__row {
+    display: flex;
+    align-items: stretch;
+  }
+
+  &__col {
+    &:nth-child(1) {
+      flex-shrink: 0;
+      width: calc(#{$col-width-m});
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      }
+    }
+    &:nth-child(2) {
+      padding-left: calc(#{$col-gap-m});
+      @media (min-width: $breakpoint) {
+        padding-left: calc(#{$col-gap-d});
+
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: stretch;
+
+        width: 100%;
+      }
+    }
+  }
+
+  &__content {
+    p {
+      @include fsl(14px, 140%);
+      @media (min-width: $breakpoint) {
+        @include fsl(16px);
+        width: 390px;
+      }
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  &__button {
+    @media (min-width: $breakpoint) {
+      padding-bottom: 20px;
+      margin-left: auto;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      padding-top: 20px;
+    }
+  }
+}
+
+.doctors {
+  @media (min-width: $breakpoint) {
+    margin-left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+    flex-shrink: 0;
+    width: calc(#{$col-part-d} * 9);
+  }
+}
