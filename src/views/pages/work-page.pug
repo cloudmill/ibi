@@ -55,4 +55,89 @@ block content
                         - for (let i=0; i<5; i++)
                           li.operation-card__rating-item(class=(i < 3 ? 'operation-card__rating-item--active' : ''))
                             +svg-rating(class='operation-card__rating-svg')
-                    
+        section.section
+          .container
+            h3.title.title--m
+              |Клиническое состояние до операции
+  section.section
+    .index 
+      .container
+        .index__block
+          .index__mid
+            .index__mid-slider
+              .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='8' data-slider-prev='11' data-slider-next='12')
+                .swiper-wrapper
+                  - for (let i=0; i<3; i++)
+                    .swiper-slide
+                      .index__mid-slide
+                        img.index__mid-img.index__mid-img--md(src=`assets/images/index/mid-${i + 1}.jpeg` alt='')
+                      .index__mid-discription 
+                        |Подпись для фотографии, которая будет говорить о том, какой этап внутри поэтапа
+            .index__mid-controls.index__mid-controls--md
+              .index__mid-control.index__mid-control--left
+                .button-arrow.button-arrow--left
+                  .button-arrow__button(data-slider-button='11')
+                    +svg-arrow.button-arrow__svg
+              .index__mid-control.index__mid-control--right
+                .button-arrow.button-arrow--right
+                  .button-arrow__button(data-slider-button='12')
+                    +svg-arrow.button-arrow__svg
+  section.section 
+    .row 
+      .row__col
+      .row__col
+        .section__inner
+          .container
+            h3.title.title--m
+              |Дневник пациента
+            ul.diary  
+              -
+                var data = [
+                  {
+                    day: '5 дней до операции',
+                    text: 'Сдача анализов',
+                  },
+                  {
+                    day: '2 дня до операции',
+                    text: 'Проведение антропометрии, выбор и цвета и формы будущих зубов',
+                  },
+                  {
+                    day: 'День операции',
+                    text: 'Установка имплантантов strategic implant на верхнюю и нижнюю челюсти, проведена регистрация прикуса аппаратом Centrofix',
+                  },
+                  {
+                    day: '2 день операции',
+                    text: 'Установка металлоакриловых (условно-временные) мостов',
+                  },
+                  {
+                    day: '3 день операции',
+                    text: 'Установка металлоакриловых (условно-временные) мостов',
+                  },
+                ]
+              each item in data
+                li.diary__item 
+                  .diary__container 
+                    .diary__row 
+                      .diary__col
+                        .diary__day 
+                          |#{item.day}
+                      .diary__col
+                        p.diary__text 
+                          |#{item.text}
+        .container
+          h3.title.title--m
+            |До и после
+  section.section 
+    .container 
+      .work-photo 
+        .work-photo__container
+          .work-photo__row 
+            .work-photo__col
+              .work-photo__label 
+                |До
+            .work-photo__col
+              .work-photo__label 
+                |После
+        .work-photo__frame
+          img.work-photo__img.work-photo__img--hidden(src="assets/images/before-1.jpg", alt="")
+          img.work-photo__img(src="assets/images/after-1.jpg", alt="")
