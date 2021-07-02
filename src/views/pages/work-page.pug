@@ -4,6 +4,27 @@ include ../components/_header.pug
 include ../components/_footer.pug
 
 block content 
+  // modal
+  .modal(data-fancy-modal="1")
+    .container 
+      .modal__container 
+        .video 
+          img(src="assets/images/video.jpg", alt="")
+          .video-button 
+        .single-news 
+          .modal__inner
+            .single-news__txt 
+              p
+                |Хочу выразить благодарность замечательному врачу Блаватской Дарье Васильевне.У нее очень лёгкие и добрые руки! Удаление зуба мудрости (с кистой!!!) прошло абсолютно безболезненно, на следующий день ничего не болит - это говорит о качественной работе и большом профессионализме врача.
+              p
+                |Видно, что она любит свою работу и работает ради результата.Благодаря ей я потеряла страх перед стоматологией!Чуткий подход к пациенту, отзывчивость , доброта и ее лучезарная улыбка , которые исходят от нее поразили меня до глубины души ! 
+              p
+                |Предстоит сложное удаление другого зуба мудрости , но я уже ничего не боюсь, потому что уверена в этом замечательном докторе ! Всем своим друзьям и знакомым буду рекомендовать обращаться к Дарье Васильевне!
+        .modal__img 
+          img(src="assets/images/modal-img.jpg", alt="")
+        .modal__person 
+          img(src="assets/images/modal-person.jpg", alt="")
+  
   section.section.section--gradient 
     .row 
       .row__col 
@@ -162,8 +183,8 @@ block content
                     p
                       |Хочу выразить благодарность замечательному врачу Блаватской Дарье Васильевне.У нее очень лёгкие и добрые руки!
                     .review__button 
-                      .mission 
-                        .mission__missions-links-link
+                      .mission
+                        .mission__missions-links-link(data-fancy-button="1")
                           +svg-link.mission__missions-links-svg
                           .mission__missions-links-text
                             |Смотреть полностью
@@ -365,3 +386,5 @@ block content
                                               +svg-link.mission__missions-links-svg
                                               .mission__missions-links-text
                                                 |Все операции
+  
+  

@@ -1,0 +1,38 @@
+.modal {
+  display: none;
+  background-color: $color-white;
+
+  &__container {
+    padding: 40px 0;
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+    }
+  }
+
+  &__inner {
+    margin: 40px 0;
+    @media (min-width: $breakpoint) {
+      margin: 80px 0;
+    }
+  }
+
+  &__img {
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 40px;
+    }
+    img {
+      display: block;
+    }
+  }
+
+  &__person {
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    }
+    img {
+      display: block;
+    }
+  }
+}
