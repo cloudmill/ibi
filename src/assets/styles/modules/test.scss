@@ -303,14 +303,14 @@
     background-color: #CCE3E5;
     width: 100%;
     @media (max-width: $breakpoint - 1px) {
-        width: calc(100% + 40px);
-        position: relative;
-        left: -20px;
+      width: calc(100% + 40px);
+      position: relative;
+      left: -20px;
     }
     height: 550px;
 
     @media (max-width: $breakpoint-m - 1px) {
-        height: 356px;
+      height: 356px;
     }
   }
 }

@@ -1,0 +1,141 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block content 
+  section.section.section--gradient 
+    .row 
+      .row__col 
+        .section__inner.section__inner--top 
+          .nav.nav--small
+            .nav__container
+              nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                ul.nav__list
+                  li.nav__item.nav__item--active
+                    a.nav__link(href='#')
+                      |Металлоакриловый несъемный мостовидный протез
+                  each item in ['Металлокомпозитный несъемный мостовидный протез', 'Керамокомпозитный несъемный мостовидный протез', 'Цельный диоксид-циркониевый мостовидный протез (PRETTAU Zircon)', 'Металлокомпозитный несъемный мостовидный протез', 'Металлокерамический мост на сегмент', 'Временный полимерный мост ПММА на сегмент']
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |#{item}
+      .row__col 
+        .section__inner.section__inner--top
+          .developments
+            .container 
+              h1.title.title--s
+                |Металлоакриловый несъемный мостовидный протез
+              .developments__category 
+                |Для восстановление одной или двух челюстей
+              .mission
+                .mission__spoiler.news-spoiler
+                  .mission__spoiler-button.news-spoiler__button
+                    h5.mission__spoiler-title
+                      |Исследования
+                    .news-spoiler__image
+                      +arrow-svg('header__drop-svg')
+              .section__block.section__block--small 
+                .developments__inner 
+                  .developments__photo 
+              .developments__content 
+                p 
+                  |Этот вид протезирования обычно используется при первичном или временном протезировании. Срок службы при нормальной эксплуатации и обслуживании составляет 2-3 года.
+                p 
+                  |Это довольно известная конструкция и повсеместно применяемая в протезировании на базальных имплантатах, но в ИБИ протокол изготовления этого моста усовершенствован и позволяет изготовить даже первичный, временный мост оптимальным и высококачественным. 
+  // materials
+  section.section 
+    .row 
+      .row__col
+      .row__col
+        .materials 
+          .container 
+            .materials__row 
+              .materials__col
+                h3.materials__title
+                  |Материалы
+                ul.materials__list 
+                  li.materials__item
+                    .materials__number
+                      .materials__icon
+                        +item-svg
+                        .materials__index 
+                          |1
+                    .materials__text 
+                      |Гарнитурные зубы компании Ivoclar Vivadent (Лихтенштейн), длительной эксплуатации, имеющие 3 степени прозрачности
+                  li.materials__item
+                    .materials__number
+                      .materials__icon 
+                        +item-svg
+                        .materials__index 
+                          |2
+                    .materials__text 
+                      |Десневая часть моста выполняется швейцарским акрилом Candulor
+                      p.materials__subtext 
+                        |Инертен, не выделяет продуктов реакции акрила. Отсутствиет выраженная гигроскопичность (минимально впитывает в себя органику, относительно прочих акриловых материалов).
+              .materials__col
+                .materials__layout 
+                  .materials__image
+                  .materials__img 
+                    .materials__icon
+                      +item-svg('materials__svg')
+                      .materials__index 
+                        |1
+                  .materials__img.materials__img--md
+                    .materials__icon
+                      +item-svg('materials__svg')
+                      .materials__index 
+                        |2
+          .section__inner 
+            .container 
+              h3.materials__title.materials__title--small
+                |Технология
+              .developments 
+                ul.developments__list
+                  li.developments__item 
+                    .developments__text 
+                      |Металлоакриловый мост обрел цифровой протокол изготовления и исключил неточности, допускаемые в «руколепной» версии данного изделия.
+                  li.developments__item 
+                    .developments__text 
+                      |Все модели пациента, полученные после установки имплантатов позиционируются исключительно при помощи специальных аппаратов австрийской фирмы 
+                      span.tooltip
+                        |Amann Girrbach AG
+                        +tooltip-svg('tooltip__icon')
+                        .tooltip__content 
+                          |
+                      |.
+                  li.developments__item 
+                    .developments__text 
+                      |Цифровой протокол исключает работу «на глаз». При этом модели проходят этап специального сканирования на зуботехническом 
+                      span.tooltip
+                        |сканере Shining 3D 
+                        +tooltip-svg('tooltip__icon')
+                        .tooltip__content 
+                          |
+                      |и дальнейшая работа происходит в компьютерной, зуботехнической программе Exoсad.
+          .section__inner.section__inner--bot 
+            .container 
+              .developments 
+                .developments__content 
+                  .developments__photo.developments__photo--md
+                  .developments__wrapper 
+                    .materials__text 
+                      |Условно-временный металлоакриловый мост изготовленный в лаборатории Института Базальной Имплантации обеспечивает комфорт, эстетику и главное правильную протетическую реабилитацию прикуса и височнонижнечелюстного сустава уже с первых дней эксплуатации. Металлоакриловый мост изготовленный в ИБИ относится к конструкциям длительной эксплуатации.
+  section.next-page
+    .row 
+      .row__col
+        .next-page__container
+          .next-page__nav 
+            |Следующий тип конструкции
+      .row__col
+        .container 
+          .next-page__nav.next-page__nav--mobile 
+            |Следующий тип конструкции
+          h3.next-page__title
+            |Цельный диоксид-циркониевый мост (PRETTAU Zircon) на сегмент
+          .next-page__button
+            .mission 
+              .mission__missions-links-container
+                a.mission__missions-links-link(href='#')
+                  +svg-link.mission__missions-links-svg
+                  .mission__missions-links-text
+                    |Перейти к описанию
