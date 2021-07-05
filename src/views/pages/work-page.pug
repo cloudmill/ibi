@@ -149,7 +149,7 @@ block content
                           |#{item.text}
           h3.title.title--m
             |До и после
-  // work-phot
+  // work-photo
   section.section 
     .container 
       .work-photo 
@@ -161,9 +161,10 @@ block content
             .work-photo__col
               .work-photo__label 
                 |После
-        .work-photo__frame
-          img.work-photo__img.work-photo__img--hidden(src="assets/images/before-1.jpg", alt="")
-          img.work-photo__img(src="assets/images/after-1.jpg", alt="")
+        .work-photo__frame.beer-slider(data-beer-label="before")
+          img.work-photo__img.work-photo__img--hidden(src="assets/images/after-1.jpg", alt="")
+          .beer-reveal(data-beer-label="after")
+            img.work-photo__img(src="assets/images/before-1.jpg", alt="")
   // review
   section.section 
     .row  

@@ -2,6 +2,7 @@ import 'Styles/_app.scss';
 import Swiper from 'swiper';
 import Parsley from 'parsleyjs';
 import '@fancyapps/fancybox';
+import BeerSlider from 'beerslider';
 
 const BREAKPOINT = 1280;
 
@@ -663,4 +664,15 @@ const BREAKPOINT = 1280;
       $.fancybox.open(modal);
     });
   });
+}
+
+// 
+{
+  $.fn.BeerSlider = function ( options ) {
+    options = options || {};
+    return this.each(function() {
+      new BeerSlider(this, options);
+    });
+  };
+  $('.beer-slider').BeerSlider({start: 25});
 }
