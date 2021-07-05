@@ -183,7 +183,8 @@
     }
   
     &__date {
-      width: calc(#{$col-part-d});
+      // width: calc(#{$col-part-d});
+      width: calc((#{$col-part-d} * 3 - #{$col-gap-d}) / 2);
       color: $color-main;
 
       @media (max-width: $breakpoint) {
@@ -203,7 +204,8 @@
     }
 
     &__img {
-        width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+        // width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+        width: calc((#{$col-part-d} * 3 - #{$col-gap-d}) / 2);
         text-align: right;
 
         @media (max-width: $breakpoint) {
