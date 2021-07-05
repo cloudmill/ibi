@@ -12,14 +12,14 @@ block content
             .nav__container
               nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
                 ul.nav__list
-                  each item in ['О нас', 'Миссия и ценности', 'Наша команда']
+                  each item in ['Метод', 'Преимущества',]
                     li.nav__item
                       a.nav__link(href='#')
                         |#{item}
                   li.nav__item.nav__item--active
                     a.nav__link(href='#')
-                      |Новости
-                  each item in ['Вакансии', 'Контакты']
+                      |Этапы имплантации
+                  each item in ['Имплантаты Strategic Implant', 'Стоимость']
                     li.nav__item
                       a.nav__link(href='#')
                         |#{item}
@@ -32,13 +32,13 @@ block content
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
                   h5.mission__spoiler-title
-                    |Исследования
+                    |Этапы имплантации
                   .news-spoiler__image
                     +arrow-svg('header__drop-svg')
                 .mission__spoiler-drop.news-spoiler__drop
                   nav.news-spoiler__nav
                     ul
-                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                      each item in ['Метод', 'Преимущества', 'Имплантаты Strategic Implant', 'Стоимость']
                         li.news-spoiler__nav-item
                           a.nav__link(href='#')
                             |#{item}
