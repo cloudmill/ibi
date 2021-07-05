@@ -256,8 +256,10 @@
     }
   
     &__link {
+      width: calc(#{$col-width-d});
       align-self: flex-start;
-      margin: 0 0 0 auto;
+    //   margin: 0 0 0 auto;
+      justify-content: flex-end;
 
       @media (max-width: $breakpoint-m) {
         order: 1;
