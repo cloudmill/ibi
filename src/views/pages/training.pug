@@ -1,0 +1,92 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+block content
+  section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    each item in ['Strategic Implant']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Обучение
+                    each item in ['Библиотека', 'Юридическая помощь', 'Наши разработки']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+            .team-filter
+              ul.team-filter__container
+                li.team-filter__item(data-id="doctor") #вебинар
+                li.team-filter__item(data-id="dentist") #оффлайн
+                li.team-filter__item(data-id="admin") #конференция
+                li.team-filter__item(data-id="coordinator") #курсы
+                li.team-filter__item(data-id="coordinator") #повышение квалификации
+              button.team-filter__reset
+                +reset-svg('team-filter__reset-ico')
+                |Сбросить
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Обучение
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Обучение
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              .section__inner
+                //- .container
+                ul.about__list
+                  li.news-box
+                    a.about__list-row.news.specialists-events__list(href="#")
+                      .news__date
+                        div
+                          +specialists-date-svg
+                          |24 апреля 2021
+                        div
+                          +specialists-date-svg2
+                          |1 день
+                      .news__img
+                        img(src="assets/images/news-2.jpg", alt="News")
+                      .news__title
+                        h3 Диагностика и профилактика стоматологических заболеваний
+                        .specialists-events__tags
+                          .specialists-events__tags-items #оффлайн
+                          .specialists-events__tags-items #конференция
+                          .specialists-events__tags-items #повышение квалификации
+                      .mission__missions-links-container.news__link
+                        .mission__missions-links-link
+                          +arrow-link-svg('news__link-ico')
+
+
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })
