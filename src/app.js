@@ -851,3 +851,161 @@ const BREAKPOINT = 1280;
     })
   })
 }
+
+// tabs
+{
+  $(() => {
+    $('.tabs').each(function () {
+      const tabs = $(this)
+
+      const items = tabs.find('.tabs__item')
+      const background = tabs.find('.tabs__background')
+
+      // crop background
+      {
+        function update() {
+          let width = 0
+          items.each(function () {
+            const curWidth = $(this)[0].offsetLeft + $(this)[0].offsetWidth
+
+            if (curWidth > width) {
+              width = curWidth
+            }
+          })
+
+          background.css('width', `${width}px`)
+        }
+
+        update()
+
+        // скачок шрифта (загрузка)
+        setTimeout(update, 200)
+
+        const fps = 15
+
+        function handleResize() {
+          update()
+
+          setTimeout(() => {
+            update()
+
+            $(window).one('resize', handleResize)
+          }, 1000 / fps)
+        }
+
+        $(window).one('resize', handleResize)
+      }
+
+      // change active
+      {
+        items.on('click', function () {
+          const prevActiveItem = $('.tabs__item--active')
+          const nextActiveItem = $(this)
+
+          if (prevActiveItem[0] !== nextActiveItem[0]) {
+            prevActiveItem.removeClass('tabs__item--active')
+            nextActiveItem.addClass('tabs__item--active')
+
+            changeTab(prevActiveItem, nextActiveItem)
+            animation(prevActiveItem, nextActiveItem)
+          }
+        })
+      }
+
+      // change active callback
+      function changeTab(prevActiveItem, nextActiveItem) {
+        console.log(prevActiveItem, nextActiveItem)
+
+        // place for you code
+      }
+
+      // static thumb
+      let attachThumb
+      let dettachThumb
+
+      {
+        // init
+        const thumb = document.createElement('div')
+
+        thumb.classList.add('tabs__thumb')
+
+        thumb.style.cssText = `
+          position: absolute;
+          bottom: 100%;
+          left: 0;
+          transform-origin: left;
+
+          width: 1px;
+
+          transition: none;
+        `
+
+        // update
+        function updateThumb($item) {
+          const item = $item[0]
+
+          const top = item.offsetTop + item.offsetHeight
+          const left = item.offsetLeft
+          
+          const width = item.offsetWidth
+
+          thumb.style.transform = `translate(${left}px, ${top}px) scaleX(${width})`
+        }
+
+        // resize handler
+        const fps = 15
+
+        function handleResize() {
+          updateThumb(tabs.find('.tabs__item--active'))
+
+          setTimeout(() => {
+            updateThumb(tabs.find('.tabs__item--active'))
+
+            window.addEventListener('resize', handleResize, {
+              once: true,
+            })
+          }, 1000 / fps)
+        }
+        
+        // add
+        attachThumb = ($item) => {
+          updateThumb($item)
+
+          background.append(thumb)
+
+          window.addEventListener('resize', handleResize, {
+            once: true,
+          })
+        }
+
+        // remove
+        dettachThumb = () => {
+          thumb.remove()
+
+          window.removeEventListener('resize', handleResize)
+        }
+      }
+
+      // скачок шрифта (загрузка)
+      setTimeout(() => {
+        attachThumb($('.tabs__item--active'))
+      }, 200)
+
+      // animation
+      function animation(prevItem, nextItem) {
+        dettachThumb()
+        attachThumb(nextItem)
+        // на одной строке
+        if (Math.abs(prevItem[0].offsetTop - nextItem[0].offsetTop) < 1) {
+          // создать thumb
+          // запустить transition
+          // отловить transitionend
+          // удалить thumb
+          // attachThumb()
+        } else { // на разных строках
+          console.log('на разных строках')
+        }
+      }
+    })
+  })
+}

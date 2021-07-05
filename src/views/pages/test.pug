@@ -4,13 +4,11 @@ block header
 block footer
 
 block content
-  .qwe
-    .component
-      .component__list
+  .tabs
+    .tabs__container
+      .tabs__background
+      .tabs__list
         - for (let i = 0; i < 30; i++)
-          .component__item(class = (i === 0 ? ['component__item--active', 'component__item--thumb'] : ''))
-            if (i % 2)
-              |test
-            else
-              |test1231231
+          .tabs__item(class = (i === 15) ? 'tabs__item--active' : '')
+            |test
 
