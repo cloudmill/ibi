@@ -148,6 +148,17 @@
     }
   }
 
+  &--mobile {
+    padding: 20px 0 0;
+
+    display: block;
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+    overflow-x: auto;
+    border: 0;
+  }
+
   &__list {
     @media (min-width: $breakpoint) {
       margin-left: -40px;

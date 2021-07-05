@@ -1,0 +1,264 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block content 
+  section.section.section--gradient 
+    .row 
+      .row__col 
+        .section__inner.section__inner--top
+          .nav 
+            .nav__container
+              nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                ul.nav__list
+                  each item in ['Метод', 'Преимущества', 'Этапы имплантации']
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |#{item}
+                  li.nav__item.nav__item--active
+                    a.nav__link(href='#')
+                      |Имплантаты Strategic Implant
+                  each item in ['Стоимость']
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |#{item}
+          .price.vacancies-list
+            .price__note Стоимость может меняться в зависимости клинического состояния зубов
+            button.vacancies-list__extra-btn.price__btn
+              +arrow-link-svg('extra-btn')
+              |Получить точный расчет
+      .row__col 
+        .section__inner.section__inner--top
+          .container 
+            h1.title 
+              |Имплантаты Strategic Implant
+            .mission
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Имплантаты Strategic Implant
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['Метод', 'Преимущества', 'Этапы имплантации', 'Стоимость']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .category.category--mobile
+              ul.category__list
+                li.category__item.category__item--active
+                  a.category__link(href="#") 
+                    |От 3-ех до 5 сегметов
+                li.category__item 
+                  a.category__link(href="#") 
+                    |На одной челюсти
+                li.category__item 
+                  a.category__link(href="#") 
+                    |На двух челюстях
+            .implant
+              h3.implant__title 
+                |BECES импланты представляет собой имплантат с монолитным соединением имплантат-абатмент, обладающий полностью полированной поверхностью
+              .implant__inner 
+                .implant__row 
+                  .implant__col
+                    .implant__type.implant__type--bordered
+                      |BECES
+                    .implant__inner.implant__inner--xl
+                      ul.implant__list 
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-1-svg
+                          p.implant__text
+                            |Длина имплантата типа BCS варьируется от 8 до 29 мм
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-2-svg
+                          p.implant__text
+                            |Тело имплантата имеет диаметр 2 мм
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-3-svg
+                          p.implant__text
+                            |Оснащен активной резьбой диаметром от 2.7 до 9 мм, предназначена для фиксации во втором кортикальном слое.
+                  .implant__col
+                    .implant__container
+                      img.implant__img(src="assets/images/implant-1.png", alt="")
+                    .implant__shadowbox
+                      .implant__shadow
+                  .implant__col
+                    .implant__inner.implant__inner--xl 
+                      ul.implant__list 
+                        li.implant__item
+                          .implant__wrapper
+                            p.implant__text 
+                              |Активная резьба на конце имплантата предназначена для пенетрации и фиксации во втором кортикальном слое костной ткани, что обеспечивает высокую первичную стабилизацию и долгосрочный прогноз
+                        li.implant__item
+                          .implant__wrapper
+                            p.implant__text
+                              |Абатмент имплантата может иметь форму цельной фрезерованной оторы или мультиюнит.
+                .implants.implants--mobile
+                  .implants__row 
+                    .implants__col
+                      .implants__card 
+                        .implants__wrapper
+                          .implant__type
+                            |BECES
+                        .implants__container 
+                          img.implants__img(src="assets/images/implant-1.png", alt="")
+                          .implant__shadowbox 
+                            .implant__shadow
+                    .implants__col
+                      ul.implant__list 
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-1-svg
+                          p.implant__text
+                            |Длина имплантата типа BCS варьируется от 8 до 29 мм
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-2-svg
+                          p.implant__text
+                            |Тело имплантата имеет диаметр 2 мм
+                        li.implant__item 
+                          .implant__icon 
+                            +implant-3-svg
+                          p.implant__text
+                            |Оснащен активной резьбой диаметром от 2.7 до 9 мм, предназначена для фиксации во втором кортикальном слое.
+                      .implant__inner.implant__inner--xl
+                        ul.implant__list 
+                          li.implant__item
+                            .implant__wrapper
+                              p.implant__text 
+                                |Активная резьба на конце имплантата предназначена для пенетрации и фиксации во втором кортикальном слое костной ткани, что обеспечивает высокую первичную стабилизацию и долгосрочный прогноз
+                          li.implant__item
+                            .implant__wrapper
+                              p.implant__text
+                                |Абатмент имплантата может иметь форму цельной фрезерованной оторы или мультиюнит.
+              .implants 
+                .implants__inner 
+                  h3.implant__title 
+                    |Семейство KOS представляет собой монолитное соединение имплантат-абатмент
+                  .implants__inner
+                    .implants__row 
+                      .implants__col
+                        .implants__card 
+                          .implants__wrapper
+                            .implant__type
+                              |KOS+
+                          .implants__container 
+                            img.implants__img(src="assets/images/implant-2.png", alt="")
+                            .implant__shadowbox 
+                              .implant__shadow
+                        .implants__inner 
+                          .implants__card
+                            .implants__wrapper.implants__wrapper--alt
+                              .implant__type
+                                |KOS
+                            .implants__container 
+                              img.implants__img(src="assets/images/implant-3.png", alt="")
+                              .implant__shadowbox.implant__shadowbox--default
+                                .implant__shadow
+                      .implants__col
+                        ul.implant__list 
+                          li.implant__item 
+                            .implant__icon 
+                              +implant-1-svg
+                            p.implant__text
+                              |Длина имплантатов варьируется от 10 до 17 мм
+                          li.implant__item 
+                            .implant__icon 
+                              +implant-2-svg
+                            p.implant__text
+                              |Диаметр устройств от 3.0 до 4.1 мм
+                        .implant__inner.implant__inner--xl
+                          ul.implant__list 
+                            li.implant__item
+                              .implant__wrapper
+                                p.implant__text 
+                                  |Соединение между имплантатом и абатментом представлено 3х мм зоной полированной шейки, диаметром 2 мм, для предотвращения инфицирования и обсеменения микроорганизмами. Такой диаметр способствует быстрому заживлению окружающих тканей.
+                            li.implant__item
+                              .implant__wrapper
+                                p.implant__text
+                                  |Нижняя часть представлена активной шероховатой резьбовой поверхностью с переменной конусностью. Протокол установки регламентирует  погружение имплантата в губчатый и базальный слой костной ткани, в некоторых случаях с установкой в кортикальную пластину без пенетрации
+                            li.implant__item
+                              .implant__wrapper
+                                p.implant__text 
+                                  |Данной хирургический протокол обеспечивает высокий уровень первичной стабилизации. Для КоS имплантатов  доступен протокол немедленной нагрузки.
+                            li.implant__item
+                              .implant__wrapper
+                                p.implant__text
+                                  |Абатмент может быть представлен цельфрезерованой опорой или мультиюнитом для винтовой или цементной фиксации
+  section.section.section--blue-light
+    .row 
+      .row__col
+      .row__col 
+        .container
+          .advantages-section
+            h2.advantages-section__title
+              |Преимущества
+            .advantages-section__layout 
+              .advantages-section__item.advantages-section__item--top 
+                .advantages-card
+                  .advantages-card__image
+                    img.advantages-card__img(src="assets/images/advantage-card.svg", alt="")
+                  .advantages-card__wrapper 
+                    h4.advantages-card__title 
+                      |Метод используется в&nbsp;30&nbsp;странах мира
+                    p.advantages-card__text
+                      |Каждый имплантат имеет свой паспорт. Имплантаты Strategic Implant — это лучшее, что есть на рынке базальной имплантации. Метод используется в 30 странах мира.
+              .advantages-section__item.advantages-section__item--mid
+                .advantages-card.advantages-card--right
+                  .advantages-card__image
+                    img.advantages-card__img(src="assets/images/advantage-card.svg", alt="")
+                  .advantages-card__wrapper 
+                    h4.advantages-card__title 
+                      |Исключение периимплантита
+                    p.advantages-card__text
+                      |Имплантаты имеют цельнолитое соединение без стыка. Такие имплантаты всегда с&nbsp;абатментом и&nbsp;является единой завершенной системой. Это обеспечивает чистоту поверхности, прилегающую к&nbsp;десне. Что является одним из&nbsp;факторов, исключающих возникновение периимплантита.
+              .advantages-section__item.advantages-section__item--bot
+                .advantages-card
+                  .advantages-card__image
+                    img.advantages-card__img(src="assets/images/advantage-card.svg", alt="")
+                  .advantages-card__wrapper 
+                    h4.advantages-card__title 
+                      |Не&nbsp;нужно резать десну
+                    p.advantages-card__text
+                      |Для установки имплантатов нет необходимости резать десну – делается небольшой прокол. Это позволяет кости, в которую устанавливается имплантат, полноценно сохранять свою целостность. Маленькая рана быстрее заживет и для реабилитации потребуется меньше времени.
+
+
+
+
+  section.section 
+    .row 
+      .row__col        
+      .row__col
+        .container.news-subscribe.member-page-ask
+          h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md
+            |Получить персональную консультацию бесплатно
+          .block-photo
+            .block-photo__image
+          form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+            .member-page-ask__form-wrapper
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Дополнительная информация")
+              label.transfer-consult__add-file(for="")
+                button
+                  +add-file-svg('transfer-consult__add-file-ico')
+                  |Прикрепить файл
+                p Снимки, ретнген, заключение врача
+              label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                  input(type="checkbox" required="")
+                  p Согласен на обработку персональных данных в соответствии с 
+                      a(href="#") политикой конфиденциальности
+              button.news-subscribe__form-btn(type="submit")
+                  +arrow-link-svg('news-subscribe__form-btn-ico')
+                  |Отправить        

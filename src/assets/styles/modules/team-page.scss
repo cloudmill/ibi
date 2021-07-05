@@ -12,16 +12,20 @@
   margin-top: 60px;
   padding-left: $col-gap-d;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
     margin-top: 20px;
     padding-left: 0;
+  }
+
+  &--md {
+    margin-top: 20px;
   }
 
   &--long {
     margin-top: 20px;
     padding-left: 0;
     padding-bottom: 10px;
-    @media (min-width) {
+    @media (min-width: $breakpoint) {
       padding-bottom: 30px;
       margin-top: 0;
     }
@@ -92,6 +96,15 @@
 
   @media (max-width: $breakpoint) {
     margin-top: 40px;
+  }
+
+  // страница work-page
+  &--bot {
+    margin-top: 0;
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 160px;
+    }
   }
 
 // Большая карточка

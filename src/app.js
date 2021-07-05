@@ -1,6 +1,8 @@
 import 'Styles/_app.scss';
 import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
+import '@fancyapps/fancybox';
+import BeerSlider from 'beerslider';
 
 const BREAKPOINT = 1280;
 
@@ -1008,4 +1010,32 @@ const BREAKPOINT = 1280;
       }
     })
   })
+}
+// fancybox
+{
+  $(() => {
+    $.fancybox.defaults.closeExisting = true;
+
+    $('[data-fancy-button]').on('click', function (event) {
+      event.preventDefault();
+
+      const id = $(this).data('fancy-button');
+      const modal = $(`[data-fancy-modal="${id}"]`);
+
+      $.fancybox.open(modal);
+    });
+  });
+}
+
+// before-after
+{
+  $(() => {
+    $.fn.BeerSlider = function ( options ) {
+      options = options || {};
+      return this.each(function() {
+        new BeerSlider(this, options);
+      });
+    };
+    $('.beer-slider').BeerSlider({start: 35});
+  });
 }

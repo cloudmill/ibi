@@ -1,0 +1,219 @@
+.implant {
+  padding-top: 40px;
+  @media (min-width: $breakpoint) {
+    padding-top: 180px; // ?
+  }
+
+  &__title {
+    @include fsl(18px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(40px);
+    }
+  }
+
+  &__inner {
+    padding-top: 60px;
+    @media (min-width: $breakpoint) {
+      padding-top: 100px;
+    }
+
+    &--xl {
+      @media (min-width: $breakpoint) {
+        padding-top: 120px;
+      }
+    }
+  }
+
+  &__row {
+    display: none;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 46px;
+
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+
+      border-bottom: 1px solid $color-gray-border;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 3);
+      }
+    }
+    
+    &:nth-child(3) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 3);
+      }
+    }
+  }
+
+  &__type {
+    padding-top: 10px;
+
+    text-transform: uppercase;
+    @include fsl(18px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px);
+    }
+
+    &--bordered {
+      width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+      border-top: 1px solid $color-main;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+    @media (min-width: $breakpoint) {
+      &:not(:first-child) {
+        margin-top: 60px;
+      }
+    }
+  }
+
+  &__icon {
+    @media (min-width: $breakpoint) {
+      flex-shrink: 0;
+      width: calc(#{$col-part-d});
+    }
+    @media (max-width: $breakpoint - 1px) {
+      padding-right: 20px;
+    }
+  }
+
+  &__text {
+    @include fsl(14px, 160%);
+    @media (min-width: $breakpoint) {
+      @include fsl(16px);
+    }
+  }
+
+  &__container {
+    @media (min-width: $breakpoint) {
+      height: 710px;
+    }
+  }
+
+  &__shadowbox {
+    padding-top: 20px;
+    @media (min-width: $breakpoint) {
+      padding-top: 40px;
+    }
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    &--default {
+      padding-top: 0;
+    }
+  }
+
+  &__shadow {
+    height: 12px;
+    width: 50px;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-width-d});
+    }
+
+    background-color: rgba(#000, 0.1);
+    filter: blur(10px);
+  }
+
+  &__wrapper {
+    padding-top: 10px;
+    @media (min-width: $breakpoint) {
+      padding-top: 20px;
+    }
+    width: 100%;
+    border-top: 1px solid $color-main;
+  }
+}
+
+.implants {
+  
+  &--mobile {
+    display: block;
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+  }
+
+  &__inner {
+    padding-top: 60px;
+    @media (min-width: $breakpoint) {
+      padding-top: 80px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: stretch;
+    @media (min-width: $breakpoint) {
+      justify-content: space-between;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+      }
+    }
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 3);
+      }
+      @media (max-width: $breakpoint - 1px) {
+        padding-top: 40px;
+      }
+    }
+  }
+
+  &__card {
+    display: flex;
+    align-items: stretch;
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    border-top: 1px solid $color-main;
+  }
+
+  &__wrapper {
+    flex-shrink: 0;
+    width: 100%;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 2);
+    }
+
+    &--alt {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      }
+    }
+  }
+
+  &__container {
+    padding-top: 20px;
+    @media (min-width: $breakpoint) {
+      padding-top: 40px;
+      height: 590px;
+    }
+    height: 350px;
+  }
+}
