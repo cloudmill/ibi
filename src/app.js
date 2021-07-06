@@ -221,6 +221,13 @@ const BREAKPOINT = 1280;
               },
             }
             break;
+          case 21:
+            slider_options = {
+              ...slider_options,
+
+              allowTouchMove: false,
+            }
+            break;
 
           case 100:
             slider_options = {
