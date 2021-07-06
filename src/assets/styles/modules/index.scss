@@ -318,6 +318,27 @@
     }
     flex-shrink: 0;
   }
+
+  // background main page
+  &__layout {
+    position: relative;
+    z-index: 0;
+  }
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    background: url(assets/images/index-bg-mobile.jpg) center no-repeat;
+    background-size: cover;
+    @media (min-width: $breakpoint) {
+      background: url(assets/images/index-bg.jpg) center no-repeat;
+      background-size: cover;
+    }
+  }
 }
 
 .index-publications {
@@ -987,9 +1008,9 @@
 
   &__title {
     // max-width: 340px;
-    // @media (min-width: $breakpoint) {
-    //   max-width: 660px;
-    // }
+    @media (min-width: $breakpoint) {
+      max-width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+    }
 
     @include fsl(22px, 140%);
     @media (min-width: $breakpoint) {
@@ -1000,10 +1021,25 @@
   &__list {
     margin-top: 40px;
     display: flex;
+    @media (max-width: $breakpoint - 1px) {
+      width: calc(100% + 20px);
+      overflow-x: scroll;
+    }
   }
   &__item {
+    padding-top: 10px;
+    @media (min-width: $breakpoint) {
+      padding-top: 20px;
+    }
+    width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+    @media (min-width: $breakpoint-m) {
+      width: 220px;
+    }
+    @media (min-width: $breakpoint) {
+      width: 260px;
+    }
     flex-shrink: 0;
-    
+    border-top: 1px solid $color-main;
     &:not(:first-child) {
       margin-left: $col-gap-m;
       @media (min-width: $breakpoint-m) {
@@ -1015,6 +1051,12 @@
       @media (min-width: $breakpoint-l) {
         margin-left: 60px;
       }
+    }
+  }
+  &__text {
+    @include fsl(14px,140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(18px);
     }
   }
 }
