@@ -50,6 +50,11 @@
       line-height: 66px;
     }
     color: $color-main;
+    transition: $transition;
+    
+    &:hover {
+      color: $color-white;
+    }
   }
   &__links-caption {
     margin-top: 5px;
@@ -128,6 +133,12 @@
 
     border: 1px solid $color-white-transparent;
     border-radius: 50%;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-main;
+      border-color: $color-main;
+    }
   }
   &__socials-svg {
     @media (max-width: $breakpoint - 1px) {
