@@ -146,7 +146,7 @@
     // implatation
     &--md {
       padding-left: calc(#{$col-part-d} - 6px);
-      padding-right: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      padding-right: calc(#{$col-part-d} * 2);
     }
   }
   &__mid-control {

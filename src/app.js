@@ -203,6 +203,25 @@ const BREAKPOINT = 1280;
             }
             break;
 
+
+          case 20:
+            slider_options = {
+              ...slider_options,
+
+              spaceBetween: 10,
+              loop: true,
+              centeredSlides: true,
+
+              breakpoints: {
+                [BREAKPOINT]: {
+                  spaceBetween: 40,
+                  allowTouchMove: false,
+                  centeredSlides: false,
+                },
+              },
+            }
+            break;
+
           case 100:
             slider_options = {
               ...slider_options,
