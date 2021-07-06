@@ -1,4 +1,11 @@
+body {
+  min-height: 300vh;
+  padding: 100px;
+}
+
 .tabs {
+  margin-top: 100px;
+
   &__container {
     position: relative;
     z-index: 0;

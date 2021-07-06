@@ -863,16 +863,17 @@ const BREAKPOINT = 1280;
       const items = tabs.find('.tabs__item')
       const background = tabs.find('.tabs__background')
 
-      // crop background
-      {
+      // background
+      ;(() => {
         function update() {
           let width = 0
-          items.each(function () {
-            const curWidth = $(this)[0].offsetLeft + $(this)[0].offsetWidth
 
-            if (curWidth > width) {
-              width = curWidth
-            }
+          function getWidth(elem) {
+            return elem.offsetLeft + elem.offsetWidth
+          }
+
+          items.each(function () {
+            width = (getWidth(this) > width) ? getWidth(this) : width
           })
 
           background.css('width', `${width}px`)
@@ -880,53 +881,43 @@ const BREAKPOINT = 1280;
 
         update()
 
-        // скачок шрифта (загрузка)
-        setTimeout(update, 200)
+        // скачок шрифта
+        setTimeout(update, 250)
 
         const fps = 15
 
-        function handleResize() {
+        function resize() {
           update()
 
           setTimeout(() => {
             update()
 
-            $(window).one('resize', handleResize)
+            $(window).one('resize', resize)
           }, 1000 / fps)
         }
 
-        $(window).one('resize', handleResize)
-      }
+        $(window).one('resize', resize)
+      })()
 
-      // change active
-      {
+      // change
+      ;(() => {
         items.on('click', function () {
-          const prevActiveItem = $('.tabs__item--active')
-          const nextActiveItem = $(this)
+          const prev = $('.tabs__item--active')
+          const next = $(this)
 
-          if (prevActiveItem[0] !== nextActiveItem[0]) {
-            prevActiveItem.removeClass('tabs__item--active')
-            nextActiveItem.addClass('tabs__item--active')
+          if (prev[0] !== next[0]) {
+            prev.removeClass('tabs__item--active')
+            next.addClass('tabs__item--active')
 
-            changeTab(prevActiveItem, nextActiveItem)
-            animation(prevActiveItem, nextActiveItem)
+            animation(prev, next)
           }
         })
-      }
+      })()
 
-      // change active callback
-      function changeTab(prevActiveItem, nextActiveItem) {
-        console.log(prevActiveItem, nextActiveItem)
+      // static
+      var [attach, dettach] = (() => {
+        let item
 
-        // place for you code
-      }
-
-      // static thumb
-      let attachThumb
-      let dettachThumb
-
-      {
-        // init
         const thumb = document.createElement('div')
 
         thumb.classList.add('tabs__thumb')
@@ -942,75 +933,109 @@ const BREAKPOINT = 1280;
           transition: none;
         `
 
-        // update
-        function updateThumb($item) {
-          const item = $item[0]
+        function update() {
+          const top = item[0].offsetTop + item[0].offsetHeight
+          const left = item[0].offsetLeft
 
-          const top = item.offsetTop + item.offsetHeight
-          const left = item.offsetLeft
-          
-          const width = item.offsetWidth
+          const width = item[0].offsetWidth
 
           thumb.style.transform = `translate(${left}px, ${top}px) scaleX(${width})`
         }
 
-        // resize handler
         const fps = 15
 
-        function handleResize() {
-          updateThumb(tabs.find('.tabs__item--active'))
+        function resize() {
+          update()
 
           setTimeout(() => {
-            updateThumb(tabs.find('.tabs__item--active'))
+            update()
 
-            window.addEventListener('resize', handleResize, {
+            window.addEventListener('resize', resize, {
               once: true,
             })
           }, 1000 / fps)
         }
-        
-        // add
-        attachThumb = ($item) => {
-          updateThumb($item)
+
+        function attach(attachItem) {
+          dettach()
+
+          item = attachItem
+
+          update()
 
           background.append(thumb)
 
-          window.addEventListener('resize', handleResize, {
+          window.addEventListener('resize', resize, {
             once: true,
           })
         }
 
-        // remove
-        dettachThumb = () => {
+        function dettach() {
           thumb.remove()
 
-          window.removeEventListener('resize', handleResize)
+          window.removeEventListener('resize', resize)
         }
-      }
 
-      // скачок шрифта (загрузка)
+        return [attach, dettach]
+      })()
+
+      // скачок шрифта
       setTimeout(() => {
-        attachThumb($('.tabs__item--active'))
-      }, 200)
+        attach(tabs.find('.tabs__item--active'))
+      }, 250)
 
       // animation
-      function animation(prevItem, nextItem) {
-        dettachThumb()
-        attachThumb(nextItem)
-        // на одной строке
-        if (Math.abs(prevItem[0].offsetTop - nextItem[0].offsetTop) < 1) {
-          // создать thumb
-          // запустить transition
-          // отловить transitionend
-          // удалить thumb
-          // attachThumb()
-        } else { // на разных строках
-          console.log('на разных строках')
+      var animation = (() => {
+        let prev
+        let next
+
+        function inOneLine() {
+          return Math.abs(prev[0].offsetTop - next[0].offsetTop) < 1
         }
-      }
+
+        function animation(prevItem, nextItem) {
+          prev = prevItem
+          next = nextItem
+
+          if (inOneLine()) {
+            simpleAnimation()
+          } else {
+            complexAnimation()
+          }
+        }
+
+        function createThumb() {
+          const thumb = document.createElement('div')
+
+          thumb.classList.add('tabs__thumb')
+
+          thumb.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: left;
+            transform: scaleX(30);
+            
+            width: 1px;
+          `
+
+          return thumb
+        }
+
+        function simpleAnimation() {
+          console.log(1);
+        }
+
+        function complexAnimation() {
+          console.log(2);
+        }
+
+        return animation
+      })()
     })
   })
 }
+
 // fancybox
 {
   $(() => {
@@ -1039,3 +1064,4 @@ const BREAKPOINT = 1280;
     $('.beer-slider').BeerSlider({start: 35});
   });
 }
+
