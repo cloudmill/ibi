@@ -700,6 +700,15 @@
 
   // works
   &--responsive {
+    #{$comp}__top-row {
+      @media (max-width: $breakpoint-ll - 1px) {
+        flex-wrap: wrap;
+      }
+      @media (max-width: $breakpoint - 1px) {
+        flex-wrap: nowrap;
+      }
+    }
+
     #{$comp}__col {
       &:nth-child(1) {
         @media (min-width: $breakpoint) {
@@ -711,8 +720,19 @@
           margin-left: calc(#{$col-width-d});
           width: calc(#{$col-part-d} * 4);
         }
+        
       }
     }
+
+    #{$comp}__top-col {
+
+      &:nth-child(2) {
+        @media (max-width: $breakpoint-ll - 1px) {
+          margin-left: 0;
+        }
+      }
+    }
+
     #{$comp}__image {
       @media (min-width: $breakpoint) {
         width: auto;
