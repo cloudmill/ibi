@@ -147,7 +147,12 @@
       color: unset;
 
       @media (max-width: $breakpoint) {
+        width: calc(#{$col-width-m});
+      }
+
+      @media (max-width: $breakpoint-m) {
         display: flex;
+        width: 100%;
       }
 
       div {
@@ -170,6 +175,8 @@
       }
     }
 
+
+
     .news__title {
       display: flex;
       flex-direction: column;
@@ -178,10 +185,17 @@
       
       @media (max-width: $breakpoint) {
         margin-bottom: 20px;
+        width: calc(#{$col-part-m} * 2);
       }
 
       @media (max-width: $breakpoint-m) {
         width: 100%;
+      }
+    }
+
+    .news__link {
+      @media (max-width: $breakpoint) {
+        width: calc(#{$col-width-m} / 2);
       }
     }
   }
