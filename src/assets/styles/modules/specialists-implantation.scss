@@ -63,3 +63,60 @@
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
   }
 }
+
+.spec-implant-spoiler {
+  .mission__spoilers {
+    max-width: unset;
+    width: calc(#{$col-part-d} * 6);
+  }
+
+  &__drop {
+    padding: 20px 40px 60px 40px;
+  }
+
+  &__imgs {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    img {
+      width: calc(50% - 10px);
+    }
+  }
+
+  &__list {
+    width: 100%;
+
+    ul li {
+      padding-left: unset;
+
+      p {
+        width: 100%;
+      }
+    }
+
+    ul li::before {
+      background: url('assets/images/spec-implant-list-ico.svg') no-repeat;
+      width: 21px;
+      height: 24px;
+
+      margin-left: unset;
+      margin-right: 20px;
+      padding-top: unset;
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+
+  &__txt {
+    padding-left: calc(#{$col-width-d});
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
