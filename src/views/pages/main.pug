@@ -9,21 +9,28 @@ block vars
 block content
   .index.mission
     .index__inner
-      section.index__section.index__section--top
-        .index-top
-          .container
-            h1.index-top__title
-              |123&#45;123
-            ul.index-top__list
-              li.index-top__item
-                p.index-top__text
-                  |Технология предполагает установку имплантатов в глубокие отделы челюстной кости.
-              li.index-top__item
-                p.index-top__text
-                  |Метод одномоментный — вся процедура занимает 3 дня.
-              li.index-top__item
-                p.index-top__text
-                  |Не требуется костная пластика (синус лифтинга, пересадка блоков).
+      .index__layout 
+        .index__bg
+        section.index__section.index__section--top
+          .index-top
+            .container
+              h1.index-top__title
+                |Базальная имплантация по&nbsp;системе STRATEGIC&nbsp;IMPLANT
+              ul.index-top__list
+                li.index-top__item
+                  p.index-top__text
+                    |Технология предполагает установку имплантатов в глубокие отделы челюстной кости.
+                li.index-top__item
+                  p.index-top__text
+                    |Метод одномоментный — вся процедура занимает 3 дня.
+                li.index-top__item
+                  p.index-top__text
+                    |Не требуется костная пластика (синус лифтинга, пересадка блоков).
+              .index-top__button
+                .vacancies-list
+                  a.vacancies-list__extra-btn.vacancies-list__extra-btn--md(href="#")
+                    +arrow-link-svg('extra-btn')
+                    |Подробнее о методе
       section.index__section.index__section--default
         .container
           .index__second
@@ -179,56 +186,75 @@ block content
               |&nbsp;специалистов.
       section
         .block
-          .block__background
-          .block__scroll
-            .block__scroll-height
-          .block__content
-            .block__slide.block__slide--1
-              .block__slide-inner
-                .container
-                  h2.block__slide-title.block__interactive
-                    |Лаборатория ИБИ
-                  p.block__slide-desc.block__interactive
-                    |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
-                  .block__slide-link
-                    .mission__missions-links-container
-                      a.mission__missions-links-link.block__interactive(href='#')
-                        +svg-link.mission__missions-links-svg
-                        .mission__missions-links-text
-                          |Подробнее
-                  ul.block__nav
-                    li.block__nav-item.block__nav-item--active
-                      .block__nav-link.block__interactive
-                        |Лаборатория ИБИ
-                    li.block__nav-item
-                      .block__nav-link.block__interactive
-                        |Обучение специалистов
-                  img.block__slide-img(src='assets/images/index/scroll-1.png' alt='')
-            .block__slide.block__slide--2
-              .block__slide-inner
-                .container
-                  h2.block__slide-title.block__interactive
-                    |Обучение специалистов
-                  p.block__slide-desc.block__interactive
-                    |Развиваем специалистов внутри клиники. Проводим обучающие сессии, семинары, курсы
-                  .block__slide-link
-                    .mission__missions-links-container
-                      a.mission__missions-links-link.block__interactive(href='#')
-                        +svg-link.mission__missions-links-svg
-                        .mission__missions-links-text
-                          |Подробнее
-                  ul.block__nav
-                    li.block__nav-item
-                      .block__nav-link.block__interactive
-                        |Лаборатория ИБИ
-                    li.block__nav-item.block__nav-item--active
-                      .block__nav-link.block__interactive
-                        |Обучение специалистов
-                  img.block__slide-img(src='assets/images/index/scroll-2.png' alt='')
-          .block__scrollbar
-            .block__scrollbar-thumb
-              +svg-scroll-mobile.block__scrollbar-svg.block__scrollbar-svg--mobile
-              +svg-scroll-desktop.block__scrollbar-svg.block__scrollbar-svg--desktop
+          .block__content.swiper-container(data-slider-id='21' data-slider-prev='22' data-slider-next='23')
+            .swiper-wrapper 
+              - for (i=0; i<3; i++)
+                .swiper-slide
+                  .block__slide
+                    .block__slide-inner
+                      .container
+                        h2.block__slide-title.block__interactive
+                          |Лаборатория ИБИ
+                        p.block__slide-desc.block__interactive
+                          |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
+                        .block__slide-link
+                          .mission__missions-links-container
+                            a.mission__missions-links-link.block__interactive(href='#')
+                              +svg-link.mission__missions-links-svg
+                              .mission__missions-links-text
+                                |Подробнее
+                        .block__slide-nav
+                          ul.block__nav
+                            li.block__nav-item.block__nav-item--active
+                              .block__nav-link.block__interactive
+                                |Лаборатория ИБИ
+                            li.block__nav-item
+                              .block__nav-link.block__interactive
+                                |Обучение специалистов
+                          .block__control 
+                            .slider-control
+                              .slider-control__item
+                                .button-arrow.button-arrow--left
+                                  .button-arrow__button(data-slider-button='22')
+                                    +svg-arrow.button-arrow__svg
+                              .slider-control__item
+                                .button-arrow.button-arrow.button-arrow--right
+                                  .button-arrow__button(data-slider-button='23')
+                                    +svg-arrow.button-arrow__svg
+                      img.block__slide-img(src='assets/images/index/scroll-1.png' alt='')
+                .swiper-slide
+                  .block__slide
+                    .block__slide-inner
+                      .container
+                        h2.block__slide-title.block__interactive
+                          |Обучение специалистов
+                        p.block__slide-desc.block__interactive
+                          |Развиваем специалистов внутри клиники. Проводим обучающие сессии, семинары, курсы
+                        .block__slide-link
+                          .mission__missions-links-container
+                            a.mission__missions-links-link.block__interactive(href='#')
+                              +svg-link.mission__missions-links-svg
+                              .mission__missions-links-text
+                                |Подробнее
+                        .block__slide-nav 
+                          ul.block__nav
+                            li.block__nav-item
+                              .block__nav-link.block__interactive
+                                |Лаборатория ИБИ
+                            li.block__nav-item.block__nav-item--active
+                              .block__nav-link.block__interactive
+                                |Обучение специалистов
+                          .block__control 
+                            .slider-control
+                              .slider-control__item
+                                .button-arrow.button-arrow--left
+                                  .button-arrow__button(data-slider-button='22')
+                                    +svg-arrow.button-arrow__svg
+                              .slider-control__item
+                                .button-arrow.button-arrow.button-arrow--right
+                                  .button-arrow__button(data-slider-button='23')
+                                    +svg-arrow.button-arrow__svg
+                        img.block__slide-img(src='assets/images/index/scroll-2.png' alt='')
       section.index__section.index__section--default
         .container
           .index-publications

@@ -127,6 +127,9 @@
         top: 368px;
         right: calc(#{$col-width-d} / 2);
       }
+      @media (max-width: $breakpoint-ll - 1px) {
+        right: 0;
+      }
     }
     &--bot {
       @media (min-width: $breakpoint) {
@@ -173,7 +176,7 @@
     @media (min-width: $breakpoint) {
       padding-bottom: 20px;
 
-      width: 398px;
+      width: 395px;
       @include fsl(40px);
     }
     @include fsl(20px, 110%);

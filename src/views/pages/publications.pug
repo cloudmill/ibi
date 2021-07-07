@@ -125,15 +125,16 @@ block content
                   .news-show-more-ico
                       +arrow-link-svg('news__link-ico')
                   .news-show-more-txt Показать еще
-            .news-subscribe
-              h2.news-subscribe__title Подпишитесь на публикации и новости
-              form.news-subscribe__form
-                div
-                  label.news-subscribe__form-placeholder
-                    input.news-subscribe__form-email(type="email" placeholder="E-mail")
-                  label.news-subscribe__form-checkbox
-                    input(type="checkbox")
-                    p Согласен на обработку персональных данных в соответствии с 
-                      a(href="#") политикой конфиденциальности
-                button.news-subscribe__form-btn
-                    +arrow-send('news-subscribe__form-btn-ico')
+        .container
+          .news-subscribe.news-subscribe--bottom
+            h2.news-subscribe__title Подпишитесь на публикации и новости
+            form.news-subscribe__form
+              div
+                label.news-subscribe__form-placeholder
+                  input.news-subscribe__form-email(type="email" placeholder="E-mail")
+                label.news-subscribe__form-checkbox
+                  input(type="checkbox")
+                  p Согласен на обработку персональных данных в соответствии с 
+                    a(href="#") политикой конфиденциальности
+              button.news-subscribe__form-btn
+                  +arrow-send('news-subscribe__form-btn-ico')

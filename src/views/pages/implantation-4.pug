@@ -83,26 +83,27 @@ block content
                           |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г
         .index 
           .container 
-            .index__block
-              .index__mid
-                .index__mid-slider
-                  .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='8' data-slider-prev='11' data-slider-next='12')
-                    .swiper-wrapper
-                      - for (let i=0; i<3; i++)
-                        .swiper-slide
-                          .index__mid-slide
-                            img.index__mid-img.index__mid-img--md(src=`assets/images/index/mid-${i + 1}.jpeg` alt='')
-                          .index__mid-discription 
-                            |Подпись для фотографии, которая будет говорить о том, какой этап внутри поэтапа
-                .index__mid-controls.index__mid-controls--md
-                  .index__mid-control.index__mid-control--left
-                    .button-arrow.button-arrow--left
-                      .button-arrow__button(data-slider-button='11')
-                        +svg-arrow.button-arrow__svg
-                  .index__mid-control.index__mid-control--right
-                    .button-arrow.button-arrow--right
-                      .button-arrow__button(data-slider-button='12')
-                        +svg-arrow.button-arrow__svg
+            .section__frame
+              .index__block
+                .index__mid
+                  .index__mid-slider
+                    .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='20' data-slider-prev='11' data-slider-next='12')
+                      .swiper-wrapper
+                        - for (let i=0; i<3; i++)
+                          .swiper-slide
+                            .index__mid-slide
+                              img.index__mid-img.index__mid-img--md(src=`assets/images/index/mid-${i + 1}.jpeg` alt='')
+                            .index__mid-discription 
+                              |Подпись для фотографии, которая будет говорить о том, какой этап внутри поэтапа
+                  .index__mid-controls.index__mid-controls--md
+                    .index__mid-control.index__mid-control--left
+                      .button-arrow.button-arrow--left
+                        .button-arrow__button(data-slider-button='11')
+                          +svg-arrow.button-arrow__svg
+                    .index__mid-control.index__mid-control--right
+                      .button-arrow.button-arrow--right
+                        .button-arrow__button(data-slider-button='12')
+                          +svg-arrow.button-arrow__svg
         .container.news-subscribe.member-page-ask
           h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md
             |Получить персональную консультацию бесплатно
