@@ -116,12 +116,20 @@
   &__drop-button {
     display: flex;
     align-items: center;
-
+    @media (max-width: $breakpoint - 1px) {
+      justify-content: space-between;
+      width: 100%;
+    }
     cursor: pointer;
 
     &:hover {
       #{$component}__drop-text {
         color: $color-main;
+      }
+      #{$component}__drop-svg {
+        path {
+          fill: $color-main;
+        }
       }
     }
 
@@ -156,13 +164,18 @@
   }
 
   &__phone {
-    display: flex;
-    align-items: center;
+    @media (min-width: $breakpoint) {
+      display: flex;
+      align-items: center;
+    }
   }
   &__phone-call {
     margin-right: 20px;
     @media (max-width: $breakpoint-xl - 1px) {
       display: none;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      display: block;
     }
   }
   &__phone-link {

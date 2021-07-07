@@ -16,6 +16,7 @@
 
   background-color: lightblue; // ?
   transition: $transition;
+  overflow-y: scroll;
 
   &[data-modal-active] {
     z-index: 1;
@@ -28,36 +29,45 @@
     }
   }
   &--mobile {
+    padding-top: 100px;
     position: fixed;
     bottom: 0;
     // transform: translateX(100%); // ?
-
+    background-color: $color-white;
     @media (min-width: $breakpoint) {
       display: none;
     }
   }
-
+  
   &__row {
     display: flex;
+    align-items: stretch;
 
     &--mobile {
-      
+      justify-content: space-between;
     }
   }
   &__col {
-    width: calc(#{$col-part} * 3 - #{$col-gap});
-    flex-shrink: 0;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part} * 3 - #{$col-gap});
+      flex-shrink: 0;
 
-    &:not(:first-child) {
-      margin-left: $col-gap;
-    }
+      &:not(:first-child) {
+        margin-left: $col-gap;
+      }
 
-    &--highlight--main {
-      border-top: 1px solid $color-main;
+      &--highlight--main {
+        border-top: 1px solid $color-main;
+      }
+      &--highlight--gray-border {
+        border-top: 1px solid $color-gray-border;
+      } 
     }
-    &--highlight--gray-border {
-      border-top: 1px solid $color-gray-border;
-    }
+    
+  }
+
+  &__content {
+    padding-top: 40px;
   }
 
   &__inner {
@@ -104,6 +114,62 @@
     &:hover,
     &[data-tabs-active] {
       color: $color-main;
+    }
+  }
+}
+
+.header-section {
+  $comp: &;
+
+  &__item {
+    padding: 0 20px;
+
+    border-top: 1px solid $color-gray-border; 
+
+    &--active {
+      border-color: $color-main;
+      #{$comp}__button {
+        .header__drop-text {
+          color: $color-main;
+        }
+
+        .header__drop-svg {
+          transform: rotate(180deg);
+          path {
+            fill: $color-main;
+          }
+        }
+      }
+    }
+  }
+
+  &__button {
+    padding: 15px 0;
+  }
+
+  &__dropdown {
+    display: none;
+  }
+
+  &__section {
+    border-top: 1px solid $color-gray-border; 
+  }
+
+  &__section-button {
+    padding: 15px 0;
+  }
+
+  &__section-dropdown {
+    display: none;
+  }
+
+  &__links {
+    padding-bottom: 15px;
+  }
+  &__links-item {
+    padding-left: 20px;
+    &:not(:first-child) {
+      margin-top: 10px;
     }
   }
 }

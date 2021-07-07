@@ -1109,7 +1109,7 @@ const BREAKPOINT = 1280;
   });
 }
 
-// target section (main page, mouse move, linear-gradient)
+// target section animation (main page, mouse move, linear-gradient)
 ;(() => {
   $(() => {
     const components = $('.index__target')
@@ -1231,3 +1231,51 @@ const BREAKPOINT = 1280;
     })
   })
 })()
+
+// header modal mobile
+{
+  $(() => {
+    const navModal = $('.header-modal--mobile');
+
+    if (navModal.length !== 0) {
+      const navModalButton = navModal.find('.header-section__button');
+      const navModalDropdown = navModal.find('.header-section__dropdown');
+      console.log(navModalButton);
+
+
+      navModalButton.on('click', function () {
+        const navModalSectionClicked = $(this).closest('.header-section__item');
+
+        if (navModalSectionClicked.hasClass('header-section__item--active')) {
+          navModalSectionClicked.find('.header-section__dropdown').slideUp(500);
+          navModalSectionClicked.removeClass('header-section__item--active')
+        } else {
+          $('.header-section__item--active').find('.header-section__dropdown').slideUp(650);
+          $('.header-section__item--active').removeClass('header-section__item--active');
+
+          navModalSectionClicked.find('.header-section__dropdown').slideDown(500);
+          navModalSectionClicked.addClass('header-section__item--active');
+        }
+      });
+
+      // section
+      const navModalSection = navModal.find('.header-section__section');
+      const navModalSectionButton = navModalSection.find('.header-section__section-button');
+
+      navModalSectionButton.on('click', function () {
+        const navModalSectionClicked = $(this).closest('.header-section__section');
+
+        if (navModalSectionClicked.hasClass('header-section__section--active')) {
+          navModalSectionClicked.find('.header-section__section-dropdown').slideUp(500);
+          navModalSectionClicked.removeClass('header-section__section--active')
+        } else {
+          $('.header-section__section--active').find('.header-section__section-dropdown').slideUp(650);
+          $('.header-section__section--active').removeClass('header-section__section--active');
+
+          navModalSectionClicked.find('.header-section__section-dropdown').slideDown(500);
+          navModalSectionClicked.addClass('header-section__section--active');
+        }
+      });
+    }
+  });
+}
