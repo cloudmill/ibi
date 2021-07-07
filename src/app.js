@@ -1091,3 +1091,19 @@ const BREAKPOINT = 1280;
   });
 }
 
+// slide description
+{
+  $(() => {
+    if ($('.index').length !== 0) {
+      const indexSlide = $('.swiper-slide');
+      indexSlide.each(function() {
+        const slide = $(this);
+        const slideImg = slide.find('.index__mid-img');
+        const slideDesc = slide.find('.index__mid-description');
+        const imgWidth = slideImg.width();
+
+        slideDesc.css('max-width', imgWidth);
+      });
+    }
+  });
+}
