@@ -1179,7 +1179,7 @@ const BREAKPOINT = 1280;
       const fps = 60
       
       let progress = 0
-      const progressDuration = 500
+      const progressDuration = 350
       const progressIncrement = 1 / ((progressDuration / 1000) * fps)
   
       let step = 0
