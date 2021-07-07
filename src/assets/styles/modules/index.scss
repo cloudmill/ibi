@@ -186,16 +186,13 @@
     }
   }
 
-  &__mid-discription {
-    margin: 20px 0 0;
+  &__mid-description {
+    margin: 20px auto 0;
     @include f-2();
     text-align: center;
     @include fsl(12px, 160%);
     @media (min-width: $breakpoint) {
       @include fsl(16px);
-    }
-    @media (max-width: $breakpoint - 1px) {
-
     }
     @media (max-width: $breakpoint-m - 1px) {
       margin: 20px auto 0;
