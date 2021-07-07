@@ -153,15 +153,17 @@
     ul li:before {
       counter-increment: list1;
       content: counter(list1) " ";
-      display: block;
+      display: flex;
       background: url('assets/images/lab-list.svg') no-repeat;
       width: 57px;
       height: 63px;
-      text-align: center;
+      // text-align: center;
       color: $color-main;
-      padding-top: 17px;
+      // padding-top: 17px;
       margin-left: calc(#{$col-width-d} * (-1));
       margin-right: calc(#{$col-width-d} - 57px);
+      align-items: center;
+      justify-content: center;
     }
   }
 }
