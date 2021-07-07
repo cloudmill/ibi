@@ -26,6 +26,9 @@
     position: relative;
     z-index: 3;
   }
+  &__target-text {
+    color: $color-blue-highlight;
+  }
 
   &__section {
     &--target {

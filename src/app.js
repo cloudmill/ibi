@@ -1118,6 +1118,7 @@ const BREAKPOINT = 1280;
       const component = $(this)
   
       const background = component.find('.index__target-background')
+      const text = component.find('.index__target-text')
   
       // data
       const points = [
@@ -1132,6 +1133,11 @@ const BREAKPOINT = 1280;
             g: 196,
             b: 209,
           },
+          textColor: {
+            r: 148,
+            g: 255,
+            b: 250,
+          },
         },
         {
           colorStart: {
@@ -1144,6 +1150,11 @@ const BREAKPOINT = 1280;
             g: 125,
             b: 230,
           },
+          textColor: {
+            r: 146,
+            g: 225,
+            b: 255,
+          },
         },
         {
           colorStart: {
@@ -1155,6 +1166,11 @@ const BREAKPOINT = 1280;
             r: 47,
             g: 230,
             b: 186,
+          },
+          textColor: {
+            r: 146,
+            g: 255,
+            b: 229,
           },
         },
       ]
@@ -1184,10 +1200,17 @@ const BREAKPOINT = 1280;
             g: points[(i + 1) % stepsCount].colorEnd.g - points[i].colorEnd.g,
             b: points[(i + 1) % stepsCount].colorEnd.b - points[i].colorEnd.b,
           },
+          textColor: {
+            r: points[(i + 1) % stepsCount].textColor.r - points[i].textColor.r,
+            g: points[(i + 1) % stepsCount].textColor.g - points[i].textColor.g,
+            b: points[(i + 1) % stepsCount].textColor.b - points[i].textColor.b,
+          },
         }
   
         pointsDelta.push(pointDelta)
       }
+
+      console.log(points, pointsDelta);
   
       function update() {
         const currentColorStart = {
@@ -1200,10 +1223,19 @@ const BREAKPOINT = 1280;
           g: points[step].colorEnd.g + pointsDelta[step].colorEnd.g * progress,
           b: points[step].colorEnd.b + pointsDelta[step].colorEnd.b * progress,
         }
+        const currentTextColor = {
+          r: points[step].textColor.r + pointsDelta[step].textColor.r * progress,
+          g: points[step].textColor.g + pointsDelta[step].textColor.g * progress,
+          b: points[step].textColor.b + pointsDelta[step].textColor.b * progress,
+        }
   
         background.css(
           'background',
           `linear-gradient(261.11deg, rgb(${currentColorStart.r}, ${currentColorStart.g}, ${currentColorStart.b}) 8.47%, rgb(${currentColorEnd.r}, ${currentColorEnd.g}, ${currentColorEnd.b}) 93.81%)`
+        )
+        text.css(
+          'color',
+          `rgb(${currentTextColor.r}, ${currentTextColor.g}, ${currentTextColor.b})`
         )
       }
   
