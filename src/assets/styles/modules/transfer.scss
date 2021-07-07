@@ -138,7 +138,7 @@
     margin-left: calc(#{$col-part-d} * 3);
 
     .transfer-numbers__count .transfer-numbers__big p {
-      margin-left: -55px;
+      margin-left: -58px;
     }
 
     @media (max-width: $breakpoint) {
@@ -169,7 +169,7 @@
   &__item:nth-child(3n) {
     .transfer-numbers__count .transfer-numbers__big p {
       margin-left: -35px;
-      margin-bottom: -10px;
+      margin-bottom: -60px;
 
       @media (max-width: $breakpoint) {
         margin-left: -41px;
@@ -213,10 +213,11 @@
       color: #CDF5FA;
       font-weight: 500;
       font-size: 380px;
-      line-height: 77%;
+      // line-height: 75%;
       text-overflow: clip;
       overflow: hidden;
       margin-left: -50px;
+      margin-bottom: -18%;
 
       @media (max-width: $breakpoint) {
         font-size: 240px;
