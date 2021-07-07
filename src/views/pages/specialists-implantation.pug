@@ -18,14 +18,10 @@ block content
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
                   ul.nav__list
-                    each item in ['Strategic Implant', 'Обучение', 'Библиотека']
-                      li.nav__item
-                        a.nav__link(href='#')
-                          |#{item}
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
-                        |Юридическая помощь
-                    each item in ['Наши разработки']
+                        |Базальная имплантация
+                    each item in ['Обучение', 'Мероприятия', 'Библиотека', 'Юридическая помощь']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
