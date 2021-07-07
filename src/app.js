@@ -3,6 +3,7 @@ import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
+import { each } from 'jquery';
 
 const BREAKPOINT = 1280;
 
@@ -1107,3 +1108,126 @@ const BREAKPOINT = 1280;
     }
   });
 }
+
+// target section (main page, mouse move, linear-gradient)
+;(() => {
+  $(() => {
+    const components = $('.index__target')
+
+    components.each(function () {
+      const component = $(this)
+  
+      const background = component.find('.index__target-background')
+  
+      // data
+      const points = [
+        {
+          colorStart: {
+            r: 49,
+            g: 187,
+            b: 162,
+          },
+          colorEnd: {
+            r: 60,
+            g: 196,
+            b: 209,
+          },
+        },
+        {
+          colorStart: {
+            r: 65,
+            g: 204,
+            b: 206,
+          },
+          colorEnd: {
+            r: 46,
+            g: 125,
+            b: 230,
+          },
+        },
+        {
+          colorStart: {
+            r: 100,
+            g: 178,
+            b: 200,
+          },
+          colorEnd: {
+            r: 47,
+            g: 230,
+            b: 186,
+          },
+        },
+      ]
+   
+      // options
+      const fps = 60
+      
+      let progress = 0
+      const progressDuration = 500
+      const progressIncrement = 1 / ((progressDuration / 1000) * fps)
+  
+      let step = 0
+      const stepsCount = points.length
+  
+      // calc
+      const pointsDelta = []
+      
+      for (let i = 0; i < stepsCount; i++) {
+        const pointDelta = {
+          colorStart: {
+            r: points[(i + 1) % stepsCount].colorStart.r - points[i].colorStart.r,
+            g: points[(i + 1) % stepsCount].colorStart.g - points[i].colorStart.g,
+            b: points[(i + 1) % stepsCount].colorStart.b - points[i].colorStart.b,
+          },
+          colorEnd: {
+            r: points[(i + 1) % stepsCount].colorEnd.r - points[i].colorEnd.r,
+            g: points[(i + 1) % stepsCount].colorEnd.g - points[i].colorEnd.g,
+            b: points[(i + 1) % stepsCount].colorEnd.b - points[i].colorEnd.b,
+          },
+        }
+  
+        pointsDelta.push(pointDelta)
+      }
+  
+      function update() {
+        const currentColorStart = {
+          r: points[step].colorStart.r + pointsDelta[step].colorStart.r * progress,
+          g: points[step].colorStart.g + pointsDelta[step].colorStart.g * progress,
+          b: points[step].colorStart.b + pointsDelta[step].colorStart.b * progress,
+        }
+        const currentColorEnd = {
+          r: points[step].colorEnd.r + pointsDelta[step].colorEnd.r * progress,
+          g: points[step].colorEnd.g + pointsDelta[step].colorEnd.g * progress,
+          b: points[step].colorEnd.b + pointsDelta[step].colorEnd.b * progress,
+        }
+  
+        background.css(
+          'background',
+          `linear-gradient(261.11deg, rgb(${currentColorStart.r}, ${currentColorStart.g}, ${currentColorStart.b}) 8.47%, rgb(${currentColorEnd.r}, ${currentColorEnd.g}, ${currentColorEnd.b}) 93.81%)`
+        )
+      }
+  
+      function tick() {
+        update()
+  
+        progress += progressIncrement
+  
+        if (progress > 1) {
+          progress = progress - 1
+  
+          step = (step + 1) % stepsCount
+        }
+      }
+  
+      function move() {
+        requestAnimationFrame(tick)
+  
+        setTimeout(() => {
+          $(window).one('mousemove', move)
+        }, 1000 / fps)
+      }
+  
+      $(window).one('mousemove', move)
+    })
+  })
+})()
