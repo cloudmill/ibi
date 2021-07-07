@@ -303,10 +303,10 @@ mixin header
           .header-modal__row.header-modal__row--mobile
             .header-modal__col
               .header__phone
-                a.header__phone-call.header__text(href='#')
-                  |Заказать звонок
                 a.header__phone-link.header__text.header__link(href='#')
                   |8 499 490 63 49
+                a.header__phone-call.header__text(href='#')
+                  |Заказать звонок
             .header-modal__col
               .header__drop
                 .header__drop-button
@@ -314,4 +314,31 @@ mixin header
                     |Ru
                   .header__drop-image
                     +svg-arrow.header__drop-svg
-                    
+        .header-modal__content 
+          ul.header-section 
+            each item in ['Базальная имплантация', 'Услуги', 'До и После', 'О нас', 'Специалистам']
+              li.header-section__item 
+                .header__drop.header-section__button
+                  .header__drop-button
+                    .header__drop-text.header__text
+                      |#{item}
+                    .header__drop-image
+                      +svg-arrow.header__drop-svg
+                .header-section__dropdown 
+                  each section in ['Диагностика', 'Профилактика', 'Протезирование', 'Удаление зубов', 'Лечение зубов']
+                    .header-section__section 
+                      .header__drop.header-section__section-button
+                        .header__drop-button
+                          .header__drop-text.header__text
+                            |#{section}
+                          .header__drop-image
+                            +svg-arrow.header__drop-svg
+                      .header-section__section-dropdown
+                        ul.header-section__links 
+                          each link in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладки циркониевые под нанесение керамики']
+                            li.header-section__links-item 
+                              a.header__drop-button(href="#")
+                                .header__drop-text.header__text
+                                  |#{link}
+        .header-modal__nav
+          .container
