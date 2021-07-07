@@ -183,7 +183,8 @@
     }
   
     &__date {
-      width: calc(#{$col-part-d});
+      // width: calc(#{$col-part-d});
+      width: calc((#{$col-part-d} * 3 - #{$col-gap-d}) / 2);
       color: $color-main;
 
       @media (max-width: $breakpoint) {
@@ -203,7 +204,8 @@
     }
 
     &__img {
-        width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+        // width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+        width: calc((#{$col-part-d} * 3 - #{$col-gap-d}) / 2);
         text-align: right;
 
         @media (max-width: $breakpoint) {
@@ -225,11 +227,11 @@
     }
   
     &__title {
-      width: calc(#{$col-part-d} * 4);
+      width: calc(#{$col-part-d} * 4 + #{$col-gap-d});
       padding-left: 40px;
 
       @media (max-width: $breakpoint) {
-        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+        width: calc(#{$col-part-m} * 2);
       }
       
   
@@ -256,10 +258,14 @@
     }
   
     &__link {
-      width: calc(#{$col-width-d});
+      width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
       align-self: flex-start;
     //   margin: 0 0 0 auto;
       justify-content: flex-end;
+
+      @media (max-width: $breakpoint) {
+        width: calc(#{$col-width-m});
+      }
 
       @media (max-width: $breakpoint-m) {
         order: 1;
