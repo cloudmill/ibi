@@ -1,0 +1,71 @@
+.legal-support {
+
+  &__desc {
+    width: calc(#{$col-part-d} * 6);
+    margin-top: 120px;
+
+    font-size: 30px;
+    line-height: 140%;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-top: 40px;
+      font-size: 18px;
+    }
+  }
+
+  &__spoilers {
+    width: 100%;
+    margin-top: 80px;
+
+    @media (max-width: $breakpoint) {
+      margin-top: 40px;
+    }
+
+    .mission__spoilers {
+      max-width: unset;
+    }
+  }
+}
+
+.legal-spoiler-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media (max-width: $breakpoint-m) {
+    flex-direction: column;
+  }
+
+  &__item {
+    width: calc((100% / 3) - 40px);
+    padding: 20px;
+    margin-bottom: 40px;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: $breakpoint) {
+      width: calc((100% / 3) - 10px);
+      font-size: 12px;
+      line-height: 140%;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+    }
+
+    svg {
+      margin-bottom: 40px;
+
+      width: 48px;
+
+      @media (max-width: $breakpoint-m) {
+        width: 30px;
+      }
+    }
+  }
+}

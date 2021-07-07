@@ -1,55 +1,15 @@
-include ../components/icons
+extends ../layouts/master.pug
 
-.container
-  each block in [1, 2, 3]
-    .block
-      .block__background
-      .block__scroll
-        .block__scroll-height
-      .block__content
-        .block__slide.block__slide--1
-          .block__slide-inner
-            .container
-              h2.block__slide-title.block__interactive
-                |Лаборатория ИБИ
-              p.block__slide-desc.block__interactive
-                |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
-              .block__slide-link
-                .mission__missions-links-container
-                  a.mission__missions-links-link.block__interactive(href='#')
-                    +svg-link.mission__missions-links-svg
-                    .mission__missions-links-text
-                      |Подробнее
-              ul.block__nav
-                li.block__nav-item.block__nav-item--active
-                  .block__nav-link.block__interactive
-                    |Лаборатория ИБИ
-                li.block__nav-item
-                  .block__nav-link.block__interactive
-                    |Обучение специалистов
-              img.block__slide-img(src='assets/images/index/scroll-1.png' alt='')
-        .block__slide.block__slide--2
-          .block__slide-inner
-            .container
-              h2.block__slide-title.block__interactive
-                |Обучение специалистов
-              p.block__slide-desc.block__interactive
-                |Развиваем специалистов внутри клиники. Проводим обучающие сессии, семинары, курсы
-              .block__slide-link
-                .mission__missions-links-container
-                  a.mission__missions-links-link.block__interactive(href='#')
-                    +svg-link.mission__missions-links-svg
-                    .mission__missions-links-text
-                      |Подробнее
-              ul.block__nav
-                li.block__nav-item
-                  .block__nav-link.block__interactive
-                    |Лаборатория ИБИ
-                li.block__nav-item.block__nav-item--active
-                  .block__nav-link.block__interactive
-                    |Обучение специалистов
-              img.block__slide-img(src='assets/images/index/scroll-2.png' alt='')
-      .block__scrollbar
-        .block__scrollbar-thumb
-          +svg-scroll-mobile.block__scrollbar-svg.block__scrollbar-svg--mobile
-          +svg-scroll-desktop.block__scrollbar-svg.block__scrollbar-svg--desktop
+block header
+block footer
+
+block content
+  each i in [1]
+    .tabs
+      .tabs__container
+        .tabs__background
+        .tabs__list
+          - for (let i = 0; i < 30; i++)
+            .tabs__item(class = (i === 15) ? 'tabs__item--active' : '')
+              |test
+

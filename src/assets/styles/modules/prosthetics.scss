@@ -8,19 +8,96 @@
       transform: translateY(50%);
     }
   }
+}
 
+.prosthetics-nav {
+
+  .mission__spoiler--active .mission__spoiler-button {
+    background-color: unset;
+  }
+
+  .mission__spoiler {
+    border: none;
+    margin-bottom: 20px;
+
+    .mission__spoiler-button{
+      min-height: unset;
+    }
+    .news-spoiler__button{
+      padding: 0 0 0 40px;
+    }
+    .mission__spoiler-drop.news-spoiler__drop {
+      padding-left: 40px;
+      padding-top: 20px;
+    }
   
+    .nav__item--active .nav__link {
+      font-size: 18px;
+    }
+  
+    .news-spoiler__button .news-spoiler__image {
+      border-radius: 50%;
+      background-color: $color-gray-border;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      .header__drop-svg {
+        width: 8px;
+        
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+
+  .mission__spoiler:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.prosthetics-nav .mission__spoiler--active .news-spoiler__button .news-spoiler__image {
+  background-color: $color-main
+}
+
+.prosthetics-spoiler {
+  display: flex;
+  align-items: center;
+
+  &__drop {
+    ul li a {
+      font-size: 12px;
+      line-height: 160%;
+    }
+  }
+}
+
+.prosthetics-link-svg {
+  height: 22px;
+  margin-left: 10px;
 }
 
 .prosthetics-block {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 160px;
+  // margin-bottom: 160px;
+
+  @media (max-width: $breakpoint-m) {
+    flex-direction: column;
+  }
 
   &__ttl {
     font-size: 40px;
     width: 100%;
     margin-bottom: 80px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 40px;
+      font-size: 22px;
+    }
   }
 
   &__img {
@@ -29,6 +106,17 @@
 
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     margin-right: calc(#{$col-part-d});
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      margin-right: calc(#{$col-gap-m});
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
   }
 
   &__desc {
@@ -37,11 +125,28 @@
     flex-direction: column;
     justify-content: flex-end;
 
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+    }
+
     &-txt {
       font-size: 16px;
       border-left: 1px solid $color-main;
       padding-left: calc(#{$col-gap-d});
       margin-bottom: 60px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 14px;
+      }
+
+      @media (max-width: $breakpoint-m) {
+        margin-bottom: 40px;
+        
+      }
     }
 
     &-txt:last-child {
@@ -54,17 +159,56 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 160px;
+  // margin-bottom: 160px;
   padding-top: 40px;
   border-top: 1px solid $color-main;
 
+  @media (max-width: $breakpoint-m) {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
   h2 {
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    font-size: 40px;
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      font-size: 18px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+      margin-bottom: 20px;
+      
+    }
   }
 
   p {
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     margin-bottom: 80px;
+    font-size: 16px;
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+    }
+  }
+
+  img {
+    margin-bottom: -20%;
+
+    // transform: translateY(50%);
+    // margin-top: -250px;
+
+    // @media (max-width: $breakpoint) {
+    //   margin-top: -190px;
+    // }
   }
 }
 
@@ -73,18 +217,41 @@
   // flex-wrap: wrap;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: calc(20% + 150px) 0 160px;
+
+  @media (max-width: $breakpoint-m) {
+    flex-direction: column;
+    padding: calc(20% + 60px) 0 60px;
+  }
 
   &-desc {
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
 
     h2 {
       font-size: 40px;
       line-height: 140%;
       margin-bottom: 40px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 22px;
+      }
     }
   
     p {
       font-size: 18px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 16px;
+      }
     }
   }
   
@@ -101,6 +268,17 @@
     text-align: center;
 
     padding: 10px 70px;
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      height: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+      height: calc(100vw - 40px);
+      margin-bottom: 60px;
+    }
 
     .practice-circle {
       // margin: 40px 0;
@@ -153,12 +331,22 @@
     line-height: 140%;
     width: calc(#{$col-part-d} * 4);
     margin-bottom: 60px;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
   }
 
   ul {
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    @media (max-width: $breakpoint) {
+      flex-direction: column;
+    }
   }
 
   li {
@@ -167,16 +355,96 @@
     line-height: 140%;
     width: 20%;
     padding-left: 30px;
+
+    // display: flex;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
   }
 
   li::before {
-    content: ' ';
-    display: block;
-    color: $color-main;
+    content:url('assets/images/hexagon.svg');
+    margin-left: -30px;
+    // display: block;
+    // color: $color-main;
 
   }
 
   li:last-child {
     margin-right: 0;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.prosthetics-stages {
+  ul {
+    margin-left: calc(#{$col-part-d});
+
+    @media (max-width: $breakpoint) {
+      margin-left: 0;
+    }
+  }
+}
+
+.prosthetic-slider {
+  margin-bottom: 160px;
+
+  @media (max-width: $breakpoint) {
+    margin-bottom: 60px;
+  }
+
+  &__ttl {
+    margin-bottom: 80px;
+    font-size: 50px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 40px;
+      font-size: 22px;
+    }
+  }
+
+  &__slide {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    // display: flex;
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 160%;
+
+      @media (max-width: $breakpoint) {
+        font-size: 16px;
+        line-height: 160%;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__filter {
+    display: flex;
+    
   }
 }

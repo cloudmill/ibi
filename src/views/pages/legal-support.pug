@@ -1,0 +1,128 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+block content
+  section.section.section--gradient.training-page
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    each item in ['Strategic Implant', 'Обучение', 'Библиотека']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Юридическая помощь
+                    each item in ['Наши разработки']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+        .row__col
+          .section__inner--top.legal-support
+            .container.single-news
+              h1.title.single-news__title
+                |Юридическая поддержка
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Юридическая поддержка
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              .legal-support__desc
+                |Информация о юридической поддержке специалистов, прошедших у нас обучение или связанными с базальной имплантацией
+              .legal-support__spoilers
+                ul.mission__spoilers.faq-spoiler
+                  li.mission__spoilers-item
+                    .mission__spoiler
+                      .mission__spoiler-button
+                        h5.mission__spoiler-title
+                          |Юридическая деятельность Института Базальной Имплантации
+                        .mission__spoiler-image
+                      .mission__spoiler-drop
+                        .mission__spoiler-list
+                          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum facere dolor exercitationem nisi rerum tempora sapiente aut voluptatum laboriosam eligendi animi sed, quam consectetur impedit quaerat cumque, alias omnis!
+                  li.mission__spoilers-item
+                    .mission__spoiler
+                      .mission__spoiler-button
+                        h5.mission__spoiler-title
+                          |Виды правовой документации
+                        .mission__spoiler-image
+                      .mission__spoiler-drop
+                        .mission__spoiler-list
+                          .legal-spoiler-cards
+                            a.legal-spoiler-cards__item(href="")
+                              +pdf-icon
+                              |Нормативно-правовые документы о порядке посещения больницы и поликлиники
+                            a.legal-spoiler-cards__item(href="")
+                              +pdf-icon
+                              |Lorem
+                            a.legal-spoiler-cards__item(href="")
+                              +pdf-icon
+                              |Lorem
+                            a.legal-spoiler-cards__item(href="")
+                              +pdf-icon
+                              |Lorem
+                            a.legal-spoiler-cards__item(href="")
+                              +pdf-icon
+                              |Lorem
+                            a.legal-spoiler-cards__item(href="")
+                              +pdf-icon
+                              |Lorem
+                  li.mission__spoilers-item
+                    .mission__spoiler
+                      .mission__spoiler-button
+                        h5.mission__spoiler-title
+                          |Правовая информация
+                        .mission__spoiler-image
+                      .mission__spoiler-drop
+                        .mission__spoiler-list
+                          p Lorem ipsum dolor, sit amet consectetur adipisicing elit. At ratione, quibusdam consequuntur optio, fugiat aperiam quam eum, et fuga delectus provident debitis quisquam modi adipisci dolore ducimus dignissimos maiores! Assumenda!
+  section.section
+    .row
+      .row__col
+      .row__col
+        .container.news-subscribe.member-page-ask
+          h2.news-subscribe__title.member-page-ask__title Задать вопрос нашему юристу
+          form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+            .member-page-ask__form-wrapper
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+              label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                  input(type="checkbox" required="")
+                  p Согласен на обработку персональных данных в соответствии с 
+                      a(href="#") политикой конфиденциальности
+              button.news-subscribe__form-btn(type="submit")
+                  +arrow-link-svg('news-subscribe__form-btn-ico')
+                  |Отправить
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })

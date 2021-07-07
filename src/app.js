@@ -1,5 +1,5 @@
 import 'Styles/_app.scss';
-import Swiper from 'swiper';
+import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
@@ -199,7 +199,8 @@ const BREAKPOINT = 1280;
             slider_options = {
               ...slider_options,
 
-              allowTouchMove: false,
+              loop: true,
+              centeredSlides: true,
             }
             break;
 
@@ -676,6 +677,391 @@ const BREAKPOINT = 1280;
   });
 }
 
+// Development slider
+{
+  $(() => {
+    const swiperThumbs = new Swiper($('.development__names')[0], {
+      freeMode: true,
+      slidesPerView: 'auto',
+
+    })
+    const swiperSlider = new Swiper($('.development__desc')[0], {
+      thumbs: {
+        swiper: swiperThumbs,
+      },
+    })
+    swiperThumbs.update()
+  })
+}
+
+// component
+{
+  $(() => {
+    const COMPONENT_CLASS = 'component'
+
+    const components = $(`.${COMPONENT_CLASS}`)
+
+    components.each(function () {
+      // elements
+      const component = $(this)
+      
+      const list = component.find(`.${COMPONENT_CLASS}__list`)
+      const items = component.find(`.${COMPONENT_CLASS}__item`)
+
+      // state
+      const state = {
+        isMultiLine: false,
+      }
+
+      function topEqual(top1, top2) {
+        return Math.abs(top1 - top2) < 1
+      }
+
+      function updateState() {
+        // isMultiLine
+        {
+          const firstItem = items.filter(':first')
+          const lastItem = items.filter(':last')
+
+          const firstItemY = firstItem.offset().top
+          const lastItemY = lastItem.offset().top
+
+          state.isMultiLine = !topEqual(firstItemY, lastItemY)
+        }
+
+        console.log(state);
+      }
+
+      // init state
+      updateState()
+
+      // window resize
+      $(window).on('resize', updateState)
+
+      // move thumb
+      items.on('click', function () {
+        const prevItem = $(`.${COMPONENT_CLASS}__item--active`)
+        const nextItem = $(this)
+
+        const prevIndex = prevItem.index()
+        const nextIndex = nextItem.index()
+
+        // move
+        if (prevIndex !== nextIndex) {
+          const direction = prevIndex < nextIndex ? 'right' : 'left'
+
+          const prevTop = prevItem.offset().top
+          const nextTop = nextItem.offset().top
+
+          const prevLeft = prevItem.offset().left
+          const nextLeft = nextItem.offset().left
+
+          // one line
+          if (topEqual(prevTop, nextTop)) {
+            const distance = Math.abs(prevLeft - nextLeft)
+
+            // создаем thumb
+            const thumb = document.createElement('div')
+
+            const thumbTop = prevItem.position().top + prevItem.height()
+            const thumbLeft = prevItem.position().left
+
+            const thumbWidth = prevItem.width()
+            
+            thumb.style.cssText = [
+              `transform: `,
+              `translate(${thumbLeft}px, ${thumbTop}px) `,
+              `scaleX(${thumbWidth}) `,
+            ].join('')
+
+            thumb.classList.add(`${COMPONENT_CLASS}__thumb`)
+
+            component[0].append(thumb)
+
+            // удаляем нативный (css) thumb (модификатор --thumb) у item'a
+            prevItem.removeClass(`${COMPONENT_CLASS}__item--thumb`)
+
+            // анимируем thumb
+            const thumbWidthEnd = nextItem.width()
+            const thumbLeftEnd = nextItem.position().left
+
+            const animation = {
+              FPS: 60,
+              DURATION: 1000,
+
+              startTimestamp: performance.now(),
+
+              time: null,
+              progress: null,
+            }
+
+            function frame() {
+              const currentTimestamp = performance.now()
+
+              animation.time = currentTimestamp - animation.startTimestamp
+              animation.progress = animation.time / animation.DURATION
+
+              if (animation.progress > 1) {
+                animation.progress = 1
+              }
+
+              // update позиции и размера (анимация)
+              {
+                // размер
+                const thumbWidthCurrent = thumbWidth + ((thumbWidthEnd - thumbWidth) * animation.progress)
+
+                // позиция
+                const thumbLeftCurrent = thumbLeft + (distance * animation.progress * (direction === 'right' ? 1 : -1))
+
+                // "рендер" свойств
+                thumb.style.cssText = [
+                  `transform: `,
+                  `translate(${thumbLeftCurrent}px, ${thumbTop}px) `,
+                  `scaleX(${thumbWidthCurrent}) `,
+                ].join('')
+              }
+
+              if (animation.progress < 1) {
+                requestAnimationFrame(frame)
+              } else {
+                animationEnd()
+              }
+            }
+
+            requestAnimationFrame(frame)
+
+            // после анимации
+            function animationEnd() {
+              // добавляем нативный (css) thumb (модификатор --thumb) item'у
+              nextItem.addClass(`${COMPONENT_CLASS}__item--thumb`)
+
+              // удаляем анимируемый, временный thumb (js)
+              thumb.remove()
+            }
+          } else { // cross line
+            const componentWidth = component.width()
+
+            const componentLeft = component.offset().left
+            
+            const prevLeftComponent = prevLeft - componentLeft
+            const nextLeftComponent = nextLeft - componentLeft
+
+            // to the right
+            if (direction === 'right') {
+              const prevDistance = componentWidth - prevLeftComponent
+              const nextDistance = nextLeftComponent
+
+              const distance = prevDistance + nextDistance
+
+              // *здесь движение между строк вправо*
+            } else { // to the left
+              // расстояние такое же, как если бы prev было next, а next - prev И direction === 'right'
+              // 'зеркально'
+              const prevDistance = prevLeftComponent
+              const nextDistance = componentWidth - nextLeftComponent
+
+              const distance = prevDistance + nextDistance
+
+              // *здесь движение между строк влево*
+            }
+          }
+        }
+      })
+
+      // switch active
+      items.on('click', function () {
+        items.removeClass(`${COMPONENT_CLASS}__item--active`)
+
+        const clickedItem = $(this)
+
+        clickedItem.addClass(`${COMPONENT_CLASS}__item--active`)
+      })
+    })
+  })
+}
+
+// tabs
+{
+  $(() => {
+    $('.tabs').each(function () {
+      const tabs = $(this)
+
+      const items = tabs.find('.tabs__item')
+      const background = tabs.find('.tabs__background')
+
+      // background
+      ;(() => {
+        function update() {
+          let width = 0
+
+          function getWidth(elem) {
+            return elem.offsetLeft + elem.offsetWidth
+          }
+
+          items.each(function () {
+            width = (getWidth(this) > width) ? getWidth(this) : width
+          })
+
+          background.css('width', `${width}px`)
+        }
+
+        update()
+
+        // скачок шрифта
+        setTimeout(update, 250)
+
+        const fps = 15
+
+        function resize() {
+          update()
+
+          setTimeout(() => {
+            update()
+
+            $(window).one('resize', resize)
+          }, 1000 / fps)
+        }
+
+        $(window).one('resize', resize)
+      })()
+
+      // change
+      ;(() => {
+        items.on('click', function () {
+          const prev = $('.tabs__item--active')
+          const next = $(this)
+
+          if (prev[0] !== next[0]) {
+            prev.removeClass('tabs__item--active')
+            next.addClass('tabs__item--active')
+
+            animation(prev, next)
+          }
+        })
+      })()
+
+      // static
+      var [attach, dettach] = (() => {
+        let item
+
+        const thumb = document.createElement('div')
+
+        thumb.classList.add('tabs__thumb')
+
+        thumb.style.cssText = `
+          position: absolute;
+          bottom: 100%;
+          left: 0;
+          transform-origin: left;
+
+          width: 1px;
+
+          transition: none;
+        `
+
+        function update() {
+          const top = item[0].offsetTop + item[0].offsetHeight
+          const left = item[0].offsetLeft
+
+          const width = item[0].offsetWidth
+
+          thumb.style.transform = `translate(${left}px, ${top}px) scaleX(${width})`
+        }
+
+        const fps = 15
+
+        function resize() {
+          update()
+
+          setTimeout(() => {
+            update()
+
+            window.addEventListener('resize', resize, {
+              once: true,
+            })
+          }, 1000 / fps)
+        }
+
+        function attach(attachItem) {
+          dettach()
+
+          item = attachItem
+
+          update()
+
+          background.append(thumb)
+
+          window.addEventListener('resize', resize, {
+            once: true,
+          })
+        }
+
+        function dettach() {
+          thumb.remove()
+
+          window.removeEventListener('resize', resize)
+        }
+
+        return [attach, dettach]
+      })()
+
+      // скачок шрифта
+      setTimeout(() => {
+        attach(tabs.find('.tabs__item--active'))
+      }, 250)
+
+      // animation
+      var animation = (() => {
+        let prev
+        let next
+
+        function inOneLine() {
+          return Math.abs(prev[0].offsetTop - next[0].offsetTop) < 1
+        }
+
+        function animation(prevItem, nextItem) {
+          prev = prevItem
+          next = nextItem
+
+          if (inOneLine()) {
+            simpleAnimation()
+          } else {
+            complexAnimation()
+          }
+        }
+
+        function createThumb() {
+          const thumb = document.createElement('div')
+
+          thumb.classList.add('tabs__thumb')
+
+          thumb.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: left;
+            transform: scaleX(30);
+            
+            width: 1px;
+          `
+
+          return thumb
+        }
+
+        function simpleAnimation() {
+          console.log(1);
+        }
+
+        function complexAnimation() {
+          console.log(2);
+        }
+
+        return animation
+      })()
+    })
+  })
+}
+
 // fancybox
 {
   $(() => {
@@ -692,7 +1078,7 @@ const BREAKPOINT = 1280;
   });
 }
 
-// 
+// before-after
 {
   $(() => {
     $.fn.BeerSlider = function ( options ) {
@@ -722,28 +1108,7 @@ const BREAKPOINT = 1280;
   });
 }
 
-// test 
-// {
-//   $(() => {
-//     const test = $('.test');
-
-//     test.on('mousemove', function (event) {
-//       const width = test.width();
-//       const widthPart = width / 3;
-//       const widthHalf = widthPart * 2;
-
-//       if (event.clientX < widthPart) {
-//         $('.test__layer--1').css('opacity', (event.pageX) / widthPart);
-//       } else if (event.clientX < widthHalf) {
-//         $('.test__layer--2').css('opacity', ((event.pageX) - widthPart) / widthPart);
-//       } else {
-//         $('.test__layer--3').css('opacity', ((event.pageX) - widthHalf) / widthPart);
-//       }
-//     });
-//   });
-// }
-
-//
+// header modal mobile
 {
   $(() => {
     const navModal = $('.header-modal--mobile');
