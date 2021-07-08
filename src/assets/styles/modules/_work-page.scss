@@ -201,30 +201,37 @@
 .review {
   @media (min-width: $breakpoint) {
     width: calc(#{$col-part-d} * 6);
-    position: relative;
-    z-index: 0;
   }
+  position: relative;
+  z-index: 0;
 
   &__layout {
-    display: none;
-    @media (min-width: $breakpoint) {
-      display: block;
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   &__img {
     position: absolute;
-    top: -43px;
-    left: 188px;
+    right: 0;
+    top: 0;
+    @media (min-width: $breakpoint) {
+      top: -43px;
+      left: 188px;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      max-width: 90px;
+    }
   }
 
   &__svg {
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: block;
+    }
     position: absolute;
     bottom: 20px;
     right: 59px;
