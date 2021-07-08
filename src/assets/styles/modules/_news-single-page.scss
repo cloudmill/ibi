@@ -16,9 +16,16 @@
     font-size: 40px;
     line-height: 110%;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 22px;
       line-height: 140%;
+    }
+
+    &--big {
+      @include fsl(22px, 140%);
+      @media (min-width: $breakpoint) {
+        @include fsl(40px);
+      }
     }
   }
 
