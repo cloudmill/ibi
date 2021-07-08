@@ -27,6 +27,7 @@
 
 .spec-implant-hexagon {
   display: flex;
+  flex-wrap: wrap;
   // width: 100%;
 
   &__box {
@@ -65,6 +66,8 @@
 }
 
 .spec-implant-spoiler {
+  margin-bottom: 120px;
+
   .mission__spoilers {
     max-width: unset;
     width: calc(#{$col-part-d} * 6);
@@ -119,4 +122,122 @@
       margin-bottom: 0;
     }
   }
+}
+
+.spec-implant-cards {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 20px;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    width: calc(100% / 3 - 30px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &-img {
+      text-align: center;
+      // flex: none;
+    }
+
+    &-ttl {
+      margin-top: 50px;
+      border-top: 1px solid $color-main;
+      padding-top: 10px;
+      font-size: 22px;
+      line-height: 140%;
+      width: 100%;
+    }
+  }
+}
+
+.hexagon-box-list:nth-child(2n) {
+  margin-top: 90px;
+}
+
+.spec-implant-hexagon-ttl {
+  font-size: 50px;
+  line-height: 140%;
+
+  width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+  margin-bottom: 80px;
+}
+
+.spec-implant-author {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 160px;
+
+  &__desc {
+    width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+
+    &-ttl {
+      font-size: 50px;
+      line-height: 140%;
+
+      margin-bottom: 40px;
+    }
+
+    &-blockquote {
+      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+      padding-left: calc(#{$col-width-d});
+      border-left: 1px solid $color-main;
+      margin-bottom: 150px;
+      
+      font-family: $ff-alt;
+      font-style: italic;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 160%;
+    }
+
+    &-txt {
+      padding-left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+    }
+  }
+
+  &__img {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    position: relative;
+
+    img {
+      position: relative;
+      z-index: -1;
+      top: 0;
+      right: 0;
+
+      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    }
+  }
+
+  &__bottom {
+    width: 100%;
+    margin-top: 160px;
+
+    &-txt {
+      width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+      font-size: 30px;
+      line-height: 140%;
+      margin-bottom: 80px;
+    }
+
+    &-blockquote {
+      width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+      border-left: 1px solid $color-main;
+      padding-left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      font-family: $ff-alt;
+      font-style: italic;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 120%;
+    }
+  }
+  
 }
