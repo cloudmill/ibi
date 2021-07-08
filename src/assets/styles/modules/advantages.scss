@@ -11,7 +11,25 @@
     @media (min-width: $breakpoint) {
       padding-top: 80px;
     }
-    
+    #{$comp}__item {
+      @media (min-width: $breakpoint) {
+        border-top: 0;
+      }
+
+      &:last-child {
+        @media (max-width: $breakpoint) {
+          border-left: 0;
+
+          #{$comp}__col {
+            &:nth-child(1) {
+              @media (max-width: $breakpoint - 1px) {
+                left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   &__item {
@@ -25,7 +43,9 @@
     }
 
     &:not(:first-child) {
-      margin-top: -1px;
+      @media (min-width: $breakpoint) {
+        margin-top: -1px;
+      }
     }
 
     &--no-border {
@@ -107,7 +127,7 @@
   }
 
   &__container {
-    $size-d: calc(#{$col-part-d}); //  137px?
+    $size-d: calc(#{$col-part-d}); 
     $size-m: 40px;
 
     width: $size-m;
@@ -183,6 +203,10 @@
       padding-left: calc(#{$col-part-d});
 
       position: relative;
+    }
+
+    li {
+      font-weight: 400;
     }
   }
 
