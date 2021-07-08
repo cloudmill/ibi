@@ -1094,16 +1094,28 @@ const BREAKPOINT = 1280;
 // slide description
 {
   $(() => {
-    if ($('.index').length !== 0) {
-      const indexSlide = $('.swiper-slide');
-      indexSlide.each(function() {
-        const slide = $(this);
-        const slideImg = slide.find('.index__mid-img');
-        const slideDesc = slide.find('.index__mid-description');
-        const imgWidth = slideImg.width();
 
-        slideDesc.css('max-width', imgWidth);
-      });
+    if ($('.index').length !== 0) {
+      const fps = 30;
+
+      function resize() {
+
+        const indexSlide = $('.swiper-slide');
+        indexSlide.each(function() {
+          const slide = $(this);
+          const slideImg = slide.find('.index__mid-img');
+          const slideDesc = slide.find('.index__mid-description');
+          const imgWidth = slideImg.width();
+
+          slideDesc.css('max-width', imgWidth);
+        });
+        
+        setTimeout (() => {
+          $(window).one('resize', resize);
+        }, 1000 / fps);
+      };
+      
+      $(window).one('resize', resize)
     }
   });
 }
@@ -1116,8 +1128,6 @@ const BREAKPOINT = 1280;
     if (navModal.length !== 0) {
       const navModalButton = navModal.find('.header-section__button');
       const navModalDropdown = navModal.find('.header-section__dropdown');
-      console.log(navModalButton);
-
 
       navModalButton.on('click', function () {
         const navModalSectionClicked = $(this).closest('.header-section__item');
