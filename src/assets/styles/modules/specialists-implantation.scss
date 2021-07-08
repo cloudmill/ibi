@@ -5,18 +5,40 @@
   padding-top: 30px;
   border-top: 1px solid $color-main;
 
+  @media (max-width: $breakpoint) {
+    margin: 60px 0 40px;
+    padding-top: 10px;
+
+    flex-direction: column;
+  }
+
   &__ttl {
     width: calc(#{$col-part-d} * 3);
 
     font-size: 40px;
     line-height: 140%;
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+
+      font-size: 18px;
+      line-height: 140%;
+    }
   }
 
   &__desc {
     width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
 
+    @media (max-width: $breakpoint) {
+      width: 100%;
+    }
+
     p {
       margin-bottom: 40px;
+
+      @media (max-width: $breakpoint) {
+        margin-bottom: 20px;
+      }
     }
 
     p:last-child {
@@ -25,14 +47,39 @@
   }
 }
 
+.spec-implant-block:last-child {
+  margin-top: 0;
+}
+
 .spec-implant-hexagon {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   // width: 100%;
 
   &__box {
     width: calc(#{$col-part-d} * 4);
     position: relative;
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+
+
+    }
+
+    .spec-implant-hexagon__svg {
+      width: 100%;
+    }
+  }
+
+  &__box:nth-child(2n) {
+    @media (max-width: $breakpoint-m) {
+      margin-left: calc(#{$col-part-m});
+    }
   }
 
   &__txt {
@@ -40,6 +87,14 @@
     z-index: 1;
 
     margin: 15% 0 0 80px;
+
+    @media (max-width: $breakpoint) {
+      margin: 20% 0 0 80px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      margin: 25% 0 0 10px;
+    }
 
     &-ttl {
       margin-bottom: 20px;
@@ -51,11 +106,21 @@
       font-size: 40px;
       line-height: 110%;
       text-align: center;
+
+      @media (max-width: $breakpoint) {
+        font-size: 20px;
+        line-height: 110%;
+      }
     }
 
     &-desc {
       font-size: 18px;
       line-height: 150%;
+
+      @media (max-width: $breakpoint) {
+        font-size: 14px;
+        line-height: 150%;
+      }
     }
   }
 
@@ -68,9 +133,17 @@
 .spec-implant-spoiler {
   margin-bottom: 120px;
 
+  @media (max-width: $breakpoint-m) {
+    margin-bottom: 60px;
+  }
+
   .mission__spoilers {
     max-width: unset;
     width: calc(#{$col-part-d} * 6);
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+    }
   }
 
   &__drop {
@@ -82,19 +155,39 @@
     justify-content: space-between;
     width: 100%;
 
+    @media (max-width: $breakpoint-m) {
+      flex-direction: column;
+    }
+
     img {
       width: calc(50% - 10px);
+
+      @media (max-width: $breakpoint-m) {
+        width: 100%;
+        margin-bottom: 10px;
+      }
     }
   }
 
   &__list {
     width: 100%;
 
+    ul {
+      @media (max-width: $breakpoint) {
+        margin-top: 20px;
+      }
+    }
+
     ul li {
       padding-left: unset;
 
       p {
         width: 100%;
+
+        @media (max-width: $breakpoint) {
+          font-size: 12px;
+          line-height: 150%;
+        }
       }
     }
 
@@ -114,8 +207,17 @@
   &__txt {
     padding-left: calc(#{$col-width-d});
 
+    @media (max-width: $breakpoint) {
+      padding-left: 0;
+    }
+
     p {
       margin-bottom: 20px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 14px;
+        line-height: 140%;
+      }
     }
 
     p:last-child {
@@ -130,6 +232,10 @@
 
   padding: 0 20px;
 
+  @media (max-width: $breakpoint-m) {
+    flex-direction: column;
+  }
+
   &-top {
     display: flex;
     justify-content: space-between;
@@ -141,9 +247,20 @@
     justify-content: center;
     flex-direction: column;
 
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+      margin-bottom: 60px;
+    }
+
     &-img {
       text-align: center;
       // flex: none;
+
+      img {
+        @media (max-width: $breakpoint) {
+          height: 354px;
+        }
+      }
     }
 
     &-ttl {
@@ -153,12 +270,28 @@
       font-size: 22px;
       line-height: 140%;
       width: 100%;
+
+      @media (max-width: $breakpoint) {
+        font-size: 16px;
+      }
     }
+  }
+
+  &__item:last-child {
+    margin-bottom: 0;
   }
 }
 
 .hexagon-box-list:nth-child(2n) {
   margin-top: 90px;
+
+  @media (max-width: $breakpoint) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: $breakpoint-m) {
+    margin-top: 0;
+  }
 }
 
 .spec-implant-hexagon-ttl {
@@ -167,6 +300,13 @@
 
   width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
   margin-bottom: 80px;
+
+  @media (max-width: $breakpoint) {
+    font-size: 22px;
+    line-height: 140%;
+    margin-bottom: 50px;
+    width: 100%;
+  }
 }
 
 .spec-implant-author {
@@ -175,14 +315,32 @@
   flex-wrap: wrap;
   margin-top: 160px;
 
+  @media (max-width: $breakpoint-m) {
+    flex-direction: column;
+    margin-top: 60px;
+  }
+
   &__desc {
     width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 2);
+
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+    }
 
     &-ttl {
       font-size: 50px;
       line-height: 140%;
 
       margin-bottom: 40px;
+
+      @media (max-width: $breakpoint) {
+        font-size: 22px;
+      }
     }
 
     &-blockquote {
@@ -196,10 +354,32 @@
       font-weight: normal;
       font-size: 18px;
       line-height: 160%;
+
+      @media (max-width: $breakpoint) {
+        width: 100%;
+        font-size: 14px;
+        line-height: 120%;
+      }
+
+      @media (max-width: $breakpoint-m) {
+        width: 100%;
+        margin-bottom: 40px;
+        padding-left: 20px;
+      }
     }
 
     &-txt {
       padding-left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+      @media (max-width: $breakpoint) {
+        font-size: 14px;
+        line-height: 160%;
+      }
+
+      @media (max-width: $breakpoint-m) {
+        padding-left: 0;
+        margin-top: 20px;
+      }
     }
   }
 
@@ -207,13 +387,22 @@
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     position: relative;
 
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+      margin-bottom: 60px;
+    }
+
     img {
       position: relative;
       z-index: -1;
       top: 0;
       right: 0;
-
-      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+      width: 100%;
+      // width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     }
   }
 
@@ -221,22 +410,107 @@
     width: 100%;
     margin-top: 160px;
 
+    @media (max-width: $breakpoint-m) {
+      margin-top: 60px;
+    }
+
     &-txt {
       width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
       font-size: 30px;
       line-height: 140%;
       margin-bottom: 80px;
+
+      @media (max-width: $breakpoint) {
+        width: 100%;
+        font-size: 18px;
+      }
+      @media (max-width: $breakpoint-m) {
+        margin-bottom: 40px;
+      }
     }
 
     &-blockquote {
       width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
       border-left: 1px solid $color-main;
       padding-left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      margin-bottom: 80px;
+
       font-family: $ff-alt;
       font-style: italic;
       font-weight: normal;
       font-size: 22px;
       line-height: 120%;
+
+      @media (max-width: $breakpoint) {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      @media (max-width: $breakpoint) {
+        margin-bottom: 60px;
+        padding-left: 20px;
+      }
+    }
+
+    &-block {
+      margin-left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+      display: flex;
+      flex-wrap: wrap;
+
+      @media (max-width: $breakpoint) {
+        margin-left: 0;
+      }
+
+      @media (max-width: $breakpoint-m) {
+        flex-direction: column;
+      }
+
+      img {
+        width: calc(#{$col-part-d} + #{$col-gap-d});
+        margin-right: calc(#{$col-width-d});
+        // flex:none;
+
+        @media (max-width: $breakpoint) {
+          width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+          margin-right: calc(#{$col-gap-m});
+        }
+
+        @media (max-width: $breakpoint) {
+          margin-bottom: 40px;
+        }
+      }
+
+      p {
+        margin-bottom: 20px;
+
+        font-size: 18px;
+        line-height: 160%;
+
+        @media (max-width: $breakpoint) {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &-col {
+      width: calc(#{$col-part-d} * 4);
+
+      @media (max-width: $breakpoint) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
+
+      @media (max-width: $breakpoint-m) {
+        width: 100%;
+      }
+
+      .specialists-events__link {
+        margin-top: 40px;
+
+        @media (max-width: $breakpoint) {
+          display: block;
+        }
+      }
     }
   }
   
