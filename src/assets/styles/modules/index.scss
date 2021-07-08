@@ -383,6 +383,8 @@
 }
 
 .card {
+  $comp: &;
+
   padding: 20px;
   width: 266px;
   height: 280px;
@@ -405,6 +407,27 @@
     @media (max-width: $breakpoint - 1px) {
       min-height: 212px;
       height: auto;
+    }
+
+    #{$comp}__row {
+      @media (max-width: $breakpoint - 1px) {
+        // align-items: center;
+      }
+    }
+
+    #{$comp}__col {
+      &:nth-child(2) {
+        @media (max-width: $breakpoint - 1px) {
+          display: block;
+        }
+      }
+    }
+
+    #{$comp}__svg {
+      @media (max-width: $breakpoint - 1px) {
+        max-width: 30px;
+        height: 34px;
+      }
     }
   }
 
