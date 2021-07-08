@@ -31,6 +31,10 @@
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     }
+
+    .operation-card__desc-title {
+      font-weight: 500;
+    }
   }
 
   &__item {
