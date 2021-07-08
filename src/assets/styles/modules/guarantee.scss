@@ -1,6 +1,5 @@
 .guarantee {
 
-
   &__img {
     position: relative;
     margin-bottom: 40px;
@@ -83,6 +82,8 @@
 }
 
 .guarantee-contract {
+  $comp: &;
+
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -122,32 +123,51 @@
     width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
     padding: 20px;
     border-left: 1px solid $color-gray-border;
+    transition: $transition;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} - #{$col-gap-m});
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
       border-left: none;
       border-top: 1px solid $color-gray-border;
       flex-direction: row;
     }
 
-    &-txt {
-      font-size: 16px;
-      line-height: 140%;
+    &:hover {
+      background-color: $color-main;
 
-      padding-right: 30%;
-
-      @media (max-width: $breakpoint-m) {
-        font-size: 14px;
+      #{$comp}__download-txt {
+        color: $color-white;
       }
+
+      .io {
+        path {
+          fill: $color-white;
+        }
+      }
+    }
+
+    &-txt {
+      @media (max-width: $breakpoint - 1px) {
+        padding-right: 20px;
+      }
+      @media (max-width: $breakpoint-m - 1px) {
+        padding-right: 0;
+
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+        
+        @include fsl(14px);
+      }
+      @include fsl(16px, 140%);
+      transition: $transition;
     }
 
     &-btn {
@@ -156,6 +176,13 @@
       cursor: pointer;
 
       align-self: flex-end;
+    }
+
+    .io {
+      transition: $transition;
+      path {
+        transition: $transition;
+      }
     }
   }
 }
