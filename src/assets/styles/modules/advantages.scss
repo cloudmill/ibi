@@ -166,7 +166,7 @@
     }
     @include fsl(18px, 110%);
     color: $color-main;
-    @include f-2();
+    @include f-2(500);
   }
 
   &__wrapper {
@@ -216,6 +216,7 @@
       @include fsl(16px);
     }
     @include fsl(14px, 150%);
+    font-weight: 400;
   }
 }
 
