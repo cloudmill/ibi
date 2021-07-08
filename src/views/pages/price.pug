@@ -19,12 +19,27 @@ block content
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
                   ul.nav__list
-                    li.nav__item
-                      a.nav__link(href='#')
-                        |Протезирование
+                    each item in ['Метод', 'Преимущества', 'Этапы имплантации', 'Имплантаты Strategic Implant',]
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
-                        |Имплантация
+                        |Стоимость
+            .category.category--column  
+              ul.category__list
+                li.category__item
+                  a.category__link(href="#") 
+                    |Один зуб
+                li.category__item.category__item--active
+                  a.category__link(href="#") 
+                    |От 3-ех до 5 сегметов
+                li.category__item
+                  a.category__link(href="#") 
+                    |На одной челюсти
+                li.category__item 
+                  a.category__link(href="#") 
+                    |На двух челюстях
             .price__note Стоимость может меняться в зависимости клинического состояния зубов
             button.vacancies-list__extra-btn.price__btn
               +arrow-link-svg('extra-btn')
@@ -37,18 +52,31 @@ block content
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
                   h5.mission__spoiler-title
-                    |Имплантация
+                    |Стоимость
                   .news-spoiler__image
                     +arrow-svg('header__drop-svg')
                 .mission__spoiler-drop.news-spoiler__drop
                   nav.news-spoiler__nav
                     ul
-                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                      each item in ['Метод', 'Преимущества', 'Этапы имплантации', 'Имплантаты Strategic Implant']
                         li.news-spoiler__nav-item
                           a.nav__link(href='#')
                             |#{item}
-              h2.price-subtitle
-               |Имплантация
+              .category.category--mobile 
+                ul.category__list
+                  li.category__item
+                    a.category__link(href="#") 
+                      |Один зуб
+                  li.category__item.category__item--active
+                    a.category__link(href="#") 
+                      |От 3-ех до 5 сегметов
+                  li.category__item 
+                    a.category__link(href="#") 
+                      |На одной челюсти
+                  li.category__item 
+                    a.category__link(href="#") 
+                      |На двух челюстях
+              .article
               .price-item
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")

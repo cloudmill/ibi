@@ -159,6 +159,32 @@
     border: 0;
   }
 
+  &--column {
+    padding: 60px 0 0;
+
+    width: calc(#{$col-part-d} * 2);
+
+    border: 0;
+    
+    #{$comp}__list {
+      margin: 0;
+      padding-left: 40px;
+
+      
+      // display: block;
+    }
+
+    #{$comp}__item {
+      margin: 0;
+
+      // display: inline-block;
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+    }
+  }
+
   &__list {
     @media (min-width: $breakpoint) {
       margin-left: -40px;
