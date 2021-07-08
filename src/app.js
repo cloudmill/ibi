@@ -1098,6 +1098,8 @@ const BREAKPOINT = 1280;
     if ($('.index').length !== 0) {
       const fps = 30;
 
+      resize();
+      
       function resize() {
 
         const indexSlide = $('.swiper-slide');
