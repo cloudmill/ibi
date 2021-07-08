@@ -6,6 +6,14 @@
     padding-top: 120px;
   }
 
+  &--small {
+    padding-top: 40px;
+    @media (min-width: $breakpoint) {
+      padding-top: 80px;
+    }
+    
+  }
+
   &__item {
     @media (min-width: $breakpoint) {
       position: relative;
