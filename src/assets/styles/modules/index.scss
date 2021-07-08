@@ -398,6 +398,7 @@
 
   background-color: $color-blue-light;
 
+  // page publications
   &--research {
     width: 100%;
     @media (min-width: $breakpoint) {
@@ -409,12 +410,24 @@
       height: auto;
     }
 
-    #{$comp}__row {
-      @media (max-width: $breakpoint - 1px) {
-        // align-items: center;
+    #{$comp}__col {
+      &:nth-child(2) {
+        @media (max-width: $breakpoint - 1px) {
+          display: block;
+        }
       }
     }
 
+    #{$comp}__svg {
+      @media (max-width: $breakpoint - 1px) {
+        max-width: 30px;
+        height: 34px;
+      }
+    }
+  }
+
+  // page publication
+  &--default {
     #{$comp}__col {
       &:nth-child(2) {
         @media (max-width: $breakpoint - 1px) {
