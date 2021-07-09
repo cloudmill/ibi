@@ -1,0 +1,57 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+block content
+  section.section.section--gradient
+      .row
+        .row__col
+          .section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    each item in ['Strategic Implant']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Обучение
+                    each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Обучение
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Обучение
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })

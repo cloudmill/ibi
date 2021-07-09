@@ -16,26 +16,41 @@
   @media (max-width: $breakpoint) {
     margin-bottom: 40px;
     padding-top: 10px;
+  }
 
+  @media (max-width: $breakpoint-m) {
     flex-direction: column;
   }
 
   &__ttl {
     width: calc(#{$col-part-d} * 3);
+    padding-right: calc(#{$col-gap-m});
 
     font-size: 40px;
     line-height: 140%;
 
     @media (max-width: $breakpoint) {
-      width: 100%;
+      width: calc(#{$col-part-m});
       margin-bottom: 20px;
       font-size: 18px;
       line-height: 140%;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
     }
   }
 
   &__desc {
     width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+    }
 
     &-highlight {
       font-family: $ff-alt;
@@ -45,9 +60,7 @@
       color: $color-main;
     }
 
-    @media (max-width: $breakpoint) {
-      width: 100%;
-    }
+    
 
     p {
       margin-bottom: 40px;

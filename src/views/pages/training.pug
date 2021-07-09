@@ -17,14 +17,24 @@ block content
             .nav
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
-                  ul.nav__list
+                  ul.nav__list.prosthetics-nav
                     each item in ['Strategic Implant']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
-                    li.nav__item.nav__item--active
-                      a.nav__link(href='#')
-                        |Обучение
+                    li.mission__spoiler
+                      .nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
+                        a.nav__link(href='#')
+                          |Обучение
+                        .news-spoiler__image
+                          +arrow-svg('header__drop-svg')
+                      .mission__spoiler-drop.news-spoiler__drop
+                        nav.news-spoiler__nav.prosthetics-spoiler__drop
+                          ul
+                            each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                              li.news-spoiler__nav-item
+                                a.nav__link(href='#')
+                                  |#{item}
                     each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
                       li.nav__item
                         a.nav__link(href='#')
@@ -36,19 +46,26 @@ block content
                 |Обучение
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
+                  h5.mission__spoiler-title.prosthetics-spoiler
                     |Обучение
+                    +arrow-link-svg('prosthetics-link-svg')
                   .news-spoiler__image
                     +arrow-svg('header__drop-svg')
                 .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop.training-drop
+                    ul
+                      each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
                   nav.news-spoiler__nav
                     ul
-                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                      each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
                         li.news-spoiler__nav-item
                           a.nav__link(href='#')
                             |#{item}
               .section__block--small
-                img(src="assets/images/0price.jpg", alt="")
+                img.training-main-img(src="assets/images/0price.jpg", alt="")
 
                 .legal-support__desc.spec-implant-desc
                   |Обучение методике базальной имплантации состоит из теоретической и практической части.
@@ -69,6 +86,7 @@ block content
       .row__col
       .row__col
         .container.training-stages
+          h3.training-cards__ttl Этапы обучения
           .transfer-numbers__wrapper
             a.transfer-numbers__item(href="")
               .transfer-numbers__count

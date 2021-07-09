@@ -139,6 +139,10 @@
 
     .transfer-numbers__count .transfer-numbers__big p {
       margin-left: -58px;
+
+      @media (max-width: $breakpoint) {
+        margin-left: -50px;
+      }
     }
 
     @media (max-width: $breakpoint) {
@@ -173,6 +177,7 @@
 
       @media (max-width: $breakpoint) {
         margin-left: -41px;
+        margin-bottom: -105px;
       }
     }
   }
@@ -206,7 +211,7 @@
 
     @media (max-width: $breakpoint) {
       min-width: unset;
-      width: 80px;
+      width: 85px;
     }
 
     p {
@@ -221,6 +226,8 @@
 
       @media (max-width: $breakpoint) {
         font-size: 240px;
+        margin-bottom: -125%;
+        margin-top: -100%;
       }
     }
   }

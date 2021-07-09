@@ -1,12 +1,39 @@
+.training-drop {
+  margin: 0 0 20px 20px;
+}
+
+.training-main-img {
+  width: 100%;
+}
+
 .training-list {
   &__ttl {
     font-size: 30px;
     width: calc(#{$col-part-d} * 4);
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m});
+
+      font-size: 16px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+    }
   }
 
   &__desc {
     width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
     padding-left: 0;
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      font-size: 14px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+    }
 
     ul {
       margin: 0;
@@ -23,6 +50,15 @@
 }
 
 .training-stages {
+
+  .training-cards__ttl:first-child {
+    margin-bottom: 80px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 50px;
+    }
+  }
+
   .transfer-numbers {
 
     &__wrapper {
@@ -31,6 +67,10 @@
 
       @media (max-width: $breakpoint) {
         flex-wrap: wrap;
+      }
+
+      @media (max-width: $breakpoint-m) {
+        flex-direction: column;
       }
     }
 
@@ -41,6 +81,10 @@
       @media (max-width: $breakpoint) {
         width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
         margin-bottom: calc(#{$col-gap-m});
+      }
+
+      @media (max-width: $breakpoint-m) {
+        width: 100%
       }
     }
 
@@ -57,15 +101,28 @@
 
       @media (max-width: $breakpoint) {
         margin-bottom: calc(#{$col-gap-m});
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
+
+      @media (max-width: $breakpoint-m) {
+        width: 100%
       }
 
       .transfer-numbers__count .transfer-numbers__desc {
         padding: 40px 40px 40px 0;
+
+        @media (max-width: $breakpoint-m) {
+          padding: 20px 10px 10px 0;
+        }
       }
     }
 
     &__count {
       width: unset;
+
+      @media (max-width: $breakpoint-m) {
+        justify-content: space-between;
+      }
     }
 
     &__desc {
@@ -82,10 +139,19 @@
         margin-left: 0;
       }
 
+      @media (max-width: $breakpoint-m) {
+        width: calc(#{$col-part-m} * 3);
+        padding: 20px 10px 10px 0;
+      }
+
       &-ttl {
         width: unset;
         font-size: 22px;
         // word-break: break-all;
+
+        @media (max-width: $breakpoint) {
+          font-size: 16px;
+        }
       }
 
       svg {
@@ -100,37 +166,70 @@
 .training-cards {
   margin-top: 160px;
 
+  @media (max-width: $breakpoint) {
+    margin-top: 80px;
+  }
+
   &__ttl {
     font-size: 40px;
     line-height: 140%;
+
+    @media (max-width: $breakpoint) {
+      font-size: 22px;
+    }
   }
 
   &__txt {
     color: $color-main;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 140%;
     margin-top: 27px;
+
+    @media (max-width: $breakpoint) {
+      margin-top: 10px;
+    }
   }
 
   &__row {
     margin-top: 28px;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: $breakpoint) {
+      margin-top: 40px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      flex-direction: column;
+    }
   }
 
   &__item {
     width: calc(50% - 20px);
     background-color: #fff;
     padding: 40px;
-    font-size: 16px;
-    line-height: 140%;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
+    @media (max-width: $breakpoint) {
+      width: calc(50% - 10px);
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+
+    }
+
     p {
       margin-top: 45px;
+      font-size: 16px;
+      line-height: 140%;
     }
+  }
+
+  &__item:first-child {
+    margin-bottom: 10px;
   }
 }
