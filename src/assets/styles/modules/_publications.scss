@@ -170,17 +170,23 @@
       margin: 0;
       padding-left: 40px;
 
-      
-      // display: block;
+      display: block;
     }
 
     #{$comp}__item {
       margin: 0;
 
-      // display: inline-block;
-
       &:not(:first-child) {
         margin-top: 20px;
+      }
+
+      &--active {
+        padding-bottom: 0;
+        border: 0;
+        #{$comp}__link {
+          padding-bottom: 5px;
+          border-bottom: 1px solid $color-main;
+        }
       }
     }
   }
