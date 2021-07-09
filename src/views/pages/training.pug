@@ -1,0 +1,130 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+
+block content
+  section.section.section--gradient
+      .row
+        .row__col
+          .section__inner--top
+            .nav
+              .nav__container
+                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                  ul.nav__list
+                    each item in ['Strategic Implant']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Обучение
+                    each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Обучение
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Обучение
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              .section__inner
+                img(src="assets/images/0price.jpg", alt="")
+
+                .legal-support__desc.spec-implant-desc
+                  |Обучение методике базальной имплантации состоит из теоретической и практической части.
+                .spec-implant-block
+                  h2.spec-implant-block__ttl Теоретическая часть
+                  .spec-implant-block__desc
+                    p Подбираем необходимый тип имплантата 
+                    p Метод работает исключительно в концепции Immediate loading (немедленная нагрузка).
+                .spec-implant-block
+                  h2.spec-implant-block__ttl Практическая часть
+                  .spec-implant-block__desc
+                    p В данной методике используются имплантаты, обеспечивающие доступ к кортикальной (базальной) костной ткани различными типами имплантатов в зависимости от конкретного клинического случая.
+  section.section__inner.section--blue-light
+    .row
+      .row__col
+      .row__col
+        .container
+          .transfer-numbers__wrapper
+            .transfer-numbers__item
+              .transfer-numbers__count
+                .transfer-numbers__big
+                  p 1
+                .transfer-numbers__desc
+                  .transfer-numbers__desc-ttl Хирургический этап
+                  //- .transfer-numbers__desc-txt
+                  //-   p Если нет возможности пройти исследования или сдать анализы по месту нахождения, то мы организуем по приезду совместно с запланированной операцией.
+            .transfer-numbers__item
+              .transfer-numbers__count
+                .transfer-numbers__big
+                  p 2
+                .transfer-numbers__desc
+                  .transfer-numbers__desc-ttl Зуботехнический этап
+                  //- .transfer-numbers__desc-txt
+                  //-   ul
+                  //-     li После диагностики обсуждаем как удобнее добраться до нашей клиники.
+                  //-     li Выбираем гостиницу
+                  //-     li Покупаем билеты на поезд или самолет
+                  //-     li По приезду встречаем и организовываем трансфер до гостиницы
+                  //-     li По спланированному графику организовываем трансфер из гостиницы в клинику и обратно
+                  //-     li Каждому пациенту назначается персональный координатор. При необходимости предоставляем переводчика
+            .transfer-numbers__item
+              .transfer-numbers__count
+                .transfer-numbers__big
+                  p 3
+                .transfer-numbers__desc
+                  .transfer-numbers__desc-ttl Ортопедический этап
+                  //- .transfer-numbers__desc-txt
+                  //-   p Как только медицинские услуги предоставлены, организовываем трансфер в аэропорт или вокзал.
+
+  section.section
+    .row
+      .row__col
+      .row__col
+        .container.news-subscribe.member-page-ask
+          h2.news-subscribe__title.member-page-ask__title Оставить заявку на обучение
+          form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+            .member-page-ask__form-wrapper
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+              label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                  input(type="checkbox" required="")
+                  p Согласен на обработку персональных данных в соответствии с 
+                      a(href="#") политикой конфиденциальности
+              button.news-subscribe__form-btn(type="submit")
+                  +arrow-link-svg('news-subscribe__form-btn-ico')
+                  |Отправить
+
+block footer
+  +footer({
+    attrs: {
+      'data-sticky-end': '1',
+    },
+  })
