@@ -9,6 +9,12 @@
 
       width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
     }
+    @media (max-width: $breakpoint-m - 1px) {
+       @media (orientation: landscape) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
+    }
+   
   }
 
   &__inner {

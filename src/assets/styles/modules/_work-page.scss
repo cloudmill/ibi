@@ -359,13 +359,15 @@
   &-content {
     padding: 0;
     overflow: visible;
-    
   }
 
   &-slide {
     
     @media (min-width: $breakpoint) {
       padding-right: 110px;
+      width: auto;
+    }
+    @media (orientation: landscape) {
       width: auto;
     }
 
