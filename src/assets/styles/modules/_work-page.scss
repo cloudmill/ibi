@@ -352,3 +352,67 @@
     }
   }
 }
+
+.fancybox {
+  $comp: &;
+
+  &-content {
+    padding: 0;
+    overflow: visible;
+    
+  }
+
+  &-slide {
+    
+    @media (min-width: $breakpoint) {
+      padding-right: 110px;
+      width: auto;
+    }
+
+    &::-webkit-scrollbar {
+      visibility: hidden;
+    }
+
+    &--html {
+      #{$comp}-close-small {
+        $size-d: 70px;
+        $size-m: 48px;
+
+        width: $size-m;
+        height: $size-m;
+        @media (min-width: $breakpoint) {
+          width: $size-d;
+          height: $size-d;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        top: 20px;
+        right: 20px;
+        @media (min-width: $breakpoint) {
+          right: -110px;
+          top: 40px;
+        }
+
+        color: $color-black;
+        opacity: 1;
+        background: $color-white;
+        border-radius: 50%;
+        @media (max-width: $breakpoint - 1px) {
+          border: 1px solid $color-gray-border;
+        }
+
+        svg {
+          $size-d: 28px;
+
+          @media (min-width: $breakpoint) {
+            width: $size-d;
+            height: $size-d;
+          }
+        }
+      }
+    }
+  }
+}
