@@ -1066,6 +1066,7 @@ const BREAKPOINT = 1280;
 {
   $(() => {
     $.fancybox.defaults.closeExisting = true;
+    $.fancybox.defaults.touch = false;
 
     $('[data-fancy-button]').on('click', function (event) {
       event.preventDefault();
