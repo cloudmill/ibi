@@ -89,6 +89,11 @@
     ul {
       margin: 0;
     }
+    p {
+      margin: 40px 0 0;
+
+      width: calc(#{$col-part-d} * 4);
+    }
   }
 }
 
