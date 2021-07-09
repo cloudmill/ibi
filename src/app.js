@@ -1098,10 +1098,9 @@ const BREAKPOINT = 1280;
     if ($('.index').length !== 0) {
       const fps = 30;
 
-      resize();
-      
-      function resize() {
+      update()
 
+      function update() {
         const indexSlide = $('.swiper-slide');
         indexSlide.each(function() {
           const slide = $(this);
@@ -1111,8 +1110,11 @@ const BREAKPOINT = 1280;
 
           slideDesc.css('max-width', imgWidth);
         });
-        
+      }
+      
+      function resize() {
         setTimeout (() => {
+          update()
           $(window).one('resize', resize);
         }, 1000 / fps);
       };
