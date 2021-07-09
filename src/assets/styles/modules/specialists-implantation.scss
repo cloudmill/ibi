@@ -1,12 +1,20 @@
+.spec-implant-desc {
+  margin-bottom: 120px;
+
+  @media (max-width: $breakpoint) {
+    margin-bottom: 60px;
+  }
+}
+
 .spec-implant-block {
   display: flex;
 
-  margin: 120px 0 80px;
+  margin-bottom: 80px;
   padding-top: 30px;
   border-top: 1px solid $color-main;
 
   @media (max-width: $breakpoint) {
-    margin: 60px 0 40px;
+    margin-bottom: 40px;
     padding-top: 10px;
 
     flex-direction: column;
@@ -20,7 +28,7 @@
 
     @media (max-width: $breakpoint) {
       width: 100%;
-
+      margin-bottom: 20px;
       font-size: 18px;
       line-height: 140%;
     }
@@ -28,6 +36,14 @@
 
   &__desc {
     width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+
+    &-highlight {
+      font-family: $ff-alt;
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 500;
+      color: $color-main;
+    }
 
     @media (max-width: $breakpoint) {
       width: 100%;
@@ -45,10 +61,6 @@
       margin-bottom: 0;
     }
   }
-}
-
-.spec-implant-block:last-child {
-  margin-top: 0;
 }
 
 .spec-implant-hexagon {
@@ -71,9 +83,13 @@
 
     }
 
-    .spec-implant-hexagon__svg {
-      width: 100%;
-    }
+    // .spec-implant-hexagon__svg {
+    //   width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+
+    //   @media (max-width: $breakpoint) {
+    //     width: 100%;
+    //   }
+    // }
   }
 
   &__box:nth-child(2n) {
@@ -127,13 +143,17 @@
   &__svg {
     position: relative;
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+    }
   }
 }
 
 .spec-implant-spoiler {
   margin-bottom: 120px;
 
-  @media (max-width: $breakpoint-m) {
+  @media (max-width: $breakpoint) {
     margin-bottom: 60px;
   }
 
@@ -315,9 +335,12 @@
   flex-wrap: wrap;
   margin-top: 160px;
 
+  @media (max-width: $breakpoint) {
+    margin-top: 60px;
+  }
+
   @media (max-width: $breakpoint-m) {
     flex-direction: column;
-    margin-top: 60px;
   }
 
   &__desc {
@@ -325,7 +348,7 @@
 
     @media (max-width: $breakpoint) {
       width: calc(#{$col-part-m} * 2);
-
+      padding-right: calc(#{$col-gap-m});
     }
 
     @media (max-width: $breakpoint-m) {
@@ -383,6 +406,18 @@
     }
   }
 
+  &__desc:nth-child(3) {
+    margin-top: -15%;
+
+    @media (max-width: $breakpoint) {
+      margin-top: -40%;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      margin-top: 0;
+    }
+  }
+
   &__img {
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     position: relative;
@@ -410,7 +445,7 @@
     width: 100%;
     margin-top: 160px;
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint) {
       margin-top: 60px;
     }
 
@@ -423,10 +458,11 @@
       @media (max-width: $breakpoint) {
         width: 100%;
         font-size: 18px;
-      }
-      @media (max-width: $breakpoint-m) {
         margin-bottom: 40px;
       }
+      // @media (max-width: $breakpoint-m) {
+        
+      // }
     }
 
     &-blockquote {
@@ -444,10 +480,10 @@
       @media (max-width: $breakpoint) {
         width: 100%;
         font-size: 14px;
+        margin-bottom: 60px;
       }
 
-      @media (max-width: $breakpoint) {
-        margin-bottom: 60px;
+      @media (max-width: $breakpoint) {  
         padding-left: 20px;
       }
     }
