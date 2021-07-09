@@ -47,56 +47,60 @@ block content
                         li.news-spoiler__nav-item
                           a.nav__link(href='#')
                             |#{item}
-              .section__inner
+              .section__block--small
                 img(src="assets/images/0price.jpg", alt="")
 
                 .legal-support__desc.spec-implant-desc
                   |Обучение методике базальной имплантации состоит из теоретической и практической части.
-                .spec-implant-block
-                  h2.spec-implant-block__ttl Теоретическая часть
-                  .spec-implant-block__desc
-                    p Подбираем необходимый тип имплантата 
-                    p Метод работает исключительно в концепции Immediate loading (немедленная нагрузка).
-                .spec-implant-block
-                  h2.spec-implant-block__ttl Практическая часть
-                  .spec-implant-block__desc
-                    p В данной методике используются имплантаты, обеспечивающие доступ к кортикальной (базальной) костной ткани различными типами имплантатов в зависимости от конкретного клинического случая.
+                .spec-implant-block.training-list 
+                  h2.spec-implant-block__ttl.training-list__ttl Теоретическая часть
+                  .spec-implant-block__desc.training-list__desc.single-news__txt
+                    ul
+                      li Подробный разбор протокола эффективного протезирования
+                      li Зуботехническое изготовление основных типов конструкций.
+                .spec-implant-block.training-list
+                  h2.spec-implant-block__ttl.training-list__ttl Практическая часть
+                  .spec-implant-block__desc.training-list__desc.single-news__txt
+                    ul
+                      li Установка базальных имплантатов на композитных макетах полученных по реальным КТ исследованиям
+                      li Изготавление ортопедических конструкций в зуботехнической лаборатории по полученным оттискам
   section.section__inner.section--blue-light
     .row
       .row__col
       .row__col
-        .container
+        .container.training-stages
           .transfer-numbers__wrapper
-            .transfer-numbers__item
+            a.transfer-numbers__item(href="")
               .transfer-numbers__count
                 .transfer-numbers__big
                   p 1
                 .transfer-numbers__desc
                   .transfer-numbers__desc-ttl Хирургический этап
-                  //- .transfer-numbers__desc-txt
-                  //-   p Если нет возможности пройти исследования или сдать анализы по месту нахождения, то мы организуем по приезду совместно с запланированной операцией.
-            .transfer-numbers__item
+                  +arrow-link-svg
+            a.transfer-numbers__item(href="")
               .transfer-numbers__count
                 .transfer-numbers__big
                   p 2
                 .transfer-numbers__desc
                   .transfer-numbers__desc-ttl Зуботехнический этап
-                  //- .transfer-numbers__desc-txt
-                  //-   ul
-                  //-     li После диагностики обсуждаем как удобнее добраться до нашей клиники.
-                  //-     li Выбираем гостиницу
-                  //-     li Покупаем билеты на поезд или самолет
-                  //-     li По приезду встречаем и организовываем трансфер до гостиницы
-                  //-     li По спланированному графику организовываем трансфер из гостиницы в клинику и обратно
-                  //-     li Каждому пациенту назначается персональный координатор. При необходимости предоставляем переводчика
-            .transfer-numbers__item
+                  +arrow-link-svg
+            a.transfer-numbers__item(href="")
               .transfer-numbers__count
                 .transfer-numbers__big
                   p 3
                 .transfer-numbers__desc
                   .transfer-numbers__desc-ttl Ортопедический этап
-                  //- .transfer-numbers__desc-txt
-                  //-   p Как только медицинские услуги предоставлены, организовываем трансфер в аэропорт или вокзал.
+                  +arrow-link-svg
+          .training-cards
+            h3.training-cards__ttl Требования к специалистам
+            .training-cards__txt *Носит рекомендательный характер
+            .training-cards__row
+              .training-cards__item
+                +training-ico1
+                p Действующий сертификат государственного образца — стоматология хирургическая, ортопедическая
+              .training-cards__item
+                +training-ico2
+                p Стаж работы по сертификату не менее 3 лет
 
   section.section
     .row

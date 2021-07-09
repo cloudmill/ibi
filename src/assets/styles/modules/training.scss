@@ -1,0 +1,136 @@
+.training-list {
+  &__ttl {
+    font-size: 30px;
+    width: calc(#{$col-part-d} * 4);
+  }
+
+  &__desc {
+    width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+    padding-left: 0;
+
+    ul {
+      margin: 0;
+
+      li:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.training-list:last-child {
+  margin-bottom: 0;
+}
+
+.training-stages {
+  .transfer-numbers {
+
+    &__wrapper {
+      flex-direction: unset;
+      justify-content: space-between;
+
+      @media (max-width: $breakpoint) {
+        flex-wrap: wrap;
+      }
+    }
+
+    &__item {
+      margin: 0;
+      width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+
+      @media (max-width: $breakpoint) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+        margin-bottom: calc(#{$col-gap-m});
+      }
+    }
+
+    &__item:first-child {
+      margin: 0;
+
+      @media (max-width: $breakpoint) {
+        margin-bottom: calc(#{$col-gap-m});
+      }
+    }
+
+    &__item:nth-child(2n) {
+      margin: 0;
+
+      @media (max-width: $breakpoint) {
+        margin-bottom: calc(#{$col-gap-m});
+      }
+
+      .transfer-numbers__count .transfer-numbers__desc {
+        padding: 40px 40px 40px 0;
+      }
+    }
+
+    &__count {
+      width: unset;
+    }
+
+    &__desc {
+      // padding: 0;
+      width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      margin-left: calc( -1 * (#{$col-width-d}));
+      padding: 40px 40px 40px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media (max-width: $breakpoint) {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      &-ttl {
+        width: unset;
+        font-size: 22px;
+        // word-break: break-all;
+      }
+
+      svg {
+        align-self: flex-end;
+        min-width: 60px;
+      }
+    }
+  }
+  
+}
+
+.training-cards {
+  margin-top: 160px;
+
+  &__ttl {
+    font-size: 40px;
+    line-height: 140%;
+  }
+
+  &__txt {
+    color: $color-main;
+    font-size: 18px;
+    line-height: 140%;
+    margin-top: 27px;
+  }
+
+  &__row {
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    width: calc(50% - 20px);
+    background-color: #fff;
+    padding: 40px;
+    font-size: 16px;
+    line-height: 140%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+      margin-top: 45px;
+    }
+  }
+}
