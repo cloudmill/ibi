@@ -509,8 +509,8 @@
                 line-height: 140%;
 
                 padding-left: 40px;
-                @media (min-width: $breakpoint) {
-                    width: 70%;
+                @media (min-width: $breakpoint-ll) {
+                    width: 340px;
                 }
             }
 
