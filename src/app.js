@@ -1135,6 +1135,47 @@ const BREAKPOINT = 1280;
   });
 }
 
+// fixed header
+{
+  $(() => {
+    const header = $('.header');
+
+    if (header.length !== 0) {
+      let previousTop = $(window).scrollTop()
+
+      $(window).on('scroll', function () {
+        const currentTop = $(window).scrollTop();
+
+        if (currentTop < previousTop) {
+          header.removeClass('header--scroll--down');
+          header.addClass('header--scroll--up');
+        } else {
+          header.removeClass('header--scroll--up');
+          header.addClass('header--scroll--down');
+        }
+
+        if (currentTop < 1) {
+          header.removeClass('header--scroll--up');
+          header.removeClass('header--scroll--down');
+        }
+
+        if (currentTop >= 1) {
+          header.addClass('header--scroll');
+        } else {
+          header.removeClass('header--scroll');
+        }
+
+        previousTop = currentTop;
+      });
+
+      if ($(window).scrollTop() >= 1) {
+        header.addClass('header--scroll--up');
+        header.addClass('header--scroll');
+      }
+    };
+  });
+}
+
 // header modal mobile
 {
   $(() => {

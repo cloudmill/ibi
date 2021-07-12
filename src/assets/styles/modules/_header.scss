@@ -12,11 +12,33 @@
   left: 0;
   right: 0;
 
+  transition: $transition;
+
+  &--scroll {
+    #{$component}__inner {
+      @media (min-width: $breakpoint) {
+        padding: 15px 0;
+      }
+    }
+  }
+
+  &--scroll--up {
+    transform: translateY(0);
+
+    background-color: $color-blue-light;
+  }
+
+  &--scroll--down {
+    transform: translateY(-100%);
+  }
+
   &__header {
     position: relative;
     z-index: 1;
 
-    background-color: lightblue; // ?
+    transition: $transition;
+
+    // background-color: lightblue; // ?
   }
 
   &__inner {
