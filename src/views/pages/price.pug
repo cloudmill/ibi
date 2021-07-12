@@ -19,12 +19,27 @@ block content
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
                   ul.nav__list
-                    li.nav__item
-                      a.nav__link(href='#')
-                        |Протезирование
+                    each item in ['Метод', 'Преимущества', 'Этапы имплантации', 'Имплантаты Strategic Implant',]
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
-                        |Имплантация
+                        |Стоимость
+            .category.category--column  
+              ul.category__list
+                li.category__item
+                  a.category__link(href="#") 
+                    |Один зуб
+                li.category__item.category__item--active
+                  a.category__link(href="#") 
+                    |От 3-ех до 5 сегметов
+                li.category__item
+                  a.category__link(href="#") 
+                    |На одной челюсти
+                li.category__item 
+                  a.category__link(href="#") 
+                    |На двух челюстях
             .price__note Стоимость может меняться в зависимости клинического состояния зубов
             button.vacancies-list__extra-btn.price__btn
               +arrow-link-svg('extra-btn')
@@ -37,18 +52,47 @@ block content
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
                   h5.mission__spoiler-title
-                    |Имплантация
+                    |Стоимость
                   .news-spoiler__image
                     +arrow-svg('header__drop-svg')
                 .mission__spoiler-drop.news-spoiler__drop
                   nav.news-spoiler__nav
                     ul
-                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                      each item in ['Метод', 'Преимущества', 'Этапы имплантации', 'Имплантаты Strategic Implant']
                         li.news-spoiler__nav-item
                           a.nav__link(href='#')
                             |#{item}
-              h2.price-subtitle
-               |Имплантация
+              .category.category--mobile 
+                ul.category__list
+                  li.category__item
+                    a.category__link(href="#") 
+                      |Один зуб
+                  li.category__item.category__item--active
+                    a.category__link(href="#") 
+                      |От 3-ех до 5 сегметов
+                  li.category__item 
+                    a.category__link(href="#") 
+                      |На одной челюсти
+                  li.category__item 
+                    a.category__link(href="#") 
+                      |На двух челюстях
+              .article
+              .price-item
+                .price-item__img
+                  img(src="assets/images/0price.jpg", alt="")
+                .price-item__ttl Установка одного имплантата ONEWAY BIOMED
+                .price-item__price от 45 000 ₽
+                .price-item__desc.single-news__txt
+                  ul
+                    li Зафиксировать коронку можно в первые дни после имплантации
+                    li Зафиксировать коронку можно в первые дни после имплантации
+                      ul 
+                        li 
+                          |временная коронка CAD CAM длительного ношения (срок изготовления 2 дня)
+                        li 
+                          |постоянная коронка из диоксида циркония (срок изготовления 3 дня)
+                    p  
+                      |Любая из выбранных конструкций фиксируется на постоянный японский цемент Fuji+.
               .price-item
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
@@ -62,25 +106,27 @@ block content
               .price-item
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
-                .price-item__ttl Проведение операции на сегменте от 3-х до 5-ти зубов Strategic Implant + протезирование несъемным мостовидным протезом
-                .price-item__price 130 500 ₽
+                .price-item__ttl Проведение операции на одной челюсти Strategic Implant + протезирование несъемным мостовидным протезом
+                .price-item__price от 350 500 ₽
                 .price-item__desc.single-news__txt
                   ul
-                    li Имплантаты устанавливаются в местах отсутствующих или удаленных зубов
-                    li При восстановлении сегмента (3-5 зубов) рекомендуется устанавливать диоксид циркониевые (постоянные) или металлоакриловые (условно-временные) зубные мосты
-                    li Диоксид циркониевые зубы на имплантатах Strategic implant являются постоянными конструкциями
+                    li Восстановление двух челюстей одновременно, считается наилучшим, наиболее прогнозируемым и контролируемым вариантом восстановления зубов
+                    li Используется принцип установки 10-12 имплантатов на верхнюю челюсть и 8-10 на нижнюю
+                    li Сразу же после имплантации получаем оттиски для изготовление будущих зубов
+                    li В зависимости от клинической ситуации могут быть изготовлены метоллоакриловые или металлокомпозитные зубы
               .price-item
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
-                .price-item__ttl Проведение операции на сегменте от 3-х до 5-ти зубов Strategic Implant + протезирование несъемным мостовидным протезом
-                .price-item__price 130 500 ₽
+                .price-item__ttl Проведение операции двух челюстей strategic implant + протезирование несъемным мостовидным протезомпроведение операции двух челюстей Strategic Implant + протезирование несъемным мостовидным протезом
+                .price-item__price от 700 500 ₽
                 .price-item__desc.single-news__txt
                   ul
-                    li Имплантаты устанавливаются в местах отсутствующих или удаленных зубов
-                    li При восстановлении сегмента (3-5 зубов) рекомендуется устанавливать диоксид циркониевые (постоянные) или металлоакриловые (условно-временные) зубные мосты
-                    li Диоксид циркониевые зубы на имплантатах Strategic implant являются постоянными конструкциями
+                    li Восстановление двух челюстей одновременно, считается наилучшим, наиболее прогнозируемым и контролируемым вариантом восстановления зубов
+                    li Используется принцип установки 10-12 имплантатов на верхнюю челюсть и 8-10 на нижнюю
+                    li Сразу же после имплантации получаем оттиски для изготовление будущих зубов
+                    li В зависимости от клинической ситуации могут быть изготовлены метоллоакриловые или металлокомпозитные зубы
               .news-subscribe.member-page-ask.transfer-consult.price-ask
-                h2.news-subscribe__title Получить персональную консультацию бесплатно
+                h2.news-subscribe__title Получить расчет стоимости
                 .transfer-consult__img
                 form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
                   .member-page-ask__form-wrapper

@@ -11,7 +11,7 @@ block content
           .articles-authors
               .articles-authors__container
                 .articles-authors__title 
-                  |Авторы статей
+                  |Автор статьи
                 ul.articles-authors__list 
                   li.articles-authors__item 
                     .article-author 
@@ -29,8 +29,8 @@ block content
       .row__col 
         .section__inner.section__inner--top
           .container.single-news 
-            h1.title.single-news__title
-              |Исследования
+            h1.title.single-news__title.single-news__title--big
+              |Клиническое применение различных конструкций имплантатов, анализ жалоб потребителей
             .mission
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
@@ -95,7 +95,7 @@ block content
                     - for (i = 0; i < 6; i++)
                       li 
                         |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г 
-            aside.share-social 
+            aside.share-social.share-social--default
               .share-social__box
                 .share-social__title Поделиться
                 ul.footer__socials
@@ -130,7 +130,7 @@ block content
                   .swiper-wrapper
                     - for (let i=0; i<9; i++)
                       .swiper-slide
-                        a.card(href='#')
+                        a.card.card--default(href='#')
                           .card__top
                             h3.card__title
                               |Обучение Strategic Implant в Новосибирске
@@ -156,14 +156,16 @@ block content
                                 .card__image
                                   +svg-link(class='card__svg')
           .news-subscribe
-            h2.news-subscribe__title Подпишитесь на публикации и новости
+            h2.news-subscribe__title Подпишитесь на&nbsp;публикации и новости
             form.news-subscribe__form
               div
-                label.news-subscribe__form-placeholder
+                label.news-subscribe__form-placeholder.news-subscribe__form-placeholder--flex
                     input.news-subscribe__form-email(type="email" placeholder="E-mail")
+                    button.news-subscribe__form-btn.news-subscribe__form-btn--mobile
+                      +arrow-send('news-subscribe__form-btn-ico')
                 label.news-subscribe__form-checkbox
                     input(type="checkbox")
                     p Согласен на обработку персональных данных в соответствии с 
                       a(href="#") политикой конфиденциальности
-              button.news-subscribe__form-btn
+              button.news-subscribe__form-btn.news-subscribe__form-btn--desc
                   +arrow-send('news-subscribe__form-btn-ico')

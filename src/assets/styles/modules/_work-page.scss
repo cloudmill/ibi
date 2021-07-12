@@ -31,6 +31,10 @@
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
     }
+
+    .operation-card__desc-title {
+      font-weight: 500;
+    }
   }
 
   &__item {
@@ -198,6 +202,40 @@
   @media (min-width: $breakpoint) {
     width: calc(#{$col-part-d} * 6);
   }
+  position: relative;
+  z-index: 0;
+
+  &__layout {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    @media (min-width: $breakpoint) {
+      top: -43px;
+      left: 188px;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      max-width: 90px;
+    }
+  }
+
+  &__svg {
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: block;
+    }
+    position: absolute;
+    bottom: 20px;
+    right: 59px;
+  }
 
   &__row {
     display: flex;
@@ -311,6 +349,72 @@
       background: url("assets/images/cursor.svg") center no-repeat;
       background-size: contain;
       border: 0;
+    }
+  }
+}
+
+.fancybox {
+  $comp: &;
+
+  &-content {
+    padding: 0;
+    overflow: visible;
+  }
+
+  &-slide {
+    
+    @media (min-width: $breakpoint) {
+      padding-right: 110px;
+      width: auto;
+    }
+    @media (orientation: landscape) {
+      width: auto;
+    }
+
+    &::-webkit-scrollbar {
+      visibility: hidden;
+    }
+
+    &--html {
+      #{$comp}-close-small {
+        $size-d: 70px;
+        $size-m: 48px;
+
+        width: $size-m;
+        height: $size-m;
+        @media (min-width: $breakpoint) {
+          width: $size-d;
+          height: $size-d;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        top: 20px;
+        right: 20px;
+        @media (min-width: $breakpoint) {
+          right: -110px;
+          top: 40px;
+        }
+
+        color: $color-black;
+        opacity: 1;
+        background: $color-white;
+        border-radius: 50%;
+        @media (max-width: $breakpoint - 1px) {
+          border: 1px solid $color-gray-border;
+        }
+
+        svg {
+          $size-d: 28px;
+
+          @media (min-width: $breakpoint) {
+            width: $size-d;
+            height: $size-d;
+          }
+        }
+      }
     }
   }
 }

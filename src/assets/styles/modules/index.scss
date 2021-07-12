@@ -404,6 +404,8 @@
 }
 
 .card {
+  $comp: &;
+
   padding: 20px;
   width: 266px;
   height: 280px;
@@ -417,6 +419,7 @@
 
   background-color: $color-blue-light;
 
+  // page publications
   &--research {
     width: 100%;
     @media (min-width: $breakpoint) {
@@ -426,6 +429,39 @@
     @media (max-width: $breakpoint - 1px) {
       min-height: 212px;
       height: auto;
+    }
+
+    #{$comp}__col {
+      &:nth-child(2) {
+        @media (max-width: $breakpoint - 1px) {
+          display: block;
+        }
+      }
+    }
+
+    #{$comp}__svg {
+      @media (max-width: $breakpoint - 1px) {
+        max-width: 30px;
+        height: 34px;
+      }
+    }
+  }
+
+  // page publication
+  &--default {
+    #{$comp}__col {
+      &:nth-child(2) {
+        @media (max-width: $breakpoint - 1px) {
+          display: block;
+        }
+      }
+    }
+
+    #{$comp}__svg {
+      @media (max-width: $breakpoint - 1px) {
+        max-width: 30px;
+        height: 34px;
+      }
     }
   }
 

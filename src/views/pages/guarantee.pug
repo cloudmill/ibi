@@ -53,12 +53,12 @@ block content
                   img.guarantee__img-main(src="assets/images/guarantee-2.jpg", alt="")
                 .guarantee-contract
                   h3.guarantee-contract__title Все гарантийные обязательства закреплены в договоре
-                  .guarantee-contract__download
-                    .guarantee-contract__download-txt Скачать типовой договор
+                  a.guarantee-contract__download(href="#") 
+                    .guarantee-contract__download-txt Скачать&nbsp;типовой договор
                     button.guarantee-contract__download-btn
                       +download-svg('io')
                 p.about__caption
-                  |Авторизированные клиники базальной имплантации
+                  |Авторизованные клиники базальной имплантации по всему миру, в которых вы сможете обратиться за контрольным осмотром
                 .about__grid.about__grid--margin-top
                   ul.about__grid-list
                     - for (let i=0; i<3; i++)

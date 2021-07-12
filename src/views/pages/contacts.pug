@@ -47,13 +47,13 @@ block content
                             |#{item}
               .contacts.section__block.section__block--small
                 .contacts__item.contacts-6col
-                  .contacts__item-ttl Телефон в Москве
+                  .contacts__item-ttl.contacts__item-ttl--link Телефон в Москве
                   a.contacts__item-link(href="tel:84994906349") 8 499 490 63 49
                 .contacts__item.contacts-3col
                   .contacts__weekdays Пнд — Сб<br/>10 — 20
                   .contacts__weekend Воскресенье<br/>выходной
                 .contacts__item
-                  .contacts__item-ttl По любым вопросам
+                  .contacts__item-ttl.contacts__item-ttl--link По любым вопросам
                   a.contacts__item-link(href="mailto:info@ibi.clinic") info@ibi.clinic
                 .contacts__item
                   .contacts__item-ttl Адрес клиники
@@ -76,21 +76,27 @@ block content
                           +youtube-svg('footer__socials-svg')
               .contacts-map-big
                 #map
+                ul.placemarks
+                  li.placemarks__item 
+                    p.placemarks__balloon
+                      |123123qwe
+                    .placemarks__latitude
+                      |55.732433
+                    .placemarks__longitude
+                      |37.616144
               .contacts-map-small
                 .contacts-map-small-item
                   .contacts-map-small-item__ttl Путь от м. Октябрьская
                   img.contacts-map-small-item__map(src="assets/images/map-2.jpg", alt="")
-                  .contacts-map-small-item__desc
                 .contacts-map-small-item
                   .contacts-map-small-item__ttl Путь от м. Полянка
                   img.contacts-map-small-item__map(src="assets/images/map-3.jpg", alt="")
                   .contacts-map-small-item__desc
                     |Чтобы проложить правильный путь, введите в поисковую строку не адрес (1-й Спасоналивковский переулок, 17, корп. 1), а  название компании («Институт Базальной Имплантации»).
-              .contacts-map-small
+              .contacts-map-small.contacts-map-small--mobile
                 .contacts-map-small-item
                   .contacts-map-small-item__ttl Панорама улицы с указанием входа
                   img.contacts-map-small-item__map(src="assets/images/map-4.jpg", alt="")
-                  .contacts-map-small-item__desc
     section
       .row
         .row__col

@@ -544,8 +544,8 @@ const BREAKPOINT = 1280;
 
     if (mapContainer.length !== 0) {
       // vars
-      const markWidth = 42;
-      const markHeight = 53;
+      const markWidth = 70;
+      const markHeight = 62;
 
       // init
       const map = new ymaps.Map('map', {
@@ -553,29 +553,29 @@ const BREAKPOINT = 1280;
         zoom: 14,
         controls: [],
       });
-      const zoomControl = new ymaps.control.ZoomControl({
-        options: {
-          size: 'small',
-          position: {
-            top: 205,
-            right: 10,
-          },
-        }
-      });
+      // const zoomControl = new ymaps.control.ZoomControl({
+      //   options: {
+      //     size: 'small',
+      //     position: {
+      //       top: 205,
+      //       right: 10,
+      //     },
+      //   }
+      // });
 
       // adaptive
-      const mediaQuery = window.matchMedia(`(min-width: ${MAIN_BREAKPOINT}px)`);
-      function mediaQueryChange() {
-        if (mediaQuery.matches) {
-          // desktop
-          map.controls.add(zoomControl);
-        } else {
-          // mobile
-          map.controls.remove(zoomControl);
-        }
-      }
-      mediaQueryChange();
-      mediaQuery.addListener(mediaQueryChange);
+      // const mediaQuery = window.matchMedia(`(min-width: ${BREAKPOINT}px)`);
+      // function mediaQueryChange() {
+      //   if (mediaQuery.matches) {
+      //     // desktop
+      //     map.controls.add(zoomControl);
+      //   } else {
+      //     // mobile
+      //     map.controls.remove(zoomControl);
+      //   }
+      // }
+      // mediaQueryChange();
+      // mediaQuery.addListener(mediaQueryChange);
 
       // balloon layout
       const layout = ymaps.templateLayoutFactory.createClass(
@@ -1067,6 +1067,7 @@ const BREAKPOINT = 1280;
 {
   $(() => {
     $.fancybox.defaults.closeExisting = true;
+    $.fancybox.defaults.touch = false;
 
     $('[data-fancy-button]').on('click', function (event) {
       event.preventDefault();
@@ -1095,16 +1096,32 @@ const BREAKPOINT = 1280;
 // slide description
 {
   $(() => {
-    if ($('.index').length !== 0) {
-      const indexSlide = $('.swiper-slide');
-      indexSlide.each(function() {
-        const slide = $(this);
-        const slideImg = slide.find('.index__mid-img');
-        const slideDesc = slide.find('.index__mid-description');
-        const imgWidth = slideImg.width();
 
-        slideDesc.css('max-width', imgWidth);
-      });
+    if ($('.index').length !== 0) {
+      const fps = 30;
+
+      update()
+
+      function update() {
+        const indexSlide = $('.swiper-slide');
+        indexSlide.each(function() {
+          const slide = $(this);
+          const slideImg = slide.find('.index__mid-img');
+          const slideDesc = slide.find('.index__mid-description');
+          const imgWidth = slideImg.width();
+
+          slideDesc.css('max-width', imgWidth);
+        });
+      }
+      
+      function resize() {
+        setTimeout (() => {
+          update()
+          $(window).one('resize', resize);
+        }, 1000 / fps);
+      };
+      
+      $(window).one('resize', resize)
     }
   });
 }
@@ -1272,8 +1289,6 @@ const BREAKPOINT = 1280;
     if (navModal.length !== 0) {
       const navModalButton = navModal.find('.header-section__button');
       const navModalDropdown = navModal.find('.header-section__dropdown');
-      console.log(navModalButton);
-
 
       navModalButton.on('click', function () {
         const navModalSectionClicked = $(this).closest('.header-section__item');

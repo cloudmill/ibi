@@ -37,7 +37,7 @@ block content
             .single-news__body.single-news__body--wide
               .single-news__head.single-news__head--small
                 .single-news__back-link
-                    a(href="#") Вернуться
+                    a(href="#") Все операции
               .team-filter.team-filter--long
                   ul.team-filter__container
                     li.team-filter__item(data-id="doctor") #имплантация
@@ -112,39 +112,51 @@ block content
             h3.title.title--m
               |Дневник пациента
             ul.diary  
-              -
-                var data = [
-                  {
-                    day: '5 дней до операции',
-                    text: 'Сдача анализов',
-                  },
-                  {
-                    day: '2 дня до операции',
-                    text: 'Проведение антропометрии, выбор и цвета и формы будущих зубов',
-                  },
-                  {
-                    day: 'День операции',
-                    text: 'Установка имплантантов strategic implant на верхнюю и нижнюю челюсти, проведена регистрация прикуса аппаратом Centrofix',
-                  },
-                  {
-                    day: '2 день операции',
-                    text: 'Установка металлоакриловых (условно-временные) мостов',
-                  },
-                  {
-                    day: '3 день операции',
-                    text: 'Установка металлоакриловых (условно-временные) мостов',
-                  },
-                ]
-              each item in data
-                li.diary__item 
-                  .diary__container 
-                    .diary__row 
-                      .diary__col
-                        .diary__day 
-                          |#{item.day}
-                      .diary__col
-                        p.diary__text 
-                          |#{item.text}
+              li.diary__item 
+                .diary__container 
+                  .diary__row 
+                    .diary__col
+                      .diary__day 
+                        |5 дней до операции
+                    .diary__col
+                      p.diary__text 
+                        |Сдача анализов
+              li.diary__item 
+                .diary__container 
+                  .diary__row 
+                    .diary__col
+                      .diary__day 
+                        |2 дня до операции
+                    .diary__col
+                      p.diary__text 
+                        |Проведение антропометрии, выбор и цвета и формы будущих зубов
+              li.diary__item 
+                .diary__container 
+                  .diary__row 
+                    .diary__col
+                      .diary__day 
+                        |День операции
+                    .diary__col
+                      p.diary__text 
+                        |Установка имплантантов strategic implant на верхнюю и нижнюю челюсти, проведена регистрация прикуса аппаратом Centrofix
+              li.diary__item 
+                .diary__container 
+                  .diary__row 
+                    .diary__col
+                      .diary__day 
+                        |2 день операции
+                    .diary__col
+                      p.diary__text 
+                        |Установка металлоакриловых (условно&#8209;ременные) мостов
+              li.diary__item 
+                .diary__container 
+                  .diary__row 
+                    .diary__col
+                      .diary__day 
+                        |3 день операции
+                    .diary__col
+                      p.diary__text 
+                        |Установка металлоакриловых (условно&#8209;временные) мостов
           h3.title.title--m
             |До и после
   // work-photo
@@ -174,6 +186,8 @@ block content
               |Отзыв
             .review 
               .review__layout 
+                img.review__img(src="assets/images/review-1.svg", alt="")
+                img.review__svg(src="assets/images/review-2.svg", alt="")
               .review__content
                 .review__row 
                   .review__col
@@ -326,7 +340,7 @@ block content
                   .swiper-wrapper
                     - for (let i=0; i<9; i++)
                       .swiper-slide
-                        .operation-card
+                        .operation-card.operation-card--responsive
                           .operation-card__row
                             .operation-card__col
                               .operation-card__image

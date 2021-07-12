@@ -21,10 +21,11 @@ block content
                 |Лаборатория IBI
               .section__block.section__block--small
                 .lab__subtitle IBI Lab – современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
-              img.lab__img(src="assets/images/laboratory.jpg", alt="")
+    section.section
+      .container
+        img.lab__img(src="assets/images/laboratory.jpg", alt="")
     section
       .container
-        
         .lab-target
           .lab-target__title Цель лаборатории
           .lab-target__txt
@@ -62,10 +63,21 @@ block content
                   +svg-arrow.button-arrow__svg
     section.development
       .container
-        .development__title Наши разработки
+        .development__row
+          .development__title 
+            |Наши разработки
+          .slider-control.slider-control--desktop
+            .slider-control__item
+              .button-arrow.button-arrow--blue-light.button-arrow--left
+                .button-arrow__button(data-slider-button='7')
+                  +svg-arrow.button-arrow__svg
+            .slider-control__item
+              .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
+                .button-arrow__button(data-slider-button='8')
+                  +svg-arrow.button-arrow__svg
         .development__names.swiper-container.swiper-container--slide-width-auto.swiper-container--visible
           .swiper-wrapper
-            .development__names-item.swiper-slide Металлокерамический мост
+            .development__names-item.swiper-slide.development__names-item--active Металлокерамический мост
             .development__names-item.swiper-slide Металлоакриловый мост
             .development__names-item.swiper-slide Мост ПММА
             .development__names-item.swiper-slide Протез (PRETTAU Zircon)

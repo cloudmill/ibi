@@ -331,8 +331,10 @@
   }
 
   &__link {
-    font-size: 18px;
-    line-height: 25px;
+    @include fsl(16px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(18px);
+    }
     transition: $transition;
 
     &:hover {
@@ -411,6 +413,50 @@
   }
   &__list-link {
     color: $color-main;
+  }
+
+
+  &__info-title {
+    @include fsl(20px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(40px);
+    }
+  }
+  &__info-link {
+    @include f-2(500);
+    color: $color-main;
+  }
+  &__info-row {
+    margin-top: 40px;
+    @media (min-width: $breakpoint) {
+      margin-top: 60px;
+
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+  }
+  &__info-col {
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        padding-left: calc(#{$col-part-d});
+        width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+      }
+    }
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 4 - #{$col-gap-d})
+      }
+      @media (max-width: $breakpoint - 1px) {
+        padding-top: 20px;
+      }
+    }
+  }
+  &__info-text {
+    @include fsl(14px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 160%);
+    }
   }
 
   // текст, информация
@@ -1123,6 +1169,19 @@
       #{$comp}__missions-links-text {
         color: $color-main;
       }
+      // #{$comp}__missions-links-svg {
+      //   path {
+      //     &:nth-child(1) {
+      //       transform: rotate(30deg);
+      //       fill: $color-main;
+      //     }
+
+      //     &:nth-child(3) {
+      //       fill: $color-white;
+      //       transform: translateX(10px);
+      //     }
+      //   }
+      // }
     }
   }
   &__missions-links-svg {
@@ -1130,6 +1189,11 @@
       height: auto;
       max-width: 30px;
     }
+    // transition: $transition;
+    // path {
+    //   transform-origin: center;
+    //   transition: $transition;
+    // }
   }
   &__missions-links-text {
     margin-left: 10px;

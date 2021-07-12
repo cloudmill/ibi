@@ -342,3 +342,8 @@ mixin header
                                   |#{link}
         .header-modal__nav
           .container
+            ul.header-modal__nav-links 
+              each link in ['Гарантии', 'Способы оплаты', 'Трансфер', 'Вопрос–ответ', 'Стоимость', 'Лаборатория', 'Публикации',] 
+                li.header-modal__nav-item 
+                  a.header-modal__nav-link(href="#") 
+                    |#{link}

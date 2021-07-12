@@ -3,11 +3,18 @@
   background-color: $color-white;
 
   &__container {
-    padding: 40px 0;
-
+    padding: 88px 0 40px;
     @media (min-width: $breakpoint) {
+      padding: 40px 0;
+
       width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
     }
+    @media (max-width: $breakpoint-m - 1px) {
+       @media (orientation: landscape) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
+    }
+   
   }
 
   &__inner {

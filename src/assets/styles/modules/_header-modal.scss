@@ -30,6 +30,7 @@
   }
   &--mobile {
     padding-top: 100px;
+    padding-bottom: 40px;
     position: fixed;
     bottom: 0;
     // transform: translateX(100%); // ?
@@ -116,10 +117,24 @@
       color: $color-main;
     }
   }
+
+  &__nav-item {
+    margin-top: 15px;
+  }
+  &__nav-link {
+    @include fsl(16px, 140%);
+    transition: $transition;
+
+    &:hover {
+      color: $color-main;
+    }
+  }
 }
 
 .header-section {
   $comp: &;
+  
+  border-bottom: 1px solid $color-gray-border;
 
   &__item {
     padding: 0 20px;
@@ -153,6 +168,23 @@
 
   &__section {
     border-top: 1px solid $color-gray-border; 
+
+    &--active {
+      border-color: $color-main;
+
+      #{$comp}__section-button {
+        .header__drop-text {
+          color: $color-main;
+        }
+
+        .header__drop-svg {
+          transform: rotate(180deg);
+          path {
+            fill: $color-main;
+          }
+        }
+      }
+    }
   }
 
   &__section-button {

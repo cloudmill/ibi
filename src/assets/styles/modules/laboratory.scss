@@ -1,8 +1,15 @@
 .lab {
   &__subtitle {
-    font-size: 30px;
-    width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
-    margin-bottom: 70px;
+    margin-bottom: 40px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 70px;
+
+      width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+      flex-shrink: 0;
+
+      @include fsl(30px);
+    }
+    @include fsl(18px, 140%);
   }
 
   &__img {
@@ -10,26 +17,42 @@
   }
 
   &-target {
-    
-    display: flex;
-    margin: 160px 0;
+    margin: 40px 0;
+    @media (min-width: $breakpoint) {
+      margin: 160px 0;
 
+      display: flex;
+      align-items: stretch;
+    }
     border-bottom: 1px solid $color-gray-border;
 
     &__title {
-      font-size: 40px;
+      @media (max-width: $breakpoint - 1px) {
+        margin-bottom: 20px;
+      }
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 6);
+        flex-shrink: 0;
 
-      width: calc(#{$col-part-d} * 6);
+        @include fsl(40px);
+      }
+      @include fsl(18px, 140%);
     }
 
     &__txt {
-      font-size: 18px;
-      line-height: 160%;
+      @media (min-width: $breakpoint - 1px) {
+        width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+        flex-shrink: 0;
 
-      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+        @include fsl(18px);
+      }
+      @include fsl(16px, 160%);
 
       p {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+        @media (min-width: $breakpoint) {
+          margin-bottom: 40px;
+        }
       }
 
       &-highlight {
@@ -42,32 +65,64 @@
   }
 
   &-block {
+    margin: 40px 0;
+    @media (min-width: $breakpoint) {
+      margin: 80px 0;
+    }
     display: flex;
-    margin: 80px 0;
+    align-items: stretch;
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
 
     &__video {
-      width: calc(#{$col-part-d} * 3);
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 3);
+        flex-shrink: 0;
+      }
 
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 40px;
+
+        order: 2;
+        display: flex;
+        align-items: stretch;
+      }
       &-link {
         display: flex;
         align-items: center;
 
-        width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+        @media (min-width: $breakpoint) {
+          width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+          @include fsl(18px);
+        }
+        @include fsl(14px, 140%);
+        cursor: pointer;
+        transition: $transition;
 
-        font-size: 18px;
+        &:hover {
+          color: $color-main;
+        }
       }
 
       &-svg {
-        margin-right: 20px;
-        width: calc(#{$col-part-d});
+        margin-right: 10px;
+        @media (min-width: $breakpoint) {
+          margin-right: 20px;
+        }
+        @media (max-width: $breakpoint - 1px) {
+          width: 30px;
+          height: 34px;
+        }
       }
     }
 
     &__txt {
-      width: calc(#{$col-part-d} * 9 - #{$col-gap-d});
-
-      font-size: 30px;
-      line-height: 140%;
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 9 - #{$col-gap-d});
+        @include fsl(30px);
+      }
+      @include fsl(18px, 140%);
 
       &-highlight {
         font-family: "PFRegalDisplayPro", serif;
@@ -80,73 +135,132 @@
 }
 
 .development {
-  margin: 160px 0 150px;
+  margin: 60px 0;
+  @media (min-width: $breakpoint) {
+    margin: 160px 0;
+  }
+
+  &__row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+  }
 
   &__title {
-    font-size: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 80px;
+      @include fsl(40px);
+    }
+    @include fsl(22px, 140%);
   }
 
   &__names {
+    @media (min-width: $breakpoint) {
+      padding-bottom: 80px;
+
+      border-bottom: 1px solid $color-main;
+    }
     display: flex;
-    padding-bottom: 80px;
-    border-bottom: 1px solid $color-main;
+    align-items: stretch;
 
     &-item {
-      margin-right: 40px;
-      cursor: pointer;
-      border-bottom: 1px solid transparent;
+      margin-right: 20px;
+      @media (min-width: $breakpoint) {
+        margin-right: 40px;
+      }
       width: auto;
 
-      transition: .2s;
+      cursor: pointer;
+      transition: $transition;
+
+      &--active {
+        padding-bottom: 5px;
+
+        color: $color-main;
+        border-bottom: 1px solid $color-main;
+      }
     }
 
     &-item:hover {
       color: $color-main;
-      border-bottom: 1px solid $color-main;
     }
   }
 
   &__desc {
-    margin-top: 55px;
-
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      margin-top: 55px;
+    }
     &-item {
-      display: flex;
+      @media (min-width: $breakpoint) {
+        display: flex;
+        align-items: stretch;
+      }
     }
   }
 
   &__img {
-    width: calc(#{$col-part-d} * 5);
+    @media (min-width: $breakpoint) {
+      margin-right: calc(#{$col-part-d});
+      
+      width: calc(#{$col-part-d} * 5);
+      flex-shrink: 0;
+    }
     height: 460px;
-    background-color: $color-gray-border;
+    @media (max-width: $breakpoint-m - 1px) {
+      height: 226px;
+    }
 
-    margin-right: calc(#{$col-part-d});
+    background-color: $color-gray-border;
   }
 
   &__txt {
-    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+      flex-shrink: 0;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      margin-top: 40px;
+    }
 
     p {
-      font-size: 22px;
+      @include fsl(18px, 140%);
+      @media (min-width: $breakpoint) {
+        @include fsl(22px);
+      }
     }
 
     ul {
-      margin-top: 60px;
+      margin-top: 30px;
+      @media (min-width: $breakpoint) {
+        margin-top: 60px;
+      }
       counter-reset: list1;
     }
 
     ul li {
-      padding-left: calc(#{$col-width-d});
-      margin-bottom: 30px;
+      padding-left: calc(#{$col-width-m});
+      @media (min-width: $breakpoint) {
+        padding-left: calc(#{$col-width-d});
+      }
+      position: relative;
 
-      display: flex;
+      &:not(:first-child) {
+        margin-top: 30px;
+        @media (max-width: $breakpoint-m - 1px) {
+          margin-top: 20px;
+        }
+      }
 
       p {
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 160%;
-
-        width: calc(#{$col-part-d} * 3);
+        @media (min-width: $breakpoint) {
+          width: calc(#{$col-part-d} * 3);
+          @include fsl(16px);
+        } 
+        @include fsl(14px, 160%);
       }
     }
     
@@ -169,58 +283,97 @@
 }
 
 .lab-circles {
+  padding: 40px 0;
+  @media (min-width: $breakpoint) {
+    padding: 100px 0;
+  }
   background-color: $color-blue-light;
-  padding: 100px 0;
 
   .container {
-    display: flex;
+    @media (min-width: $breakpoint) {
+      display: flex;
+      align-items: stretch;
+    }
   }
 
   &__img {
-    width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+    }
     text-align: center;
   }
 
   &__desc {
-    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
-    padding: 130px 0 0 calc(#{$col-gap-d});
+    padding-top: 13px;
+    @media (min-width: $breakpoint) {
+      padding: 130px 0 0 calc(#{$col-gap-d});
+
+      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    }
   }
 
   &__title {
-    font-size: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 40px;
+
+      @include fsl(40px);
+    }
+    @include fsl(18px, 140%);
   }
 
   &__txt {
     p {
-      font-size: 18px;
-      line-height: 160%;
-      margin-bottom: 20px;
+      @include fsl(14px, 160%);
+      @media (min-width: $breakpoint) {
+        @include fsl(18px);
+      }
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
     }
   }
 }
 
 .lab-team {
-  padding: 160px 0;
+  padding: 60px 0;
+  @media (min-width: $breakpoint) {
+    padding: 160px 0;
+  }
 
   .container {
-    display: flex;
+    @media (min-width: $breakpoint) {
+      display: flex;
+      align-items: stretch;
+    }
   }
 
   &__title {
-    width: calc(#{$col-part-d} * 3);
-    font-size: 40px;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 3);
+      @include fsl(40px);
+    }
+    @include fsl(22px, 140%);
   }
 
   &__list {
-    width: calc(#{$col-part-d} * 9 - #{$col-gap-d});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 9 - #{$col-gap-d});
+    }
   }
 
   &__subtitle {
-    margin-left: calc(#{$col-part-d} * 3);
-    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    @media (min-width: $breakpoint) {
+      margin-left: calc(#{$col-part-d} * 3);
 
-    font-size: 18px;
-    line-height: 160%;
+      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+      @include fsl(18px);
+    }
+    @include fsl(16px, 160%);  
+    @media (max-width: $breakpoint - 1px) {
+      margin-top: 20px;
+    }    
   }
 }

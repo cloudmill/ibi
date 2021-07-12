@@ -16,9 +16,16 @@
     font-size: 40px;
     line-height: 110%;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 22px;
       line-height: 140%;
+    }
+
+    &--big {
+      @include fsl(22px, 140%);
+      @media (min-width: $breakpoint) {
+        @include fsl(40px);
+      }
     }
   }
 
@@ -142,6 +149,18 @@
 
     ul {
       margin: 60px 0;
+
+      ul {
+        margin: 0;
+
+        li {
+          margin: 10px 0;
+
+          &::before {
+            background-color: $color-black;
+          }
+        }
+      }
     }
 
     .last-ul {
@@ -152,7 +171,11 @@
       margin: 20px 0;
       padding-left: calc(#{$col-part-d} - #{$col-gap-d});
 
-      @media (max-width: $breakpoint-m) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+      }
+
+      @media (max-width: $breakpoint-m - 1px) {
         font-size: 14px;
       }
     }
@@ -196,6 +219,8 @@
 // Боковая плашка с кнопками соцсетей
 
 .share-social {
+  $comp: &;
+
   padding-top: 174px;
   display: flex;
   justify-content: flex-end;
@@ -203,19 +228,29 @@
 
   width: calc(#{$col-part-d} * 3);
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
     padding-top: 0;
     margin: 60px 0;
     justify-content: flex-start;
     width: 100%;
   }
 
+  &--default {
+    @media (max-width: $breakpoint - 1px) {
+      margin: 0;
+    }
+  }
+
   &__box {
     position: fixed;
     z-index: 1;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       position: static;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
     }
   }
 
@@ -224,9 +259,16 @@
   }
 
   &__link {
+    $size-d: 80px;
+    $size-m: 55px;
+
+    width: $size-m;
+    height: $size-m;
+    @media (min-width: $breakpoint) {
+      width: $size-d;
+      height: $size-d;
+    }
     border: 1px solid $color-main;
-    width: 80px;
-    height: 80px;
 
       svg path {
         fill: $color-main;

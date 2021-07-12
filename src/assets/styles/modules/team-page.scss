@@ -53,6 +53,15 @@
     line-height: 140%;
 
     cursor: pointer;
+    transition: $transition;
+
+    &--active {
+      color: $color-main;
+    }
+
+    &:hover {
+      color: $color-main;
+    }
   }
 
   &__reset {
