@@ -44,14 +44,13 @@
     font-size: 50px;
     line-height: 140%;
     max-width: 100%;
-    padding-left: calc(#{$col-part-d} + 10px);
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 35px;
       padding-left: 0;
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       font-size: 20px;
     }
 
@@ -276,7 +275,9 @@
       }
       
       p, ul {
-        margin-left: 40px;
+        @media (max-width: $breakpoint - 1px) {
+          margin-left: 40px;
+        }
       }
 
       li {
