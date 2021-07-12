@@ -543,8 +543,8 @@ const BREAKPOINT = 1280;
 
     if (mapContainer.length !== 0) {
       // vars
-      const markWidth = 42;
-      const markHeight = 53;
+      const markWidth = 70;
+      const markHeight = 62;
 
       // init
       const map = new ymaps.Map('map', {
@@ -552,29 +552,29 @@ const BREAKPOINT = 1280;
         zoom: 14,
         controls: [],
       });
-      const zoomControl = new ymaps.control.ZoomControl({
-        options: {
-          size: 'small',
-          position: {
-            top: 205,
-            right: 10,
-          },
-        }
-      });
+      // const zoomControl = new ymaps.control.ZoomControl({
+      //   options: {
+      //     size: 'small',
+      //     position: {
+      //       top: 205,
+      //       right: 10,
+      //     },
+      //   }
+      // });
 
       // adaptive
-      const mediaQuery = window.matchMedia(`(min-width: ${MAIN_BREAKPOINT}px)`);
-      function mediaQueryChange() {
-        if (mediaQuery.matches) {
-          // desktop
-          map.controls.add(zoomControl);
-        } else {
-          // mobile
-          map.controls.remove(zoomControl);
-        }
-      }
-      mediaQueryChange();
-      mediaQuery.addListener(mediaQueryChange);
+      // const mediaQuery = window.matchMedia(`(min-width: ${BREAKPOINT}px)`);
+      // function mediaQueryChange() {
+      //   if (mediaQuery.matches) {
+      //     // desktop
+      //     map.controls.add(zoomControl);
+      //   } else {
+      //     // mobile
+      //     map.controls.remove(zoomControl);
+      //   }
+      // }
+      // mediaQueryChange();
+      // mediaQuery.addListener(mediaQueryChange);
 
       // balloon layout
       const layout = ymaps.templateLayoutFactory.createClass(

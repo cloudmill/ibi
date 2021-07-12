@@ -199,3 +199,17 @@
     margin-right: -40px;
   }
 }
+
+.placemarks {
+  display: none;
+}
+
+.balloon {
+  position: absolute;
+
+  &__content {
+    padding: 20px;
+
+    background-color: $color-white;
+  }
+}
