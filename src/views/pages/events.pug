@@ -24,7 +24,7 @@ block content
                           |#{item}
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
-                        |Мероприятие
+                        |Мероприятия
                     each item in ['Библиотека', 'Обучение', 'Юридическая помощь', 'Наши разработки']
                       li.nav__item
                         a.nav__link(href='#')
@@ -43,11 +43,11 @@ block content
           .section__inner.section__inner--top
             .container
               h1.title
-                |Мероприятие
+                |Мероприятия
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
                   h5.mission__spoiler-title
-                    |Мероприятие
+                    |Мероприятия
                   .news-spoiler__image
                     +arrow-svg('header__drop-svg')
                 .mission__spoiler-drop.news-spoiler__drop
@@ -60,6 +60,9 @@ block content
               .section__block.section__block--small
                 //- .container
                 ul.about__list
+                  include ../components/event-list-card
+                  include ../components/event-list-card
+                  include ../components/event-list-card
                   include ../components/event-list-card
                   include ../components/event-list-card
                   include ../components/event-list-card

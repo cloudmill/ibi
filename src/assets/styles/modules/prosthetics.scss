@@ -27,8 +27,9 @@
       padding: 0 0 0 40px;
     }
     .mission__spoiler-drop.news-spoiler__drop {
-      padding-left: 40px;
-      padding-top: 20px;
+      // padding-left: 40px;
+      // padding-top: 20px;
+      padding: 0 0 0 40px;
     }
   
     .nav__item--active .nav__link {
@@ -149,7 +150,6 @@
 
       @media (max-width: $breakpoint-m) {
         margin-bottom: 40px;
-        
       }
     }
 
@@ -157,6 +157,15 @@
       margin-bottom: 0;
     }
   }
+}
+
+.prosthetics-txt-highlight {
+  font-family: $ff-alt;
+  font-style: italic;
+  color: $color-main;
+  font-weight: 700;
+  line-height: 140%;
+  font-size: 20px;
 }
 
 .prosthetics-block__lab {
@@ -286,7 +295,7 @@
 
     .practice-circle {
       // margin: 40px 0;
-      width: 27px;
+      max-width: 41px;
       flex: none;
       // @media (max-width: $breakpoint) {
       //   min-width: 27px;
