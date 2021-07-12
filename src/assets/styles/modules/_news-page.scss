@@ -190,21 +190,22 @@
   
     &__date {
       // width: calc(#{$col-part-d});
+      flex-shrink: 0;
       width: calc((#{$col-part-d} * 3 - #{$col-gap-d}) / 2);
       color: $color-main;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         width: calc(#{$col-part-m} / 2);
         padding-right: 10px;
       }
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
           order: -1;
           width: 100%;
           margin-bottom: 20px;
       }
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         font-size: 12px;
         }
     }
