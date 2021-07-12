@@ -224,8 +224,6 @@
   padding-top: 174px;
   display: flex;
   justify-content: flex-end;
-  position: relative;
-
   width: calc(#{$col-part-d} * 3);
 
   @media (max-width: $breakpoint - 1px) {
@@ -242,8 +240,6 @@
   }
 
   &__box {
-    position: fixed;
-    z-index: 1;
 
     @media (max-width: $breakpoint - 1px) {
       position: static;
@@ -343,7 +339,10 @@
   }
 }
 
-
+// sticky
+.sticky {
+  z-index: 100;
+}
 
 
 

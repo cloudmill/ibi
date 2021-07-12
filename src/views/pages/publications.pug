@@ -4,11 +4,11 @@ include ../components/_header.pug
 include ../components/_footer.pug
 
 block content 
-  section.section.section--gradient
+  section.section.section--gradient(data-sticky-container)
     .row 
       .row__col
         .section__inner.section__inner--top
-          .articles-authors
+          .articles-authors.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
             .articles-authors__container
               .articles-authors__title 
                 |Авторы статей
