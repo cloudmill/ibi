@@ -17,36 +17,100 @@ block content
             .nav
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
-                  ul.nav__list
+                  ul.nav__list.prosthetics-nav
                     each item in ['Strategic Implant']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
-                    li.nav__item.nav__item--active
-                      a.nav__link(href='#')
-                        |Обучение
+                    li.mission__spoiler
+                      .nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
+                        a.nav__link(href='#')
+                          |Обучение
+                        .news-spoiler__image
+                          +arrow-svg('header__drop-svg')
+                      .mission__spoiler-drop.news-spoiler__drop
+                        nav.news-spoiler__nav.prosthetics-spoiler__drop
+                          ul
+                            each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                              li.news-spoiler__nav-item
+                                a.nav__link(href='#')
+                                  |#{item}
                     each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
         .row__col
-          .section__inner.section__inner--top
-            .container
+          .section__inner--top
+            .container.training-page
               h1.title
-                |Обучение
+                |Хирургический этап
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
+                  h5.mission__spoiler-title.prosthetics-spoiler
                     |Обучение
+                    +arrow-link-svg('prosthetics-link-svg')
                   .news-spoiler__image
                     +arrow-svg('header__drop-svg')
                 .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop.training-drop
                     ul
-                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                      each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
                         li.news-spoiler__nav-item
                           a.nav__link(href='#')
                             |#{item}
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              //- .section__block--small
+              h2.training-page-title Теоретическая часть
+              .single-news__txt
+                ul.last-ul
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque perspiciatis quia officia consequuntur. Expedita facere exercitationem molestias vitae tenetur molestiae?
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+              h2.training-page-title Практическая часть
+              .single-news__txt
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro iure, sed veritatis odio amet omnis modi rem cumque blanditiis hic consequuntur architecto praesentium a reiciendis, asperiores velit facilis voluptatibus fugit.
+                ul.last-ul
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque perspiciatis quia officia consequuntur. Expedita facere exercitationem molestias vitae tenetur molestiae?
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+              .news-subscribe.member-page-ask
+                h2.news-subscribe__title.member-page-ask__title Оставить заявку на обучение
+                form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+                  .member-page-ask__form-wrapper
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+                    label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                        input(type="checkbox" required="")
+                        p Согласен на обработку персональных данных в соответствии с 
+                            a(href="#") политикой конфиденциальности
+                    button.news-subscribe__form-btn(type="submit")
+                        +arrow-link-svg('news-subscribe__form-btn-ico')
+                        |Отправить
+              
+
+
+  //- section.section
+  //-   .row
+  //-     .row__col
+  //-     .row__col
+  //-       .container
 
 
 block footer
