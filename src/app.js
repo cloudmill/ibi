@@ -3,6 +3,7 @@ import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
+import Sticky from 'sticky-js';
 
 const BREAKPOINT = 1280;
 
@@ -277,6 +278,15 @@ const BREAKPOINT = 1280;
           slider_swiper.slideNext();
         });
       });
+    }
+  });
+}
+
+// sticky
+{
+  $(() => {
+    if ($('.sticky').length !== 0) {
+      const sticky = new Sticky('.sticky');
     }
   });
 }
