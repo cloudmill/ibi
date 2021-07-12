@@ -60,11 +60,16 @@
     flex-shrink: 0;
 
     &:nth-child(1) {
-      width: calc(#{$col-part} * 3 - #{$col-gap});
+      @media (min-width: $breakpoint-ll) {
+        width: calc(#{$col-part} * 3 - #{$col-gap});
+      }
     }
     &:nth-child(2) {
-      margin-left: $col-gap;
-      width: calc(#{$col-part} * 9 - #{$col-gap});
+      margin-left: 50px;
+      @media (min-width: $breakpoint-ll) {
+        margin-left: $col-gap;
+        width: calc(#{$col-part} * 9 - #{$col-gap});
+      }
     }
   }
 
