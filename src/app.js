@@ -39,6 +39,13 @@ const BREAKPOINT = 1280;
         btn.on('click', function () {
           const id = $(this).data('modal-button');
           state.change(id);
+
+          const modalActive = header.find('[data-modal-active]');
+          if (modalActive.length !== 0) {
+            header.addClass('header--modal')
+          } else {
+            header.removeClass('header--modal')
+          }
         });
 
         $(window).on('click', event => {
@@ -54,6 +61,7 @@ const BREAKPOINT = 1280;
 
           if (!isClickArea) {
             state.change(null);
+            header.removeClass('header--modal')
           }
         });
 
@@ -62,6 +70,8 @@ const BREAKPOINT = 1280;
         breakpoint.addListener((event) => {
           state.change(null);
         });
+
+        
       }
     }
   });
@@ -1145,13 +1155,14 @@ const BREAKPOINT = 1280;
 
       $(window).on('scroll', function () {
         const currentTop = $(window).scrollTop();
-
-        if (currentTop < previousTop) {
-          header.removeClass('header--scroll--down');
-          header.addClass('header--scroll--up');
-        } else {
-          header.removeClass('header--scroll--up');
-          header.addClass('header--scroll--down');
+        if (!header.hasClass('header--modal')) {
+          if (currentTop < previousTop) {
+            header.removeClass('header--scroll--down');
+            header.addClass('header--scroll--up');
+          } else {
+            header.removeClass('header--scroll--up');
+            header.addClass('header--scroll--down');
+          }
         }
 
         if (currentTop < 1) {

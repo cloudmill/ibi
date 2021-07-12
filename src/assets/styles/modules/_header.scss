@@ -14,7 +14,13 @@
 
   transition: $transition;
 
+  &--modal {
+    background-color: $color-blue-light;
+  }
+
   &--scroll {
+    background-color: $color-blue-light;
+
     #{$component}__inner {
       @media (min-width: $breakpoint) {
         padding: 15px 0;
@@ -24,8 +30,6 @@
 
   &--scroll--up {
     transform: translateY(0);
-
-    background-color: $color-blue-light;
   }
 
   &--scroll--down {
@@ -36,7 +40,6 @@
     position: relative;
     z-index: 1;
 
-    transition: $transition;
 
     // background-color: lightblue; // ?
   }
@@ -46,6 +49,7 @@
     @media (min-width: $breakpoint) {
       padding: 40px 0;
     }
+    transition: $transition;
   }
 
   &__row {
