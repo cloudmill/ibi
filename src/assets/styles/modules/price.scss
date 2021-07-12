@@ -1,4 +1,6 @@
 .price {
+  $comp: &;
+
   &__note {
     font-size: 14px;
     line-height: 160%;
@@ -12,6 +14,20 @@
 
     .extra-btn {
       width: 44px;
+    }
+  }
+
+  &--mobile {
+    display: block;
+    @media (min-width: $breakpoint - 1px) {
+      display: none;
+    }
+
+    #{$comp}__note {
+      margin-left: 0;
+    }
+    #{$comp}__btn {
+      margin-left: 0;
     }
   }
 }
