@@ -13,32 +13,32 @@ block content
   section.section.section--gradient
       .row
         .row__col
-          .section__inner.section__inner--top
+          .section__inner--top
             .nav
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
-                  ul.nav__list
+                  ul.nav__list.prosthetics-nav
                     each item in ['Strategic Implant']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
-                    li.nav__item.nav__item--active
-                      a.nav__link(href='#')
-                        |Обучение
-                    each item in ['Библиотека', 'Юридическая помощь', 'Наши разработки']
+                    li.mission__spoiler
+                      .nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
+                        a.nav__link(href='#')
+                          |Обучение
+                        .news-spoiler__image
+                          +arrow-svg('header__drop-svg')
+                      .mission__spoiler-drop.news-spoiler__drop
+                        nav.news-spoiler__nav.prosthetics-spoiler__drop
+                          ul
+                            each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                              li.news-spoiler__nav-item
+                                a.nav__link(href='#')
+                                  |#{item}
+                    each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
-            .team-filter
-              ul.team-filter__container
-                li.team-filter__item(data-id="doctor") #вебинар
-                li.team-filter__item(data-id="dentist") #оффлайн
-                li.team-filter__item(data-id="admin") #конференция
-                li.team-filter__item(data-id="coordinator") #курсы
-                li.team-filter__item(data-id="coordinator") #повышение квалификации
-              button.team-filter__reset
-                +reset-svg('team-filter__reset-ico')
-                |Сбросить
         .row__col
           .section__inner.section__inner--top
             .container
@@ -46,31 +46,103 @@ block content
                 |Обучение
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
+                  h5.mission__spoiler-title.prosthetics-spoiler
                     |Обучение
+                    +arrow-link-svg('prosthetics-link-svg')
                   .news-spoiler__image
                     +arrow-svg('header__drop-svg')
                 .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop.training-drop
                     ul
-                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+                      each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
                         li.news-spoiler__nav-item
                           a.nav__link(href='#')
                             |#{item}
-              .section__block.section__block--small
-                //- .container
-                ul.about__list
-                  include ../components/event-list-card
-                  include ../components/event-list-card
-                  include ../components/event-list-card
-                .news-show-more
-                  button.news-show-more-btn
-                    .news-show-more-ico
-                        +arrow-link-svg('news__link-ico')
-                    .news-show-more-txt Показать еще
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              .section__block--small
+                img.training-main-img(src="assets/images/0price.jpg", alt="")
 
+                .legal-support__desc.spec-implant-desc
+                  |Обучение методике базальной имплантации состоит из теоретической и практической части.
+                .spec-implant-block.training-list 
+                  h2.spec-implant-block__ttl.training-list__ttl Теоретическая часть
+                  .spec-implant-block__desc.training-list__desc.single-news__txt
+                    ul
+                      li Подробный разбор протокола эффективного протезирования
+                      li Зуботехническое изготовление основных типов конструкций.
+                .spec-implant-block.training-list
+                  h2.spec-implant-block__ttl.training-list__ttl Практическая часть
+                  .spec-implant-block__desc.training-list__desc.single-news__txt
+                    ul
+                      li Установка базальных имплантатов на композитных макетах полученных по реальным КТ исследованиям
+                      li Изготавление ортопедических конструкций в зуботехнической лаборатории по полученным оттискам
+  section.section__inner.section--blue-light
+    .row
+      .row__col
+      .row__col
+        .container.training-stages
+          h3.training-cards__ttl Этапы обучения
+          .transfer-numbers__wrapper
+            a.transfer-numbers__item(href="")
+              .transfer-numbers__count
+                .transfer-numbers__big
+                  p 1
+                .transfer-numbers__desc
+                  .transfer-numbers__desc-ttl Хирургический этап
+                  +arrow-link-svg
+            a.transfer-numbers__item(href="")
+              .transfer-numbers__count
+                .transfer-numbers__big
+                  p 2
+                .transfer-numbers__desc
+                  .transfer-numbers__desc-ttl Зуботехнический этап
+                  +arrow-link-svg
+            a.transfer-numbers__item(href="")
+              .transfer-numbers__count
+                .transfer-numbers__big
+                  p 3
+                .transfer-numbers__desc
+                  .transfer-numbers__desc-ttl Ортопедический этап
+                  +arrow-link-svg
+          .training-cards
+            h3.training-cards__ttl Требования к специалистам
+            .training-cards__txt *Носит рекомендательный характер
+            .training-cards__row
+              .training-cards__item
+                +training-ico1
+                p Действующий сертификат государственного образца — стоматология хирургическая, ортопедическая
+              .training-cards__item
+                +training-ico2
+                p Стаж работы по сертификату не менее 3 лет
 
-
+  section.section
+    .row
+      .row__col
+      .row__col
+        .container.news-subscribe.member-page-ask
+          h2.news-subscribe__title.member-page-ask__title Оставить заявку на обучение
+          form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+            .member-page-ask__form-wrapper
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+              label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                  input(type="checkbox" required="")
+                  p Согласен на обработку персональных данных в соответствии с 
+                      a(href="#") политикой конфиденциальности
+              button.news-subscribe__form-btn(type="submit")
+                  +arrow-link-svg('news-subscribe__form-btn-ico')
+                  |Отправить
 
 block footer
   +footer({

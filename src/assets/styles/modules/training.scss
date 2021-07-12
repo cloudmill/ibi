@@ -1,113 +1,265 @@
-.training-page {
+.training-drop {
+  margin: 0 0 20px 20px;
+}
 
-  .single-news__head {
-    margin-bottom: 100px;
+.training-main-img {
+  width: 100%;
+}
 
-    .single-news__back-link {
-      margin-bottom: 0;
-    }
-
-    @media (max-width: $breakpoint) {
-      margin-bottom: 40px;
-    }
-  }
-
-  &__about {
-    margin: 100px 0 60px;
+.training-list {
+  &__ttl {
+    font-size: 30px;
+    width: calc(#{$col-part-d} * 4);
 
     @media (max-width: $breakpoint) {
-      margin: 40px 0;
-    }
-  }
+      width: calc(#{$col-part-m});
 
-  &__icons {
-    display: flex;
-    padding-bottom: 15px;
-    border-bottom: 1px solid $color-main;
-
-    @media (max-width: $breakpoint-m) {
-      flex-wrap: wrap;
-    }
-
-    &-item {
-      display: flex;
-      align-items: center;
-
-      margin-right: 20px;
-
-      @media (max-width: $breakpoint) {
-        font-size: 14px;
-      }
-
-      @media (max-width: $breakpoint-m) {
-        width: calc(#{$col-part-m} * 2);
-        margin-right: 0;
-        margin-bottom: 10px;
-      }
-
-      svg {
-        margin-right: 10px;
-        flex: none;
-      }
-    }
-
-    &-item:nth-child(2n) {
-      @media (max-width: $breakpoint-m) {
-        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
-      }
-    }
-  }
-
-  &__tags {
-    display: flex;
-    margin-top: 27px;
-
-    &-item {
-      margin-right: 10px;
-
-      font-size: 14px;
-      line-height: 140%;
-
-      @media (max-width: $breakpoint) {
-        font-size: 12px;
-      }
-    }
-  }
-
-  &__save {
-    @media (max-width: $breakpoint) {
-      display: none;
-    }
-  }
-
-  .vacancies-list__extra-btn {
-    margin: 60px 0 160px;
-
-    @media (max-width: $breakpoint) {
-      margin: 40px 0 60px;
+      font-size: 16px;
     }
 
     @media (max-width: $breakpoint-m) {
       width: 100%;
-      justify-content: center;
+    }
+  }
+
+  &__desc {
+    width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+    padding-left: 0;
+
+    @media (max-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      font-size: 14px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+    }
+
+    ul {
+      margin: 0;
+
+      li:first-child {
+        margin-top: 0;
+      }
     }
   }
 }
 
-.training-mobile-date {
-  display: flex;
+.training-list:last-child {
+  margin-bottom: 0;
+}
 
-  div {
-    display: flex;
-    align-items: center;
+.training-stages {
 
-    svg {
-      flex:none;
-      margin-right: 10px;
+  .training-cards__ttl:first-child {
+    margin-bottom: 80px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 50px;
     }
   }
 
-  div:first-child {
-    margin-right: 20px;
+  .transfer-numbers {
+
+    &__wrapper {
+      flex-direction: unset;
+      justify-content: space-between;
+
+      @media (max-width: $breakpoint) {
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: $breakpoint-m) {
+        flex-direction: column;
+      }
+    }
+
+    &__item {
+      margin: 0;
+      width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+
+      @media (max-width: $breakpoint) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+        margin-bottom: calc(#{$col-gap-m});
+      }
+
+      @media (max-width: $breakpoint-m) {
+        width: 100%
+      }
+    }
+
+    &__item:first-child {
+      margin: 0;
+
+      @media (max-width: $breakpoint) {
+        margin-bottom: calc(#{$col-gap-m});
+      }
+    }
+
+    &__item:nth-child(2n) {
+      margin: 0;
+
+      @media (max-width: $breakpoint) {
+        margin-bottom: calc(#{$col-gap-m});
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
+
+      @media (max-width: $breakpoint-m) {
+        width: 100%
+      }
+
+      .transfer-numbers__count .transfer-numbers__desc {
+        padding: 40px 40px 40px 0;
+
+        @media (max-width: $breakpoint-m) {
+          padding: 20px 10px 10px 0;
+        }
+      }
+    }
+
+    &__count {
+      width: unset;
+
+      @media (max-width: $breakpoint-m) {
+        justify-content: space-between;
+      }
+    }
+
+    &__desc {
+      // padding: 0;
+      width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      margin-left: calc( -1 * (#{$col-width-d}));
+      padding: 40px 40px 40px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media (max-width: $breakpoint) {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      @media (max-width: $breakpoint-m) {
+        width: calc(#{$col-part-m} * 3);
+        padding: 20px 10px 10px 0;
+      }
+
+      &-ttl {
+        width: unset;
+        font-size: 22px;
+        // word-break: break-all;
+
+        @media (max-width: $breakpoint) {
+          font-size: 16px;
+        }
+      }
+
+      svg {
+        align-self: flex-end;
+        min-width: 60px;
+      }
+    }
+  }
+  
+}
+
+.training-cards {
+  margin-top: 160px;
+
+  @media (max-width: $breakpoint) {
+    margin-top: 80px;
+  }
+
+  &__ttl {
+    font-size: 40px;
+    line-height: 140%;
+
+    @media (max-width: $breakpoint) {
+      font-size: 22px;
+    }
+  }
+
+  &__txt {
+    color: $color-main;
+    font-size: 12px;
+    line-height: 140%;
+    margin-top: 27px;
+
+    @media (max-width: $breakpoint) {
+      margin-top: 10px;
+    }
+  }
+
+  &__row {
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $breakpoint) {
+      margin-top: 40px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    width: calc(50% - 20px);
+    background-color: #fff;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: $breakpoint) {
+      width: calc(50% - 10px);
+    }
+
+    @media (max-width: $breakpoint-m) {
+      width: 100%;
+
+    }
+
+    p {
+      margin-top: 45px;
+      font-size: 16px;
+      line-height: 140%;
+    }
+  }
+
+  &__item:first-child {
+    margin-bottom: 10px;
+  }
+}
+
+.training-page-title {
+  font-size: 40px;
+  line-height: 140%;
+
+  margin: 160px 0 60px;
+
+  @media (max-width: $breakpoint) {
+    font-size: 22px;
+    margin: 60px 0 20px;
+  }
+}
+
+.training-page-title:first-child {
+  @media (max-width: $breakpoint) {
+    margin-top: 40px;
+  }
+}
+
+.training-page {
+  .single-news__txt ul {
+    @media (max-width: $breakpoint) {
+      margin: 20px 0;
+    }
+  }
+
+  .member-page-ask {
+    padding-left: 0;
   }
 }

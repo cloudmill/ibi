@@ -30,13 +30,26 @@ block content
             .container.single-news
               h1.title.single-news__title
                 |Базальная имплантация
-              .legal-support__desc
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Базальная имплантация
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['Способы оплаты', 'Трансфер', 'Вопрос-ответ']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              .legal-support__desc.spec-implant-desc
                 |Базальная имплантация Strategic Implant — уникальная система по установке имплантатов, позволяющая провести операцию в любых клинических ситуациях, вне зависимости от объема костной ткани.
               .spec-implant-block
                 h2.spec-implant-block__ttl Концепция
                 .spec-implant-block__desc
                   p Подбираем необходимый тип имплантата 
-                    span под индивидуальное строение и объем костной ткани конкретного пациента, 
+                    span.spec-implant-block__desc-highlight под индивидуальное строение и объем костной ткани конкретного пациента, 
                     | а не «наращиваем» кости под имеющийся размер имплантата.
                   p Метод работает исключительно в концепции Immediate loading (немедленная нагрузка).
               .spec-implant-block
@@ -120,23 +133,93 @@ block content
     .row
       .row__col
       .row__col
-        h2 Импланты для базальной ипмлпантации
+        .container
+          .spec-implant-cards-top
+            h2.spec-implant-hexagon-ttl Импланты для базальной ипмлпантации
+            a.specialists-events__link(href="")
+              .mission__missions-links-link
+                +arrow-link-svg('news__link-ico')
+                .mission__missions-links-text
+                  |Подробнее
+          .spec-implant-cards
+            .spec-implant-cards__item
+              .spec-implant-cards__item-img
+                img(src="assets/images/spec-implant-img1.png", alt="")
+              .spec-implant-cards__item-ttl BECES
+            .spec-implant-cards__item
+              .spec-implant-cards__item-img
+                img(src="assets/images/spec-implant-img1.png", alt="")
+              .spec-implant-cards__item-ttl KOS
+            .spec-implant-cards__item
+              .spec-implant-cards__item-img
+                img(src="assets/images/spec-implant-img1.png", alt="")
+              .spec-implant-cards__item-ttl KOS+
   section.section__inner
     .row
       .row__col
       .row__col
-        h2 Ценность базальной имплантации для пациента
-        .spec-implant-hexagon
-          .spec-implant-hexagon__box
-            .spec-implant-hexagon__txt
-              .spec-implant-hexagon__txt-ttl Плотная фиксация
-              .spec-implant-hexagon__txt-desc Имплантаты в концепции Strategic Implant® фиксируются в плотной кортикальной кости, которая в связи с высоким уровнем минерализации, готова к нагрузке и обеспечивает остеофиксацию.
-            +spec-implant-hexagon-svg('spec-implant-hexagon__svg')
-          .spec-implant-hexagon__box
-            .spec-implant-hexagon__txt
-              .spec-implant-hexagon__txt-ttl Прочная конструкция уже через 3 дня
-              .spec-implant-hexagon__txt-desc Это дает возможность осуществлять немедленное протезирование и устанавливать ортопедические конструкции сразу же после имплантации. Даже при выраженной степени атрофии кости и полном отсутствии зубов пациент получит прочную, функциональную конструкцию на имплантатах уже через 3 дня.
-            +spec-implant-hexagon-svg('spec-implant-hexagon__svg')
+        .container
+          h2.spec-implant-hexagon-ttl Ценность базальной имплантации для пациента
+          .spec-implant-hexagon
+            .spec-implant-hexagon__box.hexagon-box-list
+              .spec-implant-hexagon__txt
+                .spec-implant-hexagon__txt-ttl Универсальность метода
+                .spec-implant-hexagon__txt-desc Метод Базальной Имплантации успешно применим практически во всех клинических случаях, независимо от степени атрофии костной ткани, а также пациентам с полной адентией – то есть отсутствием всех зубов в ряду.
+              +spec-implant-hexagon-svg('spec-implant-hexagon__svg')
+            .spec-implant-hexagon__box.hexagon-box-list
+              .spec-implant-hexagon__txt
+                .spec-implant-hexagon__txt-ttl Результат после одной операции
+                .spec-implant-hexagon__txt-desc Потребуется всего одна операция. Базальные имплантаты устанавливаются в протоколе немедленной нагрузки, что дает возможность жевать в тот же день после фиксации зубов.
+              +spec-implant-hexagon-svg('spec-implant-hexagon__svg')
+            .spec-implant-hexagon__box.hexagon-box-list
+              .spec-implant-hexagon__txt
+                .spec-implant-hexagon__txt-ttl Универсальность метода
+                .spec-implant-hexagon__txt-desc Окончательная  ортопедическая конструкция устанавливается через 2-11 месяцев. В некоторых случаях разрешается ставить конечный протез незамедлительно.
+              +spec-implant-hexagon-svg('spec-implant-hexagon__svg')
+            .spec-implant-hexagon__box.hexagon-box-list
+              .spec-implant-hexagon__txt
+                .spec-implant-hexagon__txt-ttl Выгода в стоимости
+                .spec-implant-hexagon__txt-desc Итоговая стоимость снижена, благодаря минимальному количеству этапов лечения.
+              +spec-implant-hexagon-svg('spec-implant-hexagon__svg')
+            .spec-implant-hexagon__box.hexagon-box-list
+              .spec-implant-hexagon__txt
+                .spec-implant-hexagon__txt-ttl Гибкость
+                .spec-implant-hexagon__txt-desc При возникновении осложнений можно предпринять скорые и действенные меры. Базальные имплантаты не являются причиной нарушения  кровотока в кости, в отличие от классических имплантатов.
+              +spec-implant-hexagon-svg('spec-implant-hexagon__svg')
+            .spec-implant-hexagon__box.hexagon-box-list
+              .spec-implant-hexagon__txt
+                .spec-implant-hexagon__txt-ttl Не выпадая из привычной жизни
+                .spec-implant-hexagon__txt-desc Метод немедленной нагрузки позволяет пациенту в кратчайшие сроки вернуться к привычному ритму жизни.
+              +spec-implant-hexagon-svg('spec-implant-hexagon__svg')
+          .spec-implant-author
+            .spec-implant-author__desc
+              .spec-implant-author__desc-ttl Автор метода
+              .spec-implant-author__desc-blockquote Профессор, практикующий хирург-стоматолог. Работает с крупными центрами Базальной имплантации Strategic implant по всему миру.
+              
+            .spec-implant-author__img
+              //- .about__image-background(style='background-image: url("assets/images/spec-implant-author.png")')
+              +hexagon-svg('about__image-svg')
+              +hexagon-svg('about__image-svg')
+              img(src="assets/images/spec-implant-author.png", alt="")
+
+            .spec-implant-author__desc
+              img(src="assets/images/spec-implant-author-logo.png", alt="")
+              .spec-implant-author__desc-txt Компания IhdeDental, непрерывно контролирует и обеспечивает реализацию новых решений в методике и ее практическое внедрение. Методика не строится на маркетинговых предпочтениях владельцев клиник или производителей имплантатов, а работает исходя из научных исследований и обширной практики специалистов.
+
+            .spec-implant-author__bottom
+              .spec-implant-author__bottom-txt Институт Базальной Имплантации является единственным центром России, в котором официально оперирует профессор Стефан Иде.
+              .spec-implant-author__bottom-blockquote Методика базальной имплантации сегодня имеет клиническую, научную и практическую базу.
+              .spec-implant-author__bottom-block
+                div
+                  img(src="assets/images/spec-implant-author-logo2.png", alt="")
+                .spec-implant-author__bottom-col
+                  p Для накопления и систематизации объема информации была создана всемирная организация базальных имплантологов International Implant Foundation (IIF) и особое подразделение базальных имплантатов Strategic implant, для систематизации, развития и контроля базальной имплантации в мире.
+                  p IIF на базе базальных имплантатов  Strategic implant обеспечивает имплантаты наилучшего качества, которые имеет под собой не только клинический опыт применения, но и научную платформу, развивая базальную имплантацию по всему миру.
+                  a.specialists-events__link(href="")
+                    .mission__missions-links-link
+                      +arrow-link-svg('news__link-ico')
+                      .mission__missions-links-text
+                        |История базальной имплантации
 
 
 block footer

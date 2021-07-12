@@ -10,126 +10,107 @@ block header
 
 
 block content
-  section.section.section--gradient.training-page
+  section.section.section--gradient
       .row
         .row__col
-          .section__inner.section__inner--top
+          .section__inner--top
             .nav
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
-                  ul.nav__list
+                  ul.nav__list.prosthetics-nav
                     each item in ['Strategic Implant']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
-                    li.nav__item.nav__item--active
-                      a.nav__link(href='#')
-                        |Обучение
-                    each item in ['Библиотека', 'Юридическая помощь', 'Наши разработки']
+                    li.mission__spoiler
+                      .nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
+                        a.nav__link(href='#')
+                          |Обучение
+                        .news-spoiler__image
+                          +arrow-svg('header__drop-svg')
+                      .mission__spoiler-drop.news-spoiler__drop
+                        nav.news-spoiler__nav.prosthetics-spoiler__drop
+                          ul
+                            each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                              li.news-spoiler__nav-item
+                                a.nav__link(href='#')
+                                  |#{item}
+                    each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
         .row__col
-          .section__inner.section__inner--top
-            .container.single-news
-              h1.title.single-news__title
-                |Диагностика и профилактика стоматологических заболеваний
+          .section__inner--top
+            .container.training-page
+              h1.title
+                |Хирургический этап
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Обучение
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop.training-drop
+                    ul
+                      each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              //- .section__block--small
+              h2.training-page-title Теоретическая часть
+              .single-news__txt
+                ul.last-ul
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque perspiciatis quia officia consequuntur. Expedita facere exercitationem molestias vitae tenetur molestiae?
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+              h2.training-page-title Практическая часть
+              .single-news__txt
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro iure, sed veritatis odio amet omnis modi rem cumque blanditiis hic consequuntur architecto praesentium a reiciendis, asperiores velit facilis voluptatibus fugit.
+                ul.last-ul
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque perspiciatis quia officia consequuntur. Expedita facere exercitationem molestias vitae tenetur molestiae?
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing
+                  li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+              .news-subscribe.member-page-ask
+                h2.news-subscribe__title.member-page-ask__title Оставить заявку на обучение
+                form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+                  .member-page-ask__form-wrapper
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+                    label.news-subscribe__form-placeholder.member-page-ask__label
+                        textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+                    label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                        input(type="checkbox" required="")
+                        p Согласен на обработку персональных данных в соответствии с 
+                            a(href="#") политикой конфиденциальности
+                    button.news-subscribe__form-btn(type="submit")
+                        +arrow-link-svg('news-subscribe__form-btn-ico')
+                        |Отправить
               
-              .single-news__body
-                .single-news__head
-                  .single-news__back-link
-                    a(href="#") Вернуться
 
-                .training-page__about
-                  .training-page__icons
-                    .training-page__icons-item
-                      +specialists-date-svg
-                      |24 апреля 2021
-                    .training-page__icons-item
-                      +specialists-date-svg3
-                      |18:00
-                    .training-page__icons-item
-                      +specialists-date-svg2
-                      |2 часа
-                    .training-page__icons-item
-                      +specialists-date-svg4
-                      |Бесплатно
-                  .training-page__tags
-                    .training-page__tags-item #вебинар
-                    .training-page__tags-item #оффлайн
-                    .training-page__tags-item #конференция
-                .single-news__txt
-                  p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi excepturi doloribus odit ullam adipisci, facilis autem quidem exercitationem suscipit impedit quos, fuga necessitatibus, ea natus iste sapiente inventore debitis quibusdam!
-                  p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit placeat necessitatibus ratione aut officia quam totam, nam tempora sequi architecto cupiditate laboriosam velit nisi molestias esse dolore soluta voluptatibus ad.
-                  p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi excepturi doloribus odit ullam adipisci, facilis autem quidem exercitationem suscipit impedit quos, fuga necessitatibus, ea natus iste sapiente inventore debitis quibusdam!
-                button.vacancies-list__extra-btn
-                  +arrow-link-svg('extra-btn')
-                  |Зарегистироваться на Timepad
-              aside.share-social.training-page__save
-                .share-social__box
-                  .share-social__title Сохранить событие
-                  ul.footer__socials
-                    li.footer__socials-item
-                      a.footer__socials-link.share-social__link(href='#')
-                        +facebook-svg('footer__socials-svg')
-                    li.footer__socials-item
-                      a.footer__socials-link.share-social__link(href='#')
-                        +vk-svg('footer__socials-svg')
-  section.other-news(data-sticky-end='2')
-    .row
-      .row__col
-      .row__col
-        .container
-          .index-publications
-            .index-publications__top
-              .index-publications__top-left.other-news__top
-                h2.index-publications__title.other-news__title
-                  |Похожие события
-                .index-publications__control.slider-control.slider-control--desktop
-                  .slider-control__item
-                    .button-arrow.button-arrow--left
-                      .button-arrow__button.other-news__controls(data-slider-button='111')
-                        +arrow-svg('other-news__controls-left')
-                  .slider-control__item
-                    .button-arrow.button-arrow.button-arrow--right
-                      .button-arrow__button.other-news__controls(data-slider-button='112')
-                        +arrow-svg('other-news__controls-right')
-          .index-news__slider.other-news__slider-mobile
-            .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='6')
-              .swiper-wrapper
-                - for (let i=0; i<9; i++)
-                  .swiper-slide
-                    a.card-news-mobile(href='#')
-                      .card-news-mobile__top
-                        .card-news-mobile__date.training-mobile-date
-                          div
-                            +specialists-date-svg
-                            |24 апреля 2021
-                          div
-                            +specialists-date-svg2
-                            |1 день
-                        h3.card-news-mobile__title
-                          |Обучение Strategic Implant в Новосибирске
-                      .card-news-mobile__bottom
-                        .card-news-mobile__row
-                          .card-news-mobile__col
-                            .card-news-mobile__image
-                              img.card-news-mobile__img(src='assets/images/news-2.jpg' alt='')
-                          .card-news-mobile__col
-                            .card-news-mobile__image
-                              +arrow-link-svg(class='card__svg')
-          .other-news__slider-desktop.swiper-container(data-slider-id="100" data-slider-prev='111' data-slider-next='112')
-            ul.about__list.swiper-wrapper
-              .swiper-slide
-                include ../components/event-list-card
-                include ../components/event-list-card
-                include ../components/event-list-card
-              .swiper-slide
-                include ../components/event-list-card
-                include ../components/event-list-card
-                include ../components/event-list-card
-              .swiper-slide
-                include ../components/event-list-card
+
+  //- section.section
+  //-   .row
+  //-     .row__col
+  //-     .row__col
+  //-       .container
 
 
 block footer

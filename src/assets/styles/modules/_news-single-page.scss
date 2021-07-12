@@ -161,6 +161,13 @@
           }
         }
       }
+      @media (max-width: $breakpoint) {
+        margin: 40px 0;
+      }
+    }
+
+    ul:first-child {
+      margin-top: 0;
     }
 
     .last-ul {

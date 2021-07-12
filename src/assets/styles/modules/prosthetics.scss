@@ -18,7 +18,7 @@
 
   .mission__spoiler {
     border: none;
-    margin-bottom: 20px;
+    margin: 20px 0 20px;
 
     .mission__spoiler-button{
       min-height: unset;
@@ -52,6 +52,10 @@
         }
       }
     }
+  }
+
+  .mission__spoiler:first-child {
+    margin-top: 0;
   }
 
   .mission__spoiler:last-child {
