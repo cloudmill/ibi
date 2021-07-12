@@ -4,26 +4,36 @@
 
   &__item {
     display: flex;
+    align-items: stretch;
     width: 100%;
 
-    margin-bottom: 40px;
-
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       flex-direction: column;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
     }
 
     &-ttl {
       width: calc(#{$col-part-d} * 2);
       font-size: 16px;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         width: calc(#{$col-width-m});
       }
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         width: auto;
         margin-bottom: 10px;
         font-size: 14px;
+      }
+
+      &--link {
+        padding-top: 13px;
+        @media (max-width: $breakpoint-m - 1px) {
+          padding-top: 0;
+        }
       }
     }
 
@@ -31,7 +41,7 @@
       font-size: 50px;
       color: $color-main;
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         font-size: 22px;
       }
     }
@@ -59,13 +69,11 @@
 
   &__weekdays {
     width: calc(#{$col-part-d});
-    
-
     @media (max-width: $breakpoint) {
       width: auto;
       margin-bottom: 20px;
-      
     }
+    white-space: nowrap;
   }
 
   &__weekdays, &__weekend {
@@ -109,8 +117,10 @@
 }
 
 .contacts-map-big {
-  margin-bottom: 120px;
-  margin-top: 80px;
+  margin: 60px 0 40px;
+  @media (min-width: $breakpoint) {
+    margin: 120px 0;
+  }
 
   img {
     width: 100%;
@@ -118,7 +128,12 @@
 }
 
 .contacts-map-small {
-  margin-top: 120px;
+  $comp: &;
+
+  margin-top: 40px;
+  @media (min-width: $breakpoint) {
+    margin-top: 120px;
+  }
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid $color-gray-border;
@@ -127,34 +142,48 @@
     flex-direction: column;
   }
 
+  &--mobile {
+    border-bottom: 0;
+
+    #{$comp}-item {
+      padding: 10px 0 0;
+    }
+  }
+
   &-item {
     border-top: 1px solid $color-main;
     width: calc( (#{$col-part-d} * 9 - (#{$col-gap-d} * 2)) / 2);
-    padding: 20px 0 40px 0;
+    padding: 10px 0 40px;
+    @media (min-width: $breakpoint) {
+      padding: 20px 0 40px;
+    }
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
     }
-
+   
     &__ttl {
       margin-bottom: 40px;
       font-size: 22px;
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         font-size: 16px;
       }
     }
 
     &__map {
       width: 100%;
-      margin-bottom: 40px;
     }
 
     &__desc {
+      margin-top: 20px;
+      @media (min-width: $breakpoint) {
+        margin-top: 40px;
+      }
       color: #7A9598;
       font-size: 14px;
     }
