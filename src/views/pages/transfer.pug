@@ -9,88 +9,89 @@ block header
   +header
 
 block content
-  section.section.section--gradient
-    .row
-      .row__col
-        .section__inner.section__inner--top
-          .nav
-            .nav__container
-              nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
-                ul.nav__list
-                  each item in ['Способы оплаты', 'Способы оплаты']
-                    li.nav__item
-                      a.nav__link(href='#')
-                        |#{item}
-                  li.nav__item.nav__item--active
-                    a.nav__link(href='#')
-                      |Трансфер
-                  li.nav__item
-                    a.nav__link(href='#')
-                      |Вопрос-ответ
-      .row__col
-        .section__inner.section__inner--top
-          .container
-            h1.title
-              |Трансфер
-            .mission__spoiler.news-spoiler
-              .mission__spoiler-button.news-spoiler__button
-                h5.mission__spoiler-title
-                  |Трансфер
-                .news-spoiler__image
-                  +arrow-svg('header__drop-svg')
-              .mission__spoiler-drop.news-spoiler__drop
-                nav.news-spoiler__nav
-                  ul
-                    each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
-                      li.news-spoiler__nav-item
+  .sticky-container(data-sticky-container)
+    section.section.section--gradient
+      .row
+        .row__col
+          .section__inner.section__inner--top
+            .nav.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
+              .nav__container
+                nav.nav__nav
+                  ul.nav__list
+                    each item in ['Способы оплаты', 'Способы оплаты']
+                      li.nav__item
                         a.nav__link(href='#')
                           |#{item}
-            .section__block.section__block--small
-              .transfer__subtitle.index__paragraph
-                span.index__paragraph-text
-                  |Восстанавливаем зубы пациентам 
-                span.index__paragraph-text.index__paragraph-text--highlight
-                  |со всей России и других стран 
-              .transfer__note
-                |Если вы находитесь в другом городе или стране, мы поможем с организацией поездки.
-  section.transfer-numbers
-    .row
-      .row__col
-      .row__col
-        .container
-          .transfer-numbers__wrapper
-            .transfer-numbers__item
-              .transfer-numbers__count
-                .transfer-numbers__big
-                  p 1
-                .transfer-numbers__desc
-                  .transfer-numbers__desc-ttl Проводим максимальную удаленную диагностику
-                  .transfer-numbers__desc-txt
-                    p Если нет возможности пройти исследования или сдать анализы по месту нахождения, то мы организуем по приезду совместно с запланированной операцией.
-            .transfer-numbers__item
-              .transfer-numbers__count
-                .transfer-numbers__big
-                  p 2
-                .transfer-numbers__desc
-                  .transfer-numbers__desc-ttl Согласование формата поездки
-                  .transfer-numbers__desc-txt
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Трансфер
+                    li.nav__item
+                      a.nav__link(href='#')
+                        |Вопрос-ответ
+        .row__col
+          .section__inner.section__inner--top
+            .container
+              h1.title
+                |Трансфер
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Трансфер
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
                     ul
-                      li После диагностики обсуждаем как удобнее добраться до нашей клиники.
-                      li Выбираем гостиницу
-                      li Покупаем билеты на поезд или самолет
-                      li По приезду встречаем и организовываем трансфер до гостиницы
-                      li По спланированному графику организовываем трансфер из гостиницы в клинику и обратно
-                      li Каждому пациенту назначается персональный координатор. При необходимости предоставляем переводчика
-            .transfer-numbers__item
-              .transfer-numbers__count
-                .transfer-numbers__big
-                  p 3
-                .transfer-numbers__desc
-                  .transfer-numbers__desc-ttl Окончание операции
-                  .transfer-numbers__desc-txt
-                    p Как только медицинские услуги предоставлены, организовываем трансфер в аэропорт или вокзал.
-  section.section 
-    .section__inner.section__inner--bot
+                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+              .section__block.section__block--small
+                .transfer__subtitle.index__paragraph
+                  span.index__paragraph-text
+                    |Восстанавливаем зубы пациентам 
+                  span.index__paragraph-text.index__paragraph-text--highlight
+                    |со всей России и других стран 
+                .transfer__note
+                  |Если вы находитесь в другом городе или стране, мы поможем с организацией поездки.
+    section.transfer-numbers
+      .row
+        .row__col
+        .row__col
+          .container
+            .transfer-numbers__wrapper
+              .transfer-numbers__item
+                .transfer-numbers__count
+                  .transfer-numbers__big
+                    p 1
+                  .transfer-numbers__desc
+                    .transfer-numbers__desc-ttl Проводим максимальную удаленную диагностику
+                    .transfer-numbers__desc-txt
+                      p Если нет возможности пройти исследования или сдать анализы по месту нахождения, то мы организуем по приезду совместно с запланированной операцией.
+              .transfer-numbers__item
+                .transfer-numbers__count
+                  .transfer-numbers__big
+                    p 2
+                  .transfer-numbers__desc
+                    .transfer-numbers__desc-ttl Согласование формата поездки
+                    .transfer-numbers__desc-txt
+                      ul
+                        li После диагностики обсуждаем как удобнее добраться до нашей клиники.
+                        li Выбираем гостиницу
+                        li Покупаем билеты на поезд или самолет
+                        li По приезду встречаем и организовываем трансфер до гостиницы
+                        li По спланированному графику организовываем трансфер из гостиницы в клинику и обратно
+                        li Каждому пациенту назначается персональный координатор. При необходимости предоставляем переводчика
+              .transfer-numbers__item
+                .transfer-numbers__count
+                  .transfer-numbers__big
+                    p 3
+                  .transfer-numbers__desc
+                    .transfer-numbers__desc-ttl Окончание операции
+                    .transfer-numbers__desc-txt
+                      p Как только медицинские услуги предоставлены, организовываем трансфер в аэропорт или вокзал.
+    section.section 
+      .section__inner.section__inner--bot
 
 block footer
   +footer({

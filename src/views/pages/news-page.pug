@@ -11,14 +11,14 @@ block header
 
   
 block content
-  .about
+  .about(data-sticky-container)
     section.section.section--gradient
       .row
         .row__col
           .section__inner.section__inner--top
-            .nav
+            .nav.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
               .nav__container
-                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                nav.nav__nav
                   ul.nav__list
                     each item in ['О нас', 'Миссия и ценности', 'Наша команда']
                       li.nav__item
@@ -56,17 +56,18 @@ block content
                     li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
                     li Lorem ipsum dolor sit amet, consectetur adipisicing
                     li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
-              aside.share-social
-                .share-social__box
-                  .share-social__title Поделиться
-                  ul.footer__socials
-                    li.footer__socials-item
-                      a.footer__socials-link.share-social__link(href='#')
-                        +facebook-svg('footer__socials-svg')
-                    li.footer__socials-item
-                      a.footer__socials-link.share-social__link(href='#')
-                        +vk-svg('footer__socials-svg')
-    section.other-news(data-sticky-end='2')
+              .sticky-container(data-sticky-container)
+                aside.share-social
+                  .share-social__box.sticky(data-margin-top="160")
+                    .share-social__title Поделиться
+                    ul.footer__socials
+                      li.footer__socials-item
+                        a.footer__socials-link.share-social__link(href='#')
+                          +facebook-svg('footer__socials-svg')
+                      li.footer__socials-item
+                        a.footer__socials-link.share-social__link(href='#')
+                          +vk-svg('footer__socials-svg')
+    section.other-news
       .row
         .row__col
         .row__col
@@ -103,7 +104,7 @@ block content
                                 img.card-news-mobile__img(src='assets/images/news-2.jpg' alt='')
                             .card-news-mobile__col
                               .card-news-mobile__image
-                                +arrow-link-svg(class='card__svg')
+                                +arrow-link-svg('card__svg')
             .other-news__slider-desktop.swiper-container(data-slider-id="100" data-slider-prev='111' data-slider-next='112')
               ul.about__list.swiper-wrapper
                 .swiper-slide
@@ -116,16 +117,3 @@ block content
                   include ../components/_news-list-card
                 .swiper-slide
                   include ../components/_news-list-card
-
-      
-
-
-
-
-
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })

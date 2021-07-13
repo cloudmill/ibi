@@ -12,9 +12,9 @@
   top: 0;
   left: 0;
   right: 0;
-  transform: translateY(-100%);
+  transform: translateY(-200%);
 
-  background-color: lightblue; // ?
+  background-color: $color-blue-light; // ?
   transition: $transition;
   overflow-y: scroll;
 

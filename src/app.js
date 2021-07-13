@@ -1,9 +1,10 @@
 import 'Styles/_app.scss';
+
 import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
-import { each } from 'jquery';
+import Sticky from 'sticky-js';
 
 const BREAKPOINT = 1280;
 
@@ -39,6 +40,13 @@ const BREAKPOINT = 1280;
         btn.on('click', function () {
           const id = $(this).data('modal-button');
           state.change(id);
+
+          const modalActive = header.find('[data-modal-active]');
+          if (modalActive.length !== 0) {
+            header.addClass('header--modal')
+          } else {
+            header.removeClass('header--modal')
+          }
         });
 
         $(window).on('click', event => {
@@ -54,6 +62,7 @@ const BREAKPOINT = 1280;
 
           if (!isClickArea) {
             state.change(null);
+            header.removeClass('header--modal')
           }
         });
 
@@ -62,6 +71,8 @@ const BREAKPOINT = 1280;
         breakpoint.addListener((event) => {
           state.change(null);
         });
+
+        
       }
     }
   });
@@ -278,6 +289,15 @@ const BREAKPOINT = 1280;
           slider_swiper.slideNext();
         });
       });
+    }
+  });
+}
+
+// sticky
+{
+  $(() => {
+    if ($('.sticky').length !== 0) {
+      const sticky = new Sticky('.sticky');
     }
   });
 }
@@ -1280,6 +1300,48 @@ const BREAKPOINT = 1280;
     })
   })
 })()
+
+// fixed header
+{
+  $(() => {
+    const header = $('.header');
+
+    if (header.length !== 0) {
+      let previousTop = $(window).scrollTop()
+
+      $(window).on('scroll', function () {
+        const currentTop = $(window).scrollTop();
+        if (!header.hasClass('header--modal')) {
+          if (currentTop < previousTop) {
+            header.removeClass('header--scroll--down');
+            header.addClass('header--scroll--up');
+          } else {
+            header.removeClass('header--scroll--up');
+            header.addClass('header--scroll--down');
+          }
+        }
+
+        if (currentTop < 1) {
+          header.removeClass('header--scroll--up');
+          header.removeClass('header--scroll--down');
+        }
+
+        if (currentTop >= 1) {
+          header.addClass('header--scroll');
+        } else {
+          header.removeClass('header--scroll');
+        }
+
+        previousTop = currentTop;
+      });
+
+      if ($(window).scrollTop() >= 1) {
+        header.addClass('header--scroll--up');
+        header.addClass('header--scroll');
+      }
+    };
+  });
+}
 
 // header modal mobile
 {

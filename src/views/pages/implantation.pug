@@ -4,13 +4,13 @@ include ../components/_header.pug
 include ../components/_footer.pug
 
 block content 
-  .section.section--gradient 
+  .section.section--gradient(data-sticky-container)
     .row 
       .row__col 
         .section__inner.section__inner--top
-          .nav
+          .nav.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
             .nav__container
-              nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+              nav.nav__nav
                 ul.nav__list
                   each item in ['Метод', 'Преимущества',]
                     li.nav__item

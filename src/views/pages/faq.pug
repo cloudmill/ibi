@@ -9,34 +9,35 @@ block header
   +header
 
 block content
-  section.section.section--gradient
+  section.section.section--gradient(data-sticky-container)
     .row
       .row__col
         .section__inner.section__inner--top
-          .nav
-            .nav__container
-              nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
-                ul.nav__list
-                  each item in ['Способы оплаты', 'Способы оплаты', 'Трансфер']
-                    li.nav__item
+          .sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
+            .nav
+              .nav__container
+                nav.nav__nav
+                  ul.nav__list
+                    each item in ['Способы оплаты', 'Способы оплаты', 'Трансфер']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                    li.nav__item.nav__item--active
                       a.nav__link(href='#')
-                        |#{item}
-                  li.nav__item.nav__item--active
-                    a.nav__link(href='#')
-                      |Вопрос-ответ
-          .team-filter
-            ul.team-filter__container
-              li.team-filter__item.team-filter__item--active(data-id="doctor") #имплантация
-              li.team-filter__item(data-id="dentist") #протезирование
-              li.team-filter__item(data-id="admin") #оплата
-              li.team-filter__item(data-id="coordinator") #операция
-              li.team-filter__item(data-id="doctor") #протезирование
-              li.team-filter__item(data-id="dentist") #операция
-              li.team-filter__item(data-id="admin") #оплата
-              li.team-filter__item(data-id="coordinator") #операция
-            button.team-filter__reset
-              +reset-svg('team-filter__reset-ico')
-              |Сбросить
+                        |Вопрос-ответ
+            .team-filter
+              ul.team-filter__container
+                li.team-filter__item.team-filter__item--active(data-id="doctor") #имплантация
+                li.team-filter__item(data-id="dentist") #протезирование
+                li.team-filter__item(data-id="admin") #оплата
+                li.team-filter__item(data-id="coordinator") #операция
+                li.team-filter__item(data-id="doctor") #протезирование
+                li.team-filter__item(data-id="dentist") #операция
+                li.team-filter__item(data-id="admin") #оплата
+                li.team-filter__item(data-id="coordinator") #операция
+              button.team-filter__reset
+                +reset-svg('team-filter__reset-ico')
+                |Сбросить
       .row__col
         .section__inner.section__inner--top
           .container

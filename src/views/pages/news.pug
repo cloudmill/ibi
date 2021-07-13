@@ -11,14 +11,14 @@ block header
 
   
 block content
-  .about
+  .about(data-sticky-container)
     section.section.section--gradient
       .row
         .row__col
           .section__inner.section__inner--top
-            .nav
+            .nav.sticky.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
               .nav__container
-                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                nav.nav__nav
                   ul.nav__list
                     each item in ['О нас', 'Миссия и ценности', 'Наша команда']
                       li.nav__item
@@ -65,7 +65,7 @@ block content
                     +news-img-mask-1('first-news__img-mask-1')
                     +news-img-mask-2('first-news__img-mask-2')
                     img(src="assets/images/news-2.jpg", alt="News photo")
-              .section__block.about__to-front
+              .section__block.section__block--small.about__to-front
                 ul.about__list
                   include ../components/_news-list-card
                   include ../components/_news-list-card
@@ -76,23 +76,16 @@ block content
                         +arrow-link-svg('news__link-ico')
                     .news-show-more-txt Показать еще
               .news-subscribe
-                h2.news-subscribe__title Подпишитесь на публикации и новости
+                h2.news-subscribe__title Подпишитесь на&nbsp;публикации и новости
                 form.news-subscribe__form
-                    div
-                        label.news-subscribe__form-placeholder
-                            input.news-subscribe__form-email(type="email" placeholder="E-mail")
-                        label.news-subscribe__form-checkbox
-                            input(type="checkbox")
-                            p Согласен на обработку персональных данных в соответствии с 
-                                a(href="#") политикой конфиденциальности
-                    button.news-subscribe__form-btn
-                        +arrow-send('news-subscribe__form-btn-ico')
-
-
-
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+                  div
+                    label.news-subscribe__form-placeholder.news-subscribe__form-placeholder--flex
+                        input.news-subscribe__form-email(type="email" placeholder="E-mail")
+                        button.news-subscribe__form-btn.news-subscribe__form-btn--mobile
+                          +arrow-send('news-subscribe__form-btn-ico')
+                    label.news-subscribe__form-checkbox
+                        input(type="checkbox")
+                        p Согласен на обработку персональных данных в соответствии с 
+                          a(href="#") политикой конфиденциальности
+                  button.news-subscribe__form-btn.news-subscribe__form-btn--desc
+                      +arrow-send('news-subscribe__form-btn-ico')

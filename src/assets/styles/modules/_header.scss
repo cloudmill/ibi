@@ -12,11 +12,36 @@
   left: 0;
   right: 0;
 
+  transition: $transition;
+
+  &--modal {
+    background-color: $color-blue-light;
+  }
+
+  &--scroll {
+    background-color: $color-blue-light;
+
+    #{$component}__inner {
+      @media (min-width: $breakpoint) {
+        padding: 15px 0;
+      }
+    }
+  }
+
+  &--scroll--up {
+    transform: translateY(0);
+  }
+
+  &--scroll--down {
+    transform: translateY(-100%);
+  }
+
   &__header {
     position: relative;
     z-index: 1;
 
-    background-color: lightblue; // ?
+
+    // background-color: lightblue; // ?
   }
 
   &__inner {
@@ -24,6 +49,7 @@
     @media (min-width: $breakpoint) {
       padding: 40px 0;
     }
+    transition: $transition;
   }
 
   &__row {
@@ -34,11 +60,16 @@
     flex-shrink: 0;
 
     &:nth-child(1) {
-      width: calc(#{$col-part} * 3 - #{$col-gap});
+      @media (min-width: $breakpoint-ll) {
+        width: calc(#{$col-part} * 3 - #{$col-gap});
+      }
     }
     &:nth-child(2) {
-      margin-left: $col-gap;
-      width: calc(#{$col-part} * 9 - #{$col-gap});
+      margin-left: 50px;
+      @media (min-width: $breakpoint-ll) {
+        margin-left: $col-gap;
+        width: calc(#{$col-part} * 9 - #{$col-gap});
+      }
     }
   }
 
