@@ -52,6 +52,12 @@
 
 // Блок с большой первой новостью
 
+.news-margin-top {
+  @media (max-width: $breakpoint-m) {
+    margin-top: 20px;
+  }
+}
+
 .first-news {
   background-color: $color-blue-light;
   display: flex;
@@ -73,6 +79,7 @@
     width: calc(#{$col-part-d} * 6);
     @media (max-width: $breakpoint - 1px) {
         width: auto;
+        padding: 20px;
     }
     @media (max-width: $breakpoint-m - 1px) {
         padding: 20px 20px 30px;

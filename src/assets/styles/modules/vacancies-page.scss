@@ -19,15 +19,12 @@
       padding-bottom: 200px;
       margin: 0 0 40px 0;
     }
-    // @media (max-width: $breakpoint-t) {
-    //   padding-bottom: 200px;
-    // }
-    // @media (max-width: $breakpoint-m) {
-    //   padding-bottom: 150px;
-    // }
-    // @media (max-width: 400px) {
-    //   padding-bottom: 100px;
-    // }
+    @media (max-width: 550px) {
+      padding-bottom: 150px;
+    }
+    @media (max-width: 400px) {
+      padding-bottom: 100px;
+    }
 
     span {
       font-size: 70px;

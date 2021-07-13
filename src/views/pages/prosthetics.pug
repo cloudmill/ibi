@@ -29,7 +29,7 @@ block content
                       .mission__spoiler-drop.news-spoiler__drop
                         nav.news-spoiler__nav.prosthetics-spoiler__drop
                           ul
-                            each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладкициркониевые KATANA', 'Безметалловые вкладки']
                               li.news-spoiler__nav-item
                                 a.nav__link(href='#')
                                   |#{item}
@@ -163,7 +163,7 @@ block content
                               |#{item}
               .section__block.section__block--small
                 .prosthetics__image
-                  .about__image-background(style='background-image: url("assets/images/about-image.jpeg")')
+                  .about__image-background(style='background-image: url("assets/images/prosthetics-main.jpg")')
                     +svg-hexagon.about__image-svg
                     +svg-hexagon.about__image-svg
               .section__block.prosthetics-block
@@ -172,15 +172,15 @@ block content
                 .prosthetics-block__desc
                   p.prosthetics-block__desc-txt
                     |Стоматологи-ортопеды 
-                    span ежесезонно 
+                    span.prosthetics-txt-highlight ежесезонно 
                     |проходят курсы по тотальному протезированию и реконструкции улыбки. Мы создаем индивидуальную эстетику 
-                    span с учетом всех пожеланий нашего пациента.
+                    span.prosthetics-txt-highlight с учетом всех пожеланий нашего пациента.
                   p.prosthetics-block__desc-txt
                     |Зубные техники проходят обучение за рубежом имеет 
-                    span сертификаты международных учебных организаций.
+                    span.prosthetics-txt-highlight сертификаты международных учебных организаций.
                   p.prosthetics-block__desc-txt
                     |Одна из ценностей нашей клиники — процесс 
-                    span постоянного обучения и обмена опытом. 
+                    span.prosthetics-txt-highlight постоянного обучения и обмена опытом. 
                     |Знания циркулриюут между специалистами, позволяя развивать смежные компетенции тем самым усиливая всю команду.
               .section__block.prosthetics-block__lab
                 h2 Зуботехническая лаборатория IBI Lab
@@ -194,7 +194,10 @@ block content
               .prosthetics-block__practice
                 .prosthetics-block__practice-desc
                   h2 Премиальные материалы
-                  p В практике протезирования мы выбираем материалы премиум-сегмента от фирм-лидеров. Никакого китайского циркония и сомнительного композита. С каждым материалом собственный опты работы 3-8 лет.
+                  p В практике протезирования мы выбираем материалы 
+                    span.prosthetics-txt-highlight премиум-сегмента от фирм-лидеров. 
+                    |Никакого китайского циркония и сомнительного композита. С каждым материалом 
+                    span.prosthetics-txt-highlight собственный опты работы 3-8 лет.
                 .prosthetics-block__practice-circle
                   +brilliant-svg('practice-circle')
                   .prosthetics-block__practice-ttl Best practice

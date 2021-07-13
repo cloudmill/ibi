@@ -32,6 +32,23 @@
   }
 }
 
+.price-body-button {
+
+  margin-bottom: 60px;
+
+  .price__note {
+    margin: 0;
+  }
+
+  .price__btn {
+    margin-left: 0;
+  }
+
+  @media (min-width: $breakpoint) {
+    display: none;
+  }
+}
+
 .price-subtitle {
   margin: 120px 0 80px;
   font-size: 40px;
@@ -115,4 +132,46 @@
 
 .price-ask {
   margin: 0;
+}
+
+.price-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin-bottom: 80px;
+
+  @media (max-width: $breakpoint) {
+    margin-bottom: 20px;
+  }
+
+  &-item {
+    width: calc(50% - 20px);
+    margin-bottom: 80px;
+
+    @media (max-width: $breakpoint) {
+      margin-bottom: 40px;
+    }
+
+    &__img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &__ttl {
+      font-size: 22px;
+      line-height: 140%;
+
+      margin-top: 30px;
+    }
+
+    &__price {
+      font-size: 30px;
+      line-height: 140%;
+      color: $color-main;
+
+      margin-top: 10px;
+    }
+  }
 }
