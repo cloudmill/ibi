@@ -56,13 +56,15 @@ block content
                       a.mission__missions-links-link(href='#')
                         +svg-link.mission__missions-links-svg.button-svg
                         .mission__missions-links-text
-                          |Больше о нас
+                          span.mission__missions-links-span 
+                            |Больше о нас
                   li.index__second-link
                     .mission__missions-links-container
                       a.mission__missions-links-link(href='#')
                         +svg-video.mission__missions-links-svg
                         .mission__missions-links-text.mission__missions-links-text--video
-                          |Смотреть видео
+                          span.mission__missions-links-span 
+                            |Смотреть видео
       section.index__section.index__section--default.index__section--mid
         .container
           .index__block
@@ -93,7 +95,8 @@ block content
                   a.mission__missions-links-link(href='#')
                     +svg-link.mission__missions-links-svg.button-svg
                     .mission__missions-links-text
-                      |Все операции
+                      span.mission__missions-links-span 
+                        |Все операции
             .index-operations__slider
               .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='7' data-slider-prev='9' data-slider-next='10')
                 .swiper-wrapper
@@ -151,14 +154,16 @@ block content
                                           a.mission__missions-links-link(href='#')
                                             +svg-link.mission__missions-links-svg.button-svg
                                             .mission__missions-links-text
-                                              |Подробнее
+                                              span.mission__missions-links-span 
+                                                |Подробнее
                                       if !(i % 2)
                                         li.operation-card__link.operation-card__link--mobile
                                           .mission__missions-links-container
                                             a.mission__missions-links-link(href='#')
                                               +svg-link.mission__missions-links-svg.button-svg
                                               .mission__missions-links-text
-                                                |Все операции
+                                                span.mission__missions-links-span 
+                                                  |Все операции
                                   .operation-card__bottom-col.operation-card__bottom-col--desktop
                                     .slider-control.slider-control--desktop
                                       .slider-control__item
@@ -205,7 +210,8 @@ block content
                             a.mission__missions-links-link.block__interactive(href='#')
                               +svg-link.mission__missions-links-svg.button-svg
                               .mission__missions-links-text
-                                |Подробнее
+                                span.mission__missions-links-span 
+                                  |Подробнее
                         .block__slide-nav
                           ul.block__nav
                             li.block__nav-item.block__nav-item--active
@@ -279,7 +285,8 @@ block content
                   a.mission__missions-links-link(href='#')
                     +svg-link.mission__missions-links-svg.button-svg
                     .mission__missions-links-text
-                      |Все публикации 
+                      span.mission__missions-links-span 
+                        |Все публикации 
             .index-publications__slider
               .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='5' data-slider-prev='7' data-slider-next='8')
                 .swiper-wrapper
@@ -315,7 +322,8 @@ block content
                 a.mission__missions-links-link(href='#')
                   +svg-link.mission__missions-links-svg.button-svg
                   .mission__missions-links-text
-                    |Все публикации
+                    span.mission__missions-links-span 
+                      |Все публикации
       section.index__section.index__section--default
         .container
           .index-news
@@ -328,7 +336,8 @@ block content
                     a.mission__missions-links-link(href='#')
                       +svg-link.mission__missions-links-svg.button-svg
                       .mission__missions-links-text
-                        |Все новости
+                        span.mission__missions-links-span 
+                          |Все новости
               .index-news__col
                 h2.index-news__title.index-news__title--mobile
                   |Новости

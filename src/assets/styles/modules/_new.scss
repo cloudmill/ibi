@@ -1169,6 +1169,9 @@
       #{$comp}__missions-links-text {
         color: $color-main;
       }
+      #{$comp}__missions-links-span {
+        animation: MoveUpInitial 0.3s forwards, MoveUpEnd 0.3s forwards 0.3s;
+      }
       .button-svg {
         path {
           &:nth-child(1) {
@@ -1202,12 +1205,17 @@
       @include fsl(16px, 140%);
     }
     transition: $transition;
+    overflow: hidden;
 
     &--video {
       @media (min-width: $breakpoint) {
         max-width: 115px;
       }
     }
+  }
+  &__missions-links-span {
+    display: block;
+    overflow: hidden;
   }
   // missions images
   &__missions-images {
