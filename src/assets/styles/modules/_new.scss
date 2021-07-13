@@ -1542,3 +1542,9 @@
   }
 }
 // иконка на темном фоне
+.button-extra-svg {
+  path {
+    transition: $transition;
+    transform-origin: center;
+  }
+}

@@ -119,6 +119,7 @@
 }
 
 .vacancies-list {
+  $comp: &;
 
   &__subtitle {
     margin: 60px 0 40px;
@@ -175,6 +176,35 @@
         &-fill {
           fill: #fff;
         }
+      }
+
+      &:hover {
+        #{$comp}__extra-span {
+          span {
+            animation: MoveUpInitial 0.3s forwards, MoveUpEnd 0.3s forwards 0.3s;
+          }
+        }
+        .button-extra-svg {
+          path {
+            &:nth-child(1) {
+              transform: rotate(30deg);
+              fill: $color-white;
+              stroke: $color-main
+            }
+            &:nth-child(3) {
+              transform: translateX(10px);
+              fill: $color-main;
+              stroke: $color-main;
+            }
+          }
+        }
+      }
+    }
+    &-span {
+      overflow: hidden;
+      span {
+        display: block;
+        overflow: hidden;
       }
     }
   }
