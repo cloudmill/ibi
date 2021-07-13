@@ -1169,19 +1169,19 @@
       #{$comp}__missions-links-text {
         color: $color-main;
       }
-      // #{$comp}__missions-links-svg {
-      //   path {
-      //     &:nth-child(1) {
-      //       transform: rotate(30deg);
-      //       fill: $color-main;
-      //     }
+      .button-svg {
+        path {
+          &:nth-child(1) {
+            transform: rotate(30deg);
+            fill: $color-main;
+          }
 
-      //     &:nth-child(3) {
-      //       fill: $color-white;
-      //       transform: translateX(10px);
-      //     }
-      //   }
-      // }
+          &:nth-child(3) {
+            fill: $color-white;
+            transform: translateX(10px);
+          }
+        }
+      }
     }
   }
   &__missions-links-svg {
@@ -1189,11 +1189,7 @@
       height: auto;
       max-width: 30px;
     }
-    // transition: $transition;
-    // path {
-    //   transform-origin: center;
-    //   transition: $transition;
-    // }
+    
   }
   &__missions-links-text {
     margin-left: 10px;
@@ -1508,5 +1504,14 @@
 .faq-spoiler {
     h5 {
       font-weight: 400;
+  }
+}
+
+// класс для анимации иконок типовых кнопок на белом фоне
+.button-svg {
+  transition: $transition;
+  path {
+    transform-origin: center;
+    transition: $transition;
   }
 }
