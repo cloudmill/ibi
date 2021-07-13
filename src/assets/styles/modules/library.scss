@@ -20,6 +20,7 @@
     @media (max-width: $breakpoint-m) {
       width: 100%;
       margin-bottom: 20px;
+      height: unset;
     }
 
     &__top {
@@ -34,6 +35,16 @@
 
       @media (max-width: $breakpoint-m) {
         max-width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      }
+    }
+
+    .card__col:nth-child(2) {
+      display: block;
+
+      .card__image {
+        @media (max-width: $breakpoint) {
+          width: 34px;
+        }
       }
     }
   }
