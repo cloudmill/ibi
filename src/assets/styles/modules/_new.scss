@@ -1185,6 +1185,14 @@
           }
         }
       }
+      .button-svg-video {
+        path {
+          &:nth-child(2) {
+            transform: scale(2.1);
+          }
+        }
+      }
+
     }
   }
   &__missions-links-svg {
@@ -1515,7 +1523,8 @@
   }
 }
 
-// класс для анимации иконок типовых кнопок на белом фоне
+// классы для анимации иконок типовых кнопок 
+// иконка на светлом фоне
 .button-svg {
   transition: $transition;
   path {
@@ -1523,3 +1532,13 @@
     transition: $transition;
   }
 }
+// иконка видео
+.button-svg-video {
+  transition: $transition;
+
+  path {
+    transform-origin: center;
+    transition: $transition;
+  }
+}
+// иконка на темном фоне
