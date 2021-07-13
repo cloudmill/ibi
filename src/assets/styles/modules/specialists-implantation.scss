@@ -82,6 +82,10 @@
   justify-content: space-between;
   // width: 100%;
 
+  @media (max-width: 400px) {
+    margin-bottom: 100px;
+  }
+
   &__box {
     width: calc(#{$col-part-d} * 4);
     position: relative;
@@ -92,8 +96,6 @@
 
     @media (max-width: $breakpoint-m) {
       width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
-
-
     }
 
     // .spec-implant-hexagon__svg {
@@ -213,6 +215,7 @@
 
     ul li {
       padding-left: unset;
+      display: flex;
 
       p {
         width: 100%;
@@ -226,7 +229,7 @@
 
     ul li::before {
       background: url('assets/images/spec-implant-list-ico.svg') no-repeat;
-      width: 21px;
+      width: 22px;
       height: 24px;
 
       margin-left: unset;
@@ -239,9 +242,11 @@
 
   &__txt {
     padding-left: calc(#{$col-width-d});
+    margin-top: 60px;
 
     @media (max-width: $breakpoint) {
       padding-left: 0;
+      margin-top: 40px;
     }
 
     p {

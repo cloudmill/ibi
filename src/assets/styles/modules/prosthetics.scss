@@ -16,6 +16,15 @@
     background-color: unset;
   }
 
+  .nav__item--active .nav__link {
+    font-size: 18px;
+    line-height: unset;
+  }
+
+  .nav__item::before {
+    top: 10px;
+  }
+
   .mission__spoiler {
     border: none;
     margin: 20px 0 20px;
@@ -73,6 +82,9 @@
   align-items: center;
 
   &__drop {
+    padding-top: 10px;
+    padding-left: 20px;
+
     ul li a {
       font-size: 12px;
       line-height: 160%;
