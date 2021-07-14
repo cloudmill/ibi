@@ -17,18 +17,31 @@ block content
             .nav
               .nav__container
                 nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
-                  ul.nav__list
+                  ul.nav__list.prosthetics-nav
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
                         |Базальная имплантация
-                    each item in ['Обучение', 'Мероприятия', 'Библиотека', 'Юридическая помощь']
+                    li.mission__spoiler
+                      .nav__item.mission__spoiler-button.news-spoiler__button
+                        a.nav__link(href='#')
+                          |Обучение
+                        .news-spoiler__image
+                          +arrow-svg('header__drop-svg')
+                      .mission__spoiler-drop.news-spoiler__drop
+                        nav.news-spoiler__nav.prosthetics-spoiler__drop
+                          ul
+                            each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                              li.news-spoiler__nav-item
+                                a.nav__link(href='#')
+                                  |#{item}
+                    each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
         .row__col
           .section__inner--top.legal-support
             .container.single-news
-              h1.title.single-news__title
+              h1.title
                 |Базальная имплантация
               .mission__spoiler.news-spoiler
                 .mission__spoiler-button.news-spoiler__button
@@ -135,7 +148,7 @@ block content
       .row__col
         .container
           .spec-implant-cards-top
-            h2.spec-implant-hexagon-ttl Импланты для базальной ипмлпантации
+            h2.spec-implant-hexagon-ttl Импланты для базальной имплантации
             a.specialists-events__link(href="")
               .mission__missions-links-link
                 +arrow-link-svg('news__link-ico')

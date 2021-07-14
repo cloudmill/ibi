@@ -677,6 +677,11 @@
   &__image {
     display: flex;
     align-items: flex-end;
+
+    svg {
+      height: auto;
+      max-width: 34px;
+    }
   }
   &__img {
     width: auto;

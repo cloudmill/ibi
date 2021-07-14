@@ -205,3 +205,41 @@
     }
   }
 }
+
+.member-operations-slider {
+
+  @media (max-width: $breakpoint) {
+    .swiper-slide {
+      width: unset;
+    }
+  }
+
+  .operation-card__col {
+    width: calc(#{$col-part-d} * 4);
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+    }
+
+    .operation-card__image {
+      width: 100%;
+
+      .operation-card__img {
+        // max-height: unset;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+
+  .operation-card__col:nth-child(2) {
+    width: calc(#{$col-part-d} * 4);
+    margin-left: calc(#{$col-width-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}

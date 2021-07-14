@@ -69,3 +69,15 @@
     }
   }
 }
+
+.legal-support-form {
+  form {
+    width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+    margin-right: calc(#{$col-part-d});
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+}

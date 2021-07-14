@@ -126,15 +126,24 @@ block content
               .index-publications__top
                 .index-publications__top-left
                   h2.index-publications__title
-                    |Последние проведенные операции
+                    |Участие в операциях
+                  .index-publications__control.slider-control.slider-control--desktop
+                    .slider-control__item
+                      .button-arrow.button-arrow--left
+                        .button-arrow__button(data-slider-button='9')
+                          +svg-arrow.button-arrow__svg
+                    .slider-control__item
+                      .button-arrow.button-arrow.button-arrow--right
+                        .button-arrow__button(data-slider-button='10')
+                          +svg-arrow.button-arrow__svg
                 .index-publications__top-right
                   .mission__missions-links-container
                     a.mission__missions-links-link(href='#')
                       +svg-link.mission__missions-links-svg
                       .mission__missions-links-text
                         |Все операции
-              .index-operations__slider
-                .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='7' data-slider-prev='9' data-slider-next='10')
+              .index-operations__slider.member-operations-slider
+                .swiper-container.swiper-container--slide-height-max(data-slider-id='7' data-slider-prev='9' data-slider-next='10')
                   .swiper-wrapper
                     - for (let i=0; i<9; i++)
                       .swiper-slide
@@ -198,16 +207,16 @@ block content
                                                 +svg-link.mission__missions-links-svg
                                                 .mission__missions-links-text
                                                   |Все операции
-                                    .operation-card__bottom-col.operation-card__bottom-col--desktop
-                                      .slider-control.slider-control--desktop
-                                        .slider-control__item
-                                          .button-arrow.button-arrow--left
-                                            .button-arrow__button(data-slider-button='9')
-                                              +svg-arrow.button-arrow__svg
-                                        .slider-control__item
-                                          .button-arrow.button-arrow.button-arrow--right
-                                            .button-arrow__button(data-slider-button='10')
-                                              +svg-arrow.button-arrow__svg
+                                    //- .operation-card__bottom-col.operation-card__bottom-col--desktop
+                                    //-   .slider-control.slider-control--desktop
+                                    //-     .slider-control__item
+                                    //-       .button-arrow.button-arrow--left
+                                    //-         .button-arrow__button(data-slider-button='9')
+                                    //-           +svg-arrow.button-arrow__svg
+                                    //-     .slider-control__item
+                                    //-       .button-arrow.button-arrow.button-arrow--right
+                                    //-         .button-arrow__button(data-slider-button='10')
+                                    //-           +svg-arrow.button-arrow__svg
     section.index__section.section--blue-light.section__inner
       .row
         .row__col
@@ -217,7 +226,7 @@ block content
               .index-publications__top
                 .index-publications__top-left
                   h2.index-publications__title
-                    |Публикации ИБИ
+                    |Опубликованные статьи
                   .index-publications__control.slider-control.slider-control--desktop
                     .slider-control__item
                       .button-arrow.button-arrow--left
