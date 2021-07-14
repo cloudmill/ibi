@@ -184,6 +184,11 @@
 
       @media (min-width: $breakpoint) {
         width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+
+      }
+
+      @media (max-width: $breakpoint) {
+        padding-left: 27px;
       }
 
       @media (max-width: $breakpoint-m - 1px) {
@@ -207,7 +212,8 @@
       margin-left: calc((#{$col-part-d} - #{$col-gap-d}) * (-1));
 
       @media (max-width: $breakpoint) {
-        margin-right: 16px;
+        margin-left: -27px;
+        margin-right: 24px;
       }
     }
   }
