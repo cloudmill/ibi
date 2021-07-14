@@ -247,7 +247,7 @@
       background-color: $color-main;
 
       #{$component}__button-image {
-        $size: 23px;
+        $size: 24px;
         width: $size;
         height: $size;
         @media (max-width: $breakpoint - 1px) {
@@ -258,6 +258,12 @@
 
         &::before,
         &::after {
+          @media (min-width: $breakpoint) {
+            right: 1px;
+
+            width: 31px;
+          }
+
           background-color: $color-white;
         }
         &::before {
@@ -272,6 +278,9 @@
   &__button-image {
     position: relative;
     z-index: 0;
+    @media (max-width: $breakpoint - 1px) {
+      right: 1px;
+    }
 
     margin: auto;
     width: 30px;

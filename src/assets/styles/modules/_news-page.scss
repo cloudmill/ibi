@@ -380,10 +380,10 @@
         font-weight: 500;
         font-size: 50px;
         line-height: 140%;
+        letter-spacing: -0.7px;
         @media (max-width: $breakpoint-m) {
-            font-size: 22px;
-            }
-
+        font-size: 22px;
+        }
         width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
         @media (max-width: $breakpoint) {
         width: auto;

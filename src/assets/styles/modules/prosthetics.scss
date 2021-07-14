@@ -194,8 +194,9 @@
   }
 
   h2 {
-    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
     font-size: 40px;
+    letter-spacing: -0.5px;
 
     @media (max-width: $breakpoint) {
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
@@ -205,7 +206,6 @@
     @media (max-width: $breakpoint-m) {
       width: 100%;
       margin-bottom: 20px;
-      
     }
   }
 
