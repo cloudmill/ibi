@@ -11,413 +11,407 @@ block header
 
   
 block content
-  .sticky-container(data-sticky-container)
-    section.section.section--gradient
-      .row
-        .row__col
-          .section__inner.section__inner--top
-            .nav.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
-              .nav__container
-                nav.nav__nav
-                  ul.nav__list.prosthetics-nav
-                    .mission__spoiler
-                      li.nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
-                        a.nav__link(href='#')
-                          |Протезирование
-                        .news-spoiler__image
-                          +arrow-svg('header__drop-svg')
-                      .mission__spoiler-drop.news-spoiler__drop
-                        nav.news-spoiler__nav.prosthetics-spoiler__drop
-                          ul
-                            each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладкициркониевые KATANA', 'Безметалловые вкладки']
-                              li.news-spoiler__nav-item
-                                a.nav__link(href='#')
-                                  |#{item}
-                    .mission__spoiler
-                      li.nav__item.mission__spoiler-button.news-spoiler__button
-                        a.nav__link(href='#')
-                          |Диагностика
-                        .news-spoiler__image
-                          +arrow-svg('header__drop-svg')
-                      .mission__spoiler-drop.news-spoiler__drop
-                        nav.news-spoiler__nav.prosthetics-spoiler__drop
-                          ul
-                            each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                              li.news-spoiler__nav-item
-                                a.nav__link(href='#')
-                                  |#{item}
-                    .mission__spoiler
-                      li.nav__item.mission__spoiler-button.news-spoiler__button
-                        a.nav__link(href='#')
-                          |Профилактика
-                        .news-spoiler__image
-                          +arrow-svg('header__drop-svg')
-                      .mission__spoiler-drop.news-spoiler__drop
-                        nav.news-spoiler__nav.prosthetics-spoiler__drop
-                          ul
-                            each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                              li.news-spoiler__nav-item
-                                a.nav__link(href='#')
-                                  |#{item}
-                    .mission__spoiler
-                      li.nav__item.mission__spoiler-button.news-spoiler__button
-                        a.nav__link(href='#')
-                          |Удаление зубов
-                        .news-spoiler__image
-                          +arrow-svg('header__drop-svg')
-                      .mission__spoiler-drop.news-spoiler__drop
-                        nav.news-spoiler__nav.prosthetics-spoiler__drop
-                          ul
-                            each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                              li.news-spoiler__nav-item
-                                a.nav__link(href='#')
-                                  |#{item}
-                    .mission__spoiler
-                      li.nav__item.mission__spoiler-button.news-spoiler__button
-                        a.nav__link(href='#')
-                          |Лечение зубов
-                        .news-spoiler__image
-                          +arrow-svg('header__drop-svg')
-                      .mission__spoiler-drop.news-spoiler__drop
-                        nav.news-spoiler__nav.prosthetics-spoiler__drop
-                          ul
-                            each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                              li.news-spoiler__nav-item
-                                a.nav__link(href='#')
-                                  |#{item}
-
-        .row__col
-          .section__inner--top
-            .container.prosthetics
-              h1.title
-                |Протезирование
-              .mission__spoiler.news-spoiler
-                  .mission__spoiler-button.news-spoiler__button
-                    h5.mission__spoiler-title.prosthetics-spoiler
-                      |Протезирование
-                      +arrow-link-svg('prosthetics-link-svg')
-                    .news-spoiler__image
-                      +arrow-svg('header__drop-svg')
-                  .mission__spoiler-drop.news-spoiler__drop
-                    nav.news-spoiler__nav.prosthetics-spoiler__drop
-                      ul
-                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                          li.news-spoiler__nav-item
-                            a.nav__link(href='#')
-                              |#{item}
-              .mission__spoiler.news-spoiler
-                  .mission__spoiler-button.news-spoiler__button
-                    h5.mission__spoiler-title.prosthetics-spoiler
-                      |Диагностика
-                      +arrow-link-svg('prosthetics-link-svg')
-                    .news-spoiler__image
-                      +arrow-svg('header__drop-svg')
-                  .mission__spoiler-drop.news-spoiler__drop
-                    nav.news-spoiler__nav.prosthetics-spoiler__drop
-                      ul
-                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                          li.news-spoiler__nav-item
-                            a.nav__link(href='#')
-                              |#{item}
-              .mission__spoiler.news-spoiler
-                  .mission__spoiler-button.news-spoiler__button
-                    h5.mission__spoiler-title.prosthetics-spoiler
-                      |Профилактика
-                      +arrow-link-svg('prosthetics-link-svg')
-                    .news-spoiler__image
-                      +arrow-svg('header__drop-svg')
-                  .mission__spoiler-drop.news-spoiler__drop
-                    nav.news-spoiler__nav.prosthetics-spoiler__drop
-                      ul
-                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                          li.news-spoiler__nav-item
-                            a.nav__link(href='#')
-                              |#{item}
-              .mission__spoiler.news-spoiler
-                  .mission__spoiler-button.news-spoiler__button
-                    h5.mission__spoiler-title.prosthetics-spoiler
-                      |Удаление зубов
-                      +arrow-link-svg('prosthetics-link-svg')
-                    .news-spoiler__image
-                      +arrow-svg('header__drop-svg')
-                  .mission__spoiler-drop.news-spoiler__drop
-                    nav.news-spoiler__nav.prosthetics-spoiler__drop
-                      ul
-                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                          li.news-spoiler__nav-item
-                            a.nav__link(href='#')
-                              |#{item}
-              .mission__spoiler.news-spoiler
-                  .mission__spoiler-button.news-spoiler__button
-                    h5.mission__spoiler-title.prosthetics-spoiler
-                      |Лечение зубов
-                      +arrow-link-svg('prosthetics-link-svg')
-                    .news-spoiler__image
-                      +arrow-svg('header__drop-svg')
-                  .mission__spoiler-drop.news-spoiler__drop
-                    nav.news-spoiler__nav.prosthetics-spoiler__drop
-                      ul
-                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                          li.news-spoiler__nav-item
-                            a.nav__link(href='#')
-                              |#{item}
-              .section__block.section__block--small
-                .prosthetics__image
-                  .about__image-background(style='background-image: url("assets/images/prosthetics-main.jpg")')
-                    +svg-hexagon.about__image-svg
-                    +svg-hexagon.about__image-svg
-              .section__block.prosthetics-block
-                h2.prosthetics-block__ttl Сильная команда
-                img.prosthetics-block__img(src="assets/images/prosthetics-1.jpg", alt="")
-                .prosthetics-block__desc
-                  p.prosthetics-block__desc-txt
-                    |Стоматологи-ортопеды 
-                    span.prosthetics-txt-highlight ежесезонно 
-                    |проходят курсы по тотальному протезированию и реконструкции улыбки. Мы создаем индивидуальную эстетику 
-                    span.prosthetics-txt-highlight с учетом всех пожеланий нашего пациента.
-                  p.prosthetics-block__desc-txt
-                    |Зубные техники проходят обучение за рубежом имеет 
-                    span.prosthetics-txt-highlight сертификаты международных учебных организаций.
-                  p.prosthetics-block__desc-txt
-                    |Одна из ценностей нашей клиники — процесс 
-                    span.prosthetics-txt-highlight постоянного обучения и обмена опытом. 
-                    |Знания циркулриюут между специалистами, позволяя развивать смежные компетенции тем самым усиливая всю команду.
-              .section__block.prosthetics-block__lab
-                h2 Зуботехническая лаборатория IBI Lab
-                p IBI Lab – современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации. Собственная лаборатория позволяет усиливать экспертизу в прозводстве мостов, коронок и любых ортопедических конструкций. Наши подходы отвечают требованиям качества и соответсвенния стандртам IIF.
-                img.lab__img(src="assets/images/laboratory.jpg", alt="")
-      .section--blue-light
-        .row
-          .row__col
-          .row__col
-            .container
-              .prosthetics-block__practice
-                .prosthetics-block__practice-desc
-                  h2 Премиальные материалы
-                  p В практике протезирования мы выбираем материалы 
-                    span.prosthetics-txt-highlight премиум-сегмента от фирм-лидеров. 
-                    |Никакого китайского циркония и сомнительного композита. С каждым материалом 
-                    span.prosthetics-txt-highlight собственный опты работы 3-8 лет.
-                .prosthetics-block__practice-circle
-                  +brilliant-svg('practice-circle')
-                  .prosthetics-block__practice-ttl Best practice
-                  .prosthetics-block__practice-txt Перенимаем лучшие европейские практики, ведь наши техники обучаются у евпропейских коллег с опытом 10-20 лет.
-                  +brilliant-svg('practice-circle')
-                .prosthetics-block__practice-list
-                  h2 Все это позволяет сделать вам зубы, которые
-                  ul
-                    li
-                      p Смотрятся естественно
-                    li
-                      p Удерживают эстетику во время длительной эксплуатации
-                    li
-                      p Устойчивы к сколам и не требуют постоянной коррекции
-                    li
-                      p Биосовместимы и не влияют на здоровье, на них не размножаются микробы, они не вызывают аллергию
-    section
+  section.section.section--gradient
+    .row
+      .row__col
+        .section__inner.section__inner--top
+          .nav
+            .nav__container
+              nav.nav__nav.my-sticky
+                ul.nav__list.prosthetics-nav
+                  .mission__spoiler(data-spoiler-group='1')
+                    li.nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
+                      a.nav__link(href='#')
+                        |Протезирование
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладкициркониевые KATANA', 'Безметалловые вкладки']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+                  .mission__spoiler(data-spoiler-group='2')
+                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      a.nav__link(href='#')
+                        |Диагностика
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+                  .mission__spoiler(data-spoiler-group='3')
+                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      a.nav__link(href='#')
+                        |Профилактика
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+                  .mission__spoiler(data-spoiler-group='4')
+                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      a.nav__link(href='#')
+                        |Удаление зубов
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+                  .mission__spoiler(data-spoiler-group='5')
+                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      a.nav__link(href='#')
+                        |Лечение зубов
+                      .news-spoiler__image
+                        +arrow-svg('header__drop-svg')
+                    .mission__spoiler-drop.news-spoiler__drop
+                      nav.news-spoiler__nav.prosthetics-spoiler__drop
+                        ul
+                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                            li.news-spoiler__nav-item
+                              a.nav__link(href='#')
+                                |#{item}
+      .row__col
+        .section__inner--top
+          .container.prosthetics
+            h1.title
+              |Протезирование
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Протезирование
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Диагностика
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Профилактика
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Удаление зубов
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title.prosthetics-spoiler
+                    |Лечение зубов
+                    +arrow-link-svg('prosthetics-link-svg')
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav.prosthetics-spoiler__drop
+                    ul
+                      each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
+            .section__block.section__block--small
+              .prosthetics__image
+                .about__image-background(style='background-image: url("assets/images/prosthetics-main.jpg")')
+                  +svg-hexagon.about__image-svg
+                  +svg-hexagon.about__image-svg
+            .section__block.prosthetics-block
+              h2.prosthetics-block__ttl Сильная команда
+              img.prosthetics-block__img(src="assets/images/prosthetics-1.jpg", alt="")
+              .prosthetics-block__desc
+                p.prosthetics-block__desc-txt
+                  |Стоматологи-ортопеды 
+                  span.prosthetics-txt-highlight ежесезонно 
+                  |проходят курсы по тотальному протезированию и реконструкции улыбки. Мы создаем индивидуальную эстетику 
+                  span.prosthetics-txt-highlight с учетом всех пожеланий нашего пациента.
+                p.prosthetics-block__desc-txt
+                  |Зубные техники проходят обучение за рубежом имеет 
+                  span.prosthetics-txt-highlight сертификаты международных учебных организаций.
+                p.prosthetics-block__desc-txt
+                  |Одна из ценностей нашей клиники — процесс 
+                  span.prosthetics-txt-highlight постоянного обучения и обмена опытом. 
+                  |Знания циркулриюут между специалистами, позволяя развивать смежные компетенции тем самым усиливая всю команду.
+            .section__block.prosthetics-block__lab
+              h2 Зуботехническая лаборатория IBI Lab
+              p IBI Lab – современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации. Собственная лаборатория позволяет усиливать экспертизу в прозводстве мостов, коронок и любых ортопедических конструкций. Наши подходы отвечают требованиям качества и соответсвенния стандртам IIF.
+              img.lab__img(src="assets/images/laboratory.jpg", alt="")
+    .section--blue-light
       .row
         .row__col
         .row__col
           .container
-            .section__block.section__block--small.section__inner.prosthetics-stages
-              .section__title
-                |Этапы протезирования
-              ul.mission__spoilers.mission__spoilers--margin-top.faq-spoiler
-                li.mission__spoilers-item
-                  .mission__spoiler
-                    .mission__spoiler-button
-                      h5.mission__spoiler-title
-                        |Первичная диагностика
-                      .mission__spoiler-image
-                    .mission__spoiler-drop
-                      .mission__spoiler-list
-                        p Это осложнение возникает при установке имплантов на нижнюю челюсть примерно в 13% случаев, и основным его симптомом является нарушение чувствительности в области щек, губ, зубов, десен и языка. Кроме того, в зависимости от степени повреждения нерва могут возникать и другие симптомы, включая повышенное слюноотделение, прикусывание губ или языка, трудности при глотании, разговоре, жевании и т.д.
-                li.mission__spoilers-item
-                  .mission__spoiler
-                    .mission__spoiler-button
-                      h5.mission__spoiler-title
-                        |Получение высокоточных оттисков
-                      .mission__spoiler-image
-                    .mission__spoiler-drop
-                      .mission__spoiler-list
-                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus illo numquam a ipsa beatae? Ipsa, explicabo, quas illo minima qui sapiente, pariatur ipsum natus delectus voluptates similique quaerat aliquam porro.
-                li.mission__spoilers-item
-                  .mission__spoiler
-                    .mission__spoiler-button
-                      h5.mission__spoiler-title
-                        |Плановые контрольные осмотры
-                      .mission__spoiler-image
-                    .mission__spoiler-drop
-                      .mission__spoiler-list
-                        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. At ratione, quibusdam consequuntur optio, fugiat aperiam quam eum, et fuga delectus provident debitis quisquam modi adipisci dolore ducimus dignissimos maiores! Assumenda!
-                li.mission__spoilers-item
-                  .mission__spoiler
-                    .mission__spoiler-button
-                      h5.mission__spoiler-title
-                        |Предоперационная гигиена полости рта
-                      .mission__spoiler-image
-                    .mission__spoiler-drop
-                      .mission__spoiler-list
-                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum facere dolor ex
-                li.mission__spoilers-item
-                  .mission__spoiler
-                    .mission__spoiler-button
-                      h5.mission__spoiler-title
-                        |Примерка зубов на имплантатах Moсk up
-                      .mission__spoiler-image
-                    .mission__spoiler-drop
-                      .mission__spoiler-list
-                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum facere dolor ex
-    section
-      .row
-        .row__col
-        .row__col
-          .container.prosthetic-slider
-            h2.prosthetic-slider__ttl Типы протезирования
-            .prosthetic-slider__top
-              .prosthetic-slider__filter
-                .development__names-item На зубах
-                .development__names-item На имплантатах
-              .index-publications__control.slider-control.slider-control--desktop
-                .slider-control__item
-                  .button-arrow.button-arrow--blue-light.button-arrow--left
-                    .button-arrow__button(data-slider-button='141')
-                      +svg-arrow.button-arrow__svg
-                .slider-control__item
-                  .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
-                    .button-arrow__button(data-slider-button='142')
-                      +svg-arrow.button-arrow__svg
-            .swiper-container(data-slider-id='140' data-slider-prev='141' data-slider-next='142')
-              .swiper-wrapper
-                .swiper-slide.prosthetic-slider__slide
-                  img(src="assets/images/prosthetics-2.jpg", alt="")
-                  p Коронки циркониевые
-                .swiper-slide.prosthetic-slider__slide
-                  img(src="assets/images/prosthetics-3.jpg", alt="")
-                  p Оклюзивные накладки
-                .swiper-slide.prosthetic-slider__slide
-                  img(src="assets/images/prosthetics-2.jpg", alt="")
-                  p Культевая вкладка
+            .prosthetics-block__practice
+              .prosthetics-block__practice-desc
+                h2 Премиальные материалы
+                p В практике протезирования мы выбираем материалы 
+                  span.prosthetics-txt-highlight премиум-сегмента от фирм-лидеров. 
+                  |Никакого китайского циркония и сомнительного композита. С каждым материалом 
+                  span.prosthetics-txt-highlight собственный опты работы 3-8 лет.
+              .prosthetics-block__practice-circle
+                +brilliant-svg('practice-circle')
+                .prosthetics-block__practice-ttl Best practice
+                .prosthetics-block__practice-txt Перенимаем лучшие европейские практики, ведь наши техники обучаются у евпропейских коллег с опытом 10-20 лет.
+                +brilliant-svg('practice-circle')
+              .prosthetics-block__practice-list
+                h2 Все это позволяет сделать вам зубы, которые
+                ul
+                  li
+                    p Смотрятся естественно
+                  li
+                    p Удерживают эстетику во время длительной эксплуатации
+                  li
+                    p Устойчивы к сколам и не требуют постоянной коррекции
+                  li
+                    p Биосовместимы и не влияют на здоровье, на них не размножаются микробы, они не вызывают аллергию
+  section
+    .row
+      .row__col
+      .row__col
+        .container
+          .section__block.section__block--small.section__inner.prosthetics-stages
+            .section__title
+              |Этапы протезирования
+            ul.mission__spoilers.mission__spoilers--margin-top.faq-spoiler
+              li.mission__spoilers-item
+                .mission__spoiler
+                  .mission__spoiler-button
+                    h5.mission__spoiler-title
+                      |Первичная диагностика
+                    .mission__spoiler-image
+                  .mission__spoiler-drop
+                    .mission__spoiler-list
+                      p Это осложнение возникает при установке имплантов на нижнюю челюсть примерно в 13% случаев, и основным его симптомом является нарушение чувствительности в области щек, губ, зубов, десен и языка. Кроме того, в зависимости от степени повреждения нерва могут возникать и другие симптомы, включая повышенное слюноотделение, прикусывание губ или языка, трудности при глотании, разговоре, жевании и т.д.
+              li.mission__spoilers-item
+                .mission__spoiler
+                  .mission__spoiler-button
+                    h5.mission__spoiler-title
+                      |Получение высокоточных оттисков
+                    .mission__spoiler-image
+                  .mission__spoiler-drop
+                    .mission__spoiler-list
+                      p Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus illo numquam a ipsa beatae? Ipsa, explicabo, quas illo minima qui sapiente, pariatur ipsum natus delectus voluptates similique quaerat aliquam porro.
+              li.mission__spoilers-item
+                .mission__spoiler
+                  .mission__spoiler-button
+                    h5.mission__spoiler-title
+                      |Плановые контрольные осмотры
+                    .mission__spoiler-image
+                  .mission__spoiler-drop
+                    .mission__spoiler-list
+                      p Lorem ipsum dolor, sit amet consectetur adipisicing elit. At ratione, quibusdam consequuntur optio, fugiat aperiam quam eum, et fuga delectus provident debitis quisquam modi adipisci dolore ducimus dignissimos maiores! Assumenda!
+              li.mission__spoilers-item
+                .mission__spoiler
+                  .mission__spoiler-button
+                    h5.mission__spoiler-title
+                      |Предоперационная гигиена полости рта
+                    .mission__spoiler-image
+                  .mission__spoiler-drop
+                    .mission__spoiler-list
+                      p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum facere dolor ex
+              li.mission__spoilers-item
+                .mission__spoiler
+                  .mission__spoiler-button
+                    h5.mission__spoiler-title
+                      |Примерка зубов на имплантатах Moсk up
+                    .mission__spoiler-image
+                  .mission__spoiler-drop
+                    .mission__spoiler-list
+                      p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum facere dolor ex
+  section
+    .row
+      .row__col
+      .row__col
+        .container.prosthetic-slider
+          h2.prosthetic-slider__ttl Типы протезирования
+          .prosthetic-slider__top
+            .prosthetic-slider__filter
+              .development__names-item На зубах
+              .development__names-item На имплантатах
+            .index-publications__control.slider-control.slider-control--desktop
+              .slider-control__item
+                .button-arrow.button-arrow--blue-light.button-arrow--left
+                  .button-arrow__button(data-slider-button='141')
+                    +svg-arrow.button-arrow__svg
+              .slider-control__item
+                .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
+                  .button-arrow__button(data-slider-button='142')
+                    +svg-arrow.button-arrow__svg
+          .swiper-container(data-slider-id='140' data-slider-prev='141' data-slider-next='142')
+            .swiper-wrapper
+              .swiper-slide.prosthetic-slider__slide
+                img(src="assets/images/prosthetics-2.jpg", alt="")
+                p Коронки циркониевые
+              .swiper-slide.prosthetic-slider__slide
+                img(src="assets/images/prosthetics-3.jpg", alt="")
+                p Оклюзивные накладки
+              .swiper-slide.prosthetic-slider__slide
+                img(src="assets/images/prosthetics-2.jpg", alt="")
+                p Культевая вкладка
 
-    section.index__section.section--blue-light.section__inner
-      .row
-        .row__col
-        .row__col
-          .container
-            .index__block.index-publications.index-operations
-              .index-publications__top
-                .index-publications__top-left
-                  h2.index-publications__title
-                    |Случаи из практики
-                .index-publications__top-right
-                  .mission__missions-links-container
-                    a.mission__missions-links-link(href='#')
-                      +svg-link.mission__missions-links-svg
-                      .mission__missions-links-text
-                        |Все операции
-              .index-operations__slider
-                .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='7' data-slider-prev='9' data-slider-next='10')
-                  .swiper-wrapper
-                    - for (let i=0; i<9; i++)
-                      .swiper-slide
-                        .operation-card
-                          .operation-card__row
-                            .operation-card__col
-                              .operation-card__image
-                                img.operation-card__img(src=`assets/images/index/operation-${i % 2 + 1}.jpeg`)
-                            .operation-card__col
-                              .operation-card__content
-                                .operation-card__block
-                                  .operation-card__top
-                                    .operation-card__top-row
-                                      .operation-card__top-col
-                                        .operation-card__info
-                                          .operation-card__price
-                                            |456 000 ₽
-                                          .operation-card__visits
-                                            |4 визита
-                                      .operation-card__top-col
-                                        .operation-card__rating
-                                          ul.operation-card__rating-list
-                                            - for (let i=0; i<5; i++)
-                                              li.operation-card__rating-item(class=(i < 3 ? 'operation-card__rating-item--active' : ''))
-                                                +svg-rating(class='operation-card__rating-svg')
-                                  .tags.operation-card__tags
-                                    ul.tags__list
-                                      li.tags__item
-                                        a.tags__tag(href='#')
-                                          |#имплантация
-                                      li.tags__item
-                                        a.tags__tag(href='#')
-                                          |#протезирование
-                                  h3.operation-card__title
-                                    |Жильцов Сергей Васильевич
-                                  .operation-card__desc
-                                    .operation-card__desc-block
-                                      h6.operation-card__desc-title.operation-card__desc-title--red
-                                        |Проблема
-                                      p.operation-card__desc-text
-                                        |Отсутствием зубов на верхней и нижней челюсти и серьезной атрофией костной ткани.
-                                    .operation-card__desc-block
-                                      h6.operation-card__desc-title
-                                        |Предложенное решение
-                                      p.operation-card__desc-text
-                                        |По результатам врачебного консилиума было принято решение проводить базальную имплантацию.
-                                .operation-card__bottom
-                                  .operation-card__bottom-row
-                                    .operation-card__bottom-col
-                                      ul.operation-card__links
-                                        li.operation-card__link
+  section.index__section.section--blue-light.section__inner
+    .row
+      .row__col
+      .row__col
+        .container
+          .index__block.index-publications.index-operations
+            .index-publications__top
+              .index-publications__top-left
+                h2.index-publications__title
+                  |Случаи из практики
+              .index-publications__top-right
+                .mission__missions-links-container
+                  a.mission__missions-links-link(href='#')
+                    +svg-link.mission__missions-links-svg
+                    .mission__missions-links-text
+                      |Все операции
+            .index-operations__slider
+              .swiper-container.swiper-container--visible.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='7' data-slider-prev='9' data-slider-next='10')
+                .swiper-wrapper
+                  - for (let i=0; i<9; i++)
+                    .swiper-slide
+                      .operation-card
+                        .operation-card__row
+                          .operation-card__col
+                            .operation-card__image
+                              img.operation-card__img(src=`assets/images/index/operation-${i % 2 + 1}.jpeg`)
+                          .operation-card__col
+                            .operation-card__content
+                              .operation-card__block
+                                .operation-card__top
+                                  .operation-card__top-row
+                                    .operation-card__top-col
+                                      .operation-card__info
+                                        .operation-card__price
+                                          |456 000 ₽
+                                        .operation-card__visits
+                                          |4 визита
+                                    .operation-card__top-col
+                                      .operation-card__rating
+                                        ul.operation-card__rating-list
+                                          - for (let i=0; i<5; i++)
+                                            li.operation-card__rating-item(class=(i < 3 ? 'operation-card__rating-item--active' : ''))
+                                              +svg-rating(class='operation-card__rating-svg')
+                                .tags.operation-card__tags
+                                  ul.tags__list
+                                    li.tags__item
+                                      a.tags__tag(href='#')
+                                        |#имплантация
+                                    li.tags__item
+                                      a.tags__tag(href='#')
+                                        |#протезирование
+                                h3.operation-card__title
+                                  |Жильцов Сергей Васильевич
+                                .operation-card__desc
+                                  .operation-card__desc-block
+                                    h6.operation-card__desc-title.operation-card__desc-title--red
+                                      |Проблема
+                                    p.operation-card__desc-text
+                                      |Отсутствием зубов на верхней и нижней челюсти и серьезной атрофией костной ткани.
+                                  .operation-card__desc-block
+                                    h6.operation-card__desc-title
+                                      |Предложенное решение
+                                    p.operation-card__desc-text
+                                      |По результатам врачебного консилиума было принято решение проводить базальную имплантацию.
+                              .operation-card__bottom
+                                .operation-card__bottom-row
+                                  .operation-card__bottom-col
+                                    ul.operation-card__links
+                                      li.operation-card__link
+                                        .mission__missions-links-container
+                                          a.mission__missions-links-link(href='#')
+                                            +svg-link.mission__missions-links-svg
+                                            .mission__missions-links-text
+                                              |Подробнее
+                                      if !(i % 2)
+                                        li.operation-card__link.operation-card__link--mobile
                                           .mission__missions-links-container
                                             a.mission__missions-links-link(href='#')
                                               +svg-link.mission__missions-links-svg
                                               .mission__missions-links-text
-                                                |Подробнее
-                                        if !(i % 2)
-                                          li.operation-card__link.operation-card__link--mobile
-                                            .mission__missions-links-container
-                                              a.mission__missions-links-link(href='#')
-                                                +svg-link.mission__missions-links-svg
-                                                .mission__missions-links-text
-                                                  |Все операции
-                                    .operation-card__bottom-col.operation-card__bottom-col--desktop
-                                      .slider-control.slider-control--desktop
-                                        .slider-control__item
-                                          .button-arrow.button-arrow--left
-                                            .button-arrow__button(data-slider-button='9')
-                                              +svg-arrow.button-arrow__svg
-                                        .slider-control__item
-                                          .button-arrow.button-arrow.button-arrow--right
-                                            .button-arrow__button(data-slider-button='10')
-                                              +svg-arrow.button-arrow__svg
-    section.section
-      .row
-        .row__col
-        .row__col
-          .container.news-subscribe.member-page-ask
-            h2.news-subscribe__title.member-page-ask__title Свяжитесь с нами
-            form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
-              .member-page-ask__form-wrapper
-                label.news-subscribe__form-placeholder.member-page-ask__label
-                    input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
-                label.news-subscribe__form-placeholder.member-page-ask__label
-                    input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
-                label.news-subscribe__form-placeholder.member-page-ask__label
-                    input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
-                label.news-subscribe__form-placeholder.member-page-ask__label
-                    textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
-                label.news-subscribe__form-checkbox.member-page-ask__checkbox
-                    input(type="checkbox" required="")
-                    p Согласен на обработку персональных данных в соответствии с 
-                        a(href="#") политикой конфиденциальности
-                button.news-subscribe__form-btn(type="submit")
-                    +arrow-link-svg('news-subscribe__form-btn-ico')
-                    |Отправить
+                                                |Все операции
+                                  .operation-card__bottom-col.operation-card__bottom-col--desktop
+                                    .slider-control.slider-control--desktop
+                                      .slider-control__item
+                                        .button-arrow.button-arrow--left
+                                          .button-arrow__button(data-slider-button='9')
+                                            +svg-arrow.button-arrow__svg
+                                      .slider-control__item
+                                        .button-arrow.button-arrow.button-arrow--right
+                                          .button-arrow__button(data-slider-button='10')
+                                            +svg-arrow.button-arrow__svg
+  section.section
+    .row
+      .row__col
+      .row__col
+        .container.news-subscribe.member-page-ask
+          h2.news-subscribe__title.member-page-ask__title Свяжитесь с нами
+          form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+            .member-page-ask__form-wrapper
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+              label.news-subscribe__form-placeholder.member-page-ask__label
+                  textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+              label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                  input(type="checkbox" required="")
+                  p Согласен на обработку персональных данных в соответствии с 
+                      a(href="#") политикой конфиденциальности
+              button.news-subscribe__form-btn(type="submit")
+                  +arrow-link-svg('news-subscribe__form-btn-ico')
+                  |Отправить
 
 
 block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+  +footer

@@ -360,6 +360,151 @@ const BREAKPOINT = 1280;
   });
 }
 
+// my-sticky
+var updateMySticky
+{
+	$(() => {
+		const stickyAll = $('.my-sticky')
+
+		stickyAll.each(function () {
+			const sticky = $(this)
+			
+			const state = {
+				// offset
+				top: 140,
+				bottom: $('.footer').height() + 160,
+				// pos
+				startY: null,
+				y: null,
+				// size
+				height: null,
+				// mode
+				mode: null,
+			}
+
+			const stickyPlace = sticky.parent()
+			// готовим place для добавления stickyBottom и stickyFixed
+			stickyPlace.css('position', 'relative')
+
+			const stickyBottom = sticky.clone()
+			// готовим stickyBottom
+			stickyBottom.css('opacity', 0)
+			stickyBottom.css('pointer-events', 'none')
+			stickyBottom.css('position', 'absolute')
+			stickyBottom.css('top', `${sticky[0].offsetTop}px`)
+			stickyBottom.css('width', `${sticky[0].offsetWidth}px`)
+			stickyPlace.append(stickyBottom)
+
+			const stickyFixed = sticky.clone()
+			// готовим stickyFixed
+			stickyFixed.css('opacity', 0)
+			stickyFixed.css('pointer-events', 'none')
+			stickyFixed.css('position', 'fixed')
+			stickyFixed.css('top', `${state.top}px`)
+			stickyFixed.css('width', `${sticky[0].offsetWidth}px`)
+			stickyPlace.append(stickyFixed)
+
+			update()
+
+			$(window).on('scroll', update)
+			$(window).on('resize', update)
+
+			function update() {
+        // console.log('update');
+        
+        state.bottom = $('.footer').height() + 160;
+
+				// апдейтим размеры (width) копий
+				stickyBottom.css('width', `${sticky[0].offsetWidth}px`)
+				stickyFixed.css('width', `${sticky[0].offsetWidth}px`)
+
+				// апдейтим позицию stickyFixed
+				stickyFixed.css('top', `${state.top}px`)
+
+				// апдейтим позицию stickyBottom
+				stickyBottom.css('top', `${sticky[0].offsetTop}px`)
+				const stickyBottomYBottom = getY(stickyBottom) + stickyBottom.height()
+				const bottomY = getDocumentHeight() - state.bottom
+				stickyBottom.css('transform', `
+					translateY(${bottomY - stickyBottomYBottom}px)	
+				`)
+
+				const scrollY = $(window).scrollTop()
+				if (scrollY < (getY(sticky) - state.top)) {
+					state.mode = 'default'
+				} else if ((scrollY + state.top) < getDocumentHeight() - state.bottom - stickyFixed.height()) {
+					state.mode = 'fixed'
+				} else {
+					state.mode = 'bottom'
+				}
+
+				switch (state.mode) {
+					case 'fixed':
+						console.log('fixed');
+
+						sticky.css('opacity', 0)
+						sticky.css('pointer-events', 'none')
+						stickyBottom.css('opacity', 0)
+						stickyBottom.css('pointer-events', 'none')
+
+						stickyFixed.css('opacity', '')
+						stickyFixed.css('pointer-events', '')
+						break
+					case 'bottom':
+						console.log('bottom')
+
+						sticky.css('opacity', 0)
+						sticky.css('pointer-events', 'none')
+						stickyFixed.css('opacity', 0)
+						stickyFixed.css('pointer-events', 'none')
+
+						stickyBottom.css('opacity', '')
+						stickyBottom.css('pointer-events', '')
+						break
+					default:
+						console.log('default');
+
+						stickyFixed.css('opacity', 0)
+						stickyFixed.css('pointer-events', 'none')
+						stickyBottom.css('opacity', '0')
+						stickyBottom.css('pointer-events', 'none')
+
+						sticky.css('opacity', '')
+						sticky.css('pointer-events', '')
+				}
+			}
+
+			updateMySticky = update
+		})
+	})	
+
+	function getDocumentHeight() {
+		return Math.max(
+			document.body.scrollHeight, document.documentElement.scrollHeight,
+			document.body.offsetHeight, document.documentElement.offsetHeight,
+			document.body.clientHeight, document.documentElement.clientHeight
+		)
+	}
+
+	function getViewportHeight() {
+		return document.documentElement.clientHeight
+	}
+
+	function getY(element) {
+		let elem = element
+
+		let y = 0
+
+		while (elem.length !== 0 && elem[0] !== document.body) {
+			y += elem[0].offsetTop
+
+			elem = $(elem[0].offsetParent)
+		}
+
+		return y
+	}
+}
+
 // spoiler
 {
   $(() => {
@@ -367,12 +512,32 @@ const BREAKPOINT = 1280;
 
     spoilers.each(function () {
       const spoiler = $(this);
+      const spoiler_group = spoiler.data('spoiler-group')
+
+      console.log(spoiler_group);
+
       const spoiler_button = spoiler.find('.mission__spoiler-button');
       const spoiler_drop = spoiler.find('.mission__spoiler-drop');
 
-      spoiler_button.on('click', () => {
-        spoiler.toggleClass('mission__spoiler--active');
-        spoiler_drop.slideToggle();
+      spoiler_button.on('click', event => {
+        event.preventDefault()
+
+        if (spoiler_group) {
+          spoilers.filter(`[data-spoiler-group="${spoiler_group}"]`).each(function () {
+            const spoiler = $(this)
+            const spoiler_drop = spoiler.find('.mission__spoiler-drop')
+
+            spoiler.toggleClass('mission__spoiler--active')
+            spoiler_drop.slideToggle({
+              progress: updateMySticky,
+            })
+          })
+        } else {
+          spoiler.toggleClass('mission__spoiler--active')
+          spoiler_drop.slideToggle({
+            progress: updateMySticky,
+          })
+        }
       });
     });
   });
