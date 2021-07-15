@@ -17,7 +17,7 @@ block content
           .section__inner.section__inner--top
             .nav
               .nav__container
-                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                nav.nav__nav.my-sticky
                   ul.nav__list
                     li.nav__item
                       a.nav__link(href='#')
@@ -25,10 +25,10 @@ block content
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
                         |Имплантация
-            .price__note Стоимость может меняться в зависимости клинического состояния зубов
-            button.vacancies-list__extra-btn.price__btn
-              +arrow-link-svg('extra-btn')
-              |Получить точный расчет
+                  .price__note Стоимость может меняться в зависимости клинического состояния зубов
+                  button.vacancies-list__extra-btn.price__btn
+                    +arrow-link-svg('extra-btn')
+                    |Получить точный расчет
         .row__col
           .section__inner.section__inner--top
             .container
@@ -113,9 +113,9 @@ block content
                         +arrow-link-svg('news-subscribe__form-btn-ico')
                         |Отправить
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })

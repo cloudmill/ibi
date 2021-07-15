@@ -10,13 +10,13 @@ block header
 
 
 block content
-  section.section.section--gradient(data-sticky-container)
+  section.section.section--gradient
       .row
         .row__col
           .section__inner.section__inner--top
-            .nav.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
+            .nav
               .nav__container
-                nav.nav__nav
+                nav.nav__nav.my-sticky
                   ul.nav__list
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
@@ -96,9 +96,9 @@ block content
                               a.about__grid-text.about__grid-link(href='tel:+44898228228333')
                                 |+44 8982 282 283 33
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })

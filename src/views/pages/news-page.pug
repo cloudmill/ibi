@@ -11,14 +11,14 @@ block header
 
   
 block content
-  .about(data-sticky-container)
+  .about
     section.section.section--gradient
       .row
         .row__col
           .section__inner.section__inner--top
-            .nav.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
+            .nav
               .nav__container
-                nav.nav__nav
+                nav.nav__nav.my-sticky
                   ul.nav__list
                     each item in ['О нас', 'Миссия и ценности', 'Наша команда']
                       li.nav__item

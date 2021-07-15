@@ -9,22 +9,21 @@ block content
       .row
         .row__col
           .section__inner.section__inner--top
-            .sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
-              .nav
-                .nav__container
-                  nav.nav__nav
-                    ul.nav__list
-                      each item in ['Протезирование',]
-                        li.nav__item
-                          a.nav__link(href='#')
-                            |#{item}
-                      li.nav__item.nav__item--active
+            .nav
+              .nav__container
+                nav.nav__nav.my-sticky
+                  ul.nav__list
+                    each item in ['Протезирование',]
+                      li.nav__item
                         a.nav__link(href='#')
-                          |Имплантация
-              .price__note Стоимость может меняться в зависимости клинического состояния зубов
-              button.vacancies-list__extra-btn.price__btn
-                +arrow-link-svg('extra-btn')
-                |Получить точный расчет
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Имплантация
+                  .price__note Стоимость может меняться в зависимости клинического состояния зубов
+                  button.vacancies-list__extra-btn.price__btn
+                    +arrow-link-svg('extra-btn')
+                    |Получить точный расчет
         .row__col
           .section__inner.section__inner--top
             .container

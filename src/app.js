@@ -369,10 +369,27 @@ var updateMySticky
 		stickyAll.each(function () {
 			const sticky = $(this)
 			
+      const BOTTOM_OFFSET = 160
+      const bottomID = sticky.data('my-sticky-bottom')
+      const footer = $('.footer')
+
+      function updateBottom() {
+        if (bottomID) {
+          const bottomElem = $(`#${bottomID}`)
+          const bottomY = getY(bottomElem)
+          
+          state.bottom = getDocumentHeight() - bottomY + BOTTOM_OFFSET
+        } else {
+          state.bottom = footer[0].offsetHeight + BOTTOM_OFFSET
+        }
+
+        console.log(state.bottom);
+      }
+
 			const state = {
 				// offset
 				top: 140,
-				bottom: $('.footer').height() + 160,
+				bottom: null,
 				// pos
 				startY: null,
 				y: null,
@@ -381,6 +398,8 @@ var updateMySticky
 				// mode
 				mode: null,
 			}
+
+      updateBottom()
 
 			const stickyPlace = sticky.parent()
 			// готовим place для добавления stickyBottom и stickyFixed
@@ -412,7 +431,7 @@ var updateMySticky
 			function update() {
         // console.log('update');
         
-        state.bottom = $('.footer').height() + 160;
+        updateBottom()
 
 				// апдейтим размеры (width) копий
 				stickyBottom.css('width', `${sticky[0].offsetWidth}px`)

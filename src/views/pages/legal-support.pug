@@ -16,7 +16,7 @@ block content
           .section__inner.section__inner--top
             .nav
               .nav__container
-                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                nav.nav__nav.my-sticky
                   ul.nav__list
                     each item in ['Strategic Implant', 'Обучение', 'Библиотека']
                       li.nav__item
@@ -129,9 +129,9 @@ block content
                   +arrow-link-svg('news-subscribe__form-btn-ico')
                   |Отправить
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })
