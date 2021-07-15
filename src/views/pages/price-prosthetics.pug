@@ -19,10 +19,10 @@ block content
               .nav__container
                 nav.nav__nav.my-sticky
                   ul.nav__list
-                    li.nav__item
+                    li.nav__item.nav__item--active
                       a.nav__link(href='#')
                         |Протезирование
-                    li.nav__item.nav__item--active
+                    li.nav__item
                       a.nav__link(href='#')
                         |Имплантация
                   .price__note Стоимость может меняться в зависимости клинического состояния зубов
@@ -95,7 +95,7 @@ block content
                     label.news-subscribe__form-placeholder.member-page-ask__label
                         input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
                     label.news-subscribe__form-placeholder.member-page-ask__label
-                        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+                        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
                     label.news-subscribe__form-placeholder.member-page-ask__label
                         input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
                     label.news-subscribe__form-placeholder.member-page-ask__label
