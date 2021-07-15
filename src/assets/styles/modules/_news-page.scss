@@ -354,19 +354,66 @@
 // Блок с подпиской на новости
   
 .news-subscribe {
-    margin: 160px 0;
-    @media (max-width: $breakpoint - 1px) {
-        margin: 60px 0;
-    }
+  position: relative;
+  margin: 160px 0;
+  @media (max-width: $breakpoint - 1px) {
+      margin: 60px 0;
+  }
+
+  .form {
 
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 
     @media (max-width: $breakpoint - 1px) {
-        flex-direction: column;
-        align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
     }
+
+    &--hidden {
+      opacity: 0;
+      @media (min-width: $breakpoint) {
+        visibility: hidden;
+      }
+  
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+  }
+
+  .response {
+    position: absolute;
+    @media (min-width: $breakpoint) {
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      bottom: 0;
+    }
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+
+    h2 {
+      font-size: 50px;
+      line-height: 140%;
+      margin-bottom: 30px;
+
+      @media (max-width: $breakpoint-m - 1px) {
+        font-size: 22px;
+      }
+    }
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+      @media (max-width: $breakpoint - 1px) {
+        position: static;
+      }
+    }
+  }
 
     &--bottom {
         margin-top: 0;
@@ -402,6 +449,16 @@
         @media (max-width: $breakpoint) {
             width: 100%;
             justify-content: unset;
+        }
+
+        &-col {
+            width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+            flex: none;
+
+            @media (max-width: $breakpoint) {
+                width: unset;
+                flex: unset;
+            }
         }
 
         &-btn {

@@ -16,7 +16,7 @@ block content
           .section__inner.section__inner--top
             .nav
               .nav__container
-                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                nav.nav__nav.my-sticky
                   ul.nav__list
                     each item in ['Strategic Implant']
                       li.nav__item
@@ -75,7 +75,7 @@ block content
                     li.footer__socials-item
                       a.footer__socials-link.share-social__link(href='#')
                         +vk-svg('footer__socials-svg')
-  section.other-news(data-sticky-end='2')
+  section.other-news
     .row
       .row__col
       .row__col
@@ -132,9 +132,9 @@ block content
                 include ../components/event-list-card
 
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })

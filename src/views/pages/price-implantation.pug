@@ -17,7 +17,7 @@ block content
           .section__inner.section__inner--top
             .nav
               .nav__container
-                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                nav.nav__nav.my-sticky
                   ul.nav__list
                     each item in ['Метод', 'Преимущества', 'Этапы имплантации', 'Имплантаты Strategic Implant',]
                       li.nav__item
@@ -26,24 +26,24 @@ block content
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
                         |Стоимость
-            .category.category--column  
-              ul.category__list
-                li.category__item
-                  a.category__link(href="#") 
-                    |Один зуб
-                li.category__item.category__item--active
-                  a.category__link(href="#") 
-                    |От 3-ех до 5 сегметов
-                li.category__item
-                  a.category__link(href="#") 
-                    |На одной челюсти
-                li.category__item 
-                  a.category__link(href="#") 
-                    |На двух челюстях
-            .price__note Стоимость может меняться в зависимости клинического состояния зубов
-            button.vacancies-list__extra-btn.price__btn
-              +arrow-link-svg('extra-btn')
-              |Получить точный расчет
+                  .category.category--column  
+                    ul.category__list
+                      li.category__item
+                        a.category__link(href="#") 
+                          |Один зуб
+                      li.category__item.category__item--active
+                        a.category__link(href="#") 
+                          |От 3-ех до 5 сегметов
+                      li.category__item
+                        a.category__link(href="#") 
+                          |На одной челюсти
+                      li.category__item 
+                        a.category__link(href="#") 
+                          |На двух челюстях
+                  .price__note Стоимость может меняться в зависимости клинического состояния зубов
+                  button.vacancies-list__extra-btn.price__btn
+                    +arrow-link-svg('extra-btn')
+                    |Получить точный расчет
         .row__col
           .section__inner.section__inner--top
             .container
@@ -133,7 +133,7 @@ block content
                     label.news-subscribe__form-placeholder.member-page-ask__label
                         input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
                     label.news-subscribe__form-placeholder.member-page-ask__label
-                        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+                        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
                     label.news-subscribe__form-placeholder.member-page-ask__label
                         input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
                     label.news-subscribe__form-placeholder.member-page-ask__label
@@ -151,9 +151,9 @@ block content
                         +arrow-link-svg('news-subscribe__form-btn-ico')
                         |Отправить
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })

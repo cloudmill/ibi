@@ -16,13 +16,13 @@ block content
           .section__inner--top
             .nav
               .nav__container
-                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                nav.nav__nav.my-sticky
                   ul.nav__list.prosthetics-nav
                     each item in ['Strategic Implant']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
-                    li.mission__spoiler
+                    li.mission__spoiler(data-spoiler-group='1')
                       .nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
                         a.nav__link(href='#')
                           |Обучение
@@ -113,9 +113,9 @@ block content
   //-       .container
 
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })

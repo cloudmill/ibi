@@ -294,8 +294,8 @@
 .other-news {
   background-color: $color-blue-light;
   padding: 160px 0;
-  position: relative;
-  z-index: 2;
+  // position: relative;
+  // z-index: 2;
   @media (max-width: $breakpoint) {
     padding: 60px 0;
   }

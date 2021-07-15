@@ -9,14 +9,14 @@ block header
   +header
 
 block content
-  .about(data-sticky-container)
+  .about
     section.section.section--gradient
       .row
         .row__col
           .section__inner.section__inner--top
-            .nav.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
+            .nav
               .nav__container
-                nav.nav__nav
+                nav.nav__nav.my-sticky
                   ul.nav__list
                     each item in ['О нас', 'Миссия и ценности']
                       li.nav__item
@@ -290,7 +290,7 @@ block content
                 label.news-subscribe__form-placeholder.member-page-ask__label
                     input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
                 label.news-subscribe__form-placeholder.member-page-ask__label
-                    input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+                    input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
                 label.news-subscribe__form-placeholder.member-page-ask__label
                     input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
                 label.news-subscribe__form-placeholder.member-page-ask__label
@@ -303,9 +303,9 @@ block content
                     +arrow-link-svg('news-subscribe__form-btn-ico')
                     |Отправить
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })

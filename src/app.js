@@ -369,10 +369,25 @@ var updateMySticky
 		stickyAll.each(function () {
 			const sticky = $(this)
 			
+      const BOTTOM_OFFSET = 160
+      const bottomID = sticky.data('my-sticky-bottom')
+      const footer = $('.footer')
+
+      function updateBottom() {
+        if (bottomID) {
+          const bottomElem = $(`#${bottomID}`)
+          const bottomY = getY(bottomElem)
+          
+          state.bottom = getDocumentHeight() - bottomY + BOTTOM_OFFSET
+        } else {
+          state.bottom = footer[0].offsetHeight + BOTTOM_OFFSET
+        }
+      }
+
 			const state = {
 				// offset
 				top: 140,
-				bottom: $('.footer').height() + 160,
+				bottom: null,
 				// pos
 				startY: null,
 				y: null,
@@ -381,6 +396,8 @@ var updateMySticky
 				// mode
 				mode: null,
 			}
+
+      updateBottom()
 
 			const stickyPlace = sticky.parent()
 			// готовим place для добавления stickyBottom и stickyFixed
@@ -412,7 +429,7 @@ var updateMySticky
 			function update() {
         // console.log('update');
         
-        state.bottom = $('.footer').height() + 160;
+        updateBottom()
 
 				// апдейтим размеры (width) копий
 				stickyBottom.css('width', `${sticky[0].offsetWidth}px`)
@@ -1549,6 +1566,34 @@ var updateMySticky
           navModalSectionClicked.find('.header-section__section-dropdown').slideDown(500);
           navModalSectionClicked.addClass('header-section__section--active');
         }
+      });
+    }
+  });
+}
+
+
+// form response
+{
+  $(() => {
+    const form = $('.form');
+
+    if (form.length !== 0) {
+      
+      const response = $('.response');
+      const responseButton = $('.response__btn');
+      const formButton = $('.form__btn');
+
+      formButton.on('click', function(event) {
+        event.preventDefault();
+        form.addClass('form--hidden');
+        response.addClass('response--active');
+        // $('.provider__row').addClass('provider__row--active');
+      });
+
+      responseButton.on('click', function () {
+        form.removeClass('form--hidden');
+        response.removeClass('response--active');
+        // $('.provider__row').removeClass('provider__row--active');
       });
     }
   });

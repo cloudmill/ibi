@@ -16,13 +16,13 @@ block content
           .section__inner--top
             .nav
               .nav__container
-                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                nav.nav__nav.my-sticky
                   ul.nav__list.prosthetics-nav
                     each item in ['Strategic Implant']
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
-                    li.mission__spoiler
+                    li.mission__spoiler(data-spoiler-group='1')
                       .nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
                         a.nav__link(href='#')
                           |Обучение
@@ -131,7 +131,7 @@ block content
               label.news-subscribe__form-placeholder.member-page-ask__label
                   input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
               label.news-subscribe__form-placeholder.member-page-ask__label
-                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
+                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
               label.news-subscribe__form-placeholder.member-page-ask__label
                   input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
               label.news-subscribe__form-placeholder.member-page-ask__label

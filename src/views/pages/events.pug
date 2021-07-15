@@ -16,7 +16,7 @@ block content
           .section__inner.section__inner--top
             .nav
               .nav__container
-                nav.nav__nav(data-sticky-id='1' data-sticky-top='250' data-sticky-bottom='120')
+                nav.nav__nav.my-sticky
                   ul.nav__list
                     each item in ['Strategic Implant']
                       li.nav__item
@@ -29,16 +29,16 @@ block content
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
-            .team-filter
-              ul.team-filter__container
-                li.team-filter__item(data-id="doctor") #вебинар
-                li.team-filter__item(data-id="dentist") #оффлайн
-                li.team-filter__item(data-id="admin") #конференция
-                li.team-filter__item(data-id="coordinator") #курсы
-                li.team-filter__item(data-id="coordinator") #повышение квалификации
-              button.team-filter__reset
-                +reset-svg('team-filter__reset-ico')
-                |Сбросить
+                  .team-filter
+                    ul.team-filter__container
+                      li.team-filter__item(data-id="doctor") #вебинар
+                      li.team-filter__item(data-id="dentist") #оффлайн
+                      li.team-filter__item(data-id="admin") #конференция
+                      li.team-filter__item(data-id="coordinator") #курсы
+                      li.team-filter__item(data-id="coordinator") #повышение квалификации
+                    button.team-filter__reset
+                      +reset-svg('team-filter__reset-ico')
+                      |Сбросить
         .row__col
           .section__inner.section__inner--top
             .container
@@ -75,9 +75,9 @@ block content
 
 
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })

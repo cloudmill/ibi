@@ -4,14 +4,14 @@ include ../components/_header.pug
 include ../components/_footer.pug
 
 block content 
-  .sticky-container(data-sticky-container)
+  .sticky-container
     section.section.section--gradient 
       .row 
         .row__col 
           .section__inner.section__inner--top 
-            .nav.nav--small.sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
+            .nav.nav--small
               .nav__container
-                nav.nav__nav
+                nav.nav__nav.my-sticky(data-my-sticky-bottom="my-sticky-bottom")
                   ul.nav__list
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
@@ -129,7 +129,7 @@ block content
                       .materials__text 
                         |Условно-временный металлоакриловый мост изготовленный в лаборатории Института Базальной Имплантации обеспечивает комфорт, эстетику и главное правильную протетическую реабилитацию прикуса и височнонижнечелюстного сустава уже с первых дней эксплуатации. Металлоакриловый мост изготовленный в ИБИ относится к конструкциям длительной эксплуатации.
   // next page
-  section.next-page
+  section#my-sticky-bottom.next-page
     .row 
       .row__col
         .next-page__container

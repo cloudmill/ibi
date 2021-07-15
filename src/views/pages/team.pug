@@ -9,36 +9,35 @@ block header
   +header
 
 block content
-  .about(data-sticky-container)
+  .about
     section.section.section--gradient
       .row
         .row__col
           .section__inner.section__inner--top
-            .sticky(data-margin-top="140" data-margin-bottom="160" data-sticky-for='1279')
-              .nav
-                .nav__container
-                  nav.nav__nav
-                    ul.nav__list
-                      each item in ['О нас', 'Миссия и ценности']
-                        li.nav__item
-                          a.nav__link(href='#')
-                            |#{item}
-                      li.nav__item.nav__item--active
+            .nav
+              .nav__container
+                nav.nav__nav.my-sticky
+                  ul.nav__list
+                    each item in ['О нас', 'Миссия и ценности']
+                      li.nav__item
                         a.nav__link(href='#')
-                          |Наша команда
-                      each item in ['Новости', 'Вакансии', 'Контакты']
-                        li.nav__item
-                          a.nav__link(href='#')
-                            |#{item}
-              .team-filter
-                ul.team-filter__container
-                  li.team-filter__item(data-id="doctor") #врачи
-                  li.team-filter__item(data-id="dentist") #зубныетехники
-                  li.team-filter__item(data-id="admin") #администраторы
-                  li.team-filter__item(data-id="coordinator") #координаторы
-                button.team-filter__reset
-                  +reset-svg('team-filter__reset-ico')
-                  |Сбросить
+                          |#{item}
+                    li.nav__item.nav__item--active
+                      a.nav__link(href='#')
+                        |Наша команда
+                    each item in ['Новости', 'Вакансии', 'Контакты']
+                      li.nav__item
+                        a.nav__link(href='#')
+                          |#{item}
+                  .team-filter
+                    ul.team-filter__container
+                      li.team-filter__item(data-id="doctor") #врачи
+                      li.team-filter__item(data-id="dentist") #зубныетехники
+                      li.team-filter__item(data-id="admin") #администраторы
+                      li.team-filter__item(data-id="coordinator") #координаторы
+                    button.team-filter__reset
+                      +reset-svg('team-filter__reset-ico')
+                      |Сбросить
         .row__col
           .section__inner.section__inner--top
             .container
@@ -174,9 +173,9 @@ block content
                   
 
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })
