@@ -78,6 +78,41 @@ const BREAKPOINT = 1280;
   });
 }
 
+// vacancy modal
+{
+  $(() => {
+    const vacancy = $('.vacancy');
+
+    if (vacancy.length !== 0) {
+      const navModalButton = vacancy.find('.vacancy-btn');
+      const headerCallback = $('.header-modal-callback')
+
+      // клик по кнопке вызова модального окна (открытие-закрытие)
+      navModalButton.on('click', function () {
+        if (vacancy.hasClass('vacancy--modal-open')) { // если модальное окно открыто - закрываем
+          vacancy.removeClass('vacancy--modal-open'); // обновляем модификатор header (шапка, контейнер модальных окон)
+          navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
+        } else { // открывыем, аналогично (выше)
+          headerCallback.addClass('vacancy--modal-open');
+          navModalButton.addClass('button-modal--active');
+        }
+      });
+
+      // клик вне модального окна (закрытие)
+      $(window).on('click', event => {
+        if (
+          vacancy.hasClass('vacancy--modal-open') && // если модальное окно открыто
+          $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
+          $(event.target).closest('.nav-modal').length === 0 // + клик не по модальному окну
+        ) {
+          vacancy.removeClass('header--nav-modal');
+          navModalButton.removeClass('button-modal--active');
+        }
+      });
+    }
+  });
+}
+
 // tabs
 {
   $(() => {

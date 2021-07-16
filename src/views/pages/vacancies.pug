@@ -11,7 +11,7 @@ block header
 
   
 block content
-  .about
+  .about.vacancy
     section.section.section--gradient
       .row
         .row__col
@@ -283,14 +283,14 @@ block content
                 .vacancies-list__extra
                   .vacancies-list__extra-txt
                     |Мы всегда ищем талантливых и амбициозных специалистов. Присылайте свое резюме, даже если в данный момент нет активных вакансий.
-                  button.vacancies-list__extra-btn
+                  button.vacancies-list__extra-btn.vacancy-btn
                     +arrow-link-svg('extra-btn')
                     |Откликнуться
                         
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })
