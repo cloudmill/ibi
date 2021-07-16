@@ -33,32 +33,9 @@ html(lang='ru')
       main.main
         block content
 
-      .header-modal-callback
-        .header-modal-callback__form
-          h2.header-modal-callback__ttl Откликнуться на вакансию
-          form.news-subscribe__form(data-parsley-validate="")
-            .member-page-ask__form-wrapper
-              label.news-subscribe__form-placeholder.member-page-ask__label
-                  input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
-              label.news-subscribe__form-placeholder.member-page-ask__label
-                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
-              label.news-subscribe__form-placeholder.member-page-ask__label
-                  input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
-              label.news-subscribe__form-placeholder.member-page-ask__label
-                  textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Немного о себе")
-              label.transfer-consult__add-file(for="")
-                button
-                  +add-file-svg('transfer-consult__add-file-ico')
-                  |Прикрепить файл
-                p Резюме, рекомендательное письмо
-              label.news-subscribe__form-checkbox.member-page-ask__checkbox
-                  input(type="checkbox" required="")
-                  p Согласен на обработку персональных данных в соответствии с 
-                      a(href="#") политикой конфиденциальности
-              button.news-subscribe__form-btn(type="submit")
-                  +arrow-link-svg('news-subscribe__form-btn-ico')
-                  |Отправить
-            .header-modal-callback__close
+      include ../components/vacancy-modal
+      include ../components/callback-modal
+
       block footer
         +footer
       block scripts
