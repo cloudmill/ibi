@@ -78,6 +78,79 @@ const BREAKPOINT = 1280;
   });
 }
 
+// vacancy modal
+{
+  $(() => {
+    const vacancy = $('.vacancy');
+
+    if (vacancy.length !== 0) {
+      const navModalButton = $('.vacancy-btn');
+      const vacancyCallback = $('.modal-forms-vacancy');
+
+      // клик по кнопке вызова модального окна (открытие-закрытие)
+      navModalButton.on('click', function () {
+        if (vacancyCallback.hasClass('vacancy--modal-open')) { // если модальное окно открыто - закрываем
+          vacancyCallback.removeClass('vacancy--modal-open'); // обновляем модификатор header (шапка, контейнер модальных окон)
+          navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
+        } else { // открывыем, аналогично (выше)
+          vacancyCallback.addClass('vacancy--modal-open');
+          navModalButton.addClass('button-modal--active');
+        }
+      });
+
+      // клик вне модального окна (закрытие)
+      $(window).on('click', event => {
+        if (
+          vacancyCallback.hasClass('vacancy--modal-open') && // если модальное окно открыто
+          $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
+          $(event.target).closest('.modal-forms__form').length === 0 // + клик не по модальному окну
+        ) {
+          vacancyCallback.removeClass('vacancy--modal-open');
+          navModalButton.removeClass('button-modal--active');
+        }
+      });
+    }
+  });
+}
+
+// callback modal
+{
+  $(() => {
+    const header = $('.header');
+
+    if (header.length !== 0) {
+      const navModalButton = $('.callback-button');
+      const headerCallback = $('.modal-forms-header');
+
+      // клик по кнопке вызова модального окна (открытие-закрытие)
+      navModalButton.on('click', function () {
+        // console.log(123);
+        if (headerCallback.hasClass('vacancy--modal-open')) { // если модальное окно открыто - закрываем
+          headerCallback.removeClass('vacancy--modal-open'); // обновляем модификатор header (шапка, контейнер модальных окон)
+          navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
+        } else { // открывыем, аналогично (выше)
+          headerCallback.addClass('vacancy--modal-open');
+          // debugger
+          navModalButton.addClass('button-modal--active');
+          // console.log(headerCallback);
+        }
+      });
+
+      // клик вне модального окна (закрытие)
+      $(window).on('click', event => {
+        if (
+          headerCallback.hasClass('vacancy--modal-open') && // если модальное окно открыто
+          $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
+          $(event.target).closest('.modal-forms__form').length === 0 // + клик не по модальному окну
+        ) {
+          headerCallback.removeClass('vacancy--modal-open');
+          navModalButton.removeClass('button-modal--active');
+        }
+      });
+    }
+  });
+}
+
 // tabs
 {
   $(() => {
