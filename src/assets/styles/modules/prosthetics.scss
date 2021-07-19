@@ -473,3 +473,45 @@
     
   }
 }
+
+.prosthetics-ask {
+  display: flex;
+}
+
+.prosthetics-img {
+  margin: 120px 0;
+  position: relative;
+
+  @media (max-width: $breakpoint) {
+    margin: 40px 0 46px;
+  }
+
+  &__price {
+    position: absolute;
+    z-index: 1;
+
+    top: 0;
+    right: 0;
+
+    padding: 24px 30px;
+    margin: 20px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+
+    font-size: 30px;
+    line-height: 140%;
+
+    @media (max-width: $breakpoint-m) {
+      font-size: 20px;
+      padding: 20px;
+      margin: 10px;
+    }
+  }
+
+    img {
+      position: relative;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+}
