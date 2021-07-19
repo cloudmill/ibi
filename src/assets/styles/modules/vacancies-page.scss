@@ -8,11 +8,11 @@
     font-size: 70px;
     line-height: 140%;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 50px;
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       font-size: 22px;
       padding-right: calc(#{$col-width-m});
       position: relative;
@@ -29,7 +29,7 @@
     span {
       font-size: 70px;
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         font-size: 22px;
       }
     }
@@ -40,7 +40,7 @@
       object-fit: cover;
       max-height: unset;
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         position: absolute;
         width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
         // height: 85px;
@@ -65,7 +65,7 @@
     margin: 160px 0 0 calc(#{$col-part-d});
     padding: 0 calc(#{$col-part-d} * 2) 0 calc(#{$col-part-d} * 2);
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin: 90px 0 0 0;
       padding: 0 0 0 20px;
     }
@@ -76,23 +76,23 @@
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
     flex-wrap: wrap;
   }
 
-  @media (max-width: $breakpoint-m) {
+  @media (max-width: $breakpoint-m - 1px) {
     flex-direction: column;
   }
 
   &__box {
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
       margin-bottom: 40px;
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
     }
   }
@@ -112,7 +112,7 @@
   &__tagline {
     padding: 120px 0 160px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       padding: 20px 0 60px;
     }
   }
@@ -133,7 +133,7 @@
     margin-top: 160px;
     width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: 100%;
       margin-top: 60px;
     }
@@ -142,7 +142,7 @@
       font-size: 30px;
       margin-bottom: 60px;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         font-size: 18px;
       }
     }

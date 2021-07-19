@@ -81,13 +81,13 @@
   font-size: 22px;
   line-height: 140%;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
     width: 50%;
     font-size: 16px;
     margin-top: 40px;
   }
 
-  @media (max-width: $breakpoint-m) {
+  @media (max-width: $breakpoint-m - 1px) {
     width: 100%;
   }
 
@@ -108,13 +108,13 @@
     width: calc(#{$col-part-d} * 5);
     margin-bottom: 100px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: 50%;
       // width: calc(#{$col-part-m} * 2);
       margin-bottom: 10px;
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
     }
   }
@@ -124,7 +124,7 @@
     @media (max-width: 1300px) {
       margin-bottom: 200px;
     }
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin-bottom: 10px;
 
       .transfer-numbers__count .transfer-numbers__big p {
@@ -139,19 +139,19 @@
     .transfer-numbers__count .transfer-numbers__big p {
       margin-left: -58px;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         margin-left: -50px;
       }
     }
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       // padding-left: 0;
       margin-left: calc(#{$col-part-m} * 2);
       // width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
       width: 50%;
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
       margin-left: 0;
     }
@@ -163,7 +163,7 @@
     .transfer-numbers__count .transfer-numbers__desc {
       padding-top: 67px;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         padding-top: 20px;
       }
     }
@@ -174,7 +174,7 @@
       margin-left: -35px;
       margin-bottom: -60px;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         margin-left: -41px;
         margin-bottom: -105px;
       }
@@ -195,7 +195,7 @@
 
     display: flex;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: 100%;
       height: auto;
     }
@@ -208,7 +208,7 @@
     overflow: hidden;
     // position: relative;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       min-width: unset;
       width: 85px;
     }
@@ -223,7 +223,7 @@
       margin-left: -50px;
       margin-bottom: -18%;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         font-size: 240px;
         margin-bottom: -125%;
         margin-top: -100%;
@@ -240,7 +240,7 @@
     // margin-bottom: 100px;
     // padding-left: calc(#{$col-part-d} * 2 - #{$col-gap-d});
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       padding: 20px 20px 20px 40px;
       // padding-left: 40px;
       margin-left: -80px;
@@ -254,7 +254,7 @@
       margin-bottom: 40px;
 
       width: calc(#{$col-part-d} * 3 + #{$col-gap-d});
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         width: 100%;
         font-size: 18px;
         margin-bottom: 20px;
@@ -266,7 +266,7 @@
       font-size: 16px;
       line-height: 140%;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         font-size: 14px;
         display: flex;
       }
@@ -275,7 +275,7 @@
         border-left: 1px solid $color-main;
         padding-left: calc(#{$col-gap-d});
 
-        @media (max-width: $breakpoint) {
+        @media (max-width: $breakpoint - 1px) {
           border-left: none;
           padding-left: 0;
         }
@@ -291,7 +291,7 @@
         margin-bottom: 20px;
         // padding-left: calc(#{$col-part-d} - #{$col-gap-d});
 
-        @media (max-width: $breakpoint) {
+        @media (max-width: $breakpoint - 1px) {
           width: 100%;
         }
       }
@@ -306,14 +306,14 @@
         vertical-align: middle;
         margin-right: calc(#{$col-gap-d} - 3px);
   
-        @media (max-width: $breakpoint) {
+        @media (max-width: $breakpoint - 1px) {
           margin-right: 16px;
         }
       }
     }
 
     &-txt::before {
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         content: ' ';
         display: inline-block;
         width: 1px;
@@ -331,12 +331,12 @@
   .news-subscribe__title {
     width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: 100%;
       font-size: 35px;
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       font-size: 22px;
     }
   }
@@ -347,7 +347,7 @@
     height: 550px;
     background-color: #CCE3E6;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin: 40px 0;
     }
   }
@@ -377,7 +377,7 @@
 
       margin-right: 110px;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         margin-right: 20px;
         font-size: 14px;
       }
@@ -392,7 +392,7 @@
       color: $color-black;
       opacity: 0.4;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         font-size: 12px;
       }
     }

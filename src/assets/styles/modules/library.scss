@@ -4,7 +4,7 @@
   justify-content: space-between;
   margin-top: 120px;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
     margin-top: 40px;
   }
 
@@ -12,12 +12,12 @@
     width: calc((#{$col-part-d} * 9 - (#{$col-gap-d} * 2)) / 2);
     margin-bottom: 40px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
       margin-bottom: calc(#{$col-gap-m});
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
       margin-bottom: 20px;
       height: unset;
@@ -33,7 +33,7 @@
       max-width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
       padding-right: 10px;
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         max-width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
       }
     }
@@ -42,7 +42,7 @@
       display: block;
 
       .card__image {
-        @media (max-width: $breakpoint) {
+        @media (max-width: $breakpoint - 1px) {
           width: 34px;
         }
       }
@@ -59,7 +59,7 @@
     justify-content: center;
     align-items: center;
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       // width: unset;
       height: unset;
 
@@ -71,7 +71,7 @@
     img {
       width: 88px;
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         min-width: 48px;
         // width: unset;
       }
@@ -82,7 +82,7 @@
     width: 100%;
     margin-top: 80px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin-top: 40px;
     }
   }

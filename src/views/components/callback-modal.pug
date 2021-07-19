@@ -1,25 +1,27 @@
 .modal-forms.modal-forms-header
-  .modal-forms__form
-    .form
-      h2.modal-forms__ttl Заказать звонок
-      form.news-subscribe__form(data-parsley-validate="")
-        .member-page-ask__form-wrapper
-          label.news-subscribe__form-placeholder.member-page-ask__label
-              input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
-          label.news-subscribe__form-placeholder.member-page-ask__label
-              input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
-          label.news-subscribe__form-checkbox.member-page-ask__checkbox
-              input(type="checkbox" required="")
-              p Согласен на обработку персональных данных в соответствии с 
-                  a(href="#") политикой конфиденциальности
-          button.news-subscribe__form-btn.form__btn(type="submit")
-              +arrow-link-svg('news-subscribe__form-btn-ico')
-              |Отправить
-    .response
-      h2 Спасибо! Мы получили вашу заявку на обратный звонок и ответим вам в ближайшее время.
-      .mission__missions-links-link.response__btn
-        +arrow-link-svg('news__link-ico')
-        .mission__missions-links-text
-          |Отправить еще
-  .modal-forms__close.callback-button
-    button.modal-forms__close-btn.close
+  .modal-forms__wrapper
+    .modal-forms__form
+      .form
+        h2.modal-forms__ttl Заказать звонок
+        form.news-subscribe__form(data-parsley-validate="")
+          .member-page-ask__form-wrapper
+            label.news-subscribe__form-placeholder.member-page-ask__label
+                input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+            label.news-subscribe__form-placeholder.member-page-ask__label
+                input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
+            label.news-subscribe__form-checkbox.member-page-ask__checkbox
+                input(type="checkbox" required="")
+                p Согласен на обработку персональных данных в соответствии с 
+                    a(href="#") политикой конфиденциальности
+            button.news-subscribe__form-btn.form__btn(type="submit")
+                +arrow-link-svg('news-subscribe__form-btn-ico')
+                |Отправить
+      .response
+        h2 Спасибо! Мы получили вашу заявку на обратный звонок и ответим вам в ближайшее время.
+        .mission__missions-links-link.response__btn
+          +arrow-link-svg('news__link-ico')
+          .mission__missions-links-text
+            |Отправить еще
+    .modal-forms__close.callback-button
+      button.modal-forms__close-btn.close
+  .modal-forms__background
