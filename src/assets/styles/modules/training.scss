@@ -230,7 +230,10 @@
   }
 
   &__item:first-child {
-    margin-bottom: 10px;
+
+    @media (max-width: $breakpoint-m) {
+      margin-bottom: 10px;
+    }
   }
 }
 
