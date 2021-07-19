@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
     flex-direction: column;
   }
 
@@ -35,7 +35,7 @@
 
   &__body {
     width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: 100%;
     }
 
@@ -50,7 +50,7 @@
 
     margin: 30px 0 120px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       flex-direction: column;
 
       margin: 30px 0 20px;
@@ -77,7 +77,7 @@
 
     width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin-bottom: 60px;
       width: auto;
 
@@ -95,7 +95,7 @@
       transform: rotate(-135deg);
       vertical-align: middle;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         margin-right: 10px;
       }
     }
@@ -112,7 +112,7 @@
     width: 100%;
     margin: 80px 0;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin: 20px 0 40px;
     }
 
@@ -125,7 +125,7 @@
 
   &__txt {
     padding-left: calc(#{$col-part-d});
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       padding-left: 0;
     }
 
@@ -165,7 +165,7 @@
           }
         }
       }
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         margin: 40px 0;
       }
     }
@@ -187,7 +187,7 @@
 
       }
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         padding-left: 27px;
       }
 
@@ -211,7 +211,7 @@
       margin-right: calc(#{$col-part-d} - #{$col-gap-d} - 3px);
       margin-left: calc((#{$col-part-d} - #{$col-gap-d}) * (-1));
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         margin-left: -27px;
         margin-right: 24px;
       }
@@ -226,7 +226,7 @@
 
     margin: 80px 0 40px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 18px;
       margin: 60px 0 20px;
     }
@@ -296,14 +296,14 @@
   padding: 160px 0;
   // position: relative;
   // z-index: 2;
-  @media (max-width: $breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
     padding: 60px 0;
   }
 
   &__top {
     margin-bottom: 80px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin-bottom: 0;
     }
   }
@@ -313,7 +313,7 @@
     font-size: 50px;
     line-height: 140%;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 22px;
     }
   }
@@ -322,7 +322,7 @@
     align-items: center;
     justify-content: center;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       display: none;
     }
 

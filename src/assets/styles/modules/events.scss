@@ -7,7 +7,7 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin-bottom: 40px;
     }
   }
@@ -15,7 +15,7 @@
   &__about {
     margin: 100px 0 60px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin: 40px 0;
     }
   }
@@ -25,7 +25,7 @@
     padding-bottom: 15px;
     border-bottom: 1px solid $color-main;
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       flex-wrap: wrap;
     }
 
@@ -35,11 +35,11 @@
 
       margin-right: 20px;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         font-size: 14px;
       }
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         width: calc(#{$col-part-m} * 2);
         margin-right: 0;
         margin-bottom: 10px;
@@ -52,7 +52,7 @@
     }
 
     &-item:nth-child(2n) {
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
       }
     }
@@ -68,14 +68,14 @@
       font-size: 14px;
       line-height: 140%;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         font-size: 12px;
       }
     }
   }
 
   &__save {
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       display: none;
     }
   }
@@ -83,11 +83,11 @@
   .vacancies-list__extra-btn {
     margin: 60px 0 160px calc(#{$col-part-d});
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin: 40px 0 60px;
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
       justify-content: center;
     }

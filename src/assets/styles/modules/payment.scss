@@ -7,7 +7,7 @@
 
   &__row {
     display: flex;
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       flex-wrap: wrap;
     }
   }
@@ -16,11 +16,11 @@
     display: flex;
     margin-top: 160px;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       margin-top: 60px;
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       flex-direction: column;
     }
   }
@@ -28,7 +28,7 @@
   &__method {
     width: calc(#{$col-part-d} * 3);
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: 50%;
       margin-bottom: 40px;
     }
@@ -83,11 +83,11 @@
     font-size: 22px;
     line-height: 140%;
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2);
     }
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
       font-size: 16px;
     }
