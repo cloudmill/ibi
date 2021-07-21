@@ -1,4 +1,5 @@
 import 'Styles/_app.scss';
+import 'scripts/backend.js';
 
 import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
