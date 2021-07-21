@@ -1162,7 +1162,7 @@
   &__missions-links-link {
     display: flex;
     align-items: center;
-    
+    // overflow: hidden;
     cursor: pointer;
 
     &:hover {
@@ -1548,3 +1548,39 @@
     transform-origin: center;
   }
 }
+
+// .news-subscribe__form-btn {
+
+
+//   .btn-hover {
+//     transition: $transition;
+//   }
+
+//   .btn-transform {
+//     transition: $transition;
+//   }
+
+//   span {
+//     height: 40px;
+//     transition: $transition;
+//   }
+// }
+
+// .news-subscribe__form-btn:hover {
+//   .btn-hover {
+//     fill: $color-main;
+//     opacity: 1;
+//     transform-origin: 50%;
+//     transform: rotate(30deg);
+//   }
+
+//   .btn-transform {
+//     transform: translateX(20%);
+//     fill: #FFFFFF;
+//   }
+
+//   span {
+//     animation: MoveUpInitial 0.2s forwards, MoveUpEnd 0.2s forwards 0.2s;
+//     color: $color-main;
+//   }
+// }

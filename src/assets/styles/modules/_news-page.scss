@@ -412,32 +412,37 @@
             border: none;
             background: transparent;
             cursor: pointer;
-
-            display: flex;
-            align-items: center;
+            // overflow: hidden;
+            // display: flex;
+            // align-items: flex-end;
 
             margin-left: 30px;
+            margin-right: 0;
 
-            &-ico{
-                max-width: 105px;
-                @media (max-width: $breakpoint-m) {
-                    max-width: 51px;
-                }
+            .mission__missions-links-text {
+                margin-left: 0;
             }
 
-            &--mobile {
-                margin-left: 18px;
-                display: flex;
-                @media (min-width: $breakpoint) {
-                    display: none;
-                }
-            }
-            &--desc {
-                display: none;
-                @media (min-width: $breakpoint) {
-                    display: flex;
-                }
-            }
+            // &-ico{
+            //     max-width: 105px;
+            //     @media (max-width: $breakpoint-m) {
+            //         max-width: 51px;
+            //     }
+            // }
+
+            // &--mobile {
+            //     margin-left: 18px;
+            //     display: flex;
+            //     @media (min-width: $breakpoint) {
+            //         display: none;
+            //     }
+            // }
+            // &--desc {
+            //     display: none;
+            //     @media (min-width: $breakpoint) {
+            //         display: flex;
+            //     }
+            // }
         }
 
         &-email {
@@ -454,6 +459,13 @@
 
             margin-bottom: 23px;
             padding: 20px 0;
+
+            transition: $transition;
+        }
+
+        &email:hover {
+            border-bottom: 3px solid $color-main;
+
         }
 
         &-placeholder {

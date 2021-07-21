@@ -109,9 +109,11 @@ block content
                         input(type="checkbox" required="")
                         p Согласен на обработку персональных данных в соответствии с 
                             a(href="#") политикой конфиденциальности
-                    button.news-subscribe__form-btn(type="submit")
-                        +arrow-link-svg('news-subscribe__form-btn-ico')
-                        |Отправить
+                    button.news-subscribe__form-btn.mission__missions-links-link(type="submit")
+                        +arrow-link-svg('news-subscribe__form-btn-ico button-svg')
+                        .mission__missions-links-text
+                          span.mission__missions-links-span
+                            |Отправить
 
 //- block footer
 //-   +footer({

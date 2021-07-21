@@ -144,7 +144,7 @@ block content
       .row
         .row__col
         .row__col
-          .container.news-subscribe.member-page-ask
+          .container.news-subscribe.member-page-ask.prosthetics-ask
             h2.news-subscribe__title.member-page-ask__title Свяжитесь с нами
             form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
               .member-page-ask__form-wrapper
@@ -160,9 +160,11 @@ block content
                     input(type="checkbox" required="")
                     p Согласен на обработку персональных данных в соответствии с 
                         a(href="#") политикой конфиденциальности
-                button.news-subscribe__form-btn(type="submit")
-                    +arrow-link-svg('news-subscribe__form-btn-ico')
-                    |Отправить
+                button.news-subscribe__form-btn.mission__missions-links-link(type="submit")
+                  +arrow-link-svg('button-svg')
+                  .mission__missions-links-text
+                    span.mission__missions-links-span 
+                      |Отправить
 
 //- block footer
 //-   +footer({

@@ -49,9 +49,11 @@ block content
                         .team-member__badge-txt Операций
                         .team-member__badge-count 26
                     img(src="assets/images/team-1.jpg", alt="News photo")
-                  a.member-page__presentation(href="#")
-                    +presentation-svg('member-page__presentation-ico')
-                    .member-page__presentation-title Видео презентация
+                  a.member-page__presentation.mission__missions-links-link(href="#")
+                    +presentation-svg('member-page__presentation-ico button-svg-video')
+                    .member-page__presentation-title.mission__missions-links-text
+                      span.mission__missions-links-span
+                        |Видео презентация
                 .single-news__txt.member-page__txt
                   ul
                     li Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -139,9 +141,10 @@ block content
                 .index-publications__top-right
                   .mission__missions-links-container
                     a.mission__missions-links-link(href='#')
-                      +svg-link.mission__missions-links-svg
+                      +svg-link.mission__missions-links-svg.button-svg
                       .mission__missions-links-text
-                        |Все операции
+                        span.mission__missions-links-span
+                          |Все операции
               .index-operations__slider.member-operations-slider
                 .swiper-container.swiper-container--slide-height-max(data-slider-id='7' data-slider-prev='9' data-slider-next='10')
                   .swiper-wrapper
@@ -197,16 +200,18 @@ block content
                                         li.operation-card__link
                                           .mission__missions-links-container
                                             a.mission__missions-links-link(href='#')
-                                              +svg-link.mission__missions-links-svg
+                                              +svg-link.mission__missions-links-svg.button-svg
                                               .mission__missions-links-text
-                                                |Подробнее
+                                                span.mission__missions-links-span
+                                                  |Подробнее
                                         if !(i % 2)
                                           li.operation-card__link.operation-card__link--mobile
                                             .mission__missions-links-container
                                               a.mission__missions-links-link(href='#')
-                                                +svg-link.mission__missions-links-svg
+                                                +svg-link.mission__missions-links-svg.button-svg
                                                 .mission__missions-links-text
-                                                  |Все операции
+                                                  span.mission__missions-links-span
+                                                    |Все операции
                                     //- .operation-card__bottom-col.operation-card__bottom-col--desktop
                                     //-   .slider-control.slider-control--desktop
                                     //-     .slider-control__item
@@ -239,9 +244,10 @@ block content
                 .index-publications__top-right
                   .mission__missions-links-container
                     a.mission__missions-links-link(href='#')
-                      +svg-link.mission__missions-links-svg
+                      +svg-link.mission__missions-links-svg.button-svg
                       .mission__missions-links-text
-                        |Все публикации 
+                        span.mission__missions-links-span
+                          |Все публикации
               .index-publications__slider
                 .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='5' data-slider-prev='7' data-slider-next='8')
                   .swiper-wrapper
@@ -270,20 +276,21 @@ block content
                                 .card__date
                                   |28 января 2021
                               .card__col
-                                .card__image
-                                  +svg-link(class='card__svg')
+                                .card__image.mission__missions-links-link
+                                  +svg-link.button-svg(class='card__svg')
               .index-publications__link
                 .mission__missions-links-container
                   a.mission__missions-links-link(href='#')
-                    +svg-link.mission__missions-links-svg
+                    +svg-link.mission__missions-links-svg.button-svg
                     .mission__missions-links-text
-                      |Все публикации
+                      span.mission__missions-links-span
+                        |Все публикации
     
     section.section
       .row
         .row__col
         .row__col
-          .container.news-subscribe.member-page-ask
+          .container.news-subscribe.member-page-ask.prosthetics-ask
             h2.news-subscribe__title.member-page-ask__title Задать вопрос врачу
             form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
               .member-page-ask__form-wrapper
@@ -299,9 +306,11 @@ block content
                     input(type="checkbox" required="")
                     p Согласен на обработку персональных данных в соответствии с 
                         a(href="#") политикой конфиденциальности
-                button.news-subscribe__form-btn(type="submit")
-                    +arrow-link-svg('news-subscribe__form-btn-ico')
-                    |Отправить
+                button.news-subscribe__form-btn.mission__missions-links-link(type="submit")
+                  +svg-link.mission__missions-links-svg.button-svg
+                  .mission__missions-links-text
+                    span.mission__missions-links-span 
+                      |Отправить
 
 //- block footer
 //-   +footer({
