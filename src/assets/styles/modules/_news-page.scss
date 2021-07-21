@@ -454,6 +454,13 @@
 
             margin-bottom: 23px;
             padding: 20px 0;
+
+            transition: $transition;
+        }
+
+        &email:hover {
+            border-bottom: 3px solid $color-main;
+
         }
 
         &-placeholder {
