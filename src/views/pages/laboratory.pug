@@ -34,9 +34,11 @@ block content
               span.lab-target__txt-highlight отвечают требованиям качества и соответсвенния стандртам IIF.
         .lab-block
           .lab-block__video
-            .lab-block__video-link
-              +presentation-svg('lab-block__video-svg')
-              |Смотреть видео
+            .lab-block__video-link.mission__missions-links-link
+              +presentation-svg('lab-block__video-svg button-svg-video')
+              .mission__missions-links-text
+                span.mission__missions-links-span 
+                  |Смотреть видео
           .lab-block__txt Штат лаборатории укомплектован 
             span.lab-block__txt-highlight высококвалифицированными зубными техниками
             |, которые 
@@ -97,6 +99,11 @@ block content
                     p Срок службы при нормальной эксплуатации и обслуживании составляет 2-3 года.
                   li
                     p Это довольно известная конструкция и повсеместно применяемая в протезировании на базальных имплантатах, но в ИБИ протокол изготовления этого моста усовершенствован и позволяет изготовить даже первичный, временный мост оптимальным и высококачественным.
+                a.mission__missions-links-link(href='#')
+                  +svg-link.mission__missions-links-svg.button-svg
+                  .mission__missions-links-text
+                    span.mission__missions-links-span
+                      |Подробнее
             .swiper-slide.development__desc-item
               .development__img
               .development__txt
@@ -187,7 +194,8 @@ block content
                   .team-member__badge-item
                     .team-member__badge-txt Операций
                     .team-member__badge-count 26
-                img(src="assets/images/team-1.jpg", alt="")
+                .team-member__img-wrapper
+                  img(src="assets/images/team-1.jpg", alt="")
               .team-member__desc
                 .team-member__name Шмойлов Андрей Евгеньевич
                 .team-member__position Главный врач центра
@@ -200,9 +208,10 @@ block content
                   .team-member__badge-item
                     .team-member__badge-txt Операций
                     .team-member__badge-count 26
-                img(src="assets/images/team-1.jpg", alt="")
+                .team-member__img-wrapper
+                  img(src="assets/images/team-1.jpg", alt="")
               .team-member__desc
-                .team-member__name Шмойлов Андрей Евгеньевич
+                .team-member__name Стефан Альфред Клаус Иде
                 .team-member__position Главный врач центра
             a.team-member.dentist(href="#")
               .team-member__img
@@ -213,7 +222,8 @@ block content
                   .team-member__badge-item
                     .team-member__badge-txt Операций
                     .team-member__badge-count 26
-                img(src="assets/images/team-1.jpg", alt="")
+                .team-member__img-wrapper
+                  img(src="assets/images/team-1.jpg", alt="")
               .team-member__desc
                 .team-member__name Шмойлов Андрей Евгеньевич
                 .team-member__position Главный врач центра
@@ -226,7 +236,8 @@ block content
                   .team-member__badge-item
                     .team-member__badge-txt Операций
                     .team-member__badge-count 26
-                img(src="assets/images/team-1.jpg", alt="")
+                .team-member__img-wrapper
+                  img(src="assets/images/team-1.jpg", alt="")
               .team-member__desc
                 .team-member__name Шмойлов Андрей Евгеньевич
                 .team-member__position Главный врач центра
@@ -239,7 +250,8 @@ block content
                   .team-member__badge-item
                     .team-member__badge-txt Операций
                     .team-member__badge-count 26
-                img(src="assets/images/team-1.jpg", alt="")
+                .team-member__img-wrapper
+                  img(src="assets/images/team-1.jpg", alt="")
               .team-member__desc
                 .team-member__name Шмойлов Андрей Евгеньевич
                 .team-member__position Главный врач центра
@@ -252,7 +264,36 @@ block content
                   .team-member__badge-item
                     .team-member__badge-txt Операций
                     .team-member__badge-count 26
-                img(src="assets/images/team-1.jpg", alt="")
+                .team-member__img-wrapper
+                  img(src="assets/images/team-1.jpg", alt="")
+              .team-member__desc
+                .team-member__name Шмойлов Андрей Евгеньевич
+                .team-member__position Главный врач центра
+            a.team-member.dentist(href="#")
+              .team-member__img
+                .team-member__badge
+                  .team-member__badge-item
+                    .team-member__badge-txt Статей в блоге
+                    .team-member__badge-count 14
+                  .team-member__badge-item
+                    .team-member__badge-txt Операций
+                    .team-member__badge-count 26
+                .team-member__img-wrapper
+                  img(src="assets/images/team-1.jpg", alt="")
+              .team-member__desc
+                .team-member__name Шмойлов Андрей Евгеньевич
+                .team-member__position Главный врач центра
+            a.team-member.doctor(href="#")
+              .team-member__img
+                .team-member__badge
+                  .team-member__badge-item
+                    .team-member__badge-txt Статей в блоге
+                    .team-member__badge-count 14
+                  .team-member__badge-item
+                    .team-member__badge-txt Операций
+                    .team-member__badge-count 26
+                .team-member__img-wrapper
+                  img(src="assets/images/team-1.jpg", alt="")
               .team-member__desc
                 .team-member__name Шмойлов Андрей Евгеньевич
                 .team-member__position Главный врач центра

@@ -194,7 +194,7 @@
   // }
 
   &__checkbox {
-    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    width: calc(#{$col-part-d} * 3);
 
     @media (max-width: $breakpoint - 1px) {
       width: 100%;

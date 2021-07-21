@@ -240,7 +240,7 @@ block content
                 .guarantee-contract__download-txt Скачать&nbsp;типовой договор
                 .guarantee-contract__download-btn
                   +download-svg('io')
-        .container.news-subscribe.member-page-ask
+        .container.news-subscribe.member-page-ask.price-ask
           h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md
             |Получить персональную консультацию бесплатно
           .block-photo
@@ -264,6 +264,8 @@ block content
                   input(type="checkbox" required="")
                   p Согласен на обработку персональных данных в соответствии с 
                       a(href="#") политикой конфиденциальности
-              button.news-subscribe__form-btn(type="submit")
-                  +arrow-link-svg('news-subscribe__form-btn-ico')
-                  |Отправить
+              button.news-subscribe__form-btn.mission__missions-links-link(type="submit")
+                +arrow-link-svg('news-subscribe__form-btn-ico button-svg')
+                .mission__missions-links-text
+                  span.mission__missions-links-span
+                    |Отправить

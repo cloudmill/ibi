@@ -58,9 +58,10 @@ block content
                       h3 Экспресс-имплантация All-on-4/6: интервью с хирургом
                     .mission__missions-links-container.first-news__link
                       .mission__missions-links-link
-                        +arrow-link-svg('news__link-ico')
+                        +arrow-link-svg('news__link-ico button-svg')
                         .mission__missions-links-text
-                          |Подробнее
+                          span.mission__missions-links-span
+                            |Подробнее
                   .first-news__img
                     +news-img-mask-1('first-news__img-mask-1')
                     +news-img-mask-2('first-news__img-mask-2')
@@ -82,8 +83,8 @@ block content
                     news-subscribe__form-col
                       label.news-subscribe__form-placeholder.news-subscribe__form-placeholder--flex
                           input.news-subscribe__form-email(type="email" placeholder="E-mail")
-                          button.news-subscribe__form-btn.news-subscribe__form-btn--mobile.form__btn
-                            +arrow-send('news-subscribe__form-btn-ico')
+                          //- button.news-subscribe__form-btn.news-subscribe__form-btn--mobile.form__btn
+                          //-   +arrow-send('news-subscribe__form-btn-ico')
                       label.news-subscribe__form-checkbox
                           input(type="checkbox")
                           p Согласен на обработку персональных данных в соответствии с 

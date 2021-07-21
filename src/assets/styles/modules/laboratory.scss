@@ -106,10 +106,10 @@
       }
 
       &-svg {
-        margin-right: 10px;
-        @media (min-width: $breakpoint) {
-          margin-right: 20px;
-        }
+        // margin-right: 10px;
+        // @media (min-width: $breakpoint) {
+        //   margin-right: 20px;
+        // }
         @media (max-width: $breakpoint - 1px) {
           width: 30px;
           height: 34px;
@@ -224,6 +224,10 @@
     }
     @media (max-width: $breakpoint - 1px) {
       margin-top: 40px;
+
+      .mission__missions-links-link {
+        display: none;
+      }
     }
 
     p {
@@ -235,14 +239,17 @@
 
     ul {
       margin-top: 30px;
+      margin-bottom: 0;
       @media (min-width: $breakpoint) {
         margin-top: 60px;
+        margin-bottom: 40px;
       }
       counter-reset: list1;
     }
 
     ul li {
-      padding-left: calc(#{$col-width-m});
+      display: flex;
+      // padding-left: calc(#{$col-width-m});
       @media (min-width: $breakpoint) {
         padding-left: calc(#{$col-width-d});
       }
@@ -256,6 +263,7 @@
       }
 
       p {
+        padding-top: 10px;
         @media (min-width: $breakpoint) {
           width: calc(#{$col-part-d} * 3);
           @include fsl(16px);
@@ -268,6 +276,7 @@
       counter-increment: list1;
       content: counter(list1) " ";
       display: flex;
+      flex: none;
       background: url('assets/images/lab-list.svg') no-repeat;
       width: 57px;
       height: 63px;
@@ -278,6 +287,11 @@
       margin-right: calc(#{$col-width-d} - 57px);
       align-items: center;
       justify-content: center;
+
+      @media (max-width: $breakpoint - 1px) {
+        margin-left: 0;
+        margin-right: 14px;
+      }
     }
   }
 }
