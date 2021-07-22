@@ -255,6 +255,24 @@ const BREAKPOINT = 1280;
         };
 
         switch (slider_id) {
+          case 1:
+            slider_options = {
+              ...slider_options,
+
+              loop: true,
+
+            }
+            break;
+
+          case 2:
+            slider_options = {
+              ...slider_options,
+
+              loop: true,
+
+            }
+            break;
+
           case 3:
             slider_options = {
               ...slider_options,
@@ -354,6 +372,24 @@ const BREAKPOINT = 1280;
               thumbs: {
                 swiper: 106,
               },
+            }
+            break;
+
+          case 140:
+            slider_options = {
+              ...slider_options,
+
+              loop: true,
+
+            }
+            break;
+
+          case 150:
+            slider_options = {
+              ...slider_options,
+
+              loop: true,
+
             }
             break;
 

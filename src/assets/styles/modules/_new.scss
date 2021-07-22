@@ -1584,3 +1584,15 @@
 //     color: $color-main;
 //   }
 // }
+
+.mt160 {
+  margin-top: 160px;
+
+  @media (max-width: $breakpoint - 1px) {
+    margin-top: 60px;
+  }
+}
+
+.display-flex {
+  display: flex;
+}
