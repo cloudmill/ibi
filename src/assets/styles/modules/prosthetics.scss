@@ -176,8 +176,8 @@
   font-style: italic;
   color: $color-main;
   font-weight: 700;
-  line-height: 140%;
-  font-size: 16px;
+  line-height: 25.2px;
+  font-size: 18px;
 }
 
 .prosthetics-block__lab {
@@ -273,6 +273,7 @@
   
     p {
       font-size: 18px;
+      line-height: 25.2px;
 
       @media (max-width: $breakpoint - 1px) {
         font-size: 16px;
@@ -514,4 +515,16 @@
       object-fit: cover;
       object-position: center;
     }
+}
+
+// Fixes
+
+.nav-drop-item--active {
+  .nav__link {
+    color: $color-main;
+  }
+}
+
+.prosthetics .mission__spoiler--active .mission__spoiler-button {
+  background-color: transparent;
 }

@@ -20,7 +20,7 @@ block content
               nav.nav__nav.my-sticky
                 ul.nav__list.prosthetics-nav
                   .mission__spoiler(data-spoiler-group='1')
-                    li.nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
+                    li.nav__item.mission__spoiler-button.news-spoiler__button
                       a.nav__link(href='#')
                         |Протезирование
                       .news-spoiler__image
@@ -28,7 +28,13 @@ block content
                     .mission__spoiler-drop.news-spoiler__drop
                       nav.news-spoiler__nav.prosthetics-spoiler__drop
                         ul
-                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладкициркониевые KATANA', 'Безметалловые вкладки']
+                          li.news-spoiler__nav-item
+                            a.nav__link(href='#')
+                              |Коронки циркониевые
+                          li.news-spoiler__nav-item.nav-drop-item--active
+                            a.nav__link(href='#')
+                              |Оклюзивные накладки
+                          each item in ['Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладкициркониевые KATANA', 'Безметалловые вкладки']
                             li.news-spoiler__nav-item
                               a.nav__link(href='#')
                                 |#{item}
