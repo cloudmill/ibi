@@ -76,25 +76,5 @@ block content
                     .news-show-more-ico
                         +arrow-link-svg('news__link-ico')
                     .news-show-more-txt Показать еще
-              .news-subscribe
-                .form
-                  h2.news-subscribe__title Подпишитесь на&nbsp;публикации и новости
-                  form.news-subscribe__form
-                    news-subscribe__form-col
-                      label.news-subscribe__form-placeholder.news-subscribe__form-placeholder--flex
-                          input.news-subscribe__form-email(type="email" placeholder="E-mail")
-                          //- button.news-subscribe__form-btn.news-subscribe__form-btn--mobile.form__btn
-                          //-   +arrow-send('news-subscribe__form-btn-ico')
-                      label.news-subscribe__form-checkbox
-                          input(type="checkbox")
-                          p Согласен на обработку персональных данных в соответствии с 
-                            a(href="#") политикой конфиденциальности
-                    button(type="submit").news-subscribe__form-btn.news-subscribe__form-btn--desc.form__btn
-                      +arrow-send('news-subscribe__form-btn-ico')
-                .response
-                  h2 Спасибо. Подписка оформлена.
-                  .mission__missions-links-link.response__btn
-                    +arrow-link-svg('news__link-ico')
-                    .mission__missions-links-text
-                      |Оформить еще одну
+              include ../components/subscription-form
 

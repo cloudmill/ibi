@@ -23,6 +23,11 @@
       height: unset;
     }
 
+    &:hover {
+      background-color: #CDF5FA;
+    }
+    @import '../components/_button-animation';
+
     &__top {
       display: flex;
       justify-content: space-between;

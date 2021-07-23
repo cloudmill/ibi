@@ -92,23 +92,23 @@ block content
               .transfer-numbers__count
                 .transfer-numbers__big
                   p 1
-                .transfer-numbers__desc
+                .transfer-numbers__desc.mission__missions-links-link
                   .transfer-numbers__desc-ttl Хирургический этап
-                  +arrow-link-svg
+                  +arrow-link-svg('button-svg')
             a.transfer-numbers__item(href="")
               .transfer-numbers__count
                 .transfer-numbers__big
                   p 2
-                .transfer-numbers__desc
+                .transfer-numbers__desc.mission__missions-links-link
                   .transfer-numbers__desc-ttl Зуботехнический этап
-                  +arrow-link-svg
+                  +arrow-link-svg('button-svg')
             a.transfer-numbers__item(href="")
               .transfer-numbers__count
                 .transfer-numbers__big
                   p 3
-                .transfer-numbers__desc
+                .transfer-numbers__desc.mission__missions-links-link
                   .transfer-numbers__desc-ttl Ортопедический этап
-                  +arrow-link-svg
+                  +arrow-link-svg('button-svg')
           .training-cards
             h3.training-cards__ttl Требования к специалистам
             .training-cards__txt *Носит рекомендательный характер
@@ -124,29 +124,13 @@ block content
     .row
       .row__col
       .row__col
-        .container.news-subscribe.member-page-ask
+        .container.news-subscribe.member-page-ask.display-flex
           h2.news-subscribe__title.member-page-ask__title Оставить заявку на обучение
-          form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
-            .member-page-ask__form-wrapper
-              label.news-subscribe__form-placeholder.member-page-ask__label
-                  input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
-              label.news-subscribe__form-placeholder.member-page-ask__label
-                  input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
-              label.news-subscribe__form-placeholder.member-page-ask__label
-                  input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
-              label.news-subscribe__form-placeholder.member-page-ask__label
-                  textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
-              label.news-subscribe__form-checkbox.member-page-ask__checkbox
-                  input(type="checkbox" required="")
-                  p Согласен на обработку персональных данных в соответствии с 
-                      a(href="#") политикой конфиденциальности
-              button.news-subscribe__form-btn(type="submit")
-                  +arrow-link-svg('news-subscribe__form-btn-ico')
-                  |Отправить
+          include ../components/right-form
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })

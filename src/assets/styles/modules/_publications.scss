@@ -261,6 +261,15 @@
   }
 
   &__item {
+
+    .card {
+      &:hover {
+        background-color: #CDF5FA;
+      }
+      @import '../components/_button-animation';
+    }
+    
+
     @media (min-width: $breakpoint) {
       margin-top: 40px;
       flex-shrink: 0;

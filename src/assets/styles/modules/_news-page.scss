@@ -60,6 +60,7 @@
 
 .first-news {
   background-color: $color-blue-light;
+  transition: $transition;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -67,6 +68,8 @@
       flex-direction: column;
       background-color: $color-white;
   }
+
+  @import '../components/_button-animation';
 
   &__desc {
     display: flex;
@@ -172,6 +175,10 @@
   }
 }
 
+.first-news:hover {
+    background-color: #CDF5FA;
+}
+
 // Блок со списком новостей
 
 .news {
@@ -185,6 +192,16 @@
             padding-top: 10px;
             margin-bottom: 40px;
         }
+
+        @import '../components/_button-animation';
+    }
+
+    &-box:hover {
+        .news__title h3 {
+            color: $color-main;
+        }
+
+        
     }
 
     display: flex;
@@ -260,6 +277,8 @@
         font-weight: 500;
         font-size: 40px;
         line-height: 110%;
+
+        transition: $transition;
 
         @media (max-width: $breakpoint) {
             font-size: 30px;

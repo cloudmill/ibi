@@ -47,10 +47,9 @@ block content
                           a.nav__link(href='#')
                             |#{item}
               .section__block.section__block--small
-                .transfer__subtitle.index__paragraph
-                  span.index__paragraph-text
-                    |Восстанавливаем зубы пациентам 
-                  span.index__paragraph-text.index__paragraph-text--highlight
+                .transfer__subtitle
+                  |Восстанавливаем зубы пациентам 
+                  span.transfer__subtitle-highlight
                     |со всей России и других стран 
                 .transfer__note
                   |Если вы находитесь в другом городе или стране, мы поможем с организацией поездки.
@@ -90,12 +89,3 @@ block content
                     .transfer-numbers__desc-ttl Окончание операции
                     .transfer-numbers__desc-txt
                       p Как только медицинские услуги предоставлены, организовываем трансфер в аэропорт или вокзал.
-    section.section 
-      .section__inner.section__inner--bot
-
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })

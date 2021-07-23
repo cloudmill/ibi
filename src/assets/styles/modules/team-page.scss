@@ -74,6 +74,24 @@
     font-size: 14px;
     line-height: 140%;
 
+    transition: $transition;
+
+    svg {
+      path {
+        transition: $transition;
+      }
+    }
+
+    &:hover {
+      color: $color-main;
+
+      svg {
+        path {
+          fill: $color-main;
+        }
+      }
+    }
+
     &-ico {
       margin-right: 15px;
     }

@@ -126,7 +126,7 @@ block content
                         .button-arrow__button(data-slider-button='8')
                           +svg-arrow.button-arrow__svg
               .section__frame
-                .index-publications__slider
+                .index-publications__slider.publication-slider
                   .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='5' data-slider-prev='7' data-slider-next='8')
                     .swiper-wrapper
                       - for (let i=0; i<9; i++)
@@ -154,19 +154,6 @@ block content
                                   .card__date
                                     |28 января 2021
                                 .card__col
-                                  .card__image
-                                    +svg-link(class='card__svg')
-            .news-subscribe
-              h2.news-subscribe__title Подпишитесь на&nbsp;публикации и новости
-              form.news-subscribe__form
-                div
-                  label.news-subscribe__form-placeholder.news-subscribe__form-placeholder--flex
-                      input.news-subscribe__form-email(type="email" placeholder="E-mail")
-                      button.news-subscribe__form-btn.news-subscribe__form-btn--mobile
-                        +arrow-send('news-subscribe__form-btn-ico')
-                  label.news-subscribe__form-checkbox
-                      input(type="checkbox")
-                      p Согласен на обработку персональных данных в соответствии с 
-                        a(href="#") политикой конфиденциальности
-                button.news-subscribe__form-btn.news-subscribe__form-btn--desc
-                    +arrow-send('news-subscribe__form-btn-ico')
+                                  .card__image.mission__missions-links-link
+                                    +svg-link(class='card__svg button-svg')
+            include ../components/subscription-form

@@ -51,12 +51,7 @@ block content
                   img.guarantee__img-effects-mob(src="assets/images/guarantee-effects-mobile.png", alt="")
                   img.guarantee__img-effects-desk(src="assets/images/guarantee-effects-desktop.png", alt="")
                   img.guarantee__img-main(src="assets/images/guarantee-2.jpg", alt="")
-                .guarantee-contract
-                  h3.guarantee-contract__title Все гарантийные обязательства закреплены в договоре
-                  a.guarantee-contract__download(href="#") 
-                    .guarantee-contract__download-txt Скачать&nbsp;типовой договор
-                    button.guarantee-contract__download-btn
-                      +download-svg('io')
+                include ../components/guarantee-contract
                 p.about__caption
                   |Авторизованные клиники базальной имплантации по всему миру, в которых вы сможете обратиться за контрольным осмотром
                 .about__grid.about__grid--margin-top

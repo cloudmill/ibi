@@ -18,6 +18,8 @@
     width: 100%;
   }
 
+  @import '../components/_button-animation';
+
   &__img {
     position: absolute;
     top: 0;

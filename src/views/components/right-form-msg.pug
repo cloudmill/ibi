@@ -1,0 +1,18 @@
+//- Форма, которая выравнивается по правой стороне, без добавления файла
+//- Плейсхоллдер в последнем поле "Сообщение"
+
+form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
+  .member-page-ask__form-wrapper
+    label.news-subscribe__form-placeholder.member-page-ask__label
+        input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+    label.news-subscribe__form-placeholder.member-page-ask__label
+        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
+    label.news-subscribe__form-placeholder.member-page-ask__label
+        input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+    label.news-subscribe__form-placeholder.member-page-ask__label
+        textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
+    label.news-subscribe__form-checkbox.member-page-ask__checkbox
+        input(type="checkbox" required="")
+        p Согласен на обработку персональных данных в соответствии с 
+            a(href="#") политикой конфиденциальности
+    include ../components/animated-submit-button

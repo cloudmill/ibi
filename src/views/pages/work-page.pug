@@ -198,9 +198,10 @@ block content
                     .review__button 
                       .mission
                         .mission__missions-links-link(data-fancy-button="1")
-                          +svg-link.mission__missions-links-svg
+                          +svg-link.mission__missions-links-svg.button-svg
                           .mission__missions-links-text
-                            |Смотреть полностью
+                            span.mission__missions-links-span
+                              |Смотреть полностью
           h3.title.title--m
             |Врачи
   // team
@@ -208,110 +209,7 @@ block content
     .container
       .doctors
         .team.team--bot
-          a.team-member.doctor(href="#")
-            .team-member__img
-              .team-member__badge
-                .team-member__badge-item
-                  .team-member__badge-txt Статей в блоге
-                  .team-member__badge-count 14
-                .team-member__badge-item
-                  .team-member__badge-txt Операций
-                  .team-member__badge-count 26
-              img(src="assets/images/team-1.jpg", alt="")
-            .team-member__desc
-              .team-member__name Шмойлов Андрей Евгеньевич
-              .team-member__position Главный врач центра
-          a.team-member.dentist(href="#")
-            .team-member__img
-              .team-member__badge
-                .team-member__badge-item
-                  .team-member__badge-txt Статей в блоге
-                  .team-member__badge-count 14
-                .team-member__badge-item
-                  .team-member__badge-txt Операций
-                  .team-member__badge-count 26
-              img(src="assets/images/team-1.jpg", alt="")
-            .team-member__desc
-              .team-member__name Шмойлов Андрей Евгеньевич
-              .team-member__position Главный врач центра
-          a.team-member.dentist(href="#")
-            .team-member__img
-              .team-member__badge
-                .team-member__badge-item
-                  .team-member__badge-txt Статей в блоге
-                  .team-member__badge-count 14
-                .team-member__badge-item
-                  .team-member__badge-txt Операций
-                  .team-member__badge-count 26
-              img(src="assets/images/team-1.jpg", alt="")
-            .team-member__desc
-              .team-member__name Шмойлов Андрей Евгеньевич
-              .team-member__position Главный врач центра
-          a.team-member.admin(href="#")
-            .team-member__img
-              .team-member__badge
-                .team-member__badge-item
-                  .team-member__badge-txt Статей в блоге
-                  .team-member__badge-count 14
-                .team-member__badge-item
-                  .team-member__badge-txt Операций
-                  .team-member__badge-count 26
-              img(src="assets/images/team-1.jpg", alt="")
-            .team-member__desc
-              .team-member__name Шмойлов Андрей Евгеньевич
-              .team-member__position Главный врач центра
-          a.team-member.coordinator(href="#")
-            .team-member__img
-              .team-member__badge
-                .team-member__badge-item
-                  .team-member__badge-txt Статей в блоге
-                  .team-member__badge-count 14
-                .team-member__badge-item
-                  .team-member__badge-txt Операций
-                  .team-member__badge-count 26
-              img(src="assets/images/team-1.jpg", alt="")
-            .team-member__desc
-              .team-member__name Шмойлов Андрей Евгеньевич
-              .team-member__position Главный врач центра
-          a.team-member.admin(href="#")
-            .team-member__img
-              .team-member__badge
-                .team-member__badge-item
-                  .team-member__badge-txt Статей в блоге
-                  .team-member__badge-count 14
-                .team-member__badge-item
-                  .team-member__badge-txt Операций
-                  .team-member__badge-count 26
-              img(src="assets/images/team-1.jpg", alt="")
-            .team-member__desc
-              .team-member__name Шмойлов Андрей Евгеньевич
-              .team-member__position Главный врач центра
-          a.team-member.dentist(href="#")
-            .team-member__img
-              .team-member__badge
-                .team-member__badge-item
-                  .team-member__badge-txt Статей в блоге
-                  .team-member__badge-count 14
-                .team-member__badge-item
-                  .team-member__badge-txt Операций
-                  .team-member__badge-count 26
-              img(src="assets/images/team-1.jpg", alt="")
-            .team-member__desc
-              .team-member__name Шмойлов Андрей Евгеньевич
-              .team-member__position Главный врач центра
-          a.team-member.doctor(href="#")
-            .team-member__img
-              .team-member__badge
-                .team-member__badge-item
-                  .team-member__badge-txt Статей в блоге
-                  .team-member__badge-count 14
-                .team-member__badge-item
-                  .team-member__badge-txt Операций
-                  .team-member__badge-count 26
-              img(src="assets/images/team-1.jpg", alt="")
-            .team-member__desc
-              .team-member__name Шмойлов Андрей Евгеньевич
-              .team-member__position Главный врач центра
+          include ../components/team-list
   // slider
   section.section--blue-light
     .row 
@@ -390,9 +288,10 @@ block content
                                         li.operation-card__link
                                           .mission__missions-links-container
                                             a.mission__missions-links-link(href='#')
-                                              +svg-link.mission__missions-links-svg
+                                              +svg-link.mission__missions-links-svg.button-svg
                                               .mission__missions-links-text
-                                                |Подробнее
+                                                span.mission__missions-links-span
+                                                  |Подробнее
                                         if !(i % 2)
                                           li.operation-card__link.operation-card__link--mobile
                                             .mission__missions-links-container

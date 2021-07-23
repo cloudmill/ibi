@@ -84,38 +84,6 @@ block content
                   li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
                   li Lorem ipsum dolor sit amet, consectetur adipisicing
                   li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
-              .news-subscribe.member-page-ask
+              .news-subscribe.member-page-ask.display-flex
                 h2.news-subscribe__title.member-page-ask__title Оставить заявку на обучение
-                form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
-                  .member-page-ask__form-wrapper
-                    label.news-subscribe__form-placeholder.member-page-ask__label
-                        input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
-                    label.news-subscribe__form-placeholder.member-page-ask__label
-                        input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон" maxlength="18")
-                    label.news-subscribe__form-placeholder.member-page-ask__label
-                        input.news-subscribe__form-email(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
-                    label.news-subscribe__form-placeholder.member-page-ask__label
-                        textarea.news-subscribe__form-email(name="", cols="30", rows="3" placeholder="Сообщение")
-                    label.news-subscribe__form-checkbox.member-page-ask__checkbox
-                        input(type="checkbox" required="")
-                        p Согласен на обработку персональных данных в соответствии с 
-                            a(href="#") политикой конфиденциальности
-                    button.news-subscribe__form-btn(type="submit")
-                        +arrow-link-svg('news-subscribe__form-btn-ico')
-                        |Отправить
-              
-
-
-  //- section.section
-  //-   .row
-  //-     .row__col
-  //-     .row__col
-  //-       .container
-
-
-//- block footer
-//-   +footer({
-//-     attrs: {
-//-       'data-sticky-end': '1',
-//-     },
-//-   })
+                include ../components/right-form

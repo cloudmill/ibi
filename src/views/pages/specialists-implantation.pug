@@ -151,9 +151,10 @@ block content
             h2.spec-implant-hexagon-ttl Импланты для базальной имплантации
             a.specialists-events__link(href="")
               .mission__missions-links-link
-                +arrow-link-svg('news__link-ico')
+                +arrow-link-svg('news__link-ico button-svg')
                 .mission__missions-links-text
-                  |Подробнее
+                  span.mission__missions-links-span
+                    |Подробнее
           .spec-implant-cards
             .spec-implant-cards__item
               .spec-implant-cards__item-img
@@ -230,14 +231,15 @@ block content
                   p IIF на базе базальных имплантатов  Strategic implant обеспечивает имплантаты наилучшего качества, которые имеет под собой не только клинический опыт применения, но и научную платформу, развивая базальную имплантацию по всему миру.
                   a.specialists-events__link(href="")
                     .mission__missions-links-link
-                      +arrow-link-svg('news__link-ico')
+                      +arrow-link-svg('news__link-ico button-svg')
                       .mission__missions-links-text
-                        |История базальной имплантации
+                        span.mission__missions-links-span
+                          |История базальной имплантации
 
 
-block footer
-  +footer({
-    attrs: {
-      'data-sticky-end': '1',
-    },
-  })
+//- block footer
+//-   +footer({
+//-     attrs: {
+//-       'data-sticky-end': '1',
+//-     },
+//-   })

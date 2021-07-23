@@ -1,0 +1,31 @@
+&:hover {
+  .mission__missions-links-link {
+    .mission__missions-links-text {
+      color: $color-main;
+    }
+    .mission__missions-links-span {
+      animation: MoveUpInitial 0.3s forwards, MoveUpEnd 0.3s forwards 0.3s;
+    }
+    .button-svg {
+      path {
+        &:nth-child(1) {
+          transform: rotate(30deg);
+          fill: $color-main;
+        }
+
+        &:nth-child(3) {
+          fill: $color-white;
+          transform: translateX(10px);
+        }
+      }
+    }
+    .button-svg-video {
+      path {
+        &:nth-child(2) {
+          transform: scale(2.1);
+        }
+      }
+    }
+
+  }
+}

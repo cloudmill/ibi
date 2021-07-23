@@ -90,6 +90,8 @@
       @media (max-width: $breakpoint-m - 1px) {
         width: 100%
       }
+
+      @import '../components/_button-animation';
     }
 
     &__item:first-child {

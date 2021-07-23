@@ -66,3 +66,12 @@
     }
   }
 }
+
+.publication-slider {
+  .card {
+    &:hover {
+      background-color: #CDF5FA;
+    }
+    @import '../components/_button-animation';
+  }
+}
