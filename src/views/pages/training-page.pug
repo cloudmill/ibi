@@ -31,7 +31,10 @@ block content
                       .mission__spoiler-drop.news-spoiler__drop
                         nav.news-spoiler__nav.prosthetics-spoiler__drop
                           ul
-                            each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                            li.news-spoiler__nav-item.nav-drop-item--active
+                              a.nav__link(href='#')
+                                |Хирургический этап
+                            each item in ['Ортопедический этап', 'Зуботехнический этап']
                               li.news-spoiler__nav-item
                                 a.nav__link(href='#')
                                   |#{item}
@@ -65,7 +68,7 @@ block content
                           a.nav__link(href='#')
                             |#{item}
               //- .section__block--small
-              h2.training-page-title Теоретическая часть
+              h2.training-page-title__first Теоретическая часть
               .single-news__txt
                 ul.last-ul
                   li Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque perspiciatis quia officia consequuntur. Expedita facere exercitationem molestias vitae tenetur molestiae?
