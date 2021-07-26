@@ -4,6 +4,7 @@ $(function () {
   teamFilter();
   libraryFilter();
   bafFilter();
+  faqFilter();
   showMore();
 });
 
@@ -36,10 +37,6 @@ function showMore() {
       }).done(function (r) {
         let itemsResponse = null,
           responsePageNav = $(r).find("[data-type=show_more_click]");
-
-        console.log(responsePageNav);
-        console.log(itemsResponse);
-        console.log(itemsContainer);
 
         itemsResponse = $(r).find("[data-type=item]");
         itemsContainer.append(itemsResponse);
@@ -193,6 +190,55 @@ function bafFilter() {
       },
     }).done(function (a) {
       bafList.html(a);
+    });
+  }
+}
+
+function faqFilter() {
+  console.log("faqFilter");
+  $("[data-type=js-faq-filter-tag]").on("click", function (e) {
+    e.preventDefault();
+    console.log("faqFilter click tag");
+    $(this).toggleClass("active");
+
+    ajaxfaqList();
+  });
+
+  $("[data-type=js-faq-filter-clear]").on("click", function (e) {
+    console.log("faqFilter click tag");
+    e.preventDefault();
+
+    $("[data-type=js-faq-filter-tag]").each(function () {
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active");
+      }
+    });
+
+    ajaxfaqList();
+  });
+
+  function ajaxfaqList() {
+    console.log("faqFilter ajax");
+    let tags = [],
+      faqList = $("[data-type=js-faq-list]");
+
+    $("[data-type=js-faq-filter-tag]").each(function () {
+      if ($(this).hasClass("active")) {
+        tags[tags.length] = $(this).attr("data-id");
+      }
+    });
+
+    console.log(tags);
+
+    $.ajax({
+      method: "POST",
+      url: window.location.href,
+      data: {
+        ajax: 1,
+        tags: tags,
+      },
+    }).done(function (a) {
+      faqList.html(a);
     });
   }
 }
