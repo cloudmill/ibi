@@ -13,6 +13,7 @@ function showMore() {
   $(document).on("click", "[data-type=show_more_click]", function (e) {
     let thisObj = $(this),
       path = window.location.pathname,
+      pathArr = path.split("/"),
       url = thisObj.attr("data-url"),
       tags = thisObj.attr("data-tags"),
       container = thisObj.parents("[data-type-container=main-items-container]"),
@@ -35,13 +36,21 @@ function showMore() {
           tags: tags,
         },
       }).done(function (r) {
-        let itemsResponse = null,
-          responsePageNav = $(r).find("[data-type=show_more_click]");
+        let responsePageNav = $(r).find("[data-type=show_more_click]"),
+          itemsResponse = $(r).find("[data-type=item]");
 
-        itemsResponse = $(r).find("[data-type=item]");
-        itemsContainer.append(itemsResponse);
+        if (pathArr[2] == "library") {
+          let itemsContainerlib = $(document).find("[data-container=items]");
+          itemsContainerlib.append(itemsResponse);
+          if (responsePageNav) {
+            itemsContainerlib.after(responsePageNav);
+          }
+        } else {
+          itemsContainer.append(itemsResponse);
+        }
 
         console.log(itemsContainer);
+        console.log(itemsResponse);
 
         if (responsePageNav) {
           itemsContainer.after(responsePageNav);
@@ -100,58 +109,51 @@ function teamFilter() {
 }
 
 function libraryFilter() {
-  // state (список id тэгов (data-id)) - здесь актуальная информация по текущим выбранных тэгам фильтра
-  const state = []
+  console.log("libraryFilter");
+  $(document).on("click", "[data-type=js-library-filter-tag]", function (e) {
+    e.preventDefault();
+    console.log("libraryFilter click tag");
+    $(this).toggleClass("active");
 
-  // обработка клика по тэгу/сбросу (делегирование от window)
-  $(window).on('click', event => {
-    if ($(event.target).closest('[data-type=js-library-filter-tag]').length !== 0) {
-      const tag = $(event.target).closest('[data-type=js-library-filter-tag]')
-      const tag_id = tag.data('id')
+    ajaxLibraryList();
+  });
 
-      if (inState(tag_id)) {
-        state = state.filter(id => id !== tag_id)
+  $(document).on("click", "[data-type=js-library-filter-clear]", function (e) {
+    console.log("libraryFilter click clear");
+    e.preventDefault();
 
-        $(`[data-type=js-library-filter-tag][data-id="${tag_id}"]`).removeClass('active')
-      } else {
-        state.push(tag_id)
-
-        $(`[data-type=js-library-filter-tag][data-id="${tag_id}"]`).addClass('active')
+    $("[data-type=js-library-filter-tag]").each(function () {
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active");
       }
+    });
 
-      ajax()
-    } else if ($(event.target).closest('[data-type=js-library-filter-clear]').length !== 0) {
-      state = []
+    ajaxLibraryList();
+  });
 
-      $('[data-type=js-library-filter-tag]').removeClass('active')
+  function ajaxLibraryList() {
+    console.log("libraryFilter ajax");
+    let tags = [],
+      libraryList = $("[data-type=js-library-list]");
 
-      ajax()
-    }
-  })
+    $("[data-type=js-library-filter-tag]").each(function () {
+      if ($(this).hasClass("active")) {
+        tags[tags.length] = $(this).attr("data-id");
+      }
+    });
 
-  // отправка state -> получение, обновление labraryList
-  function ajax() {
-    const libraryList = $("[data-type=js-library-list]")
+    console.log(tags);
 
     $.ajax({
       method: "POST",
       url: window.location.href,
       data: {
         ajax: 1,
-        tags: state,
+        tags: tags,
       },
     }).done(function (a) {
-      libraryList.html(a)
-    })
-  }
-
-  // проверка: id в state?
-  function inState(id) {
-    for (let i = 0; i < state.length; i++) {
-      if (state[i] === id) return true
-    }
-
-    return false
+      libraryList.html(a);
+    });
   }
 }
 
