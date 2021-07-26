@@ -23,6 +23,10 @@
         padding: 20px 2px 20px 0;
     }
 
+    .mission__spoiler-button {
+        background-color: transparent;
+    }
+
     &__nav {
         
         &-item {
@@ -252,7 +256,10 @@
         img {
             width: 160px;
             @media (max-width: $breakpoint-m) {
-                width: auto;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
             }
         }
     }

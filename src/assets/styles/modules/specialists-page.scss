@@ -105,6 +105,10 @@
 .specialists-events {
   margin-bottom: 160px;
 
+  @media (max-width: $breakpoint - 1px) {
+    margin-bottom: 60px;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;

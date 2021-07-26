@@ -1,9 +1,37 @@
 .training-drop {
-  margin: 0 0 20px 20px;
+  margin: -10px 0 10px 20px;
+
+  @media (max-width: $breakpoint - 1px) {
+    padding: 0;
+  }
+
+  .news-spoiler__nav-item {
+    margin-bottom: 0;
+  }
 }
 
 .training-main-img {
   width: 100%;
+}
+
+.training-parts {
+  margin: 120px 0 160px;
+
+  @media (max-width: $breakpoint - 1px) {
+    margin: 40px 0 75px;
+  }
+}
+
+.training-subtitle {
+  margin: 80px 0;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 140%;
+
+  @media (max-width: $breakpoint - 1px) {
+    margin: 40px 0 15px;
+    font-size: 18px;
+  }
 }
 
 .training-list {
@@ -51,15 +79,14 @@
 
 .training-stages {
 
-  .training-cards__ttl:first-child {
+  &__ttl {
     margin-bottom: 80px;
+    font-size: 40px;
+    line-height: 140%;
 
     @media (max-width: $breakpoint - 1px) {
-      margin-bottom: 50px;
-    }
-
-    @media (max-width: $breakpoint-m - 1px) {
-      margin-bottom: 10px;
+      margin: -35px 0 50px;
+      font-size: 22px;
     }
   }
 
@@ -179,9 +206,11 @@
   &__ttl {
     font-size: 40px;
     line-height: 140%;
+    margin-bottom: 20px;
 
     @media (max-width: $breakpoint - 1px) {
       font-size: 22px;
+      margin-bottom: 10px;
     }
   }
 
@@ -221,6 +250,7 @@
 
     @media (max-width: $breakpoint - 1px) {
       width: calc(50% - 10px);
+      padding: 20px;
     }
 
     @media (max-width: $breakpoint-m - 1px) {
@@ -232,6 +262,11 @@
       margin-top: 45px;
       font-size: 16px;
       line-height: 140%;
+
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 20px;
+        font-size: 14px;
+      }
     }
   }
 
@@ -255,9 +290,14 @@
   }
 }
 
-.training-page-title:first-child {
+.training-page-title__first {
+  font-size: 40px;
+  line-height: 140%;
+  margin: 120px 0 60px;
+
   @media (max-width: $breakpoint - 1px) {
-    margin-top: 40px;
+    font-size: 22px;
+    margin: 40px 0 20px;
   }
 }
 
