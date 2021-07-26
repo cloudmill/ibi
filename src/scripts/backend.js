@@ -5,6 +5,7 @@ $(function () {
   libraryFilter();
   bafFilter();
   faqFilter();
+  publicFilter();
   showMore();
 });
 
@@ -242,3 +243,52 @@ function faqFilter() {
     });
   }
 }
+
+function publicFilter() {
+    console.log("publicFilter");
+    $("[data-type=js-public-filter-tag]").on("click", function (e) {
+      e.preventDefault();
+      console.log("publicFilter click tag");
+      $(this).toggleClass("active");
+  
+      ajaxpublicList();
+    });
+  
+    $("[data-type=js-public-filter-clear]").on("click", function (e) {
+      console.log("publicFilter click tag");
+      e.preventDefault();
+  
+      $("[data-type=js-public-filter-tag]").each(function () {
+        if ($(this).hasClass("active")) {
+          $(this).removeClass("active");
+        }
+      });
+  
+      ajaxpublicList();
+    });
+  
+    function ajaxpublicList() {
+      console.log("publicFilter ajax");
+      let tags = [],
+        publicList = $("[data-type=js-public-list]");
+  
+      $("[data-type=js-public-filter-tag]").each(function () {
+        if ($(this).hasClass("active")) {
+          tags[tags.length] = $(this).attr("data-id");
+        }
+      });
+  
+      console.log(tags);
+  
+      $.ajax({
+        method: "POST",
+        url: window.location.href,
+        data: {
+          ajax: 1,
+          tags: tags,
+        },
+      }).done(function (a) {
+        publicList.html(a);
+      });
+    }
+  }
