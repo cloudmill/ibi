@@ -13,7 +13,6 @@ function showMore() {
   $(document).on("click", "[data-type=show_more_click]", function (e) {
     let thisObj = $(this),
       path = window.location.pathname,
-      pathArr = path.split("/"),
       url = thisObj.attr("data-url"),
       tags = thisObj.attr("data-tags"),
       container = thisObj.parents("[data-type-container=main-items-container]"),
@@ -41,6 +40,9 @@ function showMore() {
 
         itemsResponse = $(r).find("[data-type=item]");
         itemsContainer.append(itemsResponse);
+
+        console.log(itemsContainer);
+        
         if (responsePageNav) {
           itemsContainer.after(responsePageNav);
         }
