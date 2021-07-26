@@ -4,7 +4,54 @@ $(function () {
   teamFilter();
   libraryFilter();
   bafFilter();
+  showMore();
 });
+
+function showMore() {
+  $(document).on("click", "[data-type=show_more_click]", function (e) {
+    let thisObj = $(this),
+      path = window.location.pathname,
+      pathArr = path.split("/"),
+      url = thisObj.attr("data-url"),
+      tags = thisObj.attr("data-tags"),
+      container = thisObj.parents("[data-type-container=main-items-container]"),
+      itemsContainer = container.find("[data-container=items]");
+
+    console.log("show more");
+
+    if (tags) {
+      tags = JSON.parse(tags);
+    }
+
+    if (url) {
+      thisObj.remove();
+
+      $.ajax({
+        method: "POST",
+        url: url,
+        data: {
+          ajax: 1,
+          tags: tags,
+        },
+      }).done(function (r) {
+        let itemsResponse = null,
+          responsePageNav = $(r).find("[data-type=show_more_click]");
+
+        console.log(responsePageNav);
+        console.log(itemsResponse);
+        console.log(itemsContainer);
+
+        itemsResponse = $(r).find("[data-type=item]");
+        itemsContainer.append(itemsResponse);
+        if (responsePageNav) {
+          itemsContainer.after(responsePageNav);
+        }
+
+        window.scroller.update();
+      });
+    }
+  });
+}
 
 function teamFilter() {
   console.log("teamFilter");
