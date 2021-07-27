@@ -3,6 +3,7 @@ import "parsleyjs";
 $(function () {
   teamFilter();
   libraryFilter();
+  eventFilter();
   bafFilter();
   faqFilter();
   publicFilter();
@@ -40,18 +41,28 @@ function showMore() {
           itemsResponse = $(r).find("[data-type=item]");
 
         if (pathArr[2] == "library") {
-          let itemsContainerlib = $(document).find("[data-container=items]");
+          let itemsContainerLib = $(document).find("[data-container=items]");
 
-          itemsContainerlib.append($(r));
+          console.log(itemsContainerLib);
+          console.log($(r));
+
+          itemsContainerLib.append($(r));
           if (responsePageNav) {
-            itemsContainerlib.after(responsePageNav);
+            itemsContainerLib.after(responsePageNav);
+          }
+        } else if (pathArr[2] == "events") {
+          let itemsContainerEv = $(document).find("[data-container=items]");
+
+          console.log(itemsContainerEv);
+          console.log($(r));
+
+          itemsContainerEv.append($(r));
+          if (responsePageNav) {
+            itemsContainerEv.after(responsePageNav);
           }
         } else {
           itemsContainer.append(itemsResponse);
         }
-
-        console.log(itemsContainer);
-        console.log(itemsResponse);
 
         if (responsePageNav) {
           itemsContainer.after(responsePageNav);
@@ -109,52 +120,132 @@ function teamFilter() {
   }
 }
 
-function libraryFilter() {
-  console.log("libraryFilter");
-  $(document).on("click", "[data-type=js-library-filter-tag]", function (e) {
-    e.preventDefault();
-    console.log("libraryFilter click tag");
-    $(this).toggleClass("active");
+function eventFilter() {
+  // state (список id тэгов (data-id)) - здесь актуальная информация по текущим выбранных тэгам фильтра
+  let state = [];
 
-    ajaxLibraryList();
+  // обработка клика по тэгу/сбросу (делегирование от window)
+  $(window).on("click", (event) => {
+    if (
+      $(event.target).closest("[data-type=js-event-filter-tag]").length !== 0
+    ) {
+      const tag = $(event.target).closest("[data-type=js-event-filter-tag]");
+      const tag_id = tag.data("id");
+
+      if (inState(tag_id)) {
+        state = state.filter((id) => id !== tag_id);
+
+        $(`[data-type=js-event-filter-tag][data-id="${tag_id}"]`).removeClass(
+          "active"
+        );
+      } else {
+        state.push(tag_id);
+
+        $(`[data-type=js-event-filter-tag][data-id="${tag_id}"]`).addClass(
+          "active"
+        );
+      }
+
+      ajaxEvent();
+    } else if (
+      $(event.target).closest("[data-type=js-event-filter-clear]").length !== 0
+    ) {
+      state = [];
+
+      $("[data-type=js-event-filter-tag]").removeClass("active");
+
+      ajaxEvent();
+    }
   });
 
-  $(document).on("click", "[data-type=js-library-filter-clear]", function (e) {
-    console.log("libraryFilter click clear");
-    e.preventDefault();
-
-    $("[data-type=js-library-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
-      }
-    });
-
-    ajaxLibraryList();
-  });
-
-  function ajaxLibraryList() {
-    console.log("libraryFilter ajax");
-    let tags = [],
-      libraryList = $("[data-type=js-library-list]");
-
-    $("[data-type=js-library-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
-        tags[tags.length] = $(this).attr("data-id");
-      }
-    });
-
-    console.log(tags);
+  // отправка state -> получение, обновление labraryList
+  function ajaxEvent() {
+    let eventList = $("[data-type=js-event-list]");
 
     $.ajax({
       method: "POST",
       url: window.location.href,
       data: {
         ajax: 1,
-        tags: tags,
+        tags: state,
+      },
+    }).done(function (a) {
+      eventList.html(a);
+    });
+  }
+
+  // проверка: id в state?
+  function inState(id) {
+    for (let i = 0; i < state.length; i++) {
+      if (state[i] === id) return true;
+    }
+
+    return false;
+  }
+}
+
+function libraryFilter() {
+  // state (список id тэгов (data-id)) - здесь актуальная информация по текущим выбранных тэгам фильтра
+  let state = [];
+
+  // обработка клика по тэгу/сбросу (делегирование от window)
+  $(window).on("click", (event) => {
+    if (
+      $(event.target).closest("[data-type=js-library-filter-tag]").length !== 0
+    ) {
+      const tag = $(event.target).closest("[data-type=js-library-filter-tag]");
+      const tag_id = tag.data("id");
+
+      if (inState(tag_id)) {
+        state = state.filter((id) => id !== tag_id);
+
+        $(`[data-type=js-library-filter-tag][data-id="${tag_id}"]`).removeClass(
+          "active"
+        );
+      } else {
+        state.push(tag_id);
+
+        $(`[data-type=js-library-filter-tag][data-id="${tag_id}"]`).addClass(
+          "active"
+        );
+      }
+
+      ajaxLib();
+    } else if (
+      $(event.target).closest("[data-type=js-library-filter-clear]").length !==
+      0
+    ) {
+      state = [];
+
+      $("[data-type=js-library-filter-tag]").removeClass("active");
+
+      ajaxLib();
+    }
+  });
+
+  // отправка state -> получение, обновление labraryList
+  function ajaxLib() {
+    let libraryList = $("[data-type=js-library-list]");
+
+    $.ajax({
+      method: "POST",
+      url: window.location.href,
+      data: {
+        ajax: 1,
+        tags: state,
       },
     }).done(function (a) {
       libraryList.html(a);
     });
+  }
+
+  // проверка: id в state?
+  function inState(id) {
+    for (let i = 0; i < state.length; i++) {
+      if (state[i] === id) return true;
+    }
+
+    return false;
   }
 }
 
