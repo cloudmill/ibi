@@ -758,6 +758,7 @@
   // slider
   &__slider {
     margin-top: 40px;
+    overflow: hidden;
     @media (min-width: $breakpoint) {
       margin-top: 80px;
     }
@@ -1518,8 +1519,13 @@
 }
 
 .faq-spoiler {
-    h5 {
+  .mission__spoiler-title {
       font-weight: 400;
+      width: calc(#{$col-part-d} * 5);
+
+      @media (max-width: $breakpoint - 1px) {
+        width: calc(100% - 40px);
+      }
   }
 }
 
@@ -1592,6 +1598,8 @@
     margin-top: 60px;
   }
 }
+
+
 
 .display-flex {
   display: flex;

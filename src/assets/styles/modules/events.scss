@@ -75,8 +75,19 @@
   }
 
   &__save {
+    padding-top: 92px;
     @media (max-width: $breakpoint - 1px) {
       display: none;
+    }
+
+    .share-social__box {
+      width: 170px;
+    }
+
+    .share-social__title {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 140%;
     }
   }
 
@@ -110,4 +121,13 @@
   div:first-child {
     margin-right: 20px;
   }
+}
+
+.other-events {
+  .swiper-slide {
+    .news-box:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
 }

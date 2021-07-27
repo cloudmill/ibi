@@ -35,8 +35,21 @@ block content
               h1.title.single-news__title.member-page__title
                 |Шмойлов Андрей Евгеньевич
               p.member-page__position Главный врач центра
+              .mission__spoiler.news-spoiler
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |Наша команда
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
               .single-news__body
-                .single-news__head
+                .single-news__head.member-back-link
                   .single-news__back-link
                     a(href="#") Наша команда
                 .single-news__img.member-page__img
@@ -204,30 +217,20 @@ block content
                                               .mission__missions-links-text
                                                 span.mission__missions-links-span
                                                   |Подробнее
-                                        if !(i % 2)
-                                          li.operation-card__link.operation-card__link--mobile
-                                            .mission__missions-links-container
-                                              a.mission__missions-links-link(href='#')
-                                                +svg-link.mission__missions-links-svg.button-svg
-                                                .mission__missions-links-text
-                                                  span.mission__missions-links-span
-                                                    |Все операции
-                                    //- .operation-card__bottom-col.operation-card__bottom-col--desktop
-                                    //-   .slider-control.slider-control--desktop
-                                    //-     .slider-control__item
-                                    //-       .button-arrow.button-arrow--left
-                                    //-         .button-arrow__button(data-slider-button='9')
-                                    //-           +svg-arrow.button-arrow__svg
-                                    //-     .slider-control__item
-                                    //-       .button-arrow.button-arrow.button-arrow--right
-                                    //-         .button-arrow__button(data-slider-button='10')
-                                    //-           +svg-arrow.button-arrow__svg
+                .operation-card__link.operation-card__link--mobile
+                  .mission__missions-links-container
+                    a.mission__missions-links-link(href='#')
+                      +svg-link.mission__missions-links-svg.button-svg
+                      .mission__missions-links-text
+                        span.mission__missions-links-span
+                          |Все операции
+
     section.index__section.section--blue-light.section__inner
       .row
         .row__col
         .row__col
           .container
-            .index-publications
+            .index-publications.team-member-publications
               .index-publications__top
                 .index-publications__top-left
                   h2.index-publications__title

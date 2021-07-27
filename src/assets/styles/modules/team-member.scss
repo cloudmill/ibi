@@ -243,3 +243,17 @@
     }
   }
 }
+
+.team-member-publications {
+  overflow: hidden;
+}
+
+.member-back-link {
+  @media (max-width: $breakpoint - 1px) {
+    margin: 20px 0;
+
+    .single-news__back-link {
+      margin-bottom: 0;
+    }
+  }
+}
