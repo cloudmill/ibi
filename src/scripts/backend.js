@@ -41,7 +41,8 @@ function showMore() {
 
         if (pathArr[2] == "library") {
           let itemsContainerlib = $(document).find("[data-container=items]");
-          itemsContainerlib.append(itemsResponse);
+
+          itemsContainerlib.append($(r));
           if (responsePageNav) {
             itemsContainerlib.after(responsePageNav);
           }
