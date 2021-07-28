@@ -78,6 +78,21 @@
       padding-top: 60px;
     }
   }
+
+  .single-news__head {
+    margin-bottom: 0;
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
+  }
+
+  .section__block.section__block--small.mt65 {
+    margin-top: 65px;
+  
+    @media (max-width: $breakpoint) {
+      margin-top: 40px;
+    }
+  }
 }
 
 .materials {
@@ -283,3 +298,4 @@
     justify-content: flex-end;
   }
 }
+

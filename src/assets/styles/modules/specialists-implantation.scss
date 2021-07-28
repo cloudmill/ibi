@@ -58,6 +58,10 @@
       font-size: 22px;
       font-weight: 500;
       color: $color-main;
+
+      @media (max-width: $breakpoint - 1px) {
+        font-size: 16px;
+      }
     }
 
     
@@ -67,6 +71,7 @@
 
       @media (max-width: $breakpoint - 1px) {
         margin-bottom: 20px;
+        font-size: 16px;
       }
     }
 
@@ -91,7 +96,7 @@
     position: relative;
 
     @media (max-width: $breakpoint - 1px) {
-      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      width: calc(50% - 10px);
     }
 
     @media (max-width: $breakpoint-m - 1px) {
@@ -219,6 +224,7 @@
 
       p {
         width: 100%;
+        padding-top: 0;
 
         @media (max-width: $breakpoint - 1px) {
           font-size: 12px;

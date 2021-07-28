@@ -291,6 +291,20 @@ const BREAKPOINT = 1280;
               allowTouchMove: false,
             }
             break;
+          case 5:
+            slider_options = {
+              ...slider_options,
+
+              loop: true,
+            }
+            break;
+          case 6:
+            slider_options = {
+              ...slider_options,
+
+              loop: true,
+            }
+            break;
           case 7:
             slider_options = {
               ...slider_options,
