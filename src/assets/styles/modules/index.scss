@@ -911,6 +911,7 @@
       padding-right: 35px;
     }
     display: flex;
+    flex-wrap: wrap;
     @media (max-width: $breakpoint - 1px) {
       justify-content: space-between;
     }
@@ -918,13 +919,15 @@
   &__price {
     flex-shrink: 0;
 
+    margin-right: $col-gap-m;
+    @media (min-width: $breakpoint) {
+      margin-right: $col-gap-d;
+    }
+
     @include info-text();
   }
   &__visits {
-    margin-left: $col-gap-m;
-    @media (min-width: $breakpoint) {
-      margin-left: $col-gap-d;
-    }
+    
     flex-shrink: 0;
 
     @include info-text();

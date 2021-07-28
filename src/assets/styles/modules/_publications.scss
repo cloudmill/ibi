@@ -3,6 +3,12 @@
     padding-left: 40px;
   }
 
+  .team-filter {
+    padding-left: 0;
+    padding-bottom: 20px;
+    margin-top: 20px;
+  }
+
   &--mobile {
     padding-top: 20px;
 
@@ -112,8 +118,10 @@
   padding: 40px 0;
 
   display: none;
-  @media (min-width: $breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
     display: block;
+    padding: 25px 0 20px;
+    border-bottom: none;
   }
   border-bottom: 1px solid $color-gray-border;
 
@@ -134,7 +142,7 @@
         counter-increment: index;
         content: counter(index) ". ";
         position: absolute;
-        top: 1px;
+        top: 4px;
         @media (min-width: $breakpoint) {
           top: 0;
         }
@@ -202,6 +210,8 @@
   }
 
   &__item {
+
+    width: auto;
     
     @media (min-width: $breakpoint) {
       margin-left: 40px;
@@ -246,9 +256,14 @@
 }
 
 .research {
-  margin-top: 40px;
-  @media (min-width: $breakpoint) {
-    margin-top: 80px;
+  // margin-top: 40px;
+  // @media (min-width: $breakpoint) {
+  //   margin-top: 80px;
+  // }
+
+  padding-top: 120px;
+  @media (max-width: $breakpoint - 1px) {
+    padding-top: 40px;
   }
 
   &__list {
