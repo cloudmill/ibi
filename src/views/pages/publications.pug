@@ -9,6 +9,19 @@ block content
       .row__col
         .section__inner.section__inner--top
           .articles-authors.my-sticky
+            .team-filter
+              ul.team-filter__container
+                li.team-filter__item.team-filter__item--active(data-id="doctor") #все
+                li.team-filter__item(data-id="dentist") #исследования
+                li.team-filter__item(data-id="admin") #статьи
+                li.team-filter__item(data-id="coordinator") #центр
+                li.team-filter__item(data-id="doctor") #инновации
+                li.team-filter__item(data-id="dentist") #научная деятельность
+                li.team-filter__item(data-id="admin") #публикации сми
+                li.team-filter__item(data-id="coordinator") #кейсы
+              button.team-filter__reset
+                +reset-svg('team-filter__reset-ico')
+                |Сбросить
             .articles-authors__container
               .articles-authors__title 
                 |Авторы статей
@@ -32,20 +45,48 @@ block content
           .container 
             h1.title
               |Публикации
-            .mission
-              .mission__spoiler.news-spoiler
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
+            //- .mission
+            //-   .mission__spoiler.news-spoiler
+            //-     .mission__spoiler-button.news-spoiler__button
+            //-       h5.mission__spoiler-title
+            //-         |Исследования
+            //-       .news-spoiler__image
+            //-         +arrow-svg('header__drop-svg')
+            //-     .mission__spoiler-drop.news-spoiler__drop
+            //-       nav.news-spoiler__nav
+            //-         ul
+            //-           each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
+            //-             li.news-spoiler__nav-item
+            //-               a.nav__link(href='#')
+            //-                 |#{item}
+
+            .category.swiper-container
+              ul.category__list.swiper-wrapper
+                li.category__item.category__item--active.swiper-slide
+                  a.category__link(href="#") 
+                    |Все
+                li.category__item.swiper-slide
+                  a.category__link(href="#") 
                     |Исследования
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
+                li.category__item.swiper-slide 
+                  a.category__link(href="#") 
+                    |Статьи
+                li.category__item.swiper-slide 
+                  a.category__link(href="#") 
+                    |Центр
+                li.category__item.swiper-slide 
+                  a.category__link(href="#") 
+                    |Инновациии
+                li.category__item.swiper-slide 
+                  a.category__link(href="#") 
+                    |Научная деятельность
+                li.category__item 
+                  a.category__link(href="#") 
+                    |Публикации СМИ
+                li.category__item.swiper-slide
+                  a.category__link(href="#") 
+                    |Кейсы
+
             .articles-authors.articles-authors--mobile
               .articles-authors__container
                 .articles-authors__title 
@@ -65,32 +106,7 @@ block content
                               |Шмойлов Андрей Евгеньевич
                             .article-author__prof 
                               |Главный врач центра
-            .category 
-              ul.category__list
-                li.category__item.category__item--active
-                  a.category__link(href="#") 
-                    |Все
-                li.category__item 
-                  a.category__link(href="#") 
-                    |Исследования
-                li.category__item 
-                  a.category__link(href="#") 
-                    |Статьи
-                li.category__item 
-                  a.category__link(href="#") 
-                    |Центр
-                li.category__item 
-                  a.category__link(href="#") 
-                    |Инновациии
-                li.category__item 
-                  a.category__link(href="#") 
-                    |Научная деятельность
-                li.category__item 
-                  a.category__link(href="#") 
-                    |Публикации СМИ
-                li.category__item 
-                  a.category__link(href="#") 
-                    |Кейсы
+            
             .research 
               ul.research__list 
                 - for (i = 0; i < 8; i++)
@@ -126,17 +142,4 @@ block content
                       +arrow-link-svg('news__link-ico')
                   .news-show-more-txt Показать еще
         .container
-          .news-subscribe
-            h2.news-subscribe__title Подпишитесь на&nbsp;публикации и новости
-            form.news-subscribe__form
-              div
-                label.news-subscribe__form-placeholder.news-subscribe__form-placeholder--flex
-                    input.news-subscribe__form-email(type="email" placeholder="E-mail")
-                    button.news-subscribe__form-btn.news-subscribe__form-btn--mobile
-                      +arrow-send('news-subscribe__form-btn-ico')
-                label.news-subscribe__form-checkbox
-                    input(type="checkbox")
-                    p Согласен на обработку персональных данных в соответствии с 
-                      a(href="#") политикой конфиденциальности
-              button.news-subscribe__form-btn.news-subscribe__form-btn--desc
-                  +arrow-send('news-subscribe__form-btn-ico')
+          include ../components/subscription-form

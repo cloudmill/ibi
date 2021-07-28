@@ -400,14 +400,14 @@ const BREAKPOINT = 1280;
             }
             break;
 
-          case 150:
-            slider_options = {
-              ...slider_options,
+          // case 150:
+          //   slider_options = {
+          //     ...slider_options,
 
-              loop: true,
+          //     loop: true,
 
-            }
-            break;
+          //   }
+          //   break;
 
         }
 
@@ -1015,11 +1015,19 @@ var updateMySticky
 {
   $(() => {
     const swiperThumbs = new Swiper($('.development__names')[0], {
-      freeMode: true,
+      freeMode: false,
+      // loop: true,
       slidesPerView: 'auto',
+      initialSlide: 0,
 
     })
     const swiperSlider = new Swiper($('.development__desc')[0], {
+      loop: true,
+      freeMode: false,
+      spaceBetween: 0,
+      slidesPerView: 1,
+      initialSlide: 0,
+
       thumbs: {
         swiper: swiperThumbs,
       },

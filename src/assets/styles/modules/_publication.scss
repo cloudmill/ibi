@@ -75,3 +75,11 @@
     @import '../components/_button-animation';
   }
 }
+
+.article-share {
+  padding-top: 150px;
+
+  @media (max-width: $breakpoint - 1px) {
+    padding-top: 20px;
+  }
+}

@@ -194,3 +194,11 @@
     }
   }
 }
+
+.price-item__desc.single-news__txt {
+  .ul-in-ul {
+    @media (max-width: $breakpoint - 1px) {
+      margin-top: 20px;
+    }
+  }
+}
