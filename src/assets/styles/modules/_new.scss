@@ -1565,14 +1565,6 @@
   }
 }
 
-.news-subscribe__title.member-page-ask__title.mb80-60 {
-  margin-bottom: 80px;
-
-  @media (max-width: $breakpoint - 1px) {
-    margin-bottom: 60px;
-  }
-}
-
 .article__title.mb80-40 {
   margin-bottom: 80px;
 
@@ -1599,17 +1591,4 @@
 
 .display-flex {
   display: flex;
-}
-
-.parsley-errors-list {
-  color: #E62B3E;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 140%;
-  text-align: right;
-  margin-top: -15px;
-}
-
-.news-subscribe__form-email.parsley-error {
-  border-bottom: 1px solid #E62B3E;
 }

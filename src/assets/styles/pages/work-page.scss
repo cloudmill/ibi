@@ -418,3 +418,65 @@
     }
   }
 }
+
+.work-page-review {
+  max-width: 100%;
+
+  margin: 0 calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+  .mission__spoiler-button {
+    flex-direction: column;
+
+    padding: 60px 40px 60px calc(#{$col-part-d} + #{$col-gap-d});
+  }
+
+  &__top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+
+    margin-bottom: 80px;
+
+    .title--m {
+      padding-bottom: 0;
+    }
+  }
+
+  .review__img {
+    left: calc(#{$col-width-d});
+    max-height: 200%;
+    top: -50%;
+    height: 150%;
+  }
+
+  .review__svg {
+    right: calc(#{$col-gap-d});
+  }
+
+  .review__col:nth-child(1) {
+    width: calc(#{$col-part-d});
+  }
+
+  .mission__spoiler-drop {
+    padding: 20px calc(#{$col-part-d} + #{$col-gap-d}) 60px;
+  }
+
+  .single-news__txt {
+    margin: 80px 0;
+  }
+
+  .single-news__txt:last-child {
+    margin-bottom: 0;
+  }
+
+  // .mission__spoiler-drop img {
+  //   margin-bottom: 40px;
+  // }
+
+  .mission__spoiler-drop img:last-child {
+    margin-bottom: 0;
+    margin-top: 40px;
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+  }
+}
