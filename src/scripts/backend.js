@@ -60,6 +60,16 @@ function showMore() {
           if (responsePageNav) {
             itemsContainerEv.after(responsePageNav);
           }
+        } else if (pathArr[1] == "publications") {
+          let itemsContainerEv = $(document).find("[data-container=items]");
+
+          console.log(itemsContainerEv);
+          console.log($(r));
+
+          itemsContainerEv.append($(r));
+          if (responsePageNav) {
+            itemsContainerEv.after(responsePageNav);
+          }
         } else {
           itemsContainer.append(itemsResponse);
         }
@@ -366,50 +376,65 @@ function faqFilter() {
 }
 
 function publicFilter() {
-  console.log("publicFilter");
-  $("[data-type=js-public-filter-tag]").on("click", function (e) {
-    e.preventDefault();
-    console.log("publicFilter click tag");
-    $(this).toggleClass("active");
+  // state (список id тэгов (data-id)) - здесь актуальная информация по текущим выбранных тэгам фильтра
+  let state = [];
 
-    ajaxpublicList();
+  // обработка клика по тэгу/сбросу (делегирование от window)
+  $(window).on("click", (event) => {
+    if (
+      $(event.target).closest("[data-type=js-public-filter-tag]").length !== 0
+    ) {
+      const tag = $(event.target).closest("[data-type=js-public-filter-tag]");
+      const tag_id = tag.data("id");
+
+      if (inState(tag_id)) {
+        state = state.filter((id) => id !== tag_id);
+
+        $(`[data-type=js-public-filter-tag][data-id="${tag_id}"]`).removeClass(
+          "active"
+        );
+      } else {
+        state.push(tag_id);
+
+        $(`[data-type=js-public-filter-tag][data-id="${tag_id}"]`).addClass(
+          "active"
+        );
+      }
+
+      ajaxLib();
+    } else if (
+      $(event.target).closest("[data-type=js-public-filter-clear]").length !== 0
+    ) {
+      state = [];
+
+      $("[data-type=js-public-filter-tag]").removeClass("active");
+
+      ajaxLib();
+    }
   });
 
-  $("[data-type=js-public-filter-clear]").on("click", function (e) {
-    console.log("publicFilter click tag");
-    e.preventDefault();
-
-    $("[data-type=js-public-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
-      }
-    });
-
-    ajaxpublicList();
-  });
-
-  function ajaxpublicList() {
-    console.log("publicFilter ajax");
-    let tags = [],
-      publicList = $("[data-type=js-public-list]");
-
-    $("[data-type=js-public-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
-        tags[tags.length] = $(this).attr("data-id");
-      }
-    });
-
-    console.log(tags);
+  // отправка state -> получение, обновление labraryList
+  function ajaxLib() {
+    let publicList = $("[data-type=js-public-list]");
 
     $.ajax({
       method: "POST",
       url: window.location.href,
       data: {
         ajax: 1,
-        tags: tags,
+        tags: state,
       },
     }).done(function (a) {
       publicList.html(a);
     });
+  }
+
+  // проверка: id в state?
+  function inState(id) {
+    for (let i = 0; i < state.length; i++) {
+      if (state[i] === id) return true;
+    }
+
+    return false;
   }
 }
