@@ -13,9 +13,7 @@
                 input(type="checkbox" required="")
                 p Согласен на обработку персональных данных в соответствии с 
                     a(href="#") политикой конфиденциальности
-            button.news-subscribe__form-btn.form__btn(type="submit")
-                +arrow-link-svg('news-subscribe__form-btn-ico')
-                |Отправить
+            include ../components/animated-submit-button
       .response
         h2 Спасибо! Мы получили вашу заявку на обратный звонок и ответим вам в ближайшее время.
         .mission__missions-links-link.response__btn
