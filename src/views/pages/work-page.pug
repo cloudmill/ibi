@@ -177,31 +177,67 @@ block content
             img.work-photo__img.work-photo__img--hidden(src="assets/images/before-1.jpg", alt="")
   // review
   section.section 
+    //- .row  
+    //-   .row__col 
+    //-   .row__col 
+    .container 
+      .section__inner
+
+        ul.mission__spoilers.work-page-review
+          li.mission__spoilers-item
+            .mission__spoiler
+              .mission__spoiler-button
+                .work-page-review__top
+                  
+                  h3.title.title--m
+                    |Отзыв
+                  .mission__spoiler-image
+
+                .review 
+                  .review__layout 
+                    img.review__img(src="assets/images/review-1.svg", alt="")
+                    img.review__svg(src="assets/images/review-2.svg", alt="")
+                  .review__content
+                    .review__row 
+                      .review__col
+                        img(src="assets/images/review-1.jpg", alt="")
+                      .review__col
+                        p
+                          |Хочу выразить благодарность замечательному врачу Блаватской Дарье Васильевне.У нее очень лёгкие и добрые руки!
+                
+              .mission__spoiler-drop
+                img(src="assets/images/work-page-review-drop-1.jpg", alt="")
+                .single-news__txt
+                  p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi excepturi doloribus odit ullam adipisci, facilis autem quidem exercitationem suscipit impedit quos, fuga necessitatibus, ea natus iste sapiente inventore debitis quibusdam!
+                  p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit placeat necessitatibus ratione aut officia quam totam, nam tempora sequi architecto cupiditate laboriosam velit nisi molestias esse dolore soluta voluptatibus ad.
+                img(src="assets/images/work-page-review-drop-2.jpg", alt="")
+                img(src="assets/images/review-1.jpg", alt="")
+
+
+            //- h3.title.title--m
+            //-   |Отзыв
+            //- .review 
+            //-   .review__layout 
+            //-     img.review__img(src="assets/images/review-1.svg", alt="")
+            //-     img.review__svg(src="assets/images/review-2.svg", alt="")
+            //-   .review__content
+            //-     .review__row 
+            //-       .review__col
+            //-         img(src="assets/images/review-1.jpg", alt="")
+            //-       .review__col
+            //-         p
+            //-           |Хочу выразить благодарность замечательному врачу Блаватской Дарье Васильевне.У нее очень лёгкие и добрые руки!
+                    //- .review__button 
+                    //-   .mission
+                    //-     .mission__missions-links-link(data-fancy-button="1")
+                    //-       +svg-link.mission__missions-links-svg.button-svg
+                    //-       .mission__missions-links-text
+                    //-         span.mission__missions-links-span
+                    //-           |Смотреть полностью
+  section.section 
     .row  
       .row__col 
       .row__col 
-        .container 
-          .section__inner 
-            h3.title.title--m
-              |Отзыв
-            .review 
-              .review__layout 
-                img.review__img(src="assets/images/review-1.svg", alt="")
-                img.review__svg(src="assets/images/review-2.svg", alt="")
-              .review__content
-                .review__row 
-                  .review__col
-                    img(src="assets/images/review-1.jpg", alt="")
-                  .review__col
-                    p
-                      |Хочу выразить благодарность замечательному врачу Блаватской Дарье Васильевне.У нее очень лёгкие и добрые руки!
-                    .review__button 
-                      .mission
-                        .mission__missions-links-link(data-fancy-button="1")
-                          +svg-link.mission__missions-links-svg.button-svg
-                          .mission__missions-links-text
-                            span.mission__missions-links-span
-                              |Смотреть полностью
           h3.title.title--m
             |Врачи
   // team
