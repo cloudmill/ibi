@@ -75,48 +75,66 @@ function showMore() {
 }
 
 function teamFilter() {
-  console.log("teamFilter");
-  $("[data-type=js-team-filter-tag]").on("click", function (e) {
-    e.preventDefault();
-    $(this).toggleClass("active");
+  // state (список id тэгов (data-id)) - здесь актуальная информация по текущим выбранных тэгам фильтра
+  let state = [];
 
-    ajaxTeamList();
+  // обработка клика по тэгу/сбросу (делегирование от window)
+  $(window).on("click", (event) => {
+    if (
+      $(event.target).closest("[data-type=js-team-filter-tag]").length !== 0
+    ) {
+      const tag = $(event.target).closest("[data-type=js-team-filter-tag]");
+      const tag_id = tag.data("id");
+
+      if (inState(tag_id)) {
+        state = state.filter((id) => id !== tag_id);
+
+        $(`[data-type=js-team-filter-tag][data-id="${tag_id}"]`).removeClass(
+          "active"
+        );
+      } else {
+        state.push(tag_id);
+
+        $(`[data-type=js-team-filter-tag][data-id="${tag_id}"]`).addClass(
+          "active"
+        );
+      }
+
+      ajaxLib();
+    } else if (
+      $(event.target).closest("[data-type=js-team-filter-clear]").length !== 0
+    ) {
+      state = [];
+
+      $("[data-type=js-team-filter-tag]").removeClass("active");
+
+      ajaxLib();
+    }
   });
 
-  $("[data-type=js-team-filter-clear]").on("click", function (e) {
-    e.preventDefault();
-
-    $("[data-type=js-team-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
-      }
-    });
-
-    ajaxTeamList();
-  });
-
-  function ajaxTeamList() {
-    let tags = [],
-      teamList = $("[data-type=js-team-list]");
-
-    $("[data-type=js-team-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
-        tags[tags.length] = $(this).attr("data-id");
-      }
-    });
-
-    console.log(tags);
+  // отправка state -> получение, обновление labraryList
+  function ajaxLib() {
+    let teamList = $("[data-type=js-team-list]");
 
     $.ajax({
       method: "POST",
       url: window.location.href,
       data: {
         ajax: 1,
-        tags: tags,
+        tags: state,
       },
     }).done(function (a) {
       teamList.html(a);
     });
+  }
+
+  // проверка: id в state?
+  function inState(id) {
+    for (let i = 0; i < state.length; i++) {
+      if (state[i] === id) return true;
+    }
+
+    return false;
   }
 }
 
