@@ -87,6 +87,10 @@
     @media (max-width: $breakpoint - 1px) {
         width: auto;
         padding: 20px;
+
+        align-content: unset;
+        justify-content: unset;
+        flex-direction: column;
     }
     @media (max-width: $breakpoint-m - 1px) {
         padding: 20px 20px 30px;
@@ -99,11 +103,8 @@
     margin-bottom: 130px;
     color: $color-main;
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint - 1px) {
         margin-bottom: 10px;
-    }
-
-    @media (max-width: $breakpoint-m -1 px) {
         font-size: 12px;
     }
   }
@@ -111,16 +112,16 @@
   &__title {
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
 
+    @media (max-width: $breakpoint - 1px) {
+        width: calc(#{$col-part-m} * 2 - (#{$col-gap-m} * 2));
+    }
+
     h3 {
       font-size: 40px;
       line-height: 110%;
       font-weight: 500;
 
-      @media (max-width: $breakpoint) {
-        font-size: 35px;
-    }
-
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint - 1px) {
           font-size: 18px;
       }
     }
@@ -173,7 +174,16 @@
     justify-content: flex-end;
     width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
+        justify-content: flex-start;
+        margin: auto 0 0;
+
+        .mission__missions-links-text {
+            display: none;
+        }
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
     display: none;
     }
   }
@@ -187,12 +197,30 @@
 
 .news {
 
+    display: flex;
+    justify-content: flex-start;
+
+    @media (max-width: $breakpoint - 1px) {
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        height: 160px;
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+        // flex-wrap: wrap;
+        justify-content: space-between;
+
+        flex-direction: row;
+        height: auto;
+    }
+
     &-box {
         border-top: 1px solid $color-main;
         padding-top: 20px;
         margin-bottom: 60px;
 
-        @media (max-width: $breakpoint-m) {
+        @media (max-width: $breakpoint-m - 1px) {
             padding-top: 10px;
             margin-bottom: 40px;
         }
@@ -203,18 +231,8 @@
     &-box:hover {
         .news__title h3 {
             color: $color-main;
-        }
-
-        
-    }
-
-    display: flex;
-    justify-content: flex-start;
-
-    @media (max-width: $breakpoint-m) {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
+        }  
+    } 
   
     &__date {
       // width: calc(#{$col-part-d});
@@ -223,8 +241,11 @@
       color: $color-main;
 
       @media (max-width: $breakpoint - 1px) {
-        width: calc(#{$col-part-m} / 2);
-        padding-right: 10px;
+        // width: calc(#{$col-part-m} / 2);
+        width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+        margin-bottom: 20px;
+        font-size: 12px;
+        // padding-right: 10px;
       }
 
       @media (max-width: $breakpoint-m - 1px) {
@@ -233,9 +254,9 @@
           margin-bottom: 20px;
       }
 
-      @media (max-width: $breakpoint-m - 1px) {
-        font-size: 12px;
-        }
+    //   @media (max-width: $breakpoint-m - 1px) {
+    //     font-size: 12px;
+    //     }
     }
 
     &__img {
@@ -243,9 +264,14 @@
         width: calc((#{$col-part-d} * 3 - #{$col-gap-d}) / 2);
         text-align: right;
 
-        @media (max-width: $breakpoint) {
-            width: calc(#{$col-part-m} / 2);
-          }
+        @media (max-width: $breakpoint - 1px) {
+            // width: calc(#{$col-part-m} / 2);
+            // width: 158px;
+            width: calc(#{$col-part-m});
+            text-align: left;
+            order: -1;
+            height: 100%;
+        }
         
         @media (max-width: $breakpoint-m) {
             order: 1;
@@ -268,12 +294,13 @@
       width: calc(#{$col-part-d} * 4 + #{$col-gap-d});
       padding-left: 40px;
 
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         width: calc(#{$col-part-m} * 2);
+        padding-left: 0;
       }
       
   
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-m - 1px) {
         order: -1;
         width: auto;
         padding-left: 0;
@@ -288,10 +315,6 @@
         transition: $transition;
 
         @media (max-width: $breakpoint) {
-            font-size: 30px;
-        }
-
-        @media (max-width: $breakpoint-m) {
             font-size: 18px;
         }
       }
@@ -304,7 +327,10 @@
         justify-content: flex-end;
 
         @media (max-width: $breakpoint - 1px) {
-            width: calc(#{$col-width-m});
+            // width: calc(#{$col-width-m});
+            width: auto;
+            align-self: unset;
+            margin: auto 0 0;
         }
 
         @media (max-width: $breakpoint-m - 1px) {
@@ -377,3 +403,31 @@
     }
 }
 
+
+.news-page-title {
+    @media (max-width: $breakpoint - 1px) {
+        display: none;
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+        display: block;
+    }
+}
+
+.news-page-spoiler {
+    @media (max-width: $breakpoint - 1px) {
+        border-bottom: 1px solid $color-main;
+
+        .mission__spoiler-title {
+            font-size: 22px;
+        }
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+        border-bottom: 1px solid $color-gray-border;
+
+        .mission__spoiler-title {
+            font-size: 16px;
+        }
+    }
+}
