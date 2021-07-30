@@ -87,6 +87,10 @@
     @media (max-width: $breakpoint - 1px) {
         width: auto;
         padding: 20px;
+
+        align-content: unset;
+        justify-content: unset;
+        flex-direction: column;
     }
     @media (max-width: $breakpoint-m - 1px) {
         padding: 20px 20px 30px;
@@ -99,11 +103,8 @@
     margin-bottom: 130px;
     color: $color-main;
 
-    @media (max-width: $breakpoint-m) {
+    @media (max-width: $breakpoint - 1px) {
         margin-bottom: 10px;
-    }
-
-    @media (max-width: $breakpoint-m -1 px) {
         font-size: 12px;
     }
   }
@@ -111,16 +112,16 @@
   &__title {
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
 
+    @media (max-width: $breakpoint - 1px) {
+        width: calc(#{$col-part-m} * 2 - (#{$col-gap-m} * 2));
+    }
+
     h3 {
       font-size: 40px;
       line-height: 110%;
       font-weight: 500;
 
-      @media (max-width: $breakpoint) {
-        font-size: 35px;
-    }
-
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint - 1px) {
           font-size: 18px;
       }
     }
@@ -173,7 +174,16 @@
     justify-content: flex-end;
     width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
 
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
+        justify-content: flex-start;
+        margin: auto 0 0;
+
+        .mission__missions-links-text {
+            display: none;
+        }
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
     display: none;
     }
   }
