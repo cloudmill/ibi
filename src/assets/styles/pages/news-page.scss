@@ -403,3 +403,31 @@
     }
 }
 
+
+.news-page-title {
+    @media (max-width: $breakpoint - 1px) {
+        display: none;
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+        display: block;
+    }
+}
+
+.news-page-spoiler {
+    @media (max-width: $breakpoint - 1px) {
+        border-bottom: 1px solid $color-main;
+
+        .mission__spoiler-title {
+            font-size: 22px;
+        }
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+        border-bottom: 1px solid $color-gray-border;
+
+        .mission__spoiler-title {
+            font-size: 16px;
+        }
+    }
+}
