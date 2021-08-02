@@ -990,7 +990,7 @@ var updateMySticky
           balloon,
         }, {
           iconLayout: 'default#image',
-          iconImageHref: 'assets/images/placemark.svg',
+          iconImageHref: 'local/templates/main/assets/images/placemark.svg', 
           iconImageSize: [markWidth, markHeight],
           iconImageOffset: [-markWidth / 2, -markHeight],
 
