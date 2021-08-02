@@ -78,10 +78,14 @@
     width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
 
     @media (max-width: $breakpoint - 1px) {
-      margin-bottom: 60px;
+      margin-bottom: 20px;
       width: auto;
 
       font-size: 16px;
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+      margin-bottom: 60px;
     }
 
     a::before {
@@ -125,7 +129,12 @@
 
   &__txt {
     padding-left: calc(#{$col-part-d});
+
     @media (max-width: $breakpoint - 1px) {
+      padding-left: calc(#{$col-part-m});
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
       padding-left: 0;
     }
 
@@ -227,8 +236,13 @@
     margin: 80px 0 40px;
 
     @media (max-width: $breakpoint - 1px) {
+      padding-left: calc(#{$col-width-m} - 50px);
       font-size: 18px;
       margin: 60px 0 20px;
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+      padding-left: 0;
     }
   }
 }
@@ -248,6 +262,12 @@
     margin: 60px 0;
     justify-content: flex-start;
     width: 100%;
+
+    padding-left: calc(#{$col-part-m});
+  }
+
+  @media (max-width: $breakpoint-m - 1px) {
+    padding-left: 0;
   }
 
   &--default {
