@@ -1,18 +1,18 @@
-import 'Styles/_app.scss';
-import 'scripts/backend.js';
+import "Styles/_app.scss";
+import "scripts/backend.js";
 
-import Swiper from 'swiper/bundle';
-import Parsley from 'parsleyjs';
-import '@fancyapps/fancybox';
-import BeerSlider from 'beerslider';
-import Sticky from 'sticky-js';
+import Swiper from "swiper/bundle";
+import Parsley from "parsleyjs";
+import "@fancyapps/fancybox";
+import BeerSlider from "beerslider";
+import Sticky from "sticky-js";
 
 const BREAKPOINT = 1280;
 
 // header
 {
   $(() => {
-    const header = $('.header');
+    const header = $(".header");
 
     if (header.length !== 0) {
       // modal
@@ -20,12 +20,14 @@ const BREAKPOINT = 1280;
         const state = {
           id: null,
           close: function () {
-            $(`[data-modal-id="${this.id}"]`).removeAttr('data-modal-active');
-            $(`[data-modal-button="${this.id}"]`).removeAttr('data-modal-active');
+            $(`[data-modal-id="${this.id}"]`).removeAttr("data-modal-active");
+            $(`[data-modal-button="${this.id}"]`).removeAttr(
+              "data-modal-active"
+            );
           },
           open: function () {
-            $(`[data-modal-id="${this.id}"]`).attr('data-modal-active', '');
-            $(`[data-modal-button="${this.id}"]`).attr('data-modal-active', '');
+            $(`[data-modal-id="${this.id}"]`).attr("data-modal-active", "");
+            $(`[data-modal-button="${this.id}"]`).attr("data-modal-active", "");
           },
           update: function (id) {
             this.id = id;
@@ -34,36 +36,35 @@ const BREAKPOINT = 1280;
             this.close();
             this.update(id === this.id ? null : id);
             this.open();
-          }
+          },
         };
 
-        const btn = $('[data-modal-button]');
-        btn.on('click', function () {
-          const id = $(this).data('modal-button');
+        const btn = $("[data-modal-button]");
+        btn.on("click", function () {
+          const id = $(this).data("modal-button");
           state.change(id);
 
-          const modalActive = header.find('[data-modal-active]');
+          const modalActive = header.find("[data-modal-active]");
           if (modalActive.length !== 0) {
-            header.addClass('header--modal')
+            header.addClass("header--modal");
           } else {
-            header.removeClass('header--modal')
+            header.removeClass("header--modal");
           }
         });
 
-        $(window).on('click', event => {
+        $(window).on("click", (event) => {
           // const isClickArea = $(event.target).closest(header).length !== 0; ?
 
-          const isClickArea = ( // ?
+          const isClickArea = // ?
             // эл-ты header
-            $(event.target).closest('.header__container').length !== 0
-            && !$(event.target).hasClass('header__container')
+            ($(event.target).closest(".header__container").length !== 0 &&
+              !$(event.target).hasClass("header__container")) ||
             // модальное окно
-            || $(event.target).closest('[data-modal-active]').length !== 0
-          );
+            $(event.target).closest("[data-modal-active]").length !== 0;
 
           if (!isClickArea) {
             state.change(null);
-            header.removeClass('header--modal')
+            header.removeClass("header--modal");
           }
         });
 
@@ -72,8 +73,6 @@ const BREAKPOINT = 1280;
         breakpoint.addListener((event) => {
           state.change(null);
         });
-
-        
       }
     }
   });
@@ -82,36 +81,38 @@ const BREAKPOINT = 1280;
 // vacancy modal
 {
   $(() => {
-    const vacancy = $('.vacancy');
+    const vacancy = $(".vacancy");
 
     if (vacancy.length !== 0) {
-      const navModalButton = $('.vacancy-btn');
-      const vacancyCallback = $('.modal-forms-vacancy');
-      const body = $('.body');
+      const navModalButton = $(".vacancy-btn");
+      const vacancyCallback = $(".modal-forms-vacancy");
+      const body = $(".body");
 
       // клик по кнопке вызова модального окна (открытие-закрытие)
-      navModalButton.on('click', function () {
-        if (vacancyCallback.hasClass('vacancy--modal-open')) { // если модальное окно открыто - закрываем
-          vacancyCallback.removeClass('vacancy--modal-open'); // обновляем модификатор header (шапка, контейнер модальных окон)
+      navModalButton.on("click", function () {
+        if (vacancyCallback.hasClass("vacancy--modal-open")) {
+          // если модальное окно открыто - закрываем
+          vacancyCallback.removeClass("vacancy--modal-open"); // обновляем модификатор header (шапка, контейнер модальных окон)
           // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
-          body.removeClass('body-fixed');
-        } else { // открывыем, аналогично (выше)
-          vacancyCallback.addClass('vacancy--modal-open');
+          body.removeClass("body-fixed");
+        } else {
+          // открывыем, аналогично (выше)
+          vacancyCallback.addClass("vacancy--modal-open");
           // navModalButton.addClass('button-modal--active');
-          body.addClass('body-fixed'); // блокируем скролл
+          body.addClass("body-fixed"); // блокируем скролл
         }
       });
 
       // клик вне модального окна (закрытие)
-      $(window).on('click', event => {
+      $(window).on("click", (event) => {
         if (
-          vacancyCallback.hasClass('vacancy--modal-open') && // если модальное окно открыто
+          vacancyCallback.hasClass("vacancy--modal-open") && // если модальное окно открыто
           $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
-          $(event.target).closest('.modal-forms__form').length === 0 // + клик не по модальному окну
+          $(event.target).closest(".modal-forms__form").length === 0 // + клик не по модальному окну
         ) {
-          vacancyCallback.removeClass('vacancy--modal-open');
+          vacancyCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');
-          body.removeClass('body-fixed');
+          body.removeClass("body-fixed");
         }
       });
     }
@@ -121,36 +122,38 @@ const BREAKPOINT = 1280;
 // callback modal
 {
   $(() => {
-    const header = $('.header');
+    const header = $(".header");
 
     if (header.length !== 0) {
-      const navModalButton = $('.callback-button');
-      const headerCallback = $('.modal-forms-header');
-      const body = $('.body');
+      const navModalButton = $(".callback-button");
+      const headerCallback = $(".modal-forms-header");
+      const body = $(".body");
 
       // клик по кнопке вызова модального окна (открытие-закрытие)
-      navModalButton.on('click', function () {
-        if (headerCallback.hasClass('vacancy--modal-open')) { // если модальное окно открыто - закрываем
-          headerCallback.removeClass('vacancy--modal-open'); // обновляем модификатор header (шапка, контейнер модальных окон)
+      navModalButton.on("click", function () {
+        if (headerCallback.hasClass("vacancy--modal-open")) {
+          // если модальное окно открыто - закрываем
+          headerCallback.removeClass("vacancy--modal-open"); // обновляем модификатор header (шапка, контейнер модальных окон)
           // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
-          body.removeClass('body-fixed');
-        } else { // открывыем, аналогично (выше)
-          headerCallback.addClass('vacancy--modal-open');
+          body.removeClass("body-fixed");
+        } else {
+          // открывыем, аналогично (выше)
+          headerCallback.addClass("vacancy--modal-open");
           // navModalButton.addClass('button-modal--active');
-          body.addClass('body-fixed'); // блокируем скролл
+          body.addClass("body-fixed"); // блокируем скролл
         }
       });
 
       // клик вне модального окна (закрытие)
-      $(window).on('click', event => {
+      $(window).on("click", (event) => {
         if (
-          headerCallback.hasClass('vacancy--modal-open') && // если модальное окно открыто
+          headerCallback.hasClass("vacancy--modal-open") && // если модальное окно открыто
           $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
-          $(event.target).closest('.modal-forms__form').length === 0 // + клик не по модальному окну
+          $(event.target).closest(".modal-forms__form").length === 0 // + клик не по модальному окну
         ) {
-          headerCallback.removeClass('vacancy--modal-open');
+          headerCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');
-          body.removeClass('body-fixed');
+          body.removeClass("body-fixed");
         }
       });
     }
@@ -166,7 +169,7 @@ const BREAKPOINT = 1280;
     // data-tabs-tab: id таба
     // data-tabs-active: id активного таба
 
-    const tabs_el = $('[data-tabs-id]');
+    const tabs_el = $("[data-tabs-id]");
 
     // проверка на существование компонентов
     if (tabs_el.length !== 0) {
@@ -174,7 +177,7 @@ const BREAKPOINT = 1280;
 
       // сбор id компонентов
       tabs_el.each(function () {
-        const cur_id = $(this).data('tabs-id');
+        const cur_id = $(this).data("tabs-id");
 
         if (tabs_id.indexOf(cur_id) === -1) {
           tabs_id.push(cur_id);
@@ -182,7 +185,7 @@ const BREAKPOINT = 1280;
       });
 
       // обработка компонентов (по id)
-      tabs_id.forEach(comp_id => {
+      tabs_id.forEach((comp_id) => {
         const tab_el = $(`[data-tabs-id="${comp_id}"][data-tabs-tab]`);
         const button_el = $(`[data-tabs-id="${comp_id}"][data-tabs-button]`);
 
@@ -196,12 +199,16 @@ const BREAKPOINT = 1280;
             close: function () {
               // tab_el.filter(`[data-tabs-tab="${this.id}"]`).removeAttr('data-tabs-active');
               tab_el.filter(`[data-tabs-tab="${this.id}"]`).slideUp(500);
-              button_el.filter(`[data-tabs-button="${this.id}"]`).removeAttr('data-tabs-active');
+              button_el
+                .filter(`[data-tabs-button="${this.id}"]`)
+                .removeAttr("data-tabs-active");
             },
             open: function () {
               // tab_el.filter(`[data-tabs-tab="${this.id}"]`).attr('data-tabs-active', '');
               tab_el.filter(`[data-tabs-tab="${this.id}"]`).slideDown(500);
-              button_el.filter(`[data-tabs-button="${this.id}"]`).attr('data-tabs-active', '');
+              button_el
+                .filter(`[data-tabs-button="${this.id}"]`)
+                .attr("data-tabs-active", "");
             },
             change: function (id) {
               if (id && id !== this.id) {
@@ -211,15 +218,17 @@ const BREAKPOINT = 1280;
               }
             },
             init: function () {
-              const tab_active_id = button_el.filter('[data-tabs-active]').data('tabs-button');
+              const tab_active_id = button_el
+                .filter("[data-tabs-active]")
+                .data("tabs-button");
               this.update(tab_active_id);
-            }
+            },
           };
 
           state.init();
 
-          button_el.on('click', function () {
-            const tab_clicked_id = $(this).data('tabs-button');
+          button_el.on("click", function () {
+            const tab_clicked_id = $(this).data("tabs-button");
             state.change(tab_clicked_id);
           });
         }
@@ -230,20 +239,21 @@ const BREAKPOINT = 1280;
 
 // slider
 {
-  $(window).on('load', () => { // ?
-    const slider = $('[data-slider-id]');
+  $(window).on("load", () => {
+    // ?
+    const slider = $("[data-slider-id]");
 
     if (slider.length !== 0) {
       slider.each(function () {
         const slider_el = $(this);
-        const slider_id = slider_el.data('slider-id');
-        const slider_prev_id = slider_el.data('slider-prev');
-        const slider_next_id = slider_el.data('slider-next');
+        const slider_id = slider_el.data("slider-id");
+        const slider_prev_id = slider_el.data("slider-prev");
+        const slider_next_id = slider_el.data("slider-next");
         const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
         const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
 
         let slider_options = {
-          slidesPerView: 'auto',
+          slidesPerView: "auto",
 
           spaceBetween: 20,
 
@@ -260,8 +270,7 @@ const BREAKPOINT = 1280;
               ...slider_options,
 
               loop: true,
-
-            }
+            };
             break;
 
           case 2:
@@ -269,8 +278,7 @@ const BREAKPOINT = 1280;
               ...slider_options,
 
               loop: true,
-
-            }
+            };
             break;
 
           case 3:
@@ -282,28 +290,28 @@ const BREAKPOINT = 1280;
                   spaceBetween: 60,
                 },
               },
-            }
+            };
             break;
           case 4:
             slider_options = {
               ...slider_options,
 
               allowTouchMove: false,
-            }
+            };
             break;
           case 5:
             slider_options = {
               ...slider_options,
 
               loop: true,
-            }
+            };
             break;
           case 6:
             slider_options = {
               ...slider_options,
 
               loop: true,
-            }
+            };
             break;
           case 7:
             slider_options = {
@@ -318,7 +326,7 @@ const BREAKPOINT = 1280;
                   allowTouchMove: false,
                 },
               },
-            }
+            };
             break;
           case 8:
             slider_options = {
@@ -326,9 +334,8 @@ const BREAKPOINT = 1280;
 
               loop: true,
               centeredSlides: true,
-            }
+            };
             break;
-
 
           case 20:
             slider_options = {
@@ -345,14 +352,14 @@ const BREAKPOINT = 1280;
                   centeredSlides: false,
                 },
               },
-            }
+            };
             break;
           case 21:
             slider_options = {
               ...slider_options,
 
               allowTouchMove: false,
-            }
+            };
             break;
 
           case 100:
@@ -362,7 +369,7 @@ const BREAKPOINT = 1280;
               allowTouchMove: false,
               autoHeight: true,
               loop: true,
-            }
+            };
             break;
 
           case 106:
@@ -373,8 +380,7 @@ const BREAKPOINT = 1280;
               // autoHeight: true,
               // loop: true,
               // slideToClickedSlide: true,
-
-            }
+            };
             break;
 
           case 105:
@@ -388,7 +394,7 @@ const BREAKPOINT = 1280;
               thumbs: {
                 swiper: 106,
               },
-            }
+            };
             break;
 
           case 140:
@@ -396,8 +402,7 @@ const BREAKPOINT = 1280;
               ...slider_options,
 
               loop: true,
-
-            }
+            };
             break;
 
           // case 150:
@@ -408,15 +413,14 @@ const BREAKPOINT = 1280;
 
           //   }
           //   break;
-
         }
 
         const slider_swiper = new Swiper(slider_el[0], slider_options);
 
-        slider_prev.on('click', () => {
+        slider_prev.on("click", () => {
           slider_swiper.slidePrev();
         });
-        slider_next.on('click', () => {
+        slider_next.on("click", () => {
           slider_swiper.slideNext();
         });
       });
@@ -427,8 +431,8 @@ const BREAKPOINT = 1280;
 // sticky
 {
   $(() => {
-    if ($('.sticky').length !== 0) {
-      const sticky = new Sticky('.sticky');
+    if ($(".sticky").length !== 0) {
+      const sticky = new Sticky(".sticky");
     }
   });
 }
@@ -436,19 +440,28 @@ const BREAKPOINT = 1280;
 // sticky
 {
   $(() => {
-    const elements = $('[data-sticky-id]');
+    const elements = $("[data-sticky-id]");
 
     if (elements.length !== 0) {
       elements.each(function () {
         const element = $(this);
-        const element_id = element.data('sticky-id');
+        const element_id = element.data("sticky-id");
         const element_end = $(`[data-sticky-end="${element_id}"]`);
 
-        const top = element.data('sticky-top');
-        const start = ($(element).offset().top - top >= 0) ? $(element).offset().top - top : 0;
+        const top = element.data("sticky-top");
+        const start =
+          $(element).offset().top - top >= 0
+            ? $(element).offset().top - top
+            : 0;
 
-        const bottom = element.data('sticky-bottom');
-        const end = (element_end.length !== 0 ? element_end.offset().top : $(document).height()) - bottom - element.height() - top;
+        const bottom = element.data("sticky-bottom");
+        const end =
+          (element_end.length !== 0
+            ? element_end.offset().top
+            : $(document).height()) -
+          bottom -
+          element.height() -
+          top;
 
         const state = {
           isSticky: false,
@@ -470,19 +483,17 @@ const BREAKPOINT = 1280;
 
             this.isChange = this.isStickyPrev !== this.isSticky;
           },
-        }
+        };
         state.init();
 
-        $(window).on('scroll', () => {
+        $(window).on("scroll", () => {
           state.update();
-
-
 
           if (state.isChange) {
             if (state.isSticky) {
-              element.css('position', 'fixed').css('top', `${top}px`);
+              element.css("position", "fixed").css("top", `${top}px`);
             } else {
-              element.css('position', '').css('top', '');
+              element.css("position", "").css("top", "");
             }
           }
         });
@@ -492,199 +503,210 @@ const BREAKPOINT = 1280;
 }
 
 // my-sticky
-var updateMySticky
+var updateMySticky;
 {
-	$(() => {
-		const stickyAll = $('.my-sticky')
+  $(() => {
+    const stickyAll = $(".my-sticky");
 
-		stickyAll.each(function () {
-			const sticky = $(this)
-			
-      const BOTTOM_OFFSET = 160
-      const bottomID = sticky.data('my-sticky-bottom')
-      const footer = $('.footer')
+    stickyAll.each(function () {
+      const sticky = $(this);
+
+      const BOTTOM_OFFSET = 160;
+      const bottomID = sticky.data("my-sticky-bottom");
+      const footer = $(".footer");
 
       function updateBottom() {
         if (bottomID) {
-          const bottomElem = $(`#${bottomID}`)
-          const bottomY = getY(bottomElem)
-          
-          state.bottom = getDocumentHeight() - bottomY + BOTTOM_OFFSET
+          const bottomElem = $(`#${bottomID}`);
+          const bottomY = getY(bottomElem);
+
+          state.bottom = getDocumentHeight() - bottomY + BOTTOM_OFFSET;
         } else {
-          state.bottom = footer[0].offsetHeight + BOTTOM_OFFSET
+          state.bottom = footer[0].offsetHeight + BOTTOM_OFFSET;
         }
       }
 
-			const state = {
-				// offset
-				top: 140,
-				bottom: null,
-				// pos
-				startY: null,
-				y: null,
-				// size
-				height: null,
-				// mode
-				mode: null,
-			}
+      const state = {
+        // offset
+        top: 140,
+        bottom: null,
+        // pos
+        startY: null,
+        y: null,
+        // size
+        height: null,
+        // mode
+        mode: null,
+      };
 
-      updateBottom()
+      updateBottom();
 
-			const stickyPlace = sticky.parent()
-			// готовим place для добавления stickyBottom и stickyFixed
-			stickyPlace.css('position', 'relative')
+      const stickyPlace = sticky.parent();
+      // готовим place для добавления stickyBottom и stickyFixed
+      stickyPlace.css("position", "relative");
 
-			const stickyBottom = sticky.clone()
-			// готовим stickyBottom
-			stickyBottom.css('opacity', 0)
-			stickyBottom.css('pointer-events', 'none')
-			stickyBottom.css('position', 'absolute')
-			stickyBottom.css('top', `${sticky[0].offsetTop}px`)
-			stickyBottom.css('width', `${sticky[0].offsetWidth}px`)
-			stickyPlace.append(stickyBottom)
+      const stickyBottom = sticky.clone();
+      // готовим stickyBottom
+      stickyBottom.css("opacity", 0);
+      stickyBottom.css("pointer-events", "none");
+      stickyBottom.css("position", "absolute");
+      stickyBottom.css("top", `${sticky[0].offsetTop}px`);
+      stickyBottom.css("width", `${sticky[0].offsetWidth}px`);
+      stickyPlace.append(stickyBottom);
 
-			const stickyFixed = sticky.clone()
-			// готовим stickyFixed
-			stickyFixed.css('opacity', 0)
-			stickyFixed.css('pointer-events', 'none')
-			stickyFixed.css('position', 'fixed')
-			stickyFixed.css('top', `${state.top}px`)
-			stickyFixed.css('width', `${sticky[0].offsetWidth}px`)
-			stickyPlace.append(stickyFixed)
+      const stickyFixed = sticky.clone();
+      // готовим stickyFixed
+      stickyFixed.css("opacity", 0);
+      stickyFixed.css("pointer-events", "none");
+      stickyFixed.css("position", "fixed");
+      stickyFixed.css("top", `${state.top}px`);
+      stickyFixed.css("width", `${sticky[0].offsetWidth}px`);
+      stickyPlace.append(stickyFixed);
 
-			update()
+      update();
 
-			$(window).on('scroll', update)
-			$(window).on('resize', update)
+      $(window).on("scroll", update);
+      $(window).on("resize", update);
 
-			function update() {
+      function update() {
         // console.log('update');
-        
-        updateBottom()
 
-				// апдейтим размеры (width) копий
-				stickyBottom.css('width', `${sticky[0].offsetWidth}px`)
-				stickyFixed.css('width', `${sticky[0].offsetWidth}px`)
+        updateBottom();
 
-				// апдейтим позицию stickyFixed
-				stickyFixed.css('top', `${state.top}px`)
+        // апдейтим размеры (width) копий
+        stickyBottom.css("width", `${sticky[0].offsetWidth}px`);
+        stickyFixed.css("width", `${sticky[0].offsetWidth}px`);
 
-				// апдейтим позицию stickyBottom
-				stickyBottom.css('top', `${sticky[0].offsetTop}px`)
-				const stickyBottomYBottom = getY(stickyBottom) + stickyBottom.height()
-				const bottomY = getDocumentHeight() - state.bottom
-				stickyBottom.css('transform', `
+        // апдейтим позицию stickyFixed
+        stickyFixed.css("top", `${state.top}px`);
+
+        // апдейтим позицию stickyBottom
+        stickyBottom.css("top", `${sticky[0].offsetTop}px`);
+        const stickyBottomYBottom = getY(stickyBottom) + stickyBottom.height();
+        const bottomY = getDocumentHeight() - state.bottom;
+        stickyBottom.css(
+          "transform",
+          `
 					translateY(${bottomY - stickyBottomYBottom}px)	
-				`)
+				`
+        );
 
-				const scrollY = $(window).scrollTop()
-				if (scrollY < (getY(sticky) - state.top)) {
-					state.mode = 'default'
-				} else if ((scrollY + state.top) < getDocumentHeight() - state.bottom - stickyFixed.height()) {
-					state.mode = 'fixed'
-				} else {
-					state.mode = 'bottom'
-				}
+        const scrollY = $(window).scrollTop();
+        if (scrollY < getY(sticky) - state.top) {
+          state.mode = "default";
+        } else if (
+          scrollY + state.top <
+          getDocumentHeight() - state.bottom - stickyFixed.height()
+        ) {
+          state.mode = "fixed";
+        } else {
+          state.mode = "bottom";
+        }
 
-				switch (state.mode) {
-					case 'fixed':
-						console.log('fixed');
+        switch (state.mode) {
+          case "fixed":
+            console.log("fixed");
 
-						sticky.css('opacity', 0)
-						sticky.css('pointer-events', 'none')
-						stickyBottom.css('opacity', 0)
-						stickyBottom.css('pointer-events', 'none')
+            sticky.css("opacity", 0);
+            sticky.css("pointer-events", "none");
+            stickyBottom.css("opacity", 0);
+            stickyBottom.css("pointer-events", "none");
 
-						stickyFixed.css('opacity', '')
-						stickyFixed.css('pointer-events', '')
-						break
-					case 'bottom':
-						console.log('bottom')
+            stickyFixed.css("opacity", "");
+            stickyFixed.css("pointer-events", "");
+            break;
+          case "bottom":
+            console.log("bottom");
 
-						sticky.css('opacity', 0)
-						sticky.css('pointer-events', 'none')
-						stickyFixed.css('opacity', 0)
-						stickyFixed.css('pointer-events', 'none')
+            sticky.css("opacity", 0);
+            sticky.css("pointer-events", "none");
+            stickyFixed.css("opacity", 0);
+            stickyFixed.css("pointer-events", "none");
 
-						stickyBottom.css('opacity', '')
-						stickyBottom.css('pointer-events', '')
-						break
-					default:
-						console.log('default');
+            stickyBottom.css("opacity", "");
+            stickyBottom.css("pointer-events", "");
+            break;
+          default:
+            console.log("default");
 
-						stickyFixed.css('opacity', 0)
-						stickyFixed.css('pointer-events', 'none')
-						stickyBottom.css('opacity', '0')
-						stickyBottom.css('pointer-events', 'none')
+            stickyFixed.css("opacity", 0);
+            stickyFixed.css("pointer-events", "none");
+            stickyBottom.css("opacity", "0");
+            stickyBottom.css("pointer-events", "none");
 
-						sticky.css('opacity', '')
-						sticky.css('pointer-events', '')
-				}
-			}
+            sticky.css("opacity", "");
+            sticky.css("pointer-events", "");
+        }
+      }
 
-			updateMySticky = update
-		})
-	})	
+      updateMySticky = update;
+    });
+  });
 
-	function getDocumentHeight() {
-		return Math.max(
-			document.body.scrollHeight, document.documentElement.scrollHeight,
-			document.body.offsetHeight, document.documentElement.offsetHeight,
-			document.body.clientHeight, document.documentElement.clientHeight
-		)
-	}
+  function getDocumentHeight() {
+    return Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.body.clientHeight,
+      document.documentElement.clientHeight
+    );
+  }
 
-	function getViewportHeight() {
-		return document.documentElement.clientHeight
-	}
+  function getViewportHeight() {
+    return document.documentElement.clientHeight;
+  }
 
-	function getY(element) {
-		let elem = element
+  function getY(element) {
+    let elem = element;
 
-		let y = 0
+    let y = 0;
 
-		while (elem.length !== 0 && elem[0] !== document.body) {
-			y += elem[0].offsetTop
+    while (elem.length !== 0 && elem[0] !== document.body) {
+      y += elem[0].offsetTop;
 
-			elem = $(elem[0].offsetParent)
-		}
+      elem = $(elem[0].offsetParent);
+    }
 
-		return y
-	}
+    return y;
+  }
 }
 
 // spoiler
 {
   $(() => {
-    const spoilers = $('.mission__spoiler');
+    const spoilers = $(".mission__spoiler");
 
     spoilers.each(function () {
       const spoiler = $(this);
-      const spoiler_group = spoiler.data('spoiler-group')
+      const spoiler_group = spoiler.data("spoiler-group");
 
       console.log(spoiler_group);
 
-      const spoiler_button = spoiler.find('.mission__spoiler-button');
-      const spoiler_drop = spoiler.find('.mission__spoiler-drop');
+      const spoiler_button = spoiler.find(".mission__spoiler-button");
+      const spoiler_drop = spoiler.find(".mission__spoiler-drop");
 
-      spoiler_button.on('click', event => {
-        event.preventDefault()
+      spoiler_button.on("click", (event) => {
+        event.preventDefault();
 
         if (spoiler_group) {
-          spoilers.filter(`[data-spoiler-group="${spoiler_group}"]`).each(function () {
-            const spoiler = $(this)
-            const spoiler_drop = spoiler.find('.mission__spoiler-drop')
+          spoilers
+            .filter(`[data-spoiler-group="${spoiler_group}"]`)
+            .each(function () {
+              const spoiler = $(this);
+              const spoiler_drop = spoiler.find(".mission__spoiler-drop");
 
-            spoiler.toggleClass('mission__spoiler--active')
-            spoiler_drop.slideToggle({
-              progress: updateMySticky,
-            })
-          })
+              spoiler.toggleClass("mission__spoiler--active");
+              spoiler_drop.slideToggle({
+                progress: updateMySticky,
+              });
+            });
         } else {
-          spoiler.toggleClass('mission__spoiler--active')
+          spoiler.toggleClass("mission__spoiler--active");
           spoiler_drop.slideToggle({
             progress: updateMySticky,
-          })
+          });
         }
       });
     });
@@ -694,112 +716,115 @@ var updateMySticky
 // block
 {
   function getScrollProgress(scrollArea) {
-    const scrollPos = scrollArea[0].scrollTop
-    const scrollDist = scrollArea[0].scrollHeight - scrollArea[0].clientHeight
+    const scrollPos = scrollArea[0].scrollTop;
+    const scrollDist = scrollArea[0].scrollHeight - scrollArea[0].clientHeight;
 
-    return scrollPos / scrollDist
+    return scrollPos / scrollDist;
   }
 
   function updateScrollbarThumb(scrollbarThumb, scrollProgress) {
     requestAnimationFrame(() => {
-      scrollbarThumb.css('top', `${scrollProgress * 100}%`)
-    })
+      scrollbarThumb.css("top", `${scrollProgress * 100}%`);
+    });
   }
 
   function getSlideProgress(scrollProgress, startProgress, endProgress) {
     if (scrollProgress < startProgress) {
-      return 0
+      return 0;
     } else if (scrollProgress > endProgress) {
-      return 1
+      return 1;
     } else {
-      return (scrollProgress - startProgress) / (endProgress - startProgress)
+      return (scrollProgress - startProgress) / (endProgress - startProgress);
     }
   }
 
   function updateSlide1(slide, scrollProgress, startProgress, endProgress) {
-    const slideProgress = getSlideProgress(scrollProgress, startProgress, endProgress)
+    const slideProgress = getSlideProgress(
+      scrollProgress,
+      startProgress,
+      endProgress
+    );
 
     requestAnimationFrame(() => {
-      slide.css('transform', `translateY(-${slideProgress * 100}%)`);
-      slide.css('opacity', 1 - slideProgress);
-    })
+      slide.css("transform", `translateY(-${slideProgress * 100}%)`);
+      slide.css("opacity", 1 - slideProgress);
+    });
   }
 
   function updateSlide2(slide, scrollProgress, startProgress, endProgress) {
-    const slideProgress = getSlideProgress(scrollProgress, startProgress, endProgress)
+    const slideProgress = getSlideProgress(
+      scrollProgress,
+      startProgress,
+      endProgress
+    );
 
     requestAnimationFrame(() => {
-      slide.css('transform', `translateY(${(1 - slideProgress) * 100}%)`);
-      slide.css('opacity', slideProgress);
-    })
+      slide.css("transform", `translateY(${(1 - slideProgress) * 100}%)`);
+      slide.css("opacity", slideProgress);
+    });
   }
 
   $(() => {
-    const blocks = $('.block')
+    const blocks = $(".block");
 
     blocks.each(function () {
-      const block = $(this)
+      const block = $(this);
 
-      const scrollArea = block.find('.block__scroll')
-      let scrollProgress = getScrollProgress(scrollArea)
+      const scrollArea = block.find(".block__scroll");
+      let scrollProgress = getScrollProgress(scrollArea);
 
-      const scrollbarThumb = block.find('.block__scrollbar-thumb')
+      const scrollbarThumb = block.find(".block__scrollbar-thumb");
 
-      const slide1 = block.find('.block__slide--1');
-      const slide2 = block.find('.block__slide--2');
+      const slide1 = block.find(".block__slide--1");
+      const slide2 = block.find(".block__slide--2");
 
-      updateScrollbarThumb(scrollbarThumb, scrollProgress)
+      updateScrollbarThumb(scrollbarThumb, scrollProgress);
 
       const updateAll = () => {
-        updateSlide1(slide1, scrollProgress, 0.2, 0.75)
-        updateSlide2(slide2, scrollProgress, 0.25, 0.8)
-      }
+        updateSlide1(slide1, scrollProgress, 0.2, 0.75);
+        updateSlide2(slide2, scrollProgress, 0.25, 0.8);
+      };
 
-      updateAll()
+      updateAll();
 
-      scrollArea.on('scroll', () => {
-        scrollProgress = getScrollProgress(scrollArea)
+      scrollArea.on("scroll", () => {
+        scrollProgress = getScrollProgress(scrollArea);
 
-        updateScrollbarThumb(scrollbarThumb, scrollProgress)
+        updateScrollbarThumb(scrollbarThumb, scrollProgress);
 
-        updateAll()
-      })
-    })
-  })
+        updateAll();
+      });
+    });
+  });
 }
 // team filter
 
 {
   // let memberCard = document.querySelectorAll('.team-member');
-
   // document.querySelector('.team-filter').addEventListener('click', event => {
   //   if (event.target.tagName != 'LI') return false;
-
   //   let filterClass = event.target.dataset['id'];
   //   // console.log(filterClass);
-
   //   memberCard.forEach(elem => {
   //     elem.classList.remove('hide');
   //     if (!elem.classList.contains(filterClass)) {
-  //       elem.classList.add('hide'); 
+  //       elem.classList.add('hide');
   //     }
   //   });
   // });
-
-
 }
 
 // tel mask
 
 {
   document.addEventListener("DOMContentLoaded", function () {
-    var phoneInputs = document.querySelectorAll('input[data-tel-input]');
+    var phoneInputs = document.querySelectorAll("input[data-tel-input]");
     // console.log(phoneInputs);
 
     var getInputNumbersValue = function (input) {
       // Удаление любых символов крме цифр
-      return input.value.replace(/\D/g, '');
-    }
+      return input.value.replace(/\D/g, "");
+    };
 
     // Очистка скопированного и вставленного в поле номера
     var onPhonePaste = function (e) {
@@ -807,13 +832,13 @@ var updateMySticky
         inputNumbersValue = getInputNumbersValue(input);
       var pasted = e.clipboardData || window.clipboardData;
       if (pasted) {
-        var pastedText = pasted.getData('Text');
+        var pastedText = pasted.getData("Text");
         if (/\D/g.test(pastedText)) {
           input.value = inputNumbersValue;
           return;
         }
       }
-    }
+    };
 
     // Обработка вписанного вручную номера
     var onPhoneInput = function (e) {
@@ -823,7 +848,7 @@ var updateMySticky
         formattedInputValue = "";
 
       if (!inputNumbersValue) {
-        return input.value = "";
+        return (input.value = "");
       }
 
       if (input.value.length != selectionStart) {
@@ -834,46 +859,47 @@ var updateMySticky
       }
 
       if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
-        if (inputNumbersValue[0] == "9") inputNumbersValue = "7" + inputNumbersValue;
-        var firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+7";
+        if (inputNumbersValue[0] == "9")
+          inputNumbersValue = "7" + inputNumbersValue;
+        var firstSymbols = inputNumbersValue[0] == "8" ? "8" : "+7";
         formattedInputValue = input.value = firstSymbols + " ";
         if (inputNumbersValue.length > 1) {
-          formattedInputValue += '(' + inputNumbersValue.substring(1, 4);
+          formattedInputValue += "(" + inputNumbersValue.substring(1, 4);
         }
         if (inputNumbersValue.length >= 5) {
-          formattedInputValue += ') ' + inputNumbersValue.substring(4, 7);
+          formattedInputValue += ") " + inputNumbersValue.substring(4, 7);
         }
         if (inputNumbersValue.length >= 8) {
-          formattedInputValue += '-' + inputNumbersValue.substring(7, 9);
+          formattedInputValue += "-" + inputNumbersValue.substring(7, 9);
         }
         if (inputNumbersValue.length >= 10) {
-          formattedInputValue += '-' + inputNumbersValue.substring(9, 11);
+          formattedInputValue += "-" + inputNumbersValue.substring(9, 11);
         }
       } else {
-        formattedInputValue = '+' + inputNumbersValue.substring(0, 16);
+        formattedInputValue = "+" + inputNumbersValue.substring(0, 16);
       }
       input.value = formattedInputValue;
-    }
+    };
     var onPhoneKeyDown = function (e) {
       // Удаление первого символа после удаления номера
-      var inputValue = e.target.value.replace(/\D/g, '');
+      var inputValue = e.target.value.replace(/\D/g, "");
       if (e.keyCode == 8 && inputValue.length == 1) {
         e.target.value = "";
       }
-    }
+    };
     for (var phoneInput of phoneInputs) {
-      phoneInput.addEventListener('keydown', onPhoneKeyDown);
-      phoneInput.addEventListener('input', onPhoneInput, false);
-      phoneInput.addEventListener('paste', onPhonePaste, false);
+      phoneInput.addEventListener("keydown", onPhoneKeyDown);
+      phoneInput.addEventListener("input", onPhoneInput, false);
+      phoneInput.addEventListener("paste", onPhonePaste, false);
     }
-  })
+  });
 }
 
 // map
 
 {
   ymaps.ready(() => {
-    const mapContainer = $('#map');
+    const mapContainer = $("#map");
 
     if (mapContainer.length !== 0) {
       // vars
@@ -881,36 +907,41 @@ var updateMySticky
       const markHeight = 62;
 
       // init
-      const map = new ymaps.Map('map', {
-        center: [55.732433, 37.616144],
-        zoom: 14,
-        controls: [],
-      },{
-        maxZoom: 22,
+      const map = new ymaps.Map(
+        "map",
+        {
+          center: [55.732433, 37.616144],
+          zoom: 14,
+          controls: [],
+        },
+        {
+          maxZoom: 22,
+        }
+      );
+
+      const zoomControl = new ymaps.control.ZoomControl({
+        options: {
+          size: "small",
+          position: {
+            top: 205,
+            right: 10,
+          },
+        },
       });
-      // const zoomControl = new ymaps.control.ZoomControl({
-      //   options: {
-      //     size: 'small',
-      //     position: {
-      //       top: 205,
-      //       right: 10,
-      //     },
-      //   }
-      // });
 
       // adaptive
-      // const mediaQuery = window.matchMedia(`(min-width: ${BREAKPOINT}px)`);
-      // function mediaQueryChange() {
-      //   if (mediaQuery.matches) {
-      //     // desktop
-      //     map.controls.add(zoomControl);
-      //   } else {
-      //     // mobile
-      //     map.controls.remove(zoomControl);
-      //   }
-      // }
-      // mediaQueryChange();
-      // mediaQuery.addListener(mediaQueryChange);
+      const mediaQuery = window.matchMedia(`(min-width: ${BREAKPOINT}px)`);
+      function mediaQueryChange() {
+        if (mediaQuery.matches) {
+          // desktop
+          map.controls.add(zoomControl);
+        } else {
+          // mobile
+          map.controls.remove(zoomControl);
+        }
+      }
+      mediaQueryChange();
+      mediaQuery.addListener(mediaQueryChange);
 
       // balloon layout
       const layout = ymaps.templateLayoutFactory.createClass(
@@ -918,17 +949,17 @@ var updateMySticky
           '<div class="balloon">',
           '<div class="balloon__content">',
           '<p class="balloon__text">',
-          '{{properties.balloon}}',
-          '</p>',
-          '</div>',
+          "{{properties.balloon}}",
+          "</p>",
+          "</div>",
           '<div class="balloon__arrow"></div>',
-          '</div>',
-        ].join(''),
+          "</div>",
+        ].join(""),
         {
           build: function () {
             this.constructor.superclass.build.call(this);
 
-            this._$element = $('.balloon', this.getParentElement());
+            this._$element = $(".balloon", this.getParentElement());
 
             this.applyElementOffset();
           },
@@ -941,7 +972,7 @@ var updateMySticky
 
             this.applyElementOffset();
 
-            this.events.fire('shapechange');
+            this.events.fire("shapechange");
           },
           applyElementOffset: function () {
             this._$element.css({
@@ -956,21 +987,24 @@ var updateMySticky
 
             var position = this._$element.position();
 
-            return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-              [position.left, position.top], [
-                position.left + this._$element[0].offsetWidth,
-                position.top + this._$element[0].offsetHeight,
-              ]
-            ]));
+            return new ymaps.shape.Rectangle(
+              new ymaps.geometry.pixel.Rectangle([
+                [position.left, position.top],
+                [
+                  position.left + this._$element[0].offsetWidth,
+                  position.top + this._$element[0].offsetHeight,
+                ],
+              ])
+            );
           },
           _isElement: function (element) {
             return element && element[0];
-          }
+          },
         }
       );
 
       // balloon close
-      map.events.add('click', () => {
+      map.events.add("click", () => {
         if (map.balloon.isOpen()) {
           map.balloon.close();
         }
@@ -978,26 +1012,30 @@ var updateMySticky
 
       // добавление точек
       const placemarks = new ymaps.GeoObjectCollection();
-      $('.placemarks__item').each(function () {
+      $(".placemarks__item").each(function () {
         // данные
-        const balloon = $(this).find('.placemarks__balloon').text().trim();
-        const latitude = $(this).find('.placemarks__latitude').text().trim();
-        const longitude = $(this).find('.placemarks__longitude').text().trim();
+        const balloon = $(this).find(".placemarks__balloon").text().trim();
+        const latitude = $(this).find(".placemarks__latitude").text().trim();
+        const longitude = $(this).find(".placemarks__longitude").text().trim();
 
         // placemark
         const coordinates = [latitude, longitude];
-        const placemark = new ymaps.Placemark(coordinates, {
-          balloon,
-        }, {
-          iconLayout: 'default#image',
-          iconImageHref: 'local/templates/main/assets/images/placemark.svg', 
-          iconImageSize: [markWidth, markHeight],
-          iconImageOffset: [-markWidth / 2, -markHeight],
+        const placemark = new ymaps.Placemark(
+          coordinates,
+          {
+            balloon,
+          },
+          {
+            iconLayout: "default#image",
+            iconImageHref: "/local/templates/main/assets/images/placemark.svg",
+            iconImageSize: [markWidth, markHeight],
+            iconImageOffset: [-markWidth / 2, -markHeight],
 
-          balloonLayout: layout,
-          balloonPanelMaxMapArea: 0,
-          hideIconOnBalloonOpen: false,
-        });
+            balloonLayout: layout,
+            balloonPanelMaxMapArea: 0,
+            hideIconOnBalloonOpen: false,
+          }
+        );
 
         placemarks.add(placemark);
       });
@@ -1006,13 +1044,15 @@ var updateMySticky
       map.geoObjects.add(placemarks);
 
       // позиционирование на точках
-      map.setBounds(placemarks.getBounds(), {
-        zoomMargin: Math.max(markWidth, markHeight),
-      }).then(() => {
-        if ($('.placemarks__item').length === 1) {
-          map.setZoom(18)
-        }
-      });
+      map
+        .setBounds(placemarks.getBounds(), {
+          zoomMargin: Math.max(markWidth, markHeight),
+        })
+        .then(() => {
+          if ($(".placemarks__item").length === 1) {
+            map.setZoom(18);
+          }
+        });
     }
   });
 }
@@ -1020,14 +1060,13 @@ var updateMySticky
 // Development slider
 {
   $(() => {
-    const swiperThumbs = new Swiper($('.development__names')[0], {
+    const swiperThumbs = new Swiper($(".development__names")[0], {
       freeMode: false,
       // loop: true,
-      slidesPerView: 'auto',
+      slidesPerView: "auto",
       initialSlide: 0,
-
-    })
-    const swiperSlider = new Swiper($('.development__desc')[0], {
+    });
+    const swiperSlider = new Swiper($(".development__desc")[0], {
       loop: true,
       freeMode: false,
       spaceBetween: 0,
@@ -1037,101 +1076,101 @@ var updateMySticky
       thumbs: {
         swiper: swiperThumbs,
       },
-    })
-    swiperThumbs.update()
-  })
+    });
+    swiperThumbs.update();
+  });
 }
 
 // component
 {
   $(() => {
-    const COMPONENT_CLASS = 'component'
+    const COMPONENT_CLASS = "component";
 
-    const components = $(`.${COMPONENT_CLASS}`)
+    const components = $(`.${COMPONENT_CLASS}`);
 
     components.each(function () {
       // elements
-      const component = $(this)
-      
-      const list = component.find(`.${COMPONENT_CLASS}__list`)
-      const items = component.find(`.${COMPONENT_CLASS}__item`)
+      const component = $(this);
+
+      const list = component.find(`.${COMPONENT_CLASS}__list`);
+      const items = component.find(`.${COMPONENT_CLASS}__item`);
 
       // state
       const state = {
         isMultiLine: false,
-      }
+      };
 
       function topEqual(top1, top2) {
-        return Math.abs(top1 - top2) < 1
+        return Math.abs(top1 - top2) < 1;
       }
 
       function updateState() {
         // isMultiLine
         {
-          const firstItem = items.filter(':first')
-          const lastItem = items.filter(':last')
+          const firstItem = items.filter(":first");
+          const lastItem = items.filter(":last");
 
-          const firstItemY = firstItem.offset().top
-          const lastItemY = lastItem.offset().top
+          const firstItemY = firstItem.offset().top;
+          const lastItemY = lastItem.offset().top;
 
-          state.isMultiLine = !topEqual(firstItemY, lastItemY)
+          state.isMultiLine = !topEqual(firstItemY, lastItemY);
         }
 
         console.log(state);
       }
 
       // init state
-      updateState()
+      updateState();
 
       // window resize
-      $(window).on('resize', updateState)
+      $(window).on("resize", updateState);
 
       // move thumb
-      items.on('click', function () {
-        const prevItem = $(`.${COMPONENT_CLASS}__item--active`)
-        const nextItem = $(this)
+      items.on("click", function () {
+        const prevItem = $(`.${COMPONENT_CLASS}__item--active`);
+        const nextItem = $(this);
 
-        const prevIndex = prevItem.index()
-        const nextIndex = nextItem.index()
+        const prevIndex = prevItem.index();
+        const nextIndex = nextItem.index();
 
         // move
         if (prevIndex !== nextIndex) {
-          const direction = prevIndex < nextIndex ? 'right' : 'left'
+          const direction = prevIndex < nextIndex ? "right" : "left";
 
-          const prevTop = prevItem.offset().top
-          const nextTop = nextItem.offset().top
+          const prevTop = prevItem.offset().top;
+          const nextTop = nextItem.offset().top;
 
-          const prevLeft = prevItem.offset().left
-          const nextLeft = nextItem.offset().left
+          const prevLeft = prevItem.offset().left;
+          const nextLeft = nextItem.offset().left;
 
           // one line
           if (topEqual(prevTop, nextTop)) {
-            const distance = Math.abs(prevLeft - nextLeft)
+            const distance = Math.abs(prevLeft - nextLeft);
 
             // создаем thumb
-            const thumb = document.createElement('div')
+            const thumb = document.createElement("div");
 
-            const thumbTop = prevItem.position().top + prevItem.height()
-            const thumbLeft = prevItem.position().left
+            const thumbTop = prevItem.position().top + prevItem.height();
+            const thumbLeft = prevItem.position().left;
 
-            const thumbWidth = prevItem.width()
-            
+            const thumbWidth = prevItem.width();
+
             thumb.style.cssText = [
               `transform: `,
               `translate(${thumbLeft}px, ${thumbTop}px) `,
               `scaleX(${thumbWidth}) `,
-            ].join('')
+            ].join("");
 
-            thumb.classList.add(`${COMPONENT_CLASS}__thumb`)
+            thumb.classList.add(`${COMPONENT_CLASS}__thumb`);
 
-            component[0].append(thumb)
+            component[0].append(thumb);
 
             // удаляем нативный (css) thumb (модификатор --thumb) у item'a
-            prevItem.removeClass(`${COMPONENT_CLASS}__item--thumb`)
+            prevItem.removeClass(`${COMPONENT_CLASS}__item--thumb`);
 
             // анимируем thumb
-            const thumbWidthEnd = nextItem.width()
-            const thumbLeftEnd = nextItem.position().left
+            const thumbWidthEnd = nextItem.width();
+            const thumbLeftEnd = nextItem.position().left;
 
             const animation = {
               FPS: 60,
@@ -1141,160 +1180,168 @@ var updateMySticky
 
               time: null,
               progress: null,
-            }
+            };
 
             function frame() {
-              const currentTimestamp = performance.now()
+              const currentTimestamp = performance.now();
 
-              animation.time = currentTimestamp - animation.startTimestamp
-              animation.progress = animation.time / animation.DURATION
+              animation.time = currentTimestamp - animation.startTimestamp;
+              animation.progress = animation.time / animation.DURATION;
 
               if (animation.progress > 1) {
-                animation.progress = 1
+                animation.progress = 1;
               }
 
               // update позиции и размера (анимация)
               {
                 // размер
-                const thumbWidthCurrent = thumbWidth + ((thumbWidthEnd - thumbWidth) * animation.progress)
+                const thumbWidthCurrent =
+                  thumbWidth +
+                  (thumbWidthEnd - thumbWidth) * animation.progress;
 
                 // позиция
-                const thumbLeftCurrent = thumbLeft + (distance * animation.progress * (direction === 'right' ? 1 : -1))
+                const thumbLeftCurrent =
+                  thumbLeft +
+                  distance *
+                    animation.progress *
+                    (direction === "right" ? 1 : -1);
 
                 // "рендер" свойств
                 thumb.style.cssText = [
                   `transform: `,
                   `translate(${thumbLeftCurrent}px, ${thumbTop}px) `,
                   `scaleX(${thumbWidthCurrent}) `,
-                ].join('')
+                ].join("");
               }
 
               if (animation.progress < 1) {
-                requestAnimationFrame(frame)
+                requestAnimationFrame(frame);
               } else {
-                animationEnd()
+                animationEnd();
               }
             }
 
-            requestAnimationFrame(frame)
+            requestAnimationFrame(frame);
 
             // после анимации
             function animationEnd() {
               // добавляем нативный (css) thumb (модификатор --thumb) item'у
-              nextItem.addClass(`${COMPONENT_CLASS}__item--thumb`)
+              nextItem.addClass(`${COMPONENT_CLASS}__item--thumb`);
 
               // удаляем анимируемый, временный thumb (js)
-              thumb.remove()
+              thumb.remove();
             }
-          } else { // cross line
-            const componentWidth = component.width()
+          } else {
+            // cross line
+            const componentWidth = component.width();
 
-            const componentLeft = component.offset().left
-            
-            const prevLeftComponent = prevLeft - componentLeft
-            const nextLeftComponent = nextLeft - componentLeft
+            const componentLeft = component.offset().left;
+
+            const prevLeftComponent = prevLeft - componentLeft;
+            const nextLeftComponent = nextLeft - componentLeft;
 
             // to the right
-            if (direction === 'right') {
-              const prevDistance = componentWidth - prevLeftComponent
-              const nextDistance = nextLeftComponent
+            if (direction === "right") {
+              const prevDistance = componentWidth - prevLeftComponent;
+              const nextDistance = nextLeftComponent;
 
-              const distance = prevDistance + nextDistance
+              const distance = prevDistance + nextDistance;
 
               // *здесь движение между строк вправо*
-            } else { // to the left
+            } else {
+              // to the left
               // расстояние такое же, как если бы prev было next, а next - prev И direction === 'right'
               // 'зеркально'
-              const prevDistance = prevLeftComponent
-              const nextDistance = componentWidth - nextLeftComponent
+              const prevDistance = prevLeftComponent;
+              const nextDistance = componentWidth - nextLeftComponent;
 
-              const distance = prevDistance + nextDistance
+              const distance = prevDistance + nextDistance;
 
               // *здесь движение между строк влево*
             }
           }
         }
-      })
+      });
 
       // switch active
-      items.on('click', function () {
-        items.removeClass(`${COMPONENT_CLASS}__item--active`)
+      items.on("click", function () {
+        items.removeClass(`${COMPONENT_CLASS}__item--active`);
 
-        const clickedItem = $(this)
+        const clickedItem = $(this);
 
-        clickedItem.addClass(`${COMPONENT_CLASS}__item--active`)
-      })
-    })
-  })
+        clickedItem.addClass(`${COMPONENT_CLASS}__item--active`);
+      });
+    });
+  });
 }
 
 // tabs
 {
   $(() => {
-    $('.tabs').each(function () {
-      const tabs = $(this)
+    $(".tabs").each(function () {
+      const tabs = $(this);
 
-      const items = tabs.find('.tabs__item')
-      const background = tabs.find('.tabs__background')
+      const items = tabs.find(".tabs__item");
+      const background = tabs.find(".tabs__background");
 
       // background
-      ;(() => {
+      (() => {
         function update() {
-          let width = 0
+          let width = 0;
 
           function getWidth(elem) {
-            return elem.offsetLeft + elem.offsetWidth
+            return elem.offsetLeft + elem.offsetWidth;
           }
 
           items.each(function () {
-            width = (getWidth(this) > width) ? getWidth(this) : width
-          })
+            width = getWidth(this) > width ? getWidth(this) : width;
+          });
 
-          background.css('width', `${width}px`)
+          background.css("width", `${width}px`);
         }
 
-        update()
+        update();
 
         // скачок шрифта
-        setTimeout(update, 250)
+        setTimeout(update, 250);
 
-        const fps = 15
+        const fps = 15;
 
         function resize() {
-          update()
+          update();
 
           setTimeout(() => {
-            update()
+            update();
 
-            $(window).one('resize', resize)
-          }, 1000 / fps)
+            $(window).one("resize", resize);
+          }, 1000 / fps);
         }
 
-        $(window).one('resize', resize)
-      })()
+        $(window).one("resize", resize);
+      })();
 
       // change
-      ;(() => {
-        items.on('click', function () {
-          const prev = $('.tabs__item--active')
-          const next = $(this)
+      (() => {
+        items.on("click", function () {
+          const prev = $(".tabs__item--active");
+          const next = $(this);
 
           if (prev[0] !== next[0]) {
-            prev.removeClass('tabs__item--active')
-            next.addClass('tabs__item--active')
+            prev.removeClass("tabs__item--active");
+            next.addClass("tabs__item--active");
 
-            animation(prev, next)
+            animation(prev, next);
           }
-        })
-      })()
+        });
+      })();
 
       // static
       var [attach, dettach] = (() => {
-        let item
+        let item;
 
-        const thumb = document.createElement('div')
+        const thumb = document.createElement("div");
 
-        thumb.classList.add('tabs__thumb')
+        thumb.classList.add("tabs__thumb");
 
         thumb.style.cssText = `
           position: absolute;
@@ -1305,83 +1352,83 @@ var updateMySticky
           width: 1px;
 
           transition: none;
-        `
+        `;
 
         function update() {
-          const top = item[0].offsetTop + item[0].offsetHeight
-          const left = item[0].offsetLeft
+          const top = item[0].offsetTop + item[0].offsetHeight;
+          const left = item[0].offsetLeft;
 
-          const width = item[0].offsetWidth
+          const width = item[0].offsetWidth;
 
-          thumb.style.transform = `translate(${left}px, ${top}px) scaleX(${width})`
+          thumb.style.transform = `translate(${left}px, ${top}px) scaleX(${width})`;
         }
 
-        const fps = 15
+        const fps = 15;
 
         function resize() {
-          update()
+          update();
 
           setTimeout(() => {
-            update()
+            update();
 
-            window.addEventListener('resize', resize, {
+            window.addEventListener("resize", resize, {
               once: true,
-            })
-          }, 1000 / fps)
+            });
+          }, 1000 / fps);
         }
 
         function attach(attachItem) {
-          dettach()
+          dettach();
 
-          item = attachItem
+          item = attachItem;
 
-          update()
+          update();
 
-          background.append(thumb)
+          background.append(thumb);
 
-          window.addEventListener('resize', resize, {
+          window.addEventListener("resize", resize, {
             once: true,
-          })
+          });
         }
 
         function dettach() {
-          thumb.remove()
+          thumb.remove();
 
-          window.removeEventListener('resize', resize)
+          window.removeEventListener("resize", resize);
         }
 
-        return [attach, dettach]
-      })()
+        return [attach, dettach];
+      })();
 
       // скачок шрифта
       setTimeout(() => {
-        attach(tabs.find('.tabs__item--active'))
-      }, 250)
+        attach(tabs.find(".tabs__item--active"));
+      }, 250);
 
       // animation
       var animation = (() => {
-        let prev
-        let next
+        let prev;
+        let next;
 
         function inOneLine() {
-          return Math.abs(prev[0].offsetTop - next[0].offsetTop) < 1
+          return Math.abs(prev[0].offsetTop - next[0].offsetTop) < 1;
         }
 
         function animation(prevItem, nextItem) {
-          prev = prevItem
-          next = nextItem
+          prev = prevItem;
+          next = nextItem;
 
           if (inOneLine()) {
-            simpleAnimation()
+            simpleAnimation();
           } else {
-            complexAnimation()
+            complexAnimation();
           }
         }
 
         function createThumb() {
-          const thumb = document.createElement('div')
+          const thumb = document.createElement("div");
 
-          thumb.classList.add('tabs__thumb')
+          thumb.classList.add("tabs__thumb");
 
           thumb.style.cssText = `
             position: absolute;
@@ -1391,9 +1438,9 @@ var updateMySticky
             transform: scaleX(30);
             
             width: 1px;
-          `
+          `;
 
-          return thumb
+          return thumb;
         }
 
         function simpleAnimation() {
@@ -1404,10 +1451,10 @@ var updateMySticky
           console.log(2);
         }
 
-        return animation
-      })()
-    })
-  })
+        return animation;
+      })();
+    });
+  });
 }
 
 // fancybox
@@ -1416,10 +1463,10 @@ var updateMySticky
     $.fancybox.defaults.closeExisting = true;
     $.fancybox.defaults.touch = false;
 
-    $('[data-fancy-button]').on('click', function (event) {
+    $("[data-fancy-button]").on("click", function (event) {
       event.preventDefault();
 
-      const id = $(this).data('fancy-button');
+      const id = $(this).data("fancy-button");
       const modal = $(`[data-fancy-modal="${id}"]`);
 
       $.fancybox.open(modal);
@@ -1430,60 +1477,59 @@ var updateMySticky
 // before-after
 {
   $(() => {
-    $.fn.BeerSlider = function ( options ) {
+    $.fn.BeerSlider = function (options) {
       options = options || {};
-      return this.each(function() {
+      return this.each(function () {
         new BeerSlider(this, options);
       });
     };
-    $('.beer-slider').BeerSlider({start: 35});
+    $(".beer-slider").BeerSlider({ start: 35 });
   });
 }
 
 // slide description
 {
   $(() => {
-
-    if ($('.index').length !== 0) {
+    if ($(".index").length !== 0) {
       const fps = 30;
 
-      update()
+      update();
 
       function update() {
-        const indexSlide = $('.swiper-slide');
-        indexSlide.each(function() {
+        const indexSlide = $(".swiper-slide");
+        indexSlide.each(function () {
           const slide = $(this);
-          const slideImg = slide.find('.index__mid-img');
-          const slideDesc = slide.find('.index__mid-description');
+          const slideImg = slide.find(".index__mid-img");
+          const slideDesc = slide.find(".index__mid-description");
           const imgWidth = slideImg.width();
 
-          slideDesc.css('max-width', imgWidth);
+          slideDesc.css("max-width", imgWidth);
         });
       }
-      
+
       function resize() {
-        setTimeout (() => {
-          update()
-          $(window).one('resize', resize);
+        setTimeout(() => {
+          update();
+          $(window).one("resize", resize);
         }, 1000 / fps);
-      };
-      
-      $(window).one('resize', resize)
+      }
+
+      $(window).one("resize", resize);
     }
   });
 }
 
 // target section animation (main page, mouse move, linear-gradient)
-;(() => {
+(() => {
   $(() => {
-    const components = $('.index__target')
+    const components = $(".index__target");
 
     components.each(function () {
-      const component = $(this)
-  
-      const background = component.find('.index__target-background')
-      const text = component.find('.index__target-text')
-  
+      const component = $(this);
+
+      const background = component.find(".index__target-background");
+      const text = component.find(".index__target-text");
+
       // data
       const points = [
         {
@@ -1537,27 +1583,33 @@ var updateMySticky
             b: 229,
           },
         },
-      ]
-   
+      ];
+
       // options
-      const fps = 60
-      
-      let progress = 0
-      const progressDuration = 350
-      const progressIncrement = 1 / ((progressDuration / 1000) * fps)
-  
-      let step = 0
-      const stepsCount = points.length
-  
+      const fps = 60;
+
+      let progress = 0;
+      const progressDuration = 350;
+      const progressIncrement = 1 / ((progressDuration / 1000) * fps);
+
+      let step = 0;
+      const stepsCount = points.length;
+
       // calc
-      const pointsDelta = []
-      
+      const pointsDelta = [];
+
       for (let i = 0; i < stepsCount; i++) {
         const pointDelta = {
           colorStart: {
-            r: points[(i + 1) % stepsCount].colorStart.r - points[i].colorStart.r,
-            g: points[(i + 1) % stepsCount].colorStart.g - points[i].colorStart.g,
-            b: points[(i + 1) % stepsCount].colorStart.b - points[i].colorStart.b,
+            r:
+              points[(i + 1) % stepsCount].colorStart.r -
+              points[i].colorStart.r,
+            g:
+              points[(i + 1) % stepsCount].colorStart.g -
+              points[i].colorStart.g,
+            b:
+              points[(i + 1) % stepsCount].colorStart.b -
+              points[i].colorStart.b,
           },
           colorEnd: {
             r: points[(i + 1) % stepsCount].colorEnd.r - points[i].colorEnd.r,
@@ -1569,175 +1621,202 @@ var updateMySticky
             g: points[(i + 1) % stepsCount].textColor.g - points[i].textColor.g,
             b: points[(i + 1) % stepsCount].textColor.b - points[i].textColor.b,
           },
-        }
-  
-        pointsDelta.push(pointDelta)
+        };
+
+        pointsDelta.push(pointDelta);
       }
 
       console.log(points, pointsDelta);
-  
+
       function update() {
         const currentColorStart = {
-          r: points[step].colorStart.r + pointsDelta[step].colorStart.r * progress,
-          g: points[step].colorStart.g + pointsDelta[step].colorStart.g * progress,
-          b: points[step].colorStart.b + pointsDelta[step].colorStart.b * progress,
-        }
+          r:
+            points[step].colorStart.r +
+            pointsDelta[step].colorStart.r * progress,
+          g:
+            points[step].colorStart.g +
+            pointsDelta[step].colorStart.g * progress,
+          b:
+            points[step].colorStart.b +
+            pointsDelta[step].colorStart.b * progress,
+        };
         const currentColorEnd = {
           r: points[step].colorEnd.r + pointsDelta[step].colorEnd.r * progress,
           g: points[step].colorEnd.g + pointsDelta[step].colorEnd.g * progress,
           b: points[step].colorEnd.b + pointsDelta[step].colorEnd.b * progress,
-        }
+        };
         const currentTextColor = {
-          r: points[step].textColor.r + pointsDelta[step].textColor.r * progress,
-          g: points[step].textColor.g + pointsDelta[step].textColor.g * progress,
-          b: points[step].textColor.b + pointsDelta[step].textColor.b * progress,
-        }
-  
+          r:
+            points[step].textColor.r + pointsDelta[step].textColor.r * progress,
+          g:
+            points[step].textColor.g + pointsDelta[step].textColor.g * progress,
+          b:
+            points[step].textColor.b + pointsDelta[step].textColor.b * progress,
+        };
+
         background.css(
-          'background',
+          "background",
           `linear-gradient(261.11deg, rgb(${currentColorStart.r}, ${currentColorStart.g}, ${currentColorStart.b}) 8.47%, rgb(${currentColorEnd.r}, ${currentColorEnd.g}, ${currentColorEnd.b}) 93.81%)`
-        )
+        );
         text.css(
-          'color',
+          "color",
           `rgb(${currentTextColor.r}, ${currentTextColor.g}, ${currentTextColor.b})`
-        )
+        );
       }
-  
+
       function tick() {
-        update()
-  
-        progress += progressIncrement
-  
+        update();
+
+        progress += progressIncrement;
+
         if (progress > 1) {
-          progress = progress - 1
-  
-          step = (step + 1) % stepsCount
+          progress = progress - 1;
+
+          step = (step + 1) % stepsCount;
         }
       }
-  
+
       function move() {
-        requestAnimationFrame(tick)
-  
+        requestAnimationFrame(tick);
+
         setTimeout(() => {
-          $(window).one('mousemove', move)
-        }, 1000 / fps)
+          $(window).one("mousemove", move);
+        }, 1000 / fps);
       }
-  
-      $(window).one('mousemove', move)
-    })
-  })
-})()
+
+      $(window).one("mousemove", move);
+    });
+  });
+})();
 
 // fixed header
 {
   $(() => {
-    const header = $('.header');
+    const header = $(".header");
 
     if (header.length !== 0) {
-      let previousTop = $(window).scrollTop()
+      let previousTop = $(window).scrollTop();
 
-      $(window).on('scroll', function () {
+      $(window).on("scroll", function () {
         const currentTop = $(window).scrollTop();
-        if (!header.hasClass('header--modal')) {
+        if (!header.hasClass("header--modal")) {
           if (currentTop < previousTop) {
-            header.removeClass('header--scroll--down');
-            header.addClass('header--scroll--up');
+            header.removeClass("header--scroll--down");
+            header.addClass("header--scroll--up");
           } else {
-            header.removeClass('header--scroll--up');
-            header.addClass('header--scroll--down');
+            header.removeClass("header--scroll--up");
+            header.addClass("header--scroll--down");
           }
         }
 
         if (currentTop < 1) {
-          header.removeClass('header--scroll--up');
-          header.removeClass('header--scroll--down');
+          header.removeClass("header--scroll--up");
+          header.removeClass("header--scroll--down");
         }
 
         if (currentTop >= 1) {
-          header.addClass('header--scroll');
+          header.addClass("header--scroll");
         } else {
-          header.removeClass('header--scroll');
+          header.removeClass("header--scroll");
         }
 
         previousTop = currentTop;
       });
 
       if ($(window).scrollTop() >= 1) {
-        header.addClass('header--scroll--up');
-        header.addClass('header--scroll');
+        header.addClass("header--scroll--up");
+        header.addClass("header--scroll");
       }
-    };
+    }
   });
 }
 
 // header modal mobile
 {
   $(() => {
-    const navModal = $('.header-modal--mobile');
+    const navModal = $(".header-modal--mobile");
 
     if (navModal.length !== 0) {
-      const navModalButton = navModal.find('.header-section__button');
-      const navModalDropdown = navModal.find('.header-section__dropdown');
+      const navModalButton = navModal.find(".header-section__button");
+      const navModalDropdown = navModal.find(".header-section__dropdown");
 
-      navModalButton.on('click', function () {
-        const navModalSectionClicked = $(this).closest('.header-section__item');
+      navModalButton.on("click", function () {
+        const navModalSectionClicked = $(this).closest(".header-section__item");
 
-        if (navModalSectionClicked.hasClass('header-section__item--active')) {
-          navModalSectionClicked.find('.header-section__dropdown').slideUp(500);
-          navModalSectionClicked.removeClass('header-section__item--active')
+        if (navModalSectionClicked.hasClass("header-section__item--active")) {
+          navModalSectionClicked.find(".header-section__dropdown").slideUp(500);
+          navModalSectionClicked.removeClass("header-section__item--active");
         } else {
-          $('.header-section__item--active').find('.header-section__dropdown').slideUp(650);
-          $('.header-section__item--active').removeClass('header-section__item--active');
+          $(".header-section__item--active")
+            .find(".header-section__dropdown")
+            .slideUp(650);
+          $(".header-section__item--active").removeClass(
+            "header-section__item--active"
+          );
 
-          navModalSectionClicked.find('.header-section__dropdown').slideDown(500);
-          navModalSectionClicked.addClass('header-section__item--active');
+          navModalSectionClicked
+            .find(".header-section__dropdown")
+            .slideDown(500);
+          navModalSectionClicked.addClass("header-section__item--active");
         }
       });
 
       // section
-      const navModalSection = navModal.find('.header-section__section');
-      const navModalSectionButton = navModalSection.find('.header-section__section-button');
+      const navModalSection = navModal.find(".header-section__section");
+      const navModalSectionButton = navModalSection.find(
+        ".header-section__section-button"
+      );
 
-      navModalSectionButton.on('click', function () {
-        const navModalSectionClicked = $(this).closest('.header-section__section');
+      navModalSectionButton.on("click", function () {
+        const navModalSectionClicked = $(this).closest(
+          ".header-section__section"
+        );
 
-        if (navModalSectionClicked.hasClass('header-section__section--active')) {
-          navModalSectionClicked.find('.header-section__section-dropdown').slideUp(500);
-          navModalSectionClicked.removeClass('header-section__section--active')
+        if (
+          navModalSectionClicked.hasClass("header-section__section--active")
+        ) {
+          navModalSectionClicked
+            .find(".header-section__section-dropdown")
+            .slideUp(500);
+          navModalSectionClicked.removeClass("header-section__section--active");
         } else {
-          $('.header-section__section--active').find('.header-section__section-dropdown').slideUp(650);
-          $('.header-section__section--active').removeClass('header-section__section--active');
+          $(".header-section__section--active")
+            .find(".header-section__section-dropdown")
+            .slideUp(650);
+          $(".header-section__section--active").removeClass(
+            "header-section__section--active"
+          );
 
-          navModalSectionClicked.find('.header-section__section-dropdown').slideDown(500);
-          navModalSectionClicked.addClass('header-section__section--active');
+          navModalSectionClicked
+            .find(".header-section__section-dropdown")
+            .slideDown(500);
+          navModalSectionClicked.addClass("header-section__section--active");
         }
       });
     }
   });
 }
 
-
 // form response
 {
   $(() => {
-    const form = $('.form');
+    const form = $(".form");
 
     if (form.length !== 0) {
-      
-      const response = $('.response');
-      const responseButton = $('.response__btn');
-      const formButton = $('.form__btn');
+      const response = $(".response");
+      const responseButton = $(".response__btn");
+      const formButton = $(".form__btn");
 
-      formButton.on('click', function(event) {
+      formButton.on("click", function (event) {
         event.preventDefault();
-        form.addClass('form--hidden');
-        response.addClass('response--active');
+        form.addClass("form--hidden");
+        response.addClass("response--active");
         // $('.provider__row').addClass('provider__row--active');
       });
 
-      responseButton.on('click', function () {
-        form.removeClass('form--hidden');
-        response.removeClass('response--active');
+      responseButton.on("click", function () {
+        form.removeClass("form--hidden");
+        response.removeClass("response--active");
         // $('.provider__row').removeClass('provider__row--active');
       });
     }
@@ -1748,35 +1827,31 @@ var updateMySticky
 
 {
   $(() => {
-
-    Parsley.addMessages('ru', {
+    Parsley.addMessages("ru", {
       defaultMessage: "Некорректное значение",
       type: {
-        email:        "Введите адрес электронной почты",
-        url:          "Введите URL адрес",
-        number:       "Введите число",
-        integer:      "Введите целое число",
-        digits:       "Введите только цифры",
-        alphanum:     "Введите буквенно-цифровое значение"
+        email: "Введите адрес электронной почты",
+        url: "Введите URL адрес",
+        number: "Введите число",
+        integer: "Введите целое число",
+        digits: "Введите только цифры",
+        alphanum: "Введите буквенно-цифровое значение",
       },
-      notblank:       "Это поле должно быть заполнено",
-      required:       "Обязательное поле",
-      pattern:        "Это значение некорректно",
-      min:            "Это значение должно быть не менее чем %s",
-      max:            "Это значение должно быть не более чем %s",
-      range:          "Это значение должно быть от %s до %s",
-      minlength:      "Это значение должно содержать не менее %s символов",
-      maxlength:      "Это значение должно содержать не более %s символов",
-      length:         "Это значение должно содержать от %s до %s символов",
-      mincheck:       "Выберите не менее %s значений",
-      maxcheck:       "Выберите не более %s значений",
-      check:          "Выберите от %s до %s значений",
-      equalto:        "Это значение должно совпадать"
+      notblank: "Это поле должно быть заполнено",
+      required: "Обязательное поле",
+      pattern: "Это значение некорректно",
+      min: "Это значение должно быть не менее чем %s",
+      max: "Это значение должно быть не более чем %s",
+      range: "Это значение должно быть от %s до %s",
+      minlength: "Это значение должно содержать не менее %s символов",
+      maxlength: "Это значение должно содержать не более %s символов",
+      length: "Это значение должно содержать от %s до %s символов",
+      mincheck: "Выберите не менее %s значений",
+      maxcheck: "Выберите не более %s значений",
+      check: "Выберите от %s до %s значений",
+      equalto: "Это значение должно совпадать",
     });
-    
-    Parsley.setLocale('ru');
 
-    }
-
-  );
-};
+    Parsley.setLocale("ru");
+  });
+}
