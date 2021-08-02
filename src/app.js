@@ -885,6 +885,8 @@ var updateMySticky
         center: [55.732433, 37.616144],
         zoom: 14,
         controls: [],
+      },{
+        maxZoom: 22,
       });
       // const zoomControl = new ymaps.control.ZoomControl({
       //   options: {
