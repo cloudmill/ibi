@@ -1008,6 +1008,10 @@ var updateMySticky
       // позиционирование на точках
       map.setBounds(placemarks.getBounds(), {
         zoomMargin: Math.max(markWidth, markHeight),
+      }).then(() => {
+        if ($('.placemarks__item').length === 1) {
+          map.setZoom(18)
+        }
       });
     }
   });
