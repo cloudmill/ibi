@@ -656,21 +656,20 @@ var updateMySticky
 // spoiler
 {
   $(() => {
-    const spoilers = $('.mission__spoiler');
-
-    spoilers.each(function () {
-      const spoiler = $(this);
-      const spoiler_group = spoiler.data('spoiler-group')
-
-      console.log(spoiler_group);
-
-      const spoiler_button = spoiler.find('.mission__spoiler-button');
-      const spoiler_drop = spoiler.find('.mission__spoiler-drop');
-
-      spoiler_button.on('click', event => {
+    $(window).on('click', function (event) {
+      const spoiler_button = $(event.target).closest('.mission__spoiler-button')
+      
+      if (spoiler_button.length) {
         event.preventDefault()
 
+        const spoiler = spoiler_button.closest('.mission__spoiler')
+        const spoiler_group = spoiler.data('spoiler-group')
+
+        const spoiler_drop = spoiler.find('.mission__spoiler-drop')
+
         if (spoiler_group) {
+          const spoilers = $('.mission__spoiler')
+
           spoilers.filter(`[data-spoiler-group="${spoiler_group}"]`).each(function () {
             const spoiler = $(this)
             const spoiler_drop = spoiler.find('.mission__spoiler-drop')
@@ -686,8 +685,8 @@ var updateMySticky
             progress: updateMySticky,
           })
         }
-      });
-    });
+      }
+    })
   });
 }
 
