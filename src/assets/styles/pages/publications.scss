@@ -160,7 +160,7 @@
     padding: 20px 0 0;
 
     display: block;
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint-m) {
       display: none;
     }
     overflow-x: auto;
@@ -300,4 +300,10 @@
       }
     }
   } 
+}
+
+.publications-top-category {
+  .category__item:not(:first-child) {
+    margin-left: 0;
+  }
 }

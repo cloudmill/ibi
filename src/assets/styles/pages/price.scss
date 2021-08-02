@@ -123,6 +123,10 @@
     ul {
       margin: 0;
 
+      @media (max-width: $breakpoint - 1px) {
+        font-size: 14px;
+      }
+
       li:first-child {
         margin-top: 0;
       }
@@ -131,6 +135,12 @@
       margin: 40px 0 0;
 
       width: calc(#{$col-part-d} * 4);
+
+      @media (max-width: $breakpoint - 1px) {
+        width: auto;
+        margin-top: 20px;
+        font-size: 14px;
+      }
     }
   }
 }

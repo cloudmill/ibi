@@ -285,6 +285,8 @@ const BREAKPOINT = 1280;
             slider_options = {
               ...slider_options,
 
+              initialSlide: 1,
+
               breakpoints: {
                 [BREAKPOINT]: {
                   spaceBetween: 60,

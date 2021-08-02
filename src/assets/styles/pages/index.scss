@@ -350,10 +350,29 @@
     right: 0;
     left: 0;
 
-    background: url(assets/images/index-bg-mobile.jpg) center no-repeat;
-    background-size: cover;
+    background: url(assets/images/index-bg-mobile.jpg) bottom no-repeat;
+    background-color: #B0E7EA;
+    background-size: 700px;
+
+    @media (min-width: 680px) {
+      background-size: 100%;
+    }
+
+    @media (min-width: $breakpoint-t) {
+      background-position-y: top;
+    }
+
     @media (min-width: $breakpoint) {
-      background: url(assets/images/index-bg.jpg) center no-repeat;
+      background: url(assets/images/index-bg.jpg) bottom no-repeat;
+      // background-size: cover;
+
+      background-size: 120%;
+      background-color: #B0E7EA;
+    }
+
+    @media (min-width: $breakpoint-l) {
+      background-position-x: center;
+      background-position-y: center;
       background-size: cover;
     }
   }
