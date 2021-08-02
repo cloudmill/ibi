@@ -301,3 +301,9 @@
     }
   } 
 }
+
+.publications-top-category {
+  .category__item:not(:first-child) {
+    margin-left: 0;
+  }
+}
