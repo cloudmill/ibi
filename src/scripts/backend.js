@@ -100,13 +100,13 @@ function teamFilter() {
         state = state.filter((id) => id !== tag_id);
 
         $(`[data-type=js-team-filter-tag][data-id="${tag_id}"]`).removeClass(
-          "active"
+          "team-filter__item--active"
         );
       } else {
         state.push(tag_id);
 
         $(`[data-type=js-team-filter-tag][data-id="${tag_id}"]`).addClass(
-          "active"
+          "team-filter__item--active"
         );
       }
 
@@ -116,7 +116,7 @@ function teamFilter() {
     ) {
       state = [];
 
-      $("[data-type=js-team-filter-tag]").removeClass("active");
+      $("[data-type=js-team-filter-tag]").removeClass("team-filter__item--active");
 
       ajaxLib();
     }
@@ -164,13 +164,13 @@ function eventFilter() {
         state = state.filter((id) => id !== tag_id);
 
         $(`[data-type=js-event-filter-tag][data-id="${tag_id}"]`).removeClass(
-          "active"
+          "team-filter__item--active"
         );
       } else {
         state.push(tag_id);
 
         $(`[data-type=js-event-filter-tag][data-id="${tag_id}"]`).addClass(
-          "active"
+          "team-filter__item--active"
         );
       }
 
@@ -180,7 +180,7 @@ function eventFilter() {
     ) {
       state = [];
 
-      $("[data-type=js-event-filter-tag]").removeClass("active");
+      $("[data-type=js-event-filter-tag]").removeClass("team-filter__item--active");
 
       ajaxEvent();
     }
@@ -228,13 +228,13 @@ function libraryFilter() {
         state = state.filter((id) => id !== tag_id);
 
         $(`[data-type=js-library-filter-tag][data-id="${tag_id}"]`).removeClass(
-          "active"
+          "team-filter__item--active"
         );
       } else {
         state.push(tag_id);
 
         $(`[data-type=js-library-filter-tag][data-id="${tag_id}"]`).addClass(
-          "active"
+          "team-filter__item--active"
         );
       }
 
@@ -245,7 +245,7 @@ function libraryFilter() {
     ) {
       state = [];
 
-      $("[data-type=js-library-filter-tag]").removeClass("active");
+      $("[data-type=js-library-filter-tag]").removeClass("team-filter__item--active");
 
       ajaxLib();
     }
@@ -282,7 +282,7 @@ function bafFilter() {
   $("[data-type=js-baf-filter-tag]").on("click", function (e) {
     e.preventDefault();
     console.log("bafFilter click tag");
-    $(this).toggleClass("active");
+    $(this).toggleClass("team-filter__item--active");
 
     ajaxbafList();
   });
@@ -292,8 +292,8 @@ function bafFilter() {
     e.preventDefault();
 
     $("[data-type=js-baf-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
+      if ($(this).hasClass("team-filter__item--active")) {
+        $(this).removeClass("team-filter__item--active");
       }
     });
 
@@ -306,7 +306,7 @@ function bafFilter() {
       bafList = $("[data-type=js-baf-list]");
 
     $("[data-type=js-baf-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
+      if ($(this).hasClass("team-filter__item--active")) {
         tags[tags.length] = $(this).attr("data-id");
       }
     });
@@ -331,7 +331,7 @@ function faqFilter() {
   $("[data-type=js-faq-filter-tag]").on("click", function (e) {
     e.preventDefault();
     console.log("faqFilter click tag");
-    $(this).toggleClass("active");
+    $(this).toggleClass("team-filter__item--active");
 
     ajaxfaqList();
   });
@@ -341,8 +341,8 @@ function faqFilter() {
     e.preventDefault();
 
     $("[data-type=js-faq-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
+      if ($(this).hasClass("team-filter__item--active")) {
+        $(this).removeClass("team-filter__item--active");
       }
     });
 
@@ -355,7 +355,7 @@ function faqFilter() {
       faqList = $("[data-type=js-faq-list]");
 
     $("[data-type=js-faq-filter-tag]").each(function () {
-      if ($(this).hasClass("active")) {
+      if ($(this).hasClass("team-filter__item--active")) {
         tags[tags.length] = $(this).attr("data-id");
       }
     });
@@ -391,13 +391,13 @@ function publicFilter() {
         state = state.filter((id) => id !== tag_id);
 
         $(`[data-type=js-public-filter-tag][data-id="${tag_id}"]`).removeClass(
-          "active"
+          "team-filter__item--active"
         );
       } else {
         state.push(tag_id);
 
         $(`[data-type=js-public-filter-tag][data-id="${tag_id}"]`).addClass(
-          "active"
+          "team-filter__item--active"
         );
       }
 
@@ -407,7 +407,7 @@ function publicFilter() {
     ) {
       state = [];
 
-      $("[data-type=js-public-filter-tag]").removeClass("active");
+      $("[data-type=js-public-filter-tag]").removeClass("team-filter__item--active");
 
       ajaxLib();
     }
