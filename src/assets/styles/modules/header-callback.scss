@@ -81,6 +81,10 @@
         width: calc(#{$col-part-m} * 3);
       }
     }
+
+    .member-page-ask__checkbox {
+      padding-right: 20px;
+    }
   }
 
   &__ttl {
@@ -149,3 +153,13 @@
 .body-fixed {
   position: fixed;
 }
+
+.vacancy-modal-btn {
+  width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+  .news-subscribe__form-btn {
+    margin: 0;
+  }
+}
+
+
