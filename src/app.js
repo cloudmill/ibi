@@ -278,6 +278,7 @@ const BREAKPOINT = 1280;
               ...slider_options,
 
               initialSlide: 1,
+              centeredSlides: true,
 
               breakpoints: {
                 [BREAKPOINT]: {

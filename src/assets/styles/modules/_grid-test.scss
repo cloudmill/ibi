@@ -22,7 +22,7 @@
     flex-shrink: 0;
     min-height: 100vh;
 
-    // background-color: rgba($color: black, $alpha: 0.1); // ?
+    background-color: rgba($color: black, $alpha: 0.1); // ?
 
     // скрываем на мобильном лишние колонки
     &:nth-child(-n + #{$col-count-d - $col-count-m}) {
