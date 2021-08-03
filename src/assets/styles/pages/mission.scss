@@ -447,10 +447,8 @@
       margin-left: 0; // ???
     }
 
-    .swiper-wrapper.mission-thumbs-wrapper { // ?
+    .swiper-wrapper { // ?
       min-height: 235px; // ?
-      transform: translate3d(0px, 0, 0);
-      // margin-left: -30%;
 
       @media (max-width: $breakpoint - 1px) {
         min-height: auto;

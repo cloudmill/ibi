@@ -277,8 +277,6 @@ const BREAKPOINT = 1280;
             slider_options = {
               ...slider_options,
 
-              initialSlide: 1,
-              centeredSlides: true,
 
               breakpoints: {
                 [BREAKPOINT]: {
@@ -1739,7 +1737,34 @@ var updateMySticky
       });
     }
   });
-}
+};
+
+// Добавление активного состояния на автора в публикации
+
+{
+  $(() => {
+    const authorTag = $('.articles-authors__item');
+    const authorsList = $('.articles-authors__list');
+
+    // authorsList.on('click', function(e) {
+    //   let target = e.target;
+    // }
+
+    authorTag.on('click', function(e) {
+      // console.log(e.target);
+
+          if (authorTag.hasClass('articles-authors__item--active')) {
+            authorTag.removeClass('articles-authors__item--active')
+          } else {
+            authorTag.addClass('articles-authors__item--active');
+            // const currentAuthor = e.target;
+            // currentAuthor.addClass('red');
+          }
+        }
+      );
+    }
+  );
+};
 
 // Parsley localisation
 

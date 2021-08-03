@@ -19,14 +19,25 @@ block content
                 li.team-filter__item(data-id="dentist") #научная деятельность
                 li.team-filter__item(data-id="admin") #публикации сми
                 li.team-filter__item(data-id="coordinator") #кейсы
-              button.team-filter__reset
-                +reset-svg('team-filter__reset-ico')
-                |Сбросить
+              
             .articles-authors__container
               .articles-authors__title 
                 |Авторы статей
-              ul.articles-authors__list 
-                - for (i = 0; i < 3; i++)
+              ul.articles-authors__list
+                li.articles-authors__item
+                  .article-author 
+                    .article-author__row 
+                      .article-author__col
+                        .article-author__img 
+                          img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
+                        .article-author__label 
+                          |14 статей
+                      .article-author__col
+                        .article-author__name 
+                          |Шмойлов Андрей Евгеньевич
+                        .article-author__prof 
+                          |Главный врач центра
+                - for (i = 0; i < 2; i++)
                   li.articles-authors__item
                     .article-author 
                       .article-author__row 
@@ -40,6 +51,10 @@ block content
                             |Шмойлов Андрей Евгеньевич
                           .article-author__prof 
                             |Главный врач центра
+            button.team-filter__reset
+              +reset-svg('team-filter__reset-ico')
+              |Сбросить
+
       .row__col
         .section__inner.section__inner--top
           .container 
