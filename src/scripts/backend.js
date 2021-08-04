@@ -8,6 +8,7 @@ $(function () {
   faqFilter();
   publicFilter();
   showMore();
+  servSectionFilterTypes();
 });
 
 function showMore() {
@@ -116,7 +117,9 @@ function teamFilter() {
     ) {
       state = [];
 
-      $("[data-type=js-team-filter-tag]").removeClass("team-filter__item--active");
+      $("[data-type=js-team-filter-tag]").removeClass(
+        "team-filter__item--active"
+      );
 
       ajaxLib();
     }
@@ -180,7 +183,9 @@ function eventFilter() {
     ) {
       state = [];
 
-      $("[data-type=js-event-filter-tag]").removeClass("team-filter__item--active");
+      $("[data-type=js-event-filter-tag]").removeClass(
+        "team-filter__item--active"
+      );
 
       ajaxEvent();
     }
@@ -245,7 +250,9 @@ function libraryFilter() {
     ) {
       state = [];
 
-      $("[data-type=js-library-filter-tag]").removeClass("team-filter__item--active");
+      $("[data-type=js-library-filter-tag]").removeClass(
+        "team-filter__item--active"
+      );
 
       ajaxLib();
     }
@@ -407,7 +414,9 @@ function publicFilter() {
     ) {
       state = [];
 
-      $("[data-type=js-public-filter-tag]").removeClass("team-filter__item--active");
+      $("[data-type=js-public-filter-tag]").removeClass(
+        "team-filter__item--active"
+      );
 
       ajaxLib();
     }
@@ -437,4 +446,30 @@ function publicFilter() {
 
     return false;
   }
+}
+
+function servSectionFilterTypes() {
+  console.log("services Section Filter Types");
+  $("[data-type=js-sec-serv-filter-tag]").on("click", function (e) {
+    e.preventDefault();
+    $("[data-type=js-sec-serv-filter-tag]").each(function () {
+      if ($(this).hasClass("development__names-item--active")) {
+        $(this).removeClass("development__names-item--active");
+      }
+    });
+
+    console.log("click Section Filter Types");
+    $(this).addClass("development__names-item--active");
+
+    let tag = $(".development__names-item--active").html();
+
+    $("[data-type=item-filter-serv-types]").each(function () {
+      let tagItem = $(this).attr("data-tag");
+      if (tag == tagItem) {
+        $(this).css('display', 'block');
+      } else {
+        $(this).css('display', 'none');
+      }
+    });
+  });
 }
