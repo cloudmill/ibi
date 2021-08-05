@@ -445,13 +445,18 @@
     .swiper-container {
       // max-width: 200px; // ???
       margin-left: 0; // ???
+      // width: 60%;
+      overflow: hidden;
     }
 
     .swiper-wrapper { // ?
       min-height: 235px; // ?
+      // margin-left: 15%;
+      margin-left: 170px;
 
       @media (max-width: $breakpoint - 1px) {
         min-height: auto;
+        margin-left: 78px;
       }
     }
 

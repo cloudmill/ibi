@@ -277,6 +277,7 @@ const BREAKPOINT = 1280;
             slider_options = {
               ...slider_options,
 
+              loop: true,
 
               breakpoints: {
                 [BREAKPOINT]: {
@@ -288,6 +289,8 @@ const BREAKPOINT = 1280;
           case 4:
             slider_options = {
               ...slider_options,
+
+              loop: true,
 
               allowTouchMove: false,
             }
