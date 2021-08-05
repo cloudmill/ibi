@@ -73,7 +73,7 @@ const BREAKPOINT = 1280;
           state.change(null);
         });
 
-        
+
       }
     }
   });
@@ -495,12 +495,12 @@ const BREAKPOINT = 1280;
 // my-sticky
 var updateMySticky
 {
-	$(() => {
-		const stickyAll = $('.my-sticky')
+  $(() => {
+    const stickyAll = $('.my-sticky')
 
-		stickyAll.each(function () {
-			const sticky = $(this)
-			
+    stickyAll.each(function () {
+      const sticky = $(this)
+
       const BOTTOM_OFFSET = 160
       const bottomID = sticky.data('my-sticky-bottom')
       const footer = $('.footer')
@@ -509,149 +509,149 @@ var updateMySticky
         if (bottomID) {
           const bottomElem = $(`#${bottomID}`)
           const bottomY = getY(bottomElem)
-          
+
           state.bottom = getDocumentHeight() - bottomY + BOTTOM_OFFSET
         } else {
           state.bottom = footer[0].offsetHeight + BOTTOM_OFFSET
         }
       }
 
-			const state = {
-				// offset
-				top: 140,
-				bottom: null,
-				// pos
-				startY: null,
-				y: null,
-				// size
-				height: null,
-				// mode
-				mode: null,
-			}
+      const state = {
+        // offset
+        top: 140,
+        bottom: null,
+        // pos
+        startY: null,
+        y: null,
+        // size
+        height: null,
+        // mode
+        mode: null,
+      }
 
       updateBottom()
 
-			const stickyPlace = sticky.parent()
-			// готовим place для добавления stickyBottom и stickyFixed
-			stickyPlace.css('position', 'relative')
+      const stickyPlace = sticky.parent()
+      // готовим place для добавления stickyBottom и stickyFixed
+      stickyPlace.css('position', 'relative')
 
-			const stickyBottom = sticky.clone()
-			// готовим stickyBottom
-			stickyBottom.css('opacity', 0)
-			stickyBottom.css('pointer-events', 'none')
-			stickyBottom.css('position', 'absolute')
-			stickyBottom.css('top', `${sticky[0].offsetTop}px`)
-			stickyBottom.css('width', `${sticky[0].offsetWidth}px`)
-			stickyPlace.append(stickyBottom)
+      const stickyBottom = sticky.clone()
+      // готовим stickyBottom
+      stickyBottom.css('opacity', 0)
+      stickyBottom.css('pointer-events', 'none')
+      stickyBottom.css('position', 'absolute')
+      stickyBottom.css('top', `${sticky[0].offsetTop}px`)
+      stickyBottom.css('width', `${sticky[0].offsetWidth}px`)
+      stickyPlace.append(stickyBottom)
 
-			const stickyFixed = sticky.clone()
-			// готовим stickyFixed
-			stickyFixed.css('opacity', 0)
-			stickyFixed.css('pointer-events', 'none')
-			stickyFixed.css('position', 'fixed')
-			stickyFixed.css('top', `${state.top}px`)
-			stickyFixed.css('width', `${sticky[0].offsetWidth}px`)
-			stickyPlace.append(stickyFixed)
+      const stickyFixed = sticky.clone()
+      // готовим stickyFixed
+      stickyFixed.css('opacity', 0)
+      stickyFixed.css('pointer-events', 'none')
+      stickyFixed.css('position', 'fixed')
+      stickyFixed.css('top', `${state.top}px`)
+      stickyFixed.css('width', `${sticky[0].offsetWidth}px`)
+      stickyPlace.append(stickyFixed)
 
-			update()
+      update()
 
-			$(window).on('scroll', update)
-			$(window).on('resize', update)
+      $(window).on('scroll', update)
+      $(window).on('resize', update)
 
-			function update() {
+      function update() {
         // console.log('update');
-        
+
         updateBottom()
 
-				// апдейтим размеры (width) копий
-				stickyBottom.css('width', `${sticky[0].offsetWidth}px`)
-				stickyFixed.css('width', `${sticky[0].offsetWidth}px`)
+        // апдейтим размеры (width) копий
+        stickyBottom.css('width', `${sticky[0].offsetWidth}px`)
+        stickyFixed.css('width', `${sticky[0].offsetWidth}px`)
 
-				// апдейтим позицию stickyFixed
-				stickyFixed.css('top', `${state.top}px`)
+        // апдейтим позицию stickyFixed
+        stickyFixed.css('top', `${state.top}px`)
 
-				// апдейтим позицию stickyBottom
-				stickyBottom.css('top', `${sticky[0].offsetTop}px`)
-				const stickyBottomYBottom = getY(stickyBottom) + stickyBottom.height()
-				const bottomY = getDocumentHeight() - state.bottom
-				stickyBottom.css('transform', `
+        // апдейтим позицию stickyBottom
+        stickyBottom.css('top', `${sticky[0].offsetTop}px`)
+        const stickyBottomYBottom = getY(stickyBottom) + stickyBottom.height()
+        const bottomY = getDocumentHeight() - state.bottom
+        stickyBottom.css('transform', `
 					translateY(${bottomY - stickyBottomYBottom}px)	
 				`)
 
-				const scrollY = $(window).scrollTop()
-				if (scrollY < (getY(sticky) - state.top)) {
-					state.mode = 'default'
-				} else if ((scrollY + state.top) < getDocumentHeight() - state.bottom - stickyFixed.height()) {
-					state.mode = 'fixed'
-				} else {
-					state.mode = 'bottom'
-				}
+        const scrollY = $(window).scrollTop()
+        if (scrollY < (getY(sticky) - state.top)) {
+          state.mode = 'default'
+        } else if ((scrollY + state.top) < getDocumentHeight() - state.bottom - stickyFixed.height()) {
+          state.mode = 'fixed'
+        } else {
+          state.mode = 'bottom'
+        }
 
-				switch (state.mode) {
-					case 'fixed':
-						console.log('fixed');
+        switch (state.mode) {
+          case 'fixed':
+            console.log('fixed');
 
-						sticky.css('opacity', 0)
-						sticky.css('pointer-events', 'none')
-						stickyBottom.css('opacity', 0)
-						stickyBottom.css('pointer-events', 'none')
+            sticky.css('opacity', 0)
+            sticky.css('pointer-events', 'none')
+            stickyBottom.css('opacity', 0)
+            stickyBottom.css('pointer-events', 'none')
 
-						stickyFixed.css('opacity', '')
-						stickyFixed.css('pointer-events', '')
-						break
-					case 'bottom':
-						console.log('bottom')
+            stickyFixed.css('opacity', '')
+            stickyFixed.css('pointer-events', '')
+            break
+          case 'bottom':
+            console.log('bottom')
 
-						sticky.css('opacity', 0)
-						sticky.css('pointer-events', 'none')
-						stickyFixed.css('opacity', 0)
-						stickyFixed.css('pointer-events', 'none')
+            sticky.css('opacity', 0)
+            sticky.css('pointer-events', 'none')
+            stickyFixed.css('opacity', 0)
+            stickyFixed.css('pointer-events', 'none')
 
-						stickyBottom.css('opacity', '')
-						stickyBottom.css('pointer-events', '')
-						break
-					default:
-						console.log('default');
+            stickyBottom.css('opacity', '')
+            stickyBottom.css('pointer-events', '')
+            break
+          default:
+            console.log('default');
 
-						stickyFixed.css('opacity', 0)
-						stickyFixed.css('pointer-events', 'none')
-						stickyBottom.css('opacity', '0')
-						stickyBottom.css('pointer-events', 'none')
+            stickyFixed.css('opacity', 0)
+            stickyFixed.css('pointer-events', 'none')
+            stickyBottom.css('opacity', '0')
+            stickyBottom.css('pointer-events', 'none')
 
-						sticky.css('opacity', '')
-						sticky.css('pointer-events', '')
-				}
-			}
+            sticky.css('opacity', '')
+            sticky.css('pointer-events', '')
+        }
+      }
 
-			updateMySticky = update
-		})
-	})	
+      updateMySticky = update
+    })
+  })
 
-	function getDocumentHeight() {
-		return Math.max(
-			document.body.scrollHeight, document.documentElement.scrollHeight,
-			document.body.offsetHeight, document.documentElement.offsetHeight,
-			document.body.clientHeight, document.documentElement.clientHeight
-		)
-	}
+  function getDocumentHeight() {
+    return Math.max(
+      document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight,
+      document.body.clientHeight, document.documentElement.clientHeight
+    )
+  }
 
-	function getViewportHeight() {
-		return document.documentElement.clientHeight
-	}
+  function getViewportHeight() {
+    return document.documentElement.clientHeight
+  }
 
-	function getY(element) {
-		let elem = element
+  function getY(element) {
+    let elem = element
 
-		let y = 0
+    let y = 0
 
-		while (elem.length !== 0 && elem[0] !== document.body) {
-			y += elem[0].offsetTop
+    while (elem.length !== 0 && elem[0] !== document.body) {
+      y += elem[0].offsetTop
 
-			elem = $(elem[0].offsetParent)
-		}
+      elem = $(elem[0].offsetParent)
+    }
 
-		return y
-	}
+    return y
+  }
 }
 
 // spoiler
@@ -1047,7 +1047,7 @@ var updateMySticky
     components.each(function () {
       // elements
       const component = $(this)
-      
+
       const list = component.find(`.${COMPONENT_CLASS}__list`)
       const items = component.find(`.${COMPONENT_CLASS}__item`)
 
@@ -1110,7 +1110,7 @@ var updateMySticky
             const thumbLeft = prevItem.position().left
 
             const thumbWidth = prevItem.width()
-            
+
             thumb.style.cssText = [
               `transform: `,
               `translate(${thumbLeft}px, ${thumbTop}px) `,
@@ -1185,7 +1185,7 @@ var updateMySticky
             const componentWidth = component.width()
 
             const componentLeft = component.offset().left
-            
+
             const prevLeftComponent = prevLeft - componentLeft
             const nextLeftComponent = nextLeft - componentLeft
 
@@ -1232,56 +1232,56 @@ var updateMySticky
       const items = tabs.find('.tabs__item')
       const background = tabs.find('.tabs__background')
 
-      // background
-      ;(() => {
-        function update() {
-          let width = 0
+        // background
+        ; (() => {
+          function update() {
+            let width = 0
 
-          function getWidth(elem) {
-            return elem.offsetLeft + elem.offsetWidth
+            function getWidth(elem) {
+              return elem.offsetLeft + elem.offsetWidth
+            }
+
+            items.each(function () {
+              width = (getWidth(this) > width) ? getWidth(this) : width
+            })
+
+            background.css('width', `${width}px`)
           }
 
-          items.each(function () {
-            width = (getWidth(this) > width) ? getWidth(this) : width
-          })
-
-          background.css('width', `${width}px`)
-        }
-
-        update()
-
-        // скачок шрифта
-        setTimeout(update, 250)
-
-        const fps = 15
-
-        function resize() {
           update()
 
-          setTimeout(() => {
+          // скачок шрифта
+          setTimeout(update, 250)
+
+          const fps = 15
+
+          function resize() {
             update()
 
-            $(window).one('resize', resize)
-          }, 1000 / fps)
-        }
+            setTimeout(() => {
+              update()
 
-        $(window).one('resize', resize)
-      })()
-
-      // change
-      ;(() => {
-        items.on('click', function () {
-          const prev = $('.tabs__item--active')
-          const next = $(this)
-
-          if (prev[0] !== next[0]) {
-            prev.removeClass('tabs__item--active')
-            next.addClass('tabs__item--active')
-
-            animation(prev, next)
+              $(window).one('resize', resize)
+            }, 1000 / fps)
           }
-        })
-      })()
+
+          $(window).one('resize', resize)
+        })()
+
+        // change
+        ; (() => {
+          items.on('click', function () {
+            const prev = $('.tabs__item--active')
+            const next = $(this)
+
+            if (prev[0] !== next[0]) {
+              prev.removeClass('tabs__item--active')
+              next.addClass('tabs__item--active')
+
+              animation(prev, next)
+            }
+          })
+        })()
 
       // static
       var [attach, dettach] = (() => {
@@ -1425,13 +1425,13 @@ var updateMySticky
 // before-after
 {
   $(() => {
-    $.fn.BeerSlider = function ( options ) {
+    $.fn.BeerSlider = function (options) {
       options = options || {};
-      return this.each(function() {
+      return this.each(function () {
         new BeerSlider(this, options);
       });
     };
-    $('.beer-slider').BeerSlider({start: 35});
+    $('.beer-slider').BeerSlider({ start: 35 });
   });
 }
 
@@ -1446,7 +1446,7 @@ var updateMySticky
 
       function update() {
         const indexSlide = $('.swiper-slide');
-        indexSlide.each(function() {
+        indexSlide.each(function () {
           const slide = $(this);
           const slideImg = slide.find('.index__mid-img');
           const slideDesc = slide.find('.index__mid-description');
@@ -1455,30 +1455,30 @@ var updateMySticky
           slideDesc.css('max-width', imgWidth);
         });
       }
-      
+
       function resize() {
-        setTimeout (() => {
+        setTimeout(() => {
           update()
           $(window).one('resize', resize);
         }, 1000 / fps);
       };
-      
+
       $(window).one('resize', resize)
     }
   });
 }
 
 // target section animation (main page, mouse move, linear-gradient)
-;(() => {
+; (() => {
   $(() => {
     const components = $('.index__target')
 
     components.each(function () {
       const component = $(this)
-  
+
       const background = component.find('.index__target-background')
       const text = component.find('.index__target-text')
-  
+
       // data
       const points = [
         {
@@ -1533,20 +1533,20 @@ var updateMySticky
           },
         },
       ]
-   
+
       // options
       const fps = 60
-      
+
       let progress = 0
       const progressDuration = 350
       const progressIncrement = 1 / ((progressDuration / 1000) * fps)
-  
+
       let step = 0
       const stepsCount = points.length
-  
+
       // calc
       const pointsDelta = []
-      
+
       for (let i = 0; i < stepsCount; i++) {
         const pointDelta = {
           colorStart: {
@@ -1565,12 +1565,12 @@ var updateMySticky
             b: points[(i + 1) % stepsCount].textColor.b - points[i].textColor.b,
           },
         }
-  
+
         pointsDelta.push(pointDelta)
       }
 
       console.log(points, pointsDelta);
-  
+
       function update() {
         const currentColorStart = {
           r: points[step].colorStart.r + pointsDelta[step].colorStart.r * progress,
@@ -1587,7 +1587,7 @@ var updateMySticky
           g: points[step].textColor.g + pointsDelta[step].textColor.g * progress,
           b: points[step].textColor.b + pointsDelta[step].textColor.b * progress,
         }
-  
+
         background.css(
           'background',
           `linear-gradient(261.11deg, rgb(${currentColorStart.r}, ${currentColorStart.g}, ${currentColorStart.b}) 8.47%, rgb(${currentColorEnd.r}, ${currentColorEnd.g}, ${currentColorEnd.b}) 93.81%)`
@@ -1597,27 +1597,27 @@ var updateMySticky
           `rgb(${currentTextColor.r}, ${currentTextColor.g}, ${currentTextColor.b})`
         )
       }
-  
+
       function tick() {
         update()
-  
+
         progress += progressIncrement
-  
+
         if (progress > 1) {
           progress = progress - 1
-  
+
           step = (step + 1) % stepsCount
         }
       }
-  
+
       function move() {
         requestAnimationFrame(tick)
-  
+
         setTimeout(() => {
           $(window).one('mousemove', move)
         }, 1000 / fps)
       }
-  
+
       $(window).one('mousemove', move)
     })
   })
@@ -1718,12 +1718,12 @@ var updateMySticky
     const form = $('.form');
 
     if (form.length !== 0) {
-      
+
       const response = $('.response');
       const responseButton = $('.response__btn');
       const formButton = $('.form__btn');
 
-      formButton.on('click', function(event) {
+      formButton.on('click', function (event) {
         event.preventDefault();
         form.addClass('form--hidden');
         response.addClass('response--active');
@@ -1743,27 +1743,14 @@ var updateMySticky
 
 {
   $(() => {
-    const authorTag = $('.articles-authors__item');
-    const authorsList = $('.articles-authors__list');
+    $(window).on('click', event => {
+      const authorTag = $(event.target).closest('.articles-authors__item')
 
-    // authorsList.on('click', function(e) {
-    //   let target = e.target;
-    // }
-
-    authorTag.on('click', function(e) {
-      // console.log(e.target);
-
-          if (authorTag.hasClass('articles-authors__item--active')) {
-            authorTag.removeClass('articles-authors__item--active')
-          } else {
-            authorTag.addClass('articles-authors__item--active');
-            // const currentAuthor = e.target;
-            // currentAuthor.addClass('red');
-          }
-        }
-      );
-    }
-  );
+      if (authorTag.length) {
+        authorTag.toggleClass('articles-authors__item--active')
+      }
+    })
+  });
 };
 
 // Parsley localisation
@@ -1774,31 +1761,31 @@ var updateMySticky
     Parsley.addMessages('ru', {
       defaultMessage: "Некорректное значение",
       type: {
-        email:        "Введите адрес электронной почты",
-        url:          "Введите URL адрес",
-        number:       "Введите число",
-        integer:      "Введите целое число",
-        digits:       "Введите только цифры",
-        alphanum:     "Введите буквенно-цифровое значение"
+        email: "Введите адрес электронной почты",
+        url: "Введите URL адрес",
+        number: "Введите число",
+        integer: "Введите целое число",
+        digits: "Введите только цифры",
+        alphanum: "Введите буквенно-цифровое значение"
       },
-      notblank:       "Это поле должно быть заполнено",
-      required:       "Обязательное поле",
-      pattern:        "Это значение некорректно",
-      min:            "Это значение должно быть не менее чем %s",
-      max:            "Это значение должно быть не более чем %s",
-      range:          "Это значение должно быть от %s до %s",
-      minlength:      "Это значение должно содержать не менее %s символов",
-      maxlength:      "Это значение должно содержать не более %s символов",
-      length:         "Это значение должно содержать от %s до %s символов",
-      mincheck:       "Выберите не менее %s значений",
-      maxcheck:       "Выберите не более %s значений",
-      check:          "Выберите от %s до %s значений",
-      equalto:        "Это значение должно совпадать"
+      notblank: "Это поле должно быть заполнено",
+      required: "Обязательное поле",
+      pattern: "Это значение некорректно",
+      min: "Это значение должно быть не менее чем %s",
+      max: "Это значение должно быть не более чем %s",
+      range: "Это значение должно быть от %s до %s",
+      minlength: "Это значение должно содержать не менее %s символов",
+      maxlength: "Это значение должно содержать не более %s символов",
+      length: "Это значение должно содержать от %s до %s символов",
+      mincheck: "Выберите не менее %s значений",
+      maxcheck: "Выберите не более %s значений",
+      check: "Выберите от %s до %s значений",
+      equalto: "Это значение должно совпадать"
     });
-    
+
     Parsley.setLocale('ru');
 
-    }
+  }
 
   );
 };
