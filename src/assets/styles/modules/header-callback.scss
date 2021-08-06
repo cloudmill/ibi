@@ -156,6 +156,12 @@
 
 .vacancy-modal-btn {
   width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+  display: flex;
+  justify-content: flex-end;
+
+  @media (max-width: $breakpoint - 1px) {
+    justify-content: flex-start;
+  }
 
   .news-subscribe__form-btn {
     margin: 0;

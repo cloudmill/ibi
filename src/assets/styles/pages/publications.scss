@@ -5,8 +5,12 @@
 
   .team-filter {
     padding-left: 0;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     margin-top: 20px;
+
+    &__container {
+      margin-bottom: 0;
+    }
   }
 
   &--mobile {
@@ -27,7 +31,7 @@
   &__title {
     margin-bottom: 20px;
     @media (min-width: $breakpoint) {
-      margin-bottom: 30px;
+      margin-bottom: 15px;
 
       @include fsl(14px);
     }
@@ -44,7 +48,12 @@
   }
 
   &__item {
+    transition: $transition;
+
     @media (min-width: $breakpoint) {
+      border: 1px solid $color-gray-border;
+      padding: 10px;
+
       &:not(:first-child) {
         margin-top: 20px;
       }
@@ -54,6 +63,28 @@
         margin-left: calc(#{$col-gap-m});
       }
     }
+  }
+
+  &__item:hover {
+    background-color: $color-main;
+    color: #fff;
+
+    .article-author__prof {
+      color: #fff;
+    }
+  }
+
+  &__item--active {
+    background-color: $color-main;
+    color: #fff;
+
+    .article-author__prof {
+      color: #fff;
+    }
+  }
+
+  .team-filter__reset {
+    margin-top: 30px;
   }
 }
 
@@ -87,6 +118,7 @@
   }
 
   &__label {
+    transition: $transition;
     text-align: center;
     @include fsl(12px, 140%);
     @media (min-width: $breakpoint) {
@@ -95,6 +127,7 @@
   }
 
   &__name {
+    transition: $transition;
     @include fsl(14px, 140%);
     @media (min-width: $breakpoint) {
       @include fsl(16px);
@@ -102,6 +135,7 @@
   }
 
   &__prof {
+    transition: $transition;
     margin-top: 5px;
     @media (min-width: $breakpoint) {
       margin-top: 10px;

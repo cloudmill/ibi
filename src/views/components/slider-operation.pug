@@ -3,7 +3,7 @@
     .swiper-wrapper
       - for (let i=0; i<9; i++)
         .swiper-slide
-          .operation-card
+          a.operation-card(href="#")
             .operation-card__row
               .operation-card__col
                 .operation-card__image
@@ -28,10 +28,12 @@
                     .tags.operation-card__tags
                       ul.tags__list
                         li.tags__item
-                          a.tags__tag(href='#')
+                          //- <a class="tags__tag" href="">#имплантация</a>
+                          .tags__tag
                             |#имплантация
                         li.tags__item
-                          a.tags__tag(href='#')
+                          //- <a class="tags__tag" href="">#протезирование</a>
+                          .tags__tag
                             |#протезирование
                     h3.operation-card__title
                       |Жильцов Сергей Васильевич
@@ -52,7 +54,7 @@
                         ul.operation-card__links
                           li.operation-card__link
                             .mission__missions-links-container
-                              a.mission__missions-links-link(href='#')
+                              .mission__missions-links-link
                                 +svg-link.mission__missions-links-svg.button-svg
                                 .mission__missions-links-text
                                   span.mission__missions-links-span
