@@ -38,7 +38,7 @@ const BREAKPOINT = 1280;
         };
 
         const btn = $('[data-modal-button]');
-        btn.on('click mouseover', function () {
+        btn.on('click mouseenter', function () {
           const id = $(this).data('modal-button');
           state.change(id);
 
@@ -218,7 +218,7 @@ const BREAKPOINT = 1280;
 
           state.init();
 
-          button_el.on('click mouseover', function () {
+          button_el.on('click mouseenter', function () {
             const tab_clicked_id = $(this).data('tabs-button');
             state.change(tab_clicked_id);
           });
