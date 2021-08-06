@@ -176,13 +176,13 @@
 									<div class="header-modal__inner">
 										<ul class="header-modal__list">
 											<li class="header-modal__list-item">
-												<div class="header-modal__text header-modal__link" data-tabs-id="1" data-tabs-button="1">Диагностика</div>
+												<div class="header-modal__text header-modal__link" data-tabs-id="1" data-tabs-button="1" data-tabs-active="data-tabs-active">Диагностика</div>
 											</li>
 											<li class="header-modal__list-item">
 												<div class="header-modal__text header-modal__link" data-tabs-id="1" data-tabs-button="2">Профилактика</div>
 											</li>
 											<li class="header-modal__list-item">
-												<div class="header-modal__text header-modal__link" data-tabs-id="1" data-tabs-button="3" data-tabs-active="data-tabs-active">Протезирование</div>
+												<div class="header-modal__text header-modal__link" data-tabs-id="1" data-tabs-button="3">Протезирование</div>
 											</li>
 											<li class="header-modal__list-item">
 												<div class="header-modal__text header-modal__link" data-tabs-id="1" data-tabs-button="4">Удаление зубов</div>
@@ -1551,8 +1551,7 @@
 										<div class="index-operations__slider member-operations-slider">
 											<div class="swiper-container swiper-container--slide-height-max" data-slider-id="7" data-slider-prev="9" data-slider-next="10">
 												<div class="swiper-wrapper">
-													<div class="swiper-slide">
-														<div class="operation-card">
+													<div class="swiper-slide"><a class="operation-card" href="#">
 															<div class="operation-card__row">
 																<div class="operation-card__col">
 																	<div class="operation-card__image"><img class="operation-card__img" src="assets/images/index/operation-1.jpeg"></div>
@@ -1613,8 +1612,12 @@
 																			</div>
 																			<div class="tags operation-card__tags">
 																				<ul class="tags__list">
-																					<li class="tags__item"><a class="tags__tag" href="#">#имплантация</a></li>
-																					<li class="tags__item"><a class="tags__tag" href="#">#протезирование</a></li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#имплантация</div>
+																					</li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#протезирование</div>
+																					</li>
 																				</ul>
 																			</div>
 																			<h3 class="operation-card__title">Жильцов Сергей Васильевич</h3>
@@ -1634,13 +1637,15 @@
 																				<div class="operation-card__bottom-col">
 																					<ul class="operation-card__links">
 																						<li class="operation-card__link">
-																							<div class="mission__missions-links-container"><a class="mission__missions-links-link" href="#"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
+																							<div class="mission__missions-links-container">
+																								<div class="mission__missions-links-link"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
 																										<path d="M7.59052 16.4268V37.9107C7.59052 39.5859 8.48573 41.1286 9.9524 41.9709L28.6762 52.7129C30.1334 53.5457 31.9334 53.5457 33.3905 52.7129L52.1143 41.9709C53.5715 41.138 54.4762 39.5859 54.4762 37.9107V16.4268C54.4762 14.7516 53.581 13.2089 52.1143 12.3666L33.3905 1.62464C31.9334 0.791786 30.1334 0.791786 28.6762 1.62464L9.9524 12.3761C8.48573 13.2089 7.59052 14.7611 7.59052 16.4268Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path opacity="0.3" d="M43.3146 0.999999L18.6854 0.999998C16.7649 0.999998 14.9964 2.01196 14.0307 3.66989L1.7161 24.8355C0.761307 26.4826 0.761307 28.5174 1.7161 30.1645L14.0307 51.3301C14.9855 52.9773 16.7649 54 18.6854 54L43.3146 54C45.2351 54 47.0036 52.988 47.9693 51.3301L60.2839 30.1645C61.2387 28.5174 61.2387 26.4826 60.2839 24.8355L47.9584 3.6699C47.0036 2.01196 45.2242 0.999999 43.3146 0.999999Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path fill-rule="evenodd" clip-rule="evenodd" d="M28 21.0557L29.1178 20L36 26.5L29.1178 33L28 31.9443L33.7644 26.5L28 21.0557Z" fill="#303032"></path>
 																									</svg>
 																									<div class="mission__missions-links-text"><span class="mission__missions-links-span">Подробнее</span></div>
-																								</a></div>
+																								</div>
+																							</div>
 																						</li>
 																					</ul>
 																				</div>
@@ -1649,10 +1654,8 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-													<div class="swiper-slide">
-														<div class="operation-card">
+														</a></div>
+													<div class="swiper-slide"><a class="operation-card" href="#">
 															<div class="operation-card__row">
 																<div class="operation-card__col">
 																	<div class="operation-card__image"><img class="operation-card__img" src="assets/images/index/operation-2.jpeg"></div>
@@ -1713,8 +1716,12 @@
 																			</div>
 																			<div class="tags operation-card__tags">
 																				<ul class="tags__list">
-																					<li class="tags__item"><a class="tags__tag" href="#">#имплантация</a></li>
-																					<li class="tags__item"><a class="tags__tag" href="#">#протезирование</a></li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#имплантация</div>
+																					</li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#протезирование</div>
+																					</li>
 																				</ul>
 																			</div>
 																			<h3 class="operation-card__title">Жильцов Сергей Васильевич</h3>
@@ -1734,13 +1741,15 @@
 																				<div class="operation-card__bottom-col">
 																					<ul class="operation-card__links">
 																						<li class="operation-card__link">
-																							<div class="mission__missions-links-container"><a class="mission__missions-links-link" href="#"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
+																							<div class="mission__missions-links-container">
+																								<div class="mission__missions-links-link"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
 																										<path d="M7.59052 16.4268V37.9107C7.59052 39.5859 8.48573 41.1286 9.9524 41.9709L28.6762 52.7129C30.1334 53.5457 31.9334 53.5457 33.3905 52.7129L52.1143 41.9709C53.5715 41.138 54.4762 39.5859 54.4762 37.9107V16.4268C54.4762 14.7516 53.581 13.2089 52.1143 12.3666L33.3905 1.62464C31.9334 0.791786 30.1334 0.791786 28.6762 1.62464L9.9524 12.3761C8.48573 13.2089 7.59052 14.7611 7.59052 16.4268Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path opacity="0.3" d="M43.3146 0.999999L18.6854 0.999998C16.7649 0.999998 14.9964 2.01196 14.0307 3.66989L1.7161 24.8355C0.761307 26.4826 0.761307 28.5174 1.7161 30.1645L14.0307 51.3301C14.9855 52.9773 16.7649 54 18.6854 54L43.3146 54C45.2351 54 47.0036 52.988 47.9693 51.3301L60.2839 30.1645C61.2387 28.5174 61.2387 26.4826 60.2839 24.8355L47.9584 3.6699C47.0036 2.01196 45.2242 0.999999 43.3146 0.999999Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path fill-rule="evenodd" clip-rule="evenodd" d="M28 21.0557L29.1178 20L36 26.5L29.1178 33L28 31.9443L33.7644 26.5L28 21.0557Z" fill="#303032"></path>
 																									</svg>
 																									<div class="mission__missions-links-text"><span class="mission__missions-links-span">Подробнее</span></div>
-																								</a></div>
+																								</div>
+																							</div>
 																						</li>
 																					</ul>
 																				</div>
@@ -1749,10 +1758,8 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-													<div class="swiper-slide">
-														<div class="operation-card">
+														</a></div>
+													<div class="swiper-slide"><a class="operation-card" href="#">
 															<div class="operation-card__row">
 																<div class="operation-card__col">
 																	<div class="operation-card__image"><img class="operation-card__img" src="assets/images/index/operation-1.jpeg"></div>
@@ -1813,8 +1820,12 @@
 																			</div>
 																			<div class="tags operation-card__tags">
 																				<ul class="tags__list">
-																					<li class="tags__item"><a class="tags__tag" href="#">#имплантация</a></li>
-																					<li class="tags__item"><a class="tags__tag" href="#">#протезирование</a></li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#имплантация</div>
+																					</li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#протезирование</div>
+																					</li>
 																				</ul>
 																			</div>
 																			<h3 class="operation-card__title">Жильцов Сергей Васильевич</h3>
@@ -1834,13 +1845,15 @@
 																				<div class="operation-card__bottom-col">
 																					<ul class="operation-card__links">
 																						<li class="operation-card__link">
-																							<div class="mission__missions-links-container"><a class="mission__missions-links-link" href="#"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
+																							<div class="mission__missions-links-container">
+																								<div class="mission__missions-links-link"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
 																										<path d="M7.59052 16.4268V37.9107C7.59052 39.5859 8.48573 41.1286 9.9524 41.9709L28.6762 52.7129C30.1334 53.5457 31.9334 53.5457 33.3905 52.7129L52.1143 41.9709C53.5715 41.138 54.4762 39.5859 54.4762 37.9107V16.4268C54.4762 14.7516 53.581 13.2089 52.1143 12.3666L33.3905 1.62464C31.9334 0.791786 30.1334 0.791786 28.6762 1.62464L9.9524 12.3761C8.48573 13.2089 7.59052 14.7611 7.59052 16.4268Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path opacity="0.3" d="M43.3146 0.999999L18.6854 0.999998C16.7649 0.999998 14.9964 2.01196 14.0307 3.66989L1.7161 24.8355C0.761307 26.4826 0.761307 28.5174 1.7161 30.1645L14.0307 51.3301C14.9855 52.9773 16.7649 54 18.6854 54L43.3146 54C45.2351 54 47.0036 52.988 47.9693 51.3301L60.2839 30.1645C61.2387 28.5174 61.2387 26.4826 60.2839 24.8355L47.9584 3.6699C47.0036 2.01196 45.2242 0.999999 43.3146 0.999999Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path fill-rule="evenodd" clip-rule="evenodd" d="M28 21.0557L29.1178 20L36 26.5L29.1178 33L28 31.9443L33.7644 26.5L28 21.0557Z" fill="#303032"></path>
 																									</svg>
 																									<div class="mission__missions-links-text"><span class="mission__missions-links-span">Подробнее</span></div>
-																								</a></div>
+																								</div>
+																							</div>
 																						</li>
 																					</ul>
 																				</div>
@@ -1849,10 +1862,8 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-													<div class="swiper-slide">
-														<div class="operation-card">
+														</a></div>
+													<div class="swiper-slide"><a class="operation-card" href="#">
 															<div class="operation-card__row">
 																<div class="operation-card__col">
 																	<div class="operation-card__image"><img class="operation-card__img" src="assets/images/index/operation-2.jpeg"></div>
@@ -1913,8 +1924,12 @@
 																			</div>
 																			<div class="tags operation-card__tags">
 																				<ul class="tags__list">
-																					<li class="tags__item"><a class="tags__tag" href="#">#имплантация</a></li>
-																					<li class="tags__item"><a class="tags__tag" href="#">#протезирование</a></li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#имплантация</div>
+																					</li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#протезирование</div>
+																					</li>
 																				</ul>
 																			</div>
 																			<h3 class="operation-card__title">Жильцов Сергей Васильевич</h3>
@@ -1934,13 +1949,15 @@
 																				<div class="operation-card__bottom-col">
 																					<ul class="operation-card__links">
 																						<li class="operation-card__link">
-																							<div class="mission__missions-links-container"><a class="mission__missions-links-link" href="#"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
+																							<div class="mission__missions-links-container">
+																								<div class="mission__missions-links-link"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
 																										<path d="M7.59052 16.4268V37.9107C7.59052 39.5859 8.48573 41.1286 9.9524 41.9709L28.6762 52.7129C30.1334 53.5457 31.9334 53.5457 33.3905 52.7129L52.1143 41.9709C53.5715 41.138 54.4762 39.5859 54.4762 37.9107V16.4268C54.4762 14.7516 53.581 13.2089 52.1143 12.3666L33.3905 1.62464C31.9334 0.791786 30.1334 0.791786 28.6762 1.62464L9.9524 12.3761C8.48573 13.2089 7.59052 14.7611 7.59052 16.4268Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path opacity="0.3" d="M43.3146 0.999999L18.6854 0.999998C16.7649 0.999998 14.9964 2.01196 14.0307 3.66989L1.7161 24.8355C0.761307 26.4826 0.761307 28.5174 1.7161 30.1645L14.0307 51.3301C14.9855 52.9773 16.7649 54 18.6854 54L43.3146 54C45.2351 54 47.0036 52.988 47.9693 51.3301L60.2839 30.1645C61.2387 28.5174 61.2387 26.4826 60.2839 24.8355L47.9584 3.6699C47.0036 2.01196 45.2242 0.999999 43.3146 0.999999Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path fill-rule="evenodd" clip-rule="evenodd" d="M28 21.0557L29.1178 20L36 26.5L29.1178 33L28 31.9443L33.7644 26.5L28 21.0557Z" fill="#303032"></path>
 																									</svg>
 																									<div class="mission__missions-links-text"><span class="mission__missions-links-span">Подробнее</span></div>
-																								</a></div>
+																								</div>
+																							</div>
 																						</li>
 																					</ul>
 																				</div>
@@ -1949,10 +1966,8 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-													<div class="swiper-slide">
-														<div class="operation-card">
+														</a></div>
+													<div class="swiper-slide"><a class="operation-card" href="#">
 															<div class="operation-card__row">
 																<div class="operation-card__col">
 																	<div class="operation-card__image"><img class="operation-card__img" src="assets/images/index/operation-1.jpeg"></div>
@@ -2013,8 +2028,12 @@
 																			</div>
 																			<div class="tags operation-card__tags">
 																				<ul class="tags__list">
-																					<li class="tags__item"><a class="tags__tag" href="#">#имплантация</a></li>
-																					<li class="tags__item"><a class="tags__tag" href="#">#протезирование</a></li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#имплантация</div>
+																					</li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#протезирование</div>
+																					</li>
 																				</ul>
 																			</div>
 																			<h3 class="operation-card__title">Жильцов Сергей Васильевич</h3>
@@ -2034,13 +2053,15 @@
 																				<div class="operation-card__bottom-col">
 																					<ul class="operation-card__links">
 																						<li class="operation-card__link">
-																							<div class="mission__missions-links-container"><a class="mission__missions-links-link" href="#"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
+																							<div class="mission__missions-links-container">
+																								<div class="mission__missions-links-link"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
 																										<path d="M7.59052 16.4268V37.9107C7.59052 39.5859 8.48573 41.1286 9.9524 41.9709L28.6762 52.7129C30.1334 53.5457 31.9334 53.5457 33.3905 52.7129L52.1143 41.9709C53.5715 41.138 54.4762 39.5859 54.4762 37.9107V16.4268C54.4762 14.7516 53.581 13.2089 52.1143 12.3666L33.3905 1.62464C31.9334 0.791786 30.1334 0.791786 28.6762 1.62464L9.9524 12.3761C8.48573 13.2089 7.59052 14.7611 7.59052 16.4268Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path opacity="0.3" d="M43.3146 0.999999L18.6854 0.999998C16.7649 0.999998 14.9964 2.01196 14.0307 3.66989L1.7161 24.8355C0.761307 26.4826 0.761307 28.5174 1.7161 30.1645L14.0307 51.3301C14.9855 52.9773 16.7649 54 18.6854 54L43.3146 54C45.2351 54 47.0036 52.988 47.9693 51.3301L60.2839 30.1645C61.2387 28.5174 61.2387 26.4826 60.2839 24.8355L47.9584 3.6699C47.0036 2.01196 45.2242 0.999999 43.3146 0.999999Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path fill-rule="evenodd" clip-rule="evenodd" d="M28 21.0557L29.1178 20L36 26.5L29.1178 33L28 31.9443L33.7644 26.5L28 21.0557Z" fill="#303032"></path>
 																									</svg>
 																									<div class="mission__missions-links-text"><span class="mission__missions-links-span">Подробнее</span></div>
-																								</a></div>
+																								</div>
+																							</div>
 																						</li>
 																					</ul>
 																				</div>
@@ -2049,10 +2070,8 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-													<div class="swiper-slide">
-														<div class="operation-card">
+														</a></div>
+													<div class="swiper-slide"><a class="operation-card" href="#">
 															<div class="operation-card__row">
 																<div class="operation-card__col">
 																	<div class="operation-card__image"><img class="operation-card__img" src="assets/images/index/operation-2.jpeg"></div>
@@ -2113,8 +2132,12 @@
 																			</div>
 																			<div class="tags operation-card__tags">
 																				<ul class="tags__list">
-																					<li class="tags__item"><a class="tags__tag" href="#">#имплантация</a></li>
-																					<li class="tags__item"><a class="tags__tag" href="#">#протезирование</a></li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#имплантация</div>
+																					</li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#протезирование</div>
+																					</li>
 																				</ul>
 																			</div>
 																			<h3 class="operation-card__title">Жильцов Сергей Васильевич</h3>
@@ -2134,13 +2157,15 @@
 																				<div class="operation-card__bottom-col">
 																					<ul class="operation-card__links">
 																						<li class="operation-card__link">
-																							<div class="mission__missions-links-container"><a class="mission__missions-links-link" href="#"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
+																							<div class="mission__missions-links-container">
+																								<div class="mission__missions-links-link"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
 																										<path d="M7.59052 16.4268V37.9107C7.59052 39.5859 8.48573 41.1286 9.9524 41.9709L28.6762 52.7129C30.1334 53.5457 31.9334 53.5457 33.3905 52.7129L52.1143 41.9709C53.5715 41.138 54.4762 39.5859 54.4762 37.9107V16.4268C54.4762 14.7516 53.581 13.2089 52.1143 12.3666L33.3905 1.62464C31.9334 0.791786 30.1334 0.791786 28.6762 1.62464L9.9524 12.3761C8.48573 13.2089 7.59052 14.7611 7.59052 16.4268Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path opacity="0.3" d="M43.3146 0.999999L18.6854 0.999998C16.7649 0.999998 14.9964 2.01196 14.0307 3.66989L1.7161 24.8355C0.761307 26.4826 0.761307 28.5174 1.7161 30.1645L14.0307 51.3301C14.9855 52.9773 16.7649 54 18.6854 54L43.3146 54C45.2351 54 47.0036 52.988 47.9693 51.3301L60.2839 30.1645C61.2387 28.5174 61.2387 26.4826 60.2839 24.8355L47.9584 3.6699C47.0036 2.01196 45.2242 0.999999 43.3146 0.999999Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path fill-rule="evenodd" clip-rule="evenodd" d="M28 21.0557L29.1178 20L36 26.5L29.1178 33L28 31.9443L33.7644 26.5L28 21.0557Z" fill="#303032"></path>
 																									</svg>
 																									<div class="mission__missions-links-text"><span class="mission__missions-links-span">Подробнее</span></div>
-																								</a></div>
+																								</div>
+																							</div>
 																						</li>
 																					</ul>
 																				</div>
@@ -2149,10 +2174,8 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-													<div class="swiper-slide">
-														<div class="operation-card">
+														</a></div>
+													<div class="swiper-slide"><a class="operation-card" href="#">
 															<div class="operation-card__row">
 																<div class="operation-card__col">
 																	<div class="operation-card__image"><img class="operation-card__img" src="assets/images/index/operation-1.jpeg"></div>
@@ -2213,8 +2236,12 @@
 																			</div>
 																			<div class="tags operation-card__tags">
 																				<ul class="tags__list">
-																					<li class="tags__item"><a class="tags__tag" href="#">#имплантация</a></li>
-																					<li class="tags__item"><a class="tags__tag" href="#">#протезирование</a></li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#имплантация</div>
+																					</li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#протезирование</div>
+																					</li>
 																				</ul>
 																			</div>
 																			<h3 class="operation-card__title">Жильцов Сергей Васильевич</h3>
@@ -2234,13 +2261,15 @@
 																				<div class="operation-card__bottom-col">
 																					<ul class="operation-card__links">
 																						<li class="operation-card__link">
-																							<div class="mission__missions-links-container"><a class="mission__missions-links-link" href="#"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
+																							<div class="mission__missions-links-container">
+																								<div class="mission__missions-links-link"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
 																										<path d="M7.59052 16.4268V37.9107C7.59052 39.5859 8.48573 41.1286 9.9524 41.9709L28.6762 52.7129C30.1334 53.5457 31.9334 53.5457 33.3905 52.7129L52.1143 41.9709C53.5715 41.138 54.4762 39.5859 54.4762 37.9107V16.4268C54.4762 14.7516 53.581 13.2089 52.1143 12.3666L33.3905 1.62464C31.9334 0.791786 30.1334 0.791786 28.6762 1.62464L9.9524 12.3761C8.48573 13.2089 7.59052 14.7611 7.59052 16.4268Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path opacity="0.3" d="M43.3146 0.999999L18.6854 0.999998C16.7649 0.999998 14.9964 2.01196 14.0307 3.66989L1.7161 24.8355C0.761307 26.4826 0.761307 28.5174 1.7161 30.1645L14.0307 51.3301C14.9855 52.9773 16.7649 54 18.6854 54L43.3146 54C45.2351 54 47.0036 52.988 47.9693 51.3301L60.2839 30.1645C61.2387 28.5174 61.2387 26.4826 60.2839 24.8355L47.9584 3.6699C47.0036 2.01196 45.2242 0.999999 43.3146 0.999999Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path fill-rule="evenodd" clip-rule="evenodd" d="M28 21.0557L29.1178 20L36 26.5L29.1178 33L28 31.9443L33.7644 26.5L28 21.0557Z" fill="#303032"></path>
 																									</svg>
 																									<div class="mission__missions-links-text"><span class="mission__missions-links-span">Подробнее</span></div>
-																								</a></div>
+																								</div>
+																							</div>
 																						</li>
 																					</ul>
 																				</div>
@@ -2249,10 +2278,8 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-													<div class="swiper-slide">
-														<div class="operation-card">
+														</a></div>
+													<div class="swiper-slide"><a class="operation-card" href="#">
 															<div class="operation-card__row">
 																<div class="operation-card__col">
 																	<div class="operation-card__image"><img class="operation-card__img" src="assets/images/index/operation-2.jpeg"></div>
@@ -2313,8 +2340,12 @@
 																			</div>
 																			<div class="tags operation-card__tags">
 																				<ul class="tags__list">
-																					<li class="tags__item"><a class="tags__tag" href="#">#имплантация</a></li>
-																					<li class="tags__item"><a class="tags__tag" href="#">#протезирование</a></li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#имплантация</div>
+																					</li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#протезирование</div>
+																					</li>
 																				</ul>
 																			</div>
 																			<h3 class="operation-card__title">Жильцов Сергей Васильевич</h3>
@@ -2334,13 +2365,15 @@
 																				<div class="operation-card__bottom-col">
 																					<ul class="operation-card__links">
 																						<li class="operation-card__link">
-																							<div class="mission__missions-links-container"><a class="mission__missions-links-link" href="#"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
+																							<div class="mission__missions-links-container">
+																								<div class="mission__missions-links-link"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
 																										<path d="M7.59052 16.4268V37.9107C7.59052 39.5859 8.48573 41.1286 9.9524 41.9709L28.6762 52.7129C30.1334 53.5457 31.9334 53.5457 33.3905 52.7129L52.1143 41.9709C53.5715 41.138 54.4762 39.5859 54.4762 37.9107V16.4268C54.4762 14.7516 53.581 13.2089 52.1143 12.3666L33.3905 1.62464C31.9334 0.791786 30.1334 0.791786 28.6762 1.62464L9.9524 12.3761C8.48573 13.2089 7.59052 14.7611 7.59052 16.4268Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path opacity="0.3" d="M43.3146 0.999999L18.6854 0.999998C16.7649 0.999998 14.9964 2.01196 14.0307 3.66989L1.7161 24.8355C0.761307 26.4826 0.761307 28.5174 1.7161 30.1645L14.0307 51.3301C14.9855 52.9773 16.7649 54 18.6854 54L43.3146 54C45.2351 54 47.0036 52.988 47.9693 51.3301L60.2839 30.1645C61.2387 28.5174 61.2387 26.4826 60.2839 24.8355L47.9584 3.6699C47.0036 2.01196 45.2242 0.999999 43.3146 0.999999Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path fill-rule="evenodd" clip-rule="evenodd" d="M28 21.0557L29.1178 20L36 26.5L29.1178 33L28 31.9443L33.7644 26.5L28 21.0557Z" fill="#303032"></path>
 																									</svg>
 																									<div class="mission__missions-links-text"><span class="mission__missions-links-span">Подробнее</span></div>
-																								</a></div>
+																								</div>
+																							</div>
 																						</li>
 																					</ul>
 																				</div>
@@ -2349,10 +2382,8 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-													<div class="swiper-slide">
-														<div class="operation-card">
+														</a></div>
+													<div class="swiper-slide"><a class="operation-card" href="#">
 															<div class="operation-card__row">
 																<div class="operation-card__col">
 																	<div class="operation-card__image"><img class="operation-card__img" src="assets/images/index/operation-1.jpeg"></div>
@@ -2413,8 +2444,12 @@
 																			</div>
 																			<div class="tags operation-card__tags">
 																				<ul class="tags__list">
-																					<li class="tags__item"><a class="tags__tag" href="#">#имплантация</a></li>
-																					<li class="tags__item"><a class="tags__tag" href="#">#протезирование</a></li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#имплантация</div>
+																					</li>
+																					<li class="tags__item">
+																						<div class="tags__tag">#протезирование</div>
+																					</li>
 																				</ul>
 																			</div>
 																			<h3 class="operation-card__title">Жильцов Сергей Васильевич</h3>
@@ -2434,13 +2469,15 @@
 																				<div class="operation-card__bottom-col">
 																					<ul class="operation-card__links">
 																						<li class="operation-card__link">
-																							<div class="mission__missions-links-container"><a class="mission__missions-links-link" href="#"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
+																							<div class="mission__missions-links-container">
+																								<div class="mission__missions-links-link"><svg class="mission__missions-links-svg button-svg" xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
 																										<path d="M7.59052 16.4268V37.9107C7.59052 39.5859 8.48573 41.1286 9.9524 41.9709L28.6762 52.7129C30.1334 53.5457 31.9334 53.5457 33.3905 52.7129L52.1143 41.9709C53.5715 41.138 54.4762 39.5859 54.4762 37.9107V16.4268C54.4762 14.7516 53.581 13.2089 52.1143 12.3666L33.3905 1.62464C31.9334 0.791786 30.1334 0.791786 28.6762 1.62464L9.9524 12.3761C8.48573 13.2089 7.59052 14.7611 7.59052 16.4268Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path opacity="0.3" d="M43.3146 0.999999L18.6854 0.999998C16.7649 0.999998 14.9964 2.01196 14.0307 3.66989L1.7161 24.8355C0.761307 26.4826 0.761307 28.5174 1.7161 30.1645L14.0307 51.3301C14.9855 52.9773 16.7649 54 18.6854 54L43.3146 54C45.2351 54 47.0036 52.988 47.9693 51.3301L60.2839 30.1645C61.2387 28.5174 61.2387 26.4826 60.2839 24.8355L47.9584 3.6699C47.0036 2.01196 45.2242 0.999999 43.3146 0.999999Z" stroke="#28A5B1" stroke-miterlimit="10"></path>
 																										<path fill-rule="evenodd" clip-rule="evenodd" d="M28 21.0557L29.1178 20L36 26.5L29.1178 33L28 31.9443L33.7644 26.5L28 21.0557Z" fill="#303032"></path>
 																									</svg>
 																									<div class="mission__missions-links-text"><span class="mission__missions-links-span">Подробнее</span></div>
-																								</a></div>
+																								</div>
+																							</div>
 																						</li>
 																					</ul>
 																				</div>
@@ -2449,8 +2486,7 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
+														</a></div>
 												</div>
 											</div>
 											<div class="operation-card__link operation-card__link--mobile">
