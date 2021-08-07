@@ -110,6 +110,9 @@
         width: 100%;
       }
       @media (max-width: $breakpoint - 1px) {
+        padding-left: calc(#{$col-width-m} - 40px);
+      }
+      @media (max-width: $breakpoint-m - 1px) {
         padding-left: calc(#{$col-width-m});
       }
     }
