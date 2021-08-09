@@ -358,6 +358,7 @@
 
     &-btn {
         @include f-1();
+        font-weight: 400;
         background: transparent;
         border: 1px solid #CCE3E6;
         border-radius: 8px;
