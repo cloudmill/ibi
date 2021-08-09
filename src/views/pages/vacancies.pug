@@ -33,9 +33,9 @@ block content
         .row__col
           .section__inner.section__inner--top
             .container
-              h1.title
+              h1.title.page-title-hidden
                 |Вакансии
-              .mission__spoiler.news-spoiler
+              .mission__spoiler.news-spoiler.spoiler-to-title
                 .mission__spoiler-button.news-spoiler__button
                   h5.mission__spoiler-title
                     |Вакансии
@@ -55,7 +55,7 @@ block content
                   |#{' '} — это ежедневный челлендж и непрерывное развитие 
                   //- .vacancies-tagline-img
                   img.index__paragraph-img(src='assets/images/test.jpg')
-                .about__image
+                .about__image.vacancies__image
                   .about__image-background(style='background-image: url("assets/images/vacancy-1.jpg")')
                     +hexagon-svg('about__image-svg')
                     +hexagon-svg('about__image-svg')
@@ -79,7 +79,7 @@ block content
                 img.vacancies-achievements__img(src="assets/images/vacancy-4.jpg", alt="")
                 .vacancies-achievements__txt Лидер ниши, участвуем в международных конференциях
             //- .section__block
-            .mission__missions-text.mission__missions-text--max-width--730.vacancies-achievements__tagline
+            .mission__missions-text.vacancies-achievements__tagline
               |Именно персонал ИБИ формирует 
               span.mission__missions-text-highlight
                 | репутацию компании 

@@ -3,6 +3,11 @@
 
   @media (max-width: $breakpoint - 1px) {
     margin-bottom: 60px;
+    font-size: 20px;
+  }
+
+  @media (max-width: $breakpoint-m - 1px) {
+    font-size: 18px;
   }
 }
 
@@ -46,10 +51,12 @@
 
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      padding-left: 40px;
     }
 
     @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
+      padding-left: 0;
     }
 
     &-highlight {
@@ -87,6 +94,10 @@
   justify-content: space-between;
   // width: 100%;
 
+  @media (max-width: $breakpoint - 1px) {
+    justify-content: flex-start;
+  }
+
   @media (max-width: 400px) {
     margin-bottom: 100px;
   }
@@ -96,7 +107,9 @@
     position: relative;
 
     @media (max-width: $breakpoint - 1px) {
-      width: calc(50% - 10px);
+      // width: calc(50% - 10px);
+      width: 40%;
+      margin-left: 40px;
     }
 
     @media (max-width: $breakpoint-m - 1px) {
@@ -113,6 +126,11 @@
   }
 
   &__box:nth-child(2n) {
+    @media (max-width: $breakpoint - 1px) {
+      .spec-implant-hexagon__txt {
+        margin-right: -20%;
+      }
+    }
     @media (max-width: $breakpoint-m - 1px) {
       margin-left: calc(#{$col-part-m});
     }
@@ -125,12 +143,12 @@
     margin: 15% 0 0 80px;
 
     @media (max-width: $breakpoint - 1px) {
-      margin: 20% 0 0 80px;
+      margin: 20% 0 0 10px;
     }
 
-    @media (max-width: $breakpoint-m - 1px) {
-      margin: 25% 0 0 10px;
-    }
+    // @media (max-width: $breakpoint-m - 1px) {
+    //   margin: 25% 0 0 10px;
+    // }
 
     &-ttl {
       margin-bottom: 20px;
@@ -165,6 +183,10 @@
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
 
     @media (max-width: $breakpoint - 1px) {
+      width: 100%;
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
     }
   }
@@ -421,6 +443,7 @@
       @media (max-width: $breakpoint - 1px) {
         font-size: 14px;
         line-height: 160%;
+        padding-left: 0;
       }
 
       @media (max-width: $breakpoint-m - 1px) {
@@ -434,7 +457,10 @@
     margin-top: -15%;
 
     @media (max-width: $breakpoint - 1px) {
-      margin-top: -40%;
+      margin-top: -15%;
+    }
+    @media (max-width: 800px) {
+      margin-top: -25%;
     }
 
     @media (max-width: $breakpoint-m - 1px) {
@@ -480,13 +506,13 @@
       margin-bottom: 80px;
 
       @media (max-width: $breakpoint - 1px) {
-        width: 100%;
+        width: calc(#{$col-part-m} * 2);
         font-size: 18px;
         margin-bottom: 40px;
       }
-      // @media (max-width: $breakpoint-m) {
-        
-      // }
+      @media (max-width: $breakpoint-m - 1px) {
+        width: 100%;
+      }
     }
 
     &-blockquote {
@@ -502,13 +528,15 @@
       line-height: 120%;
 
       @media (max-width: $breakpoint - 1px) {
-        width: 100%;
+        width: calc(#{$col-part-m} * 2);
         font-size: 14px;
         margin-bottom: 60px;
+        margin-left: calc(#{$col-part-m});
+        padding-left: 20px;
       }
 
-      @media (max-width: $breakpoint - 1px) {  
-        padding-left: 20px;
+      @media (max-width: $breakpoint-m - 1px) {
+        width: 100%;
       }
     }
 
@@ -532,12 +560,14 @@
         // flex:none;
 
         @media (max-width: $breakpoint - 1px) {
-          width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
-          margin-right: calc(#{$col-gap-m});
+          width: calc(#{$col-part-m} - #{$col-gap-m});
+          margin: 0 calc(#{$col-gap-m}) 40px calc(#{$col-part-m});
         }
 
-        @media (max-width: $breakpoint - 1px) {
-          margin-bottom: 40px;
+        @media (max-width: $breakpoint-m - 1px) {
+          width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+          margin-right: 0;
+          margin-left: 0;
         }
       }
 

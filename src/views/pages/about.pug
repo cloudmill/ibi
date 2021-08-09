@@ -26,22 +26,21 @@ block content
         .row__col
           .section__inner.section__inner--top
             .container
-              h1.title
+              h1.title.page-title-hidden
                 |О нас
-              .mission
-                .mission__spoiler.news-spoiler
-                  .mission__spoiler-button.news-spoiler__button
-                    h5.mission__spoiler-title
-                      |О нас
-                    .news-spoiler__image
-                      +arrow-svg('header__drop-svg')
-                  .mission__spoiler-drop.news-spoiler__drop
-                    nav.news-spoiler__nav
-                      ul
-                        each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
-                          li.news-spoiler__nav-item
-                            a.nav__link(href='#')
-                              |#{item}
+              .mission__spoiler.news-spoiler.spoiler-to-title
+                .mission__spoiler-button.news-spoiler__button
+                  h5.mission__spoiler-title
+                    |О нас
+                  .news-spoiler__image
+                    +arrow-svg('header__drop-svg')
+                .mission__spoiler-drop.news-spoiler__drop
+                  nav.news-spoiler__nav
+                    ul
+                      each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
+                        li.news-spoiler__nav-item
+                          a.nav__link(href='#')
+                            |#{item}
               .section__block.section__block--small
                 .about__image
                   .about__image-background(style='background-image: url("assets/images/about-image.jpeg")')
@@ -62,7 +61,7 @@ block content
                     p.about__info-text 
                       |На сегодняшний день центр Институт Базальной Имплантации является лидером в узкоспециализированном применении методики и работе по развитию данного метода. Постоянное совершенствование, владение передовой и новейшей информацией обеспечивает высокие и надежные результаты лечения наших пациентов, соответствуя их ожиданиям от действительно современной медицины и стоматологии.
               .section__block.about__to-front
-                ul.about__list
+                ul.about__list.about-list-adaptive
                   li.about__list-item
                     .about__list-row
                       .about__list-col

@@ -6,6 +6,17 @@
   $grid-gap-d: 40px;
 
   // features list
+  &-list-adaptive {
+    @media (min-width: $breakpoint-m) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    @media (min-width: $breakpoint) {
+      display: block;
+    }
+  }
+
   &__list {
 
   }
@@ -13,15 +24,25 @@
     padding-top: 10px;
     @media (min-width: $breakpoint) {
       padding-top: 40px;
+      width: auto;
+    }
+
+    @media (min-width: $breakpoint-m) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
     }
 
     border-top: 1px solid $color-gray-border;
 
     &:not(:first-child) {
       margin-top: 40px;
+      @media (min-width: $breakpoint-m) {
+        margin-top: 0;
+        margin-bottom: 40px;
+      }
       @media (min-width: $breakpoint) {
         // margin-top: 120px;
         margin-top: 80px;
+        margin-bottom: 0;
       }
     }
   }
@@ -84,22 +105,35 @@
   }
   &__info-row {
     margin-top: 40px;
-    @media (min-width: $breakpoint) {
-      margin-top: 60px;
 
+    @media (min-width: $breakpoint-m) {
       display: flex;
       align-items: stretch;
       justify-content: space-between;
     }
+
+    @media (min-width: $breakpoint) {
+      margin-top: 60px;
+    }
   }
   &__info-col {
     &:nth-child(1) {
+
+      @media (min-width: $breakpoint-m) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
+
       @media (min-width: $breakpoint) {
         padding-left: calc(#{$col-part-d});
         width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
       }
     }
     &:nth-child(2) {
+
+      @media (min-width: $breakpoint-m) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
+
       @media (min-width: $breakpoint) {
         width: calc(#{$col-part-d} * 4 - #{$col-gap-d})
       }
@@ -290,7 +324,7 @@
     }
   }
   &__download-row {
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint-m) {
       display: flex;
       align-items: stretch;
     }
@@ -302,6 +336,9 @@
     flex-shrink: 0;
 
     &:nth-child(1) {
+      @media (min-width: $breakpoint-m) {
+        width: 50%;
+      }
       @media (min-width: $breakpoint) {
         width: calc(#{$col-part-d} * 7 + 1px);
       }
@@ -309,11 +346,15 @@
     &:nth-child(2) {
       z-index: 1;
 
-      @media (max-width: $breakpoint - 1px) {
+      @media (max-width: $breakpoint-m - 1px) {
         margin-top: -1px;
       }
-      @media (min-width: $breakpoint) {
+      @media (min-width: $breakpoint-m) {
+        width: 50%;
         margin-left: -1px;
+      }
+      @media (min-width: $breakpoint) {
+        
         width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
       }
     }

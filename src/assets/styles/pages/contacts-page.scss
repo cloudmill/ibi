@@ -14,6 +14,12 @@
     &:not(:last-child) {
       margin-bottom: 40px;
     }
+    &:nth-child(1) {
+      margin-bottom: 0;
+    }
+    &:nth-child(2) {
+      margin-bottom: 0;
+    }
 
     &-ttl {
       width: calc(#{$col-part-d} * 2);
@@ -21,12 +27,13 @@
 
       @media (max-width: $breakpoint - 1px) {
         width: calc(#{$col-width-m});
+        font-size: 14px;
       }
 
       @media (max-width: $breakpoint-m - 1px) {
         width: auto;
         margin-bottom: 10px;
-        font-size: 14px;
+        
       }
 
       &--link {
@@ -41,7 +48,7 @@
       font-size: 50px;
       color: $color-main;
 
-      @media (max-width: $breakpoint-m - 1px) {
+      @media (max-width: $breakpoint - 1px) {
         font-size: 22px;
       }
     }
@@ -79,7 +86,7 @@
   &__weekdays, &__weekend {
     font-size: 16px;
 
-    @media (max-width: $breakpoint-m - 1px) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 12px;
     }
   }
@@ -87,7 +94,7 @@
   &__address {
     font-size: 22px;
 
-    @media (max-width: $breakpoint-m - 1px) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 16px;
     }
   }
