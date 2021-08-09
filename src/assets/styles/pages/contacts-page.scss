@@ -15,7 +15,9 @@
       margin-bottom: 40px;
     }
     &:nth-child(1) {
-      margin-bottom: 0;
+      @media (max-width: $breakpoint - 1px) {
+        margin-bottom: 0;
+      }
     }
     &:nth-child(2) {
       margin-bottom: 0;
@@ -36,17 +38,18 @@
         
       }
 
-      &--link {
-        padding-top: 13px;
-        @media (max-width: $breakpoint-m - 1px) {
-          padding-top: 0;
-        }
-      }
+      // &--link {
+      //   padding-top: 13px;
+      //   @media (max-width: $breakpoint-m - 1px) {
+      //     padding-top: 0;
+      //   }
+      // }
     }
 
     &-link {
       font-size: 50px;
       color: $color-main;
+      line-height: 100%;
 
       @media (max-width: $breakpoint - 1px) {
         font-size: 22px;
