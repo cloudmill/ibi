@@ -1106,6 +1106,9 @@
   &__list {
     margin-top: 40px;
     display: flex;
+
+    @include scrollbar-hidden();
+
     @media (max-width: $breakpoint - 1px) {
       width: calc(100% + 20px);
       overflow-x: scroll;
