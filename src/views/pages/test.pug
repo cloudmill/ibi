@@ -4,12 +4,38 @@ block header
 block footer
 
 block content
-  each i in [1]
-    .tabs
-      .tabs__container
-        .tabs__background
-        .tabs__list
-          - for (let i = 0; i < 30; i++)
-            .tabs__item(class = (i === 15) ? 'tabs__item--active' : '')
-              |test
+  //- each i in [1]
+  //-   .tabs
+  //-     .tabs__container
+  //-       .tabs__background
+  //-       .tabs__list
+  //-         - for (let i = 0; i < 30; i++)
+  //-           .tabs__item(class = (i === 15) ? 'tabs__item--active' : '')
+  //-             |test
+  section.index__section.index__section--top
+    
+    .row
+      .row__col
+      .row__col
+        .container
+          .calc
+            .calc__top
+              .calc__ttl Нажмите на зуб несколько раз, чтобы выбрать степень разрушения
+              .calc__instruction
+                img(src="assets/images/calc/instruction-1.png", alt="")
+                img(src="assets/images/calc/instruction-2.png", alt="")
+            .calc__teeth
+              .calc__left-col
+                .calc__bracket
+                .calc__txt Правая часть
+              .calc__teeth-box
+                img(src="assets/images/calc/teeth.png", alt="")
+                //- .calc__teeth-row
+                //- .calc__teeth-row
+              .calc__right-col
+                .calc__txt Левая часть
+                .calc__bracket
+            //- ul.calc__list
+            //-   li
+
 
