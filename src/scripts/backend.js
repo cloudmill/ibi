@@ -9,7 +9,69 @@ $(function () {
   publicFilter();
   showMore();
   servSectionFilterTypes();
+  forms();
 });
+
+function forms() {
+  $(document).on("submit", "[data-type=js-form]", function (e) {
+    console.log("form feedback");
+    e.preventDefault();
+
+    let form = $(this),
+      formResponse = form.siblings("[data-type=form-response]"),
+      url = form.attr("data-url"),
+      eventType = form.attr("data-event-type"),
+      contentType = "application/x-www-form-urlencoded; charset=UTF-8",
+      processData = true,
+      data = {};
+
+    console.log(eventType);
+
+    if (eventType == 'FILE') {
+
+      console.log('- if FILE -');
+
+      data = new FormData();
+      contentType = false;
+      processData = false;
+
+      let file = form.find("[data-type=file]"),
+        fileData = file.prop('files')[0];
+
+      console.log(fileData);
+
+      data.append("file", fileData);
+    }
+
+    form.find("[data-type=get-field]").each(function () {
+      let field = $(this).attr("data-uf"),
+        val = $(this).val();
+
+      if (eventType == 'FILE') {
+        data.append(field, val);
+      } else {
+        data[field] = val;
+      }
+    });
+
+    console.log(data);
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      dataType: "json",
+      contentType: contentType,
+      processData: processData,
+      data: data,
+      success: function (r) {
+        if (r.success === true) {
+          form.addClass("form--hidden");
+          formResponse.addClass("response--active");
+        }
+      },
+    });
+  });
+}
 
 function showMore() {
   $(document).on("click", "[data-type=show_more_click]", function (e) {
