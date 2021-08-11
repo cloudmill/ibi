@@ -1723,20 +1723,71 @@ var updateMySticky
       const response = $('.response');
       const responseButton = $('.response__btn');
       const formButton = $('.form__btn');
+      const formTitle = $('.form-title')
 
       formButton.on('click', function (event) {
         event.preventDefault();
         form.addClass('form--hidden');
         response.addClass('response--active');
+        formTitle.addClass('display-none');
         // $('.provider__row').addClass('provider__row--active');
       });
 
       responseButton.on('click', function () {
         form.removeClass('form--hidden');
         response.removeClass('response--active');
+        formTitle.removeClass('display-none');
         // $('.provider__row').removeClass('provider__row--active');
       });
     }
+  });
+};
+
+// Калькулятор с зубами
+
+{
+  $(() => {
+    // const tooth = $('.tooth-button');
+
+    // tooth.on('click', function() {
+    //   if (tooth.hasClass('tooth-button--destroyed')) {
+    //     tooth.removeClass('tooth-button--destroyed')
+    //   } else {
+    //     tooth.addClass('tooth-button--destroyed')
+    //   }
+
+    // })
+
+    $(window).on('click', event => {
+      const tooth = $(event.target).closest('.tooth-button');
+      const calcList = $('.calc__list');
+      const listItems = $('.calc__list-item');
+
+      let listItem = document.createElement('li');
+      listItem.className = "calc__list-item";
+      listItem.innerHTML = "<img src=assets/images/calc/calc-list-ico.png alt=''><div class=calc__list-circle>11</div><div>Зуб разрушен</div>";
+
+      if (tooth.length) {
+        // tooth.toggleClass('tooth-button--destroyed')
+
+        if (tooth.hasClass('tooth-button--destroyed')) {
+          tooth.removeClass('tooth-button--destroyed');
+          tooth.addClass('tooth-button--removed');
+          // console.log('привет');
+          
+          listItems.addClass('calc__list-removed');
+
+        } else if (tooth.hasClass('tooth-button--removed')) {
+          tooth.removeClass('tooth-button--removed')
+
+          listItems.remove();
+
+        } else {
+          tooth.addClass('tooth-button--destroyed');
+          calcList.append(listItem);
+        }
+      }
+    })
   });
 };
 
@@ -1786,7 +1837,5 @@ var updateMySticky
 
     Parsley.setLocale('ru');
 
-  }
-
-  );
+  });
 };

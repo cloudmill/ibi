@@ -4,12 +4,18 @@ block header
 block footer
 
 block content
-  each i in [1]
-    .tabs
-      .tabs__container
-        .tabs__background
-        .tabs__list
-          - for (let i = 0; i < 30; i++)
-            .tabs__item(class = (i === 15) ? 'tabs__item--active' : '')
-              |test
-
+  //- each i in [1]
+  //-   .tabs
+  //-     .tabs__container
+  //-       .tabs__background
+  //-       .tabs__list
+  //-         - for (let i = 0; i < 30; i++)
+  //-           .tabs__item(class = (i === 15) ? 'tabs__item--active' : '')
+  //-             |test
+  section.index__section.index__section--top
+    
+    .row
+      .row__col
+      .row__col
+        .container
+          include ../components/calculator
