@@ -446,7 +446,8 @@ function faqFilter() {
 
 function publicFilter() {
   // state (список id тэгов (data-id)) - здесь актуальная информация по текущим выбранных тэгам фильтра
-  let state = [];
+  let state = [],
+    state2 = [];
 
   // обработка клика по тэгу/сбросу (делегирование от window)
   $(window).on("click", (event) => {
@@ -484,9 +485,55 @@ function publicFilter() {
     }
   });
 
+  $(window).on("click", (event) => {
+    if (
+      $(event.target).closest("[data-type=js-public-filter-authors]").length !== 0
+    ) {
+      const tag = $(event.target).closest("[data-type=js-public-filter-authors]");
+      let tag_id = tag.data("id"),
+        key = tag.data("key");
+
+      if (tag_id) {
+        tag_id = JSON.parse(tag_id);
+        console.log(tag_id);
+      }
+
+      console.log(tag_id);
+
+      if (inState(tag_id)) {
+        state2 = state2.filter((id) => id !== tag_id);
+
+        $(`[data-type=js-public-filter-authors][data-key="${key}"]`).removeClass(
+          "articles-authors__item--active"
+        );
+      } else {
+        state2.push(tag_id);
+
+        $(`[data-type=js-public-filter-authors][data-key="${key}"]`).addClass(
+          "articles-authors__item--active"
+        );
+      }
+
+      ajaxLib();
+    } else if (
+      $(event.target).closest("[data-type=js-public-filter-clear]").length !== 0
+    ) {
+      state2 = [];
+
+      $("[data-type=js-public-filter-authors]").removeClass(
+        "articles-authors__item--active"
+      );
+
+      ajaxLib();
+    }
+  });
+
   // отправка state -> получение, обновление labraryList
   function ajaxLib() {
     let publicList = $("[data-type=js-public-list]");
+
+    console.log(state);
+    console.log(state2);
 
     $.ajax({
       method: "POST",
@@ -494,6 +541,8 @@ function publicFilter() {
       data: {
         ajax: 1,
         tags: state,
+        authors: state2
+
       },
     }).done(function (a) {
       publicList.html(a);
