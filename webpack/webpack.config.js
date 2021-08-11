@@ -174,7 +174,7 @@ module.exports = env => {
 				]
 			}),
 
-			/*
+			
 			new ImageMinimizerPlugin({
 				minimizerOptions: {
 					cache: true,
@@ -195,7 +195,7 @@ module.exports = env => {
 					],
 				},
 			}),
-			*/
+			
 
 			new SVGSpriteMapPlugin('src/sprites/**/*.svg', {
 				styles: path.join(__dirname, '../src/assets/styles/_sprites.scss'),
