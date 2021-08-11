@@ -84,14 +84,19 @@
     align-items: flex-end;
     justify-content: center;
 
-    button {
+    .tooth-button {
       border: none;
       background-color: transparent;
       cursor: pointer;
 
+      position: relative;
+
       img {
         width: 100%;
+        // position: absolute;
       }
+
+      
     }
   }
 
@@ -142,5 +147,35 @@
       align-items: center;
       justify-content: center;
     }
+  }
+}
+
+.tooth-destroyed {
+  position: absolute;
+  // bottom: 0;
+
+  display: none;
+}
+
+.tooth-removed {
+  // position: absolute;
+  // bottom: 0;
+
+  display: none;
+}
+
+.tooth-button--destroyed {
+  .tooth-destroyed {
+    display: block;
+  }
+}
+
+.tooth-button--removed {
+  .tooth-removed {
+    display: block;
+  }
+
+  .tooth-clean, .tooth-destroyed {
+    display: none;
   }
 }

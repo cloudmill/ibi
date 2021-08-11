@@ -1742,6 +1742,43 @@ var updateMySticky
   });
 };
 
+// Калькулятор с зубами
+
+{
+  $(() => {
+    // const tooth = $('.tooth-button');
+
+    // tooth.on('click', function() {
+    //   if (tooth.hasClass('tooth-button--destroyed')) {
+    //     tooth.removeClass('tooth-button--destroyed')
+    //   } else {
+    //     tooth.addClass('tooth-button--destroyed')
+    //   }
+
+    // })
+
+    $(window).on('click', event => {
+      const tooth = $(event.target).closest('.tooth-button')
+
+      if (tooth.length) {
+        // tooth.toggleClass('tooth-button--destroyed')
+
+        if (tooth.hasClass('tooth-button--destroyed')) {
+          tooth.removeClass('tooth-button--destroyed');
+          tooth.addClass('tooth-button--removed');
+          console.log('привет');
+        } else if (tooth.hasClass('tooth-button--removed')) {
+          tooth.removeClass('tooth-button--removed')
+        } else {
+          tooth.addClass('tooth-button--destroyed');
+        }
+
+      }
+    })
+
+  });
+};
+
 // Добавление активного состояния на автора в публикации
 
 {
@@ -1788,7 +1825,5 @@ var updateMySticky
 
     Parsley.setLocale('ru');
 
-  }
-
-  );
+  });
 };

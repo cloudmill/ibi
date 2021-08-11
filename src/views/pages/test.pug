@@ -31,71 +31,18 @@ block content
               .calc__teeth-box
                 //- img(src="assets/images/calc/teeth.png", alt="")
                 .calc__teeth-row
-                  button
-                    img(src="assets/images/calc/teeth1.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth2.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth3.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth4.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth5.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth6.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth7.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth8.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth9.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth10.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth11.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth12.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth13.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth14.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth15.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth16.png", alt="")
+                  - for (let i=0; i<17; i++)
+                    button.tooth-button
+                      img.tooth-removed(src=`assets/images/calc/removed${i}.png`, alt="")
+                      img.tooth-destroyed(src=`assets/images/calc/destroyed${i}.png`, alt="")
+                      img.tooth-clean(src=`assets/images/calc/teeth${i}.png`, alt="")
                 .calc__teeth-row
-                  button
-                    img(src="assets/images/calc/teeth17.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth18.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth19.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth20.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth21.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth22.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth23.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth24.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth25.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth26.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth27.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth28.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth29.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth30.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth31.png", alt="")
-                  button
-                    img(src="assets/images/calc/teeth32.png", alt="")
+                  - for (let i=17; i<33; i++)
+                    button.tooth-button
+                      img.tooth-removed(src=`assets/images/calc/removed${i}.png`, alt="")
+                      img.tooth-destroyed(src=`assets/images/calc/destroyed${i}.png`, alt="")
+                      img.tooth-clean(src=`assets/images/calc/teeth${i}.png`, alt="")
+                
               .calc__right-col
                 .calc__txt Левая часть
                 .calc__bracket
