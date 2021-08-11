@@ -1,5 +1,5 @@
-form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
-  .member-page-ask__form-wrapper
+form.news-subscribe__form.member-page-ask__form.response-full-with(data-parsley-validate="")
+  .member-page-ask__form-wrapper.form
     label.news-subscribe__form-placeholder.member-page-ask__label
         input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
     label.news-subscribe__form-placeholder.member-page-ask__label
@@ -17,8 +17,14 @@ form.news-subscribe__form.member-page-ask__form(data-parsley-validate="")
         input(type="checkbox" required="")
         p Согласен на обработку персональных данных в соответствии с 
             a(href="#") политикой конфиденциальности
-    button.news-subscribe__form-btn.mission__missions-links-link(type="submit")
+    button.news-subscribe__form-btn.mission__missions-links-link.form__btn(type="submit")
         +arrow-link-svg('news-subscribe__form-btn-ico button-svg')
         .mission__missions-links-text
           span.mission__missions-links-span
             |Отправить
+  .response.response-not-modal
+    h2 Спасибо, что связались с нами. Мы ответим в ближайшее  время.
+    .mission__missions-links-link.response__btn
+      +arrow-link-svg('news__link-ico')
+      .mission__missions-links-text
+        |Отправить еще

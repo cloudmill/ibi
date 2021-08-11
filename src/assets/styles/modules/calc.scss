@@ -109,7 +109,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    li {
+    &-item {
       background-color: #fff;
       border-radius: 40px;
       display: flex;
@@ -121,12 +121,12 @@
       margin-bottom: 10px;
     }
 
-    &-destroyed {
-      .calc__list-circle {
-        border: 1px solid #E62B3E;
-        color: #E62B3E;
-      }
-    }
+    // &-destroyed {
+    //   .calc__list-circle {
+    //     border: 1px solid #E62B3E;
+    //     color: #E62B3E;
+    //   }
+    // }
 
     &-removed {
       .calc__list-circle {
@@ -136,7 +136,8 @@
     }
 
     &-circle {
-      // border: 1px solid black;
+      border: 1px solid #E62B3E;
+      color: #E62B3E;
       border-radius: 50%;
 
       width: 32px;
