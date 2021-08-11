@@ -175,26 +175,26 @@ module.exports = env => {
 			}),
 
 			
-			new ImageMinimizerPlugin({
-				minimizerOptions: {
-					cache: true,
-					plugins: [
-						['gifsicle', {interlaced: true}],
-						['jpegtran', {progressive: true}],
-						['optipng', {optimizationLevel: 5}],
-						[
-							'svgo',
-							{
-								plugins: [
-									{
-										removeViewBox: false,
-									},
-								],
-							},
-						],
-					],
-				},
-			}),
+			// new ImageMinimizerPlugin({
+			// 	minimizerOptions: {
+			// 		cache: true,
+			// 		plugins: [
+			// 			['gifsicle', {interlaced: true}],
+			// 			['jpegtran', {progressive: true}],
+			// 			['optipng', {optimizationLevel: 5}],
+			// 			[
+			// 				'svgo',
+			// 				{
+			// 					plugins: [
+			// 						{
+			// 							removeViewBox: false,
+			// 						},
+			// 					],
+			// 				},
+			// 			],
+			// 		],
+			// 	},
+			// }),
 			
 
 			new SVGSpriteMapPlugin('src/sprites/**/*.svg', {
