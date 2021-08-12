@@ -53,7 +53,7 @@
     border: 1px solid $color-black;
     border-radius: 10px 0 0 10px;
     border-right: none;
-    height: 200px;
+    height: 100%;
     width: 20px;
 
     margin-right: -40px;
@@ -114,24 +114,33 @@
       border-radius: 40px;
       display: flex;
       align-items: center;
-      font-size: 14px;
-      line-height: 120%;
+      
       padding: 4px 15px 4px 4px;
       margin-right: 10px;
       margin-bottom: 10px;
-    }
 
-    // &-destroyed {
-    //   .calc__list-circle {
-    //     border: 1px solid #E62B3E;
-    //     color: #E62B3E;
-    //   }
-    // }
+      .tooth-destroyed-txt, .tooth-removed-txt {
+        font-size: 14px;
+        line-height: 120%;
+      }
+
+      .tooth-removed-txt {
+        display: none;
+      }
+    }
 
     &-removed {
       .calc__list-circle {
         border: 1px solid #738688;
         color: #738688;
+      }
+
+      .tooth-destroyed-txt {
+        display: none;
+      }
+
+      .tooth-removed-txt {
+        display: block;
       }
     }
 
