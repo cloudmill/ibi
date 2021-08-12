@@ -4,6 +4,10 @@
 
   padding: 30px 40px;
 
+  @media (max-width: $breakpoint - 1px) {
+    padding: 20px 10px 30px;
+  }
+
   &__top {
     border-top: 1px solid $color-main;
     padding-top: 10px;
@@ -12,6 +16,12 @@
     justify-content: space-between;
 
     margin-bottom: 40px;
+
+    @media (max-width: $breakpoint - 1px) {
+      justify-content: center;
+      border-top: none;
+      padding-top: 0;
+    }
   }
 
   &__ttl {
@@ -19,13 +29,27 @@
     line-height: 140%;
 
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
   }
 
   &__instruction {
     padding-top: 10px;
 
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
+
     img:last-child {
      margin-left: 30px; 
+    }
+
+    &-mob {
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
     }
   }
 
@@ -77,6 +101,10 @@
 
   &__teeth-box {
     width: 90%;
+
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
   }
 
   &__teeth-row {
@@ -188,4 +216,22 @@
   .tooth-clean, .tooth-destroyed {
     display: none;
   }
+}
+
+.calc__teeth-box-mob {
+  width: 90%;
+
+  @media (min-width: $breakpoint) {
+    display: none;
+  }
+}
+
+.calc__teeth-row-mob {
+  display: flex;
+  flex-direction: column;
+}
+
+.tooth-button-mob {
+  border: none;
+  background-color: transparent;
 }
