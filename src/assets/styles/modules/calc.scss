@@ -212,6 +212,10 @@
   position: absolute;
 
   display: none;
+
+  &-mob {
+    position: absolute;
+  }
 }
 
 .tooth-removed {
@@ -242,7 +246,8 @@
 }
 
 .calc__teeth-box-mob {
-  width: 90%;
+  width: 434px;
+  margin: 0 auto;
 
   @media (min-width: $breakpoint) {
     display: none;
@@ -251,11 +256,111 @@
 
 .calc__teeth-row-mob {
   display: flex;
+  position: relative;
+
+  .tooth-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+.calc__teeth-row-mob:last-child {
+  margin-top: 20px;
+
+  .calc-mob-jaw-ico {
+    align-items: flex-start;
+  }
+
+  .calc__mob-left-column {
+    flex-direction: column;
+  }
+
+  .calc__mob-right-column {
+    flex-direction: column-reverse;
+  }
+}
+
+
+.calc-mob-jaw-ico {
+  position: absolute;
+  // z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.calc__mob-left-column {
+  width: 50%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+
+  .tooth-button-mob:nth-child(8) {
+    margin: 0 0 0 auto;
+  }
+  .tooth-button-mob:nth-child(7) {
+    margin: -25px 30px 0 auto;
+  }
+  .tooth-button-mob:nth-child(6) {
+    margin: -15px 50px 0 auto;
+  }
+  .tooth-button-mob:nth-child(5) {
+    margin: -5px 62px 0 auto;
+  }
+  .tooth-button-mob:nth-child(4) {
+    margin: -5px 70px 0 auto;
+  }
+  .tooth-button-mob:nth-child(3) {
+    margin: 0 75px 0 auto;
+  }
+  .tooth-button-mob:nth-child(2) {
+    margin: 0 75px 0 auto;
+  }
+  .tooth-button-mob:nth-child(1) {
+    margin: 0 73px 0 auto;
+  }
+}
+.calc__mob-right-column {
+  width: 50%;
+  display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+
+  .tooth-button-mob:nth-child(2) {
+    margin: -25px auto 0 30px;
+  }
+  .tooth-button-mob:nth-child(3) {
+    margin: -15px auto 0 50px;
+  }
+  .tooth-button-mob:nth-child(4) {
+    margin: -5px auto 0 62px;
+  }
+  .tooth-button-mob:nth-child(5) {
+    margin: -5px auto 0 70px;
+  }
+  .tooth-button-mob:nth-child(6) {
+    margin: 0 auto 0 75px;
+  }
+  .tooth-button-mob:nth-child(7) {
+    margin: 0 auto 0 75px;
+  }
+  .tooth-button-mob:nth-child(8) {
+    margin: 0 auto 0 73px;
+  }
 }
 
 .tooth-button-mob {
   border: none;
+  border-radius: 50%;
   background-color: transparent;
   cursor: pointer;
+  display: flex;
+  position: relative;
 }
+

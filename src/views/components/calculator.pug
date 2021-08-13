@@ -26,13 +26,35 @@
             img.tooth-clean(src=`assets/images/calc/teeth${i++}.png`, alt="")
     .calc__teeth-box-mob
       .calc__teeth-row-mob
-        button.tooth-button-mob
-          img(src=`assets/images/calc/mob/tooth3.png`, alt="")
-        button.tooth-button-mob
-          img(src=`assets/images/calc/mob/tooth2.png`, alt="")
-        button.tooth-button-mob
-          img(src=`assets/images/calc/mob/tooth1.png`, alt="")
+        .calc-mob-jaw-ico
+          img(src="assets/images/calc/mob/upper-jaw.png", alt="")
+        .calc__mob-left-column
+          - for (let i=1; i<9; i++)
+            button.tooth-button.tooth-button-mob
+              img.tooth-removed(src=`assets/svg/calc/mob/removed${i}.svg`, alt="")
+              img.tooth-destroyed(src=`assets/svg/calc/mob/destroyed${i}.svg`, alt="")
+              img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
+        .calc__mob-right-column
+          - for (let i=9; i<17; i++)
+            button.tooth-button.tooth-button-mob
+              img.tooth-removed(src=`assets/svg/calc/mob/removed${i}.svg`, alt="")
+              img.tooth-destroyed(src=`assets/svg/calc/mob/destroyed${i}.svg`, alt="")
+              img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
       .calc__teeth-row-mob
+        .calc-mob-jaw-ico
+          img(src="assets/images/calc/mob/upper-jaw2.png", alt="")
+        .calc__mob-left-column
+          - for (let i=17; i<25; i++)
+            button.tooth-button.tooth-button-mob
+              img.tooth-removed(src=`assets/svg/calc/mob/removed${i}.svg`, alt="")
+              img.tooth-destroyed(src=`assets/svg/calc/mob/destroyed${i}.svg`, alt="")
+              img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
+        .calc__mob-right-column
+          - for (let i=25; i<33; i++)
+            button.tooth-button.tooth-button-mob
+              img.tooth-removed(src=`assets/svg/calc/mob/removed${i}.svg`, alt="")
+              img.tooth-destroyed(src=`assets/svg/calc/mob/destroyed${i}.svg`, alt="")
+              img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
     .calc__right-col
       .calc__txt Левая часть
       .calc__bracket
