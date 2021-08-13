@@ -118,6 +118,7 @@
       cursor: pointer;
 
       position: relative;
+      display: flex;
 
       img {
         width: 100%;
@@ -234,4 +235,5 @@
 .tooth-button-mob {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
