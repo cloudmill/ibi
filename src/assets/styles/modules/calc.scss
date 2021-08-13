@@ -189,16 +189,34 @@
   }
 }
 
+.calc__teeth-row:first-child {
+  .tooth-button:nth-child(1) {
+    .tooth-destroyed {
+      bottom: 2px;
+    }
+  }
+  .tooth-button:nth-child(2) {
+    .tooth-destroyed {
+      bottom: 2px;
+    }
+  }
+  .tooth-button:nth-child(8) {
+    .tooth-destroyed {
+      bottom: 3px;
+      right: 1px;
+    }
+  }
+}
+
 .tooth-destroyed {
   position: absolute;
-  // bottom: 0;
 
   display: none;
 }
 
 .tooth-removed {
-  // position: absolute;
-  // bottom: 0;
+  position: absolute;
+  bottom: 2px;
 
   display: none;
 }
@@ -214,7 +232,11 @@
     display: block;
   }
 
-  .tooth-clean, .tooth-destroyed {
+  .tooth-clean {
+    opacity: 0;
+  }
+  
+  .tooth-destroyed {
     display: none;
   }
 }
