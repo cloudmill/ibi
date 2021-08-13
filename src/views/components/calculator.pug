@@ -4,6 +4,7 @@
     .calc__instruction
       img(src="assets/images/calc/instruction-1.png", alt="")
       img(src="assets/images/calc/instruction-2.png", alt="")
+    img.calc__instruction-mob(src="assets/images/calc/instruction-mob.png", alt="")
   .calc__teeth
     .calc__left-col
       .calc__bracket
@@ -23,16 +24,16 @@
             img.tooth-removed(src=`assets/images/calc/removed${i}.png`, alt="")
             img.tooth-destroyed(src=`assets/images/calc/destroyed${i}.png`, alt="")
             img.tooth-clean(src=`assets/images/calc/teeth${i++}.png`, alt="")
+    .calc__teeth-box-mob
+      .calc__teeth-row-mob
+        button.tooth-button-mob
+          img(src=`assets/images/calc/mob/tooth3.png`, alt="")
+        button.tooth-button-mob
+          img(src=`assets/images/calc/mob/tooth2.png`, alt="")
+        button.tooth-button-mob
+          img(src=`assets/images/calc/mob/tooth1.png`, alt="")
+      .calc__teeth-row-mob
     .calc__right-col
       .calc__txt Левая часть
       .calc__bracket
   ul.calc__list
-    //- li.calc__list-item.calc__list-destroyed
-    //-   img(src="assets/images/calc/calc-list-ico.png", alt="")
-    //-   .calc__list-circle 11
-    //-   |Зуб разрушен
-
-    //- li.calc__list-item.calc__list-removed
-    //-   img(src="assets/images/calc/calc-list-ico.png", alt="")
-    //-   .calc__list-circle 11
-    //-   |Зуб отсутствует
