@@ -1,0 +1,28 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+
+block header
+  +header
+
+block content
+  section.section.section--gradient
+    .row
+      .row__col
+        .section__inner.section__inner--top
+      .row__col
+        .section__inner.section__inner--top
+          .container
+            .not-found
+              .not-found__numb 404
+              .not-found__col
+                .not-found__txt Страница не найдена
+                .not-found__btn
+                  button.news-subscribe__form-btn.mission__missions-links-link(type="submit")
+                    +arrow-link-svg('news-subscribe__form-btn-ico button-svg')
+                    .mission__missions-links-text
+                      span.mission__missions-links-span
+                        |Главная страница

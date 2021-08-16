@@ -1,0 +1,67 @@
+.not-found {
+  display: flex;
+
+  @media (max-width: $breakpoint - 1px) {
+    flex-direction: column;
+  }
+
+  &__numb {
+    color: $color-main;
+    font-size: 205px;
+    line-height: 140%;
+
+    width: calc(#{$col-part-d} * 3);
+    // margin-right: calc(#{$col-gap-d});
+    @media (max-width: 1600px) {
+      width: calc(#{$col-part-d} * 4);
+    }
+    @media (max-width: $breakpoint - 1px) {
+      width: 100%;
+      font-size: 125px;
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 170px;
+    margin: auto 0;
+
+    @media (max-width: $breakpoint - 1px) {
+      height: auto;
+    }
+  }
+
+  &__txt {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 140%;
+
+    border-top: 1px solid $color-main;
+    padding-top: 10px;
+
+    width: calc(#{$col-part-d} * 3 - #{$col-gap-d} - 10px);
+    @media (max-width: $breakpoint - 1px) {
+      width: calc(#{$col-part-m});
+      margin-bottom: 40px;
+      font-size: 18px;
+    }
+    @media (max-width: $breakpoint-m - 1px) {
+      width: 100%;
+    }
+  }
+
+  &__btn {
+    .news-subscribe__form-btn {
+      margin-left: 0;
+    }
+    .news-subscribe__form-btn .mission__missions-links-text {
+      margin-left: 10px;
+    }
+    .news-subscribe__form-btn-ico {
+      width: 34px;
+    }
+  }
+}
