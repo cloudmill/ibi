@@ -1005,7 +1005,8 @@ var updateMySticky
           },
           {
             iconLayout: "default#image",
-            iconImageHref: "/local/templates/main/assets/images/placemark.svg",
+            iconImageHref: "assets/images/placemark.svg",
+            // iconImageHref: "/local/templates/main/assets/images/placemark.svg",
             iconImageSize: [markWidth, markHeight],
             iconImageOffset: [-markWidth / 2, -markHeight],
 
