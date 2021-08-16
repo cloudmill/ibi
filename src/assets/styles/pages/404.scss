@@ -3,6 +3,7 @@
 
   @media (max-width: $breakpoint - 1px) {
     flex-direction: column;
+    margin-bottom: 160px;
   }
 
   &__numb {

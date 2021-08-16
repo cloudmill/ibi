@@ -177,11 +177,15 @@
     }
 
     &-txt {
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: left;
+      padding-right: 20px;
       @media (max-width: $breakpoint - 1px) {
-        padding-right: 20px;
+        padding-right: 0;
       }
       @media (max-width: $breakpoint-m - 1px) {
-        padding-right: 0;
+        // padding-right: 0;
 
         width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
         

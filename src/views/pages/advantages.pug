@@ -91,8 +91,10 @@ block content
                           |3
                     .advantages__col
                       .advantages__content
-                        h4.advantages__title 
+                        h4.advantages__title.advantages__title--hide
                           |Современные&nbsp;базальные&nbsp;имплантаты минимально&nbsp;травматичны
+                        h4.advantages__title.advantages__title--clean
+                          |Современные базальные имплантаты минимально травматичны
                         .advantages__wrapper
                           .advantages__layer
                           .advantages__line
@@ -143,8 +145,10 @@ block content
                     .advantages__col
                       .advantages__layout 
                       .advantages__content
-                        h4.advantages__title 
+                        h4.advantages__title.advantages__title--hide
                           |Немедленная нагрузка&nbsp;&mdash;&nbsp;возможность&nbsp;получить зубы&nbsp;и&nbsp;жевать&nbsp;на&nbsp;3&nbsp;&mdash; 7&nbsp;день
+                        h4.advantages__title.advantages__title--clean
+                          |Немедленная нагрузка &mdash; возможность получить зубы и жевать на 3 &mdash; 7 день
                         .advantages__wrapper
                           .advantages__line
                           .advantages__svg
@@ -198,8 +202,10 @@ block content
                           |9
                     .advantages__col
                       .advantages__content
-                        h4.advantages__title 
+                        h4.advantages__title.advantages__title--hide
                           |Имплантаты&nbsp;Oneway&nbsp;Biomed&nbsp;(Strategic Implant)&nbsp;производятся&nbsp;на&nbsp;заводе&nbsp;Ihde dental&nbsp;(Швейцария)
+                        h4.advantages__title.advantages__title--clean
+                          |Имплантаты Oneway Biomed (Strategic Implant) производятся на заводе Ihde dental (Швейцария)
                         .advantages__wrapper
                           .advantages__layer
                           .advantages__line
@@ -226,13 +232,7 @@ block content
                             |Операция проходит под местным обезболиванием, которого достаточно. Общий наркоз никогда не&nbsp;проходит для организма бесследно и&nbsp;важно его избегать там, где это возможно. Местная анестезия работает локально, без грубого влияния на&nbsp;общее состояние организма. Наши врачи подберут эффективный препарат, подходящий вам индивидуально.
           .guarantee.mt160
             .container
-              .guarantee__img
-                .guarantee__img-txt
-                  h2 5 лет гарантии
-                  p Гарантия на имплантацию с применением Швейцарских имплантатов STRATEGIC IMPLANT 5 лет. На протяжении которых вы проходите 8 бесплатных обязательных контрольных осмотров. Все гарантийные обязательства четко закреплены в Положении о гарантиях.
-                img.guarantee__img-effects-mob(src="assets/images/guarantee-effects-mobile.png", alt="")
-                img.guarantee__img-effects-desk(src="assets/images/guarantee-effects-desktop.png", alt="")
-                img.guarantee__img-main(src="assets/images/guarantee-2.jpg", alt="")
+              include ../components/guarantee-img
               include ../components/guarantee-contract
           .container.news-subscribe.member-page-ask.price-ask
             h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md
