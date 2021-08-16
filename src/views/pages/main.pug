@@ -158,14 +158,7 @@ block content
                                             .mission__missions-links-text
                                               span.mission__missions-links-span 
                                                 |Подробнее
-                                      if !(i % 2)
-                                        li.operation-card__link.operation-card__link--mobile
-                                          .mission__missions-links-container
-                                            a.mission__missions-links-link(href='#')
-                                              +svg-link.mission__missions-links-svg.button-svg
-                                              .mission__missions-links-text
-                                                span.mission__missions-links-span 
-                                                  |Все операции
+                                      
                                   .operation-card__bottom-col.operation-card__bottom-col--desktop
                                     .slider-control.slider-control--desktop
                                       .slider-control__item
@@ -176,6 +169,14 @@ block content
                                         .button-arrow.button-arrow.button-arrow--right
                                           .button-arrow__button(data-slider-button='10')
                                             +svg-arrow.button-arrow__svg
+                .operation-card__link.operation-card__link--mobile
+                  .mission__missions-links-container
+                    a.mission__missions-links-link(href='#')
+                      +svg-link.mission__missions-links-svg.button-svg
+                      .mission__missions-links-text
+                        span.mission__missions-links-span 
+                          |Все операции
+
       section.index__target.index__section.index__section--target.index__section--spiral
         .index__target-background
         .index__target-content
