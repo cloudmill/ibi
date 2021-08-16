@@ -2,7 +2,7 @@
   width: 100%;
   background-color: #C0E4E8;
 
-  padding: 30px 40px;
+  padding: 30px 40px 120px;
 
   @media (max-width: $breakpoint - 1px) {
     padding: 20px 10px 30px;
@@ -57,7 +57,7 @@
     display: flex;
     justify-content: space-between;
 
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
   }
 
   &__left-col {
@@ -93,8 +93,6 @@
     font-size: 14px;
     line-height: 120%;
     flex: none;
-    // height: 100%;
-    // width: 100%;
 
     transform: rotate(90deg);
   }
@@ -122,10 +120,7 @@
 
       img {
         width: 100%;
-        // position: absolute;
       }
-
-      
     }
   }
 
@@ -246,7 +241,7 @@
 }
 
 .calc__teeth-box-mob {
-  width: 434px;
+  width: 227px;
   margin: 0 auto;
 
   @media (min-width: $breakpoint) {
@@ -273,10 +268,78 @@
 
   .calc__mob-left-column {
     flex-direction: column;
+
+    .tooth-button-mob:nth-child(1) {
+      margin: 0 80px 0 auto;
+    }
+    .tooth-button-mob:nth-child(2) {
+      .tooth-destroyed {
+        left: 2px;
+      }
+    }
+    .tooth-button-mob:nth-child(3) {
+      margin: -2px 68px 0 auto;
+    }
+    .tooth-button-mob:nth-child(4) {
+      margin: 0 62px 0 auto;
+    }
+    .tooth-button-mob:nth-child(5) {
+      margin: -6px 50px 0 auto;
+    }
+    .tooth-button-mob:nth-child(6) {
+      margin: -12px 38px 0 auto;
+    }
+    .tooth-button-mob:nth-child(7) {
+      margin: -20px 21px 0 auto;
+
+      .tooth-destroyed {
+        top: 2px;
+        right: 1px;
+      }
+    }
+    .tooth-button-mob:nth-child(8) {
+      margin: -25px 0 0 auto;
+    }
   }
 
   .calc__mob-right-column {
     flex-direction: column-reverse;
+
+    .tooth-button-mob:nth-child(1) {
+      margin: -25px auto 0 0;
+    }
+    .tooth-button-mob:nth-child(2) {
+      margin: -20px auto 0 22px;
+
+      .tooth-destroyed {
+        top: 2px;
+      }
+    }
+    .tooth-button-mob:nth-child(3) {
+      margin: -12px auto 0 40px;
+    }
+    .tooth-button-mob:nth-child(4) {
+      margin: -6px auto 0 50px;
+    }
+    .tooth-button-mob:nth-child(5) {
+      margin: 0 auto 0 62px;
+
+      .tooth-destroyed {
+        left: 1px;
+        top: 1px;
+      }
+    }
+    .tooth-button-mob:nth-child(6) {
+      margin: -2px auto 0 68px;
+
+      .tooth-destroyed {
+        left: 2px;
+        top: 1px;
+      }
+    }
+    .tooth-button-mob:nth-child(8) {
+      margin: 0 auto 0 80px;
+    }
   }
 }
 
@@ -316,6 +379,10 @@
   }
   .tooth-button-mob:nth-child(3) {
     margin: 0 75px 0 auto;
+
+    .tooth-destroyed {
+      left: 2px;
+    }
   }
   .tooth-button-mob:nth-child(2) {
     margin: 0 75px 0 auto;
@@ -332,6 +399,9 @@
   position: relative;
   z-index: 2;
 
+  .tooth-button-mob:nth-child(1) {
+    margin-bottom: -3px;
+  }
   .tooth-button-mob:nth-child(2) {
     margin: -25px auto 0 30px;
   }
