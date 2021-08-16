@@ -287,3 +287,16 @@
     }
   }
 }
+
+.advantages__title--hide {
+  @media (max-width: 440px) {
+    display: none;
+  }
+}
+
+.advantages__title--clean {
+  display: none;
+  @media (max-width: 440px) {
+    display: block;
+  }
+}
