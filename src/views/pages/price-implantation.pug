@@ -3,15 +3,9 @@ extends ../layouts/master.pug
 include ../components/_header.pug
 include ../components/_footer.pug
 
-
-
-block header
-  +header
-
-
-  
 block content
-  section.section.section--gradient
+  .sticky-container(data-sticky-container)
+    section.section.section--gradient
       .row
         .row__col
           .section__inner.section__inner--top
@@ -19,27 +13,13 @@ block content
               .nav__container
                 nav.nav__nav.my-sticky
                   ul.nav__list
-                    each item in ['Метод', 'Преимущества', 'Этапы имплантации', 'Имплантаты Strategic Implant',]
+                    each item in ['Протезирование',]
                       li.nav__item
                         a.nav__link(href='#')
                           |#{item}
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
-                        |Стоимость
-                  .category.category--column  
-                    ul.category__list
-                      li.category__item
-                        a.category__link(href="#") 
-                          |Один зуб
-                      li.category__item.category__item--active
-                        a.category__link(href="#") 
-                          |От 3-ех до 5 сегметов
-                      li.category__item
-                        a.category__link(href="#") 
-                          |На одной челюсти
-                      li.category__item 
-                        a.category__link(href="#") 
-                          |На двух челюстях
+                        |Имплантация
                   .price__note Стоимость может меняться в зависимости клинического состояния зубов
                   button.vacancies-list__extra-btn.price__btn
                     +arrow-link-svg('extra-btn button-extra-svg')
@@ -54,47 +34,18 @@ block content
               .mission__spoiler.news-spoiler.spoiler-to-title
                 .mission__spoiler-button.news-spoiler__button
                   h5.mission__spoiler-title
-                    |Стоимость
+                    |Имплантация
                   .news-spoiler__image
                     +arrow-svg('header__drop-svg')
                 .mission__spoiler-drop.news-spoiler__drop
                   nav.news-spoiler__nav
                     ul
-                      each item in ['Метод', 'Преимущества', 'Этапы имплантации', 'Имплантаты Strategic Implant']
+                      each item in ['Протезирование',]
                         li.news-spoiler__nav-item
                           a.nav__link(href='#')
                             |#{item}
-              .category.category--mobile 
-                ul.category__list
-                  li.category__item
-                    a.category__link(href="#") 
-                      |Один зуб
-                  li.category__item.category__item--active
-                    a.category__link(href="#") 
-                      |От 3-ех до 5 сегметов
-                  li.category__item 
-                    a.category__link(href="#") 
-                      |На одной челюсти
-                  li.category__item 
-                    a.category__link(href="#") 
-                      |На двух челюстях
-              .article
-              .price-item
-                .price-item__img
-                  img(src="assets/images/0price.jpg", alt="")
-                .price-item__ttl Установка одного имплантата ONEWAY BIOMED
-                .price-item__price от 45 000 ₽
-                .price-item__desc.single-news__txt
-                  ul
-                    li Зафиксировать коронку можно в первые дни после имплантации
-                    li Зафиксировать коронку можно в первые дни после имплантации
-                      ul.ul-in-ul
-                        li 
-                          |временная коронка CAD CAM длительного ношения (срок изготовления 2 дня)
-                        li 
-                          |постоянная коронка из диоксида циркония (срок изготовления 3 дня)
-                    p  
-                      |Любая из выбранных конструкций фиксируется на постоянный японский цемент Fuji+.
+              .price-subtitle 
+                |Имплантация
               .price-item
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
@@ -127,9 +78,15 @@ block content
                     li Используется принцип установки 10-12 имплантатов на верхнюю челюсть и 8-10 на нижнюю
                     li Сразу же после имплантации получаем оттиски для изготовление будущих зубов
                     li В зависимости от клинической ситуации могут быть изготовлены метоллоакриловые или металлокомпозитные зубы
+              .price.price--mobile
+                .price__note Стоимость может меняться в зависимости клинического состояния зубов
+                button.vacancies-list__extra-btn.price__btn
+                  +arrow-link-svg('extra-btn')
+                  |Получить точный расчет
               .news-subscribe.member-page-ask.transfer-consult.price-ask
-                h2.news-subscribe__title Получить расчет стоимости
-                .transfer-consult__img
+                h2.news-subscribe__title Получить персональную консультацию бесплатно
+                .calc-wrapper.mt80.mb80-60
+                  include ../components/calculator
                 include ../components/form-add-file
 
 //- block footer

@@ -407,6 +407,31 @@
   }
 }
 
+.mt80 {
+  margin-top: 80px;
+
+  @media (max-width: $breakpoint - 1px) {
+    // margin-top: 40px;
+    margin-top: 0;
+  }
+}
+
+.mb60-20 {
+  margin-bottom: 60px;
+
+  @media (max-width: $breakpoint - 1px) {
+    margin-bottom: 20px;
+  }
+}
+
+.mb80-60 {
+  margin-bottom: 80px;
+
+  @media (max-width: $breakpoint - 1px) {
+    margin-bottom: 60px;
+  }
+}
+
 .news-subscribe__title.mb80-60 {
   margin-bottom: 80px;
 
