@@ -76,6 +76,10 @@
       line-height: 33px;
     }
     text-align: right;
+
+    @media (max-width: 341px) {
+      letter-spacing: -.6px;
+    }
   }
 
   &__info {

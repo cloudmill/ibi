@@ -11,7 +11,7 @@ block content
           .section__inner.section__inner--top
             .articles-authors.my-sticky
                 .articles-authors__container
-                  .articles-authors__title 
+                  .articles-authors__title.mb30
                     |Автор статьи
                   ul.articles-authors__list 
                     li.articles-authors__item 
@@ -32,20 +32,6 @@ block content
             .container.single-news 
               h1.title.single-news__title.single-news__title--big
                 |Клиническое применение различных конструкций имплантатов, анализ жалоб потребителей
-              //- .mission
-              //-   .mission__spoiler.news-spoiler
-              //-     .mission__spoiler-button.news-spoiler__button
-              //-       h5.mission__spoiler-title
-              //-         |Исследования
-              //-       .news-spoiler__image
-              //-         +arrow-svg('header__drop-svg')
-              //-     .mission__spoiler-drop.news-spoiler__drop
-              //-       nav.news-spoiler__nav
-              //-         ul
-              //-           each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
-              //-             li.news-spoiler__nav-item
-              //-               a.nav__link(href='#')
-              //-                 |#{item}
               .single-news__body
                 .single-news__head.single-news__head--small
                   .single-news__back-link
@@ -92,10 +78,17 @@ block content
                     p.article__text 
                       |Далее участники слушали выступление президента-элект СтАР, профессора, доктора медицинских наук, заведующего кафедрой хирургической стоматологии и челюстно-лицевой хирургии Яременко Андрея Ильича. Он рассказал о проблемах имплантологии в России. Отметил, что имплантация становится все более распространенной и ее качество должно непрерывно расти. Тем не менее, в современной стоматологии встречаются случаи осложнений при имплантации, которые необходимо свести к минимуму.
                   .single-news__txt
-                    ul
-                      - for (i = 0; i < 6; i++)
-                        li 
-                          |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г 
+                    ul.last-ul
+                      //- - for (i = 0; i < 6; i++)
+                      li Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г
+                      li Сертифицированный специалист International Implant Foundation.
+                      li Стажировка в Германии в клинике Implant plus (Viernheim / Germany) с курсом по протезированию на имплантатах и организации стоматологии.
+                      li 2012 год Прохождение обучения в Испании в Институте Биотехнологий методу направленной регенерации костной ткани и десен PRGF ENDORET (BTI Biotechnology Institute Vitoria-Gasteiz Spain).
+                      li В 2014 практическое обучение имплантации в Венгрии (Будапешт).
+                      li 2015 году практический курс по установке базальных имплантатов One Way Biomed (Палестина) с получением сертификата базального хирурга имплантолога. Начало совместной работы с профессором Стефаном Иде 2012год.
+                      li Специалист по тотальной реконструкции и восстановлению челюстей на имплантатах.
+                      li Проводит операции в протоколе немедленной нагрузки на базальных имплантатах Strategic implant.
+                      li Регулярно читает лекции в России и за рубежом. Регулярно посещает образовательные курсы по имплантации зубов и новейшим системам протезирования.
               aside.share-social.share-social--default.article-share
                 .share-social__box
                   .share-social__title Поделиться

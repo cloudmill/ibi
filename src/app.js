@@ -1809,7 +1809,7 @@ var updateMySticky
 {
   $(() => {
     $(window).on('click', event => {
-      const authorTag = $(event.target).closest('.articles-authors__item')
+      const authorTag = $(event.target).closest('.articles-authors__filter-item')
 
       if (authorTag.length) {
         authorTag.toggleClass('articles-authors__item--active')

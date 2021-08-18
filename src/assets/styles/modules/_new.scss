@@ -367,7 +367,27 @@
 
       @media (max-width: $breakpoint - 1px) {
         width: calc(100% - 40px);
+        font-weight: 500;
       }
+  }
+
+  .mission__spoiler-list p {
+    @media (max-width: $breakpoint - 1px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.faq-filter {
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 2 + #{$col-pad-d} * 2);
+  }
+
+  .team-filter__item {
+    margin-bottom: 10px;
+  }
+  .team-filter__container {
+    margin-bottom: 30px;
   }
 }
 
@@ -395,77 +415,6 @@
     transition: $transition;
     transform-origin: center;
   }
-}
-
-
-
-.mt160 {
-  margin-top: 160px;
-
-  @media (max-width: $breakpoint - 1px) {
-    margin-top: 60px;
-  }
-}
-
-.mt80 {
-  margin-top: 80px;
-
-  @media (max-width: $breakpoint - 1px) {
-    // margin-top: 40px;
-    margin-top: 0;
-  }
-}
-
-.mb60-20 {
-  margin-bottom: 60px;
-
-  @media (max-width: $breakpoint - 1px) {
-    margin-bottom: 20px;
-  }
-}
-
-.mb80-60 {
-  margin-bottom: 80px;
-
-  @media (max-width: $breakpoint - 1px) {
-    margin-bottom: 60px;
-  }
-}
-
-.news-subscribe__title.mb80-60 {
-  margin-bottom: 80px;
-
-  @media (max-width: $breakpoint - 1px) {
-    margin-bottom: 60px;
-  }
-}
-
-.article__title.mb80-40 {
-  margin-bottom: 80px;
-
-  @media (max-width: $breakpoint - 1px) {
-    margin-bottom: 40px;
-  }
-}
-
-.article__title.mb60-40 {
-  margin-bottom: 60px;
-
-  @media (max-width: $breakpoint - 1px) {
-    margin-bottom: 40px;
-  }
-}
-
-.article__title.mb50-40 {
-  margin-bottom: 50px;
-
-  @media (max-width: $breakpoint - 1px) {
-    margin-bottom: 40px;
-  }
-}
-
-.display-flex {
-  display: flex;
 }
 
 // Преобразование спойлера с меню в заголовок на планшетах
