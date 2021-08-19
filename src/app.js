@@ -98,7 +98,7 @@ const BREAKPOINT = 1280;
         } else { // открывыем, аналогично (выше)
           vacancyCallback.addClass('vacancy--modal-open');
           // navModalButton.addClass('button-modal--active');
-          body.addClass('body-fixed'); // блокируем скролл
+          // body.addClass('body-fixed'); // блокируем скролл
         }
       });
 

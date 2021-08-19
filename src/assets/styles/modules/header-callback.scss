@@ -23,6 +23,9 @@
     display: flex;
     position: relative;
     z-index: 110;
+
+    background-color: #fff;
+    overflow-y: scroll;
   }
 
   &__background {
@@ -57,6 +60,12 @@
       // display: unset;
       flex-direction: column;
       align-items: flex-start;
+
+      padding-bottom: 60px;
+
+      @media (max-width: $breakpoint - 1px) {
+        padding-bottom: 0;
+      }
     }
 
     form {
@@ -84,6 +93,12 @@
 
     .member-page-ask__checkbox {
       padding-right: 20px;
+    }
+
+    .member-page-ask__label {
+      @media (max-width: $breakpoint - 1px) {
+        width: calc(#{$col-part-m} * 4 - (#{$col-gap-m} * 2)); 
+      }
     }
   }
 
@@ -136,6 +151,19 @@
       transform: rotate(-45deg);
     }
   }
+
+  &__add-file.transfer-consult__add-file {
+    @media (max-width: 340px) {
+
+      button {
+        margin-right: 5px;
+      }
+      
+      .transfer-consult__add-file-ico {
+        margin-right: 5px;
+      }
+    }
+  }
 }
 
 .vacancy--modal-open {
@@ -161,6 +189,7 @@
 
   @media (max-width: $breakpoint - 1px) {
     justify-content: flex-start;
+    width: auto;
   }
 
   .news-subscribe__form-btn {

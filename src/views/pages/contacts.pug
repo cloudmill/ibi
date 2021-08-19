@@ -28,7 +28,7 @@ block content
                       a.nav__link(href='#')
                         |Контакты
         .row__col
-          .section__inner.section__inner--top
+          .section__inner--top
             .container
               h1.title.page-title-hidden
                 |Контакты
@@ -104,8 +104,8 @@ block content
           .container        
             p.about__caption
               |Авторизированные клиники базальной имплантации
-            .about__grid.about__grid--margin-top
-              ul.about__grid-list
+            .about__grid.mt80-40
+              ul.about__grid-list.contacts-clinics
                 - for (let i=0; i<3; i++)
                   li.about__grid-item
                     .about__grid-card.about__grid-card--height-100p
@@ -147,10 +147,3 @@ block content
           .container.news-subscribe.member-page-ask.prosthetics-ask
             h2.news-subscribe__title.member-page-ask__title.form-title Свяжитесь с нами
             include ../components/right-form-msg
-
-//- block footer
-//-   +footer({
-//-     attrs: {
-//-       'data-sticky-end': '1',
-//-     },
-//-   })

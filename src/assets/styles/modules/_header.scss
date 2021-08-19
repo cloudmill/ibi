@@ -358,3 +358,9 @@
     display: none;
   }
 }
+
+.header-lang-drop {
+  @media (max-width: $breakpoint - 1px) {
+    display: none;
+  }
+}

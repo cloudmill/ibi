@@ -191,7 +191,7 @@ block content
           .container
             .prosthetics-block__practice
               .prosthetics-block__practice-desc
-                h2 Премиальные материалы
+                h3 Премиальные материалы
                 p В практике протезирования мы выбираем материалы 
                   span.prosthetics-txt-highlight премиум-сегмента от фирм-лидеров. 
                   |Никакого китайского циркония и сомнительного композита. С каждым материалом 
@@ -202,7 +202,7 @@ block content
                 .prosthetics-block__practice-txt Перенимаем лучшие европейские практики, ведь наши техники обучаются у евпропейских коллег с опытом 10-20 лет.
                 +brilliant-svg('practice-circle')
               .prosthetics-block__practice-list
-                h2 Все это позволяет сделать вам зубы, которые
+                h3 Все это позволяет сделать вам зубы, которые
                 ul
                   li
                     p Смотрятся естественно
@@ -382,14 +382,14 @@ block content
                                               .mission__missions-links-text
                                                 span.mission__missions-links-span
                                                   |Подробнее
-                                        if !(i % 2)
-                                          li.operation-card__link.operation-card__link--mobile
-                                            .mission__missions-links-container
-                                              a.mission__missions-links-link(href='#')
-                                                +svg-link.mission__missions-links-svg.button-svg
-                                                .mission__missions-links-text
-                                                  span.mission__missions-links-span
-                                                    |Все операции
+
+                  .operation-card__link.operation-card__link--mobile
+                    .mission__missions-links-container
+                      a.mission__missions-links-link(href='#')
+                        +svg-link.mission__missions-links-svg.button-svg
+                        .mission__missions-links-text
+                          span.mission__missions-links-span
+                            |Все операции
   section.section
     .row
       .row__col

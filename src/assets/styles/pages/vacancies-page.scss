@@ -1,7 +1,7 @@
 .vacancies {
   &-tagline {
     margin: 0 0 120px 0;
-    padding-right: calc(#{$col-width-d});
+    // padding-right: calc(#{$col-width-d});
     max-width: unset;
 
     text-align: left;
@@ -67,12 +67,15 @@
     border-left: 1px solid $color-main;
 
     margin: 160px 0 0 calc(#{$col-part-d});
-    padding: 0 calc(#{$col-part-d} * 2) 0 calc(#{$col-part-d} * 2);
+    // padding: 0 calc(#{$col-part-d} * 2) 0 calc(#{$col-part-d} * 2);
+    padding-left: calc(#{$col-part-d} * 2);
+    width: calc(#{$col-part-d} * 2 + 480px);
 
     @media (max-width: $breakpoint - 1px) {
       font-size: 16px;
       margin: 90px 0 0 0;
       padding: 0 0 0 calc(#{$col-part-m});
+      width: auto;
     }
 
     @media (max-width: $breakpoint-m - 1px) {
@@ -107,6 +110,16 @@
 
   &__box {
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+
+    &:first-child {
+      .vacancies-achievements__txt {
+        padding-right: 40px;
+
+        @media (max-width: $breakpoint - 1px) {
+          padding-right: 0;
+        }
+      }
+    }
 
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});

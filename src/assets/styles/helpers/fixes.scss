@@ -15,6 +15,14 @@
   }
 }
 
+.mt80-40 {
+  margin-top: 80px;
+
+  @media (max-width: $breakpoint - 1px) {
+    margin-top: 40px;
+  }
+}
+
 .articles-authors__title.mb30 {
   margin-bottom: 30px;
 }
