@@ -50,15 +50,18 @@ block content
             .payment
               .payment__row
                 .payment__method
-                  +payment-1-svg('io')
+                  .payment__svg
+                    +payment-1-svg('io')
                   .payment__method-ttl Банковская карта
                   .payment__method-txt Visa, MasterCard, МИР
                 .payment__method
-                  +payment-2-svg('io')
+                  .payment__svg
+                    +payment-2-svg('io')
                   .payment__method-ttl Наличными
                   .payment__method-txt В офисе нашей клиники
                 .payment__method
-                  +payment-3-svg('io')
+                  .payment__svg
+                    +payment-3-svg('io')
                   .payment__method-ttl Оплата по счету
                   .payment__method-txt Вы можете провести оплату как юридическое лицо
               .payment__row-credit

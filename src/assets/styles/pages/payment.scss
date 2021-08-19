@@ -37,6 +37,11 @@
       margin: 40px 0 10px;
       font-size: 22px;
       line-height: 140%;
+
+      @media (max-width: $breakpoint - 1px) {
+        font-size: 16px;
+        margin: 20px 0 5px;
+      }
     }
 
     &-txt {
@@ -45,6 +50,17 @@
       }
       font-size: 16px;
       line-height: 140%;
+
+      @media (max-width: $breakpoint - 1px) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__svg {
+    height: 83px;
+    @media (max-width: $breakpoint - 1px) {
+      height: 75px;
     }
   }
 
@@ -85,11 +101,12 @@
 
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2);
+      font-size: 16px;
     }
 
     @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
-      font-size: 16px;
+      
     }
   }
 }

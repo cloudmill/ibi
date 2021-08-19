@@ -202,7 +202,9 @@
 
     margin-top: 40px;
     padding-top: 10px;
-    max-width: 250px;
+    @media (min-width: 400px) {
+      max-width: 250px;
+    }
     @media (min-width: $breakpoint) {
       margin-top: 0;
       padding-top: 20px;
@@ -301,11 +303,19 @@
       
       #{$comp}__nav-link {
         color: $color-main;
+
+        @media (max-width: $breakpoint - 1px) {
+          @include fsl (16px, 140%)
+        }
       }
     }
   }
   &__nav-link {
     @include fsl(20px, 140%);
+
+    @media (max-width: $breakpoint - 1px) {
+      @include fsl (12px, 140%)
+    }
   }
 
 }

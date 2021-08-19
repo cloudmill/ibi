@@ -14,8 +14,10 @@ block content
         section.index__section.index__section--top
           .index-top
             .container
-              h1.index-top__title
+              h1.index-top__title.index-top__title--hide
                 |Базальная имплантация по&nbsp;системе STRATEGIC&nbsp;IMPLANT
+              h1.index-top__title.index-top__title--clean
+                |Базальная имплантация по системе STRATEGIC IMPLANT
               ul.index-top__list
                 li.index-top__item
                   p.index-top__text
@@ -158,14 +160,7 @@ block content
                                             .mission__missions-links-text
                                               span.mission__missions-links-span 
                                                 |Подробнее
-                                      if !(i % 2)
-                                        li.operation-card__link.operation-card__link--mobile
-                                          .mission__missions-links-container
-                                            a.mission__missions-links-link(href='#')
-                                              +svg-link.mission__missions-links-svg.button-svg
-                                              .mission__missions-links-text
-                                                span.mission__missions-links-span 
-                                                  |Все операции
+                                      
                                   .operation-card__bottom-col.operation-card__bottom-col--desktop
                                     .slider-control.slider-control--desktop
                                       .slider-control__item
@@ -176,6 +171,14 @@ block content
                                         .button-arrow.button-arrow.button-arrow--right
                                           .button-arrow__button(data-slider-button='10')
                                             +svg-arrow.button-arrow__svg
+                .operation-card__link.operation-card__link--mobile
+                  .mission__missions-links-container
+                    a.mission__missions-links-link(href='#')
+                      +svg-link.mission__missions-links-svg.button-svg
+                      .mission__missions-links-text
+                        span.mission__missions-links-span 
+                          |Все операции
+
       section.index__target.index__section.index__section--target.index__section--spiral
         .index__target-background
         .index__target-content
@@ -317,8 +320,8 @@ block content
                               .card__date
                                 |28 января 2021
                             .card__col
-                              .card__image
-                                +svg-link(class='card__svg')
+                              .card__image.mission__missions-links-link
+                                +svg-link(class='card__svg button-svg')
             .index-publications__link
               .mission__missions-links-container
                 a.mission__missions-links-link(href='#')
@@ -362,6 +365,13 @@ block content
                                 .card-news-mobile__col
                                   .card-news-mobile__image
                                     +svg-link(class='card__svg')
+                    .index-publications__link
+                      .mission__missions-links-container
+                        a.mission__missions-links-link(href='#')
+                          +svg-link.mission__missions-links-svg.button-svg
+                          .mission__missions-links-text
+                            span.mission__missions-links-span 
+                              |Все новости
                 .index-news__list
                   - for (let i=0; i<3; i++)
                     .index-news__list-item
@@ -378,5 +388,5 @@ block content
                                 h3.card-news__title
                                   |Обучение Strategic Implant в Новосибирске
                           .card-news__col
-                            .card-news__image
-                              +svg-link(class='card__svg')
+                            .card-news__image.mission__missions-links-link
+                              +svg-link(class='card__svg button-svg')

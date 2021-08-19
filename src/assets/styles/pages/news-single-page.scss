@@ -74,7 +74,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 140%;
-
+    
     width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
 
     @media (max-width: $breakpoint - 1px) {
@@ -88,6 +88,10 @@
       margin-bottom: 60px;
     }
 
+    a {
+      transition: $transition;
+    }
+
     a::before {
       content: '';
       display: inline-block;
@@ -99,8 +103,21 @@
       transform: rotate(-135deg);
       vertical-align: middle;
 
+      transition: $transition;
+
       @media (max-width: $breakpoint - 1px) {
         margin-right: 10px;
+      }
+    }
+
+    &:hover {
+      a {
+        color: $color-main;
+      }
+
+      a::before {
+        border-top: 2px solid $color-main;
+        border-right: 2px solid $color-main;
       }
     }
   }

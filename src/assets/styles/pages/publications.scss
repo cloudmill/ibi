@@ -51,8 +51,8 @@
     transition: $transition;
 
     @media (min-width: $breakpoint) {
-      border: 1px solid $color-gray-border;
-      padding: 10px;
+      // border: 1px solid $color-gray-border;
+      // padding: 10px;
 
       &:not(:first-child) {
         margin-top: 20px;
@@ -65,7 +65,14 @@
     }
   }
 
-  &__item:hover {
+  &__filter-item {
+    @media (min-width: $breakpoint) {
+      border: 1px solid $color-gray-border;
+      padding: 10px;
+    }
+  }
+
+  &__filter-item:hover {
     background-color: $color-main;
     color: #fff;
 
