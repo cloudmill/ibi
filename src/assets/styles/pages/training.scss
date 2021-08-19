@@ -79,6 +79,27 @@
 
 .training-stages {
 
+  @media (max-width: $breakpoint-m - 1px) {
+
+    .transfer-numbers__big p {
+      margin-top: -160%;
+      margin-bottom: -170%;
+    }
+
+    .transfer-numbers__item:first-child .transfer-numbers__count .transfer-numbers__big p {
+      margin-left: -10%;
+    }
+
+    .transfer-numbers__item:nth-child(2n) .transfer-numbers__count .transfer-numbers__big p {
+      margin-left: -15%;
+    }
+
+    .transfer-numbers__item:nth-child(3n) .transfer-numbers__count .transfer-numbers__big p {
+      margin-left: -10%;
+      margin-bottom: -170%;
+    }
+  }
+
   &__ttl {
     margin-bottom: 80px;
     font-size: 40px;
@@ -197,10 +218,9 @@
     &__big p {
       @media (max-width: $breakpoint-m - 1px) {
         font-size: 130px;
-    }
+      }
     }
   }
-  
 }
 
 .training-cards {
@@ -316,10 +336,6 @@
       margin: 20px 0;
       font-size: 14px;
     }
-
-    // li {
-    //   width: auto;
-    // }
   }
 
   .single-news__txt p {
@@ -333,29 +349,5 @@
 
   .member-page-ask {
     padding-left: 0;
-  }
-}
-
-.training-stages {
-
-  @media (max-width: $breakpoint-m - 1px) {
-
-    .transfer-numbers__big p {
-      margin-top: -160%;
-      margin-bottom: -170%;
-    }
-
-    .transfer-numbers__item:first-child .transfer-numbers__count .transfer-numbers__big p {
-      margin-left: -10%;
-    }
-
-    .transfer-numbers__item:nth-child(2n) .transfer-numbers__count .transfer-numbers__big p {
-      margin-left: -15%;
-    }
-
-    .transfer-numbers__item:nth-child(3n) .transfer-numbers__count .transfer-numbers__big p {
-      margin-left: -10%;
-      margin-bottom: -170%;
-    }
   }
 }

@@ -76,12 +76,17 @@
 
   &__save {
     padding-top: 92px;
-    @media (max-width: $breakpoint - 1px) {
-      display: none;
+    &.share-social {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
     }
 
     .share-social__box {
       width: 170px;
+      // @media (max-width: $breakpoint - 1px) {
+      //   width: 100%;
+      // }
     }
 
     .share-social__title {
@@ -111,6 +116,7 @@
   div {
     display: flex;
     align-items: center;
+    color: $color-black;
 
     svg {
       flex:none;
