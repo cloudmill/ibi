@@ -276,16 +276,10 @@
 
   @media (max-width: $breakpoint - 1px) {
     padding-top: 0;
-    margin: 60px 0;
+    margin: 60px 0 0;
     justify-content: flex-start;
     width: 100%;
-
-    // padding-left: calc(#{$col-part-m});
   }
-
-  // @media (max-width: $breakpoint-m - 1px) {
-  //   padding-left: 0;
-  // }
 
   &--default {
     @media (max-width: $breakpoint - 1px) {
@@ -331,8 +325,6 @@
 .other-news {
   background-color: $color-blue-light;
   padding: 160px 0;
-  // position: relative;
-  // z-index: 2;
   @media (max-width: $breakpoint - 1px) {
     padding: 60px 0;
   }
