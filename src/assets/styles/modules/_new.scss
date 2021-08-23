@@ -432,9 +432,15 @@
   @media (max-width: $breakpoint-m - 1px) {
       display: block;
   }
+
+  &--mob {
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
+  }
 }
 
-.spoiler-to-title.mission__spoiler {
+.mission__spoiler.spoiler-to-title {
   @media (max-width: $breakpoint - 1px) {
       border-bottom: 1px solid $color-main;
 
@@ -449,5 +455,15 @@
       .mission__spoiler-title {
           font-size: 16px;
       }
+  }
+
+  &--mob {
+    @media (max-width: $breakpoint - 1px) {
+      border-bottom: 1px solid $color-main;
+
+      .mission__spoiler-title {
+          font-size: 22px;
+      }
+    }
   }
 }

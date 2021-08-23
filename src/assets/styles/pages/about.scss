@@ -137,7 +137,7 @@
       @media (min-width: $breakpoint) {
         width: calc(#{$col-part-d} * 4 - #{$col-gap-d})
       }
-      @media (max-width: $breakpoint - 1px) {
+      @media (max-width: $breakpoint-m - 1px) {
         padding-top: 20px;
       }
     }
@@ -455,7 +455,7 @@
   // slider
   &__slider {
     margin-top: 40px;
-    overflow: hidden;
+    // overflow: hidden;
     @media (min-width: $breakpoint) {
       margin-top: 80px;
     }
@@ -524,6 +524,9 @@
     z-index: 0;
 
     height: 186px;
+    @media (min-width: $breakpoint-m) {
+      height: 380px;
+    }
     @media (min-width: $breakpoint) {
       height: 570px;
     }
