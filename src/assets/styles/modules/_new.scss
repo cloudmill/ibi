@@ -266,6 +266,8 @@
     display: none;
   }
 
+
+
   &--small {
     #{$comp}__item {
 
@@ -323,16 +325,19 @@
       }
 
       #{$comp}__link {
-        font-size: 30px;
-        line-height: 42px;
+        font-size: 18px;
+        line-height: 140%;
         color: $color-main;
+        @media (min-width: $breakpoint-l) {
+          font-size: 30px;
+        }
       }
     }
   }
 
   &__link {
     @include fsl(16px, 140%);
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint-l) {
       @include fsl(18px);
     }
     transition: $transition;
