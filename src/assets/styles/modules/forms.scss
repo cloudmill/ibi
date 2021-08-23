@@ -310,7 +310,7 @@
     }
 
     &--md {
-      @media (min-width: $breakpoint) {
+      @media (min-width: $breakpoint-ll) {
         width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
       }
     }
