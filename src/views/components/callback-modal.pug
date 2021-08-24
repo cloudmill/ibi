@@ -6,14 +6,15 @@
         form.news-subscribe__form(data-parsley-validate="")
           .member-page-ask__form-wrapper
             label.news-subscribe__form-placeholder.member-page-ask__label
-                input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
+              input.news-subscribe__form-email(type="text" placeholder="Имя*" required="")
             label.news-subscribe__form-placeholder.member-page-ask__label
-                input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
+              input.news-subscribe__form-email(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
             label.news-subscribe__form-checkbox.member-page-ask__checkbox
-                input(type="checkbox" required="")
-                p Согласен на обработку персональных данных в соответствии с 
-                    a(href="#") политикой конфиденциальности
-            .form__btn
+              input(type="checkbox" required="")
+              .checkbox
+              p Согласен на обработку персональных данных в соответствии с 
+                  a(href="#") политикой конфиденциальности
+            .form__btn.modal-btn
               include ../components/animated-submit-button
       .response
         h2 Спасибо! Мы получили вашу заявку на обратный звонок и ответим вам в ближайшее время.

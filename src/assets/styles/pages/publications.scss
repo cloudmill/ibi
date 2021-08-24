@@ -158,6 +158,8 @@
   $comp: &;
   padding: 40px 0;
 
+  @include scrollbar-hidden;
+
   display: none;
   @media (max-width: $breakpoint - 1px) {
     display: block;
@@ -201,7 +203,7 @@
     padding: 20px 0 0;
 
     display: block;
-    @media (min-width: $breakpoint-m) {
+    @media (min-width: $breakpoint) {
       display: none;
     }
     overflow-x: auto;
@@ -214,6 +216,10 @@
     width: calc(#{$col-part-d} * 2);
 
     border: 0;
+
+    @media (min-width: $breakpoint) {
+      display: block;
+    }
     
     #{$comp}__list {
       margin: 0;
@@ -248,6 +254,8 @@
       flex-wrap: wrap;
     }
     display: flex;
+
+    @include scrollbar-hidden;
   }
 
   &__item {

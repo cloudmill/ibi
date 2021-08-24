@@ -26,9 +26,9 @@ block content
         .row__col
           .section__inner.section__inner--top
             .container
-              h1.title.page-title-hidden
+              h1.title.page-title-hidden--mob
                 |О нас
-              .mission__spoiler.news-spoiler.spoiler-to-title
+              .mission__spoiler.news-spoiler.spoiler-to-title--mob
                 .mission__spoiler-button.news-spoiler__button
                   h5.mission__spoiler-title
                     |О нас
@@ -125,25 +125,12 @@ block content
                   p.about__post-text
                     |Гарантия на имплантацию с применением Швейцарских имплантатов STRATEGIC IMPLANT 5 лет. На протяжении которых вы проходите 8 бесплатных обязательных контрольных осмотров. Все гарантийные обязательства четко закреплены в Положении о гарантиях.
                 .about__download.about__download--margin-top
-                  .about__download-row
-                    .about__download-col
-                      .about__download-title-block
-                        h3.about__download-title
-                          |Все&nbsp;гарантийные&nbsp;обязательства закреплены в договоре
-                    .about__download-col
-                      a.about__download-button(href='#')
-                        .about__download-button-row
-                          .about__download-button-col
-                            h6.about__download-button-title
-                              |Скачать типовой договор
-                          .about__download-button-col
-                            .about__download-button-image
-                              +svg-download.about__download-button-svg
+                  include ../components/guarantee-contract
               .section__block
                 p.about__caption
                   |Авторизованные клиники базальной имплантации по всему миру, в которых вы сможете обратиться за контрольным осмотром
                 .about__grid.about__grid--margin-top
-                  ul.about__grid-list
+                  ul.about__grid-list.contacts-clinics
                     - for (let i=0; i<3; i++)
                       li.about__grid-item
                         .about__grid-card.about__grid-card--height-100p

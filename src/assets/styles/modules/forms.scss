@@ -20,24 +20,63 @@
     font-size: 50px;
     line-height: 140%;
     letter-spacing: -0.7px;
-    @media (max-width: $breakpoint-m) {
-    font-size: 22px;
-    }
+    
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
-    @media (max-width: $breakpoint) {
-    width: auto;
-    margin-bottom: 40px;
+
+    @media (max-width: $breakpoint - 1px) {
+      width: auto;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+  }
+
+  &__container {
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 170px;
+
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: row;
+      height: auto;
+    }
+  }
+
+  &__input {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+    flex: none;
+
+    border: none;
+    border-bottom: 1px solid $color-gray-border;
+
+    margin-bottom: 23px;
+    padding: 20px 0;
+
+    transition: $transition;
+
+    @media (max-width: $breakpoint - 1px) {
+      width: calc(#{$col-part-m} * 3);
+    }
+
+    @media (max-width: 385px) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+    }
+  }
+
+  &__checkbox {
+    @media (max-width: $breakpoint - 1px) {
+      order: 1;
     }
   }
 
   &__form {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    // align-items: center;
+    // justify-content: space-between;
 
     width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
-    @media (max-width: $breakpoint) {
+    @media (max-width: $breakpoint - 1px) {
       width: 100%;
+      align-items: flex-start;
       justify-content: unset;
     }
 
@@ -52,30 +91,31 @@
     }
 
     &-btn {
-        border: none;
-        background: transparent;
-        cursor: pointer;
+      border: none;
+      background: transparent;
+      cursor: pointer;
 
-        margin-left: 20px;
-        margin-right: 0;
+      margin-left: 20px;
+      margin-right: 0;
 
-        width: calc(#{$col-part-d} - 20px);
-        @media (max-width: $breakpoint - 1px) {
-          width: 51px;
-          display: flex;
-        }
+      // width: calc(#{$col-part-d} - 20px);
+      @media (max-width: $breakpoint - 1px) {
+        // width: auto;
+        display: flex;
+        // margin-top: 30px;
+      }
 
-        &-ico {
+      &-ico {
+        width: 51px;
+        // height: 45px;
+        @media (min-width: $breakpoint) {
           width: calc(#{$col-part-d} - 20px);
-
-          @media (max-width: $breakpoint - 1px) {
-            width: 51px;
-          }
         }
+      }
 
-        .mission__missions-links-text {
-            margin-left: 0;
-        }
+      .mission__missions-links-text {
+        margin-left: 0;
+      }
     }
 
     &-email {
@@ -96,84 +136,92 @@
       transition: $transition;
     }
 
-        &email:hover {
-            border-bottom: 3px solid $color-main;
-
-        }
-
-        &-placeholder {
-          &--flex {
-            display: flex;
-            align-items: stretch;
-          }
-        }
-
-        &-placeholder input::placeholder {
-          color: $color-black;
-          opacity: 1;
-
-          font-weight: 500;
-          font-size: 18px;
-          line-height: 140%;
-          @media (max-width: $breakpoint-m) {
-              font-size: 16px;
-          }
-        }
-
-        &-placeholder textarea::placeholder {
-          color: $color-black;
-          opacity: 1;
-
-          font-weight: 500;
-          font-size: 18px;
-          line-height: 140%;
-          @media (max-width: $breakpoint-m) {
-              font-size: 16px;
-          }
-        }
-
-        &-checkbox {
-          display: flex;
-
-          input[type="checkbox"] {
-            display: none;
-          }
-
-          input[type="checkbox"]:checked + p::before {
-            background-image: url(assets/images/checkbox.png);
-            background-position: center;
-          }
-          
-          p::before {
-            content: '';
-            display: inline-block;
-            width: 25px;
-            height: 25px;
-            border-radius: 5px;
-            border: 2px solid $color-main;
-
-            margin-left: -40px;
-            margin-right: 15px;
-            vertical-align: middle;
-            transition: 0.1s;
-          }
-          
-          p {
-            cursor: pointer;
-            font-size: 12px;
-            line-height: 140%;
-
-            padding-left: 40px;
-            @media (min-width: $breakpoint-ll) {
-                width: 340px;
-            }
-          }
-
-          a {
-            color: $color-main;
-          }
-        }
+    &-placeholder {
+      &--flex {
+        display: flex;
+        align-items: stretch;
+      }
     }
+
+    &-placeholder input::placeholder {
+      color: $color-black;
+      opacity: 1;
+
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 140%;
+      @media (max-width: $breakpoint - 1px) {
+        font-size: 16px;
+      }
+    }
+
+    &-placeholder textarea::placeholder {
+      color: $color-black;
+      opacity: 1;
+
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 140%;
+      @media (max-width: $breakpoint - 1px) {
+        font-size: 16px;
+      }
+    }
+
+    &-checkbox {
+      display: flex;
+      width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+      flex: none;
+
+      @media (max-width: $breakpoint - 1px) {
+        width: 100%;
+        // order: 1;
+      }
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      input[type="checkbox"]:checked + .checkbox::before {
+        background-image: url(assets/images/checkbox.png);
+        background-position: center;
+      }
+      
+      .checkbox::before {
+        content: '';
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        border: 2px solid $color-main;
+
+        // margin-left: -40px;
+        // margin-right: 15px;
+        vertical-align: middle;
+        transition: 0.1s;
+      }
+      
+      p {
+        cursor: pointer;
+        font-size: 12px;
+        line-height: 140%;
+
+        padding-left: 20px;
+        @media (min-width: $breakpoint-ll) {
+            width: 340px;
+        }
+        @media (max-width: $breakpoint - 1px) {
+          padding-left: 15px;
+        }
+        @media (max-width: 380px) {
+          padding-left: 10px;
+        }
+      }
+
+      a {
+        color: $color-main;
+      }
+    }
+  }
 }
 
 .form {
@@ -184,6 +232,19 @@
   @media (max-width: $breakpoint - 1px) {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  &__title {
+    width: calc(#{$col-part-d} * 6);
+
+    font-size: 50px;
+    line-height: 140%;
+    letter-spacing: -0.7px;
+
+    @media (max-width: $breakpoint - 1px) {
+      width: 100%;
+      font-size: 22px;
+    }
   }
 
   &--hidden {
@@ -249,7 +310,7 @@
     }
 
     &--md {
-      @media (min-width: $breakpoint) {
+      @media (min-width: $breakpoint-ll) {
         width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
       }
     }
@@ -373,4 +434,12 @@
 
 .response-not-modal.response--active {
   position: absolute;
+}
+
+.modal-btn {
+  width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+
+  .news-subscribe__form-btn {
+    margin: 0;
+  }
 }

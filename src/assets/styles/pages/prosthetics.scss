@@ -267,7 +267,7 @@
       margin-bottom: 40px;
     }
 
-    h2 {
+    h3 {
       font-size: 40px;
       line-height: 140%;
       margin-bottom: 40px;
@@ -358,7 +358,7 @@
   flex-wrap: wrap;
   width: 100%;
 
-  h2 {
+  h3 {
     font-size: 40px;
     line-height: 140%;
     width: calc(#{$col-part-d} * 4);
@@ -431,11 +431,11 @@
   }
 
   &__ttl {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     font-size: 50px;
 
     @media (max-width: $breakpoint - 1px) {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       font-size: 22px;
     }
   }
@@ -483,6 +483,7 @@
 
 .prosthetics-ask {
   display: flex;
+  flex-direction: column;
 }
 
 .prosthetics-img {

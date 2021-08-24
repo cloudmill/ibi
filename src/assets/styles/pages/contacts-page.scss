@@ -28,7 +28,8 @@
       font-size: 16px;
 
       @media (max-width: $breakpoint - 1px) {
-        width: calc(#{$col-width-m});
+        // width: calc(#{$col-width-m});
+        width: calc(#{$col-part-m});
         font-size: 14px;
       }
 
@@ -37,13 +38,6 @@
         margin-bottom: 10px;
         
       }
-
-      // &--link {
-      //   padding-top: 13px;
-      //   @media (max-width: $breakpoint-m - 1px) {
-      //     padding-top: 0;
-      //   }
-      // }
     }
 
     &-link {
@@ -59,10 +53,6 @@
 
   &-6col {
     width: calc(#{$col-part-d} * 6);
-
-    // @media (max-width: $breakpoint) {
-      
-    // }
 
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
@@ -140,9 +130,11 @@
 .contacts-map-small {
   $comp: &;
 
-  margin-top: 40px;
+  margin: 40px 0 50px;
+  padding-bottom: 0;
   @media (min-width: $breakpoint) {
-    margin-top: 120px;
+    margin: 120px 0 160px;
+    padding-bottom: 80px;
   }
   display: flex;
   justify-content: space-between;
@@ -153,10 +145,12 @@
   }
 
   &--mobile {
-    border-bottom: 0;
+    @media (max-width: $breakpoint - 1px) { 
+      border-bottom: 0;
 
-    #{$comp}-item {
-      padding: 10px 0 0;
+      #{$comp}-item {
+        padding: 10px 0 0;
+      }
     }
   }
 
@@ -180,8 +174,9 @@
       margin-bottom: 40px;
       font-size: 22px;
 
-      @media (max-width: $breakpoint-m - 1px) {
+      @media (max-width: $breakpoint - 1px) {
         font-size: 16px;
+        margin-bottom: 20px;
       }
     }
 
@@ -197,8 +192,15 @@
       color: #7A9598;
       font-size: 14px;
     }
-  }  
+  }
+}
 
+.contacts-clinics {
+  .about__grid-item {
+    @media (max-width: $breakpoint - 1px) {
+      margin: 0 0 10px;
+    }
+  }
 }
 
 #map {

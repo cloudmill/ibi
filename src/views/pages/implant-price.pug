@@ -26,19 +26,19 @@ block content
                     li.nav__item.nav__item--active
                       a.nav__link(href='#')
                         |Стоимость
-                  .category.category--column  
+                  .category.category--column
                     ul.category__list
                       li.category__item
-                        a.category__link(href="#") 
+                        a.category__link(href="#one-tooth") 
                           |Один зуб
                       li.category__item.category__item--active
-                        a.category__link(href="#") 
+                        a.category__link(href="#three-teeth") 
                           |От 3-ех до 5 сегметов
                       li.category__item
-                        a.category__link(href="#") 
+                        a.category__link(href="#one-jaw") 
                           |На одной челюсти
                       li.category__item 
-                        a.category__link(href="#") 
+                        a.category__link(href="#two-jaws") 
                           |На двух челюстях
                   .price__note Стоимость может меняться в зависимости клинического состояния зубов
                   button.vacancies-list__extra-btn.price__btn
@@ -67,22 +67,22 @@ block content
               .category.category--mobile 
                 ul.category__list
                   li.category__item
-                    a.category__link(href="#") 
+                    a.category__link(href="#one-tooth") 
                       |Один зуб
                   li.category__item.category__item--active
-                    a.category__link(href="#") 
+                    a.category__link(href="#three-teeth") 
                       |От 3-ех до 5 сегметов
                   li.category__item 
-                    a.category__link(href="#") 
+                    a.category__link(href="#one-jaw") 
                       |На одной челюсти
                   li.category__item 
-                    a.category__link(href="#") 
+                    a.category__link(href="#two-jaws") 
                       |На двух челюстях
               .article
               .price-item
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
-                .price-item__ttl Установка одного имплантата ONEWAY BIOMED
+                a.price-item__ttl(name="one-tooth") Установка одного имплантата ONEWAY BIOMED
                 .price-item__price от 45 000 ₽
                 .price-item__desc.single-news__txt
                   ul
@@ -98,7 +98,7 @@ block content
               .price-item
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
-                .price-item__ttl Проведение операции на сегменте от 3-х до 5-ти зубов Strategic Implant + протезирование несъемным мостовидным протезом
+                a.price-item__ttl(name="three-teeth") Проведение операции на сегменте от 3-х до 5-ти зубов Strategic Implant + протезирование несъемным мостовидным протезом
                 .price-item__price 130 500 ₽
                 .price-item__desc.single-news__txt
                   ul
@@ -108,7 +108,7 @@ block content
               .price-item
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
-                .price-item__ttl Проведение операции на одной челюсти Strategic Implant + протезирование несъемным мостовидным протезом
+                a.price-item__ttl(name="one-jaw") Проведение операции на одной челюсти Strategic Implant + протезирование несъемным мостовидным протезом
                 .price-item__price от 350 500 ₽
                 .price-item__desc.single-news__txt
                   ul
@@ -119,7 +119,7 @@ block content
               .price-item
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
-                .price-item__ttl Проведение операции двух челюстей strategic implant + протезирование несъемным мостовидным протезомпроведение операции двух челюстей Strategic Implant + протезирование несъемным мостовидным протезом
+                a.price-item__ttl(name="two-jaws") Проведение операции двух челюстей strategic implant + протезирование несъемным мостовидным протезомпроведение операции двух челюстей Strategic Implant + протезирование несъемным мостовидным протезом
                 .price-item__price от 700 500 ₽
                 .price-item__desc.single-news__txt
                   ul
@@ -132,10 +132,3 @@ block content
                 .calc-wrapper.mt80.mb80-60
                   include ../components/calculator
                 include ../components/form-add-file
-
-//- block footer
-//-   +footer({
-//-     attrs: {
-//-       'data-sticky-end': '1',
-//-     },
-//-   })

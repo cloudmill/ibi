@@ -70,6 +70,9 @@
         margin-left: $col-gap;
         width: calc(#{$col-part} * 9 - #{$col-gap});
       }
+      @media (max-width: $breakpoint-m - 1px) {
+        margin-left: 0;
+      }
     }
   }
 
@@ -100,6 +103,9 @@
   &__panel-item {
     &:not(:first-child) {
       margin-left: $col-gap;
+      @media (max-width: $breakpoint-m - 1px) {
+        margin-left: 0;
+      }
     }
   }
 
@@ -113,6 +119,9 @@
           margin-left: 40px;
           @media (min-width: $breakpoint-l) {
             margin-left: 60px;
+          }
+          @media (max-width: $breakpoint-m - 1px) {
+            margin-left: 0;
           }
         }
       }
@@ -229,6 +238,12 @@
       padding: 0;
       margin-right: 40px;
       font-size: 14px;
+    }
+    @media (max-width: $breakpoint-m - 1px) {
+      margin-right: 25px;
+    }
+    @media (max-width: 374px) {
+      display: none;
     }
   }
   &__phone-link {
@@ -354,6 +369,12 @@
 }
 
 .header-menu {
+  @media (max-width: $breakpoint - 1px) {
+    display: none;
+  }
+}
+
+.header-lang-drop {
   @media (max-width: $breakpoint - 1px) {
     display: none;
   }

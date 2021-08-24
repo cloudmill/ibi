@@ -60,6 +60,10 @@
 
     cursor: pointer;  
     transition: $transition;
+
+    @media (max-width: $breakpoint-m - 1px) {
+      align-items: center;
+    }
   }
   &__spoiler-title {
     font-size: 16px;
@@ -201,6 +205,10 @@
 
     font-size: 20px;
     line-height: 28px;
+    @media (min-width: $breakpoint-m) {
+      font-size: 30px;
+      line-height: 42px;
+    }
     @media (min-width: $breakpoint) {
       font-size: 50px;
       line-height: 70px;
@@ -221,10 +229,14 @@
   }
   &__missions-text-highlight {
     font-family: $ff-2;
-    font-weight: normal;
+    font-weight: 500;
     font-style: italic;
     font-size: 26px;
     line-height: 36px;
+    @media (min-width: $breakpoint-m) {
+      font-size: 30px;
+      line-height: 42px;
+    }
     @media (min-width: $breakpoint) {
       font-size: 60px;
       line-height: 84px;

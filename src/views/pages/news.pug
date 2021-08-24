@@ -3,12 +3,8 @@ extends ../layouts/master.pug
 include ../components/_header.pug
 include ../components/_footer.pug
 
-
-
 block header
   +header
-
-
   
 block content
   .about
@@ -32,7 +28,7 @@ block content
                         a.nav__link(href='#')
                           |#{item}
         .row__col
-          .section__inner.section__inner--top.news-margin-top
+          .section__inner--top
             .container
               h1.title.page-title-hidden
                 |Новости
@@ -50,7 +46,7 @@ block content
                           a.nav__link(href='#')
                             |#{item}
                     
-              .section__block.section__block--small
+              .mt120-20
                 a.first-news(href="#")
                   .first-news__desc
                     .first-news__date 3 ноября 2020
@@ -73,8 +69,7 @@ block content
                   include ../components/_news-list-card
                 .news-show-more
                   button.news-show-more-btn
-                    .news-show-more-ico
-                        +arrow-link-svg('news__link-ico')
+                    +arrow-link-svg('news-show-more-ico')
                     .news-show-more-txt Показать еще
               include ../components/form-subscription
 
