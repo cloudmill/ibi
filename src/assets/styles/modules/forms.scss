@@ -137,6 +137,8 @@
 
       @media (max-width: $breakpoint - 1px) {
         font-size: 16px;
+        padding: 0 0 20px;
+        margin-bottom: 35px;
       }
     }
 
@@ -281,7 +283,7 @@
     line-height: 140%;
     margin-bottom: 30px;
 
-    @media (max-width: $breakpoint-m - 1px) {
+    @media (max-width: $breakpoint - 1px) {
       font-size: 22px;
     }
   }
