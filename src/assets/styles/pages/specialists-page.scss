@@ -154,7 +154,10 @@
     margin-top: 20px;
 
     @media (max-width: $breakpoint - 1px) {
-      display: none;
+      margin-right: -37px;
+    }
+    @media (max-width: $breakpoint-m - 1px) {
+      margin: 10px 0 0 0;
     }
 
     &-items {
@@ -162,6 +165,10 @@
       color:$color-main;
       font-size: 14px;
       line-height: 140%;
+
+      @media (max-width: $breakpoint - 1px) {
+        font-size: 12px;
+      }
     }
 
     &-items:last-child {
@@ -170,6 +177,10 @@
   }
 
   &__list {
+
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: row;
+    }
 
     .news__date {
       color: unset;
@@ -197,13 +208,24 @@
         margin-bottom: 15px;
 
         @media (max-width: $breakpoint - 1px) {
+          margin-bottom: 10px;
+        }
+        @media (max-width: $breakpoint-m - 1px) {
           margin-bottom: 0;
           margin-right: 20px;
         }
       }
     }
 
-
+    .news__img {
+      @media (max-width: $breakpoint - 1px) {
+        order: unset;
+        width: 180px;
+      }
+      // @media (max-width: $breakpoint-m - 1px) {
+      //   order: -1;
+      // }
+    }
 
     .news__title {
       display: flex;
@@ -212,20 +234,27 @@
       width: calc(#{$col-part-d} * 5 + #{$col-gap-d});
       
       @media (max-width: $breakpoint - 1px) {
-        margin-bottom: 20px;
-        width: calc(#{$col-part-m} * 2);
+        width: calc(#{$col-part-m} * 2 - 37px);
       }
 
       @media (max-width: $breakpoint-m - 1px) {
         width: 100%;
+        margin-bottom: 20px;
       }
     }
 
     .news__link {
       @media (max-width: $breakpoint - 1px) {
-        width: calc(#{$col-width-m} / 2);
+        margin: 0 0 0 auto;
+        width: 37px;
+
+        .mission__missions-links-link {
+          align-items: flex-start;
+        }
       }
+      // @media (max-width: $breakpoint - 1px) {
+      //   width: calc(#{$col-width-m} / 2);
+      // }
     }
   }
 }
-
