@@ -66,13 +66,20 @@
       @media (max-width: $breakpoint - 1px) {
         padding-bottom: 0;
       }
+
+      .news-subscribe__form-email {
+        @media (max-width: $breakpoint - 1px) {
+          padding: 0 0 20px;
+          margin-bottom: 32px;
+        }
+      }
     }
 
     form {
       margin-top: 60px;
 
       @media (max-width: $breakpoint - 1px) {
-        margin-top: 30px;
+        margin-top: 20px;
       }
     }
 

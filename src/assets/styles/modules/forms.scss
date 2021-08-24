@@ -134,6 +134,10 @@
       padding: 20px 0;
 
       transition: $transition;
+
+      @media (max-width: $breakpoint - 1px) {
+        font-size: 16px;
+      }
     }
 
     &-placeholder {

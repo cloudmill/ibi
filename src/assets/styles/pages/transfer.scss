@@ -328,6 +328,10 @@
     margin-bottom: 40px;
     position: relative;
 
+    @media (max-width: $breakpoint - 1px) {
+      margin-bottom: 30px;
+    }
+
     &-ico {
       margin-right: 10px;
     }

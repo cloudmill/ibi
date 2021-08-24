@@ -152,6 +152,7 @@
   &__tags {
     display: flex;
     margin-top: 20px;
+    flex-wrap: wrap;
 
     @media (max-width: $breakpoint - 1px) {
       margin-right: -37px;
