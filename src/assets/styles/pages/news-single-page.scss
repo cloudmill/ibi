@@ -175,6 +175,10 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 160%;
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
 
     ul {

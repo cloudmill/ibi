@@ -274,9 +274,9 @@
         margin-right: calc(#{$col-gap-d} - 3px);
         margin-left: calc(#{$col-gap-d} * (-1));
   
-        @media (max-width: $breakpoint - 1px) {
-          margin-right: 16px;
-        }
+        // @media (max-width: $breakpoint - 1px) {
+        //   margin-right: 16px;
+        // }
       }
     }
 

@@ -33,11 +33,21 @@
   &__container {
     flex-direction: column;
     flex-wrap: wrap;
-    height: 170px;
+    height: 150px;
+
+    margin-bottom: -10px;
 
     @media (max-width: $breakpoint - 1px) {
       flex-direction: row;
       height: auto;
+    }
+
+    .news-subscribe__form-checkbox {
+      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+
+      @media (max-width: $breakpoint - 1px) {
+        width: 100%;
+      }
     }
   }
 
@@ -95,14 +105,17 @@
       background: transparent;
       cursor: pointer;
 
-      margin-left: 20px;
-      margin-right: 0;
+      margin: 8px 0 0 20px;
+
+      // margin-left: 20px;
+      // margin-right: 0;
 
       // width: calc(#{$col-part-d} - 20px);
       @media (max-width: $breakpoint - 1px) {
         // width: auto;
         display: flex;
         // margin-top: 30px;
+        margin: -12px 0 0 20px;
       }
 
       &-ico {

@@ -43,7 +43,7 @@ block content
               |Сбросить
 
       .row__col
-        .section__inner.section__inner--top
+        .section__inner--top
           .container 
             h1.title
               |Публикации
@@ -140,8 +140,6 @@ block content
                               +svg-link(class='card__svg button-svg')
             .news-show-more
               button.news-show-more-btn
-                  .news-show-more-ico
-                      +arrow-link-svg('news__link-ico')
-                  .news-show-more-txt Показать еще
-        .container
-          include ../components/form-subscription
+                +arrow-link-svg('news-show-more-ico')
+                .news-show-more-txt Показать еще
+            include ../components/form-subscription
