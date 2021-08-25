@@ -95,9 +95,14 @@
   position: relative;
 }
 
-.letter-spacing7 {
-  letter-spacing: -0.7px;
-}
-.letter-spacing8 {
-  letter-spacing: -0.8px;
+.letter-spacing {
+  &7 {
+    letter-spacing: -.7px;
+  }
+  &8 {
+    letter-spacing: -.8px;
+  }
+  &9 {
+    letter-spacing: -.9px;
+  }
 }

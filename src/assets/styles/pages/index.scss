@@ -191,6 +191,7 @@
   &__mid-img {
     max-width: calc(100vw - #{$col-pad-m} * 2);
     max-height: 152px;
+    object-fit: cover;
     @media (min-width: $breakpoint-m) {
       max-height: 337px;
     }
