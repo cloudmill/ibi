@@ -106,10 +106,6 @@
       }
 
       &-svg {
-        // margin-right: 10px;
-        // @media (min-width: $breakpoint) {
-        //   margin-right: 20px;
-        // }
         @media (max-width: $breakpoint - 1px) {
           width: 30px;
           height: 34px;
@@ -351,9 +347,9 @@
 }
 
 .lab-team {
-  padding: 60px 0;
+  padding-top: 60px;
   @media (min-width: $breakpoint) {
-    padding: 160px 0;
+    padding-top: 160px;
   }
 
   .container {
