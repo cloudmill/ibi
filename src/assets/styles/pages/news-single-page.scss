@@ -312,7 +312,7 @@
 
     width: $size-m;
     height: $size-m;
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint-l + 1px) {
       width: $size-d;
       height: $size-d;
     }
@@ -337,7 +337,18 @@
     margin-bottom: 80px;
 
     @media (max-width: $breakpoint - 1px) {
+      margin-bottom: 40px;
+      width: 100%;
+      justify-content: space-between;
+    }
+    @media (max-width: $breakpoint-m - 1px) {
       margin-bottom: 0;
+    }
+
+    .slider-control--desktop {
+      @media (min-width: $breakpoint-m) {
+        display: flex;
+      }
     }
   }
 
@@ -356,6 +367,11 @@
     justify-content: center;
 
     @media (max-width: $breakpoint - 1px) {
+      svg {
+        height: 7.5px;
+      }
+    }
+    @media (max-width: $breakpoint-m - 1px) {
       display: none;
     }
 
@@ -371,13 +387,13 @@
   &__slider {
 
     &-desktop {
-      @media (max-width: $breakpoint - 1px) {
+      @media (max-width: $breakpoint-m - 1px) {
         display: none;
       }
     }
 
     &-mobile {
-      @media (min-width: $breakpoint) {
+      @media (min-width: $breakpoint-m) {
         display: none;
       }
     }
