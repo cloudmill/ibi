@@ -11,7 +11,7 @@ block content
           //- .articles-authors
           .nav
             .nav__container
-              .team-filter.my-sticky
+              .team-filter.mt0.my-sticky
                 ul.team-filter__container
                   li.team-filter__item.team-filter__item--active(data-id="doctor") #все
                   li.team-filter__item(data-id="dentist") #исследования
@@ -65,34 +65,34 @@ block content
             //-               a.nav__link(href='#')
             //-                 |#{item}
 
-            .category.publications-top-category.swiper-container(data-slider-id='190')
-              ul.category__list.swiper-wrapper
-                li.category__item.category__item--active.swiper-slide
-                  a.category__link(href="#") 
-                    |Все
-                li.category__item.swiper-slide
-                  a.category__link(href="#") 
-                    |Исследования
-                li.category__item.swiper-slide 
-                  a.category__link(href="#") 
-                    |Статьи
-                li.category__item.swiper-slide 
-                  a.category__link(href="#") 
-                    |Центр
-                li.category__item.swiper-slide 
-                  a.category__link(href="#") 
-                    |Инновациии
-                li.category__item.swiper-slide 
-                  a.category__link(href="#") 
-                    |Научная деятельность
-                li.category__item.swiper-slide
-                  a.category__link(href="#") 
-                    |Публикации СМИ
-                li.category__item.swiper-slide
-                  a.category__link(href="#") 
-                    |Кейсы
+            //- .category.publications-top-category.swiper-container(data-slider-id='190')
+            //-   ul.category__list.swiper-wrapper
+            //-     li.category__item.category__item--active.swiper-slide
+            //-       a.category__link(href="#") 
+            //-         |Все
+            //-     li.category__item.swiper-slide
+            //-       a.category__link(href="#") 
+            //-         |Исследования
+            //-     li.category__item.swiper-slide 
+            //-       a.category__link(href="#") 
+            //-         |Статьи
+            //-     li.category__item.swiper-slide 
+            //-       a.category__link(href="#") 
+            //-         |Центр
+            //-     li.category__item.swiper-slide 
+            //-       a.category__link(href="#") 
+            //-         |Инновациии
+            //-     li.category__item.swiper-slide 
+            //-       a.category__link(href="#") 
+            //-         |Научная деятельность
+            //-     li.category__item.swiper-slide
+            //-       a.category__link(href="#") 
+            //-         |Публикации СМИ
+            //-     li.category__item.swiper-slide
+            //-       a.category__link(href="#") 
+            //-         |Кейсы
 
-            .articles-authors.articles-authors--mobile
+            .articles-authors.mt20
               .articles-authors__container.swiper-container.swiper-container--slide-width-auto(data-slider-id="160" data-slider-prev='51' data-slider-next='52')
                 
                 .articles-authors__top
@@ -150,7 +150,19 @@ block content
                             .article-author__link.mission__missions-links-link
                               +svg-link(class='button-svg')
                               |Смотреть статьи
-            
+            .team-filter.team-filter-mobile.mt40
+              .team-filter__container
+                a.team-filter__item.team-filter__item--active(href="#") #все
+                a.team-filter__item(href="#") #исследования
+                a.team-filter__item(href="#") #статьи
+                a.team-filter__item(href="#") #центр
+                a.team-filter__item(href="#") #инновации
+                a.team-filter__item(href="#") #научная деятельность
+                a.team-filter__item(href="#") #публикации сми
+                a.team-filter__item(href="#") #кейсы
+              button.team-filter__reset
+                +reset-svg('team-filter__reset-ico')
+                |Сбросить
             .research 
               ul.research__list 
                 - for (i = 0; i < 8; i++)

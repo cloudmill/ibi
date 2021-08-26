@@ -417,7 +417,13 @@ const BREAKPOINT = 1280;
             slider_options = {
               ...slider_options,
 
-              spaceBetween: 40,
+              spaceBetween: 20,
+
+              breakpoints: {
+                [BREAKPOINT]: {
+                  spaceBetween: 40,
+                },
+              },
 
             }
             break;

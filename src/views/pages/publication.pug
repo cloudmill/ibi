@@ -8,25 +8,28 @@ block content
     section.section.section--gradient 
       .row 
         .row__col 
-          .section__inner.section__inner--top
-            .articles-authors.my-sticky
-                .articles-authors__container
-                  .articles-authors__title.mb30
-                    |Автор статьи
-                  ul.articles-authors__list 
-                    li.articles-authors__item 
-                      .article-author 
-                        .article-author__row 
-                          .article-author__col
-                            .article-author__img 
-                              img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
-                            .article-author__label 
-                              |14 статей
-                          .article-author__col
-                            .article-author__name 
-                              |Шмойлов Андрей Евгеньевич
-                            .article-author__prof 
-                              |Главный врач центра
+          .section__inner--top
+            .articles-authors.articles-authors__sidebar.my-sticky
+              .articles-authors__container
+                .articles-authors__title.mb30
+                  |Автор статьи
+                ul.articles-authors__list 
+                  li.articles-authors__item 
+                    .article-author
+                      .article-author__row
+                        .article-author__col
+                          .article-author__img
+                            img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
+                          //- .article-author__label
+                          //-   |14 статей
+                        .article-author__col
+                          .article-author__name
+                            |Шмойлов Андрей Евгеньевич
+                          .article-author__prof
+                            |Главный врач центра
+                          .article-author__link.mission__missions-links-link
+                            +svg-link(class='button-svg')
+                            |Смотреть статьи
         .row__col 
           .section__inner.section__inner--top
             .container.single-news 
@@ -39,22 +42,25 @@ block content
                   .single-news__date 3 ноября 2020
                 .articles-authors.articles-authors--mobile
                   .articles-authors__container
-                    .articles-authors__title 
-                      |Авторы статей
+                    //- .articles-authors__title 
+                    //-   |Авторы статей
                     ul.articles-authors__list 
                       li.articles-authors__item 
-                        .article-author 
-                          .article-author__row 
+                        .article-author
+                          .article-author__row
                             .article-author__col
-                              .article-author__img 
+                              .article-author__img
                                 img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
-                              .article-author__label 
-                                |14 статей
+                              //- .article-author__label
+                              //-   |14 статей
                             .article-author__col
-                              .article-author__name 
+                              .article-author__name
                                 |Шмойлов Андрей Евгеньевич
-                              .article-author__prof 
+                              .article-author__prof
                                 |Главный врач центра
+                              .article-author__link.mission__missions-links-link
+                                +svg-link(class='button-svg')
+                                |Смотреть статьи
                 .team-filter.team-filter--long
                   ul.team-filter__container
                     li.team-filter__item(data-id="doctor") #имплантация

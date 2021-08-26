@@ -18,10 +18,28 @@
   &--mobile {
     padding-top: 20px;
 
-    // display: block;
-    // @media (min-width: $breakpoint) {
-    //   display: none;
-    // }
+    display: block;
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+
+    .articles-authors__item{
+      margin: 0;
+      height: auto;
+    }
+  }
+
+  &__sidebar {
+    padding-left: 40px;
+
+    .articles-authors__title {
+      font-size: 14px;
+      color: #768486;
+    }
+    .articles-authors__item{
+      margin: 0;
+      height: auto;
+    }
   }
 
   &__container {
@@ -33,7 +51,10 @@
   &__top {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 0;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 40px;
+    }
   }
 
   &__title {
@@ -50,6 +71,10 @@
   &__controls {
     display: flex;
     margin-right: 40px;
+
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
 
     .index__mid-control:first-child {
       margin-right: 10px;
@@ -132,6 +157,10 @@
     .article-author__image {
       width: 22px;
       object-fit: unset;
+
+      @media (max-width: $breakpoint - 1px) {
+        width: 17px;
+      }
     }
   }
 
@@ -154,6 +183,7 @@
       @media (max-width: $breakpoint - 1px) {
         // width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
         flex-shrink: 0;
+        margin-left: 10px;
       }
     }
   }
@@ -162,8 +192,8 @@
 
     border-radius: 50%;
     overflow: hidden;
-    width: 60px;
-    height: 60px;
+    width: 46px;
+    height: 46px;
 
     img {
       object-fit: cover;
@@ -174,6 +204,8 @@
 
     @media (min-width: $breakpoint) {
       margin-bottom: 10px;
+      width: 60px;
+      height: 60px;
     }
   }
 
@@ -188,10 +220,10 @@
 
   &__name {
     transition: $transition;
-    @include fsl(14px, 140%);
-    @media (min-width: $breakpoint) {
-      @include fsl(16px);
-    }
+    @include fsl(16px, 140%);
+    // @media (min-width: $breakpoint) {
+    //   @include fsl(16px);
+    // }
   }
 
   &__prof {
