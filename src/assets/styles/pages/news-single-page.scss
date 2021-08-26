@@ -390,6 +390,10 @@
       @media (max-width: $breakpoint-m - 1px) {
         display: none;
       }
+
+      .news-box:last-child {
+        margin-bottom: 0;
+      }
     }
 
     &-mobile {
