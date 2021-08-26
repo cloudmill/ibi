@@ -1,7 +1,9 @@
 .articles-authors {
-  @media (min-width: $breakpoint) {
-    padding-left: 40px;
-  }
+  // @media (min-width: $breakpoint) {
+  //   padding-left: 40px;
+  // }
+
+  margin-right: -40px;
 
   .team-filter {
     padding-left: 0;
@@ -16,10 +18,10 @@
   &--mobile {
     padding-top: 20px;
 
-    display: block;
-    @media (min-width: $breakpoint) {
-      display: none;
-    }
+    // display: block;
+    // @media (min-width: $breakpoint) {
+    //   display: none;
+    // }
   }
 
   &__container {
@@ -28,41 +30,63 @@
     }
   }
 
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
   &__title {
     margin-bottom: 20px;
     @media (min-width: $breakpoint) {
       margin-bottom: 15px;
 
-      @include fsl(14px);
+      @include fsl(26px);
     }
-    @include fsl(12px, 140%);
-    color: #768486;
+    @include fsl(14px, 140%);
+    // color: #768486;
+  }
+
+  &__controls {
+    display: flex;
+    margin-right: 40px;
+
+    .index__mid-control:first-child {
+      margin-right: 10px;
+    }
   }
 
   &__list {
-    @media (max-width: $breakpoint - 1px) {
-      display: flex;
-      width: 100%;
-      overflow-x: auto;
-    }
+    // @media (max-width: $breakpoint - 1px) {
+    //   display: flex;
+    //   width: 100%;
+    //   overflow-x: auto;
+    // }
+    display: flex;
+    width: 100%;
+    // overflow-x: auto;
   }
 
   &__item {
     transition: $transition;
+    height: 92px;
 
-    @media (min-width: $breakpoint) {
+    &:last-child {
+      margin-right: 40px;
+    }
+    // @media (min-width: $breakpoint) {
       // border: 1px solid $color-gray-border;
       // padding: 10px;
 
-      &:not(:first-child) {
-        margin-top: 20px;
-      }
-    }
-    @media (max-width: $breakpoint - 1px) {
-      &:not(:first-child) {
-        margin-left: calc(#{$col-gap-m});
-      }
-    }
+    //   &:not(:first-child) {
+    //     margin-top: 20px;
+    //   }
+    // }
+    // @media (max-width: $breakpoint - 1px) {
+    //   &:not(:first-child) {
+    //     margin-left: calc(#{$col-gap-m});
+    //   }
+    // }
   }
 
   &__filter-item {
@@ -96,29 +120,58 @@
 }
 
 .article-author {
+  height: 100%;
+
+  &__all-authors {
+    .article-author__img {
+      background-color: $color-gray-border;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .article-author__image {
+      width: 22px;
+      object-fit: unset;
+    }
+  }
 
   &__row {
     display: flex;
+    height: 100%;
   }
 
   &__col {
     &:nth-child(1) {
       flex-shrink: 0;
-      width: calc(#{$col-width-m});
-      @media (min-width: $breakpoint) {
-        width: calc(#{$col-width-d});
-      }
+      // width: calc(#{$col-width-m});
+      // @media (min-width: $breakpoint) {
+      //   width: calc(#{$col-width-d});
+      // }
     }
     &:nth-child(2) {
       margin-left: 20px;
+      align-self: flex-end;
       @media (max-width: $breakpoint - 1px) {
-        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+        // width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
         flex-shrink: 0;
       }
     }
   }
 
   &__img {
+
+    border-radius: 50%;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+    }
+
     @media (min-width: $breakpoint) {
       margin-bottom: 10px;
     }
@@ -151,6 +204,30 @@
     }
     @include fsl(12px, 140%);
     color: #768486;
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 140%;
+
+    &::after {
+      content: '12';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $color-main;
+      color: #fff;
+      font-size: 9px;
+      margin-top: -17px;
+    }
+
+    svg {
+      width: 34px;
+      margin-right: 10px;
+    }
   }
 }
 

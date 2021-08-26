@@ -8,39 +8,42 @@ block content
     .row
       .row__col
         .section__inner.section__inner--top
-          .articles-authors.my-sticky
-            .team-filter
-              ul.team-filter__container
-                li.team-filter__item.team-filter__item--active(data-id="doctor") #все
-                li.team-filter__item(data-id="dentist") #исследования
-                li.team-filter__item(data-id="admin") #статьи
-                li.team-filter__item(data-id="coordinator") #центр
-                li.team-filter__item(data-id="doctor") #инновации
-                li.team-filter__item(data-id="dentist") #научная деятельность
-                li.team-filter__item(data-id="admin") #публикации сми
-                li.team-filter__item(data-id="coordinator") #кейсы
+          //- .articles-authors
+          .nav
+            .nav__container
+              .team-filter.my-sticky
+                ul.team-filter__container
+                  li.team-filter__item.team-filter__item--active(data-id="doctor") #все
+                  li.team-filter__item(data-id="dentist") #исследования
+                  li.team-filter__item(data-id="admin") #статьи
+                  li.team-filter__item(data-id="coordinator") #центр
+                  li.team-filter__item(data-id="doctor") #инновации
+                  li.team-filter__item(data-id="dentist") #научная деятельность
+                  li.team-filter__item(data-id="admin") #публикации сми
+                  li.team-filter__item(data-id="coordinator") #кейсы
+                button.team-filter__reset
+                  +reset-svg('team-filter__reset-ico')
+                  |Сбросить
               
-            .articles-authors__container
-              .articles-authors__title 
-                |Авторы статей
-              ul.articles-authors__list
-                - for (i = 0; i < 2; i++)
-                  li.articles-authors__item.articles-authors__filter-item
-                    .article-author 
-                      .article-author__row 
-                        .article-author__col
-                          .article-author__img 
-                            img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
-                          .article-author__label 
-                            |14 статей
-                        .article-author__col
-                          .article-author__name 
-                            |Шмойлов Андрей Евгеньевич
-                          .article-author__prof 
-                            |Главный врач центра
-            button.team-filter__reset
-              +reset-svg('team-filter__reset-ico')
-              |Сбросить
+            //- .articles-authors__container
+            //-   .articles-authors__title 
+            //-     |Авторы статей
+            //-   ul.articles-authors__list
+            //-     - for (i = 0; i < 2; i++)
+            //-       li.articles-authors__item.articles-authors__filter-item
+            //-         .article-author 
+            //-           .article-author__row 
+            //-             .article-author__col
+            //-               .article-author__img 
+            //-                 img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
+            //-               //- .article-author__label 
+            //-               //-   |14 статей
+            //-             .article-author__col
+            //-               .article-author__name 
+            //-                 |Шмойлов Андрей Евгеньевич
+            //-               .article-author__prof 
+            //-                 |Главный врач центра
+            
 
       .row__col
         .section__inner--top
@@ -90,24 +93,63 @@ block content
                     |Кейсы
 
             .articles-authors.articles-authors--mobile
-              .articles-authors__container
-                .articles-authors__title 
-                  |Авторы статей
-                ul.articles-authors__list 
+              .articles-authors__container.swiper-container.swiper-container--slide-width-auto(data-slider-id="160" data-slider-prev='51' data-slider-next='52')
+                
+                .articles-authors__top
+                  .articles-authors__title
+                    |Авторы статей
+                  //- .index__mid-controls
+                  .articles-authors__controls
+                    .index__mid-control
+                      .button-arrow.button-arrow--left
+                        .button-arrow__button(data-slider-button='51')
+                          +svg-arrow.button-arrow__svg
+                    .index__mid-control
+                      .button-arrow.button-arrow--right
+                        .button-arrow__button(data-slider-button='52')
+                          +svg-arrow.button-arrow__svg
+
+                  //- .slider-control.slider-control--desktop
+                  //-   .slider-control__item
+                  //-     .button-arrow.button-arrow--left
+                  //-       .button-arrow__button(data-slider-button='51')
+                  //-         +svg-arrow.button-arrow__svg
+                  //-   .slider-control__item
+                  //-     .button-arrow.button-arrow.button-arrow--right
+                  //-       .button-arrow__button(data-slider-button='52')
+                  //-         +svg-arrow.button-arrow__svg
+
+
+                ul.articles-authors__list.swiper-wrapper
+                  li.articles-authors__item.swiper-slide
+                    .article-author.article-author__all-authors
+                      .article-author__row
+                        .article-author__col
+                          .article-author__img
+                            img.article-author__image(src="assets/images/all-authors-ico.svg", alt="")
+                        .article-author__col
+                          .article-author__name
+                            |Все статьи
+                          .article-author__link.mission__missions-links-link
+                            +svg-link(class='button-svg')
+                            |Смотреть статьи
                   - for (i = 0; i < 3; i++)
-                    li.articles-authors__item 
-                      .article-author 
-                        .article-author__row 
+                    li.articles-authors__item.swiper-slide
+                      .article-author
+                        .article-author__row
                           .article-author__col
-                            .article-author__img 
+                            .article-author__img
                               img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
-                            .article-author__label 
-                              |14 статей
+                            //- .article-author__label
+                            //-   |14 статей
                           .article-author__col
-                            .article-author__name 
+                            .article-author__name
                               |Шмойлов Андрей Евгеньевич
-                            .article-author__prof 
+                            .article-author__prof
                               |Главный врач центра
+                            .article-author__link.mission__missions-links-link
+                              +svg-link(class='button-svg')
+                              |Смотреть статьи
             
             .research 
               ul.research__list 
