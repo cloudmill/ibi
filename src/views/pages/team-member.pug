@@ -69,12 +69,15 @@ block content
                         |Видео презентация
                 .single-news__txt.member-page__txt
                   ul
-                    li Lorem ipsum dolor sit amet, consectetur adipisicing
-                    li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
-                    li Lorem ipsum dolor sit amet, consectetur adipisicing
-                    li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
-                    li Lorem ipsum dolor sit amet, consectetur adipisicing
-                    li Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rem
+                    li Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г
+                    li Сертифицированный специалист International Implant Foundation.
+                    li Стажировка в Германии в клинике Implant plus (Viernheim / Germany) с курсом по протезированию на имплантатах и организации стоматологии.
+                    li 2012 год Прохождение обучения в Испании в Институте Биотехнологий методу направленной регенерации костной ткани и десен PRGF ENDORET (BTI Biotechnology Institute Vitoria-Gasteiz Spain).
+                    li В 2014 практическое обучение имплантации в Венгрии (Будапешт).
+                    li 2015 году практический курс по установке базальных имплантатов One Way Biomed (Палестина) с получением сертификата базального хирурга имплантолога. Начало совместной работы с профессором Стефаном Иде 2012год.
+                    li Специалист по тотальной реконструкции и восстановлению челюстей на имплантатах.
+                    li Проводит операции в протоколе немедленной нагрузки на базальных имплантатах Strategic implant.
+                    li Регулярно читает лекции в России и за рубежом. Регулярно посещает образовательные курсы по имплантации зубов и новейшим системам протезирования.
               aside.share-social.member-page-aside
                 .team-member__badge.member-page__badge
                   .team-member__badge-item
@@ -104,8 +107,8 @@ block content
                         .button-arrow.button-arrow--right
                           .button-arrow__button(data-slider-button='2')
                             +arrow-svg('button-arrow__svg')
-                .about__slider
-                  .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='1' data-slider-prev='1' data-slider-next='2')
+                .about__slider.no-margin
+                  .swiper-container.swiper-container--slide-width-auto(data-slider-id='1' data-slider-prev='1' data-slider-next='2')
                     .swiper-wrapper
                       - for (let i=0; i<3; i++)
                         .swiper-slide
@@ -160,12 +163,12 @@ block content
                           |Все операции
               include ../components/slider-operation
 
-    section.index__section.section--blue-light.section__inner
+    section.index__section.section--blue-light.padding60-40
       .row
         .row__col
         .row__col
           .container
-            .index-publications.team-member-publications
+            .index-publications
               .index-publications__top
                 .index-publications__top-left
                   h2.index-publications__title
@@ -186,8 +189,8 @@ block content
                       .mission__missions-links-text
                         span.mission__missions-links-span
                           |Все публикации
-              .index-publications__slider
-                .swiper-container.swiper-container--visible.swiper-container--slide-width-auto(data-slider-id='5' data-slider-prev='7' data-slider-next='8')
+              .index-publications__slider.no-margin
+                .swiper-container.swiper-container--slide-width-auto(data-slider-id='5' data-slider-prev='7' data-slider-next='8')
                   .swiper-wrapper
                     - for (let i=0; i<9; i++)
                       .swiper-slide
@@ -231,10 +234,3 @@ block content
           .container.news-subscribe.member-page-ask.prosthetics-ask
             h2.news-subscribe__title.member-page-ask__title.form-title Задать вопрос врачу
             include ../components/right-form-msg
-
-//- block footer
-//-   +footer({
-//-     attrs: {
-//-       'data-sticky-end': '1',
-//-     },
-//-   })
