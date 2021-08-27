@@ -15,18 +15,18 @@
       margin-top: 40px;
     }
 
-    @media (min-width: $breakpoint) {
-      width: auto;
-
-      &:not(:first-child) {
-        margin-top: 80px;
-      }
-    }
     @media (min-width: $breakpoint-m) {
       width: calc(50% - 20px);
 
       &:nth-child(2) {
         margin-top: 0;
+      }
+    }
+    @media (min-width: $breakpoint) {
+      width: auto;
+
+      &:not(:first-child) {
+        margin-top: 80px;
       }
     }
 
