@@ -1,12 +1,68 @@
 .works {
 
+  @media (max-width: $breakpoint - 1px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media (max-width: $breakpoint-m - 1px) {
+    display: block;
+  }
+
   &__item {
+    
     &:not(:first-child) {
       margin-top: 40px;
     }
+
     @media (min-width: $breakpoint) {
+      width: auto;
+
       &:not(:first-child) {
         margin-top: 80px;
+      }
+    }
+    @media (min-width: $breakpoint-m) {
+      width: calc(50% - 20px);
+
+      &:nth-child(2) {
+        margin-top: 0;
+      }
+    }
+
+    .operation-card {
+      @media (max-width: $breakpoint - 1px) {
+        width: auto;
+      }
+    }
+    .operation-card__info {
+      @media (max-width: $breakpoint - 1px) {
+        justify-content: flex-start;
+      }
+    }
+    .operation-card__price {
+      @media (max-width: $breakpoint - 1px) {
+        width: 50%;
+        margin-right: 0;
+      }
+    }
+    .operation-card__image {
+      @media (max-width: $breakpoint - 1px) {
+        // height: 337px;
+      }
+    }
+    .operation-card__img {
+      @media (max-width: $breakpoint - 1px) {
+        max-height: unset;
+        width: 100%;
+        object-fit: cover;
+        height: 337px;
+      }
+      @media (max-width: $breakpoint-m - 1px) {
+        height: 463px;
+      }
+      @media (max-width: 499px) {
+        height: 337px;
       }
     }
   }
