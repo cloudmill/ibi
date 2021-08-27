@@ -274,9 +274,9 @@
         margin-right: calc(#{$col-gap-d} - 3px);
         margin-left: calc(#{$col-gap-d} * (-1));
   
-        @media (max-width: $breakpoint - 1px) {
-          margin-right: 16px;
-        }
+        // @media (max-width: $breakpoint - 1px) {
+        //   margin-right: 16px;
+        // }
       }
     }
 
@@ -327,6 +327,10 @@
     align-items: flex-start;
     margin-bottom: 40px;
     position: relative;
+
+    @media (max-width: $breakpoint - 1px) {
+      margin-bottom: 30px;
+    }
 
     &-ico {
       margin-right: 10px;

@@ -413,6 +413,21 @@ const BREAKPOINT = 1280;
           //   }
           //   break;
 
+          case 160:
+            slider_options = {
+              ...slider_options,
+
+              spaceBetween: 20,
+
+              breakpoints: {
+                [BREAKPOINT]: {
+                  spaceBetween: 40,
+                },
+              },
+
+            }
+            break;
+
         }
 
         const slider_swiper = new Swiper(slider_el[0], slider_options);

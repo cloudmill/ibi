@@ -8,25 +8,30 @@ block content
     section.section.section--gradient 
       .row 
         .row__col 
-          .section__inner.section__inner--top
-            .articles-authors.my-sticky
-                .articles-authors__container
-                  .articles-authors__title.mb30
-                    |Автор статьи
-                  ul.articles-authors__list 
-                    li.articles-authors__item 
-                      .article-author 
-                        .article-author__row 
-                          .article-author__col
-                            .article-author__img 
-                              img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
-                            .article-author__label 
-                              |14 статей
-                          .article-author__col
-                            .article-author__name 
-                              |Шмойлов Андрей Евгеньевич
-                            .article-author__prof 
-                              |Главный врач центра
+          .section__inner--top
+            .articles-authors.articles-authors__sidebar.my-sticky
+              .articles-authors__container
+                .articles-authors__title.mb30
+                  |Автор статьи
+                ul.articles-authors__list 
+                  li.articles-authors__item 
+                    .article-author
+                      .article-author__row
+                        .article-author__col
+                          .article-author__img
+                            img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
+                          //- .article-author__label
+                          //-   |14 статей
+                        .article-author__col
+                          .article-author__name
+                            |Шмойлов Андрей Евгеньевич
+                          .article-author__prof
+                            |Главный врач центра
+                          .article-author__link.mission__missions-links-link
+                            +svg-link(class='button-svg')
+                            .mission__missions-links-text
+                              span.mission__missions-links-span
+                                |Смотреть статьи
         .row__col 
           .section__inner.section__inner--top
             .container.single-news 
@@ -39,22 +44,27 @@ block content
                   .single-news__date 3 ноября 2020
                 .articles-authors.articles-authors--mobile
                   .articles-authors__container
-                    .articles-authors__title 
-                      |Авторы статей
+                    //- .articles-authors__title 
+                    //-   |Авторы статей
                     ul.articles-authors__list 
                       li.articles-authors__item 
-                        .article-author 
-                          .article-author__row 
+                        .article-author
+                          .article-author__row
                             .article-author__col
-                              .article-author__img 
+                              .article-author__img
                                 img.article-author__image(src="assets/images/article-author-1.jpg", alt="")
-                              .article-author__label 
-                                |14 статей
+                              //- .article-author__label
+                              //-   |14 статей
                             .article-author__col
-                              .article-author__name 
+                              .article-author__name
                                 |Шмойлов Андрей Евгеньевич
-                              .article-author__prof 
+                              .article-author__prof
                                 |Главный врач центра
+                              .article-author__link.mission__missions-links-link
+                                +svg-link(class='button-svg')
+                                .mission__missions-links-text
+                                  span.mission__missions-links-span
+                                    |Смотреть статьи
                 .team-filter.team-filter--long
                   ul.team-filter__container
                     li.team-filter__item(data-id="doctor") #имплантация
@@ -77,7 +87,7 @@ block content
                   .article__wrapper 
                     p.article__text 
                       |Далее участники слушали выступление президента-элект СтАР, профессора, доктора медицинских наук, заведующего кафедрой хирургической стоматологии и челюстно-лицевой хирургии Яременко Андрея Ильича. Он рассказал о проблемах имплантологии в России. Отметил, что имплантация становится все более распространенной и ее качество должно непрерывно расти. Тем не менее, в современной стоматологии встречаются случаи осложнений при имплантации, которые необходимо свести к минимуму.
-                  .single-news__txt
+                  .single-news__txt.mt50-30
                     ul.last-ul
                       //- - for (i = 0; i < 6; i++)
                       li Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г

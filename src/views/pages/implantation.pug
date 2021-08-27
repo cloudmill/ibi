@@ -62,13 +62,14 @@ block content
             .single-news 
               .single-news__body
                 .article 
-                  h3.article__title.mb80-40
+                  h3.article__title.mb80-40.letter-spacing7
                     |Первым этапом подготовки к операции по установке имплантатов является оценка состояния здоровья пациента.
                   .single-news__txt.single-news__txt--default
                     ul
-                      - for (i = 0; i < 6; i++)
-                        li 
-                          |Преподаватель кафедры стоматологии МГУ им. Огарева. 2012г 
+                      li Первым этапом подготовки к операции по установке имплантатов является оценка состояния здоровья пациента
+                      li Пациент заполняет подробную анкету здоровья
+                      li Врач, проводя консультацию, изучает ее и при необходимости задает дополнительные вопросы
+                      li По результатам заполнения анкеты здоровья и опроса пациента определяется объем необходимых анализов для проведения операции. Это может быть как общий анализ крови, так и заключение врача кардиолога о возможности проведения данной операции
         .index 
           .container 
             .section__frame
@@ -94,7 +95,7 @@ block content
                           +svg-arrow.button-arrow__svg
         .container.news-subscribe.member-page-ask.display-flex
           h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md
-            |Получить персональную консультацию бесплатно
+            |Получить персональную стратегию имплантации
           .calc-wrapper.mb80-60
             include ../components/calculator
-          include ../components/form-add-file
+          include ../components/form-2col-add-file

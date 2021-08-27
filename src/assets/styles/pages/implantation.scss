@@ -22,15 +22,18 @@
     align-items: stretch;
 
     @media (max-width: $breakpoint-m - 1px) {
-      width: calc(100% + 20px);
+      width: calc(100% + 40px);
       overflow-x: auto;
+      margin-left: -20px;
+      padding: 0 20px;
     }
   }
 
   &__item {
     flex-shrink: 0;
     @media (min-width: $breakpoint) {
-      width: calc((#{$col-part-d} * 5 - #{$col-gap-d}) / 2 - 10px);
+      // width: calc((#{$col-part-d} * 5 - #{$col-gap-d}) / 2 - 10px);
+      width: 310px;
     }
     @media (max-width: $breakpoint - 1px) {
       width: 250px;

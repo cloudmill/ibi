@@ -1,0 +1,47 @@
+.form-new
+
+  form.form(data-parsley-validate="")
+
+    .form-new__col
+      label.form-new__label
+        input.form-new__input(type="text" placeholder="Имя*" required="")
+      label.form-new__label
+        input.form-new__input(type="tel" data-tel-input placeholder="Телефон*" maxlength="18" required="")
+      label.form-new__label
+        input.form-new__input(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
+
+      label.form-new__add-file.form-new__add-file--desktop(for="")
+        input(type="file" multiple)
+        button(type="button")
+          +add-file-svg('transfer-consult__add-file-ico')
+          |Прикрепить файл
+        p Снимки, ретнген, заключение врача
+
+    .form-new__col
+      label.form-new__label
+        textarea.form-new__input.form-new__textarea(name="", cols="30", rows="3" placeholder="Дополнительная информация")
+      
+      label.form-new__add-file.form-new__add-file--mobile(for="")
+        input(type="file" multiple)
+        button(type="button")
+          +add-file-svg('transfer-consult__add-file-ico')
+          |Прикрепить файл
+        p Снимки, ретнген, заключение врача
+      
+      label.form-new__checkbox
+        input(type="checkbox" required="")
+        .checkbox
+        .form-new__checkbox-txt Согласен на обработку персональных данных в соответствии с 
+          a(href="#") политикой конфиденциальности
+      button.form-new__button.mission__missions-links-link.form__btn(type="submit")
+        +arrow-link-svg('button-svg')
+        .mission__missions-links-text
+          span.mission__missions-links-span
+            |Отправить
+
+  .response.response-not-modal
+    h2 Спасибо, что связались с нами. Мы ответим в ближайшее  время.
+    .mission__missions-links-link.response__btn
+      +arrow-link-svg('news__link-ico')
+      .mission__missions-links-text
+        |Отправить еще

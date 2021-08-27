@@ -31,6 +31,25 @@
   }
 }
 
+.mt50-30 {
+  margin-top: 50px;
+
+  @media (max-width: $breakpoint - 1px) {
+    margin-top: 30px;
+  }
+}
+
+.team-filter.mt40 {
+  margin-top: 40px;
+}
+.team-filter.mt0 {
+  margin-top: 0;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
 .articles-authors__title.mb30 {
   margin-bottom: 30px;
 }
@@ -89,4 +108,20 @@
 
 .display-flex {
   display: flex;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.letter-spacing {
+  &7 {
+    letter-spacing: -.7px;
+  }
+  &8 {
+    letter-spacing: -.8px;
+  }
+  &9 {
+    letter-spacing: -.9px;
+  }
 }
