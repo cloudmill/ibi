@@ -74,6 +74,12 @@
   }
 }
 
+.vacancies-list__extra-txt.mb40-mob {
+  @media (max-width: $breakpoint - 1px) {
+    margin-bottom: 40px;
+  }
+}
+
 .news-subscribe__title.mb80-60 {
   margin-bottom: 80px;
 
