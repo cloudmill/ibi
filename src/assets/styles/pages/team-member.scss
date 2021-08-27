@@ -154,9 +154,9 @@
   }
 }
 
-.team-member-publications {
-  overflow: hidden;
-}
+// .team-member-publications {
+//   overflow: hidden;
+// }
 
 .member-back-link {
   @media (max-width: $breakpoint - 1px) {
@@ -165,5 +165,13 @@
     .single-news__back-link {
       margin-bottom: 0;
     }
+  }
+}
+
+.padding60-40 {
+  padding: 60px 0 40px;
+
+  @media (min-width: $breakpoint) {
+    padding: 160px 0;
   }
 }

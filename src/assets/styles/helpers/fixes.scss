@@ -131,3 +131,10 @@
     letter-spacing: -.9px;
   }
 }
+
+.no-margin {
+  margin-right: -20px;
+  @media (min-width: $breakpoint) {
+    margin-right: -40px;
+  }
+}

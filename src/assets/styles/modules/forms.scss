@@ -350,11 +350,6 @@
       flex-wrap: wrap;
       justify-content: space-between;
 
-      width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
-      @media (max-width: $breakpoint - 1px) {
-        width: 100%;
-      }
-
       .news-subscribe__form-btn {
         margin-right: 20px;
         @media (max-width: $breakpoint - 1px) {
