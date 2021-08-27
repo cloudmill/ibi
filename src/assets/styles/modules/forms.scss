@@ -246,11 +246,12 @@
 .form {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  // align-items: flex-end;
+  align-items: flex-start;
 
   @media (max-width: $breakpoint - 1px) {
     flex-direction: column;
-    align-items: flex-start;
+    // align-items: flex-start;
   }
 
   &__title {
@@ -348,6 +349,11 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+
+      width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+      @media (max-width: $breakpoint - 1px) {
+        width: 100%;
+      }
 
       .news-subscribe__form-btn {
         margin-right: 20px;
