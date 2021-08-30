@@ -1,5 +1,6 @@
 import 'Styles/_app.scss';
 import 'scripts/backend.js';
+import 'scripts/modal-tooltip.js';
 
 import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
@@ -153,49 +154,6 @@ const BREAKPOINT = 1280;
           // body.removeClass('body-fixed');
         }
       });
-    }
-  });
-}
-
-// tooltip
-{
-  $(() => {
-    const tooltip = $('.tooltip');
-    const navModalButton = $('.vacancy-btn');
-
-    if (tooltip.length !== 0) {
-      
-      // const tooltipId = tooltip.data('tooltip-btn');
-      // console.log(tooltipId);
-
-      $(window).on('click', event => {
-        const openModal = $('.vacancy--modal-open');
-        if (
-          openModal.hasClass('vacancy--modal-open') &&
-          $(event.target).closest(navModalButton).length === 0 && 
-          $(event.target).closest('.modal-forms__form').length === 0
-        ) {
-          openModal.removeClass('vacancy--modal-open');
-          
-          // body.removeClass('body-fixed');
-        }
-      });
-
-      tooltip.on('click', function() {
-        const tooltipId = $(this).data('tooltip-btn');
-        const currentModal = $(`[data-tooltip-modal="${tooltipId}"]`);
-        // console.log(currentModal);
-
-        setTimeout( () => {
-          if (currentModal.hasClass('vacancy--modal-open')) {
-            currentModal.removeClass('vacancy--modal-open');
-          } else {
-            currentModal.addClass('vacancy--modal-open');
-          }
-        })
-      });
-      
-      
     }
   });
 }
