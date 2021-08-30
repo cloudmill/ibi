@@ -134,7 +134,7 @@ const BREAKPOINT = 1280;
         if (headerCallback.hasClass('vacancy--modal-open')) { // если модальное окно открыто - закрываем
           headerCallback.removeClass('vacancy--modal-open'); // обновляем модификатор header (шапка, контейнер модальных окон)
           // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
-          body.removeClass('body-fixed');
+          // body.removeClass('body-fixed');
         } else { // открывыем, аналогично (выше)
           headerCallback.addClass('vacancy--modal-open');
           // navModalButton.addClass('button-modal--active');

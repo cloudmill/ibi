@@ -33,12 +33,13 @@ html(lang='ru')
       main.main
         block content
 
-      include ../components/vacancy-modal
-      include ../components/callback-modal
+      block footer
+        +footer
+
+      include ../components/modal-vacancy
+      include ../components/modal-callback
 
       include ../components/modal-tooltip-1
       include ../components/modal-tooltip-2
 
-      block footer
-        +footer
       block scripts
