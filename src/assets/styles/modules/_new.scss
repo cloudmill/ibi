@@ -144,9 +144,13 @@
   border-bottom: 1px solid $color-main;
   font-size: 22px;
   line-height: 31px;
-  @media (min-width: $breakpoint) {
+  @media (min-width: 961px) {
+    font-size: 50px;
+    line-height: 140%;
+  }
+  @media (min-width: $breakpoint-l) {
     font-size: 70px;
-    line-height: 98px;
+    line-height: 140%;
   }
 
   &--s {
