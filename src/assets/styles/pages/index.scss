@@ -414,8 +414,11 @@
   }
 
   &__title {
-    @include fsl(22px, 140%);
-    @media (min-width: $breakpoint) {
+    @include fsl(20px, 140%);
+    @media (min-width: $breakpoint-m) {
+      @include fsl(35px);
+    }
+    @media (min-width: $breakpoint-l) {
       @include fsl(50px);
     }
   }
@@ -835,6 +838,7 @@
       &:nth-child(1) {
         @media (min-width: $breakpoint) {
           width: calc(#{$col-part-d} * 4);
+          max-width: 547px;
         }
       }
       &:nth-child(2) {

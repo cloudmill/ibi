@@ -177,6 +177,9 @@
     @media (min-width: $breakpoint) {
       height: 600px;
     }
+    @media (min-width: $breakpoint-l) {
+      height: 500px;
+    }
     @media (max-width: $breakpoint - 1px) {
       height: 300px;
     }
