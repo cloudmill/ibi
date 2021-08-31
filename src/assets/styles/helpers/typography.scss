@@ -1,0 +1,55 @@
+.title-h1 {
+  font-size: 22px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 50px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 70px;
+  }
+}
+
+.title-h2 {
+  font-size: 20px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 35px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 50px;
+  }
+}
+
+.title-h3 {
+  font-size: 18px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 28px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 40px;
+  }
+}
+
+.title-h4 {
+  font-size: 16px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 24px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 30px;
+  }
+}
+
+
+.mission__spoiler-title.title-h1 {
+  font-size: 22px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 50px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 70px;
+  }
+}
