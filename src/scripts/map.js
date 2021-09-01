@@ -1,13 +1,15 @@
 // map
 
+const BREAKPOINT = 1280;
+
 {
   ymaps.ready(() => {
     const mapContainer = $("#map");
 
     if (mapContainer.length !== 0) {
       // vars
-      const markWidth = 70;
-      const markHeight = 62;
+      const markWidth = 120;
+      const markHeight = 126;
 
       // init
       const map = new ymaps.Map(
@@ -130,10 +132,10 @@
           },
           {
             iconLayout: "default#image",
-            iconImageHref: "../assets/images/placemark.svg",
+            iconImageHref: "assets/images/placemark.svg",
             // iconImageHref: "/local/templates/main/assets/images/placemark.svg",
             iconImageSize: [markWidth, markHeight],
-            iconImageOffset: [-markWidth / 2, -markHeight],
+            iconImageOffset: [-markWidth / 2, -80],
 
             balloonLayout: layout,
             balloonPanelMaxMapArea: 0,
