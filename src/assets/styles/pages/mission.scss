@@ -203,16 +203,18 @@
   &__missions-text {
     margin: 0 auto;
 
-    font-size: 20px;
-    line-height: 28px;
-    @media (min-width: $breakpoint-m) {
-      font-size: 30px;
-      line-height: 42px;
-    }
-    @media (min-width: $breakpoint) {
-      font-size: 50px;
-      line-height: 70px;
-    }
+    @include blockquote-italic ();
+
+    // font-size: 20px;
+    // line-height: 28px;
+    // @media (min-width: $breakpoint-m) {
+    //   font-size: 30px;
+    //   line-height: 42px;
+    // }
+    // @media (min-width: $breakpoint) {
+    //   font-size: 50px;
+    //   line-height: 70px;
+    // }
     text-align: center;
 
     &--max-width {
@@ -228,21 +230,21 @@
     }
   }
   &__missions-text-highlight {
-    font-family: $ff-2;
-    font-weight: 500;
-    font-style: italic;
-    font-size: 26px;
-    line-height: 36px;
-    @media (min-width: $breakpoint-m) {
-      font-size: 30px;
-      line-height: 42px;
-    }
-    @media (min-width: $breakpoint) {
-      font-size: 60px;
-      line-height: 84px;
-    }
+    // font-family: $ff-2;
+    // font-weight: 500;
+    // font-style: italic;
+    // font-size: 26px;
+    // line-height: 36px;
+    // @media (min-width: $breakpoint-m) {
+    //   font-size: 30px;
+    //   line-height: 42px;
+    // }
+    // @media (min-width: $breakpoint) {
+    //   font-size: 60px;
+    //   line-height: 84px;
+    // }
     text-align: center;
-    color: $color-main;
+    // color: $color-main;
   }
   // missions links
   &__missions-links {
@@ -370,8 +372,11 @@
         &:nth-child(1) {
           #{$comp}__missions-img {
             @media (min-width: $breakpoint) {
-              bottom: -75px;
+              bottom: -120px;
               left: 0;
+            }
+            @media (min-width: $breakpoint-xl) {
+              bottom: -75px;
             }
 
             max-width: 158px;
@@ -474,6 +479,9 @@
   // thumbs
   // слайдер с датами, в роли пагинации
   &__thumbs {
+    @media (max-width: $breakpoint - 1px) {
+      margin-right: -20px;
+    }
     .swiper-container {
       // max-width: 200px; // ???
       margin-left: 0; // ???
@@ -721,4 +729,17 @@
       margin-right: 20px;
     }
   }
+
+  @media (min-width: $breakpoint) {
+    margin-left: 10%;
+  }
+  @media (min-width: $breakpoint-l) {
+    margin-left: 0;
+  }
+  // @media (min-width: $breakpoint-ll) {
+  //   margin-left: 10%;
+  // }
+  // @media (min-width: $breakpoint-xl) {
+  //   margin-left: 0;
+  // }
 }

@@ -111,6 +111,8 @@
   &__title {
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
 
+    @include title-h3();
+
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2 - (#{$col-gap-m} * 2));
     }
@@ -270,6 +272,10 @@
   &__title {
     width: calc(#{$col-part-d} * 4 + #{$col-gap-d});
     padding-left: 40px;
+    transition: $transition;
+    font-weight: 500;
+
+    @include title-h3();
 
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2);
@@ -280,20 +286,6 @@
       width: auto;
       padding-left: 0;
       margin-bottom: 60px;
-    }
-
-    h3 {
-      font-weight: 500;
-      font-size: 40px;
-      line-height: 110%;
-
-      transition: $transition;
-      @media (max-width: $breakpoint-l) {
-        font-size: 28px;
-      }
-      @media (max-width: $breakpoint-961) {
-        font-size: 18px;
-      }
     }
   }
   
