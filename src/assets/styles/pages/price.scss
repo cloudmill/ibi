@@ -52,12 +52,14 @@
 
 .price-subtitle {
   margin: 120px 0 80px;
-  font-size: 40px;
-  line-height: 140%;
+  // font-size: 40px;
+  // line-height: 140%;
+
+  @include title-h3();
 
   @media (max-width: $breakpoint - 1px) {
     margin: 40px 0;
-    font-size: 18px;
+    // font-size: 18px;
   }
 }
 
@@ -185,13 +187,15 @@
     }
 
     &__ttl {
-      font-size: 22px;
-      line-height: 140%;
+      // font-size: 22px;
+      // line-height: 140%;
+
+      @include title-h5();
 
       margin-top: 30px;
 
       @media (max-width: $breakpoint - 1px) {
-        font-size: 16px;
+        // font-size: 16px;
         margin-top: 20px;
       }
     }
