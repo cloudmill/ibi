@@ -297,7 +297,7 @@
     
   }
   &__list {
-
+    @include sidebar-menu();
   }
   &__item {
     position: relative;
@@ -331,28 +331,28 @@
         opacity: 1;
       }
 
-      #{$comp}__link {
-        font-size: 18px;
-        line-height: 140%;
-        color: $color-main;
-        @media (min-width: $breakpoint-l) {
-          font-size: 30px;
-        }
-      }
+      // #{$comp}__link {
+      //   font-size: 18px;
+      //   line-height: 140%;
+      //   color: $color-main;
+      //   @media (min-width: $breakpoint-l) {
+      //     font-size: 30px;
+      //   }
+      // }
     }
   }
 
-  &__link {
-    @include fsl(16px, 140%);
-    @media (min-width: $breakpoint-l) {
-      @include fsl(18px);
-    }
-    transition: $transition;
+  // &__link {
+  //   @include fsl(16px, 140%);
+  //   @media (min-width: $breakpoint-l) {
+  //     @include fsl(18px);
+  //   }
+  //   transition: $transition;
 
-    &:hover {
-      color: $color-main;
-    }
-  }
+  //   &:hover {
+  //     color: $color-main;
+  //   }
+  // }
 }
 
 // модификации swiper слайдера
