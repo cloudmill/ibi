@@ -90,12 +90,14 @@
     width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
     margin-bottom: 60px;
 
-    font-size: 30px;
-    line-height: 140%;
+    // font-size: 30px;
+    // line-height: 140%;
+
+    @include title-h4();
 
     @media (max-width: $breakpoint - 1px) {
       width: 100%;
-      font-size: 16px;
+      // font-size: 16px;
       margin-bottom: 20px;
       letter-spacing: -.5px;
     }
@@ -103,15 +105,17 @@
 
   &__price {
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
-    font-size: 50px;
-    line-height: 140%;
+    // font-size: 50px;
+    // line-height: 140%;
     color: $color-main;
     text-align: right;
+
+    @include title-h2();
 
     @media (max-width: $breakpoint - 1px) {
       width: 100%;
       // margin-top: 20px;
-      font-size: 20px;
+      // font-size: 20px;
       text-align: left;
       order: 2;
     }
