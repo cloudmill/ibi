@@ -5,6 +5,14 @@
     margin-bottom: 40px;
     height: 500px;
 
+    @media (max-width: $breakpoint - 1px) {
+      height: 400px;
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+      height: 500px;
+    }
+
     &-txt {
       position: absolute;
       z-index: 3;
