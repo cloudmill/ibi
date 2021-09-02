@@ -187,6 +187,9 @@
     height: 100%;
     display: flex;
     align-items: center;
+    @media (max-width: 374px) {
+      height: 152px;
+    }
   }
   &__mid-img {
     max-width: calc(100vw - #{$col-pad-m} * 2);
@@ -198,6 +201,11 @@
     @media (min-width: $breakpoint) {
       max-width: calc(100vw - #{$col-pad-d} * 2);
       max-height: 600px;
+    }
+    @media (max-width: 374px) {
+      max-width: calc(100vw - #{$col-pad-m} * 3);
+      max-height: unset;
+      height: 100%;
     }
 
     // implatation
@@ -818,6 +826,10 @@
 
   @media (max-width: $breakpoint - 1px) {
     width: 266px;
+    display: block;
+  }
+  @media (max-width: 374px) {
+    width: 240px;
   }
   @media (min-width: $breakpoint) {
     height: 100%;
@@ -911,9 +923,16 @@
     }
     display: flex;
     align-items: flex-start;
+    @media (max-width: 374px) {
+      height: 268px;
+    }
   }
   &__img {
     max-height: 268px;
+    @media (max-width: 374px) {
+      max-height: unset;
+      height: 100%;
+    }
     @media (min-width: $breakpoint) {
       max-height: 551px;
     }
@@ -1154,7 +1173,7 @@
     margin-top: 40px;
     display: flex;
 
-    // @include scrollbar-hidden();
+    @include scrollbar-hidden();
 
     @media (max-width: $breakpoint - 1px) {
       width: calc(100% + 20px);
