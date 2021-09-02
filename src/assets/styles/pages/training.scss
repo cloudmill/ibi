@@ -338,6 +338,12 @@
     }
   }
 
+  .single-news__txt li {
+    @media (min-width: $breakpoint) {
+      width: 643px;
+    }
+  }
+
   .single-news__txt p {
     font-size: 22px;
     // width: calc(#{$col-part-d} * 5);
