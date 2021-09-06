@@ -33,7 +33,7 @@ mixin header
                 .header__panel-item
                   .header__items.header__items--large.header__container
                     .header__items-item
-                      .header__phone
+                      .header__phone.header__phone-head
                         a.header__phone-call.header__phone-call-head.header__text.callback-button(href='#')
                           |Заказать звонок
                         a.header__phone-link.header__text.header__link(href='tel:84994906349')
@@ -315,9 +315,48 @@ mixin header
                   .header__drop-image
                     +svg-arrow.header__drop-svg
         .header-modal__content 
-          ul.header-section 
-            each item in ['Базальная имплантация', 'Услуги', 'До и После', 'О нас', 'Специалистам']
-              li.header-section__item 
+          ul.header-section
+            li.header-section__item
+                .header__drop.header-section__button
+                  .header__drop-button
+                    .header__drop-text.header__text
+                      |Базальная имплантация
+                    .header__drop-image
+                      +svg-arrow.header__drop-svg
+                .header-section__dropdown 
+                  each section in ['Метод', 'Преимущество', 'Этапы имплантации', 'Имплантаты Strategic Implant ', 'Стоимость']
+                    .header-section__section 
+                      .header__drop.header-section__section-button
+                        .header__drop-button
+                          .header__drop-text.header__text
+                            |#{section}
+                          
+            li.header-section__item
+              .header__drop.header-section__button
+                .header__drop-button
+                  .header__drop-text.header__text
+                    |Услуги
+                  .header__drop-image
+                    +svg-arrow.header__drop-svg
+              .header-section__dropdown 
+                each section in ['Протезирование', 'Профилактика', 'Протезирование', 'Удаление зубов', 'Лечение зубов']
+                  .header-section__section 
+                    .header__drop.header-section__section-button
+                      .header__drop-button
+                        .header__drop-text.header__text
+                          |#{section}
+                        .header__drop-image
+                          +svg-arrow.header__drop-svg
+                    .header-section__section-dropdown
+                      ul.header-section__links 
+                        each link in ['Удаление зубов', 'Лечение зубов', 'Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладки циркониевые Prettau', 'Накладки циркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладки циркониевые KATANA', 'Безметалловые вкладки']
+                          li.header-section__links-item 
+                            a.header__drop-button(href="#")
+                              .header__drop-text.header__text
+                                |#{link}
+                      
+            each item in ['До и После', 'О нас', 'Специалистам']
+              li.header-section__item
                 .header__drop.header-section__button
                   .header__drop-button
                     .header__drop-text.header__text
@@ -325,21 +364,13 @@ mixin header
                     .header__drop-image
                       +svg-arrow.header__drop-svg
                 .header-section__dropdown 
-                  each section in ['Диагностика', 'Профилактика', 'Протезирование', 'Удаление зубов', 'Лечение зубов']
+                  each section in ['Миссия и ценности', 'Наша команда', 'Вакансии', 'Новости', 'Контакты']
                     .header-section__section 
                       .header__drop.header-section__section-button
                         .header__drop-button
                           .header__drop-text.header__text
                             |#{section}
-                          .header__drop-image
-                            +svg-arrow.header__drop-svg
-                      .header-section__section-dropdown
-                        ul.header-section__links 
-                          each link in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладки циркониевые под нанесение керамики']
-                            li.header-section__links-item 
-                              a.header__drop-button(href="#")
-                                .header__drop-text.header__text
-                                  |#{link}
+                      
         .header-modal__nav
           .container
             ul.header-modal__nav-links 

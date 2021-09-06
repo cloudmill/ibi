@@ -210,8 +210,20 @@
     @media (max-width: $breakpoint-xl - 1px) {
       flex-direction: column;
     }
-    @media (max-width: $breakpoint - 1px) {
-      flex-direction: row;
+    // @media (max-width: $breakpoint - 1px) {
+    //   flex-direction: row;
+    // }
+
+    &-head {
+      @media (max-width: $breakpoint - 1px) {
+        flex-direction: row;
+      }
+
+      .header__phone-link {
+        @media (max-width: $breakpoint-m - 1px) {
+          display: none;
+        }
+      }
     }
   }
   &__phone-call {
@@ -243,9 +255,18 @@
       margin-right: 25px;
     }
     &-head {
+      // @media (max-width: $breakpoint - 1px) {
+      //   flex-direction: row;
+      // }
       @media (max-width: 374px) {
         display: none;
       }
+
+      // .header__phone-link {
+      //   @media (max-width: $breakpoint-m - 1px) {
+      //     display: none;
+      //   }
+      // }
     }
   }
   &__phone-link {
@@ -255,9 +276,6 @@
 
     @media (max-width: $breakpoint - 1px) {
       font-size: 18px;
-    }
-    @media (max-width: $breakpoint-m - 1px) {
-      display: none;
     }
   }
 
