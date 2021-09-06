@@ -23,13 +23,20 @@ const BREAKPOINT = 1280;
       {
         const state = {
           id: null,
+          leave(event) {
+            console.log(event);
+          },
           close: function () {
             $(`[data-modal-id="${this.id}"]`).removeAttr('data-modal-active');
             $(`[data-modal-button="${this.id}"]`).removeAttr('data-modal-active');
+
+            $(`[data-modal-id="${this.id}"]`).off('mouseleave', this.leave);
           },
           open: function () {
             $(`[data-modal-id="${this.id}"]`).attr('data-modal-active', '');
             $(`[data-modal-button="${this.id}"]`).attr('data-modal-active', '');
+
+            $(`[data-modal-id="${this.id}"]`).on('mouseleave', this.leave);
           },
           update: function (id) {
             this.id = id;
@@ -57,7 +64,7 @@ const BREAKPOINT = 1280;
         $(window).on('click', event => {
           // const isClickArea = $(event.target).closest(header).length !== 0; ?
 
-          const isClickArea = ( // ?
+          const isClickArea = ( // ? 
             // эл-ты header
             $(event.target).closest('.header__container').length !== 0
             && !$(event.target).hasClass('header__container')
@@ -73,11 +80,9 @@ const BREAKPOINT = 1280;
 
         // media
         const breakpoint = window.matchMedia(`(min-width: ${BREAKPOINT}px)`);
-        breakpoint.addListener((event) => {
+        breakpoint.addListener(() => {
           state.change(null);
         });
-
-
       }
     }
   });
