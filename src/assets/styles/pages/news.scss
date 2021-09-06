@@ -111,19 +111,12 @@
   &__title {
     width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
 
+    @include title-h3();
+
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2 - (#{$col-gap-m} * 2));
     }
-
-    h3 {
-      font-size: 40px;
-      line-height: 110%;
-      font-weight: 500;
-
-      @media (max-width: $breakpoint - 1px) {
-        font-size: 18px;
-      }
-    }
+    line-height: 110%;
 
     @media (max-width: $breakpoint-m - 1px) {
       width: auto;
@@ -225,7 +218,7 @@
   }
 
   &-box:hover {
-    .news__title h3 {
+    .news__title {
       color: $color-main;
     }  
   }
@@ -279,30 +272,20 @@
   &__title {
     width: calc(#{$col-part-d} * 4 + #{$col-gap-d});
     padding-left: 40px;
+    transition: $transition;
+    font-weight: 500;
+
+    @include title-h3();
 
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2);
       padding-left: 0;
     }
-    
-
     @media (max-width: $breakpoint-m - 1px) {
       order: -1;
       width: auto;
       padding-left: 0;
       margin-bottom: 60px;
-  }
-
-    h3 {
-      font-weight: 500;
-      font-size: 40px;
-      line-height: 110%;
-
-      transition: $transition;
-
-      @media (max-width: $breakpoint - 1px) {
-          font-size: 18px;
-      }
     }
   }
   
@@ -340,6 +323,12 @@
     margin-top: 40px;
   }
 
+  .news-show-more-btn.mission__missions-links-link:hover {
+    .button-svg path:nth-child(3) {
+      transform: translateY(10px) rotate(90deg) scale(1.2);
+    }
+  }
+
   &-btn {
     @include f-1();
     font-weight: 400;
@@ -355,6 +344,12 @@
     @media (min-width: $breakpoint) {
       padding: 10px 17px 10px 8px;
     }
+
+    .mission__missions-links-text {
+      margin-left: 0;
+    }
+
+
   }
 
   &-ico {

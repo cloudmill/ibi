@@ -142,12 +142,19 @@
   }
 
   border-bottom: 1px solid $color-main;
-  font-size: 22px;
-  line-height: 31px;
-  @media (min-width: $breakpoint) {
-    font-size: 70px;
-    line-height: 98px;
-  }
+
+  @include title-h1 ();
+
+  // font-size: 22px;
+  // line-height: 31px;
+  // @media (min-width: 961px) {
+  //   font-size: 50px;
+  //   line-height: 140%;
+  // }
+  // @media (min-width: $breakpoint-l + 1px) {
+  //   font-size: 70px;
+  //   line-height: 140%;
+  // }
 
   &--s {
     @include fsl(22px, 140%);
@@ -290,7 +297,7 @@
     
   }
   &__list {
-
+    @include sidebar-menu();
   }
   &__item {
     position: relative;
@@ -324,28 +331,28 @@
         opacity: 1;
       }
 
-      #{$comp}__link {
-        font-size: 18px;
-        line-height: 140%;
-        color: $color-main;
-        @media (min-width: $breakpoint-l) {
-          font-size: 30px;
-        }
-      }
+      // #{$comp}__link {
+      //   font-size: 18px;
+      //   line-height: 140%;
+      //   color: $color-main;
+      //   @media (min-width: $breakpoint-l) {
+      //     font-size: 30px;
+      //   }
+      // }
     }
   }
 
-  &__link {
-    @include fsl(16px, 140%);
-    @media (min-width: $breakpoint-l) {
-      @include fsl(18px);
-    }
-    transition: $transition;
+  // &__link {
+  //   @include fsl(16px, 140%);
+  //   @media (min-width: $breakpoint-l) {
+  //     @include fsl(18px);
+  //   }
+  //   transition: $transition;
 
-    &:hover {
-      color: $color-main;
-    }
-  }
+  //   &:hover {
+  //     color: $color-main;
+  //   }
+  // }
 }
 
 // модификации swiper слайдера
@@ -422,48 +429,21 @@
   }
 }
 
-// Преобразование спойлера с меню в заголовок на планшетах
+// Преобразование спойлера с меню в заголовок
 
 .page-title-hidden {
   @media (max-width: $breakpoint - 1px) {
       display: none;
   }
-
-  @media (max-width: $breakpoint-m - 1px) {
-      display: block;
-  }
-
-  &--mob {
-    @media (max-width: $breakpoint - 1px) {
-      display: none;
-    }
-  }
 }
 
 .mission__spoiler.spoiler-to-title {
+
+  .mission__spoiler-title {
+    @include title-h1();
+  }
+
   @media (max-width: $breakpoint - 1px) {
       border-bottom: 1px solid $color-main;
-
-      .mission__spoiler-title {
-          font-size: 22px;
-      }
-  }
-
-  @media (max-width: $breakpoint-m - 1px) {
-      border-bottom: 1px solid $color-gray-border;
-
-      .mission__spoiler-title {
-          font-size: 16px;
-      }
-  }
-
-  &--mob {
-    @media (max-width: $breakpoint - 1px) {
-      border-bottom: 1px solid $color-main;
-
-      .mission__spoiler-title {
-          font-size: 22px;
-      }
-    }
   }
 }

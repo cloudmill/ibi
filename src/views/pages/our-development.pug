@@ -24,9 +24,9 @@ block content
           .section__inner.section__inner--top
             .developments
               .container 
-                h1.title.title--s
+                h1.title.title--s.letter-spacing6
                   |Металлоакриловый несъемный мостовидный протез
-                .developments__category 
+                .developments__category.letter-spacing1
                   |Для восстановление одной или двух челюстей
                 .single-news__head
                   .single-news__back-link
@@ -34,7 +34,7 @@ block content
                 .mission
                   .mission__spoiler.news-spoiler
                     .mission__spoiler-button.news-spoiler__button
-                      h5.mission__spoiler-title
+                      h5.mission__spoiler-title.txt-overflow-dots
                         |Металлоакриловый несъемный мостовидный протез
                       .news-spoiler__image
                         +arrow-svg('header__drop-svg')
@@ -108,7 +108,7 @@ block content
                     li.developments__item 
                       .developments__text 
                         |Все модели пациента, полученные после установки имплантатов позиционируются исключительно при помощи специальных аппаратов австрийской фирмы 
-                        span.tooltip
+                        span.tooltip(data-modal-tooltip-id="modal-tooltip-1")
                           |Amann Girrbach AG
                           +tooltip-svg('tooltip__icon')
                           .tooltip__content 
@@ -117,10 +117,10 @@ block content
                     li.developments__item 
                       .developments__text 
                         |Цифровой протокол исключает работу «на глаз». При этом модели проходят этап специального сканирования на зуботехническом 
-                        span.tooltip
+                        span.tooltip(data-modal-tooltip-id="modal-tooltip-2")
                           |сканере Shining 3D 
                           +tooltip-svg('tooltip__icon')
-                          .tooltip__content 
+                          .tooltip__content
                             |
                         |и дальнейшая работа происходит в компьютерной, зуботехнической программе Exoсad.
             .section__inner.section__inner--bot 

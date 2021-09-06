@@ -94,15 +94,12 @@
 
 
   &__info-title {
-    @include fsl(20px, 140%);
-    @media (min-width: $breakpoint) {
-      @include fsl(40px);
-    }
+    @include blockquote-italic();
   }
-  &__info-link {
-    @include f-2(500);
-    color: $color-main;
-  }
+  // &__info-link {
+  //   @include f-2(500);
+  //   color: $color-main;
+  // }
   &__info-row {
     margin-top: 40px;
 

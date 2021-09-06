@@ -32,7 +32,10 @@
     padding-top: 100px;
     padding-bottom: 40px;
     position: fixed;
-    bottom: 0;
+    // bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     // transform: translateX(100%); // ?
     background-color: $color-white;
     @media (min-width: $breakpoint) {
