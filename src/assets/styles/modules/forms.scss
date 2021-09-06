@@ -277,16 +277,23 @@
       font-size: 20px;
     }
   }
+}
 
-  &--hidden {
+.form--hidden {
+  // opacity: 0;
+  @media (min-width: $breakpoint) {
+    visibility: hidden;
     opacity: 0;
-    @media (min-width: $breakpoint) {
-      visibility: hidden;
-    }
+  }
 
-    @media (max-width: $breakpoint - 1px) {
-      display: none;
-    }
+  @media (max-width: $breakpoint - 1px) {
+    display: none;
+  }
+}
+
+.member-page-ask__form-wrapper.form.form--hidden {
+  @media (max-width: $breakpoint - 1px) {
+    display: none;
   }
 }
 
@@ -356,6 +363,7 @@
     @media (max-width: $breakpoint - 1px) {
       width: 100%;
       padding-right: 0;
+      min-height: 160px;
     }
 
     &-wrapper {
@@ -429,7 +437,9 @@
 
 .news-subscribe__form.member-page-ask__form {
   .response {
-    padding-left: $col-gap-d;
+    @media (min-width: $breakpoint) {
+      padding-left: $col-gap-d;
+    }
   }
 }
 
