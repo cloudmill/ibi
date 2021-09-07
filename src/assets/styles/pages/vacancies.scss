@@ -182,12 +182,53 @@
 .vacancies-list {
   $comp: &;
 
+  &__spoilers {
+
+    @media (min-width: $breakpoint) {
+      max-width: calc(#{$col-part-d} * 7 - #{$col-gap-d});
+    }
+  }
+
+  &__drop {
+    padding: 20px;
+    @media (min-width: $breakpoint) {
+      padding: 20px calc(#{$col-part-d}) 60px;
+    }
+
+    .mission__spoiler-list {
+      padding: 0;
+      // padding: 5px 0 25px;
+      // @media (min-width: $breakpoint) {
+      //   padding: 20px 0 60px;
+      // }
+    }
+
+    .vacancies-list__extra-btn {
+      margin-top: 40px;
+      @media (min-width: $breakpoint) {
+        margin-top: 60px;
+      }
+    }
+  }
+
   &__subtitle {
     margin: 60px 0 40px;
+    // margin: 60px 0 20px;
+
+    @media (max-width: $breakpoint - 1px) {
+      margin: 40px 0 20px;
+    }
   }
 
   &__subtitle:first-child {
     margin: 0 0 40px;
+  }
+
+  &__item {
+    font-size: 14px;
+    @media (min-width: $breakpoint) {
+      font-size: 16px;
+    }
   }
 
   &__extra {
