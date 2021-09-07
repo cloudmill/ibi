@@ -1,32 +1,32 @@
 // form response
-{
-  $(() => {
-    const form = $('.form');
+// {
+//   $(() => {
+//     const form = $('.form');
 
-    if (form.length !== 0) {
+//     if (form.length !== 0) {
 
-      const response = $('.response');
-      const responseButton = $('.response__btn');
-      const formButton = $('.form__btn');
-      const formTitle = $('.form-title')
+//       const response = $('.response');
+//       const responseButton = $('.response__btn');
+//       const formButton = $('.form__btn');
+//       const formTitle = $('.form-title')
 
-      formButton.on('click', function (event) {
-        event.preventDefault();
-        form.addClass('form--hidden');
-        response.addClass('response--active');
-        formTitle.addClass('display-none');
-        // $('.provider__row').addClass('provider__row--active');
-      });
+//       formButton.on('click', function (event) {
+//         event.preventDefault();
+//         form.addClass('form--hidden');
+//         response.addClass('response--active');
+//         formTitle.addClass('display-none');
+//         // $('.provider__row').addClass('provider__row--active');
+//       });
 
-      responseButton.on('click', function () {
-        form.removeClass('form--hidden');
-        response.removeClass('response--active');
-        formTitle.removeClass('display-none');
-        // $('.provider__row').removeClass('provider__row--active');
-      });
-    }
-  });
-};
+//       responseButton.on('click', function () {
+//         form.removeClass('form--hidden');
+//         response.removeClass('response--active');
+//         formTitle.removeClass('display-none');
+//         // $('.provider__row').removeClass('provider__row--active');
+//       });
+//     }
+//   });
+// };
 
 // tel mask
 
@@ -110,35 +110,35 @@
 
 // Parsley localisation
 
-{
-  $(() => {
+// {
+//   $(() => {
 
-    Parsley.addMessages('ru', {
-      defaultMessage: "Некорректное значение",
-      type: {
-        email: "Введите адрес электронной почты",
-        url: "Введите URL адрес",
-        number: "Введите число",
-        integer: "Введите целое число",
-        digits: "Введите только цифры",
-        alphanum: "Введите буквенно-цифровое значение"
-      },
-      notblank: "Это поле должно быть заполнено",
-      required: "Обязательное поле",
-      pattern: "Это значение некорректно",
-      min: "Это значение должно быть не менее чем %s",
-      max: "Это значение должно быть не более чем %s",
-      range: "Это значение должно быть от %s до %s",
-      minlength: "Это значение должно содержать не менее %s символов",
-      maxlength: "Это значение должно содержать не более %s символов",
-      length: "Это значение должно содержать от %s до %s символов",
-      mincheck: "Выберите не менее %s значений",
-      maxcheck: "Выберите не более %s значений",
-      check: "Выберите от %s до %s значений",
-      equalto: "Это значение должно совпадать"
-    });
+//     Parsley.addMessages('ru', {
+//       defaultMessage: "Некорректное значение",
+//       type: {
+//         email: "Введите адрес электронной почты",
+//         url: "Введите URL адрес",
+//         number: "Введите число",
+//         integer: "Введите целое число",
+//         digits: "Введите только цифры",
+//         alphanum: "Введите буквенно-цифровое значение"
+//       },
+//       notblank: "Это поле должно быть заполнено",
+//       required: "Обязательное поле",
+//       pattern: "Это значение некорректно",
+//       min: "Это значение должно быть не менее чем %s",
+//       max: "Это значение должно быть не более чем %s",
+//       range: "Это значение должно быть от %s до %s",
+//       minlength: "Это значение должно содержать не менее %s символов",
+//       maxlength: "Это значение должно содержать не более %s символов",
+//       length: "Это значение должно содержать от %s до %s символов",
+//       mincheck: "Выберите не менее %s значений",
+//       maxcheck: "Выберите не более %s значений",
+//       check: "Выберите от %s до %s значений",
+//       equalto: "Это значение должно совпадать"
+//     });
 
-    Parsley.setLocale('ru');
+//     Parsley.setLocale('ru');
 
-  });
-};
+//   });
+// };

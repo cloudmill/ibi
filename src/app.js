@@ -7,6 +7,7 @@ import 'scripts/map.js';
 
 // import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
+import 'parsleyjs/dist/i18n/ru';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
 import Sticky from 'sticky-js';

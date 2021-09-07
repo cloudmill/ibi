@@ -129,7 +129,8 @@
         width: 51px;
         // height: 45px;
         @media (min-width: $breakpoint) {
-          width: calc(#{$col-part-d} - 20px);
+          // width: calc(#{$col-part-d} - 20px);
+          width: 60px;
         }
       }
 
@@ -281,20 +282,21 @@
 
 .form--hidden {
   // opacity: 0;
-  @media (min-width: $breakpoint) {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  @media (max-width: $breakpoint - 1px) {
-    display: none;
-  }
+  display: none;
+  // @media (min-width: $breakpoint) {
+  //   visibility: hidden;
+  //   opacity: 0;
+  // }
+  // @media (max-width: $breakpoint - 1px) {
+  //   display: none;
+  // }
 }
 
 .member-page-ask__form-wrapper.form.form--hidden {
-  @media (max-width: $breakpoint - 1px) {
-    display: none;
-  }
+  display: none;
+  // @media (max-width: $breakpoint - 1px) {
+  //   display: none;
+  // }
 }
 
 .response {
@@ -359,11 +361,10 @@
   &__form {
     align-self: flex-end;
     width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
-
+    min-height: 160px;
     @media (max-width: $breakpoint - 1px) {
       width: 100%;
       padding-right: 0;
-      min-height: 160px;
     }
 
     &-wrapper {

@@ -326,9 +326,9 @@ mixin header
                 .header-section__dropdown 
                   each section in ['Метод', 'Преимущество', 'Этапы имплантации', 'Имплантаты Strategic Implant ', 'Стоимость']
                     .header-section__section 
-                      .header__drop.header-section__section-button
+                      .header__drop.header-section__section-link
                         .header__drop-button
-                          .header__drop-text.header__text
+                          a.header__drop-text.header__text(href="")
                             |#{section}
                           
             li.header-section__item
@@ -340,7 +340,7 @@ mixin header
                     +svg-arrow.header__drop-svg
               .header-section__dropdown 
                 each section in ['Протезирование', 'Профилактика', 'Протезирование', 'Удаление зубов', 'Лечение зубов']
-                  .header-section__section 
+                  .header-section__section
                     .header__drop.header-section__section-button
                       .header__drop-button
                         .header__drop-text.header__text
@@ -348,9 +348,12 @@ mixin header
                         .header__drop-image
                           +svg-arrow.header__drop-svg
                     .header-section__section-dropdown
+                      a.header-section__btn-link(href="")
+                        +svg-link
+                        |Перейти в раздел
                       ul.header-section__links 
                         each link in ['Удаление зубов', 'Лечение зубов', 'Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладки циркониевые Prettau', 'Накладки циркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладки циркониевые KATANA', 'Безметалловые вкладки']
-                          li.header-section__links-item 
+                          li.header-section__links-item
                             a.header__drop-button(href="#")
                               .header__drop-text.header__text
                                 |#{link}
@@ -363,10 +366,13 @@ mixin header
                       |#{item}
                     .header__drop-image
                       +svg-arrow.header__drop-svg
-                .header-section__dropdown 
+                .header-section__dropdown
+                  a.header-section__btn-link(href="")
+                    +svg-link
+                    |Перейти в раздел
                   each section in ['Миссия и ценности', 'Наша команда', 'Вакансии', 'Новости', 'Контакты']
                     .header-section__section 
-                      .header__drop.header-section__section-button
+                      .header__drop.header-section__section-link
                         .header__drop-button
                           .header__drop-text.header__text
                             |#{section}

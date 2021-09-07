@@ -148,6 +148,10 @@
     font-size: 18px;
     line-height: 25px;
     white-space: nowrap; // ?
+
+    @media (max-width: $breakpoint - 1px) {
+      font-size: 16px;
+    }
   }
 
   &__drop {
