@@ -23,6 +23,8 @@ function forms() {
       eventType = form.attr("data-event-type"),
       contentType = "application/x-www-form-urlencoded; charset=UTF-8",
       processData = true,
+      destroyed = [],
+      removed = [],
       data = {};
 
     console.log(eventType);
@@ -41,6 +43,17 @@ function forms() {
       console.log(fileData);
 
       data.append("file", fileData);
+
+      $("[data-type=tooth]").each(function () {
+        if ($(this).hasClass("tooth-button--destroyed")) {
+          destroyed.push($(this).attr("data-tooth-id"));
+        }
+        if ($(this).hasClass("tooth-button--removed")) {
+          removed.push($(this).attr("data-tooth-id"));
+        }
+      });
+      data.append('UF_DESTROYED', destroyed);
+      data.append('UF_REMOVED', removed);
     }
 
     form.find("[data-type=get-field]").each(function () {
