@@ -1,0 +1,26 @@
+.xray-container {
+  margin: 100px;
+  width: 500px;
+  height: 200px;
+  overflow: hidden;
+  resize: both;
+}
+
+.xray {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  border: 10px solid blue; // test
+
+  &__image {
+    // svg эл-т <image href=... >
+
+    &--under {
+
+    }
+    &--above {
+      opacity: 0.5;
+    }
+  }
+}

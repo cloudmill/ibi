@@ -3,7 +3,8 @@ import 'scripts/backend.js';
 import 'scripts/modal-tooltip.js';
 import 'scripts/sliders.js';
 import 'scripts/forms.js';
-import 'scripts/map.js';
+// import 'scripts/map.js';
+import 'scripts/xray.js';
 
 // import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
