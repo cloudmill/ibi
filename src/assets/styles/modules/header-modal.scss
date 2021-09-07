@@ -209,7 +209,8 @@
         border-bottom: 1px solid $color-gray-border;
       }
     }
-    &:last-child .header-section__section--active {
+    &:last-child.header-section__section--active {
+      border-bottom: 1px solid $color-gray-border;
       .header-section__section-button {
         border-bottom: none;
       }
