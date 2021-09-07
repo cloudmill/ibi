@@ -1,0 +1,132 @@
+@mixin title-h1 {
+  font-size: 22px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 50px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 70px;
+  }
+}
+
+.title-h1 {
+  @include title-h1();
+}
+
+@mixin title-h2 {
+  font-size: 20px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 35px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 50px;
+  }
+}
+
+.title-h2 {
+  @include title-h2();
+}
+
+@mixin title-h3 {
+  font-size: 18px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 28px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 40px;
+  }
+}
+
+.title-h3 {
+  @include title-h3();
+}
+
+@mixin title-h4 {
+  font-size: 16px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 24px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 30px;
+  }
+}
+
+.title-h4 {
+  @include title-h4();
+}
+
+@mixin title-h5 {
+  font-size: 16px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-961) {
+    font-size: 20px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 22px;
+  }
+}
+
+.title-h5 {
+  @include title-h5();
+}
+
+
+@mixin blockquote-italic {
+  font-size: 20px;
+  line-height: 140%;
+  @media (min-width: $breakpoint-m + 1px) {
+    font-size: 30px;
+  }
+  @media (min-width: $breakpoint-961) {
+    font-size: 35px;
+  }
+  @media (min-width: $breakpoint-l + 1px) {
+    font-size: 50px;
+  }
+
+  span {
+    font-family: $ff-2;
+    font-size: 26px;
+    font-style: italic;
+    line-height: 140%;
+    color: $color-main;
+    @media (min-width: $breakpoint-m + 1px) {
+      font-size: 30px;
+    }
+    @media (min-width: $breakpoint-961) {
+      font-size: 45px;
+    }
+    @media (min-width: $breakpoint-l + 1px) {
+      font-size: 60px;
+    }
+  }
+}
+
+@mixin sidebar-menu {
+  .nav__item .nav__link {
+    font-size: 16px;
+    line-height: 140%;
+    transition: $transition;
+
+    @media (min-width: $breakpoint-l + 1px) {
+      font-size: 18px;
+    }
+
+    &:hover {
+      color: $color-main;
+    }
+  }
+  .nav__item.nav__item--active .nav__link {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    color: $color-main;
+
+    @media (min-width: $breakpoint-l + 1px) {
+      font-size: 30px;
+    }
+  }
+}

@@ -17,22 +17,29 @@
 
   &__title {
     font-weight: 500;
-    font-size: 50px;
-    line-height: 140%;
+    // font-size: 50px;
+    // line-height: 140%;
     letter-spacing: -0.7px;
+
+    @include title-h2();
     
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
-
+    // @media (max-width: $breakpoint-l + 1px) {
+    //   font-size: 35px;
+    // }
     @media (max-width: $breakpoint - 1px) {
       width: auto;
       margin-bottom: 10px;
-      font-size: 22px;
     }
+    // @media (max-width: $breakpoint-961) {
+    //   font-size: 20px;
+    // }
   }
 
   &__container {
     flex-direction: column;
     flex-wrap: wrap;
+    align-self: flex-end;
     height: 150px;
 
     margin-bottom: -10px;
@@ -260,10 +267,14 @@
     font-size: 50px;
     line-height: 140%;
     letter-spacing: -0.7px;
-
+    @media (max-width: $breakpoint-l - 1px) {
+      font-size: 35px;
+    }
     @media (max-width: $breakpoint - 1px) {
       width: 100%;
-      font-size: 22px;
+    }
+    @media (max-width: $breakpoint-m - 1px) {
+      font-size: 20px;
     }
   }
 
@@ -296,9 +307,11 @@
     font-size: 50px;
     line-height: 140%;
     margin-bottom: 30px;
-
-    @media (max-width: $breakpoint - 1px) {
-      font-size: 22px;
+    @media (max-width: $breakpoint-l - 1px) {
+      font-size: 35px;
+    }
+    @media (max-width: $breakpoint-m - 1px) {
+      font-size: 20px;
     }
   }
 

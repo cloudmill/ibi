@@ -11,11 +11,16 @@
         input.form-new__input(type="email" data-parsley-type="email" placeholder="E-mail*" required="")
 
       label.form-new__add-file.form-new__add-file--desktop(for="")
-        input(type="file" multiple)
-        button(type="button")
-          +add-file-svg('transfer-consult__add-file-ico')
-          |Прикрепить файл
-        p Снимки, ретнген, заключение врача
+        .form-new__add-file-row1
+          input(type="file" multiple)
+          button(type="button")
+            +add-file-svg('transfer-consult__add-file-ico')
+            |Прикрепить файл
+          p Снимки, ретнген, заключение врача
+
+        .form-new__add-file-row2
+          .form-new__file protez01.jpg
+          .form-new__file file.jpg
 
     .form-new__col
       label.form-new__label
@@ -27,6 +32,8 @@
           +add-file-svg('transfer-consult__add-file-ico')
           |Прикрепить файл
         p Снимки, ретнген, заключение врача
+
+        
       
       label.form-new__checkbox
         input(type="checkbox" required="")

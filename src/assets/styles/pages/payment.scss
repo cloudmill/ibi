@@ -74,7 +74,8 @@
     background-color: $color-blue-light;
     display: flex;
     align-items: center;
-    width: calc(#{$col-part-d} * 2);
+    // width: calc(#{$col-part-d} * 2);
+    width: 273px;
     flex: none;
     margin-right: calc(#{$col-part-d});
 
@@ -95,7 +96,8 @@
   }
 
   &__credit-txt {
-    width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    // width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    width: 370px;
     font-size: 22px;
     line-height: 140%;
 
@@ -106,7 +108,6 @@
 
     @media (max-width: $breakpoint-m - 1px) {
       width: 100%;
-      
     }
   }
 }

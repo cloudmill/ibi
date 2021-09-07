@@ -112,10 +112,10 @@
   // страница work-page
   &--bot {
     margin-top: 0;
-    padding-bottom: 60px;
-    @media (min-width: $breakpoint) {
-      padding-bottom: 160px;
-    }
+    // padding-bottom: 60px;
+    // @media (min-width: $breakpoint) {
+    //   padding-bottom: 160px;
+    // }
   }
 
 // Большая карточка
@@ -194,7 +194,7 @@
         padding: 15px 27px;
         margin-left: 10px;
 
-        @media (max-width: $breakpoint-m - 1px) {
+        @media (max-width: $breakpoint - 1px) {
           width: 88px;
           height: 88px;
 
@@ -212,7 +212,7 @@
         display: flex;
         align-items: center;
 
-        @media (max-width: $breakpoint-m - 1px) {
+        @media (max-width: $breakpoint - 1px) {
           font-size: 10px;
         }
       }
@@ -222,7 +222,7 @@
         line-height: 140%;
         text-align: center;
 
-        @media (max-width: $breakpoint-m - 1px) {
+        @media (max-width: $breakpoint - 1px) {
           font-size: 24px;
         }
       }
@@ -239,14 +239,18 @@
     }
 
     &__name {
-      font-size: 30px;
-      line-height: 140%;
+      // font-size: 30px;
+      // line-height: 140%;
 
       margin-bottom: 10px;
+      @include title-h4(); 
 
-      @media (max-width: $breakpoint-m - 1px) {
-        font-size: 18px;
-      }
+      // @media (max-width: $breakpoint - 1px) {
+      //   font-size: 24px;
+      // }
+      // @media (max-width: $breakpoint-m - 1px) {
+      //   font-size: 16px;
+      // }
     }
 
     &__position {

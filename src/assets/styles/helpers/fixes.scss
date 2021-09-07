@@ -121,6 +121,12 @@
 }
 
 .letter-spacing {
+  &1 {
+    letter-spacing: -.1px;
+  }
+  &6 {
+    letter-spacing: -.6px;
+  }
   &7 {
     letter-spacing: -.7px;
   }
@@ -137,4 +143,10 @@
   @media (min-width: $breakpoint) {
     margin-right: -40px;
   }
+}
+
+.txt-overflow-dots {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

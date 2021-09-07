@@ -1,7 +1,11 @@
 import 'Styles/_app.scss';
 import 'scripts/backend.js';
+import 'scripts/modal-tooltip.js';
+import 'scripts/sliders.js';
+import 'scripts/forms.js';
+import 'scripts/map.js';
 
-import Swiper from 'swiper/bundle';
+// import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
@@ -19,13 +23,20 @@ const BREAKPOINT = 1280;
       {
         const state = {
           id: null,
+          leave(event) {
+            console.log(event);
+          },
           close: function () {
             $(`[data-modal-id="${this.id}"]`).removeAttr('data-modal-active');
             $(`[data-modal-button="${this.id}"]`).removeAttr('data-modal-active');
+
+            $(`[data-modal-id="${this.id}"]`).off('mouseleave', this.leave);
           },
           open: function () {
             $(`[data-modal-id="${this.id}"]`).attr('data-modal-active', '');
             $(`[data-modal-button="${this.id}"]`).attr('data-modal-active', '');
+
+            $(`[data-modal-id="${this.id}"]`).on('mouseleave', this.leave);
           },
           update: function (id) {
             this.id = id;
@@ -53,7 +64,7 @@ const BREAKPOINT = 1280;
         $(window).on('click', event => {
           // const isClickArea = $(event.target).closest(header).length !== 0; ?
 
-          const isClickArea = ( // ?
+          const isClickArea = ( // ? 
             // эл-ты header
             $(event.target).closest('.header__container').length !== 0
             && !$(event.target).hasClass('header__container')
@@ -69,11 +80,9 @@ const BREAKPOINT = 1280;
 
         // media
         const breakpoint = window.matchMedia(`(min-width: ${BREAKPOINT}px)`);
-        breakpoint.addListener((event) => {
+        breakpoint.addListener(() => {
           state.change(null);
         });
-
-
       }
     }
   });
@@ -111,7 +120,7 @@ const BREAKPOINT = 1280;
         ) {
           vacancyCallback.removeClass('vacancy--modal-open');
           // navModalButton.removeClass('button-modal--active');
-          body.removeClass('body-fixed');
+          // body.removeClass('body-fixed');
         }
       });
     }
@@ -133,11 +142,11 @@ const BREAKPOINT = 1280;
         if (headerCallback.hasClass('vacancy--modal-open')) { // если модальное окно открыто - закрываем
           headerCallback.removeClass('vacancy--modal-open'); // обновляем модификатор header (шапка, контейнер модальных окон)
           // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
-          body.removeClass('body-fixed');
+          // body.removeClass('body-fixed');
         } else { // открывыем, аналогично (выше)
           headerCallback.addClass('vacancy--modal-open');
           // navModalButton.addClass('button-modal--active');
-          body.addClass('body-fixed'); // блокируем скролл
+          // body.addClass('body-fixed'); // блокируем скролл
         }
       });
 
@@ -150,7 +159,7 @@ const BREAKPOINT = 1280;
         ) {
           headerCallback.removeClass('vacancy--modal-open');
           // navModalButton.removeClass('button-modal--active');
-          body.removeClass('body-fixed');
+          // body.removeClass('body-fixed');
         }
       });
     }
@@ -223,221 +232,6 @@ const BREAKPOINT = 1280;
             state.change(tab_clicked_id);
           });
         }
-      });
-    }
-  });
-}
-
-// slider
-{
-  $(window).on('load', () => { // ?
-    const slider = $('[data-slider-id]');
-
-    if (slider.length !== 0) {
-      slider.each(function () {
-        const slider_el = $(this);
-        const slider_id = slider_el.data('slider-id');
-        const slider_prev_id = slider_el.data('slider-prev');
-        const slider_next_id = slider_el.data('slider-next');
-        const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
-        const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
-
-        let slider_options = {
-          slidesPerView: 'auto',
-
-          spaceBetween: 20,
-
-          breakpoints: {
-            [BREAKPOINT]: {
-              spaceBetween: 40,
-            },
-          },
-        };
-
-        switch (slider_id) {
-          case 1:
-            slider_options = {
-              ...slider_options,
-
-              loop: true,
-
-            }
-            break;
-
-          case 2:
-            slider_options = {
-              ...slider_options,
-
-              loop: true,
-
-            }
-            break;
-
-          case 3:
-            slider_options = {
-              ...slider_options,
-
-              loop: true,
-
-              breakpoints: {
-                [BREAKPOINT]: {
-                  spaceBetween: 60,
-                },
-              },
-            }
-            break;
-          case 4:
-            slider_options = {
-              ...slider_options,
-
-              loop: true,
-
-              allowTouchMove: false,
-            }
-            break;
-          case 5:
-            slider_options = {
-              ...slider_options,
-
-              loop: true,
-            }
-            break;
-          case 6:
-            slider_options = {
-              ...slider_options,
-
-              loop: true,
-            }
-            break;
-          case 7:
-            slider_options = {
-              ...slider_options,
-
-              loop: true,
-
-              breakpoints: {
-                [BREAKPOINT]: {
-                  spaceBetween: 100,
-
-                  allowTouchMove: false,
-                },
-              },
-            }
-            break;
-          case 8:
-            slider_options = {
-              ...slider_options,
-
-              loop: true,
-              centeredSlides: true,
-            }
-            break;
-
-
-          case 20:
-            slider_options = {
-              ...slider_options,
-
-              spaceBetween: 10,
-              loop: true,
-              centeredSlides: true,
-
-              breakpoints: {
-                [BREAKPOINT]: {
-                  spaceBetween: 40,
-                  allowTouchMove: false,
-                  centeredSlides: false,
-                },
-              },
-            }
-            break;
-          case 21:
-            slider_options = {
-              ...slider_options,
-
-              allowTouchMove: false,
-            }
-            break;
-
-          case 100:
-            slider_options = {
-              ...slider_options,
-
-              allowTouchMove: false,
-              autoHeight: true,
-              loop: true,
-            }
-            break;
-
-          case 106:
-            slider_options = {
-              ...slider_options,
-
-              // allowTouchMove: false,
-              // autoHeight: true,
-              // loop: true,
-              // slideToClickedSlide: true,
-
-            }
-            break;
-
-          case 105:
-            slider_options = {
-              ...slider_options,
-
-              // allowTouchMove: false,
-              autoHeight: true,
-              // loop: true,
-
-              thumbs: {
-                swiper: 106,
-              },
-            }
-            break;
-
-          case 140:
-            slider_options = {
-              ...slider_options,
-
-              loop: true,
-
-            }
-            break;
-
-          // case 150:
-          //   slider_options = {
-          //     ...slider_options,
-
-          //     loop: true,
-
-          //   }
-          //   break;
-
-          case 160:
-            slider_options = {
-              ...slider_options,
-
-              spaceBetween: 20,
-
-              breakpoints: {
-                [BREAKPOINT]: {
-                  spaceBetween: 40,
-                },
-              },
-
-            }
-            break;
-
-        }
-
-        const slider_swiper = new Swiper(slider_el[0], slider_options);
-
-        slider_prev.on('click', () => {
-          slider_swiper.slidePrev();
-        });
-        slider_next.on('click', () => {
-          slider_swiper.slideNext();
-        });
       });
     }
   });
@@ -806,274 +600,6 @@ var updateMySticky
   // });
 
 
-}
-
-// tel mask
-
-{
-  document.addEventListener("DOMContentLoaded", function () {
-    var phoneInputs = document.querySelectorAll('input[data-tel-input]');
-    // console.log(phoneInputs);
-
-    var getInputNumbersValue = function (input) {
-      // Удаление любых символов крме цифр
-      return input.value.replace(/\D/g, '');
-    }
-
-    // Очистка скопированного и вставленного в поле номера
-    var onPhonePaste = function (e) {
-      var input = e.target,
-        inputNumbersValue = getInputNumbersValue(input);
-      var pasted = e.clipboardData || window.clipboardData;
-      if (pasted) {
-        var pastedText = pasted.getData('Text');
-        if (/\D/g.test(pastedText)) {
-          input.value = inputNumbersValue;
-          return;
-        }
-      }
-    }
-
-    // Обработка вписанного вручную номера
-    var onPhoneInput = function (e) {
-      var input = e.target,
-        inputNumbersValue = getInputNumbersValue(input),
-        selectionStart = input.selectionStart,
-        formattedInputValue = "";
-
-      if (!inputNumbersValue) {
-        return input.value = "";
-      }
-
-      if (input.value.length != selectionStart) {
-        if (e.data && /\D/g.test(e.data)) {
-          input.value = inputNumbersValue;
-        }
-        return;
-      }
-
-      if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
-        if (inputNumbersValue[0] == "9") inputNumbersValue = "7" + inputNumbersValue;
-        var firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+7";
-        formattedInputValue = input.value = firstSymbols + " ";
-        if (inputNumbersValue.length > 1) {
-          formattedInputValue += '(' + inputNumbersValue.substring(1, 4);
-        }
-        if (inputNumbersValue.length >= 5) {
-          formattedInputValue += ') ' + inputNumbersValue.substring(4, 7);
-        }
-        if (inputNumbersValue.length >= 8) {
-          formattedInputValue += '-' + inputNumbersValue.substring(7, 9);
-        }
-        if (inputNumbersValue.length >= 10) {
-          formattedInputValue += '-' + inputNumbersValue.substring(9, 11);
-        }
-      } else {
-        formattedInputValue = '+' + inputNumbersValue.substring(0, 16);
-      }
-      input.value = formattedInputValue;
-    }
-    var onPhoneKeyDown = function (e) {
-      // Удаление первого символа после удаления номера
-      var inputValue = e.target.value.replace(/\D/g, '');
-      if (e.keyCode == 8 && inputValue.length == 1) {
-        e.target.value = "";
-      }
-    }
-    for (var phoneInput of phoneInputs) {
-      phoneInput.addEventListener('keydown', onPhoneKeyDown);
-      phoneInput.addEventListener('input', onPhoneInput, false);
-      phoneInput.addEventListener('paste', onPhonePaste, false);
-    }
-  })
-}
-
-// map
-
-{
-  ymaps.ready(() => {
-    const mapContainer = $("#map");
-
-    if (mapContainer.length !== 0) {
-      // vars
-      const markWidth = 70;
-      const markHeight = 62;
-
-      // init
-      const map = new ymaps.Map(
-        "map",
-        {
-          center: [55.732433, 37.616144],
-          zoom: 14,
-          controls: [],
-        },
-        {
-          maxZoom: 22,
-        }
-      );
-
-      const zoomControl = new ymaps.control.ZoomControl({
-        options: {
-          size: "small",
-          position: {
-            top: 205,
-            right: 10,
-          },
-        },
-      });
-
-      // adaptive
-      const mediaQuery = window.matchMedia(`(min-width: ${BREAKPOINT}px)`);
-      function mediaQueryChange() {
-        if (mediaQuery.matches) {
-          // desktop
-          map.controls.add(zoomControl);
-        } else {
-          // mobile
-          map.controls.remove(zoomControl);
-        }
-      }
-      mediaQueryChange();
-      mediaQuery.addListener(mediaQueryChange);
-
-      // balloon layout
-      const layout = ymaps.templateLayoutFactory.createClass(
-        [
-          '<div class="balloon">',
-          '<div class="balloon__content">',
-          '<p class="balloon__text">',
-          "{{properties.balloon}}",
-          "</p>",
-          "</div>",
-          '<div class="balloon__arrow"></div>',
-          "</div>",
-        ].join(""),
-        {
-          build: function () {
-            this.constructor.superclass.build.call(this);
-
-            this._$element = $(".balloon", this.getParentElement());
-
-            this.applyElementOffset();
-          },
-          onSublayoutSizeChange: function () {
-            layout.superclass.onSublayoutSizeChange.apply(this, arguments);
-
-            if (!this._isElement(this._$element)) {
-              return;
-            }
-
-            this.applyElementOffset();
-
-            this.events.fire("shapechange");
-          },
-          applyElementOffset: function () {
-            this._$element.css({
-              left: -(this._$element[0].offsetWidth / 2),
-              top: -(this._$element[0].offsetHeight + markHeight),
-            });
-          },
-          getShape: function () {
-            if (!this._isElement(this._$element)) {
-              return layout.superclass.getShape.call(this);
-            }
-
-            var position = this._$element.position();
-
-            return new ymaps.shape.Rectangle(
-              new ymaps.geometry.pixel.Rectangle([
-                [position.left, position.top],
-                [
-                  position.left + this._$element[0].offsetWidth,
-                  position.top + this._$element[0].offsetHeight,
-                ],
-              ])
-            );
-          },
-          _isElement: function (element) {
-            return element && element[0];
-          },
-        }
-      );
-
-      // balloon close
-      map.events.add("click", () => {
-        if (map.balloon.isOpen()) {
-          map.balloon.close();
-        }
-      });
-
-      // добавление точек
-      const placemarks = new ymaps.GeoObjectCollection();
-      $(".placemarks__item").each(function () {
-        // данные
-        const balloon = $(this).find(".placemarks__balloon").text().trim();
-        const latitude = $(this).find(".placemarks__latitude").text().trim();
-        const longitude = $(this).find(".placemarks__longitude").text().trim();
-
-        // placemark
-        const coordinates = [latitude, longitude];
-        const placemark = new ymaps.Placemark(
-          coordinates,
-          {
-            balloon,
-          },
-          {
-            iconLayout: "default#image",
-            iconImageHref: "assets/images/placemark.svg",
-            // iconImageHref: "/local/templates/main/assets/images/placemark.svg",
-            iconImageSize: [markWidth, markHeight],
-            iconImageOffset: [-markWidth / 2, -markHeight],
-
-            balloonLayout: layout,
-            balloonPanelMaxMapArea: 0,
-            hideIconOnBalloonOpen: false,
-          }
-        );
-
-        placemarks.add(placemark);
-      });
-
-      // добавление на карту
-      map.geoObjects.add(placemarks);
-
-      // позиционирование на точках
-      map
-        .setBounds(placemarks.getBounds(), {
-          zoomMargin: Math.max(markWidth, markHeight),
-        })
-        .then(() => {
-          if ($(".placemarks__item").length === 1) {
-            map.setZoom(18);
-          }
-        });
-    }
-  });
-}
-
-// Development slider
-{
-  $(() => {
-    const swiperThumbs = new Swiper($('.development__names')[0], {
-      freeMode: false,
-      // loop: true,
-      slidesPerView: 'auto',
-      initialSlide: 0,
-
-    })
-    const swiperSlider = new Swiper($('.development__desc')[0], {
-      loop: true,
-      freeMode: false,
-      spaceBetween: 0,
-      slidesPerView: 1,
-      initialSlide: 0,
-
-      thumbs: {
-        swiper: swiperThumbs,
-      },
-    })
-    swiperThumbs.update()
-  })
 }
 
 // component
@@ -1472,39 +998,6 @@ var updateMySticky
   });
 }
 
-// slide description
-{
-  $(() => {
-
-    if ($('.index').length !== 0) {
-      const fps = 30;
-
-      update()
-
-      function update() {
-        const indexSlide = $('.swiper-slide');
-        indexSlide.each(function () {
-          const slide = $(this);
-          const slideImg = slide.find('.index__mid-img');
-          const slideDesc = slide.find('.index__mid-description');
-          const imgWidth = slideImg.width();
-
-          slideDesc.css('max-width', imgWidth);
-        });
-      }
-
-      function resize() {
-        setTimeout(() => {
-          update()
-          $(window).one('resize', resize);
-        }, 1000 / fps);
-      };
-
-      $(window).one('resize', resize)
-    }
-  });
-}
-
 // target section animation (main page, mouse move, linear-gradient)
 ; (() => {
   $(() => {
@@ -1748,37 +1241,6 @@ var updateMySticky
   });
 }
 
-
-// form response
-{
-  $(() => {
-    const form = $('.form');
-
-    if (form.length !== 0) {
-
-      const response = $('.response');
-      const responseButton = $('.response__btn');
-      const formButton = $('.form__btn');
-      const formTitle = $('.form-title')
-
-      formButton.on('click', function (event) {
-        event.preventDefault();
-        form.addClass('form--hidden');
-        response.addClass('response--active');
-        formTitle.addClass('display-none');
-        // $('.provider__row').addClass('provider__row--active');
-      });
-
-      responseButton.on('click', function () {
-        form.removeClass('form--hidden');
-        response.removeClass('response--active');
-        formTitle.removeClass('display-none');
-        // $('.provider__row').removeClass('provider__row--active');
-      });
-    }
-  });
-};
-
 // Калькулятор с зубами
 
 {
@@ -1830,40 +1292,5 @@ var updateMySticky
         authorTag.toggleClass('articles-authors__item--active')
       }
     })
-  });
-};
-
-// Parsley localisation
-
-{
-  $(() => {
-
-    Parsley.addMessages('ru', {
-      defaultMessage: "Некорректное значение",
-      type: {
-        email: "Введите адрес электронной почты",
-        url: "Введите URL адрес",
-        number: "Введите число",
-        integer: "Введите целое число",
-        digits: "Введите только цифры",
-        alphanum: "Введите буквенно-цифровое значение"
-      },
-      notblank: "Это поле должно быть заполнено",
-      required: "Обязательное поле",
-      pattern: "Это значение некорректно",
-      min: "Это значение должно быть не менее чем %s",
-      max: "Это значение должно быть не более чем %s",
-      range: "Это значение должно быть от %s до %s",
-      minlength: "Это значение должно содержать не менее %s символов",
-      maxlength: "Это значение должно содержать не более %s символов",
-      length: "Это значение должно содержать от %s до %s символов",
-      mincheck: "Выберите не менее %s значений",
-      maxcheck: "Выберите не более %s значений",
-      check: "Выберите от %s до %s значений",
-      equalto: "Это значение должно совпадать"
-    });
-
-    Parsley.setLocale('ru');
-
   });
 };

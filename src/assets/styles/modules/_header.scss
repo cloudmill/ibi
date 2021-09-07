@@ -242,8 +242,10 @@
     @media (max-width: $breakpoint-m - 1px) {
       margin-right: 25px;
     }
-    @media (max-width: 374px) {
-      display: none;
+    &-head {
+      @media (max-width: 374px) {
+        display: none;
+      }
     }
   }
   &__phone-link {
