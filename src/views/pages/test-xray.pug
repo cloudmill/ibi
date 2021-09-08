@@ -1,18 +1,12 @@
--
-  var IMAGE_WIDTH = 1920
-  var IMAGE_HEIGHT = 915
-
-  var ELLIPSE_WIDTH = 383
-  var ELLIPSE_HEIGHT = 230
-
 .xray-container
-  svg.xray(viewBox=`0 0 ${IMAGE_WIDTH} ${IMAGE_HEIGHT}` preserveAspectRatio='xMidYMid slice')
+
+  svg.xray(preserveAspectRatio='xMidYMid slice')
     defs
       radialGradient#gradient
         stop(offset='0%' stop-color='white' stop-opacity='1')
         stop(offset='100%' stop-color='white' stop-opacity='0')
       mask#mask
-        ellipse(cx=(IMAGE_WIDTH - ELLIPSE_WIDTH) cy=(IMAGE_HEIGHT - ELLIPSE_HEIGHT) rx=(ELLIPSE_WIDTH / 2) ry=(ELLIPSE_HEIGHT / 2) fill='url(#gradient)')
+        ellipse.xpa(cx=0 cy=0 rx=(ELLIPSE_WIDTH / 2) ry=(ELLIPSE_HEIGHT / 2) fill='url(#gradient)')
 
     image.xray__image.xray__image--above(
       href='assets/images/xray-above.jpg'
