@@ -152,10 +152,33 @@
     @media (max-width: $breakpoint - 1px) {
       font-size: 16px;
     }
+
+    &.mission__spoiler-title {
+      font-size: 18px;
+    line-height: 25px;
+    white-space: nowrap; // ?
+
+    @media (max-width: $breakpoint - 1px) {
+      font-size: 16px;
+      }
+    }
   }
 
   &__drop {
     display: flex;
+  }
+  &__drop.mission__spoiler {
+    border: none;
+    flex-direction: column;
+    position: relative;
+  }
+  &__drop.mission__spoiler--active {
+    .mission__spoiler-button {
+      background-color: unset;
+    }
+    .mission__spoiler-drop {
+      background-color: unset;
+  }
   }
   &__drop-button {
     display: flex;
@@ -191,6 +214,28 @@
       }
     }
   }
+  &__drop-button.mission__spoiler-button {
+    padding: 0;
+    min-height: 0;
+    background-color: unset;
+  }
+  &__drop-dropdown {
+    position: absolute;
+    top: 100%;
+
+    &:hover {
+      button {
+        color: $color-main;
+      }
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
   &__drop-text {
     transition: $transition;
   }

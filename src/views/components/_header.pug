@@ -43,12 +43,16 @@ mixin header(opts={linkLogo: true})
                         a.header__phone-link.header__text.header__link(href='tel:84994906349')
                           |8 499 490 63 49
                     .header__items-item.header-lang-drop
-                      .header__drop
-                        .header__drop-button
-                          .header__drop-text.header__text
+                      .header__drop.mission__spoiler
+                        .header__drop-button.mission__spoiler-button
+                          .header__drop-text.header__text.mission__spoiler-title
                             |Ru
-                          .header__drop-image
+                          .header__drop-image.news-spoiler__image
                             +svg-arrow.header__drop-svg
+                        .header__drop-dropdown.mission__spoiler-drop
+                          button.header__drop-text.header__text
+                            |En
+
                     .header__items-item.header__items-item--mobile
                       .header__button
                         .header__button-button(data-modal-button='3')
@@ -312,12 +316,15 @@ mixin header(opts={linkLogo: true})
                 a.header__phone-call.header__text.callback-button(href='#')
                   |Заказать звонок
             .header-modal__col
-              .header__drop
-                .header__drop-button
-                  .header__drop-text.header__text
+              .header__drop.mission__spoiler
+                .header__drop-button.mission__spoiler-button
+                  .header__drop-text.header__text.mission__spoiler-title
                     |Ru
-                  .header__drop-image
+                  .header__drop-image.news-spoiler__image
                     +svg-arrow.header__drop-svg
+                .header__drop-dropdown.mission__spoiler-drop
+                  button.header__drop-text.header__text
+                    |En
         .header-modal__content 
           ul.header-section
             li.header-section__item
