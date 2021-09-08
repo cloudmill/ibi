@@ -485,8 +485,8 @@
       // max-width: 200px; // ???
       margin-left: 0; // ???
       // width: 60%;
-      overflow: hidden;
-      padding-bottom: 10px;
+      // overflow: hidden;
+      // padding-bottom: 10px;
     }
 
     .swiper-wrapper { // ?
@@ -497,6 +497,10 @@
       @media (max-width: $breakpoint - 1px) {
         min-height: auto;
         margin-left: 78px;
+
+        width: 930px;
+        overflow: hidden;
+        padding-bottom: 10px;
       }
     }
 
