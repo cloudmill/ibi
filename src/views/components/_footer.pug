@@ -1,11 +1,16 @@
-mixin footer
+mixin footer(opts={linkLogo: true})
+
   footer.footer&attributes(attributes.attributes)
     .container
       .footer__inner
         .footer__grid.footer__grid--mobile
           .footer__block
             .footer__logo
-              a.footer__logo-link(href='#')
+            if (opts.linkLogo) 
+              a.footer__logo-link(href="")
+                +svg-logo.footer__logo-svg(mod='white')
+            else
+              .footer__logo-link
                 +svg-logo.footer__logo-svg(mod='white')
           .footer__block
             ul.footer__links
@@ -54,8 +59,11 @@ mixin footer
         .footer__grid.footer__grid--desktop
           .footer__row.footer__row--outer
             .footer__col
-              .footer__logo
-                a.footer__logo-link(href='#')
+              if (opts.linkLogo) 
+                a.footer__logo-link(href="")
+                  +svg-logo.footer__logo-svg(mod='white')
+              else
+                .footer__logo-link
                   +svg-logo.footer__logo-svg(mod='white')
             .footer__col
               .footer__block
@@ -106,4 +114,3 @@ mixin footer
                       |1-й Спасоналивковский переулок, 17,
                       br
                       |корп. 1
-            

@@ -1,4 +1,4 @@
-mixin header
+mixin header(opts={linkLogo: true})
   header.header
     .header__header
       .container
@@ -7,8 +7,12 @@ mixin header
             .header__col
               .header__container
                 .header__logo
-                  a.header__logo-link(href='#')
-                    +svg-logo.header__logo-svg
+                  if (opts.linkLogo)
+                    a.header__logo-link(href='#')
+                      +svg-logo.header__logo-svg
+                  else
+                    .header__logo-link
+                      +svg-logo.header__logo-svg
             .header__col
               .header__panel
                 .header__panel-item.header-menu

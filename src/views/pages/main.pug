@@ -4,7 +4,10 @@ extends ../layouts/master
 
 block vars
 
-
+block header
+  +header({
+    linkLogo: false
+  })
 
 block content
   .index.mission
@@ -401,3 +404,8 @@ block content
                   //-         .card-news__col
                   //-           .card-news__image.mission__missions-links-link
                   //-             +svg-link(class='card__svg button-svg')
+
+block footer
+  +footer({
+    linkLogo: false
+  })
