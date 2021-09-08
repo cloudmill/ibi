@@ -644,7 +644,7 @@
 
   &__slider {
     margin-top: 40px;
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint-m) {
       display: none;
     }
   }
@@ -652,7 +652,20 @@
   &__list {
     padding-top: 20px;
     @media (max-width: $breakpoint - 1px) {
+      padding-top: 40px;
+    }
+    @media (max-width: $breakpoint-m - 1px) {
       display: none;
+    }
+  }
+  &__list-no-mb {
+    .news-box {
+      @media (max-width: $breakpoint - 1px) {
+        margin-bottom: 40px;
+      }
+    }
+    .news-box:last-child {
+      margin-bottom: 0;
     }
   }
   &__list-item {

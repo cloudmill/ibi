@@ -373,20 +373,31 @@ block content
                             span.mission__missions-links-span 
                               |Все новости
                 .index-news__list
-                  - for (let i=0; i<3; i++)
-                    .index-news__list-item
-                      a.card-news(href='#')
-                        .card-news__row
-                          .card-news__col
-                            .card-news__content-row
-                              .card-news__content-col
-                                .card-news__date
-                                  |3 ноября 2020
-                              .card-news__content-col
-                                .card-news__image
-                                  img.card-news__img(src=`assets/images/index/news-${i % 3 + 1}.jpg` alt='')
-                                h3.card-news__title
-                                  |Обучение Strategic Implant в Новосибирске
-                          .card-news__col
-                            .card-news__image.mission__missions-links-link
-                              +svg-link(class='card__svg button-svg')
+                  ul.index-news__list-no-mb
+                    include ../components/_news-list-card
+                    include ../components/_news-list-card
+                    include ../components/_news-list-card
+                  .index-publications__link
+                      .mission__missions-links-container
+                        a.mission__missions-links-link(href='#')
+                          +svg-link.mission__missions-links-svg.button-svg
+                          .mission__missions-links-text
+                            span.mission__missions-links-span 
+                              |Все новости
+                  //- - for (let i=0; i<3; i++)
+                  //-   .index-news__list-item
+                  //-     a.card-news(href='#')
+                  //-       .card-news__row
+                  //-         .card-news__col
+                  //-           .card-news__content-row
+                  //-             .card-news__content-col
+                  //-               .card-news__date
+                  //-                 |3 ноября 2020
+                  //-             .card-news__content-col
+                  //-               .card-news__image
+                  //-                 img.card-news__img(src=`assets/images/index/news-${i % 3 + 1}.jpg` alt='')
+                  //-               h3.card-news__title
+                  //-                 |Обучение Strategic Implant в Новосибирске
+                  //-         .card-news__col
+                  //-           .card-news__image.mission__missions-links-link
+                  //-             +svg-link(class='card__svg button-svg')
