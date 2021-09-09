@@ -35,6 +35,7 @@ const BREAKPOINT = 1280;
               ...slider_options,
   
               loop: true,
+
   
             }
             break;
@@ -181,9 +182,7 @@ const BREAKPOINT = 1280;
   
           // case 150:
           //   slider_options = {
-          //     ...slider_options,
-  
-          //     loop: true,
+              
   
           //   }
           //   break;
@@ -221,25 +220,47 @@ const BREAKPOINT = 1280;
 // Development slider
 {
   $(() => {
-    const swiperThumbs = new Swiper($('.development__names')[0], {
-      freeMode: false,
+    const swiperThumbs = new Swiper('.development__names', {
+      // freeMode: false,
       // loop: true,
       slidesPerView: 'auto',
-      initialSlide: 0,
+      // initialSlide: 0,
+      // slideToClickedSlide: true,
+
+      spaceBetween: 0,
+  
+      breakpoints: {
+        [BREAKPOINT]: {
+          spaceBetween: 0,
+        },
+      },
 
     })
-    const swiperSlider = new Swiper($('.development__desc')[0], {
-      loop: true,
-      freeMode: false,
-      spaceBetween: 0,
-      slidesPerView: 1,
-      initialSlide: 0,
+    const swiperSlider = new Swiper('.development__desc', {
+      // loop: true,
+      // freeMode: false,
+      // spaceBetween: 0,
+      // slidesPerView: 1,
+      // initialSlide: 0,
 
       thumbs: {
         swiper: swiperThumbs,
       },
+
+      spaceBetween: 0,
+  
+      breakpoints: {
+        [BREAKPOINT]: {
+          spaceBetween: 0,
+        },
+      },
+
+      // controller: {
+      //   control: swiperThumbs
+      // },
     })
-    swiperThumbs.update()
+    // swiperThumbs.controller.control = swiperSlider;
+    // swiperSlider.controller.control = swiperThumbs;
   })
 }
 

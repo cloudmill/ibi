@@ -607,8 +607,34 @@ var updateMySticky
   //     }
   //   });
   // });
+}
 
+// prosthetics filter
 
+{
+  $(() => {
+    const filterPros = $('.prosthetic-slider__filter');
+    const filterBtn = filterPros.find('.development__names-item');
+    const filterSlide = $('.prosthetic-slider__slide');
+
+    if (filterBtn.length) {
+      filterPros.on('click', event => {
+        filterBtn.removeClass('development__names-item--active');
+
+        const activeBtn = $(event.target).closest(filterBtn);
+        activeBtn.addClass('development__names-item--active');
+
+        const currentId = activeBtn.data('filter-id');
+
+        filterSlide.css('display', 'none');
+        const currentSlides = $(`[data-slide-id="${currentId}"]`);
+
+        console.log(currentSlides);
+        
+        currentSlides.css('display', 'block');
+      })
+    }
+  })
 }
 
 // component
