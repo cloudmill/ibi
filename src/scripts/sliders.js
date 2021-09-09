@@ -255,9 +255,9 @@ const BREAKPOINT = 1280;
         },
       },
 
-      controller: {
-        control: swiperThumbs
-      },
+      // controller: {
+      //   control: swiperThumbs
+      // },
     })
     // swiperThumbs.controller.control = swiperSlider;
     // swiperSlider.controller.control = swiperThumbs;
