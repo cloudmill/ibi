@@ -3,21 +3,17 @@
   svg.xray(preserveAspectRatio='xMidYMid slice')
     defs
       radialGradient#gradient
-        stop(offset='0%' stop-color='white' stop-opacity='1')
+        stop(offset='75%' stop-color='white' stop-opacity='1')
         stop(offset='100%' stop-color='white' stop-opacity='0')
       mask#mask
-        ellipse.xpa(cx=0 cy=0 rx=(ELLIPSE_WIDTH / 2) ry=(ELLIPSE_HEIGHT / 2) fill='url(#gradient)')
+        ellipse.xray__ellipse(fill='url(#gradient)')
 
-    image.xray__image.xray__image--above(
+    image.xray__image.xray__image--under(
       href='assets/images/xray-above.jpg'
-      width=WIDTH
-      height=HEIGHT
       preserveAspectRatio='xMidYMid slice'
     )
-    image.xray__image.xray__image--under(
+    image.xray__image.xray__image--above(
       href='assets/images/xray-under.jpg'
       preserveAspectRatio='xMidYMid slice'
-      width=WIDTH
-      height=HEIGHT
       mask='url(#mask)'
     )

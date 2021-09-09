@@ -1,7 +1,10 @@
+$IMAGE_WIDTH: 1920px;
+$IMAGE_HEIGHT: 915px;
+
 .xray-container {
   margin: 100px;
-  width: 500px;
-  height: 200px;
+  width: #{$IMAGE_WIDTH / 2.5};
+  height: #{$IMAGE_HEIGHT / 2.5};
   overflow: hidden;
   resize: both;
 }
