@@ -1,6 +1,6 @@
 extends ../layouts/master
 
-
+include ../components/xray.pug
 
 block vars
 
@@ -14,6 +14,7 @@ block content
     .index__inner
       .index__layout 
         .index__bg
+          +xray.xray--in-main-page
         section.index__section.index__section--top
           .index-top
             .container
