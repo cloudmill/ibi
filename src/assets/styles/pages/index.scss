@@ -394,6 +394,9 @@
     transform: translate(-50%, -50%);
 
     max-height: 100%;
+    @media (max-width: 1279px) {
+      display: none;
+    }
   }
 }
 
