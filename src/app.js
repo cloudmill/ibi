@@ -6,6 +6,7 @@ import 'scripts/forms.js';
 // import 'scripts/map.js';
 import 'scripts/xray.js';
 import 'scripts/video.js';
+import 'scripts/test-swiper.js';
 
 // import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
