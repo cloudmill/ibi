@@ -184,6 +184,10 @@ const BREAKPOINT = 1280;
           //     ...slider_options,
   
           //     loop: true,
+          //     freeMode: false,
+          //     spaceBetween: 0,
+          //     slidesPerView: 1,
+          //     initialSlide: 0,
   
           //   }
           //   break;
@@ -225,15 +229,15 @@ const BREAKPOINT = 1280;
       freeMode: false,
       // loop: true,
       slidesPerView: 'auto',
-      initialSlide: 0,
+      // initialSlide: 0,
 
     })
     const swiperSlider = new Swiper($('.development__desc')[0], {
-      loop: true,
-      freeMode: false,
-      spaceBetween: 0,
-      slidesPerView: 1,
-      initialSlide: 0,
+      // loop: true,
+      // freeMode: false,
+      // spaceBetween: 0,
+      // slidesPerView: 1,
+      // initialSlide: 0,
 
       thumbs: {
         swiper: swiperThumbs,

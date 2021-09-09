@@ -164,6 +164,8 @@
 
     &-item {
       margin-right: 20px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid transparent;
       @media (min-width: $breakpoint) {
         margin-right: 40px;
       }
@@ -173,8 +175,13 @@
       transition: $transition;
 
       &--active {
-        padding-bottom: 5px;
+        // padding-bottom: 5px;
 
+        color: $color-main;
+        border-bottom: 1px solid $color-main;
+      }
+
+      &.swiper-slide-thumb-active {
         color: $color-main;
         border-bottom: 1px solid $color-main;
       }

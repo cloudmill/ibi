@@ -599,9 +599,43 @@ var updateMySticky
   //     }
   //   });
   // });
-
-
 }
+
+// prosthetics filter
+
+{
+  $(() => {
+    const filterPros = $('.prosthetic-slider__filter');
+    const filterBtn = filterPros.find('.development__names-item');
+
+    if (filterBtn.length) {
+      filterPros.on('click', event => {
+        filterBtn.removeClass('development__names-item--active');
+
+        const activeBtn = $(event.target).closest(filterBtn);
+        activeBtn.addClass('development__names-item--active');
+      })
+    }
+  })
+}
+
+// development filter
+
+// {
+//   $(() => {
+//     const filterDev = $('.development__names');
+//     const filterBtn = filterDev.find('.development__names-item');
+
+//     if (filterBtn.length) {
+//       filterDev.on('click', event => {
+//         filterBtn.removeClass('development__names-item--active');
+
+//         const activeBtn = $(event.target).closest(filterBtn);
+//         activeBtn.addClass('development__names-item--active');
+//       })
+//     }
+//   })
+// }
 
 // component
 {
