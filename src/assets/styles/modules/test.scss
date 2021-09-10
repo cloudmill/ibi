@@ -251,6 +251,7 @@
     }
   }
   &__slide-nav {
+    
     @media (max-width: $breakpoint - 1px) {
       width: calc(100% - 20px * 2);
       position: absolute;
@@ -276,6 +277,8 @@
     z-index: 0;
     
     padding-left: 33px;
+
+    transition: $transition;
 
     &::before {
       position: absolute;

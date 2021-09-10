@@ -1,5 +1,40 @@
 import Swiper from 'swiper/bundle';
 
+// lab slider on the main page
+
+{
+  $(() => {
+    const slider = $('.index-lab-slider');
+    // const slides = slider.find('.swiper-slide');
+    const titles = slider.find('.block__nav-item');
+
+    // const slidesCount = slides.length;
+
+    // console.log(slides.length);
+    // console.log(slides.length);
+
+    // const activeSlide = slider.find('.swiper-slide-active');
+
+    // let index = 0;
+    
+    // $(window).on('click', () => {
+    //   index++
+
+      // if index > slidesCount;
+
+    // })
+
+    const btns = slider.find('.slider-control__item');
+
+    if (btns.length) {
+      btns.on('click', () => {
+        console.log(111);
+        titles.toggleClass('block__nav-item--active');
+      })
+    }
+  })
+}
+
 // slider
 
 const BREAKPOINT = 1280;
@@ -130,7 +165,8 @@ const BREAKPOINT = 1280;
           case 21:
             slider_options = {
               ...slider_options,
-  
+              
+              loop: true,
               allowTouchMove: false,
             }
             break;
@@ -296,3 +332,4 @@ const BREAKPOINT = 1280;
     }
   });
 }
+
