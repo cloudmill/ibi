@@ -225,7 +225,7 @@ const BREAKPOINT = 1280;
       // loop: true,
       slidesPerView: 'auto',
       // initialSlide: 0,
-      // slideToClickedSlide: true,
+      slideToClickedSlide: true,
 
       spaceBetween: 0,
   

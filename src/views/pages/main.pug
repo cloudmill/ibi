@@ -204,7 +204,18 @@ block content
                 |&nbsp;специалистов.
         
       section
-        .block
+        .block.index-lab-slider
+          //- .index-lab-slider__controls
+          .block__control
+            .slider-control
+              .slider-control__item
+                .button-arrow.button-arrow--left
+                  .button-arrow__button(data-slider-button='22')
+                    +svg-arrow.button-arrow__svg
+              .slider-control__item
+                .button-arrow.button-arrow.button-arrow--right
+                  .button-arrow__button(data-slider-button='23')
+                    +svg-arrow.button-arrow__svg
           .block__content.swiper-container(data-slider-id='21' data-slider-prev='22' data-slider-next='23')
             .swiper-wrapper 
               - for (i=0; i<3; i++)
@@ -231,16 +242,16 @@ block content
                             li.block__nav-item
                               .block__nav-link.block__interactive
                                 |Обучение специалистов
-                          .block__control 
-                            .slider-control
-                              .slider-control__item
-                                .button-arrow.button-arrow--left
-                                  .button-arrow__button(data-slider-button='22')
-                                    +svg-arrow.button-arrow__svg
-                              .slider-control__item
-                                .button-arrow.button-arrow.button-arrow--right
-                                  .button-arrow__button(data-slider-button='23')
-                                    +svg-arrow.button-arrow__svg
+                          //- .block__control 
+                          //-   .slider-control
+                          //-     .slider-control__item
+                          //-       .button-arrow.button-arrow--left
+                          //-         .button-arrow__button(data-slider-button='22')
+                          //-           +svg-arrow.button-arrow__svg
+                          //-     .slider-control__item
+                          //-       .button-arrow.button-arrow.button-arrow--right
+                          //-         .button-arrow__button(data-slider-button='23')
+                          //-           +svg-arrow.button-arrow__svg
                       img.block__slide-img(src='assets/images/index/scroll-1.png' alt='')
                 .swiper-slide
                   .block__slide
@@ -264,16 +275,16 @@ block content
                             li.block__nav-item.block__nav-item--active
                               .block__nav-link.block__interactive
                                 |Обучение специалистов
-                          .block__control 
-                            .slider-control
-                              .slider-control__item
-                                .button-arrow.button-arrow--left
-                                  .button-arrow__button(data-slider-button='22')
-                                    +svg-arrow.button-arrow__svg
-                              .slider-control__item
-                                .button-arrow.button-arrow.button-arrow--right
-                                  .button-arrow__button(data-slider-button='23')
-                                    +svg-arrow.button-arrow__svg
+                          //- .block__control 
+                          //-   .slider-control
+                          //-     .slider-control__item
+                          //-       .button-arrow.button-arrow--left
+                          //-         .button-arrow__button(data-slider-button='22')
+                          //-           +svg-arrow.button-arrow__svg
+                          //-     .slider-control__item
+                          //-       .button-arrow.button-arrow.button-arrow--right
+                          //-         .button-arrow__button(data-slider-button='23')
+                          //-           +svg-arrow.button-arrow__svg
                         img.block__slide-img(src='assets/images/index/scroll-2.png' alt='')
       section.index__section.index__section--default
         .container
