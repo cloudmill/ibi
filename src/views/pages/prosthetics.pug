@@ -274,8 +274,8 @@ block content
           h2.prosthetic-slider__ttl Типы протезирования
           .prosthetic-slider__top
             .prosthetic-slider__filter
-              .development__names-item.development__names-item--active На зубах
-              .development__names-item На имплантатах
+              .development__names-item.development__names-item--active(data-filter-id="1") На зубах
+              .development__names-item(data-filter-id="2") На имплантатах
             .index-publications__control.slider-control.slider-control--desktop
               .slider-control__item
                 .button-arrow.button-arrow--blue-light.button-arrow--left
@@ -287,13 +287,13 @@ block content
                     +svg-arrow.button-arrow__svg
           .swiper-container(data-slider-id='140' data-slider-prev='141' data-slider-next='142')
             .swiper-wrapper
-              .swiper-slide.prosthetic-slider__slide
+              .swiper-slide.prosthetic-slider__slide(data-slide-id="1")
                 img(src="assets/images/prosthetics-2.jpg", alt="")
                 p Коронки циркониевые
-              .swiper-slide.prosthetic-slider__slide
+              .swiper-slide.prosthetic-slider__slide(data-slide-id="2")
                 img(src="assets/images/prosthetics-3.jpg", alt="")
                 p Оклюзивные накладки
-              .swiper-slide.prosthetic-slider__slide
+              .swiper-slide.prosthetic-slider__slide(data-slide-id="1")
                 img(src="assets/images/prosthetics-2.jpg", alt="")
                 p Культевая вкладка
 
