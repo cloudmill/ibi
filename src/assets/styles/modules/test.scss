@@ -143,8 +143,13 @@
   }
 
   &__control {
+    position: absolute;
+    z-index: 10;
+    @media (max-width: $breakpoint - 1px) {
+      bottom: 60px;
+      right: 20px;
+    }
     @media (min-width: $breakpoint) {
-      position: absolute;
       left: calc(#{$col-part-d} * 9 - #{$col-gap-d} + 40px);
       top: 160px;
     }
@@ -246,6 +251,7 @@
     }
   }
   &__slide-nav {
+    
     @media (max-width: $breakpoint - 1px) {
       width: calc(100% - 20px * 2);
       position: absolute;
@@ -271,6 +277,8 @@
     z-index: 0;
     
     padding-left: 33px;
+
+    transition: $transition;
 
     &::before {
       position: absolute;

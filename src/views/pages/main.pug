@@ -204,77 +204,58 @@ block content
                 |&nbsp;специалистов.
         
       section
-        .block
+        .block.index-lab-slider
+          .block__control
+            .slider-control
+              .slider-control__item
+                .button-arrow.button-arrow--left
+                  .button-arrow__button(data-slider-button='22')
+                    +svg-arrow.button-arrow__svg
+              .slider-control__item
+                .button-arrow.button-arrow.button-arrow--right
+                  .button-arrow__button(data-slider-button='23')
+                    +svg-arrow.button-arrow__svg
+          .block__slide-nav
+            ul.block__nav
+              li.block__nav-item.block__nav-item--active
+                .block__nav-link.block__interactive
+                  |Лаборатория ИБИ
+              li.block__nav-item
+                .block__nav-link.block__interactive
+                  |Обучение специалистов
           .block__content.swiper-container(data-slider-id='21' data-slider-prev='22' data-slider-next='23')
-            .swiper-wrapper 
-              - for (i=0; i<3; i++)
-                .swiper-slide
-                  .block__slide
-                    .block__slide-inner
-                      .container
-                        h2.block__slide-title.block__interactive
-                          |Лаборатория ИБИ
-                        p.block__slide-desc.block__interactive
-                          |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
-                        .block__slide-link
-                          .mission__missions-links-container
-                            a.mission__missions-links-link.block__interactive(href='#')
-                              +svg-link.mission__missions-links-svg.button-svg
-                              .mission__missions-links-text
-                                span.mission__missions-links-span 
-                                  |Подробнее
-                        .block__slide-nav
-                          ul.block__nav
-                            li.block__nav-item.block__nav-item--active
-                              .block__nav-link.block__interactive
-                                |Лаборатория ИБИ
-                            li.block__nav-item
-                              .block__nav-link.block__interactive
-                                |Обучение специалистов
-                          .block__control 
-                            .slider-control
-                              .slider-control__item
-                                .button-arrow.button-arrow--left
-                                  .button-arrow__button(data-slider-button='22')
-                                    +svg-arrow.button-arrow__svg
-                              .slider-control__item
-                                .button-arrow.button-arrow.button-arrow--right
-                                  .button-arrow__button(data-slider-button='23')
-                                    +svg-arrow.button-arrow__svg
-                      img.block__slide-img(src='assets/images/index/scroll-1.png' alt='')
-                .swiper-slide
-                  .block__slide
-                    .block__slide-inner
-                      .container
-                        h2.block__slide-title.block__interactive
-                          |Обучение специалистов
-                        p.block__slide-desc.block__interactive
-                          |Развиваем специалистов внутри клиники. Проводим обучающие сессии, семинары, курсы
-                        .block__slide-link
-                          .mission__missions-links-container
-                            a.mission__missions-links-link.block__interactive(href='#')
-                              +svg-link.mission__missions-links-svg.button-svg
-                              .mission__missions-links-text
+            .swiper-wrapper
+              .swiper-slide
+                .block__slide
+                  .block__slide-inner
+                    .container
+                      h2.block__slide-title.block__interactive
+                        |Лаборатория ИБИ
+                      p.block__slide-desc.block__interactive
+                        |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
+                      .block__slide-link
+                        .mission__missions-links-container
+                          a.mission__missions-links-link.block__interactive(href='#')
+                            +svg-link.mission__missions-links-svg.button-svg
+                            .mission__missions-links-text
+                              span.mission__missions-links-span 
                                 |Подробнее
-                        .block__slide-nav 
-                          ul.block__nav
-                            li.block__nav-item
-                              .block__nav-link.block__interactive
-                                |Лаборатория ИБИ
-                            li.block__nav-item.block__nav-item--active
-                              .block__nav-link.block__interactive
-                                |Обучение специалистов
-                          .block__control 
-                            .slider-control
-                              .slider-control__item
-                                .button-arrow.button-arrow--left
-                                  .button-arrow__button(data-slider-button='22')
-                                    +svg-arrow.button-arrow__svg
-                              .slider-control__item
-                                .button-arrow.button-arrow.button-arrow--right
-                                  .button-arrow__button(data-slider-button='23')
-                                    +svg-arrow.button-arrow__svg
-                        img.block__slide-img(src='assets/images/index/scroll-2.png' alt='')
+                    img.block__slide-img(src='assets/images/index/scroll-1.png' alt='')
+              .swiper-slide
+                .block__slide
+                  .block__slide-inner
+                    .container
+                      h2.block__slide-title.block__interactive
+                        |Обучение специалистов
+                      p.block__slide-desc.block__interactive
+                        |Развиваем специалистов внутри клиники. Проводим обучающие сессии, семинары, курсы
+                      .block__slide-link
+                        .mission__missions-links-container
+                          a.mission__missions-links-link.block__interactive(href='#')
+                            +svg-link.mission__missions-links-svg.button-svg
+                            .mission__missions-links-text
+                              |Подробнее
+                      img.block__slide-img(src='assets/images/index/scroll-2.png' alt='')
       section.index__section.index__section--default
         .container
           .index-publications

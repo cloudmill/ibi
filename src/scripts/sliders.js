@@ -1,5 +1,40 @@
 import Swiper from 'swiper/bundle';
 
+// lab slider on the main page
+
+{
+  $(() => {
+    const slider = $('.index-lab-slider');
+    // const slides = slider.find('.swiper-slide');
+    const titles = slider.find('.block__nav-item');
+
+    // const slidesCount = slides.length;
+
+    // console.log(slides.length);
+    // console.log(slides.length);
+
+    // const activeSlide = slider.find('.swiper-slide-active');
+
+    // let index = 0;
+    
+    // $(window).on('click', () => {
+    //   index++
+
+      // if index > slidesCount;
+
+    // })
+
+    const btns = slider.find('.slider-control__item');
+
+    if (btns.length) {
+      btns.on('click', () => {
+        console.log(111);
+        titles.toggleClass('block__nav-item--active');
+      })
+    }
+  })
+}
+
 // slider
 
 const BREAKPOINT = 1280;
@@ -130,7 +165,8 @@ const BREAKPOINT = 1280;
           case 21:
             slider_options = {
               ...slider_options,
-  
+              
+              loop: true,
               allowTouchMove: false,
             }
             break;
@@ -222,10 +258,10 @@ const BREAKPOINT = 1280;
   $(() => {
     const swiperThumbs = new Swiper('.development__names', {
       // freeMode: false,
-      // loop: true,
+      loop: true,
       slidesPerView: 'auto',
       // initialSlide: 0,
-      // slideToClickedSlide: true,
+      slideToClickedSlide: true,
 
       spaceBetween: 0,
   
@@ -237,7 +273,7 @@ const BREAKPOINT = 1280;
 
     })
     const swiperSlider = new Swiper('.development__desc', {
-      // loop: true,
+      loop: true,
       // freeMode: false,
       // spaceBetween: 0,
       // slidesPerView: 1,
@@ -261,6 +297,20 @@ const BREAKPOINT = 1280;
     })
     // swiperThumbs.controller.control = swiperSlider;
     // swiperSlider.controller.control = swiperThumbs;
+
+    const btnPrev = $('.lab-btn-prev');
+    const btnNext = $('.lab-btn-next');
+
+    btnPrev.on('click', () => {
+      console.log(11);
+      swiperThumbs.slidePrev()
+      swiperSlider.slidePrev()
+    })
+    btnNext.on('click', () => {
+      console.log(22);
+      swiperThumbs.slideNext()
+      swiperSlider.slideNext()
+    })
   })
 }
 
@@ -296,3 +346,4 @@ const BREAKPOINT = 1280;
     }
   });
 }
+
