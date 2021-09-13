@@ -7,7 +7,7 @@ const ELLIPSE_ANGLE = 15;
 
 const MOUSEMOVE_FPS = 60;
 
-$(() => {
+$(window).on('load', () => {
   const components = $(".xray");
 
   components.each(function () {
@@ -125,4 +125,4 @@ $(() => {
 
     $(window).one("mousemove", handleMousemove);
   });
-});
+})
