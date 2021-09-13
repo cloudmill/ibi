@@ -258,7 +258,7 @@ const BREAKPOINT = 1280;
   $(() => {
     const swiperThumbs = new Swiper('.development__names', {
       // freeMode: false,
-      loop: true,
+      // loop: true,
       slidesPerView: 'auto',
       // initialSlide: 0,
       slideToClickedSlide: true,
