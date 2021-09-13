@@ -8,6 +8,9 @@ import 'scripts/test-swiper.js';
 import 'scripts/main-interactive.js';
 import 'scripts/main-video.js';
 
+import 'scripts/preloader.js';
+import 'scripts/start-video.js';
+
 // import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
 import 'parsleyjs/dist/i18n/ru';
