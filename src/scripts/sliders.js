@@ -258,7 +258,7 @@ const BREAKPOINT = 1280;
   $(() => {
     const swiperThumbs = new Swiper('.development__names', {
       // freeMode: false,
-      // loop: true,
+      loop: true,
       slidesPerView: 'auto',
       // initialSlide: 0,
       slideToClickedSlide: true,
@@ -273,7 +273,7 @@ const BREAKPOINT = 1280;
 
     })
     const swiperSlider = new Swiper('.development__desc', {
-      // loop: true,
+      loop: true,
       // freeMode: false,
       // spaceBetween: 0,
       // slidesPerView: 1,
@@ -297,6 +297,20 @@ const BREAKPOINT = 1280;
     })
     // swiperThumbs.controller.control = swiperSlider;
     // swiperSlider.controller.control = swiperThumbs;
+
+    const btnPrev = $('.lab-btn-prev');
+    const btnNext = $('.lab-btn-next');
+
+    btnPrev.on('click', () => {
+      console.log(11);
+      swiperThumbs.slidePrev()
+      swiperSlider.slidePrev()
+    })
+    btnNext.on('click', () => {
+      console.log(22);
+      swiperThumbs.slideNext()
+      swiperSlider.slideNext()
+    })
   })
 }
 
