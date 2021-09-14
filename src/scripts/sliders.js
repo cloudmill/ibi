@@ -320,8 +320,8 @@ const BREAKPOINT = 1280;
       slideToClickedSlide: true,
       spaceBetween: 20,
       // centeredSlides: true,
-      // slideThumbActiveClass: 'swiper-slide-active',
-      // freeMode: true,
+      slideThumbActiveClass: 'swiper-slide-active',
+      freeMode: true,
       // slidesPerView: 1,
 
       breakpoints: {

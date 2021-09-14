@@ -56,6 +56,11 @@
         width: 100%;
       }
     }
+    .parsley-errors-list#parsley-id-multiple-checkbox {
+      margin-top: 5px;
+      order: 0;
+      text-align: left;
+    }
   }
 
   &__input {
@@ -198,6 +203,7 @@
       display: flex;
       width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
       flex: none;
+      position: relative;
 
       @media (max-width: $breakpoint - 1px) {
         width: 100%;
@@ -205,7 +211,8 @@
       }
 
       input[type="checkbox"] {
-        display: none;
+        opacity: 0;
+        position: absolute;
       }
 
       input[type="checkbox"]:checked + .checkbox::before {
@@ -219,7 +226,7 @@
         width: 25px;
         height: 25px;
         border-radius: 5px;
-        border: 2px solid $color-main;
+        border: 1px solid $color-main;
 
         // margin-left: -40px;
         // margin-right: 15px;
@@ -428,13 +435,28 @@
   line-height: 140%;
   text-align: right;
   margin-top: -15px;
+  order: 1;
 }
 
 .news-subscribe__form-email.parsley-error {
   border-bottom: 1px solid #E62B3E;
 }
 
+.news-subscribe__form-checkbox.parsley-error {
+  p {
+    color: #E62B3E;
+  }
+  a {
+    color: #E62B3E;
+  }
+  .checkbox::before {
+    border: 1px solid #E62B3E;
+  }
+}
 
+.parsley-errors-list#parsley-id-multiple-checkbox {
+  margin-top: -5px;
+}
 
 .news-subscribe__form.member-page-ask__form {
   .response {

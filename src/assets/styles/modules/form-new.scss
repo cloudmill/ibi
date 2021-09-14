@@ -246,5 +246,21 @@
       }
     }
   }
+  .parsley-errors-list#parsley-id-multiple-checkbox {
+    margin-top: 5px;
+  }
 }
 
+.form-new__input.parsley-error {
+  border-bottom: 1px solid #E62B3E;
+}
+.form-new__checkbox.parsley-error {
+  color: #E62B3E;
+  
+  a {
+    color: #E62B3E;
+  }
+  .checkbox::before {
+    border: 1px solid #E62B3E;
+  }
+}
