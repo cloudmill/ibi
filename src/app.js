@@ -5,9 +5,7 @@ import 'scripts/sliders.js';
 import 'scripts/forms.js';
 import 'scripts/map.js';
 
-import 'scripts/preloader.js';
-import 'scripts/start-video.js';
-import 'scripts/xray.js'
+import 'scripts/sequention.js'
 
 // import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
