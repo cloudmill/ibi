@@ -1,0 +1,88 @@
+@keyframes preloader-animation {
+  0% {
+    opacity: 0; transform: scale(0) translate(-50%, -50%);
+  }
+  40% {
+    opacity: 1; transform: scale(1.2) translate(-50%, -50%);
+  }
+  60% {
+    opacity: 1; transform: scale(1) translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0; transform: scale(0) translate(-50%, -50%);
+  }
+}
+
+.preloader {
+  $size-large: 360px;
+  $size-mid: 266px;
+  $size-small: 134px;
+
+  $color-bg: #CDF5FA;
+  $color-small: white;
+  $color-mid: #90EFDF;
+  $color-large: #7FE0EA;
+
+  $animation: preloader-animation 3s infinite;
+
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  background-color: $color-bg;
+  transition: height $transition;
+
+  &--hidden {
+    height: 0;
+  }
+
+  &__circles {
+    position: relative;
+
+    width: $size-large;
+    height: $size-large;
+  }
+
+  &__circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    transform-origin: top left;
+
+    border-radius: 50%;
+  }
+
+  &__large-circle {
+    width: $size-large;
+    height: $size-large;
+
+    background-color: $color-large;
+    animation: $animation;
+  }
+
+  &__mid-circle {
+    width: $size-mid;
+    height: $size-mid;
+
+    background-color: $color-mid;
+    animation: $animation 0.5s;
+  }
+
+  &__small-circle {
+    width: $size-small;
+    height: $size-small;
+
+    background-color: $color-small;
+    animation: $animation 0.8s;
+  }
+}
