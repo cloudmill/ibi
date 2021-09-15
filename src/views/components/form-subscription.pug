@@ -1,14 +1,14 @@
 .news-subscribe
   .form
     h2.news-subscribe__title Подпишитесь на&nbsp;публикации и&nbsp;новости
-    form.news-subscribe__form.news-subscribe__container
+    form.news-subscribe__form.news-subscribe__container(data-parsley-validate="")
       //- .news-subscribe__form-col
 
       label.news-subscribe__form-placeholder.news-subscribe__form-placeholder--flex
         input.news-subscribe__input(type="email" placeholder="E-mail")
       
       label.news-subscribe__form-checkbox.news-subscribe__checkbox
-        input(type="checkbox")
+        input(type="checkbox" id="checkbox" required="required")
         .checkbox
         p Согласен на обработку персональных данных 
           br

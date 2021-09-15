@@ -480,10 +480,11 @@
   &__thumbs {
     @media (max-width: $breakpoint - 1px) {
       margin-right: -20px;
+      margin-left: 0; // ???
     }
     .swiper-container {
       // max-width: 200px; // ???
-      margin-left: 0; // ???
+      // margin-left: 0; // ???
       // width: 60%;
       // overflow: hidden;
       // padding-bottom: 10px;
@@ -492,19 +493,29 @@
     .swiper-wrapper { // ?
       min-height: 235px; // ?
       // margin-left: 15%;
-      margin-left: 170px;
+      // margin-left: 170px;
 
       @media (max-width: $breakpoint - 1px) {
-        min-height: auto;
-        margin-left: 78px;
+        min-height: 100px;
+        // margin-left: 78px;
 
         width: 930px;
         overflow: hidden;
         padding-bottom: 10px;
       }
     }
+    // .swiper-slide {
+    //   width: 58px;
+    //   @media (min-width: $breakpoint) {
+    //     width: 111px;
+    //   }
+    // }
+    .swiper-slide-thumb-active { // ???
+      // width: 133px;
+      // @media (min-width: $breakpoint) {
+      //   width: 444px;
+      // }
 
-    .swiper-slide-active { // ???
       #{$comp}__thumb {
         padding: 0;
 
