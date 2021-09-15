@@ -374,7 +374,10 @@
 
   &__item {
 
+    padding-bottom: 5px;
     width: auto;
+
+    border-bottom: 1px solid transparent;
     
     @media (min-width: $breakpoint) {
       margin-left: 40px;
@@ -395,14 +398,11 @@
     }
 
     &--active {
-      padding-bottom: 5px;
-
       color: $color-main;
       border-bottom: 1px solid $color-main;
 
       #{$comp}__link {
         color: $color-main;
-        font-weight: 700;
       }
     }
   }
