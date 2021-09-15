@@ -1,11 +1,22 @@
-let IMAGE_WIDTH;
-let IMAGE_HEIGHT;
+let IMAGE_WIDTH
+let IMAGE_HEIGHT
 
-const ELLIPSE_WIDTH = 383;
-const ELLIPSE_HEIGHT = 230;
-const ELLIPSE_ANGLE = 15;
+const ELLIPSE_WIDTH = 383
+const ELLIPSE_HEIGHT = 230
+const ELLIPSE_ANGLE = 15
 
-const MOUSEMOVE_FPS = 60;
+const MOUSEMOVE_FPS = 60
+
+window.addEventListener('DOMContentLoaded', () => {
+  const component = $('.xray')
+
+  if (component.length) {
+    const images = component.find(".xray__image")
+    const ellipse = component.find(".xray__ellipse")
+
+    console.log(images, ellipse)
+  }
+})
 
 $(window).on('load', () => {
   const components = $(".xray");
@@ -147,4 +158,26 @@ $(window).on('load', () => {
 
     $(window).on('resize', sendComponentSize)
   });
+})
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const xray = $('.xray')
+
+  if (xray.length) {
+    // data
+
+    // functions
+
+    // events
+    window.addEventListener('sv:ready', () => {
+      // init
+    })
+
+    window.addEventListener('sv:end', () => {
+      // start
+
+      setTimeout(console.log(123))
+    })
+  }
 })

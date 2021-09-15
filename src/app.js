@@ -3,12 +3,12 @@ import 'scripts/backend.js';
 import 'scripts/modal-tooltip.js';
 import 'scripts/sliders.js';
 import 'scripts/forms.js';
-import 'scripts/map.js';
+// import 'scripts/map.js';
 
 import 'scripts/sequention.js'
 
 // import Swiper from 'swiper/bundle';
-import Parsley from 'parsleyjs';
+import parsley from 'parsleyjs';
 import 'parsleyjs/dist/i18n/ru';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
@@ -1328,3 +1328,13 @@ var updateMySticky
     })
   });
 };
+
+{
+  $('form').parsley()
+
+  $('form').on('field:success', () => {
+    console.log('field:success')
+  })
+
+  $('form').on('submit', e => e.preventDefault())
+}

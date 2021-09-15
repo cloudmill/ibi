@@ -4,11 +4,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const startVideo = document.querySelector('.start-video')
   
   if (startVideo) {
-
     startVideo.addEventListener('canplaythrough', () => {
       signal('sv:ready')
     })
-    
   }
 })
 

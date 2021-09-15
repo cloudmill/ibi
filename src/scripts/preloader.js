@@ -1,19 +1,17 @@
 import { signal } from 'scripts/communication.js'
 
 window.addEventListener('DOMContentLoaded', () => {
-
   const preloader = document.querySelector('.preloader')
 
   if (preloader) {
-    
-    signal('pl:exist')
-
     window.addEventListener('seq:pl:close', () => {
       preloader.classList.add('preloader--hidden')
+
+      preloader.addEventListener('transitionend', () => {
+        signal('pl:closed')
+      })
     })
-
   }
-
 })
 
 // window.addEventListener('DOMContentLoaded', () => {
