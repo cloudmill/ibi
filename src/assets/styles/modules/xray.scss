@@ -19,4 +19,9 @@ $IMAGE_HEIGHT: 1080px;
       display: none;
     }
   }
+
+  &__ellipse {
+    opacity: 0;
+    transition: opacity $transition;
+  }
 }

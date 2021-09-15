@@ -3,10 +3,9 @@ import 'scripts/backend.js';
 import 'scripts/modal-tooltip.js';
 import 'scripts/sliders.js';
 import 'scripts/forms.js';
-// import 'scripts/map.js';
-import 'scripts/test-swiper.js';
-import 'scripts/main-interactive.js';
-import 'scripts/main-video.js';
+import 'scripts/map.js';
+
+import 'scripts/sequention.js'
 
 // import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';

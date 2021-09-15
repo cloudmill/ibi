@@ -360,6 +360,8 @@
     right: 0;
     left: 0;
 
+    overflow: hidden;
+
     background: url(assets/images/index-bg-mobile.jpg) bottom no-repeat;
     background-color: #B0E7EA;
     background-size: 700px;
@@ -384,18 +386,6 @@
       background-position-x: center;
       background-position-y: center;
       background-size: cover;
-    }
-  }
-
-  &__video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    max-height: 100%;
-    @media (max-width: 1279px) {
-      display: none;
     }
   }
 }

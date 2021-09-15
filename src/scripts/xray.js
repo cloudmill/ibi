@@ -46,8 +46,6 @@ $(window).on('load', () => {
 
     [IMAGE_WIDTH, IMAGE_HEIGHT] = getImageSize();
 
-    console.log(IMAGE_WIDTH, IMAGE_HEIGHT)
-
     function initComponent() {
       component.attr("viewBox", `0 0 ${IMAGE_WIDTH} ${IMAGE_HEIGHT}`);
 
@@ -55,6 +53,7 @@ $(window).on('load', () => {
       ellipse.attr("cy", -(ELLIPSE_HEIGHT / 2));
       ellipse.attr("rx", ELLIPSE_WIDTH / 2);
       ellipse.attr("ry", ELLIPSE_HEIGHT / 2);
+      ellipse.css('opacity', 0)
 
       images.attr("width", IMAGE_WIDTH);
       images.attr("height", IMAGE_HEIGHT);
@@ -62,7 +61,24 @@ $(window).on('load', () => {
 
     initComponent();
 
+    function getComponentSize() {
+      const componentRect = component[0].getBoundingClientRect()
+
+      return [componentRect.width, componentRect.height]
+    }
+
+    function sendComponentSize() {
+      const changeSizeEvent = new CustomEvent('xray-change-size', {
+        detail: getComponentSize(),
+      })
+      window.dispatchEvent(changeSizeEvent)
+    }
+
+    sendComponentSize()
+
     function updateEllipse(event) {
+      ellipse.css('opacity', 1)
+
       const mouseX = event.originalEvent.clientX;
       const mouseY = event.originalEvent.clientY;
 
@@ -124,5 +140,11 @@ $(window).on('load', () => {
     }
 
     $(window).one("mousemove", handleMousemove);
+
+    $(window).one("mousemove", () => {
+      ellipse.css('opacity', '')
+    })
+
+    $(window).on('resize', sendComponentSize)
   });
 })

@@ -2,7 +2,15 @@ extends ../layouts/master
 
 include ../components/xray.pug
 
+include ../components/preloader.pug
+include ../components/start-video.pug
+
 block vars
+
+block preloader
+  +preloader
+
+block grid-test
 
 block header
   +header({
@@ -15,8 +23,7 @@ block content
       .index__layout 
         .index__bg
           +xray.xray--in-main-page
-          video.index__video(style='display: none' muted="" autoplay="" playsinline="")
-            source(src="assets/images/main.mp4" type="video/mp4")
+          +start-video
         section.index__section.index__section--top
           .index-top
             .container

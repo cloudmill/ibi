@@ -26,7 +26,9 @@ html(lang='ru')
     script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")
 
   body.body
-    +grid-test
+    block preloader
+    block grid-test
+      +grid-test
     .wrapper
       block header
         +header
