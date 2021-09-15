@@ -86,24 +86,24 @@ const BREAKPOINT = 1280;
   
           case 3:
             slider_options = {
-              ...slider_options,
+              // ...slider_options,
   
-              loop: true,
+              // loop: true,
   
-              breakpoints: {
-                [BREAKPOINT]: {
-                  spaceBetween: 60,
-                },
-              },
+              // breakpoints: {
+              //   [BREAKPOINT]: {
+              //     spaceBetween: 60,
+              //   },
+              // },
             }
             break;
           case 4:
             slider_options = {
-              ...slider_options,
+              // ...slider_options,
   
-              loop: true,
+              // loop: true,
   
-              allowTouchMove: false,
+              // allowTouchMove: false,
             }
             break;
           case 5:
@@ -258,7 +258,7 @@ const BREAKPOINT = 1280;
   $(() => {
     const swiperThumbs = new Swiper('.development__names', {
       // freeMode: false,
-      loop: true,
+      // loop: true,
       slidesPerView: 'auto',
       // initialSlide: 0,
       slideToClickedSlide: true,
@@ -270,7 +270,6 @@ const BREAKPOINT = 1280;
           spaceBetween: 0,
         },
       },
-
     })
     const swiperSlider = new Swiper('.development__desc', {
       loop: true,
@@ -302,14 +301,56 @@ const BREAKPOINT = 1280;
     const btnNext = $('.lab-btn-next');
 
     btnPrev.on('click', () => {
-      console.log(11);
-      swiperThumbs.slidePrev()
-      swiperSlider.slidePrev()
+      swiperThumbs.slidePrev();
+      swiperSlider.slidePrev();
     })
     btnNext.on('click', () => {
-      console.log(22);
-      swiperThumbs.slideNext()
-      swiperSlider.slideNext()
+      swiperThumbs.slideNext();
+      swiperSlider.slideNext();
+    })
+  })
+}
+
+// Mission slider
+{
+  $(() => {
+    const swiperThumbs = new Swiper('.mission__thumbs', {
+      slidesPerView: 'auto',
+      initialSlide: 1,
+      slideToClickedSlide: true,
+      spaceBetween: 20,
+      // centeredSlides: true,
+      slideThumbActiveClass: 'swiper-slide-active',
+      freeMode: true,
+      // slidesPerView: 1,
+
+      breakpoints: {
+        [BREAKPOINT]: {
+          spaceBetween: 60,
+        },
+      },
+    })
+
+    const swiperSlider = new Swiper('.mission__slider', {
+      loop: true,
+      allowTouchMove: false,
+      initialSlide: 1,
+
+      thumbs: {
+        swiper: swiperThumbs,
+      },
+    })
+
+    const btnPrev = $('.mis-btn-prev');
+    const btnNext = $('.mis-btn-next');
+
+    btnPrev.on('click', () => {
+      swiperThumbs.slidePrev();
+      swiperSlider.slidePrev();
+    })
+    btnNext.on('click', () => {
+      swiperThumbs.slideNext();
+      swiperSlider.slideNext();
     })
   })
 }

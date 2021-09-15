@@ -347,6 +347,7 @@
 
       &:not(:first-child) {
         margin-top: 20px;
+        margin-left: 0;
       }
 
       &--active {
@@ -362,7 +363,7 @@
 
   &__list {
     @media (min-width: $breakpoint) {
-      margin-left: -40px;
+      // margin-left: -40px;
       margin-top: -20px;
 
       flex-wrap: wrap;
@@ -380,7 +381,7 @@
     border-bottom: 1px solid transparent;
     
     @media (min-width: $breakpoint) {
-      margin-left: 40px;
+      // margin-left: 40px;
       margin-top: 20px;
     }
     @media (max-width: $breakpoint - 1px) {
@@ -388,6 +389,14 @@
         margin-left: 20px;
       }
     }
+
+    &:not(:first-child) {
+      margin-left: 30px;
+      @media (min-width: $breakpoint-xl) {
+        margin-left: 40px;
+      }
+    }
+
     cursor: pointer;
     transition: $transition;
     &:hover {
@@ -411,6 +420,9 @@
     position: relative;
     @include fsl(14px, 160%);
     @media (min-width: $breakpoint) {
+      @include fsl(16px);
+    }
+    @media (min-width: $breakpoint-xl) {
       @include fsl(18px);
     }
     white-space: nowrap;
