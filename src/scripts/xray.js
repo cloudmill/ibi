@@ -1,3 +1,5 @@
+import { signal } from 'scripts/communication.js'
+
 let IMAGE_WIDTH
 let IMAGE_HEIGHT
 
@@ -7,16 +9,28 @@ const ELLIPSE_ANGLE = 15
 
 const MOUSEMOVE_FPS = 60
 
+// ###
 window.addEventListener('DOMContentLoaded', () => {
-  const component = $('.xray')
+  const comp = document.querySelector('.xray')
 
-  if (component.length) {
-    const images = component.find(".xray__image")
-    const ellipse = component.find(".xray__ellipse")
+  if (comp) {
+    // methods
+    function getSize() {
+      const rect = comp.getBoundingClientRect()
 
-    console.log(images, ellipse)
+      return {
+        width: rect.width,
+        height: rect.height,
+      }
+    }
+
+    // events
+    window.addEventListener('psx:1', () => {
+      signal('psx:2', getSize())
+    })
   }
 })
+// ###
 
 $(window).on('load', () => {
   const components = $(".xray");
@@ -180,4 +194,8 @@ window.addEventListener('DOMContentLoaded', () => {
       setTimeout(console.log(123))
     })
   }
+})
+
+window.addEventListener('sv ready', () => {
+  console.log(199);
 })

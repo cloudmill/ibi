@@ -5,7 +5,7 @@ import 'scripts/sliders.js';
 import 'scripts/forms.js';
 // import 'scripts/map.js';
 
-import 'scripts/sequention.js'
+import 'scripts/psx.js'
 
 // import Swiper from 'swiper/bundle';
 import parsley from 'parsleyjs';
@@ -1330,11 +1330,30 @@ var updateMySticky
 };
 
 {
-  $('form').parsley()
+  const ovo = document.querySelector('.ovo')
 
-  $('form').on('field:success', () => {
-    console.log('field:success')
-  })
+  if (ovo) {
+    console.log('ovo')
 
-  $('form').on('submit', e => e.preventDefault())
+    const block = document.querySelector('#block')
+    const button = document.querySelector('#button')
+
+    console.log(block.style.color === '')
+
+    const observer = new MutationObserver(() => {
+      console.log('update')
+      console.log(block.style.color === '')
+    })
+    observer.observe(block, {
+      attributes: true,
+    })
+
+    setTimeout(() => {
+      button.addEventListener('click', () => {
+        console.log(123);
+        
+        block.style.color = ''
+      })
+    })
+  }
 }
