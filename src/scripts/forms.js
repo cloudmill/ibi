@@ -146,48 +146,32 @@ import { event } from "jquery";
 // };
 
 {
-   $(() => {
-    // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
-    if (!String.prototype.trim) {
-      (function() {
-        // Make sure we trim BOM and NBSP
-        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-        String.prototype.trim = function() {
-          return this.replace(rtrim, '');
-        };
-      })();
-    }
-
-    [].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
-      // in case the input is already filled..
-      if( inputEl.value.trim() !== '' ) {
-        classie.add( inputEl.parentNode, 'input--filled' );
-      }
-
-      // events:
-      inputEl.addEventListener( 'focus', onInputFocus );
-      inputEl.addEventListener( 'blur', onInputBlur );
-    } );
-
-    function onInputFocus( ev ) {
-      classie.add( ev.target.parentNode, 'input--filled' );
-    }
-
-    function onInputBlur( ev ) {
-      if( ev.target.value.trim() === '' ) {
-        classie.remove( ev.target.parentNode, 'input--filled' );
-      }
-    }
-  })
-}
-
-{
   const input = $('.news-subscribe__form-email');
   const label = $('.news-subscribe__form-placeholder');
+
+  const input2 = $('.news-subscribe__input');
+  const label2 = $('.news-subscribe__label');
+
+  const input3 = $('.form-new__input');
+  const label3 = $('.form-new__label');
 
   $(() => {
     input.on('click', function(event) {
       const currentInput = $(event.target).closest('.news-subscribe__form-placeholder');
+      currentInput.addClass('input-focus');
+    })
+  })
+
+  $(() => {
+    input2.on('click', function(event) {
+      const currentInput = $(event.target).closest('.news-subscribe__label');
+      currentInput.addClass('input-focus');
+    })
+  })
+
+  $(() => {
+    input3.on('click', function(event) {
+      const currentInput = $(event.target).closest('.form-new__label');
       currentInput.addClass('input-focus');
     })
   })
@@ -203,18 +187,25 @@ import { event } from "jquery";
     }
   })
 
-  // console.log(
-  //   input.validate()
-  // );
+  $(window).on('click', event => {
+    if (
+      $(event.target).closest(input2).length === 0
+    ) {
+      label2.removeClass('input-focus')
+    } else {
+      label2.removeClass('input-focus');
+      $(event.target).closest(label2).addClass('input-focus');
+    }
+  })
+
+  $(window).on('click', event => {
+    if (
+      $(event.target).closest(input3).length === 0
+    ) {
+      label3.removeClass('input-focus')
+    } else {
+      label3.removeClass('input-focus');
+      $(event.target).closest(label3).addClass('input-focus');
+    }
+  })
 }
-
-// {
-//   $('.news-subscribe__form-btn').on('click', () => {
- 
-//     setTimeout(() => $('.parsley-error').closest('.news-subscribe__form-placeholder').addClass('form-error'));
-//     // console.log($('.parsley-error'));
-    
-//   })
-
-
-// }
