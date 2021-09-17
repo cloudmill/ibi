@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (mediaQuery.matches) {
       // [desktop]
-      // eventsw
+      // events
       window.addEventListener('psx:3', () => {
         close()
 
