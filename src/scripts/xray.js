@@ -14,30 +14,82 @@ const MOUSEMOVE_FPS = 60
 window.addEventListener('DOMContentLoaded', () => {
   const comp = document.querySelector('.xray')
 
-  if (comp && mediaQuery.matches) {
-    // data
+  if (comp) {
+    if (mediaQuery.matches) {
+      // [desktop]
+      // 
 
-    // methods
-    function getSize() {
-      const rect = comp.getBoundingClientRect()
+      // methods
+      const loadImages = (() => {
+        // data
+        const images = comp.querySelectorAll('.xray__image')
+        const imagesCount = images.length
 
-      return {
-        width: rect.width,
-        height: rect.height,
+        let loadCount = 0
+
+        // methods
+        function isLoaded() {
+          return loadCount >= imagesCount
+        }
+
+        function onLoadImage(callback) {
+          loadCount++
+
+          if (isLoaded()) {
+            callback()
+          }
+        }
+
+        function initHref(image, callback) {
+          const observer = new MutationObserver(() => {
+            callback()
+
+            observer.disconnect()
+          })
+          observer.observe(image, {
+            attributes: true,
+          })
+
+          setTimeout(() => {
+            const href = image.getAttribute('data-href')
+
+            image.setAttribute('href', href)
+          })
+        }
+
+        // function
+        return callback => {
+          if (isLoaded()) {
+            callback()
+          } else {
+            images.forEach(
+              image => initHref(image, () =>
+                image.addEventListener('load', () =>
+                  onLoadImage(callback)
+                )
+              )
+            )
+          }
+        }
+      })()
+
+      function getSize() {
+        const rect = comp.getBoundingClientRect()
+
+        return {
+          width: rect.width,
+          height: rect.height,
+        }
       }
-    }
 
-    // events
-    window.addEventListener('psx:1', () => {
-      // signal('psx:2', getSize())
-      signal('psx:2', () => {
-        console.log()
+      // events
+      window.addEventListener('psx:1', () => signal('psx:2', getSize()))
+
+      window.addEventListener('psx:5', () => {
+        loadImages(() => {
+        })
       })
-    })
-
-    window.addEventListener('psx:5', () => {
-      console.log(9322);
-    })
+    }
   }
 })
 // ###
@@ -183,3 +235,4 @@ $(window).on('load', () => {
     $(window).on('resize', sendComponentSize)
   });
 })
+

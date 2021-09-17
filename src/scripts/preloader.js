@@ -5,20 +5,24 @@ window.addEventListener('DOMContentLoaded', () => {
   const comp = document.querySelector('.preloader')
 
   if (comp) {
-    if (mediaQuery.matches) {
-      // events
-      window.addEventListener('psx:3', () => {
-        comp.classList.add('preloader--hidden')
-      })
+    function close() {
+      comp.classList.add('preloader--hidden')
+    }
 
-      comp.addEventListener('transitionend', () => {
+    if (mediaQuery.matches) {
+      // [desktop]
+      // eventsw
+      window.addEventListener('psx:3', () => {
+        close()
+
         signal('psx:4')
       })
+      
+      // comp.addEventListener('transitionend', () => signal('psx:4'))
     } else {
-      window.addEventListener('load', () => {
-        console.log('776655')
-        comp.classList.add('preloader--hidden')
-      })
+      // [mobile]
+      // events
+      window.addEventListener('load', close)
     }
   }
 })
