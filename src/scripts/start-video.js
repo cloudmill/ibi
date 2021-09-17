@@ -88,24 +88,41 @@ window.addEventListener('DOMContentLoaded', () => {
       COMP_ASPECT = getAspect(COMP_SIZE)
     }
 
+    function initSource(callback) {
+      const observer = new MutationObserver(callback)
+      observer.observe(comp, {
+        attributes: true,
+      })
+
+      setTimeout(() => {
+        const src = comp.getAttribute('data-src')
+        const poster = comp.getAttribute('data-poster')
+
+        comp.setAttribute('src', src)
+        comp.setAttribute('poster', poster)
+      })
+    }
+
     // events
-    comp.addEventListener('canplaythrough', () => {
-      initSize()
-
-      signal('psx:1')
-    })
-
-    window.addEventListener('psx:2', ({ detail }) => {
-      updateSize(detail, () => signal('psx:3'))
-    })
-
-    window.addEventListener('psx:4', () => {
-      comp.play()
-    })
-
-    comp.addEventListener('ended', () => {
-      comp.classList.add('start-video--hidden')
-      signal('psx:5')
+    initSource(() => {
+      comp.addEventListener('canplaythrough', () => {
+        initSize()
+  
+        signal('psx:1')
+      })
+  
+      window.addEventListener('psx:2', ({ detail }) => {
+        updateSize(detail, () => signal('psx:3'))
+      })
+  
+      window.addEventListener('psx:4', () => {
+        comp.play()
+      })
+  
+      comp.addEventListener('ended', () => {
+        comp.classList.add('start-video--hidden')
+        signal('psx:5')
+      })
     })
   }
 })
