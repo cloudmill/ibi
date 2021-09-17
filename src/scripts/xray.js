@@ -173,29 +173,3 @@ $(window).on('load', () => {
     $(window).on('resize', sendComponentSize)
   });
 })
-
-
-window.addEventListener('DOMContentLoaded', () => {
-  const xray = $('.xray')
-
-  if (xray.length) {
-    // data
-
-    // functions
-
-    // events
-    window.addEventListener('sv:ready', () => {
-      // init
-    })
-
-    window.addEventListener('sv:end', () => {
-      // start
-
-      setTimeout(console.log(123))
-    })
-  }
-})
-
-window.addEventListener('sv ready', () => {
-  console.log(199);
-})

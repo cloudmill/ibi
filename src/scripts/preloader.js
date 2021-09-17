@@ -8,6 +8,10 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('psx:3', () => {
       comp.classList.add('preloader--hidden')
     })
+
+    comp.addEventListener('transitionend', () => {
+      signal('psx:4')
+    })
   }
 })
 
