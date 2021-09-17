@@ -16,6 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
       })
     } else {
       window.addEventListener('load', () => {
+        console.log('776655')
         comp.classList.add('preloader--hidden')
       })
     }
