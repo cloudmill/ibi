@@ -7,6 +7,7 @@ import 'scripts/forms.js';
 import 'scripts/xray.js';
 import 'scripts/video.js';
 import 'scripts/test-swiper.js';
+import 'scripts/sidebar-spoiler.js';
 
 // import Swiper from 'swiper/bundle';
 import Parsley from 'parsleyjs';
@@ -498,13 +499,13 @@ var updateMySticky
             const spoiler = $(this)
             const spoiler_drop = spoiler.find('.mission__spoiler-drop')
 
-            spoiler.toggleClass('mission__spoiler--active')
+            // spoiler.toggleClass('mission__spoiler--active')
             // spoiler_drop.slideToggle({
             //   progress: updateMySticky,
             // })
           })
         } else {
-          spoiler.toggleClass('mission__spoiler--active')
+          // spoiler.toggleClass('mission__spoiler--active')
           // spoiler_drop.slideToggle({
           //   progress: updateMySticky,
           // })
@@ -512,34 +513,6 @@ var updateMySticky
       });
     });
   });
-}
-
-// nav spoiler
-
-{
-  $(() => {
-    const navSpoilerList = $('.nav__list');
-    const navSpoiler = navSpoilerList.find('.mission__spoiler');
-    const navSpoilerBtn = navSpoilerList.find('.mission__spoiler-button');
-    const navSpoilerDrop = navSpoilerList.find('.mission__spoiler-drop');
-
-    navSpoilerBtn.on('click', event => {
-      let currentSpoiler = $(event.target).closest('.mission__spoiler');
-      let currentSpoilerDrop = currentSpoiler.find('.mission__spoiler-drop');
-
-      if (currentSpoiler.hasClass('.mission__spoiler--active')) {
-        navSpoiler.removeClass('mission__spoiler--active');
-        navSpoilerDrop.slideUp(500);
-      } else {
-
-        $('.mission__spoiler--active').find('.mission__spoiler-drop').slideUp(500);
-        $('.mission__spoiler--active').removeClass('mission__spoiler--active');
-
-        currentSpoilerDrop.slideDown(500);
-        currentSpoiler.addClass('mission__spoiler--active');
-      }
-    })
-  })
 }
 
 // block

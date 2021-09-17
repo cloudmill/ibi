@@ -265,6 +265,10 @@
   }
 
   &__nav {
+    margin: 0 0 40px $col-gap-m;
+    @media (min-width: $breakpoint) {
+      margin: 0 0 60px $col-gap-m;
+    }
     @media (min-width: $breakpoint) {
       position: absolute;
       z-index: 1;
@@ -277,6 +281,9 @@
     z-index: 0;
     
     padding-left: 33px;
+    @media (max-width: $breakpoint - 1px) {
+      padding-left: 20px;
+    }
 
     transition: $transition;
 
@@ -294,6 +301,10 @@
 
       background-color: $color-black;
       border-radius: 50%;
+
+      @media (max-width: $breakpoint - 1px) {
+        top: 50%;
+      }
     }
 
     &:not(:first-child) {
