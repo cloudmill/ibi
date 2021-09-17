@@ -1,3 +1,4 @@
+import { mediaQuery } from 'scripts/mediaQueries.js'
 import { signal } from 'scripts/communication.js'
 
 let IMAGE_WIDTH
@@ -13,7 +14,9 @@ const MOUSEMOVE_FPS = 60
 window.addEventListener('DOMContentLoaded', () => {
   const comp = document.querySelector('.xray')
 
-  if (comp) {
+  if (comp && mediaQuery.matches) {
+    // data
+
     // methods
     function getSize() {
       const rect = comp.getBoundingClientRect()
@@ -26,7 +29,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // events
     window.addEventListener('psx:1', () => {
-      signal('psx:2', getSize())
+      // signal('psx:2', getSize())
+      signal('psx:2', () => {
+        console.log()
+      })
+    })
+
+    window.addEventListener('psx:5', () => {
+      console.log(9322);
     })
   }
 })

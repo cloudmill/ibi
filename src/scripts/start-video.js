@@ -1,9 +1,10 @@
+import { mediaQuery } from 'scripts/mediaQueries.js'
 import { signal } from 'scripts/communication.js'
 
 window.addEventListener('DOMContentLoaded', () => {
   const comp = document.querySelector('.start-video')
-  
-  if (comp) {
+
+  if (comp && mediaQuery.matches) {
     // data
     let COMP_SIZE
     let COMP_ASPECT
@@ -104,6 +105,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     comp.addEventListener('ended', () => {
       comp.classList.add('start-video--hidden')
+      signal('psx:5')
     })
   }
 })
