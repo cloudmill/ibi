@@ -14,6 +14,7 @@ import 'parsleyjs/dist/i18n/ru';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
 import Sticky from 'sticky-js';
+import { event } from 'jquery';
 
 const BREAKPOINT = 1280;
 
@@ -484,7 +485,7 @@ var updateMySticky
       const spoiler = $(this);
       const spoiler_group = spoiler.data('spoiler-group')
 
-      console.log(spoiler_group);
+      // console.log(spoiler_group);
 
       const spoiler_button = spoiler.find('.mission__spoiler-button');
       const spoiler_drop = spoiler.find('.mission__spoiler-drop');
@@ -498,19 +499,47 @@ var updateMySticky
             const spoiler_drop = spoiler.find('.mission__spoiler-drop')
 
             spoiler.toggleClass('mission__spoiler--active')
-            spoiler_drop.slideToggle({
-              progress: updateMySticky,
-            })
+            // spoiler_drop.slideToggle({
+            //   progress: updateMySticky,
+            // })
           })
         } else {
           spoiler.toggleClass('mission__spoiler--active')
-          spoiler_drop.slideToggle({
-            progress: updateMySticky,
-          })
+          // spoiler_drop.slideToggle({
+          //   progress: updateMySticky,
+          // })
         }
       });
     });
   });
+}
+
+// nav spoiler
+
+{
+  $(() => {
+    const navSpoilerList = $('.nav__list');
+    const navSpoiler = navSpoilerList.find('.mission__spoiler');
+    const navSpoilerBtn = navSpoilerList.find('.mission__spoiler-button');
+    const navSpoilerDrop = navSpoilerList.find('.mission__spoiler-drop');
+
+    navSpoilerBtn.on('click', event => {
+      let currentSpoiler = $(event.target).closest('.mission__spoiler');
+      let currentSpoilerDrop = currentSpoiler.find('.mission__spoiler-drop');
+
+      if (currentSpoiler.hasClass('.mission__spoiler--active')) {
+        navSpoiler.removeClass('mission__spoiler--active');
+        navSpoilerDrop.slideUp(500);
+      } else {
+
+        $('.mission__spoiler--active').find('.mission__spoiler-drop').slideUp(500);
+        $('.mission__spoiler--active').removeClass('mission__spoiler--active');
+
+        currentSpoilerDrop.slideDown(500);
+        currentSpoiler.addClass('mission__spoiler--active');
+      }
+    })
+  })
 }
 
 // block

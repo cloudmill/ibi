@@ -1,9 +1,9 @@
+import { event } from "jquery";
+
 // form response
 // {
 //   $(() => {
 //     const form = $('.form');
-
-import { event } from "jquery";
 
 //     if (form.length !== 0) {
 
@@ -144,6 +144,9 @@ import { event } from "jquery";
 
 //   });
 // };
+
+
+// Анимация инпута
 
 {
   const input = $('.news-subscribe__form-email');
