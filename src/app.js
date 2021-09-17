@@ -499,16 +499,16 @@ var updateMySticky
             const spoiler = $(this)
             const spoiler_drop = spoiler.find('.mission__spoiler-drop')
 
-            // spoiler.toggleClass('mission__spoiler--active')
-            // spoiler_drop.slideToggle({
-            //   progress: updateMySticky,
-            // })
+            spoiler.toggleClass('mission__spoiler--active')
+            spoiler_drop.slideToggle({
+              progress: updateMySticky,
+            })
           })
         } else {
-          // spoiler.toggleClass('mission__spoiler--active')
-          // spoiler_drop.slideToggle({
-          //   progress: updateMySticky,
-          // })
+          spoiler.toggleClass('mission__spoiler--active')
+          spoiler_drop.slideToggle({
+            progress: updateMySticky,
+          })
         }
       });
     });

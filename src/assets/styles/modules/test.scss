@@ -149,6 +149,10 @@
       bottom: 60px;
       right: 20px;
     }
+    @media (max-width: $breakpoint-m - 1px) {
+      bottom: 40px;
+      right: 20px;
+    }
     @media (min-width: $breakpoint) {
       left: calc(#{$col-part-d} * 9 - #{$col-gap-d} + 40px);
       top: 160px;
@@ -266,7 +270,7 @@
 
   &__nav {
     margin: 0 0 40px $col-gap-m;
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint-m) {
       margin: 0 0 60px $col-gap-m;
     }
     @media (min-width: $breakpoint) {
