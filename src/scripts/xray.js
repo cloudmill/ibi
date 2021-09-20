@@ -1,14 +1,6 @@
 import { mediaQuery } from 'scripts/mediaQueries.js'
 import { signal } from 'scripts/communication.js'
-
-let IMAGE_WIDTH
-let IMAGE_HEIGHT
-
-const ELLIPSE_WIDTH = 383
-const ELLIPSE_HEIGHT = 230
-const ELLIPSE_ANGLE = 15
-
-const MOUSEMOVE_FPS = 60
+import { setAttribute } from 'scripts/setAttribute.js'
 
 // ###
 window.addEventListener('DOMContentLoaded', () => {
@@ -17,19 +9,26 @@ window.addEventListener('DOMContentLoaded', () => {
   if (comp) {
     if (mediaQuery.matches) {
       // [desktop]
-      // 
+      // data
+      const ellipse = comp.querySelector('.xray__ellipse')
+      const images = comp.querySelectorAll('.xray__image')
+
+      let IMAGE_SIZE
+
+      const ELLIPSE_WIDTH = 383
+      const ELLIPSE_HEIGHT = 230
+      const ELLIPSE_ANGLE = 15
+
+      const MOUSEMOVE_FPS = 60
 
       // methods
       const loadImages = (() => {
         // data
-        const images = comp.querySelectorAll('.xray__image')
-        const imagesCount = images.length
-
         let loadCount = 0
 
         // methods
         function isLoaded() {
-          return loadCount >= imagesCount
+          return loadCount >= images.length
         }
 
         function onLoadImage(callback) {
@@ -73,8 +72,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       })()
 
-      function getSize() {
-        const rect = comp.getBoundingClientRect()
+      function getSize(element) {
+        const rect = element.getBoundingClientRect()
 
         return {
           width: rect.width,
@@ -82,18 +81,119 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
 
+      function initImageSize() {
+        if (!IMAGE_SIZE) {
+          IMAGE_SIZE = getSize(images[0])
+        }
+      }
+
+      function updateEllipse(event) {
+        function setEllipseAttrs(cx, cy) {
+          setAttribute(ellipse, 'cx', cx)
+          setAttribute(ellipse, 'cy', cy)
+          setAttribute(ellipse, 'transform', `rotate(${ELLIPSE_ANGLE} ${cx} ${cy})`)
+        }
+
+        const mouseX = event.clientX
+        const mouseY = event.clientY
+  
+        const compRect = comp.getBoundingClientRect()
+  
+        const compX = compRect.x
+        const compY = compRect.y
+        const compWidth = compRect.width
+        const compHeight = compRect.height
+
+        const compRatio = compWidth / compHeight;
+        const imageRatio = IMAGE_SIZE.width / IMAGE_SIZE.height;
+
+        if (compRatio < imageRatio) {
+          const imageWidth = imageRatio * compHeight
+  
+          const x = mouseX - (compX - (imageWidth - compWidth) / 2)
+          const y = mouseY - compY
+  
+          const xNorm = x / imageWidth
+          const yNorm = y / compHeight
+  
+          const ellipseX = IMAGE_SIZE.width * xNorm
+          const ellipseY = IMAGE_SIZE.height * yNorm
+  
+          setEllipseAttrs(ellipseX, ellipseY)
+        } else {
+          const imageHeight = compWidth / imageRatio
+  
+          const x = mouseX - compX
+          const y = mouseY - (compY - (imageHeight - compHeight) / 2)
+  
+          const xNorm = x / compWidth
+          const yNorm = y / imageHeight
+  
+          const ellipseX = IMAGE_SIZE.width * xNorm
+          const ellipseY = IMAGE_SIZE.height * yNorm
+  
+          setEllipseAttrs(ellipseX, ellipseY)
+        }
+      }
+
+      const handleMousemove = (() => {
+        let enabled = true
+
+        return event => {
+          if (enabled) {
+            enabled = false
+
+            updateEllipse(event)
+
+            setTimeout(() => enabled = true, 1000 / MOUSEMOVE_FPS)
+          }
+        }
+      })()
+
       // events
-      window.addEventListener('psx:1', () => signal('psx:2', getSize()))
+      window.addEventListener('psx:1', () => signal('psx:2', getSize(comp)))
 
       window.addEventListener('psx:5', () => {
         loadImages(() => {
+          initImageSize()
+
+          Promise.all([
+            setAttribute(comp, 'viewBox', `0 0 ${IMAGE_SIZE.width} ${IMAGE_SIZE.height}`),
+
+            setAttribute(ellipse, 'cx', -(ELLIPSE_WIDTH / 2)),
+            setAttribute(ellipse, 'cy', -(ELLIPSE_HEIGHT / 2)),
+            setAttribute(ellipse, 'rx', ELLIPSE_WIDTH / 2),
+            setAttribute(ellipse, 'ry', ELLIPSE_HEIGHT / 2),
+            setAttribute(ellipse, 'style', 'opacity: 0;'),
+
+            ...(() => {
+              const tasks = []
+
+              for (let i = 0; i < images.length; i++) {
+                tasks.push(setAttribute(images[i], 'width', IMAGE_SIZE.width))
+                tasks.push(setAttribute(images[i], 'height', IMAGE_SIZE.height))
+              }
+
+              return tasks
+            })()
+          ]).then(() => signal('psx:6'))
         })
       })
+
+      window.addEventListener('psx:7', () => {
+        window.addEventListener('mousemove', handleMousemove)
+        window.addEventListener('mousemove', () => setAttribute(ellipse, 'style', ''), {
+          once: true,
+        })
+      })
+
+      window.addEventListener('psx:8', () => signal('psx:9', getSize(comp)))
     }
   }
 })
 // ###
 
+/*
 $(window).on('load', () => {
   const components = $(".xray");
 
@@ -134,16 +234,16 @@ $(window).on('load', () => {
     [IMAGE_WIDTH, IMAGE_HEIGHT] = getImageSize();
 
     function initComponent() {
-      component.attr("viewBox", `0 0 ${IMAGE_WIDTH} ${IMAGE_HEIGHT}`);
+      component.attr("viewBox", `0 0 ${IMAGE_WIDTH} ${IMAGE_HEIGHT}`)
 
-      ellipse.attr("cx", -(ELLIPSE_WIDTH / 2));
-      ellipse.attr("cy", -(ELLIPSE_HEIGHT / 2));
-      ellipse.attr("rx", ELLIPSE_WIDTH / 2);
-      ellipse.attr("ry", ELLIPSE_HEIGHT / 2);
+      ellipse.attr("cx", -(ELLIPSE_WIDTH / 2))
+      ellipse.attr("cy", -(ELLIPSE_HEIGHT / 2))
+      ellipse.attr("rx", ELLIPSE_WIDTH / 2)
+      ellipse.attr("ry", ELLIPSE_HEIGHT / 2)
       ellipse.css('opacity', 0)
 
-      images.attr("width", IMAGE_WIDTH);
-      images.attr("height", IMAGE_HEIGHT);
+      images.attr("width", IMAGE_WIDTH)
+      images.attr("height", IMAGE_HEIGHT)
     }
 
     initComponent();
@@ -235,4 +335,4 @@ $(window).on('load', () => {
     $(window).on('resize', sendComponentSize)
   });
 })
-
+*/

@@ -11,6 +11,8 @@ window.addEventListener('DOMContentLoaded', () => {
       let VIDEO_SIZE
       let VIDEO_ASPECT
 
+      const RESIZE_FPS = 30
+
       // methods
       const updateSize = (() => {
         // data
@@ -34,8 +36,6 @@ window.addEventListener('DOMContentLoaded', () => {
   
         // function
         return (containerSize, callback) => {
-          console.log('upppdate');
-
           let newStyle
   
           {
@@ -92,7 +92,11 @@ window.addEventListener('DOMContentLoaded', () => {
       }
   
       function close() {
-        comp.classList.add('start-video--hidden')
+        return new Promise(resolve => {
+          comp.classList.add('start-video--hidden')
+
+          comp.addEventListener('transitionend', resolve)
+        })
       }
       
       function initSource(callback) {
@@ -113,6 +117,22 @@ window.addEventListener('DOMContentLoaded', () => {
           comp.setAttribute('poster', poster)
         })
       }
+
+      const handleResize = (() => {
+        let enabled = true
+
+        return () => {
+          console.log('sv:resize', enabled)
+
+          if (enabled) {
+            enabled = false
+
+            signal('psx:8')
+
+            setTimeout(() => enabled = true, 1000 / RESIZE_FPS)
+          }
+        }
+      })()
   
       // events
       initSource(() => {
@@ -124,9 +144,21 @@ window.addEventListener('DOMContentLoaded', () => {
     
         window.addEventListener('psx:2', ({ detail }) => updateSize(detail, () => signal('psx:3')))
     
-        window.addEventListener('psx:4', () => comp.play())
+        window.addEventListener('psx:4', () => {
+          window.addEventListener('resize', handleResize)
+
+          comp.play()
+        })
     
         comp.addEventListener('ended', () => signal('psx:5'))
+
+        window.addEventListener('psx:6', () => close().then(() => {
+          window.removeEventListener('resize', handleResize)
+
+          signal('psx:7')
+        }))
+
+        window.addEventListener('psx:9', ({ detail }) => updateSize(detail))
       })
     }
   }
