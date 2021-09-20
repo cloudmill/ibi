@@ -1,11 +1,40 @@
 .sidebar-container {
-  position: relative;
-  height: 100%;
+  padding-top: 110px;
+  width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  // display: flex;
+  // align-items: flex-start;
+
+  .nav__container {
+    padding-top: 0;
+  }
 }
 
 .sidebar-nav {
-  position: fixed;
-  width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+  padding-top: 140px;
+  // height: auto;
+  // height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-end;
+
+  @include scrollbar-hidden();
+
+  &__inner {
+    // overflow-y: scroll;
+    // height: 226px;
+
+    // height: 100vh;
+    // // max-height: 100vh;
+    // overflow-y: scroll;
+  }
 }
 
 .sidebar-nav-spoiler {

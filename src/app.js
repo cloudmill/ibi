@@ -253,8 +253,41 @@ const BREAKPOINT = 1280;
   $(() => {
     if ($('.sticky').length !== 0) {
       const sticky = new Sticky('.sticky');
+
+      window.addEventListener('sticky:update', () => {
+        console.log('+-=')
+        sticky.update()
+      }, {
+        once: true,
+      })
+
+      $('.sidebar-nav-spoiler__button').on('click', sticky.update());
     }
   });
+}
+
+{
+  $(() => {
+    let scrollHeight = Math.max(
+      document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight,
+      document.body.clientHeight, document.documentElement.clientHeight, $('.body').height()
+    );
+  
+    let footerHeight = $('.footer').height();
+  
+    let sidebarContainerHeight = scrollHeight - footerHeight - 160;
+  
+    // console.log(scrollHeight);
+    // console.log(footerHeight);
+    // console.log(sidebarContainerHeight);
+  
+    let sidebarContainer = $('.sidebar-container');
+  
+    sidebarContainer.css('height', sidebarContainerHeight);
+    // console.log('123123')
+    window.dispatchEvent(new CustomEvent('sticky:update'))
+  })
 }
 
 // sticky
@@ -631,7 +664,7 @@ var updateMySticky
         filterSlide.css('display', 'none');
         const currentSlides = $(`[data-slide-id="${currentId}"]`);
 
-        console.log(currentSlides);
+        // console.log(currentSlides);
         
         currentSlides.css('display', 'block');
       })
