@@ -15,9 +15,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
       let IMAGE_SIZE
 
-      const ELLIPSE_WIDTH = 383
-      const ELLIPSE_HEIGHT = 230
-      const ELLIPSE_ANGLE = 15
+      const ELLIPSE_WIDTH = 335
+      const ELLIPSE_HEIGHT = 201
+      const ELLIPSE_ANGLE = -15
 
       const MOUSEMOVE_FPS = 60
 
