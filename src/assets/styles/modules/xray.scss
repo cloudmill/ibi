@@ -21,6 +21,7 @@ $IMAGE_HEIGHT: 1080px;
   }
 
   &__ellipse {
+    filter: blur(50px);
     transition: opacity $transition;
   }
 }
