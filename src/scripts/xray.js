@@ -1,13 +1,14 @@
 import { mediaQuery } from 'scripts/mediaQueries.js'
 import { signal } from 'scripts/communication.js'
 import { setAttribute } from 'scripts/setAttribute.js'
+import { isTouchDevice } from 'scripts/touchDetect.js'
 
 // ###
 window.addEventListener('DOMContentLoaded', () => {
   const comp = document.querySelector('.xray')
 
   if (comp) {
-    if (mediaQuery.matches) {
+    if (mediaQuery.matches && !isTouchDevice) {
       // [desktop]
       // data
       const ellipse = comp.querySelector('.xray__ellipse')

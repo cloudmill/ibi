@@ -1,11 +1,12 @@
 import { mediaQuery } from 'scripts/mediaQueries.js'
 import { signal } from 'scripts/communication.js'
+import { isTouchDevice } from 'scripts/touchDetect.js'
 
 window.addEventListener('DOMContentLoaded', () => {
   const comp = document.querySelector('.start-video')
 
   if (comp) {
-    if (mediaQuery.matches) {
+    if (mediaQuery.matches && !isTouchDevice) {
       // [desktop]
       // data
       let VIDEO_SIZE

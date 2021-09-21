@@ -1,5 +1,6 @@
 import { mediaQuery } from 'scripts/mediaQueries.js'
 import { signal } from 'scripts/communication.js'
+import { isTouchDevice } from 'scripts/touchDetect.js'
 
 window.addEventListener('DOMContentLoaded', () => {
   const comp = document.querySelector('.preloader')
@@ -9,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
       comp.classList.add('preloader--hidden')
     }
 
-    if (mediaQuery.matches) {
+    if (mediaQuery.matches && !isTouchDevice) {
       // [desktop]
       // events
       window.addEventListener('psx:3', () => {
