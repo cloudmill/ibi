@@ -12,7 +12,13 @@
   top: 0;
   left: 0;
   right: 0;
+
+  pointer-events: none;
   transform: translateY(-200%);
+  @media (min-width: 1280px) {
+    transform: none;
+    opacity: 0;
+  }
 
   background-color: $color-blue-light; // ?
   transition: $transition;
@@ -22,7 +28,13 @@
 
   &[data-modal-active] {
     z-index: 1;
+    
+    pointer-events: all;
     transform: translate(0);
+    @media (min-width: 1280px) {
+      transform: none;
+      opacity: 1;
+    }
   }
 
   &--desktop {
