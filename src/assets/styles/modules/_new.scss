@@ -305,10 +305,11 @@
 
     padding-left: $col-pad-d;
     display: flex;
+    align-items: center;
 
     &::before {
       position: absolute;
-      top: 18px;
+      // top: 18px;
       left: 18px;
 
       content: '';
