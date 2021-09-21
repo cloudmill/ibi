@@ -15,6 +15,22 @@
   }
 }
 
+.implantation-faq {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  h3 {
+    width: 100%;
+  }
+}
+
+.implantation-blockquote {
+  margin: 125px 0 160px;
+
+  @include blockquote-italic;
+}
+
 .files {
 
   &__list {
