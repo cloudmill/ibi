@@ -1,3 +1,11 @@
+.margin160 {
+  margin: 60px 0;
+
+  @media (min-width: $breakpoint) {
+    margin: 160px 0;
+  }
+}
+
 .mt160 {
   margin-top: 160px;
 
