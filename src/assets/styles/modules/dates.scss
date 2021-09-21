@@ -1,0 +1,41 @@
+.dates {
+  overflow: hidden;
+
+  &__tabs {
+    display: grid;
+    grid-template-areas: "tab";
+  }
+  &__tab {
+    grid-area: tab;
+
+    opacity: 0;
+    transition: $transition;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__slide {
+    &-item {
+      &:not(:first-child) {
+        margin-top: 30px;
+      }
+    }
+
+    &-text {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    &-date {
+      padding-top: 14px;
+
+      color: $color-main;
+      text-align: right;
+    }
+    &-img {
+      width: 100%;
+      display: block;
+    }
+  }
+}

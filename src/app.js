@@ -6,6 +6,7 @@ import 'scripts/forms.js';
 import 'scripts/map.js';
 import 'scripts/psx.js'
 import 'scripts/sidebar-spoiler.js';
+import 'scripts/datesSlider.js';
 import parsley from 'parsleyjs';
 import 'parsleyjs/dist/i18n/ru';
 import '@fancyapps/fancybox';
