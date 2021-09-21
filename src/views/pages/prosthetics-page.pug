@@ -14,82 +14,76 @@ block content
   section.section.section--gradient
     .row
       .row__col
-        .section__inner.section__inner--top
-          .nav
+        .section__inner.section__inner--top.sidebar-container
+          .nav.sidebar-nav
             .nav__container
-              nav.nav__nav.my-sticky
-                ul.nav__list.prosthetics-nav
-                  .mission__spoiler(data-spoiler-group='1')
-                    li.nav__item.mission__spoiler-button.news-spoiler__button
+              nav.nav__nav
+                ul.nav__list
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler--current.sidebar-nav-spoiler__button
                       a.nav__link(href='#')
                         |Протезирование
-                      .news-spoiler__image
-                        +arrow-svg('header__drop-svg')
-                    .mission__spoiler-drop.news-spoiler__drop
-                      nav.news-spoiler__nav.prosthetics-spoiler__drop
-                        ul
-                          li.news-spoiler__nav-item
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладкициркониевые KATANA', 'Безметалловые вкладки']
+                          li.sidebar-nav-spoiler__drop-item
                             a.nav__link(href='#')
-                              |Коронки циркониевые
-                          li.news-spoiler__nav-item.nav-drop-item--active
-                            a.nav__link(href='#')
-                              |Оклюзивные накладки
-                          each item in ['Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладкициркониевые KATANA', 'Безметалловые вкладки']
-                            li.news-spoiler__nav-item
-                              a.nav__link(href='#')
-                                |#{item}
-                  .mission__spoiler(data-spoiler-group='2')
-                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                              |#{item}
+
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler__button
                       a.nav__link(href='#')
                         |Диагностика
-                      .news-spoiler__image
-                        +arrow-svg('header__drop-svg')
-                    .mission__spoiler-drop.news-spoiler__drop
-                      nav.news-spoiler__nav.prosthetics-spoiler__drop
-                        ul
-                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                            li.news-spoiler__nav-item
-                              a.nav__link(href='#')
-                                |#{item}
-                  .mission__spoiler(data-spoiler-group='3')
-                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler__button
                       a.nav__link(href='#')
                         |Профилактика
-                      .news-spoiler__image
-                        +arrow-svg('header__drop-svg')
-                    .mission__spoiler-drop.news-spoiler__drop
-                      nav.news-spoiler__nav.prosthetics-spoiler__drop
-                        ul
-                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                            li.news-spoiler__nav-item
-                              a.nav__link(href='#')
-                                |#{item}
-                  .mission__spoiler(data-spoiler-group='4')
-                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler__button
                       a.nav__link(href='#')
                         |Удаление зубов
-                      .news-spoiler__image
-                        +arrow-svg('header__drop-svg')
-                    .mission__spoiler-drop.news-spoiler__drop
-                      nav.news-spoiler__nav.prosthetics-spoiler__drop
-                        ul
-                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                            li.news-spoiler__nav-item
-                              a.nav__link(href='#')
-                                |#{item}
-                  .mission__spoiler(data-spoiler-group='5')
-                    li.nav__item.mission__spoiler-button.news-spoiler__button
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler__button
                       a.nav__link(href='#')
                         |Лечение зубов
-                      .news-spoiler__image
-                        +arrow-svg('header__drop-svg')
-                    .mission__spoiler-drop.news-spoiler__drop
-                      nav.news-spoiler__nav.prosthetics-spoiler__drop
-                        ul
-                          each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
-                            li.news-spoiler__nav-item
-                              a.nav__link(href='#')
-                                |#{item}
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+                    
       .row__col
         .section__inner--top
           .container.prosthetics

@@ -3,11 +3,9 @@ import 'scripts/backend.js';
 import 'scripts/modal-tooltip.js';
 import 'scripts/sliders.js';
 import 'scripts/forms.js';
-// import 'scripts/map.js';
-
+import 'scripts/map.js';
 import 'scripts/psx.js'
-
-// import Swiper from 'swiper/bundle';
+import 'scripts/sidebar-spoiler.js';
 import parsley from 'parsleyjs';
 import 'parsleyjs/dist/i18n/ru';
 import '@fancyapps/fancybox';
@@ -251,8 +249,41 @@ const BREAKPOINT = 1280;
   $(() => {
     if ($('.sticky').length !== 0) {
       const sticky = new Sticky('.sticky');
+
+      window.addEventListener('sticky:update', () => {
+        console.log('+-=')
+        sticky.update()
+      }, {
+        once: true,
+      })
+
+      $('.sidebar-nav-spoiler__button').on('click', sticky.update());
     }
   });
+}
+
+{
+  $(() => {
+    let scrollHeight = Math.max(
+      document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight,
+      document.body.clientHeight, document.documentElement.clientHeight, $('.body').height()
+    );
+  
+    let footerHeight = $('.footer').height();
+  
+    let sidebarContainerHeight = scrollHeight - footerHeight - 160;
+  
+    // console.log(scrollHeight);
+    // console.log(footerHeight);
+    // console.log(sidebarContainerHeight);
+  
+    let sidebarContainer = $('.sidebar-container');
+  
+    sidebarContainer.css('height', sidebarContainerHeight);
+    // console.log('123123')
+    window.dispatchEvent(new CustomEvent('sticky:update'))
+  })
 }
 
 // sticky
@@ -498,47 +529,19 @@ var updateMySticky
             const spoiler_drop = spoiler.find('.mission__spoiler-drop')
 
             spoiler.toggleClass('mission__spoiler--active')
-            // spoiler_drop.slideToggle({
-            //   progress: updateMySticky,
-            // })
+            spoiler_drop.slideToggle({
+              progress: updateMySticky,
+            })
           })
         } else {
           spoiler.toggleClass('mission__spoiler--active')
-          // spoiler_drop.slideToggle({
-          //   progress: updateMySticky,
-          // })
+          spoiler_drop.slideToggle({
+            progress: updateMySticky,
+          })
         }
       });
     });
   });
-}
-
-// nav spoiler
-
-{
-  $(() => {
-    const navSpoilerList = $('.nav__list');
-    const navSpoiler = navSpoilerList.find('.mission__spoiler');
-    const navSpoilerBtn = navSpoilerList.find('.mission__spoiler-button');
-    const navSpoilerDrop = navSpoilerList.find('.mission__spoiler-drop');
-
-    navSpoilerBtn.on('click', event => {
-      let currentSpoiler = $(event.target).closest('.mission__spoiler');
-      let currentSpoilerDrop = currentSpoiler.find('.mission__spoiler-drop');
-
-      if (currentSpoiler.hasClass('.mission__spoiler--active')) {
-        navSpoiler.removeClass('mission__spoiler--active');
-        navSpoilerDrop.slideUp(500);
-      } else {
-
-        $('.mission__spoiler--active').find('.mission__spoiler-drop').slideUp(500);
-        $('.mission__spoiler--active').removeClass('mission__spoiler--active');
-
-        currentSpoilerDrop.slideDown(500);
-        currentSpoiler.addClass('mission__spoiler--active');
-      }
-    })
-  })
 }
 
 // block
@@ -657,7 +660,7 @@ var updateMySticky
         filterSlide.css('display', 'none');
         const currentSlides = $(`[data-slide-id="${currentId}"]`);
 
-        console.log(currentSlides);
+        // console.log(currentSlides);
         
         currentSlides.css('display', 'block');
       })
