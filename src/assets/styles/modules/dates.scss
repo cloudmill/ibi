@@ -1,6 +1,26 @@
 .dates {
   overflow: hidden;
 
+  &__slider {
+    &-dates {
+      width: 1px;
+
+      .swiper-slide {
+        width: auto;
+      }
+    }
+    &-tabs {
+
+    }
+  }
+
+  &__dates {
+
+  }
+  &__date {
+    
+  }
+
   &__tabs {
     display: grid;
     grid-template-areas: "tab";
@@ -36,6 +56,29 @@
     &-img {
       width: 100%;
       display: block;
+    }
+  }
+}
+
+//
+
+.bless-container {
+  margin: 100px;
+  overflow: hidden;
+}
+
+.bless {
+  display: flex;
+
+  &__item {
+    font-family: $ff-2;
+    font-size: 26px;
+    line-height: 36px;
+    color: $color-main;
+
+    &--active {
+      font-size: 60px;
+      line-height: 93px;
     }
   }
 }

@@ -8,6 +8,7 @@ mixin dates
       2016,
       2015,
     ]
+
   .dates
     .dates__dates
       each date in dates
@@ -15,7 +16,7 @@ mixin dates
     .dates__tabs
       each date in dates
         .dates__tab
-          .dates__slider
+          .dates__slider-tabs
             .swiper-wrapper
               - var count = 3 + Math.floor(4 * Math.random())
               - for (let i = 0; i < count; i++)

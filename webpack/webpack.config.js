@@ -10,6 +10,8 @@ const SVGSpriteMapPlugin = require('svg-spritemap-webpack-plugin');
 const HtmlBeautifyPlugin = require('beautify-html-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
+require('babel-polyfill')
+
 // Files
 const utils = require('./utils');
 
@@ -18,7 +20,7 @@ module.exports = env => {
 	return {
 		context: path.resolve(__dirname, '../src'),
 		entry: {
-			app: './app.js'
+			app: ['babel-polyfill', './app.js']
 		},
 		output: {
 			path: path.resolve(__dirname, '../dist'),
