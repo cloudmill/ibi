@@ -1,0 +1,186 @@
+.dates-slider {
+  $comp: &;
+
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 9 - #{$col-gap-d} + #{$col-pad-d});
+    overflow: hidden;
+  }
+
+  &__wrapper {
+    display: flex;
+
+    transition: $transition;
+  }
+
+  &__slide {
+    $elem: &;
+
+    position: relative;
+    z-index: 0;
+
+    margin-right: 20px;
+    @media (min-width: $breakpoint) {
+      margin-right: 60px;
+    }
+    height: calc(88px + 5px);
+    @media (min-width: $breakpoint) {
+      height: calc(257px + 9px);
+    }
+
+    font-family: $ff-2;
+    font-size: 26px;
+    line-height: 36px;
+    @media (min-width: $breakpoint) {
+      font-size: 50px;
+      line-height: 70px;
+    }
+    color: $color-gray-border;
+    user-select: none;
+    cursor: pointer;
+    transition: $transition;
+
+    &--active {
+      font-size: 60px;
+      line-height: 84px;
+      @media (min-width: $breakpoint) {
+        font-size: 200px;
+        line-height: 280px;
+      }
+      color: $color-main;
+
+      #{$comp}__svg {
+        max-width: 17px;
+        
+        path {
+          fill: $color-main;
+        }
+      }
+    }
+
+    &:not(#{$elem}--active) {
+      padding-top: 33px;
+      @media (min-width: $breakpoint) {
+        padding-top: 144px;
+      }
+    }
+  }
+
+  &__svg {
+    position: absolute;
+    z-index: -1;
+    bottom: 5px;
+    @media (min-width: $breakpoint) {
+      bottom: 9px;
+    }
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    max-width: 9px;
+    pointer-events: none;
+    
+    transition: $transition;
+
+    path {
+      fill: $color-gray-border;
+      transition: $transition;
+    }
+  }
+}
+
+.dates-tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-areas: "tab";
+  overflow: hidden;
+}
+.dates-tab {
+  position: relative;
+  z-index: 0;
+
+  grid-area: tab;
+  pointer-events: none;
+
+  opacity: 0;
+  transition: $transition;
+
+  &--active {
+    pointer-events: all;
+    
+    opacity: 1;
+  }
+
+  .slider-control {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    @media (min-width: $breakpoint) {
+      left: calc(#{$col-part-d} * 3);
+    }
+  }
+}
+
+.dates-tab-slider {
+  position: relative;
+  z-index: 0;
+}
+.dates-slide {
+  @media (min-width: $breakpoint) {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  &__item {
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    }
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        display: flex;
+        align-items: flex-end;
+
+        text-align: left;
+      }
+      order: 2;
+    }
+    &:nth-child(2) {
+      order: 3;
+    }
+    &:nth-child(3) {
+      order: 1;
+    }
+
+    &:not(:first-child) {
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 20px;
+    @media (min-width: $breakpoint) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  &__date {
+    @media (max-width: $breakpoint - 1px) {
+      padding-top: 14px;
+      min-height: 47px;
+    }
+
+    color: $color-main;
+    text-align: right;
+  }
+
+  &__img {
+    width: 100%;
+    display: block;
+  }
+}

@@ -1,7 +1,5 @@
 extends ../layouts/master
 
-include ../components/dates.pug
-
 block vars
   
 block content
@@ -258,4 +256,47 @@ block content
                 .section__title
                   |Наша история
                 .mission__history
-                  +dates
+                  -
+                    var dates = [
+                      2020,
+                      2019,
+                      2018,
+                      2017,
+                      2016,
+                      2015,
+                    ]
+                  .mission__history-top
+                    .mission__history-decor
+                    .dates-slider
+                      .dates-slider__wrapper.dates-slider__wrapper--align
+                        .dates-slider__wrapper.dates-slider__wrapper--move
+                          each date in dates
+                            .dates-slider__slide
+                              |#{date}
+                              +svg-hexagon.dates-slider__svg
+                  .mission__history-bottom
+                    .dates-tabs
+                      each date in dates
+                        .dates-tab
+                          .slider-control
+                            .slider-control__item
+                              .button-arrow.button-arrow--blue-light.button-arrow--left
+                                .button-arrow__button(data-slider-button='5')
+                                  +svg-arrow.button-arrow__svg
+                            .slider-control__item
+                              .button-arrow.button-arrow--blue-light.button-arrow--right
+                                .button-arrow__button(data-slider-button='6')
+                                  +svg-arrow.button-arrow__svg
+                          .dates-tab-slider
+                            .swiper-wrapper
+                              - for (let i = 6; i <= 9; i++)
+                                .swiper-slide
+                                  .dates-slide
+                                    .dates-slide__item
+                                      .dates-slide__text.dates-slide__date
+                                        |#{`20.0${i}.${date}`}
+                                    .dates-slide__item
+                                      .dates-slide__text
+                                        |Институт Базальной Имплантации инициирует постклинические испытания базальных имплантатов Strategic implant совместно с ассоциацией стоматологом России, на базе Санкт петербургского медицинского института им Павлова
+                                    .dates-slide__item
+                                      img.dates-slide__img(src='assets/images/history.jpeg' alt='')

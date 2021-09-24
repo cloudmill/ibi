@@ -474,6 +474,31 @@
     @media (min-width: $breakpoint) {
       margin-top: 30px;
     }
+
+    &-top {
+      position: relative;
+      z-index: 0;
+    }
+    &-bottom {
+      margin-top: calc(40px - 5px);
+      @media (min-width: $breakpoint) {
+        margin-top: calc(85px - 9px);
+      }
+    }
+
+    &-decor {
+      position: absolute;
+      bottom: 5px;
+      @media (min-width: $breakpoint) {
+        bottom: 9px;
+      }
+      left: 50%;
+      transform: translateX(-50%);
+      
+      width: 500vw;
+
+      border: 1px dashed $color-gray-border;
+    }
   }
   // thumbs
   // слайдер с датами, в роли пагинации
@@ -757,3 +782,4 @@
   //   margin-left: 0;
   // }
 }
+
