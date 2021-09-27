@@ -47,6 +47,7 @@
     @media (min-width: $breakpoint) {
       display: none;
     }
+    max-height: 100vh;
   }
   
   &__row {

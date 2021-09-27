@@ -16,6 +16,12 @@
 
   &--modal {
     background-color: $color-blue-light;
+
+    #{$component}__header {
+      @media (max-width: 1279px) {
+        background-color: white;
+      }
+    }
   }
 
   &--scroll {
@@ -42,6 +48,7 @@
 
 
     // background-color: lightblue; // ?
+    transition: $transition;
   }
 
   &__inner {

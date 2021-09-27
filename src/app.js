@@ -60,12 +60,22 @@ const BREAKPOINT = 1280;
           if (modalActive.length !== 0) {
             header.addClass('header--modal');
             
-            $(window).one('scroll', () => {
-              header.removeClass('header--modal');
-              state.change(null);
-            });
+            if (matchMedia('(min-width: 1280)').matches) {
+              $(window).one('scroll', () => {
+                header.removeClass('header--modal');
+                state.change(null);
+              });
+            }
+
+            if (!window.matchMedia('(min-width: 1280px)').matches) {
+              document.body.style.overflow = 'hidden'
+            }
           } else {
             header.removeClass('header--modal')
+
+            if (!window.matchMedia('(min-width: 1280px)').matches) {
+              document.body.style.overflow = ''
+            }
           }
         });
 
