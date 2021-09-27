@@ -1,9 +1,16 @@
 .dates-slider {
   $comp: &;
 
+  @media (max-width: 1279px) {
+    margin-left: -20px;
+    padding-left: 20px;
+  }
+  overflow: hidden;
+
+  transition: $transition;
+
   @media (min-width: $breakpoint) {
     width: calc(#{$col-part-d} * 9 - #{$col-gap-d} + #{$col-pad-d});
-    overflow: hidden;
   }
 
   &__wrapper {
@@ -22,9 +29,9 @@
     @media (min-width: $breakpoint) {
       margin-right: 60px;
     }
-    height: calc(88px + 5px);
+    height: calc(88px + 10px);
     @media (min-width: $breakpoint) {
-      height: calc(257px + 9px);
+      height: calc(257px + 10px);
     }
 
     font-family: $ff-2;
@@ -68,10 +75,7 @@
   &__svg {
     position: absolute;
     z-index: -1;
-    bottom: 5px;
-    @media (min-width: $breakpoint) {
-      bottom: 9px;
-    }
+    bottom: 10px;
     left: 50%;
     transform: translate(-50%, 50%);
 

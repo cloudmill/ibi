@@ -480,18 +480,15 @@
       z-index: 0;
     }
     &-bottom {
-      margin-top: calc(40px - 5px);
-      @media (min-width: $breakpoint) {
-        margin-top: calc(85px - 9px);
+      margin-top: calc(40px - 10px);
+      @media (min-width: 1280px) {
+        margin-top: calc(85px - 10px);
       }
     }
 
     &-decor {
       position: absolute;
-      bottom: 5px;
-      @media (min-width: $breakpoint) {
-        bottom: 9px;
-      }
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       

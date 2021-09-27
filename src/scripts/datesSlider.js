@@ -44,6 +44,31 @@ window.addEventListener('load', () => {
 
       return sizes
     }
+    function calcActiveSize(wrapper, slide) {
+      const slideClone = slide.cloneNode(true)
+
+      slideClone.style.position = 'fixed'
+      slideClone.style.top = '100%'
+      slideClone.style.left = '100%'
+
+      slideClone.classList.add(SLIDE_ACTIVE_CLASS)
+      
+      wrapper.append(slideClone)
+
+      const slideRect = slideClone.getBoundingClientRect()
+      const slideWidth = slideRect.width
+
+      slideClone.remove()
+
+      return slideWidth
+    }
+    function calcActiveSizes(wrapper, slides) {
+      const sizes = []
+
+      slides.forEach(slide => sizes.push(calcActiveSize(wrapper, slide)))
+
+      return sizes
+    }
     function calcGap(wrapper, slides) {
       const slide = slides[0]
       const slideClone = slide.cloneNode(true)
@@ -90,6 +115,7 @@ window.addEventListener('load', () => {
       const slides = slider.querySelectorAll('.dates-slider__slide')
       const tabs = document.querySelectorAll('.dates-tab')
       let sizes
+      let activeSizes
       let gap
       let startIndex = 0  
       let enabled = true
@@ -117,11 +143,13 @@ window.addEventListener('load', () => {
       moveWrapper.style.transition = 'none'
       alignWrapper.style.transition = 'none'
       initIndexes(slides)
-      addDuplicate(moveWrapper, slides) 
+      addDuplicate(moveWrapper, slides)
       sizes = calcSizes(moveWrapper, slides)
+      activeSizes = calcActiveSizes(moveWrapper, slides)
       gap = calcGap(moveWrapper, slides)
       slides[startIndex].classList.add(SLIDE_ACTIVE_CLASS)
       tabs[startIndex].classList.add(TAB_ACTIVE_CLASS)
+      slider.style.width = sizes.reduce((sum, curSize) => sum + curSize, 0) + gap * (sizes.length - 1) - sizes[startIndex] + activeSizes[startIndex] + (matchMedia('(min-width: 1280)').matches ? 0 : 20) + 'px'
       moveWrapper.style.transform = `translateX(-${getDist(moveWrapper, slides[startIndex], sizes, gap)}px)`
       alignWrapper.style.transform = `translateX(${sizes[(sizes.length + startIndex - 1) % sizes.length] + gap}px)`
       await (new Promise(resolve => setTimeout(resolve)))
@@ -129,8 +157,11 @@ window.addEventListener('load', () => {
       alignWrapper.style.transition = ''
       window.addEventListener('resize', () => {
         sizes = calcSizes(moveWrapper, slides)
+        activeSizes = calcActiveSizes(moveWrapper, slides)
         gap = calcGap(moveWrapper, slides)
 
+        const activeIndex = +moveWrapper.querySelector('.' + SLIDE_ACTIVE_CLASS).getAttribute('data-slide-index')
+        slider.style.width = sizes.reduce((sum, curSize) => sum + curSize, 0) + gap * (sizes.length - 1) - sizes[activeIndex] + activeSizes[activeIndex] + (matchMedia('(min-width: 1280)').matches ? 0 : 20) + 'px'
         moveWrapper.style.transform = `translateX(-${getDist(moveWrapper, moveWrapper.querySelector('.' + SLIDE_ACTIVE_CLASS), sizes, gap)}px)`
         alignWrapper.style.transform = `translateX(${sizes[(sizes.length + +moveWrapper.querySelector('.' + SLIDE_ACTIVE_CLASS).previousElementSibling.getAttribute('data-slide-index')) % sizes.length] + gap}px)`
       })
