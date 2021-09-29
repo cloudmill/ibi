@@ -86,6 +86,9 @@
   &__container {
     height: 38px;
     @media (min-width: $breakpoint) {
+      height: 53px;
+    }
+    @media (min-width: $breakpoint-l) {
       height: 70px;
     }
   }
@@ -156,7 +159,7 @@
     line-height: 25px;
     white-space: nowrap; // ?
 
-    @media (max-width: $breakpoint - 1px) {
+    @media (max-width: $breakpoint-l - 1px) {
       font-size: 16px;
     }
 
@@ -284,7 +287,7 @@
   }
   &__phone-call {
     margin-right: 20px;
-    @media (max-width: $breakpoint-l - 1px) {
+    @media (max-width: $breakpoint - 1px) {
       display: none;
     }
     @media (max-width: $breakpoint - 1px) {
@@ -318,6 +321,10 @@
     font-weight: bold;
     font-size: 22px;
     line-height: 31px;
+
+    @media (max-width: $breakpoint-l - 1px) {
+      font-size: 20px;
+    }
 
     @media (max-width: $breakpoint - 1px) {
       font-size: 18px;
