@@ -6,6 +6,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const comp = document.querySelector('.start-video')
 
   if (comp) {
+    console.log('Компонент видео найден')
+    console.log('Десктоп', mediaQuery.matches)
+    console.log('Сенсорное устройство', isTouchDevice)
     if (mediaQuery.matches && !isTouchDevice) {
       // [desktop]
       // data
@@ -137,6 +140,12 @@ window.addEventListener('DOMContentLoaded', () => {
   
       // events
       initSource(() => {
+        console.log('Видео компонент инициализирован')
+
+        comp.addEventListener('error', event => {
+          console.log('Ошибка видео компонента', event)
+        })
+
         comp.addEventListener('canplaythrough', () => {
           initSize()
           
