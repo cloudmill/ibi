@@ -263,9 +263,9 @@
     display: flex;
     align-items: center;
 
-    @media (max-width: $breakpoint-xl - 1px) {
-      flex-direction: column;
-    }
+    // @media (max-width: $breakpoint-xl - 1px) {
+    //   flex-direction: column;
+    // }
     // @media (max-width: $breakpoint - 1px) {
     //   flex-direction: row;
     // }
@@ -284,17 +284,6 @@
   }
   &__phone-call {
     margin-right: 20px;
-    @media (max-width: $breakpoint-xl - 1px) {
-      // display: none;
-      order: 1;
-      margin-right: 0;
-      width: 100%;
-      border-radius: 5px;
-      border: 1px solid $color-main;
-      text-align: center;
-      padding: 2px;
-      font-size: 15px;
-    }
     @media (max-width: $breakpoint-l - 1px) {
       display: none;
     }
