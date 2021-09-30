@@ -1,12 +1,40 @@
-.seq-content {
-  margin-bottom: 59px;
-  min-height: 100vh;
-  
-  background-color: aquamarine;
+.content {
+  &-before,
+  &-after {
+    min-height: 150vh;
+
+    background-color: aquamarine;
+  }
 }
 
 .seq {
-  color: red;
+  min-height: 500vh;
+  
+  &__fullscreen {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 
-  border: 1px solid black;
+    height: 100vh;
+    
+    background-color: plum;
+  }
+
+  &__top {
+    height: 20vh;
+
+    border: 5px solid lightgreen;
+  }
+  &__bottom {
+    padding: 50px;
+    height: 80vh;
+
+    border: 5px solid lightsalmon;
+  }
+
+  &__canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 }

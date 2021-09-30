@@ -1,81 +1,77 @@
-window.addEventListener('load', () => {
-  const seq = document.querySelector('.seq')
+window.addEventListener('DOMContentLoaded', () => {
+  const canvas = document.querySelector('.seq__canvas')
 
-  if (seq) {
-    // data
-    let seqY = getSeqY()
-    let seqMarginTop = 60
-  
-    let framesLoaded = false
+  if (canvas) {
+    const ctx = canvas.getContext('2d')
 
-    let stage = 'before'
-  
-    // methods
-    function getSeqY() {
-      const seqRect = seq.getBoundingClientRect()
-  
-      return pageYOffset + seqRect.top
+    let imageReady = false
+    
+    let image = new Image()
+    image.src = 'assets/images/seq/desktop/teeth_final_000.jpg'
+
+    image.onload = () => {
+      imageReady = true
+
+      render()
     }
-  
-    // events
-    setTimeout(() => {
-      window.scrollTo(0, 0)
-    })
-  
-    window.addEventListener('resize', () => {
-      seqY = getSeqY()
-    })
-  
-    // window.addEventListener('scroll', () => {
-    //   console.log(
-    //     'scroll',
-    //     pageYOffset,
-    //     seqY
-    //   )
 
-    //   const yBreakpoint = seqY - seqMarginTop
+    function clear() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }
 
-    //   switch (stage) {
-    //     case 'before':
-    //       if (pageYOffset >= yBreakpoint) {
-    //         stage = 'seq'
+    function render() {
+      if (imageReady) {
+        clear()
 
-    //         window.scrollTo(0, yBreakpoint)
-    //       }
-    //     break;
-    //     case 'seq':
-
-    //     break;
-    //     case 'after':
-
-    //     break;
-    //   }
-    // })
-
-    // window.addEventListener('wheel', event => {
-    //   console.log(
-    //     'wheel',
-    //     pageYOffset,
-    //     seqY
-    //   )
-
-    //   if (!framesLoaded || stage === 'seq') {
-    //     event.preventDefault()
-    //   }
-    // }, {
-    //   passive: false,
-    // })
-
-    window.addEventListener('scroll', event => {
-      if (pageYOffset > seqY - seqMarginTop) {
-        requestAnimationFrame(() => {
-          window.scrollTo(0, seqY - seqMarginTop)
-        })
+        ctx.drawImage(image, 0, 0)
       }
-    })
+    }
 
-    setTimeout(() => {
-      framesLoaded = true
-    }, 1000)
+    function updateCanvasSize() {
+      canvas.width = canvas.clientWidth
+      canvas.height = canvas.clientHeight
+
+      render()
+    }
+
+    updateCanvasSize()
+    window.addEventListener('resize', updateCanvasSize)
+    window.addEventListener('load', updateCanvasSize)
+
+    const images = []
+
+    Promise.all((() => {
+      const loads = []
+
+      for (let i = 0; i < 176; i++) {
+        loads.push(new Promise(resolve => {
+          const image = new Image()
+          image.src = `assets/images/seq/desktop/teeth_final_${i < 10 ? ('00' + i) : (i < 100 ? ('0' + i) : i)}.jpg`
+
+          images.push(image)
+
+          image.onload = resolve
+        }))
+      }
+
+      return loads
+    })()).then(() => {
+      console.log('all loaded')
+
+      const container = canvas.closest('.seq')
+
+      window.addEventListener('scroll', () => {
+        const containerRect = container.getBoundingClientRect()
+        
+        if (containerRect.top <= 0 && containerRect.bottom >= 0) {
+          console.log('in', -containerRect.top / containerRect.height)
+
+          image = images[Math.floor(images.length * (-containerRect.top / containerRect.height))]
+          render()
+        } else {
+          console.log('out')
+        }
+      })
+    })
   }
 })
