@@ -51,8 +51,21 @@ window.addEventListener('DOMContentLoaded', async () => {
     // посылаем сигнал прелоадеру на открытие
     signal('seq:1')
 
+    requestAnimationFrame(wow)
+
+    let wwow = performance.now()
+    function wow() {
+      const qweqwe = performance.now()
+      window.scrollBy(0, 1000 * (qweqwe - wwow)/ 1000)
+
+      wwow = qweqwe
+
+      requestAnimationFrame(wow)
+    }
+
     const canvas = seq.querySelector('.seq__canvas')
     const ctx = canvas.getContext('2d')
+
     function updateCanvasSize() {
       const canvasRect = canvas.getBoundingClientRect()
 
@@ -60,7 +73,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       canvas.height = canvasRect.height
     }
 
-    // обновление canvas width/height на старте и при ресайзе
+    // обновление canvas width/height на старте и при ресайзе окна
     updateCanvasSize()
     window.addEventListener('resize', updateCanvasSize)
 
@@ -76,6 +89,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     let prevProgress = null
     let nextProgress = getProgress()
+    
     function updateProgress() {
       prevProgress = nextProgress
       nextProgress = getProgress()
@@ -88,8 +102,20 @@ window.addEventListener('DOMContentLoaded', async () => {
     function render(progress) {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      const image = images[getImageIndex(progress)]
+      const imageIndex = getImageIndex(progress)
+      const image = images[imageIndex]
+
+      // рисуем frame который уже точно достигнут
       ctx.drawImage(image, 0, 0, image.width * (canvas.height / image.height), canvas.height)
+
+      // если это не последний frame в секвенции
+      // рисуем след. кадр с прозрачностью (fade-in/out эффект)
+      if (imageIndex < (images.length - 1)) {
+        ctx.globalAlpha = progress * images.length - imageIndex
+        
+        const nextImage = images[imageIndex + 1]
+        ctx.drawImage(nextImage, 0, 0, nextImage.width * (canvas.height / nextImage.height), canvas.height)
+      }
     }
 
     function updateCanvas() {
