@@ -2,6 +2,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const canvas = document.querySelector('.seq__canvas')
 
   if (canvas) {
+    const textContainer = document.querySelector('.seq__text-container')
+    let activeText = null
+
     const ctx = canvas.getContext('2d')
 
     let imageReady = false
@@ -64,10 +67,29 @@ window.addEventListener('DOMContentLoaded', () => {
         const containerRect = container.getBoundingClientRect()
 
         if (containerRect.top <= 0 && containerRect.bottom >= window.innerHeight) {
-          image = images[Math.floor(images.length * (-containerRect.top / (containerRect.height - window.innerHeight)))]
+          const curIndex = Math.floor(images.length * (-containerRect.top / (containerRect.height - window.innerHeight)))
+
+          image = images[curIndex]
+
+          const curText = textContainer.querySelector(`[data-frame="${curIndex}"]`)
+
+          if (curText) {
+            if (activeText) {
+              if (curText !== activeText) {
+                activeText.classList.remove('seq__text--active')
+                
+                curText.classList.add('seq__text--active')
+
+                activeText = curText
+              }
+            } else {
+              curText.classList.add('seq__text--active')
+
+              activeText = curText
+            }
+          }
+
           render()
-        } else {
-          console.log('out')
         }
       })
     })

@@ -26,6 +26,9 @@
     border: 5px solid lightgreen;
   }
   &__bottom {
+    position: relative;
+    z-index: 0;
+
     padding: 50px;
     height: 80vh;
 
@@ -39,8 +42,23 @@
   }
 
   &__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: $transition;
+
+    &--active {
+      opacity: 1;
+    }
+
     &-container {
-      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: calc(100% / 3);
     }
   }
 }
