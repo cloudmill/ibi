@@ -3,48 +3,27 @@ extends ../layouts/master.pug
 include ../components/_header.pug
 include ../components/_footer.pug
 
-
+include ../components/preloader.pug
+include ../components/seq.pug
 
 block header
   +header
 
+block preloader
+  +preloader
 
+block vars
+  - var isSeq = true
   
 block content
-
-  .row.section--gradient
+  .row.section--gradient.row--seq
     .row__col
-      .section__inner.section__inner--top
-        .nav
-          .nav__container
-            nav.nav__nav.my-sticky
-              ul.nav__list
-                li.nav__item.nav__item--active
-                  a.nav__link(href='#')
-                    |Метод
-                each item in ['Преимущества', 'Этапы имплантации', 'Имплантаты Strategic Implant', 'Стоимость',]
-                  li.nav__item
-                    a.nav__link(href='#')
-                      |#{item}
     .row__col
       .section__inner--top
         .container
           h1.title
             |Базальная имплантация
-          .mission
-            .mission__spoiler.news-spoiler
-              .mission__spoiler-button.news-spoiler__button
-                h5.mission__spoiler-title
-                  |Метод
-                .news-spoiler__image
-                  +arrow-svg('header__drop-svg')
-              .mission__spoiler-drop.news-spoiler__drop
-                nav.news-spoiler__nav
-                  ul
-                    each item in ['Преимущества', 'Имплантаты Strategic Implant', 'Стоимость']
-                      li.news-spoiler__nav-item
-                        a.nav__link(href='#')
-                          |#{item}
+          +seq
           .implantation-blockquote
             |Уникальная технология, позволяющая провести операцию 
             span в самых сложных клинических ситуациях

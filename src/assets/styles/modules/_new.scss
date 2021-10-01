@@ -107,6 +107,10 @@
     justify-content: space-between;
   }
 
+  &--seq {
+    background: rgb(219, 235, 255); // ?
+  }
+
   &__col {
     flex-shrink: 0;
 
