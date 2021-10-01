@@ -62,11 +62,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
       window.addEventListener('scroll', () => {
         const containerRect = container.getBoundingClientRect()
-        
-        if (containerRect.top <= 0 && containerRect.bottom >= 0) {
-          console.log('in', -containerRect.top / containerRect.height)
 
-          image = images[Math.floor(images.length * (-containerRect.top / containerRect.height))]
+        if (containerRect.top <= 0 && containerRect.bottom >= window.innerHeight) {
+          image = images[Math.floor(images.length * (-containerRect.top / (containerRect.height - window.innerHeight)))]
           render()
         } else {
           console.log('out')

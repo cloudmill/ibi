@@ -37,4 +37,10 @@
     height: 100%;
     display: block;
   }
+
+  &__text {
+    &-container {
+      display: none;
+    }
+  }
 }
