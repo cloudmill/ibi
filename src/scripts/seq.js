@@ -111,6 +111,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     const textsContainer = seq.querySelector('.seq__texts')
     const texts = textsContainer.querySelectorAll('.seq__text')
 
+    // получить frame по imageIndex
     function getFrame(imageIndex) {
       let i = 0
       let frame = +texts[i].getAttribute('data-frame')
@@ -125,10 +126,12 @@ window.addEventListener('DOMContentLoaded', async () => {
       return frame
     }
 
+    // получить текст по frame
     function getText(frame) {
       return textsContainer.querySelector(`[data-frame="${frame}"]`)
     }
     
+    // обновление текста
     function updateText() {
       const prevText = textsContainer.querySelector('.seq__text--open')
 
@@ -176,11 +179,35 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
     }
 
+    const header = document.querySelector('header')
+
+    // обновление шапки
+    function updateHeader() {
+      // before -> seq
+      if (
+        prevProgress < 0 && nextProgress >= 0 // before -> seq
+        ||
+        prevProgress >= 1 && nextProgress < 1 // after -> seq
+      ) {
+        header.classList.add('header--seq')
+      }
+
+      // seq -> before
+      if (
+        prevProgress >= 0 && nextProgress < 0 // seq -> before
+        ||
+        prevProgress < 1 && nextProgress >= 1 // seq -> after
+      ) {
+        header.classList.remove('header--seq')
+      }
+    }
+
     // обновление компонента
     function updateSeq() {
       if (prevProgress) {
         updateCanvas()
         updateText()
+        updateHeader()
       } else {
         // инициализация
         render(0)
