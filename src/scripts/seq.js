@@ -93,21 +93,87 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     function updateCanvas() {
+      // seq
       if (nextProgress >= 0 && nextProgress < 1) {
         render(nextProgress)
       } else {
+        // seq -> before
         if (prevProgress >= 0 && nextProgress < 0) {
           render(1 / images.length * 2)
         }
+        // seq -> after
         if (prevProgress < 1 && nextProgress >= 1) {
           render(1 - 1 / images.length * 2)
         }
       }
     }
 
-    const texts = seq.querySelector('.seq__texts')
+    const textsContainer = seq.querySelector('.seq__texts')
+    const texts = textsContainer.querySelectorAll('.seq__text')
+
+    function getFrame(imageIndex) {
+      let i = 0
+      let frame = +texts[i].getAttribute('data-frame')
+      while ((i < texts.length) && (frame <= imageIndex)) {
+        i++
+        if (i < texts.length) {
+          frame = +texts[i].getAttribute('data-frame')
+        }
+      }
+
+      frame = +texts[i - 1].getAttribute('data-frame')
+      return frame
+    }
+
+    function getText(frame) {
+      return textsContainer.querySelector(`[data-frame="${frame}"]`)
+    }
+    
     function updateText() {
-      
+      const prevText = textsContainer.querySelector('.seq__text--open')
+
+      // seq
+      if (nextProgress >= 0 && nextProgress < 1) {
+        const prevTextFrame = prevText.getAttribute('data-frame')
+
+        const nextImageIndex = getImageIndex(nextProgress)
+        const nextTextFrame = getFrame(nextImageIndex)
+
+        if (nextTextFrame !== prevTextFrame) {
+          prevText.classList.remove('seq__text--open')
+          prevText.classList.add('seq__text--close')
+
+          const nextText = getText(nextTextFrame)
+
+          nextText.classList.remove('seq__text--close')
+          setTimeout(nextText.classList.add('seq__text--open'))
+        }
+      } else {
+        // seq -> before
+        if (prevProgress >= 0 && nextProgress < 0) {
+          const firstText = texts[0]
+
+          if (prevText !== firstText) {
+            prevText.classList.remove('seq__text--open')
+            prevText.classList.add('seq__text--close')
+
+            firstText.classList.remove('seq__text--close')
+            setTimeout(firstText.classList.add('seq__text--open'))
+          }
+        }
+        // seq -> after
+        if (prevProgress < 1 && nextProgress >= 1) {
+          const lastText = texts[texts.length - 1]
+
+          if (prevText !== lastText) {
+            prevText.classList.remove('seq__text--open')
+            prevText.classList.add('seq__text--close')
+
+            lastText.classList.remove('seq__text--close')
+            setTimeout(lastText.classList.add('seq__text--open'))
+          }
+        }
+      }
     }
 
     // обновление компонента
@@ -130,101 +196,3 @@ window.addEventListener('DOMContentLoaded', async () => {
     })
   }
 })
-
-// window.addEventListener('DOMContentLoaded', () => {
-//   const canvas = document.querySelector('.seq__canvas')
-
-//   if (canvas) {
-//     const textContainer = document.querySelector('.seq__text-container')
-//     let activeText = null
-
-//     const ctx = canvas.getContext('2d')
-
-//     let imageReady = false
-    
-//     let image = new Image()
-//     image.src = 'assets/images/seq/desktop/teeth_final_000.jpg'
-
-//     image.onload = () => {
-//       imageReady = true
-
-//       render()
-//     }
-
-//     function clear() {
-//       ctx.clearRect(0, 0, canvas.width, canvas.height)
-//     }
-
-//     function render() {
-//       if (imageReady) {
-//         clear()
-
-//         ctx.drawImage(image, 0, 0)
-//       }
-//     }
-
-//     function updateCanvasSize() {
-//       canvas.width = canvas.clientWidth
-//       canvas.height = canvas.clientHeight
-
-//       render()
-//     }
-
-//     updateCanvasSize()
-//     window.addEventListener('resize', updateCanvasSize)
-//     window.addEventListener('load', updateCanvasSize)
-
-//     const images = []
-
-//     Promise.all((() => {
-//       const loads = []
-
-//       for (let i = 0; i < 176; i++) {
-//         loads.push(new Promise(resolve => {
-//           const image = new Image()
-//           image.src = `assets/images/seq/desktop/teeth_final_${i < 10 ? ('00' + i) : (i < 100 ? ('0' + i) : i)}.jpg`
-
-//           images.push(image)
-
-//           image.onload = resolve
-//         }))
-//       }
-
-//       return loads
-//     })()).then(() => {
-//       console.log('all loaded')
-
-//       const container = canvas.closest('.seq')
-
-//       window.addEventListener('scroll', () => {
-//         const containerRect = container.getBoundingClientRect()
-
-//         if (containerRect.top <= 0 && containerRect.bottom >= window.innerHeight) {
-//           const curIndex = Math.floor(images.length * (-containerRect.top / (containerRect.height - window.innerHeight)))
-
-//           image = images[curIndex]
-
-//           const curText = textContainer.querySelector(`[data-frame="${curIndex}"]`)
-
-//           if (curText) {
-//             if (activeText) {
-//               if (curText !== activeText) {
-//                 activeText.classList.remove('seq__text--active')
-                
-//                 curText.classList.add('seq__text--active')
-
-//                 activeText = curText
-//               }
-//             } else {
-//               curText.classList.add('seq__text--active')
-
-//               activeText = curText
-//             }
-//           }
-
-//           render()
-//         }
-//       })
-//     })
-//   }
-// })
