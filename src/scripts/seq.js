@@ -8,6 +8,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     // промис, который позволит отследить загрузку страницы (load)
     const loadWindow = new Promise(resolve => window.addEventListener('load', resolve))
 
+    // задержка
+    function delay(delay = 0) {
+      return new Promise(resolve => setTimeout(resolve, delay))
+    }
+
     // картинки
     // сбор данных из html
     const dataFramesDirDesktop = seq.getAttribute('data-frames-dir-desktop')
@@ -131,49 +136,72 @@ window.addEventListener('DOMContentLoaded', async () => {
       return textsContainer.querySelector(`[data-frame="${frame}"]`)
     }
     
+    let updateTextAvailable = true
+
     // обновление текста
-    function updateText() {
-      const prevText = textsContainer.querySelector('.seq__text--open')
+    async function updateText() {
+      if (updateTextAvailable) {
+        updateTextAvailable = false
 
-      // seq
-      if (nextProgress >= 0 && nextProgress < 1) {
-        const prevTextFrame = prevText.getAttribute('data-frame')
-
-        const nextImageIndex = getImageIndex(nextProgress)
-        const nextTextFrame = getFrame(nextImageIndex)
-
-        if (nextTextFrame !== prevTextFrame) {
-          prevText.classList.remove('seq__text--open')
-          prevText.classList.add('seq__text--close')
-
-          const nextText = getText(nextTextFrame)
-
-          nextText.classList.remove('seq__text--close')
-          setTimeout(nextText.classList.add('seq__text--open'))
-        }
-      } else {
-        // seq -> before
-        if (prevProgress >= 0 && nextProgress < 0) {
-          const firstText = texts[0]
-
-          if (prevText !== firstText) {
-            prevText.classList.remove('seq__text--open')
-            prevText.classList.add('seq__text--close')
-
-            firstText.classList.remove('seq__text--close')
-            setTimeout(firstText.classList.add('seq__text--open'))
+        const prevText = textsContainer.querySelector('.seq__text--active')
+  
+        // seq
+        if (nextProgress >= 0 && nextProgress < 1) {
+          const prevTextFrame = prevText.getAttribute('data-frame')
+  
+          const nextImageIndex = getImageIndex(nextProgress)
+          const nextTextFrame = getFrame(nextImageIndex)
+  
+          if (nextTextFrame !== prevTextFrame) {
+            const nextText = getText(nextTextFrame)
+  
+            if (nextTextFrame < prevTextFrame) {
+              nextText.style.transform = 'translateY(-100%)'
+            } else {
+              nextText.style.transform = 'translateY(100%)'
+            }
+  
+            await delay()
+  
+            prevText.classList.remove('seq__text--active')
+            if (nextTextFrame < prevTextFrame) {
+              prevText.style.transform = 'translateY(100%)'
+            } else {
+              prevText.style.transform = 'translateY(-100%)'
+            }
+  
+            nextText.style.transform = ''
+            nextText.classList.add('seq__text--active')
+  
+            await delay(500)
+  
+            updateTextAvailable = true
+            updateText()
           }
-        }
-        // seq -> after
-        if (prevProgress < 1 && nextProgress >= 1) {
-          const lastText = texts[texts.length - 1]
-
-          if (prevText !== lastText) {
-            prevText.classList.remove('seq__text--open')
-            prevText.classList.add('seq__text--close')
-
-            lastText.classList.remove('seq__text--close')
-            setTimeout(lastText.classList.add('seq__text--open'))
+        } else {
+          // seq -> before
+          if (prevProgress >= 0 && nextProgress < 0) {
+            const firstText = texts[0]
+  
+            if (prevText !== firstText) {
+              // prevText.classList.remove('seq__text--open')
+              // prevText.classList.add('seq__text--close')
+  
+              // firstText.classList.remove('seq__text--close')
+              // setTimeout(firstText.classList.add('seq__text--open'))
+            }
+          }
+          // seq -> after
+          if (prevProgress < 1 && nextProgress >= 1) {
+            const lastText = texts[texts.length - 1]
+  
+            if (prevText !== lastText) {
+              // prevText.classList.remove('seq__text--open')
+              // prevText.classList.add('seq__text--close')
+  
+              // lastText.classList.remove('seq__text--close')
+              // setTimeout(lastText.classList.add('seq__text--open'))
+            }
           }
         }
       }
@@ -202,6 +230,17 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
     }
 
+    async function initText() {
+      const firstText = texts[0]
+
+      firstText.style.transform = 'translateY(100%)'
+
+      delay()
+
+      firstText.style.transform = ''
+      firstText.classList.add('seq__text--active')
+    }
+
     // обновление компонента
     function updateSeq() {
       if (prevProgress) {
@@ -210,7 +249,10 @@ window.addEventListener('DOMContentLoaded', async () => {
         updateHeader()
       } else {
         // инициализация
+        // canvas
         render(0)
+        // text
+        initText()
       }
     }
 

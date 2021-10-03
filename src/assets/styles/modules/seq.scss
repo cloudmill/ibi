@@ -60,8 +60,6 @@
     grid-template-areas: 'text';
   }
   &__text {
-    transform: translateY(100%);
-
     padding-top: 20px;
     grid-area: text;
     pointer-events: none;
@@ -72,15 +70,21 @@
     line-height: 32px;
     transition: $transition;
 
-    &--open {
-      transform: translateY(0);
-
+    &--active {
       pointer-events: all;
 
       opacity: 1;
     }
-    &--close {
-      transform: translateY(-100%);
-    }
+
+    // &--open {
+    //   transform: translateY(0);
+
+    //   pointer-events: all;
+
+    //   opacity: 1;
+    // }
+    // &--close {
+    //   transform: translateY(-100%);
+    // }
   }
 }
