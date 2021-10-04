@@ -51,21 +51,26 @@
   &__texts {
     position: absolute;
     z-index: 2;
-    top: 50%;
+    top: 0;
+    bottom: 0;
     right: calc(#{$col-part-d});
-    transform: translateY(-50%);
 
     width: calc(#{$col-part-d} * 3);
-    display: grid;
-    grid-template-areas: 'text';
+
+    transition: $transition;
+
+    &-item {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
   }
   &__text {
     padding-top: 20px;
-    grid-area: text;
     pointer-events: none;
 
-    border-top: 1px solid $color-main;
     opacity: 0;
+    border-top: 1px solid $color-main;
     font-size: 20px;
     line-height: 32px;
     transition: $transition;
@@ -75,16 +80,5 @@
 
       opacity: 1;
     }
-
-    // &--open {
-    //   transform: translateY(0);
-
-    //   pointer-events: all;
-
-    //   opacity: 1;
-    // }
-    // &--close {
-    //   transform: translateY(-100%);
-    // }
   }
 }

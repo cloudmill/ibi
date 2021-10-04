@@ -3,9 +3,7 @@ import { signal } from 'scripts/communication.js'
 window.addEventListener('DOMContentLoaded', async () => {
   const seq = document.querySelector('.seq')
 
-  // если секвенция найдена
   if (seq) {
-    // промис, который позволит отследить загрузку страницы (load)
     const loadWindow = new Promise(resolve => window.addEventListener('load', resolve))
 
     // задержка
@@ -85,18 +83,15 @@ window.addEventListener('DOMContentLoaded', async () => {
       prevProgress = nextProgress
       nextProgress = getProgress()
     }
-
     function getImageIndex(progress) {
       return Math.floor(images.length * progress)
     }
-
     function render(progress) {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       const image = images[getImageIndex(progress)]
       ctx.drawImage(image, 0, 0, image.width * (canvas.height / image.height), canvas.height)
     }
-
     function updateCanvas() {
       // seq
       if (nextProgress >= 0 && nextProgress < 1) {
@@ -113,10 +108,10 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
     }
 
+    /* TEXT */
+    const TEXT_ACTIVE_CLASS = 'seq__text--active'
     const textsContainer = seq.querySelector('.seq__texts')
     const texts = textsContainer.querySelectorAll('.seq__text')
-
-    // получить frame по imageIndex
     function getFrame(imageIndex) {
       let i = 0
       let frame = +texts[i].getAttribute('data-frame')
@@ -130,137 +125,100 @@ window.addEventListener('DOMContentLoaded', async () => {
       frame = +texts[i - 1].getAttribute('data-frame')
       return frame
     }
-
-    // получить текст по frame
     function getText(frame) {
       return textsContainer.querySelector(`[data-frame="${frame}"]`)
     }
-    
-    let updateTextAvailable = true
+    function getTextIndex(text) {
+      return [...texts].indexOf(text)
+    }
+    function updateText() {
+      const prevText = textsContainer.querySelector('.' + TEXT_ACTIVE_CLASS)
 
-    // обновление текста
-    async function updateText() {
-      if (updateTextAvailable) {
-        updateTextAvailable = false
+      if (nextProgress >= 0 && nextProgress < 1) {
+        // in seq
+        const prevTextFrame = prevText.getAttribute('data-frame')
 
-        const prevText = textsContainer.querySelector('.seq__text--active')
-  
-        // seq
-        if (nextProgress >= 0 && nextProgress < 1) {
-          const prevTextFrame = prevText.getAttribute('data-frame')
-  
-          const nextImageIndex = getImageIndex(nextProgress)
-          const nextTextFrame = getFrame(nextImageIndex)
-  
-          if (nextTextFrame !== prevTextFrame) {
-            const nextText = getText(nextTextFrame)
-  
-            if (nextTextFrame < prevTextFrame) {
-              nextText.style.transform = 'translateY(-100%)'
-            } else {
-              nextText.style.transform = 'translateY(100%)'
-            }
-  
-            await delay()
-  
-            prevText.classList.remove('seq__text--active')
-            if (nextTextFrame < prevTextFrame) {
-              prevText.style.transform = 'translateY(100%)'
-            } else {
-              prevText.style.transform = 'translateY(-100%)'
-            }
-  
-            nextText.style.transform = ''
-            nextText.classList.add('seq__text--active')
-  
-            await delay(500)
-  
-            updateTextAvailable = true
-            updateText()
+        const nextImageIndex = getImageIndex(nextProgress)
+        const nextTextFrame = getFrame(nextImageIndex)
+
+        if (nextTextFrame !== prevTextFrame) {
+          const nextText = getText(nextTextFrame)
+
+          prevText.classList.remove(TEXT_ACTIVE_CLASS)
+          nextText.classList.add(TEXT_ACTIVE_CLASS)
+
+          textsContainer.style.transform = `translateY(-${100 * getTextIndex(nextText)}%)`
+        }
+      } else {
+        // seq -> before
+        if (prevProgress >= 0 && nextProgress < 0) {
+          const firstText = texts[0]
+
+          if (prevText !== firstText) {
+            prevText.classList.remove(TEXT_ACTIVE_CLASS)
+            firstText.classList.add(TEXT_ACTIVE_CLASS)
+
+            textsContainer.style.transform = 'translateY(0)'
           }
-        } else {
-          // seq -> before
-          if (prevProgress >= 0 && nextProgress < 0) {
-            const firstText = texts[0]
-  
-            if (prevText !== firstText) {
-              // prevText.classList.remove('seq__text--open')
-              // prevText.classList.add('seq__text--close')
-  
-              // firstText.classList.remove('seq__text--close')
-              // setTimeout(firstText.classList.add('seq__text--open'))
-            }
-          }
-          // seq -> after
-          if (prevProgress < 1 && nextProgress >= 1) {
-            const lastText = texts[texts.length - 1]
-  
-            if (prevText !== lastText) {
-              // prevText.classList.remove('seq__text--open')
-              // prevText.classList.add('seq__text--close')
-  
-              // lastText.classList.remove('seq__text--close')
-              // setTimeout(lastText.classList.add('seq__text--open'))
-            }
+        }
+
+        // seq -> after
+        if (prevProgress < 1 && nextProgress >= 1) {
+          const lastText = texts[texts.length - 1]
+
+          if (prevText !== lastText) {
+            prevText.classList.remove(TEXT_ACTIVE_CLASS)
+            lastText.classList.add(TEXT_ACTIVE_CLASS)
+
+            textsContainer.style.transform = `translateY(-${100 * (texts.length - 1)}%)`
           }
         }
       }
     }
+    function initText() {
+      const firstText = texts[0]
+      firstText.classList.add(TEXT_ACTIVE_CLASS)
+    }
 
+    /* HEADER */
     const header = document.querySelector('header')
-
-    // обновление шапки
     function updateHeader() {
-      // before -> seq
+      // in seq
       if (
-        prevProgress < 0 && nextProgress >= 0 // before -> seq
+        prevProgress < 0 && nextProgress >= 0
         ||
-        prevProgress >= 1 && nextProgress < 1 // after -> seq
+        prevProgress >= 1 && nextProgress < 1
       ) {
         header.classList.add('header--seq')
       }
 
-      // seq -> before
+      // out seq
       if (
-        prevProgress >= 0 && nextProgress < 0 // seq -> before
+        prevProgress >= 0 && nextProgress < 0
         ||
-        prevProgress < 1 && nextProgress >= 1 // seq -> after
+        prevProgress < 1 && nextProgress >= 1
       ) {
         header.classList.remove('header--seq')
       }
     }
 
-    async function initText() {
-      const firstText = texts[0]
-
-      firstText.style.transform = 'translateY(100%)'
-
-      delay()
-
-      firstText.style.transform = ''
-      firstText.classList.add('seq__text--active')
-    }
-
-    // обновление компонента
+    /* SCROLL */
     function updateSeq() {
       if (prevProgress) {
+        // regular
         updateCanvas()
         updateText()
         updateHeader()
       } else {
-        // инициализация
-        // canvas
+        // init
         render(0)
-        // text
         initText()
       }
     }
 
     updateSeq()
-
     window.addEventListener('scroll', () => {
       updateProgress()
-      console.log(getImageIndex(nextProgress))
       updateSeq()
     })
   }
