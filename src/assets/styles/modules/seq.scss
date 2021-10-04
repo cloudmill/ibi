@@ -21,6 +21,12 @@
     padding-left: calc(#{$col-pad-d} + #{$col-part-d} * 3);
     padding-right: calc(#{$col-pad-d});
     height: $top-height;
+
+    transition: $transition;
+
+    &--active {
+      background-color: white;
+    }
   }
   &__bottom {
     padding: 60px 40px 70px;

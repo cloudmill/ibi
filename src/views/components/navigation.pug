@@ -1,0 +1,12 @@
+mixin navigation(activeIndex = 0)
+  .navigation
+    -
+      var items = [
+        'Метод',
+        'Преимущества',
+        'Этапы имплантации',
+        'Имплантаты Strategic Implant',
+        'Стоимость',
+      ]
+    - for (let i = 0; i < items.length; i++)
+      .navigation__item(class = (i === activeIndex ? 'navigation__item--active' : ''))= items[i]

@@ -1,3 +1,5 @@
+include ./navigation.pug
+
 mixin seq
   -
     var frames = {
@@ -22,7 +24,7 @@ mixin seq
   )
     .seq__fullscreen
       .seq__top
-        |Навигация
+        +navigation
       .seq__bottom
         .seq__background
           canvas.seq__canvas

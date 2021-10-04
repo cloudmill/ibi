@@ -1,0 +1,55 @@
+.navigation {
+  $gap: 20px;
+
+  margin-top: -$gap;
+  margin-left: -$gap;
+  display: flex;
+
+  &__item {
+    position: relative;
+    z-index: 0;
+
+    margin-top: $gap;
+    margin-left: $gap;
+
+    font-size: 18px;
+    line-height: 25px;
+    white-space: nowrap;
+    transition: $transition;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-main;
+    }
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      top: 10px;
+      left: 0;
+
+      content: '';
+      $size: 7px;
+      width: $size;
+      height: $size;
+      visibility: hidden;
+      pointer-events: none;
+
+      background-color: $color-main;
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    &--active {
+      padding-left: 22px;
+
+      color: $color-main;
+
+      &::before {
+        visibility: visible;
+
+        opacity: 1;
+      }
+    }
+  }
+}

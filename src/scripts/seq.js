@@ -6,21 +6,13 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (seq) {
     const loadWindow = new Promise(resolve => window.addEventListener('load', resolve))
 
-    // задержка
-    function delay(delay = 0) {
-      return new Promise(resolve => setTimeout(resolve, delay))
-    }
-
-    // картинки
-    // сбор данных из html
+    /* LOAD IMAGES */
     const dataFramesDirDesktop = seq.getAttribute('data-frames-dir-desktop')
     const dataFramesListDesktop = seq.getAttribute('data-frames-list-desktop')
     
-    // список путей, картинок
     const imagesSrc = JSON.parse(dataFramesListDesktop).map(fileName => dataFramesDirDesktop + fileName)
     const images = []
 
-    // список загрузок
     const loads = []
     for (let i = 0; i < imagesSrc.length; i++) {
       const load = new Promise(resolve => {
@@ -33,10 +25,9 @@ window.addEventListener('DOMContentLoaded', async () => {
       loads.push(load)
     }
 
-    // загрузка всех картинок
     await Promise.all(loads)
 
-    // скролл в начало
+    /* SCROLL TO TOP */
     function scrollToTop() {
       return new Promise(resolve => {
         setTimeout(() => {
@@ -47,15 +38,16 @@ window.addEventListener('DOMContentLoaded', async () => {
       })
     }
 
-    // ждем полную загрузку страницы
     await loadWindow
-    // перемещаем скролл страницы в начало
     await scrollToTop()
-    // посылаем сигнал прелоадеру на открытие
+    
+    /* OPEN PRELOADER */
     signal('seq:1')
 
+    /* CANVAS */
     const canvas = seq.querySelector('.seq__canvas')
     const ctx = canvas.getContext('2d')
+
     function updateCanvasSize() {
       const canvasRect = canvas.getBoundingClientRect()
 
@@ -63,11 +55,9 @@ window.addEventListener('DOMContentLoaded', async () => {
       canvas.height = canvasRect.height
     }
 
-    // обновление canvas width/height на старте и при ресайзе
     updateCanvasSize()
     window.addEventListener('resize', updateCanvasSize)
 
-    // получить прогресс прокрутки seq
     function getProgress() {
       const seqRect = seq.getBoundingClientRect()
 
@@ -202,6 +192,21 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
     }
 
+    /* NAVIGATION */
+    const SEQ_TOP_ACTIVE_CLASS = 'seq__top--active'
+    const seqTop = seq.querySelector('.seq__top')
+    function updateNavigation() {
+      // in seq
+      if (prevProgress < 0 && nextProgress >= 0) {
+        seqTop.classList.add(SEQ_TOP_ACTIVE_CLASS)
+      }
+
+      // out seq
+      if (prevProgress >= 0 && nextProgress < 0) {
+        seqTop.classList.remove(SEQ_TOP_ACTIVE_CLASS)
+      }
+    }
+
     /* SCROLL */
     function updateSeq() {
       if (prevProgress) {
@@ -209,6 +214,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         updateCanvas()
         updateText()
         updateHeader()
+        updateNavigation()
       } else {
         // init
         render(0)
