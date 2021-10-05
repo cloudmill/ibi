@@ -4,71 +4,70 @@ window.addEventListener('DOMContentLoaded', async () => {
   const seq = document.querySelector('.seq')
 
   if (seq) {
+    /* DELAY */
+    function delay(delay = 0) {
+      return new Promise(resolve => setTimeout(resolve, delay))
+    }
+
+
+
+    /* LOAD WINDOW */
     const loadWindow = new Promise(resolve => window.addEventListener('load', resolve))
 
+
+
     /* LOAD IMAGES */
-    const dataFramesDirDesktop = seq.getAttribute('data-frames-dir-desktop')
-    const dataFramesListDesktop = seq.getAttribute('data-frames-list-desktop')
-    
-    const imagesSrc = JSON.parse(dataFramesListDesktop).map(fileName => dataFramesDirDesktop + fileName)
-    const images = []
+    let images
+    function loadImages() {
+      images = []
 
-    const loads = []
-    for (let i = 0; i < imagesSrc.length; i++) {
-      const load = new Promise(resolve => {
-        images[i] = new Image()
-        images[i].src = imagesSrc[i]
-
-        images[i].onload = resolve
-      })
-
-      loads.push(load)
+      const dir = seq.getAttribute('data-frames-dir-desktop')
+      const fileNamelist = seq.getAttribute('data-frames-list-desktop')
+      
+      let srcList = JSON.parse(fileNamelist)
+      srcList = srcList.map(fileName => dir + fileName)
+      
+      return Promise.all(srcList.map((src, index) => new Promise(resolve => {
+        images[index] = new Image()
+        images[index].src = src
+        images[index].onload = resolve
+      })))
     }
+    await loadImages()
 
-    await Promise.all(loads)
 
-    /* SCROLL TO TOP */
-    function scrollToTop() {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          window.scrollTo(0, 0)
 
-          resolve()
-        })
-      })
-    }
-
+    /* LOAD WINDOW */
     await loadWindow
+
+
+    
+    /* SCROLL TO TOP */
+    async function scrollToTop() {
+      await delay()
+      window.scrollTo(0, 0)
+      await delay()
+    }
     await scrollToTop()
     
+
+
     /* OPEN PRELOADER */
     signal('seq:1')
 
-    /* CANVAS */
-    const canvas = seq.querySelector('.seq__canvas')
-    const ctx = canvas.getContext('2d')
 
-    function updateCanvasSize() {
-      const canvasRect = canvas.getBoundingClientRect()
 
-      canvas.width = canvasRect.width
-      canvas.height = canvasRect.height
-    }
-
-    updateCanvasSize()
-    window.addEventListener('resize', updateCanvasSize)
-
+    /* PROGRESS */
+    let prevProgress
+    let nextProgress
     function getProgress() {
       const seqRect = seq.getBoundingClientRect()
-
-      const progress = -seqRect.top / (seqRect.height - window.innerHeight)
-      console.log('seq progress', progress)
-
-      return progress
+      return -seqRect.top / (seqRect.height - window.innerHeight)
     }
-
-    let prevProgress = null
-    let nextProgress = getProgress()
+    function initProgress() {
+      prevProgress = null
+      nextProgress = getProgress()
+    }
     function updateProgress() {
       prevProgress = nextProgress
       nextProgress = getProgress()
@@ -76,27 +75,103 @@ window.addEventListener('DOMContentLoaded', async () => {
     function getImageIndex(progress) {
       return Math.floor(images.length * progress)
     }
-    function render(progress) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      const image = images[getImageIndex(progress)]
-      ctx.drawImage(image, 0, 0, image.width * (canvas.height / image.height), canvas.height)
+
+
+    /* CANVAS */
+    let canvas
+    let ctx
+    function updateCanvasSize() {
+      const canvasRect = canvas.getBoundingClientRect()
+      canvas.width = canvasRect.width
+      canvas.height = canvasRect.height
     }
-    function updateCanvas() {
-      // seq
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }
+    function drawCanvas(progress) {
+      const imageIndex = getImageIndex(progress)
+      const image = images[imageIndex]
+      const imageRatio = image.width / image.height
+
+      const renderZoneWidth = canvas.width * (1245 / 1840)
+      const renderZoneHeight = canvas.height
+      const renderZoneRatio = renderZoneWidth / renderZoneHeight
+
+      let renderWidth
+      let renderHeight
+      let renderX
+      let renderY
+
+      if (renderZoneRatio >= imageRatio) {
+        renderHeight = renderZoneHeight
+        renderWidth = image.width * (renderHeight / image.height)
+
+        renderY = 0
+        // renderX = (renderZoneWidth / 2) - (renderWidth / 2)
+        renderX = 0
+      } else {
+        renderWidth = renderZoneWidth
+        renderHeight = image.height * (renderWidth / image.width)
+
+        renderX = 0
+        renderY = (renderZoneHeight / 2) - (renderHeight / 2)
+      }
+
+      console.log('imageRatio', imageRatio)
+      console.log('renderZoneWidth', renderZoneWidth)
+      console.log('renderZoneHeight', renderZoneHeight)
+      console.log('renderZoneRatio', renderZoneRatio)
+      console.log('renderWidth', renderWidth)
+      console.log('renderHeight', renderHeight)
+      console.log('renderX', renderX)
+      console.log('renderY', renderY)
+
+      ctx.drawImage(image, renderX, renderY, renderWidth, renderHeight)
+    }
+    function renderCanvas(progress) {
+      clearCanvas()
+      drawCanvas(progress)
+    }
+    function initCanvasData() {
+      canvas = seq.querySelector('.seq__canvas')
+      ctx = canvas.getContext('2d')
+    }
+    function initCanvas() {
+      initCanvasData()
+      updateCanvasSize()
+      renderCanvas(0)
+    }
+    function updateCanvas(options = {
+      outSeq: false,
+    }) {
       if (nextProgress >= 0 && nextProgress < 1) {
-        render(nextProgress)
+        // seq
+        renderCanvas(nextProgress)
       } else {
         // seq -> before
         if (prevProgress >= 0 && nextProgress < 0) {
-          render(1 / images.length * 2)
+          renderCanvas(0)
         }
         // seq -> after
         if (prevProgress < 1 && nextProgress >= 1) {
-          render(1 - 1 / images.length * 2)
+          renderCanvas(1 - 1 / images.length * 2)
+        }
+        // out seq
+        if (options.outSeq) {
+          // before
+          if (prevProgress < 0 && nextProgress < 0) {
+            renderCanvas(0)
+          }
+          // after
+          if (prevProgress >= 1 && nextProgress >= 1) {
+            renderCanvas(1 - 1 / images.length * 2)
+          }
         }
       }
     }
+
+
 
     /* TEXT */
     const TEXT_ACTIVE_CLASS = 'seq__text--active'
@@ -111,7 +186,6 @@ window.addEventListener('DOMContentLoaded', async () => {
           frame = +texts[i].getAttribute('data-frame')
         }
       }
-
       frame = +texts[i - 1].getAttribute('data-frame')
       return frame
     }
@@ -170,6 +244,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       firstText.classList.add(TEXT_ACTIVE_CLASS)
     }
 
+
+
     /* HEADER */
     const header = document.querySelector('header')
     function updateHeader() {
@@ -192,6 +268,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
     }
 
+
+
     /* NAVIGATION */
     const SEQ_TOP_ACTIVE_CLASS = 'seq__top--active'
     const seqTop = seq.querySelector('.seq__top')
@@ -207,25 +285,39 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
     }
 
-    /* SCROLL */
-    function updateSeq() {
-      if (prevProgress) {
-        // regular
-        updateCanvas()
-        updateText()
-        updateHeader()
-        updateNavigation()
-      } else {
-        // init
-        render(0)
-        initText()
-      }
-    }
 
-    updateSeq()
+
+    /* INIT */
+    function init() {
+      initProgress()
+      initCanvas()
+      initText()
+    }
+    init()
+
+
+
+    /* SCROLL */
     window.addEventListener('scroll', () => {
       updateProgress()
-      updateSeq()
+      updateCanvas()
+      updateText()
+      updateHeader()
+      updateNavigation()
+    })
+
+
+
+    /* RESIZE */
+    window.addEventListener('resize', () => {
+      updateCanvasSize()
+      updateProgress()
+      updateCanvas({
+        outSeq: true,
+      })
+      updateText()
+      updateHeader()
+      updateNavigation()
     })
   }
 })
