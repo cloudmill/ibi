@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         renderHeight = image.height * (renderWidth / image.width)
 
         renderX = 0
-        renderY = (renderZoneHeight / 2) - (renderHeight / 2)
+        renderY = renderZoneHeight - renderHeight
       }
 
       console.log('imageRatio', imageRatio)
