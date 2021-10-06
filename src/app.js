@@ -3,9 +3,10 @@ import 'scripts/backend.js';
 import 'scripts/modal-tooltip.js';
 import 'scripts/sliders.js';
 import 'scripts/forms.js';
-// import 'scripts/map.js';
+import 'scripts/map.js';
 import 'scripts/seq.js'
 import 'scripts/psx.js'
+import { signal } from 'scripts/communication.js'
 import 'scripts/sidebar-spoiler.js';
 import 'scripts/datesSlider.js';
 import parsley from 'parsleyjs';
@@ -13,7 +14,6 @@ import 'parsleyjs/dist/i18n/ru';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
 import Sticky from 'sticky-js';
-import { event } from 'jquery';
 
 const BREAKPOINT = 1280;
 
@@ -550,9 +550,26 @@ var updateMySticky
           spoiler_drop.slideToggle({
             progress: updateMySticky,
           })
+
+          if (spoiler[0].hasAttribute('data-seq')) {
+            setTimeout(() => signal('seq:2', {
+              isOpen: spoiler.hasClass('mission__spoiler--active'),
+              $el: spoiler,
+            }))
+          }
         }
       });
     });
+
+    window.addEventListener('seq:3', ({ detail }) => {
+      const spoiler = detail
+      const spoiler_drop = spoiler.find('.mission__spoiler-drop')
+
+      spoiler.removeClass('mission__spoiler--active')
+      spoiler_drop.slideUp({
+        progress: updateMySticky,
+      })
+    })
   });
 }
 

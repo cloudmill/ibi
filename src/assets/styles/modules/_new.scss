@@ -34,6 +34,12 @@
     &--bot {
       padding-top: 0;
     }
+
+    &--seq {
+      @media (max-width: $breakpoint - 1px) {
+        padding-top: 0;
+      }
+    }
   }
 
   // блоки внутри секции
@@ -177,6 +183,12 @@
     @include fsl(22px, 140%);
     @media (min-width: $breakpoint) {
       @include fsl(40px);
+    }
+  }
+
+  &--seq {
+    @media (max-width: #{$breakpoint - 1px}) {
+      display: none;
     }
   }
 }

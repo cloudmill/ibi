@@ -1,5 +1,20 @@
 include ./navigation.pug
 
+mixin navigation-mobile
+  .mission__spoiler.news-spoiler(data-seq='')
+    .mission__spoiler-button.news-spoiler__button
+      h5.mission__spoiler-title
+        |Метод
+      .news-spoiler__image
+        +arrow-svg('header__drop-svg')
+    .mission__spoiler-drop.news-spoiler__drop
+      nav.news-spoiler__nav
+        ul
+          each item in ['Преимущества', 'Этапы имплантации', 'Имплантаты Strategic Implant', 'Стоимость']
+            li.news-spoiler__nav-item
+              a.nav__link(href='#')
+                |#{item}
+
 mixin seq
   -
     var frames = {
@@ -39,6 +54,7 @@ mixin seq
       .seq__gradient
       .seq__top
         +navigation
+        +navigation-mobile
       .seq__bottom
         .seq__background
           canvas.seq__canvas

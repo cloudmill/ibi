@@ -1,21 +1,21 @@
 import { signal } from 'scripts/communication.js'
 
 window.addEventListener('DOMContentLoaded', async () => {
-  const consoleEl = document.querySelector('.console')
-  function logConsole(msg) {
-    if (consoleEl) {
-      consoleEl.innerHTML = msg + '<br>' + consoleEl.innerHTML
-      consoleEl.scrollTo(0, 0)
-    }
-  }
+  // const consoleEl = document.querySelector('.console')
+  // function logConsole(msg) {
+  //   if (consoleEl) {
+  //     consoleEl.innerHTML = msg + '<br>' + consoleEl.innerHTML
+  //     consoleEl.scrollTo(0, 0)
+  //   }
+  // }
 
-  if (!matchMedia('(min-width: 1920px)').matches) {
-    window.addEventListener('scroll', () => logConsole('scroll ' + pageYOffset))
-    window.addEventListener('touchmove', () => logConsole('touchmove ' + pageYOffset))
-    setInterval(() => {
-      logConsole('pageYOffset ' + pageYOffset)
-    }, 1000)
-  }
+  // if (!matchMedia('(min-width: 1920px)').matches) {
+  //   window.addEventListener('scroll', () => logConsole('scroll ' + pageYOffset))
+  //   window.addEventListener('touchmove', () => logConsole('touchmove ' + pageYOffset))
+  //   setInterval(() => {
+  //     logConsole('pageYOffset ' + pageYOffset)
+  //   }, 1000)
+  // }
 
   const seq = document.querySelector('.seq')
 
@@ -33,8 +33,13 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
     /* MEDIA QUERY */
-    const BREAKPOINT = 1024
-    const mediaQuery = matchMedia(`(min-width: ${BREAKPOINT}px)`)
+    const BREAKPOINT = {
+      DEFAULT: 1280,
+      TABLET: 1024,
+    }
+    function getMediaQuery(breakpoint) {
+      return matchMedia(`(min-width: ${breakpoint}px)`)
+    }
 
 
 
@@ -45,7 +50,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
       let dir
       let fileNameList
-      if (mediaQuery.matches) {
+      if (getMediaQuery(BREAKPOINT.TABLET).matches) {
         dir = seq.getAttribute('data-frames-dir-desktop')
         fileNameList = seq.getAttribute('data-frames-list-desktop')
       } else {
@@ -269,22 +274,38 @@ window.addEventListener('DOMContentLoaded', async () => {
     /* HEADER */
     const header = document.querySelector('header')
     function updateHeader() {
-      // in seq
-      if (
-        prevProgress < 0 && nextProgress >= 0
-        ||
-        prevProgress >= 1 && nextProgress < 1
-      ) {
-        header.classList.add('header--seq')
+      if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        // in seq
+        if (
+          prevProgress < 0 && nextProgress >= 0
+          ||
+          prevProgress >= 1 && nextProgress < 1
+        ) {
+          header.classList.add('header--seq')
+        }
+  
+        // out seq
+        if (
+          prevProgress >= 0 && nextProgress < 0
+          ||
+          prevProgress < 1 && nextProgress >= 1
+        ) {
+          header.classList.remove('header--seq')
+        }
+      } else {
+        // seq -> after
+        if (prevProgress < 1 && nextProgress >= 1) {
+          header.classList.remove('header--open')
+        }
+        // after -> seq
+        if (prevProgress >= 1 && nextProgress < 1) {
+          header.classList.add('header--open')
+        }
       }
-
-      // out seq
-      if (
-        prevProgress >= 0 && nextProgress < 0
-        ||
-        prevProgress < 1 && nextProgress >= 1
-      ) {
-        header.classList.remove('header--seq')
+    }
+    function initHeader() {
+      if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        header.classList.add('header--open')
       }
     }
 
@@ -324,29 +345,54 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
 
+    
+    /* MENU */
+    let menuIsOpen
+    let menu$El
+    window.addEventListener('seq:2', ({ detail }) => {
+      menuIsOpen = detail.isOpen
+      menu$El = detail.$el
+    })
+    function updateMenu() {
+      if (menuIsOpen) {
+        signal('seq:3', menu$El)
+      }
+    }
+    function initMenu() {
+      menuIsOpen = false
+      menu$El = null
+    }
+
+
+
     /* INIT */
     function init() {
       initProgress()
       initCanvas()
       initText()
       updateGradient()
+      initHeader()
+      if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        initMenu()
+      }
     }
     init()
 
 
 
     /* SCROLL */
-    if (mediaQuery.matches) {
-      window.addEventListener('scroll', () => {
-        updateProgress()
-        updateCanvas()
-        updateText()
-        updateHeader()
+    window.addEventListener('scroll', () => {
+      updateProgress()
+      updateCanvas()
+      updateText()
+      updateHeader()
+      if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         updateNavigation()
-      })
-    } else {
-      
-    }
+      }
+      if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        updateMenu()
+      }
+    })
 
 
 
@@ -359,8 +405,13 @@ window.addEventListener('DOMContentLoaded', async () => {
       })
       updateText()
       updateHeader()
-      updateNavigation()
+      if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        updateNavigation()
+      }
       updateGradient()
+      if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        updateMenu()
+      }
     })
   }
 })

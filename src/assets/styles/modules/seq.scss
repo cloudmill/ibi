@@ -16,9 +16,18 @@
   position: relative;
   z-index: -1;
   left: calc(-#{$col-pad-d} - #{$col-part-d} * 3);
+  @media (max-width: #{$breakpoint - 1px}) {
+    left: auto;
+  }
 
   margin-top: 15px;
+  @media (max-width: #{$breakpoint - 1px}) {
+    margin-top: 0;
+  }
   width: 100vw;
+  @media (max-width: #{$breakpoint - 1px}) {
+    width: auto;
+  }
   height: 1000vh; // ?
   
   &__fullscreen {
@@ -27,6 +36,9 @@
     z-index: 0;
     top: 0;
 
+    @media (max-width: #{$breakpoint - 1px}) {
+      padding-top: 100px;
+    }
     height: 100vh;
   }
 
@@ -36,11 +48,22 @@
     top: -364px;
     left: 0;
     right: 0;
+    @media (max-width: #{$breakpoint - 1px}) {
+      $pad: 20px;
+      left: -$pad;
+      right: -$pad;
+    }
 
     height: 1925px;
+    @media (max-width: #{$breakpoint - 1px}) {
+      // height: 750px;
+    }
     pointer-events: none;
 
     background: linear-gradient(180deg, #DCF4F9 0%, #FFFFFF 100%);
+    @media (max-width: #{$breakpoint - 1px}) {
+      // background: linear-gradient(180deg, #D7F1F7 0%, #FFFFFF 100%);
+    }
   }
 
   $top-height: 70px;
@@ -50,16 +73,45 @@
     padding-left: calc(#{$col-pad-d} + #{$col-part-d} * 3);
     padding-right: calc(#{$col-pad-d});
     height: $top-height;
+    @media (max-width: #{$breakpoint - 1px}) {
+      padding: 0;
+      height: auto;
+    }
 
     transition: $transition;
 
     &--active {
       background-color: white;
     }
+
+    .navigation {
+      @media (max-width: #{$breakpoint - 1px}) {
+        display: none;
+      }
+    }
+
+    .mission__spoiler {
+      @media (min-width: #{$breakpoint}) {
+        display: none;
+      }
+    }
+    .mission__spoiler-button {
+      padding-top: 0;
+      min-height: 41px;
+    }
+    .news-spoiler__drop {
+      padding-bottom: 20px;
+    }
   }
   &__bottom {
     padding: 60px 40px 70px;
+    @media (max-width: #{$breakpoint - 1px}) {
+      padding: 20px 0;
+    }
     height: calc(100% - #{$top-height});
+    @media (max-width: #{$breakpoint - 1px}) {
+      height: calc(100% - 42px);
+    }
   }
 
   &__background {

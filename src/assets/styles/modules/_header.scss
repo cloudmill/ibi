@@ -46,6 +46,10 @@
     transform: translateY(-100%);
   }
 
+  &--open {
+    transform: none;
+  }
+
   &__header {
     position: relative;
     z-index: 1;
