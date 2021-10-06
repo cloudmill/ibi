@@ -387,7 +387,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     /* INIT */
     async function init() {
       initProgress()
-      if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+      if (!getMediaQuery(BREAKPOINT.TABLET).matches) {
         initBackground()
         await delay()
       }
@@ -421,7 +421,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     /* RESIZE */
     window.addEventListener('resize', async () => {
-      if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+      if (!getMediaQuery(BREAKPOINT.TABLET).matches) {
         updateBackgroundSize()
         await delay()
       }
