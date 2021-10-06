@@ -108,7 +108,8 @@
   }
 
   &--seq {
-    background: rgb(219, 235, 255); // ?
+    position: relative;
+    z-index: 0;
   }
 
   &__col {
