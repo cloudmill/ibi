@@ -10,6 +10,7 @@
   &__fullscreen {
     position: -webkit-sticky;
     position: sticky;
+    z-index: 0;
     top: 0;
 
     height: 100vh;
@@ -23,6 +24,7 @@
     right: 0;
 
     height: 1925px;
+    pointer-events: none;
 
     background: linear-gradient(180deg, #DCF4F9 0%, #FFFFFF 100%);
   }

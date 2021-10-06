@@ -9,4 +9,4 @@ mixin navigation(activeIndex = 0)
         'Стоимость',
       ]
     - for (let i = 0; i < items.length; i++)
-      .navigation__item(class = (i === activeIndex ? 'navigation__item--active' : ''))= items[i]
+      a.navigation__item(class = (i === activeIndex ? 'navigation__item--active' : '') href='#')= items[i]
