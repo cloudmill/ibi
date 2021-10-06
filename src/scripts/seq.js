@@ -16,15 +16,28 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 
+    /* MEDIA QUERY */
+    const BREAKPOINT = 1024
+    const mediaQuery = matchMedia(`(min-width: ${BREAKPOINT}px)`)
+
+
+
     /* LOAD IMAGES */
     let images
     function loadImages() {
       images = []
 
-      const dir = seq.getAttribute('data-frames-dir-desktop')
-      const fileNamelist = seq.getAttribute('data-frames-list-desktop')
+      let dir
+      let fileNameList
+      if (mediaQuery.matches) {
+        dir = seq.getAttribute('data-frames-dir-desktop')
+        fileNameList = seq.getAttribute('data-frames-list-desktop')
+      } else {
+        dir = seq.getAttribute('data-frames-dir-mobile')
+        fileNameList = seq.getAttribute('data-frames-list-mobile')
+      }
       
-      let srcList = JSON.parse(fileNamelist)
+      let srcList = JSON.parse(fileNameList)
       srcList = srcList.map(fileName => dir + fileName)
       
       return Promise.all(srcList.map((src, index) => new Promise(resolve => {

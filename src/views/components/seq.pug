@@ -5,6 +5,7 @@ mixin seq
     var frames = {
       dir: {
         desktop: 'assets/images/seq/desktop/',
+        mobile: 'assets/images/seq/mobile/',
       },
       list: {
         desktop: (() => {
@@ -16,11 +17,23 @@ mixin seq
 
           return list
         })(),
+        mobile: (() => {
+          const list = []
+
+          for (let i = 0; i < 176; i++) {
+            list.push(`teeth_final_mobile_${i < 10 ? ('00' + i) : (i < 100 ? ('0' + i) : i)}.jpg`)
+          }
+
+          return list
+        })(),
       },
     }
   .seq(
     data-frames-dir-desktop=frames.dir.desktop
     data-frames-list-desktop=frames.list.desktop
+
+    data-frames-dir-mobile=frames.dir.mobile
+    data-frames-list-mobile=frames.list.mobile
   )
     .seq__fullscreen
       .seq__top
