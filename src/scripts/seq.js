@@ -130,16 +130,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         renderX = 0
         renderY = renderZoneHeight - renderHeight
       }
-
-      console.log('imageRatio', imageRatio)
-      console.log('renderZoneWidth', renderZoneWidth)
-      console.log('renderZoneHeight', renderZoneHeight)
-      console.log('renderZoneRatio', renderZoneRatio)
-      console.log('renderWidth', renderWidth)
-      console.log('renderHeight', renderHeight)
-      console.log('renderX', renderX)
-      console.log('renderY', renderY)
-
+      
       ctx.drawImage(image, renderX, renderY, renderWidth, renderHeight)
     }
     function renderCanvas(progress) {
@@ -329,13 +320,25 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
     /* SCROLL */
-    window.addEventListener('scroll', () => {
-      updateProgress()
-      updateCanvas()
-      updateText()
-      updateHeader()
-      updateNavigation()
-    })
+    if (mediaQuery.matches) {
+      window.addEventListener('scroll', () => {
+        console.log('1')
+        updateProgress()
+        updateCanvas()
+        updateText()
+        updateHeader()
+        updateNavigation()
+      })
+    } else {
+      window.addEventListener('touchmove', () => {
+        console.log('2')
+        updateProgress()
+        updateCanvas()
+        updateText()
+        updateHeader()
+        updateNavigation()
+      })
+    }
 
 
 
