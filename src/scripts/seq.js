@@ -1,6 +1,22 @@
 import { signal } from 'scripts/communication.js'
 
 window.addEventListener('DOMContentLoaded', async () => {
+  const consoleEl = document.querySelector('.console')
+  function logConsole(msg) {
+    if (consoleEl) {
+      consoleEl.innerHTML += msg + '<br>'
+      consoleEl.scrollTo(0, Infinity)
+    }
+  }
+
+  if (!matchMedia('(min-width: 1920px)').matches) {
+    window.addEventListener('scroll', () => logConsole('scroll'))
+    window.addEventListener('touchmove', () => logConsole('touchmove'))
+    setInterval(() => {
+      logConsole('pageYOffset ' + pageYOffset)
+    }, 1000)
+  }
+
   const seq = document.querySelector('.seq')
 
   if (seq) {
@@ -319,16 +335,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 
-    /* CONSOLE */
-    const consoleEl = document.querySelector('.console')
-    function logConsole(msg) {
-      if (consoleEl) {
-        consoleEl.innerHTML += msg + '<br>'
-      }
-    }
-
-
-
     /* SCROLL */
     if (mediaQuery.matches) {
       window.addEventListener('scroll', () => {
@@ -339,11 +345,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         updateNavigation()
       })
     } else {
-      window.addEventListener('scroll', () => logConsole('scroll'))
-      window.addEventListener('touchmove', () => logConsole('touchmove'))
-      setInterval(() => {
-        logConsole('pageYOffset ' + pageYOffset)
-      }, 1000)
+      
     }
 
 
