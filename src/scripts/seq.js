@@ -300,11 +300,29 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 
+    /* FULLSCREEN */
+    const fullscreen = seq.querySelector('.seq__fullscreen')
+    function getFullscreenPageY() {
+      const fullscreenRect = fullscreen.getBoundingClientRect()
+
+      return pageYOffset + fullscreenRect.y
+    }
+
+
+
+    /* GRADIENT */
+    const gradient = seq.querySelector('.seq__gradient')
+    function updateGradient() {
+      gradient.style.top = -getFullscreenPageY() + 'px'
+    }
+
+
     /* INIT */
     function init() {
       initProgress()
       initCanvas()
       initText()
+      updateGradient()
     }
     init()
 
@@ -331,6 +349,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       updateText()
       updateHeader()
       updateNavigation()
+      updateGradient()
     })
   }
 })
