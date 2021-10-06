@@ -393,7 +393,9 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
       initCanvas()
       initText()
-      updateGradient()
+      if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        updateGradient()
+      }
       initHeader()
       if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         initMenu()
@@ -435,7 +437,9 @@ window.addEventListener('DOMContentLoaded', async () => {
       if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         updateNavigation()
       }
-      updateGradient()
+      if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        updateGradient()
+      }
       if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         updateMenu()
       }
