@@ -4,14 +4,14 @@ window.addEventListener('DOMContentLoaded', async () => {
   const consoleEl = document.querySelector('.console')
   function logConsole(msg) {
     if (consoleEl) {
-      consoleEl.innerHTML += msg + '<br>'
-      consoleEl.scrollTo(0, Infinity)
+      consoleEl.innerHTML = msg + '<br>' + consoleEl.innerHTML
+      consoleEl.scrollTo(0, 0)
     }
   }
 
   if (!matchMedia('(min-width: 1920px)').matches) {
-    window.addEventListener('scroll', () => logConsole('scroll'))
-    window.addEventListener('touchmove', () => logConsole('touchmove'))
+    window.addEventListener('scroll', () => logConsole('scroll ' + pageYOffset))
+    window.addEventListener('touchmove', () => logConsole('touchmove ' + pageYOffset))
     setInterval(() => {
       logConsole('pageYOffset ' + pageYOffset)
     }, 1000)
