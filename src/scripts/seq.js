@@ -319,10 +319,19 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 
+    /* CONSOLE */
+    const consoleEl = document.querySelector('.console')
+    function logConsole(msg) {
+      if (consoleEl) {
+        consoleEl.innerHTML += msg + '<br>'
+      }
+    }
+
+
+
     /* SCROLL */
     if (mediaQuery.matches) {
       window.addEventListener('scroll', () => {
-        console.log('1')
         updateProgress()
         updateCanvas()
         updateText()
@@ -330,14 +339,11 @@ window.addEventListener('DOMContentLoaded', async () => {
         updateNavigation()
       })
     } else {
-      window.addEventListener('touchmove', () => {
-        console.log('2')
-        updateProgress()
-        updateCanvas()
-        updateText()
-        updateHeader()
-        updateNavigation()
-      })
+      window.addEventListener('scroll', () => logConsole('scroll'))
+      window.addEventListener('touchmove', () => logConsole('touchmove'))
+      setInterval(() => {
+        logConsole('pageYOffset ' + pageYOffset)
+      }, 1000)
     }
 
 
