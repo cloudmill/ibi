@@ -143,6 +143,9 @@
     right: calc(#{$col-part-d});
 
     width: calc(#{$col-part-d} * 3);
+    @media (max-width: #{$breakpoint-t - 1px}) {
+      display: none;
+    }
 
     transition: $transition;
 

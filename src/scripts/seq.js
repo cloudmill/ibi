@@ -137,21 +137,28 @@ window.addEventListener('DOMContentLoaded', async () => {
       let renderX
       let renderY
 
-      if (renderZoneRatio >= imageRatio) {
-        renderHeight = renderZoneHeight
-        renderWidth = image.width * (renderHeight / image.height)
-
-        renderY = 0
-        // renderX = (renderZoneWidth / 2) - (renderWidth / 2)
-        renderX = 0
+      if (getMediaQuery(BREAKPOINT.TABLET).matches) {
+        if (renderZoneRatio >= imageRatio) {
+          renderHeight = renderZoneHeight
+          renderWidth = image.width * (renderHeight / image.height)
+  
+          renderY = 0
+          // renderX = (renderZoneWidth / 2) - (renderWidth / 2)
+          renderX = 0
+        } else {
+          renderWidth = renderZoneWidth
+          renderHeight = image.height * (renderWidth / image.width)
+  
+          renderX = 0
+          renderY = renderZoneHeight - renderHeight
+        }
       } else {
-        renderWidth = renderZoneWidth
-        renderHeight = image.height * (renderWidth / image.width)
-
+        renderWidth = canvas.width
+        renderHeight = canvas.height
         renderX = 0
-        renderY = renderZoneHeight - renderHeight
+        renderY = 0
       }
-      
+
       ctx.drawImage(image, renderX, renderY, renderWidth, renderHeight)
     }
     function renderCanvas(progress) {
@@ -365,9 +372,25 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 
+    /* BACKGROUND */
+    const background = seq.querySelector('.seq__background')
+    function updateBackgroundSize() {
+      const backgroundRect = background.getBoundingClientRect()
+      background.style.height = backgroundRect.width + 'px'
+    }
+    function initBackground() {
+      updateBackgroundSize()
+    }
+
+
+
     /* INIT */
-    function init() {
+    async function init() {
       initProgress()
+      if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        initBackground()
+        await delay()
+      }
       initCanvas()
       initText()
       updateGradient()
@@ -397,7 +420,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
     /* RESIZE */
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', async () => {
+      if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        updateBackgroundSize()
+        await delay()
+      }
       updateCanvasSize()
       updateProgress()
       updateCanvas({
