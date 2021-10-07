@@ -205,6 +205,56 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 
+    /* BACKGROUND */
+    const background = seq.querySelector('.seq__background')
+    function updateBackgroundSize() {
+      const backgroundRect = background.getBoundingClientRect()
+      background.style.height = backgroundRect.width + 'px'
+    }
+    function initBackground() {
+      updateBackgroundSize()
+    }
+    function getBackgroundHeight() {
+      const backgroundRect = background.getBoundingClientRect()
+      return backgroundRect.height
+    }
+
+
+
+    /* BOTTOM */
+    const bottom = seq.querySelector('.seq__bottom')
+    function getBottomHeight() {
+      const bottomRect = bottom.getBoundingClientRect()
+      return bottomRect.height
+    }
+    function getBottomPaddingTop() {
+      const bottomStyle = getComputedStyle(bottom)
+      return parseFloat(bottomStyle.paddingTop)
+    }
+
+
+
+    /* UNDER */
+    let under
+    function initUnder() {
+      under = document.createElement('div')
+      under.classList.add('seq__under')
+
+      bottom.append(under)
+      updateUnderSize()
+    }
+    function updateUnderSize() {
+      const bottomHeight = getBottomHeight()
+      const bottomPaddingTop = getBottomPaddingTop()
+
+      const backgroundHeight = getBackgroundHeight()
+      
+      const underHeight = bottomHeight - bottomPaddingTop - backgroundHeight
+      under.style.height = underHeight + 'px'
+    }
+
+
+
     /* TEXT */
     const TEXT_ACTIVE_CLASS = 'seq__text--active'
     const textsContainer = seq.querySelector('.seq__texts')
@@ -274,6 +324,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     function initText() {
       const firstText = texts[0]
       firstText.classList.add(TEXT_ACTIVE_CLASS)
+
+      if (!getMediaQuery(BREAKPOINT.TABLET).matches) {
+        under.append(textsContainer)
+      }
     }
 
 
@@ -372,24 +426,15 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 
-    /* BACKGROUND */
-    const background = seq.querySelector('.seq__background')
-    function updateBackgroundSize() {
-      const backgroundRect = background.getBoundingClientRect()
-      background.style.height = backgroundRect.width + 'px'
-    }
-    function initBackground() {
-      updateBackgroundSize()
-    }
-
-
-
     /* INIT */
     async function init() {
       initProgress()
       if (!getMediaQuery(BREAKPOINT.TABLET).matches) {
         initBackground()
         await delay()
+      }
+      if (!getMediaQuery(BREAKPOINT.TABLET).matches) {
+        initUnder()
       }
       initCanvas()
       initText()
@@ -426,6 +471,9 @@ window.addEventListener('DOMContentLoaded', async () => {
       if (!getMediaQuery(BREAKPOINT.TABLET).matches) {
         updateBackgroundSize()
         await delay()
+      }
+      if (!getMediaQuery(BREAKPOINT.TABLET).matches) {
+        updateUnderSize()
       }
       updateCanvasSize()
       updateProgress()

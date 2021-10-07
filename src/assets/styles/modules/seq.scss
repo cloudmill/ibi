@@ -13,6 +13,8 @@
 }
 
 .seq {
+  $comp: &;
+
   position: relative;
   z-index: -1;
   left: calc(-#{$col-pad-d} - #{$col-part-d} * 3);
@@ -138,6 +140,10 @@
     pointer-events: none;
   }
 
+  &__under {
+    overflow: hidden;
+  }
+
   &__texts {
     position: absolute;
     z-index: 2;
@@ -146,16 +152,25 @@
     right: calc(#{$col-part-d});
 
     width: calc(#{$col-part-d} * 3);
-    @media (max-width: #{$breakpoint-t - 1px}) {
-      display: none;
-    }
 
     transition: $transition;
+
+    @media (max-width: #{$breakpoint-t - 1px}) {
+      position: static;
+
+      width: auto;
+      height: 100%;
+    }
 
     &-item {
       height: 100%;
       display: flex;
       align-items: center;
+      
+      @media (max-width: #{$breakpoint-t - 1px}) {
+        padding-top: 10px;
+        display: block;
+      }
     }
   }
   &__text {
@@ -168,10 +183,63 @@
     line-height: 32px;
     transition: $transition;
 
+    @media (max-width: #{$breakpoint-t - 1px}) {
+      padding-top: 10px;
+
+      font-size: 14px;
+      line-height: 22px;
+    }
+
     &--active {
       pointer-events: all;
 
       opacity: 1;
+    }
+
+    ul {
+      margin-top: 20px;
+
+      @media (max-width: #{$breakpoint-t - 1px}) {
+        margin-top: 10px;
+      }
+    }
+    li {
+      position: relative;
+      z-index: 0;
+
+      padding-left: 31px;
+
+      font-size: 16px;
+      line-height: 22px;
+
+      @media (max-width: #{$breakpoint-t - 1px}) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        content: '•';
+        pointer-events: none;
+        
+        color: $color-main;
+
+        @media (max-width: #{$breakpoint-t - 1px}) {
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+
+      &:not(:first-child) {
+        margin-top: 10px;
+
+        @media (max-width: #{$breakpoint-t - 1px}) {
+          margin-top: 5px;
+        }
+      }
     }
   }
 }
