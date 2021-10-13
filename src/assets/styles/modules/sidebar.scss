@@ -1,0 +1,37 @@
+.row {
+  &__col {
+    &--sidebar {
+      position: relative;
+    }
+  }
+}
+
+.sidebar-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 100px 0;
+  pointer-events: none;
+
+  &__inner {
+    height: 100%;
+  }
+}
+
+.sidebar {
+  // lib styles
+  will-change: min-height;
+  // lib styles
+
+  &__inner {
+    // lib styles
+    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: position, transform;
+    // lib styles
+
+    pointer-events: all;
+  }
+}

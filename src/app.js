@@ -14,6 +14,7 @@ import 'parsleyjs/dist/i18n/ru';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
 import Sticky from 'sticky-js';
+import 'scripts/sidebar.js'
 
 const BREAKPOINT = 1280;
 
