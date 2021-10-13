@@ -33,6 +33,13 @@
 */
 
 /**
+ * Sticky Sidebar JavaScript Plugin.
+ * @version 3.3.1
+ * @author Ahmed Bouhuolia <a.bouhuolia@gmail.com>
+ * @license The MIT License (MIT)
+ */
+
+/**
  * Sticky.js
  * Library for sticky elements written in vanilla javascript. With this library you can easily set sticky elements on your website. It's also responsive.
  *
