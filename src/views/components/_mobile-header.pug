@@ -1,8 +1,39 @@
 mixin mobile-header
   header.mobile-header
     .mobile-header__panel
-      button.mobile-header__menu-close toggle menu
+      button.mobile-header__menu-close(data-screen-id=2) toggle menu
     .mobile-header__menu
-      - for (let i = 0; i < 500; i++)
-        |wow
-        br
+      div(style='display: none;')
+        .mobile-header__screen(data-screen-id=0)
+          p
+            |1 screen
+          ul
+            li
+              a(href="#")
+                |redirect
+            li
+              a(href="#" data-screen-id=1 data-screen-animation='right')
+                |go to 2 screen, right
+        .mobile-header__screen(data-screen-id=1)
+          p
+            |2 screen
+          ul
+            li
+              a(href="#" data-screen-id=0 data-screen-animation='left')
+                |go to 1 screen, left
+            li
+              a(href="#")
+                |redirect
+            li
+              a(href="#" data-screen-id=2 data-screen-animation='right')
+                |go to 3 screen, right
+        .mobile-header__screen(data-screen-id=2)
+          p
+            |3 screen
+          ul
+            li
+              a(href="#" data-screen-id=1 data-screen-animation='left')
+                |go to 2 screen, left
+            li
+              a(href="#")
+                |redirect

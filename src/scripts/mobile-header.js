@@ -1,6 +1,6 @@
 import { mediaQuery } from 'scripts/mediaQueries.js'
 
-if (mediaQuery.matches) {
+if (!mediaQuery.matches) {
   $(() => {
     // data
     const elements = {
@@ -21,6 +21,9 @@ if (mediaQuery.matches) {
       elements.panel = elements.root.find('.mobile-header__panel')
       elements.menu = elements.root.find('.mobile-header__menu')
       elements.menuClose = elements.root.find('.mobile-header__menu-close')
+
+      let isScreenAnimation = false
+      let curScreen = null
   
       // methods
       const updatePanelHide = (() => {
@@ -45,9 +48,18 @@ if (mediaQuery.matches) {
           elements.panel.addClass(CLASS.PANEL.BACKGROUND)
         }
       }
+      function initScreen() {
+        const startScreenID = elements.menuClose.data('screen-id')
+        const startScreen = elements.menu.find(`.mobile-header__screen[data-screen-id="${startScreenID}"]`).clone()
+
+        elements.menu.append(startScreen)
+
+        curScreen = startScreen
+      }
   
       // init
       updatePanelBackground()
+      initScreen()
   
       // ui events
       elements.menuClose.on('click', () => {
@@ -91,6 +103,37 @@ if (mediaQuery.matches) {
   
           // hide
           updatePanelHide()
+        }
+      })
+      elements.menu.on('click', (e) => {
+        const screenLink = $(e.target).closest('a[data-screen-id]')
+
+        if (!isScreenAnimation && screenLink.length) {
+          e.preventDefault()
+          
+          isScreenAnimation = true
+          setTimeout(() => {
+            isScreenAnimation = false
+          }, 500)
+
+          const nextScreenID = screenLink.data('screen-id')
+          const nextScreen = elements.menu.find(`.mobile-header__screen[data-screen-id="${nextScreenID}"]`).clone()
+          
+          const screenAnimation = screenLink.data('screen-animation')
+
+          nextScreen.css('transform', `translateX(${screenAnimation === 'left' ? '-' : ''}100%)`)
+
+          elements.menu.append(nextScreen)
+
+          setTimeout(() => {
+            curScreen.css('transform', `translateX(${screenAnimation === 'left' ? '' : '-'}100%)`)
+            nextScreen.css('transform', '')
+
+            setTimeout(() => {
+              curScreen.remove()
+              curScreen = nextScreen
+            }, 500)
+          })
         }
       })
     }

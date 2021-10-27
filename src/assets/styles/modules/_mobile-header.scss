@@ -45,4 +45,15 @@
       opacity: 1;
     }
   }
+
+  &__screen {
+    position: absolute;
+    inset: auto 0;
+
+    transition: $transition;
+
+    a {
+      color: blue;
+    }
+  }
 }
