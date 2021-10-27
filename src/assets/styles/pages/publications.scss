@@ -3,7 +3,12 @@
   //   padding-left: 40px;
   // }
 
-  margin-right: -40px;
+  margin: 20px -20px 0;
+  // padding-left: 20px;
+  @media (min-width: $breakpoint) {
+    margin: 10px -40px 0 0;
+    padding-left: 0;
+  }
 
   .team-filter {
     padding-left: 0;
@@ -58,9 +63,9 @@
   }
 
   &__title {
-    margin-bottom: 20px;
+    margin: 0 0 20px 20px;
     @media (min-width: $breakpoint) {
-      margin-bottom: 15px;
+      margin: 0 0 15px 0;
 
       @include fsl(26px);
     }
@@ -90,6 +95,10 @@
     display: flex;
     width: 100%;
     // overflow-x: auto;
+
+    @media (max-width: $breakpoint - 1px) {
+      padding-left: 20px;
+    }
   }
 
   &__item {
@@ -314,14 +323,25 @@
   }
 
   &--mobile {
-    padding: 20px 0 0;
+    padding: 20px 20px 0;
+    margin: 0 -20px;
+
+    overflow-x: auto;
+    border: 0;
 
     display: block;
+
+    .category__item:last-child {
+      
+
+      .category__link {
+        margin-right: 20px;
+      }
+    }
+
     @media (min-width: $breakpoint) {
       display: none;
     }
-    overflow-x: auto;
-    border: 0;
   }
 
   &--column {

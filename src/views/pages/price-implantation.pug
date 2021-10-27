@@ -29,21 +29,30 @@ block content
         .row__col
           .section__inner.section__inner--top
             .container
-              h1.title.page-title-hidden
+              h1.title
                 |Стоимость
-              .mission__spoiler.news-spoiler.spoiler-to-title
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
-                    |Имплантация
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['Протезирование',]
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
+
+              //- .mission__spoiler.news-spoiler.spoiler-to-title
+              //-   .mission__spoiler-button.news-spoiler__button
+              //-     h5.mission__spoiler-title
+              //-       |Имплантация
+              //-     .news-spoiler__image
+              //-       +arrow-svg('header__drop-svg')
+              //-   .mission__spoiler-drop.news-spoiler__drop
+              //-     nav.news-spoiler__nav
+              //-       ul
+              //-         each item in ['Протезирование',]
+              //-           li.news-spoiler__nav-item
+              //-             a.nav__link(href='#')
+              //-               |#{item}
+
+              .price.price--mobile
+                .price__note Стоимость может меняться в зависимости клинического состояния зубов
+                a(href="#price-form")
+                  button.vacancies-list__extra-btn.price__btn
+                    +arrow-link-svg('extra-btn')
+                    |Получить точный расчет
+
               .price-subtitle 
                 |Имплантация
               .price-item
@@ -78,13 +87,12 @@ block content
                     li Используется принцип установки 10-12 имплантатов на верхнюю челюсть и 8-10 на нижнюю
                     li Сразу же после имплантации получаем оттиски для изготовление будущих зубов
                     li В зависимости от клинической ситуации могут быть изготовлены метоллоакриловые или металлокомпозитные зубы
-              .price.price--mobile
-                .price__note Стоимость может меняться в зависимости клинического состояния зубов
-                button.vacancies-list__extra-btn.price__btn
-                  +arrow-link-svg('extra-btn')
-                  |Получить точный расчет
+
+              
+
               .news-subscribe.member-page-ask.transfer-consult.price-ask
-                h2.news-subscribe__title Получить персональную стратегию имплантации
-                .calc-wrapper.mt80.mb80-60
+                a(name="price-form")
+                h2.news-subscribe__title.form-new__ttl Получить персональную стратегию имплантации
+                .calc-wrapper.mb80-60
                   include ../components/calculator
                 include ../components/form-2col-add-file

@@ -19,16 +19,20 @@
 
   &--mobile {
     display: block;
-    margin-bottom: 60px;
+    margin: 40px 0;
     @media (min-width: $breakpoint - 1px) {
       display: none;
     }
 
     #{$comp}__note {
+      margin-top: 0;
       margin-left: 0;
     }
     #{$comp}__btn {
       margin-left: 0;
+    }
+    .vacancies-list__extra-btn {
+      margin-top: 20px;
     }
   }
 }

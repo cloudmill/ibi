@@ -36,19 +36,28 @@ block content
             .container
               h1.title
                 |Стоимость
-              .mission__spoiler.news-spoiler
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
-                    |Протезирование
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
+
+              //- .mission__spoiler.news-spoiler
+              //-   .mission__spoiler-button.news-spoiler__button
+              //-     h5.mission__spoiler-title
+              //-       |Протезирование
+              //-     .news-spoiler__image
+              //-       +arrow-svg('header__drop-svg')
+              //-   .mission__spoiler-drop.news-spoiler__drop
+              //-     nav.news-spoiler__nav
+              //-       ul
+              //-         each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
+              //-           li.news-spoiler__nav-item
+              //-             a.nav__link(href='#')
+              //-               |#{item}
+
+              .price.price--mobile
+                .price__note Стоимость может меняться в зависимости клинического состояния зубов
+                a(href="#price-form")
+                  button.vacancies-list__extra-btn.price__btn
+                    +arrow-link-svg('extra-btn')
+                    |Получить точный расчет
+
               h2.price-subtitle
                |Протезирование
               .price-cards
@@ -83,14 +92,11 @@ block content
                   .price-cards-item__ttl Окклюзионная накладка
                   .price-cards-item__price 37 500 ₽
 
-              .price-body-button
-                .price__note Стоимость может меняться в зависимости клинического состояния зубов
-                button.vacancies-list__extra-btn.price__btn
-                  +arrow-link-svg('extra-btn')
-                  |Получить точный расчет
+              
 
               .news-subscribe.member-page-ask.transfer-consult.price-ask
-                h2.news-subscribe__title Получить персональную стратегию имплантации
-                .calc-wrapper.mt80.mb80-60
+                a(name="price-form")
+                h2.news-subscribe__title.form-new__ttl Получить персональную стратегию имплантации
+                .calc-wrapper.mb80-60
                   include ../components/calculator
                 include ../components/form-2col-add-file

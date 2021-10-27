@@ -6,6 +6,14 @@
     align-items: flex-start;
   }
 
+  &__ttl.news-subscribe__title {
+    margin-bottom: 60px;
+
+    @media (min-width: $breakpoint) {
+      margin-bottom: 80px;
+    }
+  }
+
   &__col {
     width: calc(50% - 30px);
     display: flex;

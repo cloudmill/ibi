@@ -1,6 +1,6 @@
 .form-new
 
-  form.form(data-parsley-validate="")
+  form.form(data-parsley-validate="" data-send-form="")
 
     .form-new__col
       label.form-new__label
@@ -36,7 +36,7 @@
         
       
       label.form-new__checkbox
-        input(type="checkbox" id="checkbox" required="")
+        input(type="checkbox" id="checkbox" required="" checked="checked")
         .checkbox
         .form-new__checkbox-txt Согласен на обработку персональных данных в соответствии с 
           a(href="#") политикой конфиденциальности

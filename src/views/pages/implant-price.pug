@@ -64,7 +64,7 @@ block content
                         li.news-spoiler__nav-item
                           a.nav__link(href='#')
                             |#{item}
-              .category.category--mobile 
+              .category.category--mobile
                 ul.category__list
                   li.category__item
                     a.category__link(href="#one-tooth") 
@@ -78,8 +78,16 @@ block content
                   li.category__item 
                     a.category__link(href="#two-jaws") 
                       |На двух челюстях
-              .article
-              .price-item
+
+              .price.price--mobile
+                .price__note Стоимость может меняться в зависимости клинического состояния зубов
+                a(href="#price-form")
+                  button.vacancies-list__extra-btn.price__btn
+                    +arrow-link-svg('extra-btn')
+                    |Получить точный расчет
+                    
+              //- .article
+              .price-item.mt80-40
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
                 a.price-item__ttl(name="one-tooth") Установка одного имплантата ONEWAY BIOMED
@@ -127,8 +135,10 @@ block content
                     li Используется принцип установки 10-12 имплантатов на верхнюю челюсть и 8-10 на нижнюю
                     li Сразу же после имплантации получаем оттиски для изготовление будущих зубов
                     li В зависимости от клинической ситуации могут быть изготовлены метоллоакриловые или металлокомпозитные зубы
+
               .news-subscribe.member-page-ask.transfer-consult.price-ask
-                h2.news-subscribe__title Получить персональную стратегию имплантации
-                .calc-wrapper.mt80.mb80-60
+                a(name="price-form")
+                h2.news-subscribe__title.form-new__ttl Получить персональную стратегию имплантации
+                .calc-wrapper.mb80-60
                   include ../components/calculator
                 include ../components/form-2col-add-file
