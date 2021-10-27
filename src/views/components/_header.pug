@@ -1,3 +1,5 @@
+include ./_mobile-header.pug
+
 mixin header(opts={linkLogo: true})
   header.header
     .header__header
@@ -395,6 +397,4 @@ mixin header(opts={linkLogo: true})
                 li.header-modal__nav-item 
                   a.header-modal__nav-link(href="#") 
                     |#{link}
-
-    
-
+  +mobile-header

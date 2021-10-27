@@ -12,6 +12,10 @@
   left: 0;
   right: 0;
 
+  @media (max-width: $breakpoint - 1px) {
+    display: none;
+  }
+
   transition: $transition;
 
   &--modal {

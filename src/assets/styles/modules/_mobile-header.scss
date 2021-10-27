@@ -1,0 +1,48 @@
+.mobile-header {
+  --panel-height: 78px;
+  
+  position: fixed;
+  z-index: 1000;
+  inset: 0 0 auto 0;
+
+  @media (min-width: $breakpoint) {
+    display: none;
+  }
+
+  &__panel {
+    position: fixed;
+    z-index: 2;
+    inset: 0 0 auto 0;
+
+    height: var(--panel-height);
+    transition: $transition;
+
+    &--hide {
+      transform: translateY(-100%);
+    }
+
+    &--background {
+      background-color: gray;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+
+    padding-top: var(--panel-height);
+    pointer-events: none;
+    overflow: auto;
+
+    opacity: 0;
+    background-color: gray;
+    transition: $transition;
+
+    &--open {
+      pointer-events: all;
+
+      opacity: 1;
+    }
+  }
+}
