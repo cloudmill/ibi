@@ -1,8 +1,6 @@
 .mobile-header {
   $comp: &;
 
-  $background-color: #F1FBFD;
-
   --panel-height: 78px;
   
   position: fixed;
@@ -30,7 +28,7 @@
     }
 
     &--background {
-      background-color: $background-color;
+      background-color: $color-blue-light;
     }
   }
 
@@ -50,7 +48,7 @@
     pointer-events: none;
 
     opacity: 0;
-    background-color: $background-color;
+    background-color: $color-blue-light;
     transition: $transition;
 
     &--open {
@@ -161,12 +159,34 @@
 
   &__list {
     padding-left: 40px;
+
+    &--bottom {
+      margin-top: 15px;
+      padding: 0 20px;
+    }
+
+    &--root {
+      margin-top: 67px;
+      padding: 0;
+    }
   }
   &__item {
     display: flex;
 
     &:not(:first-child) {
       margin-top: 15px;
+    }
+
+    &--root {
+      border-top: 1px solid $color-gray-border;
+      
+      &:last-child {
+        border-bottom: 1px solid $color-gray-border;
+      }
+
+      &:not(:first-child) {
+        margin-top: 0;
+      }
     }
   }
 
@@ -185,6 +205,10 @@
         margin-left: 20px;
         flex-shrink: 0;
       }
+    }
+
+    &--root {
+      padding: 15px 20px;
     }
   }
   &__link-text {

@@ -6,8 +6,38 @@ mixin mobile-header
       .mobile-header__screens
         .mobile-header__screen(data-screen-id=0)
           .mobile-header__content
-            a(data-screen-id=1 data-screen-animation='right')
-              |go to 2 screen, right
+            ul.mobile-header__list.mobile-header__list--root
+              -
+                var items = [
+                  'Базальная имплантация',
+                  'Услуги',
+                  'О нас',
+                  'Специалистам',
+                ]
+              each item in items
+                li.mobile-header__item.mobile-header__item--root
+                  a.mobile-header__link.mobile-header__link--next.mobile-header__link--root(data-screen-id='1' data-screen-animation='right')
+                    .mobile-header__link-text
+                      |#{item}
+                    +svg-arrow.mobile-header__link-svg
+            ul.mobile-header__list.mobile-header__list--bottom
+              -
+                var items = [
+                  'До и После',
+                  'Гарантии',
+                  'Способы оплаты',
+                  'Трансфер',
+                  'Вопрос–ответ',
+                  'Стоимость имплантации',
+                  'Стоимость протезирования',
+                  'Лаборатория',
+                  'Публикации',
+                ]
+              each item in items
+                li.mobile-header__item
+                  a.mobile-header__link(href='#')
+                    .mobile-header__link-text
+                      |#{item}
         .mobile-header__screen.mobile-header__screen--inner(data-screen-id=1)
           .mobile-header__content.mobile-header__content--inner
             .mobile-header__top
