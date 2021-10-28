@@ -17,13 +17,17 @@ if (!mediaQuery.matches) {
           OPEN: 'mobile-header__menu--open',
         },
       }
+      const ANIMATION_DURATION = 500
   
       elements.panel = elements.root.find('.mobile-header__panel')
       elements.menu = elements.root.find('.mobile-header__menu')
       elements.menuClose = elements.root.find('.mobile-header__menu-close')
+      elements.screens = elements.root.find('.mobile-header__screens')
 
-      let isScreenAnimation = false
-      let curScreen = null
+      const state = {
+        curScreen: null,
+        isScreenAnimation: false,
+      }
   
       // methods
       const updatePanelHide = (() => {
@@ -50,11 +54,11 @@ if (!mediaQuery.matches) {
       }
       function initScreen() {
         const startScreenID = elements.menuClose.data('screen-id')
-        const startScreen = elements.menu.find(`.mobile-header__screen[data-screen-id="${startScreenID}"]`).clone()
+        const startScreen = elements.screens.find(`.mobile-header__screen[data-screen-id="${startScreenID}"]`).clone()
 
         elements.menu.append(startScreen)
 
-        curScreen = startScreen
+        state.curScreen = startScreen
       }
   
       // init
@@ -106,34 +110,36 @@ if (!mediaQuery.matches) {
         }
       })
       elements.menu.on('click', (e) => {
-        const screenLink = $(e.target).closest('a[data-screen-id]')
+        const link = $(e.target).closest('a[data-screen-id]')
 
-        if (!isScreenAnimation && screenLink.length) {
+        if (!state.isScreenAnimation && link.length) {
           e.preventDefault()
-          
-          isScreenAnimation = true
-          setTimeout(() => {
-            isScreenAnimation = false
-          }, 500)
+          state.isScreenAnimation = true
 
-          const nextScreenID = screenLink.data('screen-id')
-          const nextScreen = elements.menu.find(`.mobile-header__screen[data-screen-id="${nextScreenID}"]`).clone()
+          const nextScreenID = link.data('screen-id')
+          const nextScreen = elements.screens.find(`.mobile-header__screen[data-screen-id="${nextScreenID}"]`).clone()
           
-          const screenAnimation = screenLink.data('screen-animation')
+          const animationType = link.data('screen-animation')
 
-          nextScreen.css('transform', `translateX(${screenAnimation === 'left' ? '-' : ''}100%)`)
+          switch (animationType) {
+            case 'left':
+              state.curScreen.addClass('mobile-header__screen--to--right')
+              nextScreen.addClass('mobile-header__screen--from--left')
+              break
+            case 'right':
+              state.curScreen.addClass('mobile-header__screen--to--left')
+              nextScreen.addClass('mobile-header__screen--from--right')
+              break
+          }
 
           elements.menu.append(nextScreen)
 
           setTimeout(() => {
-            curScreen.css('transform', `translateX(${screenAnimation === 'left' ? '' : '-'}100%)`)
-            nextScreen.css('transform', '')
+            state.isScreenAnimation = false
 
-            setTimeout(() => {
-              curScreen.remove()
-              curScreen = nextScreen
-            }, 500)
-          })
+            state.curScreen.remove()
+            state.curScreen = nextScreen
+          }, ANIMATION_DURATION)
         }
       })
     }
