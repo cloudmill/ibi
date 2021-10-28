@@ -14,7 +14,8 @@ import 'parsleyjs/dist/i18n/ru';
 import '@fancyapps/fancybox';
 import BeerSlider from 'beerslider';
 import Sticky from 'sticky-js';
-import 'scripts/sidebar.js'
+import 'scripts/sidebar.js';
+import { mediaQuery } from 'scripts/mediaQueries.js';
 
 const BREAKPOINT = 1280;
 
@@ -1065,21 +1066,27 @@ var updateMySticky
 }
 
 // fancybox
-{
-  $(() => {
-    $.fancybox.defaults.closeExisting = true;
-    $.fancybox.defaults.touch = false;
+Fancybox.bind('[data-fancybox="gallery"]', {
+  idleTime: false,
+});
 
-    $('[data-fancy-button]').on('click', function (event) {
-      event.preventDefault();
 
-      const id = $(this).data('fancy-button');
-      const modal = $(`[data-fancy-modal="${id}"]`);
 
-      $.fancybox.open(modal);
-    });
-  });
-}
+// {
+//   $(() => {
+//     $.fancybox.defaults.closeExisting = true;
+//     $.fancybox.defaults.touch = false;
+
+//     $('[data-fancy-button]').on('click', function (event) {
+//       event.preventDefault();
+
+//       const id = $(this).data('fancy-button');
+//       const modal = $(`[data-fancy-modal="${id}"]`);
+
+//       $.fancybox.open(modal);
+//     });
+//   });
+// }
 
 // before-after
 {
@@ -1417,5 +1424,37 @@ var updateMySticky
         block.style.color = ''
       })
     })
+  }
+}
+
+// bazal margin
+
+{
+
+  if (!mediaQuery.matches) {
+
+    function seqMargin() {
+      const heightText = $('.seq__text--last')[0].getBoundingClientRect().height;
+      const heightSlide = $('.seq__texts-item--last')[0].getBoundingClientRect().height;
+      const mainContent = $('.implantation-main-content');
+  
+      const margin = -(heightSlide - heightText + 60);
+  
+      mainContent.css('margin-top', margin);
+    };
+
+    $(window).on('resize', seqMargin() );
+
+    $(window).on('load', () => {
+
+      setTimeout(() => {
+
+        seqMargin();
+
+        console.log(112);
+
+      }, 1000);
+    });
+
   }
 }

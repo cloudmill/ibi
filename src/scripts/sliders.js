@@ -216,12 +216,6 @@ const BREAKPOINT = 1280;
             }
             break;
   
-          // case 150:
-          //   slider_options = {
-              
-  
-          //   }
-          //   break;
   
           case 160:
             slider_options = {
@@ -274,21 +268,21 @@ const BREAKPOINT = 1280;
     const swiperSlider = new Swiper('.development__desc', {
       loop: true,
       // freeMode: false,
-      // spaceBetween: 0,
-      // slidesPerView: 1,
+      spaceBetween: 0,
+      slidesPerView: 1,
       // initialSlide: 0,
 
       thumbs: {
         swiper: swiperThumbs,
       },
 
-      spaceBetween: 0,
+      // spaceBetween: 0,
   
-      breakpoints: {
-        [BREAKPOINT]: {
-          spaceBetween: 0,
-        },
-      },
+      // breakpoints: {
+      //   [BREAKPOINT]: {
+      //     spaceBetween: 0,
+      //   },
+      // },
 
       // controller: {
       //   control: swiperThumbs

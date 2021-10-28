@@ -54,7 +54,7 @@ block content
               .swiper-wrapper
                 - for (let i=0; i<3; i++)
                   .swiper-slide
-                    .index__mid-slide
+                    a.index__mid-slide(href=`assets/images/index/mid-${i + 1}.jpeg` data-fancybox="gallery")
                       img.index__mid-img(src=`assets/images/index/mid-${i + 1}.jpeg` alt='')
           .index__mid-controls
             .index__mid-control.index__mid-control--left
@@ -79,7 +79,7 @@ block content
               .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
                 .button-arrow__button.lab-btn-next
                   +svg-arrow.button-arrow__svg
-        .development__names.swiper-container(data-slider-id='151')
+        .development__names.swiper-container
           .swiper-wrapper
             .development__names-item.swiper-slide Металлокерамический мост
             .development__names-item.swiper-slide Мост ПММА
@@ -87,7 +87,7 @@ block content
             .development__names-item.swiper-slide Керамокомпозитный мост
             .development__names-item.swiper-slide Металлоакриловый мост
             .development__names-item.swiper-slide Керамокомпозитный мост
-        .development__desc.swiper-container(data-slider-id='150')
+        .development__desc.swiper-container
           .swiper-wrapper
             - for (let i=0; i<6; i++)
               .swiper-slide.development__desc-item
