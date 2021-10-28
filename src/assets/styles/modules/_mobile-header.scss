@@ -1,4 +1,8 @@
 .mobile-header {
+  $comp: &;
+
+  $background-color: #F1FBFD;
+
   --panel-height: 78px;
   
   position: fixed;
@@ -26,7 +30,7 @@
     }
 
     &--background {
-      background-color: gray;
+      background-color: $background-color;
     }
   }
 
@@ -46,7 +50,7 @@
     pointer-events: none;
 
     opacity: 0;
-    background-color: gray;
+    background-color: $background-color;
     transition: $transition;
 
     &--open {
@@ -134,5 +138,64 @@
       padding-left: 20px;
       padding-right: 20px;
     }
+  }
+
+  &__top {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__back {
+    width: 40px;
+    height: 28px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+  }
+  &__back-svg {
+    transform: rotate(90deg);
+  }
+
+  &__list {
+    padding-left: 40px;
+  }
+  &__item {
+    display: flex;
+
+    &:not(:first-child) {
+      margin-top: 15px;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+
+    &--next {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      #{$comp}__link-svg {
+        transform: rotate(-90deg);
+
+        margin-left: 20px;
+        flex-shrink: 0;
+      }
+    }
+  }
+  &__link-text {
+    font-size: 16px;
+    line-height: 22px;
+
+    &--large {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  &__link-svg {
   }
 }

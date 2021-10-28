@@ -6,56 +6,60 @@ mixin mobile-header
       .mobile-header__screens
         .mobile-header__screen(data-screen-id=0)
           .mobile-header__content
-            p
-              |1 screen
-            ul
-              li
-                a(href="#")
-                  |redirect
-              li
-                a(href="#" data-screen-id=1 data-screen-animation='right')
-                  |go to 2 screen, right
-              li
-                a(href="#" data-screen-id=2 data-screen-animation='left')
-                  |go to 3 screen, left (loop effect)
-            - for (let i = 0; i < 200; i++)
-              p
-                |123
-              br
-            p 123
+            a(data-screen-id=1 data-screen-animation='right')
+              |go to 2 screen, right
         .mobile-header__screen.mobile-header__screen--inner(data-screen-id=1)
           .mobile-header__content.mobile-header__content--inner
-            p
-              |2 screen
-            ul
-              li
-                a(href="#" data-screen-id=0 data-screen-animation='left')
-                  |go to 1 screen, left
-              li
-                a(href="#")
-                  |redirect
-              li
-                a(href="#" data-screen-id=2 data-screen-animation='right')
-                  |go to 3 screen, right
+            .mobile-header__top
+              a.mobile-header__back(data-screen-id=0 data-screen-animation='left')
+                +svg-arrow.mobile-header__back-svg
+              a.mobile-header__link(href='#')
+                .mobile-header__link-text.mobile-header__link-text--large
+                  |Услуги
+            ul.mobile-header__list
+              li.mobile-header__item
+                a.mobile-header__link.mobile-header__link--next(data-screen-id='2' data-screen-animation='right')
+                  .mobile-header__link-text
+                    |Протезирование
+                  +svg-arrow.mobile-header__link-svg
+              -
+                var items = [
+                  'Диагностика',
+                  'Профилактика',
+                  'Удаление зубов',
+                  'Лечение зубов',
+                ]
+              each item in items
+                li.mobile-header__item
+                  a.mobile-header__link(href='#')
+                    .mobile-header__link-text
+                      |#{item}
         .mobile-header__screen.mobile-header__screen--inner(data-screen-id=2)
           .mobile-header__content.mobile-header__content--inner
-            p 
-              |3 screen
-            ul
-              li
-                a(href="#" data-screen-id=1 data-screen-animation='left')
-                  |go to 2 screen, left
-              li
-                a(href="#")
-                  |redirect
-              li
-                a(href="#" data-screen-id=0 data-screen-animation='left')
-                  |go to 1 screen, left left
-              li
-                a(href="#" data-screen-id=0 data-screen-animation='right')
-                  |go to 1 screen, right (loop effect)
-            - for (let i = 0; i < 200; i++)
-              p
-                |123
-              br
-            p 123
+            .mobile-header__top
+              a.mobile-header__back(data-screen-id=1 data-screen-animation='left')
+                +svg-arrow.mobile-header__back-svg
+              a.mobile-header__link(href='#')
+                .mobile-header__link-text.mobile-header__link-text--large
+                  |Протезирование
+            ul.mobile-header__list
+              -
+                var items = [
+                  'Оклюзивные накладки',
+                  'Культевая вкладка',
+                  'Накладкициркониевые Prettau',
+                  'Накладкициркониевые под нанесение керамики',
+                  'Коронки металлокерамические',
+                  'Коронки циркониевые KATANA',
+                  'Коронки циркониевые',
+                  'Винир (люминир)',
+                  'Безметалловые вкладки',
+                  'Накладкициркониевые KATANA',
+                  'Коронки циркониевые под нанесение керамики',
+                  'Коронки циркониевые Prettau',
+                ]
+              each item in items
+                li.mobile-header__item
+                  a.mobile-header__link(href='#')
+                    .mobile-header__link-text
+                      |#{item}
