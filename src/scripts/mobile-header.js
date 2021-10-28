@@ -21,7 +21,7 @@ if (!mediaQuery.matches) {
   
       elements.panel = elements.root.find('.mobile-header__panel')
       elements.menu = elements.root.find('.mobile-header__menu')
-      elements.menuClose = elements.root.find('.mobile-header__menu-close')
+      elements.menuClose = elements.root.find('.header__button-button')
       elements.screens = elements.root.find('.mobile-header__screens')
 
       const state = {
@@ -67,6 +67,15 @@ if (!mediaQuery.matches) {
   
       // ui events
       elements.menuClose.on('click', () => {
+        // menuClose
+        {
+          if (elements.menuClose[0].hasAttribute('data-modal-active')) {
+            elements.menuClose[0].removeAttribute('data-modal-active')
+          } else {
+            elements.menuClose[0].setAttribute('data-modal-active', '')
+          }
+        }
+
         // body
         {
           const body = document.body
