@@ -1,40 +1,24 @@
-import StickySidebar from 'sticky-sidebar'
-// import { signal } from 'scripts/communication.js'
+import ResizeSensor from './ResizeSensor'
+import stickySidebar from 'sticky-sidebar'
+
+// ResizeSensor должна быть доступна глобально, дабы stickySidebar смог ее использовать
+// Изначально import не делает ее доступной глобально
+window.ResizeSensor = ResizeSensor
 
 window.addEventListener('DOMContentLoaded', () => {
-  const sidebarTrack = document.querySelector('.sidebar-track')
-
-  if (sidebarTrack) {
-    const updateSidebarTrack = (() => {
-      const footer = document.querySelector('.footer')
-
-      return () => {
-        const footerRect = footer.getBoundingClientRect()
-        const footerPageY = pageYOffset + footerRect.y
-
-        sidebarTrack.style.height = footerPageY + 'px'   
-      }
-    })()
-
-    const sidebar = sidebarTrack.querySelector('.sidebar')
-    const stickySidebar = new StickySidebar(sidebar, {
-      containerSelector: '.sidebar-track__inner',
-      innerWrapperSelector: '.sidebar__inner',
-      topSpacing: 150,
-      bottomSpacing: 100,
-      resizeSensor: false,
+  if ($('.test-container').length) {
+    const sidebar = new stickySidebar('.test-sidebar', {
+      topSpacing: 20,
+      bottomSpacing: 20,
+      containerSelector: '.test-container',
+      innerWrapperSelector: '.test-sidebar-inner',
+      minWidth: 1280,
     })
-    // signal('sidebar:1', stickySidebar)
-
-    updateSidebarTrack()
-    stickySidebar.updateSticky()
-    window.addEventListener('load', () => {
-      updateSidebarTrack()
-      stickySidebar.updateSticky()
+  
+    let flag = true
+    $('button').on('click', () => {
+      $('.test-my-sidebar').css('height', flag ? '150vh' : '')
+      flag = !flag
     })
-
-    setInterval(() => {
-      stickySidebar.updateSticky()
-    }, 100)
   }
 })

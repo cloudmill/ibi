@@ -3,7 +3,7 @@ import 'scripts/backend.js';
 import 'scripts/modal-tooltip.js';
 import 'scripts/sliders.js';
 import 'scripts/forms.js';
-import 'scripts/map.js';
+// import 'scripts/map.js';
 import 'scripts/seq.js';
 import 'scripts/psx.js';
 import { signal } from 'scripts/communication.js';
@@ -1404,31 +1404,32 @@ var updateMySticky
 
 // bazal margin
 {
-
   if (!mediaQuery.matches) {
-
-    function seqMargin() {
-      const heightText = $('.seq__text--last')[0].getBoundingClientRect().height;
-      const heightSlide = $('.seq__texts-item--last')[0].getBoundingClientRect().height;
-      const mainContent = $('.implantation-main-content');
+    try {
+      function seqMargin() {
+        const heightText = $('.seq__text--last')[0].getBoundingClientRect().height;
+        const heightSlide = $('.seq__texts-item--last')[0].getBoundingClientRect().height;
+        const mainContent = $('.implantation-main-content');
+    
+        const margin = -(heightSlide - heightText + 60);
+    
+        mainContent.css('margin-top', margin);
+      };
   
-      const margin = -(heightSlide - heightText + 60);
+      $(window).on('resize', seqMargin() );
   
-      mainContent.css('margin-top', margin);
-    };
-
-    $(window).on('resize', seqMargin() );
-
-    $(window).on('load', () => {
-
-      setTimeout(() => {
-
-        seqMargin();
-
-        console.log(112);
-
-      }, 1000);
-    });
-
+      $(window).on('load', () => {
+  
+        setTimeout(() => {
+  
+          seqMargin();
+  
+          console.log(112);
+  
+        }, 1000);
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
