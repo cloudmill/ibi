@@ -1432,3 +1432,24 @@ var updateMySticky
 
   }
 }
+
+// fancybox
+
+try {
+  $('[data-fancybox]').fancybox({
+    loop: true,
+    buttons: [
+      "close"
+    ],
+  
+    idleTime: false,
+    touch: false,
+    clickSlide: "close",
+  
+    clickContent: function(current, event) {
+      return current.type === "image" ? "close" : false;
+    },
+  })
+} catch (error) {
+  console.error(error);
+}
