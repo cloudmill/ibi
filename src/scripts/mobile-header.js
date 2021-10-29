@@ -83,15 +83,13 @@ if (!mediaQuery.matches) {
           const bodyOverflow = bodyStyle.overflow
   
           if (bodyOverflow !== 'visible') {
-            body.style.overflow = ''
-
-            $('.wrapper').css('overlfow', '')
-            $('.wrapper').css('max-height', '')
+            body.style.cssText = ''
           } else {
-            body.style.overflow = 'hidden'
-
-            $('.wrapper').css('overlfow', 'hidden')
-            $('.wrapper').css('max-height', '100vh')
+            body.style.cssText = `
+              position: relative;
+              height: 100%;
+              overflow: hidden;
+            `
           }
 
           $('.wrapper').css('overlfow')
