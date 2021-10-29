@@ -3,7 +3,7 @@ import 'scripts/backend.js';
 import 'scripts/modal-tooltip.js';
 import 'scripts/sliders.js';
 import 'scripts/forms.js';
-// import 'scripts/map.js';
+import 'scripts/map.js';
 import 'scripts/seq.js';
 import 'scripts/psx.js';
 import { signal } from 'scripts/communication.js';
@@ -651,25 +651,6 @@ var updateMySticky
       })
     })
   })
-}
-
-// team filter
-{
-  // let memberCard = document.querySelectorAll('.team-member');
-
-  // document.querySelector('.team-filter').addEventListener('click', event => {
-  //   if (event.target.tagName != 'LI') return false;
-
-  //   let filterClass = event.target.dataset['id'];
-  //   // console.log(filterClass);
-
-  //   memberCard.forEach(elem => {
-  //     elem.classList.remove('hide');
-  //     if (!elem.classList.contains(filterClass)) {
-  //       elem.classList.add('hide'); 
-  //     }
-  //   });
-  // });
 }
 
 // prosthetics filter

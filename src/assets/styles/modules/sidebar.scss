@@ -1,37 +1,27 @@
-.row {
-  &__col {
-    &--sidebar {
-      position: relative;
-    }
-  }
-}
+.sidebar {
+  // отступ для шапки + отступ от верхней границы viewport'a
+  padding: calc(110px + 140px) 0 160px;
 
-.sidebar-track {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  padding: 100px 0;
-  pointer-events: none;
-
-  &__inner {
+  &__container {
     height: 100%;
   }
-}
 
-.sidebar {
-  // lib styles
-  will-change: min-height;
-  // lib styles
-
-  &__inner {
-    // lib styles
-    transform: translate(0, 0);
+  &__sidebar {
+    // стили библиотеки
+    will-change: min-height;
+    // стили библиотеки
+  }
+  &__sidebar-inner {
+    // стили библиотеки
+    transform: translate(0, 0); /* For browsers don't support translate3d. */
     transform: translate3d(0, 0, 0);
     will-change: position, transform;
-    // lib styles
+    // стили библиотеки
 
-    pointer-events: all;
+    &--pointer-events {
+      &--all {
+        pointer-events: all;
+      }
+    }
   }
 }

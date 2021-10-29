@@ -1,6 +1,7 @@
 .test {
   &-container {
     margin: 150vh 0;
+    padding: 100px;
     min-height: 300vh;
 
     overflow: hidden;
@@ -10,12 +11,16 @@
   }
 
   &-sidebar {
+    // стили библиотеки
     will-change: min-height;
+    // стили библиотеки
   }
   &-sidebar-inner {
+    // стили библиотеки
     transform: translate(0, 0); /* For browsers don't support translate3d. */
     transform: translate3d(0, 0, 0);
     will-change: position, transform;
+    // стили библиотеки
   }
 
   &-my-sidebar {

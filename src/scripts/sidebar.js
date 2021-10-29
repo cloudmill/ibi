@@ -1,24 +1,21 @@
+import { mediaQuery } from './mediaQueries'
 import ResizeSensor from './ResizeSensor'
 import stickySidebar from 'sticky-sidebar'
 
-// ResizeSensor должна быть доступна глобально, дабы stickySidebar смог ее использовать
-// Изначально import не делает ее доступной глобально
-window.ResizeSensor = ResizeSensor
-
-window.addEventListener('DOMContentLoaded', () => {
-  if ($('.test-container').length) {
-    const sidebar = new stickySidebar('.test-sidebar', {
-      topSpacing: 20,
-      bottomSpacing: 20,
-      containerSelector: '.test-container',
-      innerWrapperSelector: '.test-sidebar-inner',
-      minWidth: 1280,
-    })
+if (mediaQuery.matches) {
+  window.addEventListener('DOMContentLoaded', () => {
+    if ($('.sidebar').length) {
+      const OFFSET_TOP = 140
   
-    let flag = true
-    $('button').on('click', () => {
-      $('.test-my-sidebar').css('height', flag ? '150vh' : '')
-      flag = !flag
-    })
-  }
-})
+      // ResizeSensor должна быть доступна глобально, дабы stickySidebar смог ее использовать
+      // Изначально import не делает ее доступной глобально
+      window.ResizeSensor = ResizeSensor
+
+      const sidebar = new stickySidebar('.sidebar__sidebar', {
+        topSpacing: OFFSET_TOP,
+        containerSelector: '.sidebar__container',
+        innerWrapperSelector: '.sidebar__sidebar-inner',
+      })
+    }
+  })
+}
