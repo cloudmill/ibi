@@ -653,25 +653,6 @@ var updateMySticky
   })
 }
 
-// team filter
-{
-  // let memberCard = document.querySelectorAll('.team-member');
-
-  // document.querySelector('.team-filter').addEventListener('click', event => {
-  //   if (event.target.tagName != 'LI') return false;
-
-  //   let filterClass = event.target.dataset['id'];
-  //   // console.log(filterClass);
-
-  //   memberCard.forEach(elem => {
-  //     elem.classList.remove('hide');
-  //     if (!elem.classList.contains(filterClass)) {
-  //       elem.classList.add('hide'); 
-  //     }
-  //   });
-  // });
-}
-
 // prosthetics filter
 {
   $(() => {
@@ -1404,32 +1385,33 @@ var updateMySticky
 
 // bazal margin
 {
-
   if (!mediaQuery.matches) {
-
-    function seqMargin() {
-      const heightText = $('.seq__text--last')[0].getBoundingClientRect().height;
-      const heightSlide = $('.seq__texts-item--last')[0].getBoundingClientRect().height;
-      const mainContent = $('.implantation-main-content');
+    try {
+      function seqMargin() {
+        const heightText = $('.seq__text--last')[0].getBoundingClientRect().height;
+        const heightSlide = $('.seq__texts-item--last')[0].getBoundingClientRect().height;
+        const mainContent = $('.implantation-main-content');
+    
+        const margin = -(heightSlide - heightText + 60);
+    
+        mainContent.css('margin-top', margin);
+      };
   
-      const margin = -(heightSlide - heightText + 60);
+      $(window).on('resize', seqMargin() );
   
-      mainContent.css('margin-top', margin);
-    };
-
-    $(window).on('resize', seqMargin() );
-
-    $(window).on('load', () => {
-
-      setTimeout(() => {
-
-        seqMargin();
-
-        console.log(112);
-
-      }, 1000);
-    });
-
+      $(window).on('load', () => {
+  
+        setTimeout(() => {
+  
+          seqMargin();
+  
+          console.log(112);
+  
+        }, 1000);
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
 

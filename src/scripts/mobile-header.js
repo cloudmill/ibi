@@ -84,9 +84,17 @@ if (!mediaQuery.matches) {
   
           if (bodyOverflow !== 'visible') {
             body.style.overflow = ''
+
+            $('.wrapper').css('overlfow', '')
+            $('.wrapper').css('max-height', '')
           } else {
             body.style.overflow = 'hidden'
+
+            $('.wrapper').css('overlfow', 'hidden')
+            $('.wrapper').css('max-height', '100vh')
           }
+
+          $('.wrapper').css('overlfow')
         }
   
         // menu

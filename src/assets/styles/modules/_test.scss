@@ -1,27 +1,34 @@
-.sidebar {
-  // отступ для шапки + отступ от верхней границы viewport'a
-  padding: calc(110px + 140px) 0 160px;
+.test {
+  &-container {
+    margin: 150vh 0;
+    padding: 100px;
+    min-height: 300vh;
 
-  &__container {
-    height: 100%;
+    overflow: hidden;
+    resize: vertical;
+
+    border: 1px solid black;
   }
 
-  &__sidebar {
+  &-sidebar {
     // стили библиотеки
     will-change: min-height;
     // стили библиотеки
   }
-  &__sidebar-inner {
+  &-sidebar-inner {
     // стили библиотеки
     transform: translate(0, 0); /* For browsers don't support translate3d. */
     transform: translate3d(0, 0, 0);
     will-change: position, transform;
     // стили библиотеки
+  }
 
-    &--pointer-events {
-      &--all {
-        pointer-events: all;
-      }
-    }
+  &-my-sidebar {
+    padding: 10px;
+    width: 150px;
+    overflow: hidden;
+    resize: vertical;
+
+    border: 1px solid black;
   }
 }

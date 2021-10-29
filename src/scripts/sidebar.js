@@ -1,40 +1,21 @@
-import StickySidebar from 'sticky-sidebar'
-// import { signal } from 'scripts/communication.js'
+import { mediaQuery } from './mediaQueries'
+import ResizeSensor from './ResizeSensor'
+import stickySidebar from 'sticky-sidebar'
 
-window.addEventListener('DOMContentLoaded', () => {
-  const sidebarTrack = document.querySelector('.sidebar-track')
+if (mediaQuery.matches) {
+  window.addEventListener('DOMContentLoaded', () => {
+    if ($('.sidebar').length) {
+      const OFFSET_TOP = 140
+  
+      // ResizeSensor должна быть доступна глобально, дабы stickySidebar смог ее использовать
+      // Изначально import не делает ее доступной глобально
+      window.ResizeSensor = ResizeSensor
 
-  if (sidebarTrack) {
-    const updateSidebarTrack = (() => {
-      const footer = document.querySelector('.footer')
-
-      return () => {
-        const footerRect = footer.getBoundingClientRect()
-        const footerPageY = pageYOffset + footerRect.y
-
-        sidebarTrack.style.height = footerPageY + 'px'   
-      }
-    })()
-
-    const sidebar = sidebarTrack.querySelector('.sidebar')
-    const stickySidebar = new StickySidebar(sidebar, {
-      containerSelector: '.sidebar-track__inner',
-      innerWrapperSelector: '.sidebar__inner',
-      topSpacing: 150,
-      bottomSpacing: 100,
-      resizeSensor: false,
-    })
-    // signal('sidebar:1', stickySidebar)
-
-    updateSidebarTrack()
-    stickySidebar.updateSticky()
-    window.addEventListener('load', () => {
-      updateSidebarTrack()
-      stickySidebar.updateSticky()
-    })
-
-    setInterval(() => {
-      stickySidebar.updateSticky()
-    }, 100)
-  }
-})
+      const sidebar = new stickySidebar('.sidebar__sidebar', {
+        topSpacing: OFFSET_TOP,
+        containerSelector: '.sidebar__container',
+        innerWrapperSelector: '.sidebar__sidebar-inner',
+      })
+    }
+  })
+}
