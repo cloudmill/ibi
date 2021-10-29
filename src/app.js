@@ -4,9 +4,9 @@ import 'scripts/modal-tooltip.js';
 import 'scripts/sliders.js';
 import 'scripts/forms.js';
 import 'scripts/map.js';
-import 'scripts/seq.js'
-import 'scripts/psx.js'
-import { signal } from 'scripts/communication.js'
+import 'scripts/seq.js';
+import 'scripts/psx.js';
+import { signal } from 'scripts/communication.js';
 import 'scripts/sidebar-spoiler.js';
 import 'scripts/datesSlider.js';
 import parsley from 'parsleyjs';
@@ -16,6 +16,7 @@ import BeerSlider from 'beerslider';
 import Sticky from 'sticky-js';
 import 'scripts/sidebar.js';
 import { mediaQuery } from 'scripts/mediaQueries.js';
+import 'scripts/mobile-header.js';
 
 const BREAKPOINT = 1280;
 

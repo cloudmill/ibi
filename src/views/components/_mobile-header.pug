@@ -1,0 +1,164 @@
+mixin mobile-header
+  header.mobile-header
+    .mobile-header__panel
+      //- button.mobile-header__menu-close(data-screen-id=0) toggle menu
+      .header__header
+        .container
+          .header__inner
+            .header__row
+              .header__col
+                .header__container
+                  .header__logo
+                    a.header__logo-link(href='#')
+                      +svg-logo.header__logo-svg
+              .header__col
+                .header__panel
+                  .header__panel-item.header-menu
+                    .header__items.header__container
+                      .header__items-item
+                        .header__drop
+                          .header__drop-button(data-modal-button='1')
+                            .header__drop-text.header__text
+                              |Базальная имплантация
+                            .header__drop-image
+                              +svg-arrow.header__drop-svg
+                      .header__items-item
+                        .header__drop
+                          .header__drop-button(data-modal-button='2')
+                            .header__drop-text.header__text
+                              |Услуги
+                            .header__drop-image
+                              +svg-arrow.header__drop-svg
+                      .header__items-item
+                        a.header__link.header__text(href='#')
+                          |До и После
+                  .header__panel-item
+                    .header__items.header__items--large.header__container
+                      .header__items-item
+                        .header__phone.header__phone-head
+                          a.header__phone-call.header__phone-call-head.header__text.callback-button(href='#')
+                            |Заказать звонок
+                          a.header__phone-link.header__text.header__link(href='tel:84994906349')
+                            |8 499 490 63 49
+                      .header__items-item.header-lang-drop
+                        .header__drop.mission__spoiler
+                          .header__drop-button.mission__spoiler-button
+                            .header__drop-text.header__text.mission__spoiler-title
+                              |Ru
+                            .header__drop-image.news-spoiler__image
+                              +svg-arrow.header__drop-svg
+                          .header__drop-dropdown.mission__spoiler-drop
+                            button.header__drop-text.header__text
+                              |En
+                      .header__items-item.header__items-item--mobile
+                        .header__button
+                          .header__button-button(data-screen-id=0)
+                            .header__button-image
+    .mobile-header__menu
+      .mobile-header__screens
+        .mobile-header__screen(data-screen-id=0)
+          .mobile-header__content
+            .container
+              .header-modal__row.header-modal__row--mobile
+                .header-modal__col
+                  .header__phone
+                    a.header__phone-link.header__text.header__link(href='#')
+                      |8 499 490 63 49
+                .header-modal__col
+                  .header__drop.mission__spoiler
+                    .header__drop-button.mission__spoiler-button
+                      .header__drop-text.header__text.mission__spoiler-title
+                        |Ru
+                      .header__drop-image.news-spoiler__image
+                        +svg-arrow.header__drop-svg
+                    .header__drop-dropdown.mission__spoiler-drop
+                      button.header__drop-text.header__text
+                        |En
+            
+            ul.mobile-header__list.mobile-header__list--root
+              -
+                var items = [
+                  'Базальная имплантация',
+                  'Услуги',
+                  'О нас',
+                  'Специалистам',
+                ]
+              each item in items
+                li.mobile-header__item.mobile-header__item--root
+                  a.mobile-header__link.mobile-header__link--next.mobile-header__link--root(data-screen-id='1' data-screen-animation='right')
+                    .mobile-header__link-text
+                      |#{item}
+                    +svg-arrow.mobile-header__link-svg
+            ul.mobile-header__list.mobile-header__list--bottom
+              -
+                var items = [
+                  'До и После',
+                  'Гарантии',
+                  'Способы оплаты',
+                  'Трансфер',
+                  'Вопрос–ответ',
+                  'Стоимость имплантации',
+                  'Стоимость протезирования',
+                  'Лаборатория',
+                  'Публикации',
+                ]
+              each item in items
+                li.mobile-header__item
+                  a.mobile-header__link(href='#')
+                    .mobile-header__link-text
+                      |#{item}
+        .mobile-header__screen.mobile-header__screen--inner(data-screen-id=1)
+          .mobile-header__content.mobile-header__content--inner
+            .mobile-header__top
+              a.mobile-header__back(data-screen-id=0 data-screen-animation='left')
+                +svg-arrow.mobile-header__back-svg
+              a.mobile-header__link(href='#')
+                .mobile-header__link-text.mobile-header__link-text--large
+                  |Услуги
+            ul.mobile-header__list
+              li.mobile-header__item
+                a.mobile-header__link.mobile-header__link--next(data-screen-id='2' data-screen-animation='right')
+                  .mobile-header__link-text
+                    |Протезирование
+                  +svg-arrow.mobile-header__link-svg
+              -
+                var items = [
+                  'Диагностика',
+                  'Профилактика',
+                  'Удаление зубов',
+                  'Лечение зубов',
+                ]
+              each item in items
+                li.mobile-header__item
+                  a.mobile-header__link(href='#')
+                    .mobile-header__link-text
+                      |#{item}
+        .mobile-header__screen.mobile-header__screen--inner(data-screen-id=2)
+          .mobile-header__content.mobile-header__content--inner
+            .mobile-header__top
+              a.mobile-header__back(data-screen-id=1 data-screen-animation='left')
+                +svg-arrow.mobile-header__back-svg
+              a.mobile-header__link(href='#')
+                .mobile-header__link-text.mobile-header__link-text--large
+                  |Протезирование
+            ul.mobile-header__list
+              -
+                var items = [
+                  'Оклюзивные накладки',
+                  'Культевая вкладка',
+                  'Накладкициркониевые Prettau',
+                  'Накладкициркониевые под нанесение керамики',
+                  'Коронки металлокерамические',
+                  'Коронки циркониевые KATANA',
+                  'Коронки циркониевые',
+                  'Винир (люминир)',
+                  'Безметалловые вкладки',
+                  'Накладкициркониевые KATANA',
+                  'Коронки циркониевые под нанесение керамики',
+                  'Коронки циркониевые Prettau',
+                ]
+              each item in items
+                li.mobile-header__item
+                  a.mobile-header__link(href='#')
+                    .mobile-header__link-text
+                      |#{item}
