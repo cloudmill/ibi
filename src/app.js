@@ -225,13 +225,13 @@ const BREAKPOINT = 1280;
               this.id = id;
             },
             close: function () {
-              // tab_el.filter(`[data-tabs-tab="${this.id}"]`).removeAttr('data-tabs-active');
-              tab_el.filter(`[data-tabs-tab="${this.id}"]`).slideUp(500);
+              $('[data-tabs-active]').removeAttr('data-tabs-active');
+              // tab_el.filter(`[data-tabs-tab="${this.id}"]`).slideUp(500);
               button_el.filter(`[data-tabs-button="${this.id}"]`).removeAttr('data-tabs-active');
             },
             open: function () {
-              // tab_el.filter(`[data-tabs-tab="${this.id}"]`).attr('data-tabs-active', '');
-              tab_el.filter(`[data-tabs-tab="${this.id}"]`).slideDown(500);
+              tab_el.filter(`[data-tabs-tab="${this.id}"]`).attr('data-tabs-active', '');
+              // tab_el.filter(`[data-tabs-tab="${this.id}"]`).slideDown(500);
               button_el.filter(`[data-tabs-button="${this.id}"]`).attr('data-tabs-active', '');
             },
             change: function (id) {
