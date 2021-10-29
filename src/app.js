@@ -1418,7 +1418,7 @@ var updateMySticky
 // fancybox
 
 try {
-  $('[data-fancybox]').fancybox({
+  $('[data-fancyboxx]').fancybox({
     loop: true,
     buttons: [
       "close"
