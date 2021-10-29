@@ -652,8 +652,8 @@ var updateMySticky
     })
   })
 }
-// team filter
 
+// team filter
 {
   // let memberCard = document.querySelectorAll('.team-member');
 
@@ -673,7 +673,6 @@ var updateMySticky
 }
 
 // prosthetics filter
-
 {
   $(() => {
     const filterPros = $('.prosthetic-slider__filter');
@@ -1066,29 +1065,6 @@ var updateMySticky
   })
 }
 
-// fancybox
-Fancybox.bind('[data-fancybox="gallery"]', {
-  idleTime: false,
-});
-
-
-
-// {
-//   $(() => {
-//     $.fancybox.defaults.closeExisting = true;
-//     $.fancybox.defaults.touch = false;
-
-//     $('[data-fancy-button]').on('click', function (event) {
-//       event.preventDefault();
-
-//       const id = $(this).data('fancy-button');
-//       const modal = $(`[data-fancy-modal="${id}"]`);
-
-//       $.fancybox.open(modal);
-//     });
-//   });
-// }
-
 // before-after
 {
   $(() => {
@@ -1346,7 +1322,6 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 }
 
 // Калькулятор с зубами
-
 {
   $(() => {
 
@@ -1386,7 +1361,6 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 };
 
 // Добавление активного состояния на автора в публикации
-
 {
   $(() => {
     $(window).on('click', event => {
@@ -1429,7 +1403,6 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 }
 
 // bazal margin
-
 {
 
   if (!mediaQuery.matches) {
