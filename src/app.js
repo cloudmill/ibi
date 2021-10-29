@@ -30,7 +30,7 @@ const BREAKPOINT = 1280;
       {
         const state = {
           id: null,
-          leave(event) {
+          leave(event) {  
             console.log(event);
           },
           close: function () {
@@ -1417,21 +1417,45 @@ var updateMySticky
 
 // fancybox
 
-try {
-  $('[data-fancyboxx]').fancybox({
-    loop: true,
-    buttons: [
-      "close"
-    ],
+// try {
+//   $('[data-fancyboxx]').fancybox({
+//     loop: true,
+//     buttons: [
+//       "close"
+//     ],
   
-    idleTime: false,
-    touch: false,
-    clickSlide: "close",
+//     idleTime: false,
+//     touch: false,
+//     clickSlide: "close",
   
-    clickContent: function(current, event) {
-      return current.type === "image" ? "close" : false;
-    },
+//     clickContent: function(current, event) {
+//       return current.type === "image" ? "close" : false;
+//     },
+//   })
+// } catch (error) {
+//   console.error(error);
+// }
+
+{
+  $(() => {
+    $('[data-fancyboxx]').on('click', function (e) {
+      e.preventDefault()
+
+      const group = $(this).data('fancyboxx')
+
+      const items = []
+      $(`[data-fancyboxx="${group}"]`).each(function () {
+        items.push(this.getAttribute('data-href'))
+      })
+
+      $.fancybox.open(items.map((item) => ({ src: item })), {
+        loop: true,
+        infobar: false,
+        buttons: [
+          "close"
+        ],
+        clickContent: false,
+      })
+    })
   })
-} catch (error) {
-  console.error(error);
 }
