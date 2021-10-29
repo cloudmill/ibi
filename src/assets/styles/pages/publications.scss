@@ -3,10 +3,13 @@
   //   padding-left: 40px;
   // }
 
-  margin: 20px -20px 0;
+  // margin: 20px -20px 0;
   // padding-left: 20px;
+  margin-top: 20px;
+
   @media (min-width: $breakpoint) {
-    margin: 10px -40px 0 0;
+    // margin: 10px -40px 0 0;
+    margin-top: 10px;
     padding-left: 0;
   }
 
@@ -48,6 +51,7 @@
   }
 
   &__container {
+    overflow: visible;
     @media (min-width: $breakpoint) {
       padding-top: 20px;
     }
@@ -63,9 +67,11 @@
   }
 
   &__title {
-    margin: 0 0 20px 20px;
+    // margin: 0 0 20px 20px;
+    margin-bottom: 20px;
     @media (min-width: $breakpoint) {
-      margin: 0 0 15px 0;
+      // margin: 0 0 15px 0;
+      margin-bottom: 15px;
 
       @include fsl(26px);
     }
@@ -96,9 +102,9 @@
     width: 100%;
     // overflow-x: auto;
 
-    @media (max-width: $breakpoint - 1px) {
-      padding-left: 20px;
-    }
+    // @media (max-width: $breakpoint - 1px) {
+    //   padding-left: 20px;
+    // }
   }
 
   &__item {
