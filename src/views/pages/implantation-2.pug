@@ -79,7 +79,7 @@ block content
                       .swiper-wrapper
                         - for (let i=0; i<3; i++)
                           .swiper-slide
-                            a.index__mid-slide(href=`assets/images/index/mid-${i + 1}.jpeg` data-fancybox="gallery")
+                            a.index__mid-slide(data-href=`assets/images/index/mid-${i + 1}.jpeg` data-fancyboxx="gallery" style='cursor: pointer;')
                               img.index__mid-img.index__mid-img--md(src=`assets/images/index/mid-${i + 1}.jpeg` alt='')
                             .index__mid-description 
                               |Подпись для фотографии, которая будет говорить о том, какой этап внутри поэтапа
