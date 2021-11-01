@@ -64,7 +64,7 @@
 
   &__screen {
     width: 100%;
-    height: 100%;
+    height: calc(100vh - var(--panel-height));
     grid-area: place;
     overflow-x: hidden;
     overflow-y: auto;
