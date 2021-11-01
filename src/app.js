@@ -1459,3 +1459,30 @@ var updateMySticky
     })
   })
 }
+
+// scroll trigger/target
+{
+  if (mediaQuery.matches) {
+    console.log('wow');
+    window.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('click', (e) => {
+        const trigger = $(e.target).closest('[data-scroll-trigger]')
+  
+        if (trigger.length) {
+          const id = trigger.data('scroll-trigger')
+          console.log(id);
+          const target = document.querySelector(`[data-scroll-target="${id}"]`)
+          
+          $('html, body').animate({ 
+            scrollTop: $(target).offset().top - 140,
+          }, 500)
+  
+          setTimeout(() => {
+            $('.header').addClass('header--scroll--up')
+            $('.header').removeClass('header--scroll--down')
+          }, 600)
+        }
+      })
+    })
+  }
+}
