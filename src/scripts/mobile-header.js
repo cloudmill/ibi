@@ -44,6 +44,10 @@ if (!mediaQuery.matches) {
           } else {
             elements.panel.removeClass(CLASS.PANEL.HIDE)
           }
+
+          if (curScrollY < 1) {
+            elements.panel.removeClass(CLASS.PANEL.HIDE)
+          }
         }
       })()
       function updatePanelBackground() {
