@@ -2,6 +2,7 @@
   $comp: &;
 
   --panel-height: 78px;
+  --ios-safari-panel-height: 70px;
   
   position: fixed;
   z-index: 1000;
@@ -64,7 +65,7 @@
 
   &__screen {
     width: 100%;
-    height: calc(100vh - var(--panel-height));
+    height: calc(100vh - var(--panel-height) - var(--ios-safari-panel-heights));
     grid-area: place;
     overflow-x: hidden;
     overflow-y: auto;
