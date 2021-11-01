@@ -12,6 +12,7 @@ if (!mediaQuery.matches) {
         PANEL: {
           HIDE: 'mobile-header__panel--hide',
           BACKGROUND: 'mobile-header__panel--background',
+          SHOW: 'mobile-header__panel--show',
         },
         MENU: {
           OPEN: 'mobile-header__menu--open',
@@ -112,6 +113,8 @@ if (!mediaQuery.matches) {
               elements.panel.addClass(CLASS.PANEL.BACKGROUND)
             }
           }
+          
+          $(elements.panel).toggleClass(CLASS.PANEL.SHOW)
         }
       })
       $(window).on('scroll', () => {
