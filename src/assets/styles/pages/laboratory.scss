@@ -60,6 +60,11 @@
         font-weight: 700;
         font-style: italic;
         color: $color-main;
+
+        @include fsl(19px);
+        @media (min-width: $breakpoint - 1px) {
+          @include fsl(21px);
+        }
       }
     }
   }
@@ -125,6 +130,12 @@
         font-weight: 700;
         font-style: italic;
         color: $color-main;
+
+        @include fsl(21px);
+        @media (min-width: $breakpoint) {
+          width: calc(#{$col-part-d} * 9 - #{$col-gap-d});
+          @include fsl(34px);
+        }
       }
     }
   }
