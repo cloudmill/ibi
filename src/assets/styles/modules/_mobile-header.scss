@@ -65,7 +65,7 @@
 
   &__screen {
     width: 100%;
-    height: calc(100vh - var(--panel-height) - var(--ios-safari-panel-height));
+    height: calc(100vh - var(--panel-height));
     grid-area: place;
     overflow-x: hidden;
     overflow-y: auto;
@@ -131,7 +131,7 @@
   }
 
   &__content {
-    padding: 20px 0;
+    padding: 20px 0 calc(20px + var(--ios-safari-panel-height));
 
     &--inner {
       padding-left: 20px;
