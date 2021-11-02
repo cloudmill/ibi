@@ -26,21 +26,8 @@ block content
         .row__col
           .section__inner.section__inner--top
             .container
-              h1.title.page-title-hidden
+              h1.title
                 |О нас
-              .mission__spoiler.news-spoiler.spoiler-to-title
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
-                    |О нас
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['Миссия и ценности', 'Наша команда', 'Новости', 'Контакты']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
               .section__block.section__block--small
                 .about__image
                   .about__image-background(style='background-image: url("assets/images/about-image.jpeg")')

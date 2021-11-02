@@ -43,19 +43,6 @@ block content
             .container
               h1.title
                 |Наша команда
-              .mission__spoiler.news-spoiler
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
-                    |Наша команда
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
               .team-filter.team-filter-mobile
                 .team-filter__container
                   a.team-filter__item.team-filter__item--active(href="#") #врачи

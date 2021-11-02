@@ -42,19 +42,6 @@ block content
           .container
             h1.title
               |Вопрос-ответ
-            .mission__spoiler.news-spoiler
-              .mission__spoiler-button.news-spoiler__button
-                h5.mission__spoiler-title
-                  |Вопрос-ответ
-                .news-spoiler__image
-                  +arrow-svg('header__drop-svg')
-              .mission__spoiler-drop.news-spoiler__drop
-                nav.news-spoiler__nav
-                  ul
-                    each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
-                      li.news-spoiler__nav-item
-                        a.nav__link(href='#')
-                          |#{item}
             .team-filter.team-filter-mobile
               ul.team-filter__container
                 li.team-filter__item.team-filter__item--active(data-id="") #имплантация
@@ -68,7 +55,6 @@ block content
               button.team-filter__reset
                 +reset-svg('team-filter__reset-ico')
                 |Сбросить
-            
             .section__block.section__block--small
               ul.mission__spoilers.mission__spoilers--margin-top.faq-spoiler
                 li.mission__spoilers-item

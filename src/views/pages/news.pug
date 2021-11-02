@@ -30,22 +30,8 @@ block content
         .row__col
           .section__inner--top
             .container
-              h1.title.page-title-hidden
+              h1.title
                 |Новости
-              .mission__spoiler.news-spoiler.spoiler-to-title
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
-                    |Новости
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
-                    
               .mt120-20
                 a.first-news(href="#")
                   .first-news__desc

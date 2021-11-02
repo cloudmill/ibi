@@ -26,21 +26,8 @@ block content
       .row__col 
         .section__inner.section__inner--top
           .container 
-            h1.title.page-title-hidden
+            h1.title
               |Преимущества
-            .mission__spoiler.news-spoiler.spoiler-to-title
-              .mission__spoiler-button.news-spoiler__button
-                h5.mission__spoiler-title
-                  |Преимущества
-                .news-spoiler__image
-                  +arrow-svg('header__drop-svg')
-              .mission__spoiler-drop.news-spoiler__drop
-                nav.news-spoiler__nav
-                  ul
-                    each item in ['Метод', 'Этапы имплантации', 'Имплантаты Strategic Implant', 'Стоимость']
-                      li.news-spoiler__nav-item
-                        a.nav__link(href='#')
-                          |#{item}
             .advantages
               ul.advantages__list 
                 li.advantages__item

@@ -167,6 +167,10 @@
   //   line-height: 140%;
   // }
 
+  &--width--100p {
+    width: 100%;
+  }
+
   &--s {
     @include fsl(22px, 140%);
     @media (min-width: $breakpoint) {

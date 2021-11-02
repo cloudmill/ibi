@@ -44,26 +44,6 @@ block content
             .container
               h1.title
                 |Обучение
-              .mission__spoiler.news-spoiler
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title.prosthetics-spoiler
-                    |Обучение
-                    +arrow-link-svg('prosthetics-link-svg')
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav.prosthetics-spoiler__drop.training-drop
-                    ul
-                      each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
               .training-parts
                 img.training-main-img(src="assets/images/0price.jpg", alt="")
 

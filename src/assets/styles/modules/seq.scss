@@ -115,7 +115,7 @@
     }
     height: calc(100% - #{$top-height});
     @media (max-width: #{$breakpoint - 1px}) {
-      height: calc(100% - 42px);
+      height: 100%;
     }
   }
 

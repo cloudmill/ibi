@@ -35,19 +35,6 @@ block content
               h1.title.single-news__title.member-page__title
                 |Шмойлов Андрей Евгеньевич
               p.member-page__position Главный врач центра
-              .mission__spoiler.news-spoiler
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
-                    |Наша команда
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['О нас', 'Миссия и ценности', 'Новости', 'Вакансии', 'Контакты']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
               .single-news__body
                 .single-news__head.member-back-link
                   .single-news__back-link

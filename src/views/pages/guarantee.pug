@@ -30,19 +30,6 @@ block content
             .container
               h1.title
                 |Гарантии
-              .mission__spoiler.news-spoiler
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
-                    |Гарантии
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['Способы оплаты', 'Трансфер', 'Вопрос-ответ']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
               .section__block.section__block--small
                 include ../components/guarantee-img
                 include ../components/guarantee-contract

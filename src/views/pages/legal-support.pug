@@ -32,21 +32,8 @@ block content
         .row__col
           .section__inner--top.legal-support
             .container.single-news
-              h1.title.single-news__title
+              h1.title.single-news__title.title--width--100p
                 |Юридическая поддержка
-              .mission__spoiler.news-spoiler
-                .mission__spoiler-button.news-spoiler__button
-                  h5.mission__spoiler-title
-                    |Юридическая поддержка
-                  .news-spoiler__image
-                    +arrow-svg('header__drop-svg')
-                .mission__spoiler-drop.news-spoiler__drop
-                  nav.news-spoiler__nav
-                    ul
-                      each item in ['О нас', 'Миссия и ценности', 'Наша команда', 'Контакты']
-                        li.news-spoiler__nav-item
-                          a.nav__link(href='#')
-                            |#{item}
               .legal-support__desc
                 |Информация о юридической поддержке специалистов, прошедших у нас обучение или связанными с базальной имплантацией
               .legal-support__spoilers
