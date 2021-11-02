@@ -333,7 +333,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
     /* HEADER */
-    const header = document.querySelector('header')
+    const header = document.querySelector('.header')
+    const mobileHeaderPanel = document.querySelector('.mobile-header__panel')
     function updateHeader() {
       if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         // in seq
@@ -343,6 +344,7 @@ window.addEventListener('DOMContentLoaded', async () => {
           prevProgress >= 1 && nextProgress < 1
         ) {
           header.classList.add('header--seq')
+          mobileHeaderPanel.classList.add('mobile-header__panel--show')
         }
   
         // out seq
@@ -352,21 +354,25 @@ window.addEventListener('DOMContentLoaded', async () => {
           prevProgress < 1 && nextProgress >= 1
         ) {
           header.classList.remove('header--seq')
+          mobileHeaderPanel.classList.remove('mobile-header__panel--show')
         }
       } else {
         // seq -> after
         if (prevProgress < 1 && nextProgress >= 1) {
           header.classList.remove('header--open')
+          mobileHeaderPanel.classList.remove('mobile-header__panel--show')
         }
         // after -> seq
         if (prevProgress >= 1 && nextProgress < 1) {
           header.classList.add('header--open')
+          mobileHeaderPanel.classList.add('mobile-header__panel--show')
         }
       }
     }
     function initHeader() {
       if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         header.classList.add('header--open')
+        mobileHeaderPanel.classList.add('mobile-header__panel--show')
       }
     }
 
