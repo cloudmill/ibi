@@ -21,7 +21,7 @@ block content
                       a.nav__link(href='#')
                         |Имплантация
                   .price__note Стоимость может меняться в зависимости клинического состояния зубов
-                  button.vacancies-list__extra-btn.price__btn
+                  button.vacancies-list__extra-btn.price__btn(data-scroll-trigger=0)
                     +arrow-link-svg('extra-btn button-extra-svg')
                     span.vacancies-list__extra-span
                       span
@@ -90,7 +90,7 @@ block content
 
               
 
-              .news-subscribe.member-page-ask.transfer-consult.price-ask
+              .news-subscribe.member-page-ask.transfer-consult.price-ask(data-scroll-target=0)
                 a(name="price-form")
                 h2.news-subscribe__title.form-new__ttl Получить персональную стратегию имплантации
                 .calc-wrapper.mb80-60

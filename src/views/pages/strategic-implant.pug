@@ -26,7 +26,7 @@ block content
                           |#{item}
                   .price.vacancies-list
                     .price__note Стоимость может меняться в зависимости клинического состояния зубов
-                    button.vacancies-list__extra-btn.price__btn
+                    button.vacancies-list__extra-btn.price__btn(data-scroll-trigger=0)
                       +arrow-link-svg('extra-btn button-extra-svg')
                       span.vacancies-list__extra-span
                         span
@@ -231,7 +231,7 @@ block content
         .row__col        
         .row__col
           .container.news-subscribe.member-page-ask.display-flex
-            h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md.mb80-60
+            h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md.mb80-60(data-scroll-target=0)
               |Получить персональную консультацию бесплатно
             .calc-wrapper.mb80-60
               include ../components/calculator
