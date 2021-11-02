@@ -1416,26 +1416,6 @@ var updateMySticky
 }
 
 // fancybox
-
-// try {
-//   $('[data-fancyboxx]').fancybox({
-//     loop: true,
-//     buttons: [
-//       "close"
-//     ],
-  
-//     idleTime: false,
-//     touch: false,
-//     clickSlide: "close",
-  
-//     clickContent: function(current, event) {
-//       return current.type === "image" ? "close" : false;
-//     },
-//   })
-// } catch (error) {
-//   console.error(error);
-// }
-
 {
   $(() => {
     $('[data-fancyboxx]').on('click', function (e) {
@@ -1462,27 +1442,26 @@ var updateMySticky
 
 // scroll trigger/target
 {
-  if (mediaQuery.matches) {
-    console.log('wow');
-    window.addEventListener('DOMContentLoaded', () => {
-      window.addEventListener('click', (e) => {
-        const trigger = $(e.target).closest('[data-scroll-trigger]')
-  
-        if (trigger.length) {
-          const id = trigger.data('scroll-trigger')
-          console.log(id);
-          const target = document.querySelector(`[data-scroll-target="${id}"]`)
-          
-          $('html, body').animate({ 
-            scrollTop: $(target).offset().top - 140,
-          }, 500)
-  
-          setTimeout(() => {
-            $('.header').addClass('header--scroll--up')
-            $('.header').removeClass('header--scroll--down')
-          }, 600)
-        }
-      })
+  window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('click', (e) => {
+      const trigger = $(e.target).closest('[data-scroll-trigger]')
+
+      if (trigger.length) {
+        const id = trigger.data('scroll-trigger')
+        console.log(id);
+        const target = document.querySelector(`[data-scroll-target="${id}"]`)
+        
+        $('html, body').animate({ 
+          scrollTop: $(target).offset().top - (mediaQuery.matches ? 140 : 100),
+        }, 500)
+
+        setTimeout(() => {
+          $('.header').addClass('header--scroll--up')
+          $('.header').removeClass('header--scroll--down')
+
+          $('.mobile-header__panel').removeClass('mobile-header__panel--hide')
+        }, 600)
+      }
     })
-  }
+  })
 }

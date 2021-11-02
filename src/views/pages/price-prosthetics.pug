@@ -53,10 +53,9 @@ block content
 
               .price.price--mobile
                 .price__note Стоимость может меняться в зависимости клинического состояния зубов
-                a(href="#price-form")
-                  button.vacancies-list__extra-btn.price__btn
-                    +arrow-link-svg('extra-btn')
-                    |Получить точный расчет
+                button.vacancies-list__extra-btn.price__btn(data-scroll-trigger=0)
+                  +arrow-link-svg('extra-btn')
+                  |Получить точный расчет
 
               h2.price-subtitle
                |Протезирование

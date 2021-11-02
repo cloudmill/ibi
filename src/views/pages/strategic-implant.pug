@@ -48,6 +48,11 @@ block content
               //-       a.category__link(href="#") 
               //-         |На двух челюстях
               .implant
+                .price.price--mobile
+                  .price__note Стоимость может меняться в зависимости клинического состояния зубов
+                  button.vacancies-list__extra-btn.price__btn(data-scroll-trigger=0)
+                    +arrow-link-svg('extra-btn')
+                    |Получить точный расчет
                 h3.implant__title 
                   |BECES импланты представляет собой имплантат с монолитным соединением имплантат-абатмент, обладающий полностью полированной поверхностью
                 .implant__inner 

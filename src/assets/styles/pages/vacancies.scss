@@ -271,6 +271,14 @@
         }
       }
 
+      &--strategic-implant {
+        margin-top: 20px;
+
+        @media (min-width: $breakpoint) {
+          display: none;
+        }
+      }
+
       .extra-btn {
         width: 39px;
         margin-right: 20px;
