@@ -171,6 +171,12 @@
     width: 100%;
   }
 
+  &--news-page {
+    @media (max-width: $breakpoint-961 - 1px) {
+      font-size: 22px !important;
+    }
+  }
+
   &--s {
     @include fsl(22px, 140%);
     @media (min-width: $breakpoint) {
