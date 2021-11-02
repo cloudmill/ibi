@@ -39,7 +39,7 @@
     top: 0;
 
     @media (max-width: #{$breakpoint - 1px}) {
-      padding-top: 100px;
+      padding-top: 80px;
     }
     height: 100vh;
   }
@@ -162,6 +162,18 @@
       height: 100%;
     }
 
+    &--mobile {
+      @media (min-width: $breakpoint-t) {
+        display: none;
+      }
+    }
+    &--desktop {
+      @media (max-width: $breakpoint-t - 1px) {
+        display: none;
+      }
+    }
+
+
     &-item {
       height: 100%;
       display: flex;
@@ -239,6 +251,19 @@
         @media (max-width: #{$breakpoint-t - 1px}) {
           margin-top: 5px;
         }
+      }
+    }
+    h6 {
+      margin-bottom: 20px;
+
+      font-size: 30px;
+      line-height: 42px;
+
+      @media (max-width: $breakpoint-t - 1px) {
+        margin-bottom: 10px;
+
+        font-size: 18px;
+        line-height: 25px;
       }
     }
   }

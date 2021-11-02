@@ -257,7 +257,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     /* TEXT */
     const TEXT_ACTIVE_CLASS = 'seq__text--active'
-    const textsContainer = seq.querySelector('.seq__texts')
+    const textsContainer = (
+      getMediaQuery(BREAKPOINT.TABLET).matches ? 
+        seq.querySelector('.seq__texts--desktop')
+        :
+        seq.querySelector('.seq__texts--mobile')
+    )
     const texts = textsContainer.querySelectorAll('.seq__text')
     function getFrame(imageIndex) {
       let i = 0
