@@ -1,3 +1,10 @@
+.calc-wrapper {
+  @media (max-width: $breakpoint - 1px) {
+    margin-left: -20px;
+    width: calc(100% + 40px);
+  }
+}
+
 .calc {
   width: 100%;
   background-color: #C0E4E8;
@@ -54,6 +61,11 @@
   }
 
   &__teeth {
+    @media (max-width: $breakpoint - 1px) {
+      position: relative;
+      z-index: 0;
+    }
+
     display: flex;
     justify-content: space-between;
 
@@ -64,6 +76,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    @media (max-width: $breakpoint - 1px) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
   }
 
   &__right-col {
@@ -71,6 +90,13 @@
     align-items: center;
 
     justify-content: flex-end;
+
+    @media (max-width: $breakpoint - 1px) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
   }
 
   &__bracket {
@@ -95,6 +121,17 @@
     flex: none;
 
     transform: rotate(90deg);
+
+    &--left {
+      @media (max-width: $breakpoint - 1px) {
+        transform: rotate(90deg) translateY(-6px);
+      }
+    }
+    &--right {
+      @media (max-width: $breakpoint - 1px) {
+        transform: rotate(90deg) translateY(6px);
+      }
+    }
   }
 
   &__teeth-box {
@@ -433,7 +470,3 @@
   display: flex;
   position: relative;
 }
-
-// .calc-wrapper {
-
-// }

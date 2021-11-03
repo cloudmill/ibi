@@ -8,7 +8,7 @@
   .calc__teeth
     .calc__left-col
       .calc__bracket
-      .calc__txt Правая часть
+      .calc__txt.calc__txt--right Правая часть
     .calc__teeth-box
       .calc__teeth-row
         - var i = 1
@@ -56,6 +56,6 @@
               img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${i}.svg`, alt="")
               img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
     .calc__right-col
-      .calc__txt Левая часть
+      .calc__txt.calc__txt--left Левая часть
       .calc__bracket
   //- ul.calc__list
