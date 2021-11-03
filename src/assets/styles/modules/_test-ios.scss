@@ -1,0 +1,28 @@
+.test-ios {
+  min-height: 100vh;
+}
+
+.test-ios-1 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: rgba($color: red, $alpha: 0.5);
+}
+
+.test-ios-2 {
+  height: 100vh;
+  
+  background-color: rgba($color: green, $alpha: 0.5);
+}
+
+.test-ios-console {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  font-size: 24px;
+}
