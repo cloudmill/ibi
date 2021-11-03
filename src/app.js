@@ -3,7 +3,7 @@ import 'scripts/backend.js';
 import 'scripts/modal-tooltip.js';
 import 'scripts/sliders.js';
 import 'scripts/forms.js';
-// import 'scripts/map.js';
+import 'scripts/map.js';
 import 'scripts/seq.js';
 import 'scripts/psx.js';
 import { signal } from 'scripts/communication.js';
@@ -17,7 +17,7 @@ import Sticky from 'sticky-js';
 import 'scripts/sidebar.js';
 import { mediaQuery } from 'scripts/mediaQueries.js';
 import 'scripts/mobile-header.js';
-import 'scripts/test-ios.js';
+// import 'scripts/test-ios.js';
 
 const BREAKPOINT = 1280;
 

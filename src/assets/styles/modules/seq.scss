@@ -121,7 +121,7 @@
 
   &__background {
     position: relative;
-    z-index: 0;
+    z-index: 2;
 
     height: 100%;
     overflow: hidden;
@@ -141,6 +141,9 @@
   }
 
   &__under {
+    position: relative;
+    z-index: 1;
+
     overflow: hidden;
   }
 
