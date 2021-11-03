@@ -21,6 +21,7 @@ html(lang='ru')
     meta(name="format-detection", content="address=no")
     script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")
   body.body(class=[isSeq ? 'body--seq' : undefined])
+    block ios
     if (isSeqTest)
       .console
     block preloader
