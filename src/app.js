@@ -17,7 +17,7 @@ import Sticky from 'sticky-js';
 import 'scripts/sidebar.js';
 import { mediaQuery } from 'scripts/mediaQueries.js';
 import 'scripts/mobile-header.js';
-// import 'scripts/test-ios.js';
+import 'scripts/test-ios.js';
 
 const BREAKPOINT = 1280;
 

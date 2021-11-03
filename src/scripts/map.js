@@ -1,8 +1,7 @@
 // map
-
 const BREAKPOINT = 1280;
 
-{
+try {
   ymaps.ready(() => {
     const mapContainer = $("#map");
 
@@ -160,4 +159,6 @@ const BREAKPOINT = 1280;
         });
     }
   });
+} catch (err) {
+  console.error(err)
 }
