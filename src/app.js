@@ -1389,25 +1389,18 @@ var updateMySticky
   if (!mediaQuery.matches) {
     try {
       function seqMargin() {
-        const heightText = $('.seq__text--last')[0].getBoundingClientRect().height;
-        const heightSlide = $('.seq__texts-item--last')[0].getBoundingClientRect().height;
+        const heightText = $('.seq__texts--mobile .seq__text--last')[0].getBoundingClientRect().height;
+        const heightSlide = $('.seq__texts--mobile .seq__texts-item--last')[0].getBoundingClientRect().height;
         const mainContent = $('.implantation-main-content');
     
         const margin = -(heightSlide - heightText + 60);
-    
         mainContent.css('margin-top', margin);
       };
   
-      $(window).on('resize', seqMargin() );
-  
+      $(window).on('resize', seqMargin);
       $(window).on('load', () => {
-  
         setTimeout(() => {
-  
           seqMargin();
-  
-          console.log(112);
-  
         }, 1000);
       });
     } catch (err) {
