@@ -71,19 +71,28 @@ block content
                       |55.732433
                     .placemarks__longitude
                       |37.616144
-              .contacts-map-small
-                .contacts-map-small-item
-                  .contacts-map-small-item__ttl Путь от м. Октябрьская
-                  img.contacts-map-small-item__map(src="assets/images/map-2.jpg", alt="")
-                .contacts-map-small-item
-                  .contacts-map-small-item__ttl Путь от м. Полянка
-                  img.contacts-map-small-item__map(src="assets/images/map-3.jpg", alt="")
-                  .contacts-map-small-item__desc
-                    |Чтобы проложить правильный путь, введите в поисковую строку не адрес (1-й Спасоналивковский переулок, 17, корп. 1), а  название компании («Институт Базальной Имплантации»).
-              .contacts-map-small.contacts-map-small--mobile
+
+              //- .contacts-map-small
+              //-   .contacts-map-small-item
+              //-     .contacts-map-small-item__ttl Путь от м. Октябрьская
+              //-     img.contacts-map-small-item__map(src="assets/images/map-2.jpg", alt="")
+              //-   .contacts-map-small-item
+              //-     .contacts-map-small-item__ttl Путь от м. Полянка
+              //-     img.contacts-map-small-item__map(src="assets/images/map-3.jpg", alt="")
+              //-     .contacts-map-small-item__desc
+              //-       |Чтобы проложить правильный путь, введите в поисковую строку не адрес (1-й Спасоналивковский переулок, 17, корп. 1), а  название компании («Институт Базальной Имплантации»).
+
+              .contacts-map-small.contacts-panorama
                 .contacts-map-small-item
                   .contacts-map-small-item__ttl Панорама улицы с указанием входа
-                  img.contacts-map-small-item__map(src="assets/images/map-4.jpg", alt="")
+
+                  //- img.contacts-map-small-item__map(src="assets/images/map-4.jpg", alt="")
+
+                  <div style="position:relative;overflow:hidden;">
+                    <a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a>
+                    <a href="https://yandex.ru/maps/213/moscow/house/1_y_spasonalivkovskiy_pereulok_17k1/Z04YcAZmSEEDQFtvfXtyc3hgZw==/?l=stv%2Csta&ll=37.616115%2C55.732418&panorama%5Bdirection%5D=190.801418%2C2.450716&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=37.616186%2C55.733238&panorama%5Bspan%5D=116.872129%2C60.000000&utm_medium=mapframe&utm_source=maps&z=16.99" style="color:#eee;font-size:12px;position:absolute;top:14px;">1-й Спасоналивковский переулок, 17к1 — Яндекс.Карты</a>
+                    <iframe src="https://yandex.ru/map-widget/v1/-/CCUueLUC3D" width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+                  </div>
     section
       .row
         .row__col
