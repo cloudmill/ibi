@@ -5,9 +5,8 @@ block footer
 
 block content
   .scroll-test
-    .scroll-test__section
-      |1
-    .scroll-test__section(data-scroll-test)
-      |2
-    .scroll-test__section
-      |3
+    button.scroll-test__btn(data-scroll-test)
+      |button
+    - for (let i = 0; i < 500; i++)
+      |#{i}
+      br

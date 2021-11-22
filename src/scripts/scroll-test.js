@@ -1,37 +1,3 @@
-class ScrollStopper {
-  constructor(breakpoint) {
-    this.enabled = false
-    this.breakpoint = breakpoint || { x: 0, y: 0, }
-
-    this.tick = this.tick.bind(this)
-
-    this.init()
-  }
-
-  init() {
-    requestAnimationFrame(this.tick)
-  }
-
-  tick() {
-    if (this.enabled) {
-      window.scrollTo(this.breakpoint.x, this.breakpoint.y)
-    }
-
-    requestAnimationFrame(this.tick)
-  }
-
-  start() {
-    this.enabled = true
-  }
-  stop() {
-    this.enabled = false
-  }
-
-  setBreakpoint(breakpoint) {
-    this.breakpoint = breakpoint
-  }
-}
-
 class RealConsole {
   constructor() {
     this.el = this.createEl()
@@ -48,10 +14,10 @@ class RealConsole {
       left: 0;
       right: 0;
 
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow: hidden;
       pointer-events: none;
-      
+
+      text-align: right;
       opacity: 0.5;
     `
     return el
@@ -66,11 +32,61 @@ class RealConsole {
   }
 }
 
+class ScrollStopper {
+  constructor() {
+    this.enabled = false
+    this.position = {
+      x: 0,
+      y: 0,
+    }
+
+    this.tick = this.tick.bind(this)
+
+    requestAnimationFrame(() => this.tick)
+  }
+
+  tick() {
+    if (this.enabled) {
+      window.scrollTo(this.position.x, this.position.y)
+    }
+
+    requestAnimationFrame(() => this.tick)
+  }
+}
+
 $(() => {
   const breakpointEl = $('[data-scroll-test]')
   if (breakpointEl.length) {
+    console.log('scroll-test')
+
     const realConsole = new RealConsole()
-    
+
+    // window.postMessage('wow')
+    // window.addEventListener('message', (e) => {
+    //   console.log(e.data)
+    // })
+
+    // const realConsole = new RealConsole()
+    // const scrollStopper = new ScrollStopper()
+
+    // let flag = false
+
+    // breakpointEl.on('click', () => {
+    //   flag = !flag
+
+    //   if (flag) {
+    //     scrollStopper.position = {
+    //       x: 0,
+    //       y: pageYOffset,
+    //     }
+    //     scrollStopper.enabled = true
+    //   } else {
+    //     scrollStopper.enabled = false
+    //   }
+      
+    //   realConsole.log(flag)
+    // })
+
     window.addEventListener('scroll', () => realConsole.log('scroll'))
     window.addEventListener('wheel', () => realConsole.log('wheel'))
     window.addEventListener('touchstart', () => realConsole.log('touchstart'))
