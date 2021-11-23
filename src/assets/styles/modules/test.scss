@@ -275,7 +275,7 @@
     }
     @media (min-width: $breakpoint) {
       position: absolute;
-      z-index: 1;
+      z-index: 100;
       left: $col-pad-d;
       bottom: 160px;
     }
@@ -283,6 +283,7 @@
   &__nav-item {
     position: relative;
     z-index: 0;
+    cursor: pointer;
     
     padding-left: 33px;
     @media (max-width: $breakpoint - 1px) {
@@ -290,6 +291,14 @@
     }
 
     transition: $transition;
+
+    &:hover {
+      color: $color-main;
+
+      &::before {
+        background-color: $color-main;
+      }
+    }
 
     &::before {
       position: absolute;
@@ -305,6 +314,8 @@
 
       background-color: $color-black;
       border-radius: 50%;
+
+      transition: $transition;
 
       @media (max-width: $breakpoint - 1px) {
         top: 50%;
