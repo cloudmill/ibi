@@ -126,3 +126,10 @@
   background-color: black;
   opacity: .4;
 }
+
+.fancybox-slide--video .fancybox-content {
+  @media (min-width: $breakpoint) {
+    max-width: 70%;
+    max-height: 80%;
+  }
+}
