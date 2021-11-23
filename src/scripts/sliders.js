@@ -5,25 +5,7 @@ import Swiper from 'swiper/bundle';
 {
   $(() => {
     const slider = $('.index-lab-slider');
-    // const slides = slider.find('.swiper-slide');
     const titles = slider.find('.block__nav-item');
-
-    // const slidesCount = slides.length;
-
-    // console.log(slides.length);
-    // console.log(slides.length);
-
-    // const activeSlide = slider.find('.swiper-slide-active');
-
-    // let index = 0;
-    
-    // $(window).on('click', () => {
-    //   index++
-
-      // if index > slidesCount;
-
-    // })
-
     const btns = slider.find('.slider-control__item');
 
     if (btns.length) {
@@ -49,8 +31,7 @@ const BREAKPOINT = 1280;
         const slider_id = slider_el.data('slider-id');
         const slider_prev_id = slider_el.data('slider-prev');
         const slider_next_id = slider_el.data('slider-next');
-        const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
-        const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
+        
   
         let slider_options = {
           slidesPerView: 'auto',
@@ -235,12 +216,19 @@ const BREAKPOINT = 1280;
         }
   
         const slider_swiper = new Swiper(slider_el[0], slider_options);
+
+        const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
+        const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
   
         slider_prev.on('click', () => {
           slider_swiper.slidePrev();
+
+          // console.log(slider_swiper);
         });
         slider_next.on('click', () => {
           slider_swiper.slideNext();
+
+          // console.log(slider_swiper);
         });
       });
     }
