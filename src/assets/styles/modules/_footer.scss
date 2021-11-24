@@ -199,6 +199,21 @@
   &__col {
     flex-shrink: 0;
   }
+
+  &__politic {
+
+    margin-top: 5px;
+    font-size: 12px;
+
+    display: block;
+    line-height: 20px;
+    color: #fff;
+
+    @media (min-width: $breakpoint) {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
 }
 
 .flex-end {
