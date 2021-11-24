@@ -198,7 +198,8 @@
 
   &--seq {
     @media (max-width: #{$breakpoint - 1px}) {
-      display: none;
+      margin-bottom: -78px;
+      padding-top: calc(78px + 20px);
     }
   }
 }
