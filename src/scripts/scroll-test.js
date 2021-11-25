@@ -1,12 +1,9 @@
-import VirtualScroll from 'virtual-scroll'
+import swipeDetect from 'swipe-detect';
 
 $(() => {
-  console.log('scroll-test');
-  
-  const scroller = new VirtualScroll()
-  scroller.on((e) => {
-    // console.log(e);
-  })
+  swipeDetect(window, (dir) => {
+    // console.log(dir)
+  }, 0)
 })
 
 // document.addEventListener('touchmove', function(e) { 
