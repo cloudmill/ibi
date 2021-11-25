@@ -34,21 +34,49 @@ html(lang='ru')
     block grid-test
       +grid-test
     
-    .wrapper(class=[isSeq ? 'wrapper--seq' : undefined])
- 
-      block header
-        +header
+    if (isSeq)
+      
+      .expand
+        .expand__scroll
+          .expand__content
+       
+            .wrapper(class=[isSeq ? 'wrapper--seq' : undefined])
         
-      main.main
-        block content
+              block header
+                +header
+                
+              main.main
+                block content
 
-      block footer
-        +footer
+              block footer
+                +footer
 
-      include ../components/modal-vacancy
-      include ../components/modal-callback
+              include ../components/modal-vacancy
+              include ../components/modal-callback
 
-      include ../components/modal-tooltip-1
-      include ../components/modal-tooltip-2
+              include ../components/modal-tooltip-1
+              include ../components/modal-tooltip-2
 
-      block scripts
+              block scripts
+              
+    else
+
+      .wrapper(class=[isSeq ? 'wrapper--seq' : undefined])
+        
+        block header
+          +header
+          
+        main.main
+          block content
+
+        block footer
+          +footer
+
+        include ../components/modal-vacancy
+        include ../components/modal-callback
+
+        include ../components/modal-tooltip-1
+        include ../components/modal-tooltip-2
+
+        block scripts
+
