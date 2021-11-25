@@ -215,6 +215,13 @@
     &--root {
       padding: 15px 20px;
     }
+
+    &--line {
+      text-decoration: underline;
+    }
+    &--active {
+      color: $color-main;
+    }
   }
   &__link-text {
     font-size: 16px;

@@ -59,10 +59,10 @@
   background: linear-gradient(180deg, #F0FAFC 0%, #F8FEFF 100%);
   // transform: matrix(1, 0, 0, -1, 0, 0);
 
-  margin-bottom: 160px;
-  @media (max-width: $breakpoint - 1px) {
-    margin-bottom: 60px;
-  }
+  // margin-bottom: 160px;
+  // @media (max-width: $breakpoint - 1px) {
+  //   margin-bottom: 60px;
+  // }
 
   &__wrapper {
     display: flex;

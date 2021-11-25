@@ -111,7 +111,7 @@ mixin mobile-header
             .mobile-header__top
               a.mobile-header__back(data-screen-id=0 data-screen-animation='left')
                 +svg-arrow.mobile-header__back-svg
-              a.mobile-header__link(href='#')
+              a.mobile-header__link.mobile-header__link--line(href='#')
                 .mobile-header__link-text.mobile-header__link-text--large
                   |Услуги
             ul.mobile-header__list
@@ -120,9 +120,13 @@ mixin mobile-header
                   .mobile-header__link-text
                     |Протезирование
                   +svg-arrow.mobile-header__link-svg
+              li.mobile-header__item
+                  a.mobile-header__link.mobile-header__link--active(href='#')
+                    .mobile-header__link-text
+                      |Диагностика
               -
                 var items = [
-                  'Диагностика',
+                  //- 'Диагностика',
                   'Профилактика',
                   'Удаление зубов',
                   'Лечение зубов',
@@ -137,7 +141,7 @@ mixin mobile-header
             .mobile-header__top
               a.mobile-header__back(data-screen-id=1 data-screen-animation='left')
                 +svg-arrow.mobile-header__back-svg
-              a.mobile-header__link(href='#')
+              a.mobile-header__link.mobile-header__link--line.mobile-header__link--active(href='#')
                 .mobile-header__link-text.mobile-header__link-text--large
                   |Протезирование
             ul.mobile-header__list
