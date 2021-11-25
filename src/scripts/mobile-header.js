@@ -19,6 +19,9 @@ if (!mediaQuery.matches) {
         },
       }
       const ANIMATION_DURATION = 500
+
+      const expand = document.querySelector('.expand')
+      const expandScroll = expand.querySelector('.expand__scroll')
   
       elements.panel = elements.root.find('.mobile-header__panel')
       elements.menu = elements.root.find('.mobile-header__menu')
@@ -31,13 +34,19 @@ if (!mediaQuery.matches) {
       }
   
       // methods
+      function checkExpand() {
+        return expand && !matchMedia(`(min-width: 1024px)`).matches
+      }
+      function getScrollY() {
+        return checkExpand() ? expandScroll.scrollTop : window.scrollY
+      }
       const updatePanelHide = (() => {
-        let prevScrollY = pageYOffset
-        let curScrollY = pageYOffset
+        let prevScrollY = getScrollY()
+        let curScrollY = getScrollY()
   
         return function () {
           prevScrollY = curScrollY
-          curScrollY = pageYOffset
+          curScrollY = getScrollY()
   
           if (prevScrollY < curScrollY) {
             elements.panel.addClass(CLASS.PANEL.HIDE)
@@ -51,7 +60,7 @@ if (!mediaQuery.matches) {
         }
       })()
       function updatePanelBackground() {
-        if (pageYOffset < 1) {
+        if (getScrollY() < 1) {
           elements.panel.removeClass(CLASS.PANEL.BACKGROUND)
         } else {
           elements.panel.addClass(CLASS.PANEL.BACKGROUND)
@@ -65,9 +74,19 @@ if (!mediaQuery.matches) {
 
         state.curScreen = startScreen
       }
+      function scrollHandler() {
+        // panel
+        {
+          // background
+          updatePanelBackground()
+  
+          // hide
+          updatePanelHide()
+        }
+      }
   
       // init
-      updatePanelBackground()
+      updatePanelBackground(scrollY)
       initScreen()
   
       // ui events
@@ -111,7 +130,7 @@ if (!mediaQuery.matches) {
             elements.panel.removeClass(CLASS.PANEL.HIDE)
             elements.panel.addClass(CLASS.PANEL.BACKGROUND)
           } else {
-            if (pageYOffset < 1) {
+            if (getScrollY() < 1) {
               elements.panel.removeClass(CLASS.PANEL.BACKGROUND)
             } else {
               elements.panel.addClass(CLASS.PANEL.BACKGROUND)
@@ -121,16 +140,13 @@ if (!mediaQuery.matches) {
           $(elements.panel).toggleClass(CLASS.PANEL.SHOW)
         }
       })
-      $(window).on('scroll', () => {
-        // panel
-        {
-          // background
-          updatePanelBackground()
-  
-          // hide
-          updatePanelHide()
-        }
-      })
+
+      if (checkExpand()) {
+        expandScroll.addEventListener('scroll', scrollHandler)
+      } else {
+        $(window).on('scroll', scrollHandler)
+      }
+
       elements.menu.on('click', (e) => {
         const link = $(e.target).closest('a[data-screen-id]')
 

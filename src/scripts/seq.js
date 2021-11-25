@@ -446,6 +446,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 
+    /* EXPAND */
+    const expand = document.querySelector('.expand')
+    const expandScroll = expand.querySelector('.expand__scroll')
+
+
+
     /* INIT */
     async function init() {
       initProgress()
@@ -471,7 +477,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
     /* SCROLL */
-    window.addEventListener('scroll', () => {
+    function scrollHandler() {
       updateProgress()
       updateCanvas()
       updateText()
@@ -482,7 +488,13 @@ window.addEventListener('DOMContentLoaded', async () => {
       if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         updateMenu()
       }
-    })
+    }
+
+    if (getMediaQuery(BREAKPOINT.TABLET).matches || !expand) {
+      window.addEventListener('scroll', scrollHandler)
+    } else {
+      expandScroll.addEventListener('scroll', scrollHandler)
+    }
 
 
 
