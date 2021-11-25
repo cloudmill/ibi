@@ -1,13 +1,8 @@
 extends ../layouts/master.pug
 
-include ../components/_header.pug
-include ../components/_footer.pug
-
 include ../components/preloader.pug
-include ../components/seq.pug
 
-block header
-  +header
+include ../components/seq.pug
 
 block preloader
   +preloader
@@ -17,13 +12,20 @@ block vars
 
 block content
   .row
+
     .row__col
+
     .row__col
+
       .section__inner--top.section__inner--seq
+
         .container.container--seq
+
           h1.title.title--seq
             |Метод
+
           +seq
+
           section.implantation-main-content
             .implantation-blockquote
               |Уникальная технология, позволяющая провести операцию 
@@ -86,6 +88,7 @@ block content
                     .mission__spoiler-drop
                       .mission__spoiler-list
                         p Lorem ipsum dolor, sit amet consectetur adipisicing elit. At ratione, quibusdam consequuntur optio, fugiat aperiam quam eum, et fuga delectus provident debitis quisquam modi adipisci dolore ducimus dignissimos maiores! Assumenda!
+          
           section.margin160
             h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md
               |Получить персональную

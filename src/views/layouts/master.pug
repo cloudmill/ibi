@@ -8,28 +8,37 @@ include ../components/grid-test
 block vars
 
 doctype html
+
 html(lang='ru')
+
   head
-    meta(charset="UTF-8") 
+    meta(charset="UTF-8")
+
     block title
       title ibi
+
     <!--[if IE]>
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     <![endif]-->
+
     meta(name="viewport", content="width=device-width, initial-scale=1")
+
     meta(name="format-detection", content="telephone=no")
     meta(name="format-detection", content="address=no")
+
     script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")
+  
   body.body(class=[isSeq ? 'body--seq' : undefined])
-    block ios
-    if (isSeqTest)
-      .console
     block preloader
+
     block grid-test
       +grid-test
+    
     .wrapper(class=[isSeq ? 'wrapper--seq' : undefined])
+ 
       block header
         +header
+        
       main.main
         block content
 
