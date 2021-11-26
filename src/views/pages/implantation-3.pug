@@ -11,7 +11,7 @@ block content
         .section__inner.section__inner--top
           .nav
             .nav__container
-              nav.nav__nav.my-sticky
+              nav.nav__nav.my-sticky(data-my-sticky-bottom="my-sticky-bottom")
                 ul.nav__list
                   each item in ['Метод', 'Преимущества',]
                     li.nav__item
@@ -89,3 +89,25 @@ block content
           .calc-wrapper.mb80-60
             include ../components/calculator
           include ../components/form-2col-add-file
+
+    // next page
+    section#my-sticky-bottom.next-page
+      .row 
+        .row__col
+          .next-page__container
+            .next-page__nav 
+              |Следующий этап имплантации
+        .row__col
+          .container 
+            .next-page__nav.next-page__nav--mobile 
+              |Следующий этап имплантации
+            h3.next-page__title
+              |Протезирование
+            .next-page__button
+              .mission 
+                .mission__missions-links-container
+                  a.mission__missions-links-link(href='#')
+                    +svg-link.mission__missions-links-svg.button-svg
+                    .mission__missions-links-text
+                      span.mission__missions-links-span
+                        |Перейти к описанию
