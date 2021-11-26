@@ -225,3 +225,11 @@
     @include fsl(14px, 150%);
   }
 }
+
+.implantation-txt-block {
+  margin-bottom: 50px;
+
+  @media (min-width: $breakpoint) {
+    margin-bottom: 120px;
+  }
+}
