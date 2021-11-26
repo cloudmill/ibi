@@ -1,5 +1,6 @@
 import src from 'gsap/src'
 import { signal } from 'scripts/communication.js'
+import swipeDetect from 'swipe-detect'
 
 window.addEventListener('DOMContentLoaded', async () => {
   // const consoleEl = document.querySelector('.console')
@@ -61,9 +62,6 @@ window.addEventListener('DOMContentLoaded', async () => {
       
       let srcList = JSON.parse(fileNameList)
 
-      //!
-      signal('wow:srcList', srcList)
-
       srcList = srcList.map(fileName => dir + fileName)
       
       return Promise.all(srcList.map((src, index) => new Promise(resolve => {
@@ -110,6 +108,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     function updateProgress() {
       prevProgress = nextProgress
       nextProgress = getProgress()
+
+      console.log('updateProgress', prevProgress, nextProgress);
     }
     function getImageIndex(progress) {
       return Math.floor(images.length * progress)
@@ -269,9 +269,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         seq.querySelector('.seq__texts--mobile')
     )
     const texts = textsContainer.querySelectorAll('.seq__text')
-
-    //!
-    signal('wow:frameList', Array.from(texts).map(text => text.getAttribute('data-frame')))
 
     function getFrame(imageIndex) {
       let i = 0
@@ -446,6 +443,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 
+    /* EXPAND */
+    const expand = document.querySelector('.expand')
+    const expandScroll = expand.querySelector('.expand__scroll')
+
+
+
     /* INIT */
     async function init() {
       initProgress()
@@ -471,10 +474,47 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
     /* SCROLL */
-    window.addEventListener('scroll', () => {
+    let touchmoveLock = false
+    window.addEventListener('touchmove', (e) => {
+      if (touchmoveLock) {
+        e.preventDefault()
+      }
+    }, {
+      passive: false,
+    })
+
+    let curSlide = 0
+    swipeDetect(window, (dir) => {
+      if (touchmoveLock) {
+        switch (dir) {
+          case 'up':
+            curSlide++
+            break
+          case 'down':
+            curSlide--
+            break
+        }
+
+        prevProgress = nextProgress = 1 / texts.length * curSlide
+
+        updateCanvas()
+        updateText()
+
+        console.log(prevProgress);
+      }
+    }, 0)
+
+
+    function scrollHandler() {
       updateProgress()
-      updateCanvas()
-      updateText()
+
+      // updateCanvas()
+      // updateText()
+
+      if (prevProgress < 0 && nextProgress >= 0) {
+        touchmoveLock = true
+      }
+
       updateHeader()
       if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         updateNavigation()
@@ -482,7 +522,12 @@ window.addEventListener('DOMContentLoaded', async () => {
       if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         updateMenu()
       }
-    })
+    }
+    if (getMediaQuery(BREAKPOINT.TABLET).matches || !expand) {
+      window.addEventListener('scroll', scrollHandler)
+    } else {
+      expandScroll.addEventListener('scroll', scrollHandler)
+    }
 
 
 
