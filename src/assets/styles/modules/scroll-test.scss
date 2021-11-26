@@ -1,13 +1,29 @@
 .scroll-test {
-  
-}
+  &__before {
+    height: 300vh;
 
-body {
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
-  overflow-y: scroll; 
-}
+    background-color: lightblue;
+  }
+  &__after {
+    height: 300vh;
 
-body::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
+    background-color: gray;
+  }
+
+  &__rails {
+    position: relative;
+
+    height: 300vh;
+
+    background-color: black;
+  }
+  &__seq {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+
+    background-color: lightcoral;
+  }
 }
