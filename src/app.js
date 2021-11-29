@@ -1310,33 +1310,18 @@ var updateMySticky
 
     $(window).on('click', event => {
       const tooth = $(event.target).closest('.tooth-button');
-      // const calcList = $('.calc__list');
-      // let toothId = tooth.attr('data-tooth-id');
 
       if (tooth.length) {
-
-        // let listItem = document.createElement('li');
-        // listItem.setAttribute('data-tooth-id', toothId);
-        // listItem.className = "calc__list-item";
-        // listItem.innerHTML = `<img src=assets/images/calc/calc-list-ico.png alt=''>
-        // <div class=calc__list-circle>${toothId}</div>
-        // <div class="tooth-destroyed-txt">Зуб разрушен</div>
-        // <div class="tooth-removed-txt">Зуб отсутствует</div>`;
 
         if (tooth.hasClass('tooth-button--destroyed')) {
           tooth.removeClass('tooth-button--destroyed');
           tooth.addClass('tooth-button--removed');
 
-          // $(`.calc__list-item[data-tooth-id=${toothId}]`).addClass('calc__list-removed');
-
         } else if (tooth.hasClass('tooth-button--removed')) {
           tooth.removeClass('tooth-button--removed')
 
-          // $(`.calc__list-item[data-tooth-id=${toothId}]`).remove();
-
         } else {
           tooth.addClass('tooth-button--destroyed');
-          // calcList.append(listItem);
         }
       }
     })
