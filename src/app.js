@@ -19,6 +19,7 @@ import { mediaQuery } from 'scripts/mediaQueries.js';
 import 'scripts/mobile-header.js';
 import 'scripts/test-ios.js';
 import 'scripts/scroll-test.js';
+import './scripts/mobile-seq';
 
 const BREAKPOINT = 1280;
 
