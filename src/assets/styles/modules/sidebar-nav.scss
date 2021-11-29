@@ -92,6 +92,8 @@
     align-items: center;
     transition: $transition;
 
+    // width: calc(#{$col-part-d});
+
     svg {
       width: 8px;
       transition: $transition;

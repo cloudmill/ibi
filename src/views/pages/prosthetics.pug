@@ -258,6 +258,7 @@ block content
             .container.news-subscribe.member-page-ask.display-flex
               h2.news-subscribe__title.member-page-ask__title Свяжитесь с нами
               include ../components/form-add-file
+
     div(style='position: absolute; z-index: 2; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none;')
       .row(style='height: 100%;')
         .row__col.sidebar
@@ -267,7 +268,7 @@ block content
                 ul.nav__list
                   .sidebar-nav-spoiler
                     li.nav__item.sidebar-nav-spoiler--current.sidebar-nav-spoiler__button
-                      .nav__link
+                      a.nav__link(href="")
                         |Протезирование
                       .sidebar-nav-spoiler__arrow
                         +arrow-svg
@@ -279,7 +280,7 @@ block content
                               |#{item}
                   .sidebar-nav-spoiler
                     li.nav__item.sidebar-nav-spoiler__button
-                      .nav__link
+                      a.nav__link(href="")
                         |Диагностика
                       .sidebar-nav-spoiler__arrow
                         +arrow-svg
@@ -291,7 +292,7 @@ block content
                               |#{item}
                   .sidebar-nav-spoiler
                     li.nav__item.sidebar-nav-spoiler__button
-                      .nav__link
+                      a.nav__link(href="")
                         |Профилактика
                       .sidebar-nav-spoiler__arrow
                         +arrow-svg
@@ -303,7 +304,7 @@ block content
                               |#{item}
                   .sidebar-nav-spoiler
                     li.nav__item.sidebar-nav-spoiler__button
-                      .nav__link
+                      a.nav__link(href="")
                         |Удаление зубов
                       .sidebar-nav-spoiler__arrow
                         +arrow-svg
@@ -315,7 +316,7 @@ block content
                               |#{item}
                   .sidebar-nav-spoiler
                     li.nav__item.sidebar-nav-spoiler__button
-                      .nav__link
+                      a.nav__link(href="")
                         |Лечение зубов
                       .sidebar-nav-spoiler__arrow
                         +arrow-svg
