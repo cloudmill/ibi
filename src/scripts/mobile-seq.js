@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const VALUE = {
         POINT: {
           START: 0,
-          END: 20,
+          END: 3,
         },
         LOCK: {
           YES: 'YES',
@@ -57,8 +57,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 signal('mobile-seq:action', ACTION.ENERTIA_END)
               }, 2000)
 
-              document.querySelector('.expand__scroll')
-              document.body.style.overflow = 'hidden'
+              document.querySelector('.expand__scroll').style.overflow = 'hidden'
 
               return {
                 ...state,
@@ -74,6 +73,8 @@ window.addEventListener('DOMContentLoaded', () => {
               setTimeout(() => {
                 signal('mobile-seq:action', ACTION.ENERTIA_END)
               }, 2000)
+
+              document.querySelector('.expand__scroll').style.overflow = 'hidden'
 
               return {
                 ...state,
@@ -113,6 +114,8 @@ window.addEventListener('DOMContentLoaded', () => {
               state.transition === VALUE.TRANSITION.NO &&
               state.enertia === VALUE.ENERTIA.NO
             ) {
+              document.querySelector('.expand__scroll').style.overflow = ''
+
               return {
                 ...state,
 
@@ -131,7 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
               const seq = document.querySelector('.seq')
               expandScroll.scrollTo(
                 0,
-                seq.getBoundingClientRect().top + expandScroll.scrollTop
+                seq.getBoundingClientRect().top + expandScroll.scrollTop + 1
               )
             
               setTimeout(() => {
@@ -149,6 +152,8 @@ window.addEventListener('DOMContentLoaded', () => {
               state.transition === VALUE.TRANSITION.NO &&
               state.enertia === VALUE.ENERTIA.NO
             ) {
+              document.querySelector('.expand__scroll').style.overflow = ''
+
               return {
                 ...state,
 
@@ -177,19 +182,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
         return state;
       };
-
-      // window.addEventListener(
-      //   'touchmove',
-      //   e => {
-      //     if (state.lock === VALUE.LOCK.YES) {
-      //       e.preventDefault();
-      //     }
-      
-      //   },
-      //   {
-      //     passive: false,
-      //   }
-      // );
 
       swipeDetect(
         window,
