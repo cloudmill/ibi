@@ -342,6 +342,7 @@
   &__missions-links-span {
     display: block;
     overflow: hidden;
+    user-select: none;
   }
   // missions images
   &__missions-images {

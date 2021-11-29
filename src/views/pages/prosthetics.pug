@@ -147,17 +147,33 @@ block content
                     .button-arrow.button-arrow--blue-light.button-arrow.button-arrow--right
                       .button-arrow__button(data-slider-button='142')
                         +svg-arrow.button-arrow__svg
-              .swiper-container(data-slider-id='140' data-slider-prev='141' data-slider-next='142')
-                .swiper-wrapper
-                  .swiper-slide.prosthetic-slider__slide(data-slide-id="1")
-                    img(src="assets/images/prosthetics-2.jpg", alt="")
-                    p Коронки циркониевые
-                  .swiper-slide.prosthetic-slider__slide(data-slide-id="2")
-                    img(src="assets/images/prosthetics-3.jpg", alt="")
-                    p Оклюзивные накладки
-                  .swiper-slide.prosthetic-slider__slide(data-slide-id="1")
-                    img(src="assets/images/prosthetics-2.jpg", alt="")
-                    p Культевая вкладка
+              
+              .prosthetic-slider__container
+
+                .swiper-container.prosthetic-slider--active(data-slider-id='140' data-slider-prev='141' data-slider-next='142')
+                  .swiper-wrapper
+                    .swiper-slide.prosthetic-slider__slide
+                      img(src="assets/images/prosthetics-2.jpg", alt="")
+                      p Оклюзивные накладки
+                    .swiper-slide.prosthetic-slider__slide
+                      img(src="assets/images/prosthetics-2.jpg", alt="")
+                      p Коронки циркониевые
+                    .swiper-slide.prosthetic-slider__slide
+                      img(src="assets/images/prosthetics-2.jpg", alt="")
+                      p Культевая вкладка
+
+                .swiper-container(data-slider-id='140' data-slider-prev='141' data-slider-next='142')
+                  .swiper-wrapper
+                    .swiper-slide.prosthetic-slider__slide
+                      img(src="assets/images/prosthetics-3.jpg", alt="")
+                      p Коронки циркониевые
+                    .swiper-slide.prosthetic-slider__slide
+                      img(src="assets/images/prosthetics-3.jpg", alt="")
+                      p Оклюзивные накладки
+                    .swiper-slide.prosthetic-slider__slide
+                      img(src="assets/images/prosthetics-3.jpg", alt="")
+                      p Культевая вкладка
+
       section.index__section.section--blue-light.section__inner
           .row
             .row__col

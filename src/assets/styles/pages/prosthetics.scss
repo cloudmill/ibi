@@ -445,7 +445,8 @@
     // display: flex;
 
     @media (max-width: $breakpoint - 1px) {
-      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      // width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      width: 255px;
     }
 
     p {
@@ -456,11 +457,18 @@
       @media (max-width: $breakpoint - 1px) {
         font-size: 16px;
         line-height: 160%;
+        margin-top: 10px;
       }
     }
 
     img {
       width: 100%;
+      object-fit: cover;
+      height: 285px;
+
+      @media (max-width: $breakpoint - 1px) {
+        height: 175px;
+      }
     }
   }
 
@@ -535,3 +543,50 @@
 .prosthetics .mission__spoiler--active .mission__spoiler-button {
   background-color: transparent;
 }
+
+.prosthetic-slider__container {
+  position: relative;
+  margin-right: -40px;
+  height: 350px;
+
+  @media (max-width: $breakpoint - 1px) {
+    margin-right: -20px;
+    height: 220px;
+  }
+
+  // @media (max-width: $breakpoint-m - 1px) {
+  //   margin-right: -20px;
+  //   height: 20px;
+  // }
+
+  .swiper-container {
+    // display: none;
+
+    height: 350px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+
+    opacity: 0;
+    z-index: -1;
+
+    transition: $transition;
+
+    @media (max-width: $breakpoint - 1px) {
+      height: 220px;
+    }
+
+    // @media (max-width: $breakpoint-m - 1px) {
+    //   height: 250px;
+    // }
+  }
+
+  .prosthetic-slider--active {
+    // display: block;
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
