@@ -1,23 +1,6 @@
-import src from 'gsap/src'
 import { signal } from 'scripts/communication.js'
 
 window.addEventListener('DOMContentLoaded', async () => {
-  // const consoleEl = document.querySelector('.console')
-  // function logConsole(msg) {
-  //   if (consoleEl) {
-  //     consoleEl.innerHTML = msg + '<br>' + consoleEl.innerHTML
-  //     consoleEl.scrollTo(0, 0)
-  //   }
-  // }
-
-  // if (!matchMedia('(min-width: 1920px)').matches) {
-  //   window.addEventListener('scroll', () => logConsole('scroll ' + pageYOffset))
-  //   window.addEventListener('touchmove', () => logConsole('touchmove ' + pageYOffset))
-  //   setInterval(() => {
-  //     logConsole('pageYOffset ' + pageYOffset)
-  //   }, 1000)
-  // }
-
   const seq = document.querySelector('.seq')
 
   if (seq) {
@@ -60,9 +43,6 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
       
       let srcList = JSON.parse(fileNameList)
-
-      //!
-      signal('wow:srcList', srcList)
 
       srcList = srcList.map(fileName => dir + fileName)
       
@@ -269,10 +249,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         seq.querySelector('.seq__texts--mobile')
     )
     const texts = textsContainer.querySelectorAll('.seq__text')
-
-    //!
-    signal('wow:frameList', Array.from(texts).map(text => text.getAttribute('data-frame')))
-
     function getFrame(imageIndex) {
       let i = 0
       let frame = +texts[i].getAttribute('data-frame')
