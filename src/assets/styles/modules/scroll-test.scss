@@ -1,29 +1,18 @@
 .scroll-test {
-  &__before {
-    height: 300vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-    background-color: lightblue;
-  }
-  &__after {
-    height: 300vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
 
-    background-color: gray;
-  }
+  &__screen {
+    height: 100%;
+    scroll-snap-align: start;
 
-  &__rails {
-    position: relative;
-
-    height: 300vh;
-
-    background-color: black;
-  }
-  &__seq {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-
-    height: 100vh;
-
-    background-color: lightcoral;
+    border: 5px dashed black;
   }
 }

@@ -10,7 +10,7 @@ block content
         .section__inner.section__inner--top
           .nav
             .nav__container
-              nav.nav__nav.my-sticky
+              nav.nav__nav.my-sticky(data-my-sticky-bottom="my-sticky-bottom")
                 ul.nav__list
                   each item in ['Метод', 'Преимущества',]
                     li.nav__item
@@ -24,9 +24,9 @@ block content
                       a.nav__link(href='#')
                         |#{item}
       .row__col 
-        .section__inner.section__inner--top
-          .container 
-            h1.title 
+        .section__inner--top.implantation-txt-block
+          .container
+            h1.title
               |Этапы имплантации
             .category.category--counter
               ul.category__list
@@ -51,7 +51,7 @@ block content
                   h3.article__title.mb80-40.letter-spacing7
                     |Первым этапом подготовки к операции по установке имплантатов является оценка состояния здоровья пациента.
                   .single-news__txt.single-news__txt--default
-                    ul
+                    ul.last-ul
                       li Первым этапом подготовки к операции по установке имплантатов является оценка состояния здоровья пациента
                       li Пациент заполняет подробную анкету здоровья
                       li Врач, проводя консультацию, изучает ее и при необходимости задает дополнительные вопросы
@@ -85,3 +85,25 @@ block content
           .calc-wrapper.mb80-60
             include ../components/calculator
           include ../components/form-2col-add-file
+
+    // next page
+    section#my-sticky-bottom.next-page
+      .row 
+        .row__col
+          .next-page__container
+            .next-page__nav 
+              |Следующий этап имплантации
+        .row__col
+          .container 
+            .next-page__nav.next-page__nav--mobile 
+              |Следующий этап имплантации
+            h3.next-page__title
+              |Моделирование операции
+            .next-page__button
+              .mission 
+                .mission__missions-links-container
+                  a.mission__missions-links-link(href='#')
+                    +svg-link.mission__missions-links-svg.button-svg
+                    .mission__missions-links-text
+                      span.mission__missions-links-span
+                        |Перейти к описанию
