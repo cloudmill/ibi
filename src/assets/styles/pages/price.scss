@@ -220,6 +220,7 @@
 
 .price-item__desc.single-news__txt {
   .ul-in-ul {
+    margin-top: 15px;
     @media (max-width: $breakpoint - 1px) {
       margin-top: 20px;
     }
