@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
         TOUCH: {
           YES: 'YES',
           NO: 'NO',
-        }
+        },
       };
 
       const INIT_STATE = {
@@ -57,6 +57,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
       let state = INIT_STATE;
       console.log(state)
+
+      const pre = document.createElement('pre')
+      pre.style.cssText = `
+        pointer-events: none;
+        position: fixed;
+        z-index: 1000000000;
+        top: 0;
+        left: 0;
+        right: 0;
+      `
+      document.body.append(pre)
+      setInterval(() => {
+        pre.innerHTML = JSON.stringify(state, null, '\t')
+      })
 
       const reducer = (state, action) => {
         switch (action) {
@@ -112,79 +126,84 @@ window.addEventListener('DOMContentLoaded', () => {
             break;
 
           case ACTION.SWIPE_UP:
-            if (state.point > VALUE.POINT.START && state.point < VALUE.POINT.END) {
-              const expandScroll = document.querySelector('.expand__scroll')
-              const seq = document.querySelector('.seq')
-              const seqRect = seq.getBoundingClientRect()
-              const height = innerHeight
-              const bottom = expandScroll.scrollTop + seqRect.bottom
-              expandScroll.scrollTo(0, bottom - height)
-            }
-
-            if (
-              state.point > VALUE.POINT.START &&
-              state.point < VALUE.POINT.END - 1 &&
-              state.transition === VALUE.TRANSITION.NO
-            ) {
-              setTimeout(() => {
-                signal('mobile-seq:action', ACTION.TRANSITION_END)
-              }, 500)
-
-              return {
-                ...state,
-
-                point: state.point + 1,
-                transition: VALUE.TRANSITION.YES,
-              };
-            } else if (
-              state.point === VALUE.POINT.END - 1 &&
-              state.transition === VALUE.TRANSITION.NO &&
-              state.move === VALUE.MOVE.FREE
-            ) {
-              return {
-                ...state,
-
-                point: state.point + 1,
-                lock: VALUE.LOCK.NO,
-              };
+            if (state.move !== VALUE.MOVE.WAIT) {
+              if (state.point > VALUE.POINT.START && state.point < VALUE.POINT.END) {
+                console.error(state)
+                const expandScroll = document.querySelector('.expand__scroll')
+                const seq = document.querySelector('.seq')
+                const seqRect = seq.getBoundingClientRect()
+                const height = innerHeight
+                const bottom = expandScroll.scrollTop + seqRect.bottom
+                expandScroll.scrollTo(0, bottom - height)
+              }
+  
+              if (
+                state.point > VALUE.POINT.START &&
+                state.point < VALUE.POINT.END - 1 &&
+                state.transition === VALUE.TRANSITION.NO
+              ) {
+                setTimeout(() => {
+                  signal('mobile-seq:action', ACTION.TRANSITION_END)
+                }, 500)
+  
+                return {
+                  ...state,
+  
+                  point: state.point + 1,
+                  transition: VALUE.TRANSITION.YES,
+                };
+              } else if (
+                state.point === VALUE.POINT.END - 1 &&
+                state.transition === VALUE.TRANSITION.NO &&
+                state.move === VALUE.MOVE.FREE
+              ) {
+                return {
+                  ...state,
+  
+                  point: state.point + 1,
+                  lock: VALUE.LOCK.NO,
+                };
+              }
             }
             break;
           case ACTION.SWIPE_DOWN:
-            if (state.point > VALUE.POINT.START && state.point < VALUE.POINT.END) {
-              const expandScroll = document.querySelector('.expand__scroll')
-              const seq = document.querySelector('.seq')
-              const seqRect = seq.getBoundingClientRect()
-              const start =  expandScroll.scrollTop + seqRect.top
-              console.log(start)
-              expandScroll.scrollTo(0, start)
-            }
-
-            if (
-              state.point > VALUE.POINT.START + 1 &&
-              state.point < VALUE.POINT.END &&
-              state.transition === VALUE.TRANSITION.NO
-            ) {
-              setTimeout(() => {
-                signal('mobile-seq:action', ACTION.TRANSITION_END)
-              }, 500)
-
-              return {
-                ...state,
-
-                point: state.point - 1,
-                transition: VALUE.TRANSITION.YES,
-              };
-            } else if (
-              state.point === VALUE.POINT.START + 1 &&
-              state.transition === VALUE.TRANSITION.NO &&
-              state.move === VALUE.MOVE.FREE
-            ) {
-              return {
-                ...state,
-
-                point: state.point - 1,
-                lock: VALUE.LOCK.NO,
-              };
+            if (state.move !== VALUE.MOVE.WAIT) {
+              if (state.point > VALUE.POINT.START && state.point < VALUE.POINT.END) {
+                console.error(state)
+                const expandScroll = document.querySelector('.expand__scroll')
+                const seq = document.querySelector('.seq')
+                const seqRect = seq.getBoundingClientRect()
+                const start =  expandScroll.scrollTop + seqRect.top
+                expandScroll.scrollTo(0, start)
+              }
+  
+              if (
+                state.point > VALUE.POINT.START + 1 &&
+                state.point < VALUE.POINT.END &&
+                state.transition === VALUE.TRANSITION.NO
+              ) {
+                setTimeout(() => {
+                  signal('mobile-seq:action', ACTION.TRANSITION_END)
+                }, 500)
+  
+                return {
+                  ...state,
+  
+                  point: state.point - 1,
+                  transition: VALUE.TRANSITION.YES,
+                };
+              } else if (
+                state.point === VALUE.POINT.START + 1 &&
+                state.transition === VALUE.TRANSITION.NO &&
+                state.move === VALUE.MOVE.FREE
+              ) {
+                return {
+                  ...state,
+  
+                  point: state.point - 1,
+                  lock: VALUE.LOCK.NO,
+                };
+              }
             }
             break;
 
