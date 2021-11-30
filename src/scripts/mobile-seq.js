@@ -18,18 +18,17 @@ window.addEventListener('DOMContentLoaded', () => {
         ENERTIA_END: 'ENERTIA_END',
 
         TRANSITION_END: 'TRANSITION_END',
+
+        TOUCH: 'TOUCH',
+        NO_TOUCH: 'NO_TOUCH',
       };
 
       const VALUE = {
         POINT: {
           START: 0,
-          END: 3,
+          END: 20,
         },
         LOCK: {
-          YES: 'YES',
-          NO: 'NO',
-        },
-        ENERTIA: {
           YES: 'YES',
           NO: 'NO',
         },
@@ -37,13 +36,23 @@ window.addEventListener('DOMContentLoaded', () => {
           YES: 'YES',
           NO: 'NO',
         },
+        MOVE: {
+          FREE: 'FREE',
+          WAIT: 'WAIT',
+          ENERTIA: 'ENERTIA',
+        },
+        TOUCH: {
+          YES: 'YES',
+          NO: 'NO',
+        }
       };
 
       const INIT_STATE = {
         point: VALUE.POINT.START,
         lock: VALUE.LOCK.NO,
-        enertia: VALUE.ENERTIA.NO,
         transition: VALUE.TRANSITION.NO,
+        move: VALUE.MOVE.FREE,
+        touch: VALUE.TOUCH.NO,
       };
 
       let state = INIT_STATE;
@@ -53,48 +62,70 @@ window.addEventListener('DOMContentLoaded', () => {
         switch (action) {
           case ACTION.HIT_ABOVE:
             if (state.point === VALUE.POINT.START) {
-              setTimeout(() => {
-                signal('mobile-seq:action', ACTION.ENERTIA_END)
-              }, 2000)
+              if (state.touch === VALUE.TOUCH.NO) {
+                setTimeout(() => {
+                  signal('mobile-seq:action', ACTION.ENERTIA_END)
+                }, 2000)
+
+                return {
+                  ...state,
+  
+                  point: state.point + 1,
+                  lock: VALUE.LOCK.YES,
+                  move: VALUE.MOVE.ENERTIA,
+                }
+              }
 
               return {
                 ...state,
 
                 point: state.point + 1,
                 lock: VALUE.LOCK.YES,
-                enertia: VALUE.ENERTIA.YES,
-              };
+                move: VALUE.MOVE.WAIT,
+              }
             }
             break;
           case ACTION.HIT_BELOW:
             if (state.point === VALUE.POINT.END) {
-              setTimeout(() => {
-                signal('mobile-seq:action', ACTION.ENERTIA_END)
-              }, 2000)
+              if (state.touch === VALUE.TOUCH.NO) {
+                setTimeout(() => {
+                  signal('mobile-seq:action', ACTION.ENERTIA_END)
+                }, 2000)
+
+                return {
+                  ...state,
+  
+                  point: state.point - 1,
+                  lock: VALUE.LOCK.YES,
+                  move: VALUE.MOVE.ENERTIA,
+                }
+              }
 
               return {
                 ...state,
 
                 point: state.point - 1,
                 lock: VALUE.LOCK.YES,
-                enertia: VALUE.ENERTIA.YES,
-              };
+                move: VALUE.MOVE.WAIT,
+              }
             }
             break;
 
           case ACTION.SWIPE_UP:
+            if (state.point > VALUE.POINT.START && state.point < VALUE.POINT.END) {
+              const expandScroll = document.querySelector('.expand__scroll')
+              const seq = document.querySelector('.seq')
+              const seqRect = seq.getBoundingClientRect()
+              const height = innerHeight
+              const bottom = expandScroll.scrollTop + seqRect.bottom
+              expandScroll.scrollTo(0, bottom - height)
+            }
+
             if (
               state.point > VALUE.POINT.START &&
               state.point < VALUE.POINT.END - 1 &&
               state.transition === VALUE.TRANSITION.NO
             ) {
-              const expandScroll = document.querySelector('.expand__scroll')
-              const seq = document.querySelector('.seq')
-              expandScroll.scrollTo(
-                0,
-                seq.getBoundingClientRect().bottom + expandScroll.scrollTop - innerHeight
-              )
-
               setTimeout(() => {
                 signal('mobile-seq:action', ACTION.TRANSITION_END)
               }, 500)
@@ -108,7 +139,7 @@ window.addEventListener('DOMContentLoaded', () => {
             } else if (
               state.point === VALUE.POINT.END - 1 &&
               state.transition === VALUE.TRANSITION.NO &&
-              state.enertia === VALUE.ENERTIA.NO
+              state.move === VALUE.MOVE.FREE
             ) {
               return {
                 ...state,
@@ -119,18 +150,20 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             break;
           case ACTION.SWIPE_DOWN:
+            if (state.point > VALUE.POINT.START && state.point < VALUE.POINT.END) {
+              const expandScroll = document.querySelector('.expand__scroll')
+              const seq = document.querySelector('.seq')
+              const seqRect = seq.getBoundingClientRect()
+              const start =  expandScroll.scrollTop + seqRect.top
+              console.log(start)
+              expandScroll.scrollTo(0, start)
+            }
+
             if (
               state.point > VALUE.POINT.START + 1 &&
               state.point < VALUE.POINT.END &&
               state.transition === VALUE.TRANSITION.NO
             ) {
-              const expandScroll = document.querySelector('.expand__scroll')
-              const seq = document.querySelector('.seq')
-              expandScroll.scrollTo(
-                0,
-                seq.getBoundingClientRect().top + expandScroll.scrollTop + 1
-              )
-            
               setTimeout(() => {
                 signal('mobile-seq:action', ACTION.TRANSITION_END)
               }, 500)
@@ -144,7 +177,7 @@ window.addEventListener('DOMContentLoaded', () => {
             } else if (
               state.point === VALUE.POINT.START + 1 &&
               state.transition === VALUE.TRANSITION.NO &&
-              state.enertia === VALUE.ENERTIA.NO
+              state.move === VALUE.MOVE.FREE
             ) {
               return {
                 ...state,
@@ -156,11 +189,13 @@ window.addEventListener('DOMContentLoaded', () => {
             break;
 
           case ACTION.ENERTIA_END:
-            return {
-              ...state,
+            if (state.move === VALUE.MOVE.ENERTIA) {
+              return {
+                ...state,
 
-              enertia: VALUE.ENERTIA.NO,
-            };
+                move: VALUE.MOVE.FREE,
+              }
+            }
             break;
 
           case ACTION.TRANSITION_END:
@@ -170,6 +205,34 @@ window.addEventListener('DOMContentLoaded', () => {
               transition: VALUE.TRANSITION.NO,
             };
             break;
+            
+          case ACTION.TOUCH:
+            return {
+              ...state,
+
+              touch: VALUE.TOUCH.YES,
+            }
+            break
+          case ACTION.NO_TOUCH:
+            if (state.move === VALUE.MOVE.WAIT) {
+              setTimeout(() => {
+                signal('mobile-seq:action', ACTION.ENERTIA_END)
+              }, 2000)
+
+              return {
+                ...state,
+
+                move: VALUE.MOVE.ENERTIA,
+                touch: VALUE.TOUCH.NO,
+              }
+            }
+
+            return {
+              ...state,
+
+              touch: VALUE.TOUCH.NO,
+            }
+            break
         }
 
         return state;
@@ -200,13 +263,38 @@ window.addEventListener('DOMContentLoaded', () => {
         0
       );
 
+      window.addEventListener('touchstart', e => {
+        if (e.touches.length) {
+          state = reducer(state, ACTION.TOUCH)
+          console.log(state)
+        }
+      })
+      window.addEventListener('touchend', e => {
+        if (!e.touches.length) {
+          state = reducer(state, ACTION.NO_TOUCH)
+          console.log('NO_TOUCH')
+          console.log(state)
+        }
+      })
+
       document.querySelector('.expand__scroll').addEventListener('scroll', () => {
-        if (state.point === VALUE.POINT.START && document.querySelector('.seq').getBoundingClientRect().top <= 0) {
-          state = reducer(state, ACTION.HIT_ABOVE);
-          console.log(state)
-        } else if (state.point === VALUE.POINT.END && document.querySelector('.seq').getBoundingClientRect().bottom >= innerHeight) {
-          state = reducer(state, ACTION.HIT_BELOW);
-          console.log(state)
+        if (state.point === VALUE.POINT.START || state.point === VALUE.POINT.END) {
+          const expandScroll = document.querySelector('.expand__scroll')
+          const seq = document.querySelector('.seq')
+          const seqRect = seq.getBoundingClientRect()
+
+          const height = innerHeight
+          const start =  expandScroll.scrollTop + seqRect.top
+          const bottom = expandScroll.scrollTop + seqRect.bottom
+
+          if (state.point === VALUE.POINT.START && expandScroll.scrollTop >= start + 1) {
+            console.log(start + 1)
+            state = reducer(state, ACTION.HIT_ABOVE);
+            console.log(state)
+          } else if (state.point === VALUE.POINT.END && expandScroll.scrollTop <= bottom - height - 1) {
+            state = reducer(state, ACTION.HIT_BELOW);
+            console.log(state)
+          }
         }
       });
 
