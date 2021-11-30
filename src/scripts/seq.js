@@ -454,7 +454,9 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     /* SCROLL */
     function scrollHandler() {
-      updateProgress()
+      if (getMediaQuery(BREAKPOINT.TABLET).matches) {
+        updateProgress()
+      }
       updateCanvas()
       updateText()
       updateHeader()
@@ -465,7 +467,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         updateMenu()
       }
     }
-
     if (getMediaQuery(BREAKPOINT.TABLET).matches || !expand) {
       window.addEventListener('scroll', scrollHandler)
     } else {
@@ -499,6 +500,62 @@ window.addEventListener('DOMContentLoaded', async () => {
       if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         updateMenu()
       }
+    })
+
+
+
+    /* MOBILE SEQ */
+    window.addEventListener('mobile-seq:prev', ({ detail }) => {
+      const {from, timeout} = detail
+
+      const progressPart = 1 / (323 / 17)
+
+      prevProgress = nextProgress
+      nextProgress = progressPart * from
+      scrollHandler()
+
+      const startTime = performance.now()
+      requestAnimationFrame(function animation() {
+        const commonTime = performance.now() - startTime
+
+        prevProgress = nextProgress
+        nextProgress = progressPart * from - progressPart * Math.min(1, commonTime / timeout)
+        scrollHandler()
+        
+        if (commonTime < timeout) {
+          requestAnimationFrame(animation)
+        } else {
+          prevProgress = nextProgress
+          nextProgress = progressPart * from - progressPart
+          scrollHandler()
+        }
+      })
+    })
+    window.addEventListener('mobile-seq:next', ({ detail }) => {
+      const {from, timeout} = detail
+
+      const progressPart = 1 / (323 / 17)
+
+      prevProgress = nextProgress
+      nextProgress = progressPart * from
+      scrollHandler()
+
+      const startTime = performance.now()
+      requestAnimationFrame(function animation() {
+        const commonTime = performance.now() - startTime
+
+        prevProgress = nextProgress
+        nextProgress = progressPart * from + progressPart * Math.min(1, commonTime / timeout)
+        scrollHandler()
+        
+        if (commonTime < timeout) {
+          requestAnimationFrame(animation)
+        } else {
+          prevProgress = prevProgress
+          nextProgress = progressPart * from + progressPart
+          scrollHandler()
+        }
+      })
     })
   }
 })
