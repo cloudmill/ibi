@@ -75,8 +75,11 @@
   }
 
   &__save {
-    padding-top: 92px;
+    
     &.share-social {
+
+      padding-top: 150px;
+
       @media (max-width: $breakpoint - 1px) {
         display: none;
       }
