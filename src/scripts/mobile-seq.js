@@ -148,9 +148,14 @@ window.addEventListener('DOMContentLoaded', () => {
                 state.point < VALUE.POINT.END - 1 &&
                 state.transition === VALUE.TRANSITION.NO
               ) {
+                const timeout = 500
+                signal('mobile-seq:next', {
+                  from: state.point - 1,
+                  timeout,
+                })
                 setTimeout(() => {
                   signal('mobile-seq:action', ACTION.TRANSITION_END)
-                }, 500)
+                }, timeout)
   
                 return {
                   ...state,
@@ -192,9 +197,14 @@ window.addEventListener('DOMContentLoaded', () => {
                 state.point < VALUE.POINT.END &&
                 state.transition === VALUE.TRANSITION.NO
               ) {
+                const timeout = 500
+                signal('mobile-seq:prev', {
+                  from: state.point - 1,
+                  timeout,
+                })
                 setTimeout(() => {
                   signal('mobile-seq:action', ACTION.TRANSITION_END)
-                }, 500)
+                }, timeout)
   
                 return {
                   ...state,
