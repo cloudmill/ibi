@@ -57,8 +57,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 signal('mobile-seq:action', ACTION.ENERTIA_END)
               }, 2000)
 
-              document.querySelector('.expand__scroll').style.overflow = 'hidden'
-
               return {
                 ...state,
 
@@ -73,8 +71,6 @@ window.addEventListener('DOMContentLoaded', () => {
               setTimeout(() => {
                 signal('mobile-seq:action', ACTION.ENERTIA_END)
               }, 2000)
-
-              document.querySelector('.expand__scroll').style.overflow = 'hidden'
 
               return {
                 ...state,
@@ -114,8 +110,6 @@ window.addEventListener('DOMContentLoaded', () => {
               state.transition === VALUE.TRANSITION.NO &&
               state.enertia === VALUE.ENERTIA.NO
             ) {
-              document.querySelector('.expand__scroll').style.overflow = ''
-
               return {
                 ...state,
 
@@ -152,8 +146,6 @@ window.addEventListener('DOMContentLoaded', () => {
               state.transition === VALUE.TRANSITION.NO &&
               state.enertia === VALUE.ENERTIA.NO
             ) {
-              document.querySelector('.expand__scroll').style.overflow = ''
-
               return {
                 ...state,
 
@@ -182,6 +174,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
         return state;
       };
+
+      window.addEventListener('touchmove', e => {
+        if (state.lock === VALUE.LOCK.YES) {
+          e.preventDefault()
+        }
+      }, {
+        passive: false,
+      })
 
       swipeDetect(
         window,
