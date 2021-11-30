@@ -1,24 +1,7 @@
-import src from 'gsap/src'
 import { signal } from 'scripts/communication.js'
 import swipeDetect from 'swipe-detect'
 
 window.addEventListener('DOMContentLoaded', async () => {
-  // const consoleEl = document.querySelector('.console')
-  // function logConsole(msg) {
-  //   if (consoleEl) {
-  //     consoleEl.innerHTML = msg + '<br>' + consoleEl.innerHTML
-  //     consoleEl.scrollTo(0, 0)
-  //   }
-  // }
-
-  // if (!matchMedia('(min-width: 1920px)').matches) {
-  //   window.addEventListener('scroll', () => logConsole('scroll ' + pageYOffset))
-  //   window.addEventListener('touchmove', () => logConsole('touchmove ' + pageYOffset))
-  //   setInterval(() => {
-  //     logConsole('pageYOffset ' + pageYOffset)
-  //   }, 1000)
-  // }
-
   const seq = document.querySelector('.seq')
 
   if (seq) {
@@ -269,7 +252,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         seq.querySelector('.seq__texts--mobile')
     )
     const texts = textsContainer.querySelectorAll('.seq__text')
-
     function getFrame(imageIndex) {
       let i = 0
       let frame = +texts[i].getAttribute('data-frame')
@@ -445,7 +427,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     /* EXPAND */
     const expand = document.querySelector('.expand')
-    const expandScroll = expand.querySelector('.expand__scroll')
+    const expandScroll = document.querySelector('.expand__scroll')
 
 
 
@@ -559,90 +541,3 @@ window.addEventListener('DOMContentLoaded', async () => {
     })
   }
 })
-
-/*
-{
-  let srcList = null
-  let frameList = null
-
-  Promise.all([
-    new Promise((resolve) => {
-      window.addEventListener('wow:srcList', ({ detail }) => {
-        srcList = detail
-        resolve()
-      })
-    }),
-    new Promise((resolve) => {
-      window.addEventListener('wow:frameList', ({ detail }) => {
-        frameList = detail
-        resolve()
-      })
-    }),
-  ]).then(() => {
-    frameList.push(srcList.length)
-    frameList = frameList.map(frame => +frame)
-
-    const frameRanges = []
-    for (let i = 1; i < frameList.length; i++) {
-      frameRanges.push(frameList[i] - frameList[i - 1])
-    }
-
-    const srcRanges = []
-    for (let i = 0; i < frameList.length - 1; i++) {
-      const startIndex = frameList[i]
-      const endIndex = startIndex + frameRanges[i]
-
-      srcRanges.push(srcList.slice(startIndex, endIndex))
-    }
-
-    const diffCounts = []
-    for (let i = 0; i < frameRanges.length; i++) {
-      diffCounts.push(Math.abs(frameRanges[i] - Math.max(...frameRanges)))
-    }
-
-    const resultRanges = []
-    for (let i = 0; i < srcRanges.length; i++) {
-      const resultRangeCounts = []
-
-      for (let j = 0; j < srcRanges[i].length; j++) {
-        resultRangeCounts.push(0)
-      }
-
-      for (let j = 0; j < Math.max(...frameRanges); j++) {
-        resultRangeCounts[j % resultRangeCounts.length]++
-      }
-
-      const resultRange = []
-
-      for (let j = 0; j < resultRangeCounts.length; j++) {
-        for (let k = 0; k < resultRangeCounts[j]; k++) {
-          resultRange.push(srcRanges[i][j])
-        }
-      }
-
-      resultRanges.push(resultRange)
-    }
-
-    let newSrcList = []
-    for (let i = 0; i < resultRanges.length; i++) {
-      newSrcList = newSrcList.concat(resultRanges[i])
-    }
-
-    const newFrameList = []
-    for (let i = 0; i < frameList.length - 1; i++) {
-      newFrameList.push(Math.max(...frameRanges) * i)
-    }
-    
-    console.log('srcList', srcList)
-    console.log('frameList', frameList)
-    console.log('frameRanges', frameRanges)
-    console.log('maxFrameRange', Math.max(...frameRanges))
-    console.log('srcRanges', srcRanges)
-    console.log('diffCounts', diffCounts)
-    console.log('resultRanges', resultRanges)
-    console.log('newSrcList', newSrcList)
-    console.log(`[${newSrcList.map(src => `"${src}",`).join('')}]`)
-    console.log('newFrameList', newFrameList)
-  })
-}
-*/

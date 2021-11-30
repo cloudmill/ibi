@@ -21,7 +21,7 @@ if (!mediaQuery.matches) {
       const ANIMATION_DURATION = 500
 
       const expand = document.querySelector('.expand')
-      const expandScroll = expand.querySelector('.expand__scroll')
+      const expandScroll = document.querySelector('.expand__scroll')
   
       elements.panel = elements.root.find('.mobile-header__panel')
       elements.menu = elements.root.find('.mobile-header__menu')
