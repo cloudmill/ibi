@@ -127,13 +127,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
           case ACTION.SWIPE_UP:
             if (state.move !== VALUE.MOVE.WAIT) {
-              if (state.point > VALUE.POINT.START && state.point < VALUE.POINT.END) {
+              if (state.point === VALUE.POINT.END - 1) {
                 console.error(state)
+
                 const expandScroll = document.querySelector('.expand__scroll')
                 const seq = document.querySelector('.seq')
+                const seqFullscreen = document.querySelector('.seq__fullscreen')
+
                 const seqRect = seq.getBoundingClientRect()
-                const height = innerHeight
+                const seqFullscreenRect = seqFullscreen.getBoundingClientRect()
+
                 const bottom = expandScroll.scrollTop + seqRect.bottom
+                const height = seqFullscreenRect.height
+
                 expandScroll.scrollTo(0, bottom - height)
               }
   
@@ -168,12 +174,16 @@ window.addEventListener('DOMContentLoaded', () => {
             break;
           case ACTION.SWIPE_DOWN:
             if (state.move !== VALUE.MOVE.WAIT) {
-              if (state.point > VALUE.POINT.START && state.point < VALUE.POINT.END) {
+              if (state.point === VALUE.POINT.START + 1) {
                 console.error(state)
+
                 const expandScroll = document.querySelector('.expand__scroll')
                 const seq = document.querySelector('.seq')
+
                 const seqRect = seq.getBoundingClientRect()
+
                 const start =  expandScroll.scrollTop + seqRect.top
+
                 expandScroll.scrollTo(0, start)
               }
   
@@ -291,7 +301,6 @@ window.addEventListener('DOMContentLoaded', () => {
       window.addEventListener('touchend', e => {
         if (!e.touches.length) {
           state = reducer(state, ACTION.NO_TOUCH)
-          console.log('NO_TOUCH')
           console.log(state)
         }
       })
@@ -300,14 +309,16 @@ window.addEventListener('DOMContentLoaded', () => {
         if (state.point === VALUE.POINT.START || state.point === VALUE.POINT.END) {
           const expandScroll = document.querySelector('.expand__scroll')
           const seq = document.querySelector('.seq')
-          const seqRect = seq.getBoundingClientRect()
+          const seqFullscreen = document.querySelector('.seq__fullscreen')
 
-          const height = innerHeight
+          const seqRect = seq.getBoundingClientRect()
+          const seqFullscreenRect = seqFullscreen.getBoundingClientRect()
+
           const start =  expandScroll.scrollTop + seqRect.top
           const bottom = expandScroll.scrollTop + seqRect.bottom
-
+          const height = seqFullscreenRect.height
+          
           if (state.point === VALUE.POINT.START && expandScroll.scrollTop >= start + 1) {
-            console.log(start + 1)
             state = reducer(state, ACTION.HIT_ABOVE);
             console.log(state)
           } else if (state.point === VALUE.POINT.END && expandScroll.scrollTop <= bottom - height - 1) {
