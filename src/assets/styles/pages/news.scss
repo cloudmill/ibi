@@ -31,6 +31,16 @@
         
         &-item {
             margin-bottom: 10px;
+
+            a {
+              transition: $transition;
+            }
+
+            &:hover {
+              a {
+                color: $color-main;
+              }
+            }
         }
 
         &-item:last-child {

@@ -1456,10 +1456,13 @@ var updateMySticky
     const videoPreview = $('.video-preview');
     const previewImg = videoPreview.find('.video-preview__img');
     const video = videoPreview.find('.video-preview__video');
+
+    console.log(video);
+    // video.hide();
   
     if (videoPreview.length) {
       previewImg.on('click', () => {
-        previewImg.hide(400);
+        previewImg.hide();
         video.show();
         // video.postMessage('{"event": "command", "func": "playVideo", "args": ""}', "*");
         video.playVideo();

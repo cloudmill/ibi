@@ -52,16 +52,14 @@
     font-size: 14px;
     line-height: 140%;
 
-    cursor: pointer;
+    // cursor: pointer;
     transition: $transition;
 
     &--active {
       color: $color-main;
     }
 
-    &:hover {
-      color: $color-main;
-    }
+    
   }
 
   &__reset {
@@ -313,5 +311,12 @@
       //   height: auto;
       // }
     // }
+  }
+}
+
+.filter-tags-hover {
+  .team-filter__item:hover {
+    color: $color-main;
+    cursor: pointer;
   }
 }

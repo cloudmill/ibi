@@ -30,6 +30,11 @@
   .nav__item::before {
     top: 10px;
   }
+  .marker-center.nav__item::before {
+    @media (min-width: $breakpoint-l + 1px) {
+      top: 18px;
+    }
+  }
 
   .mission__spoiler {
     border: none;
