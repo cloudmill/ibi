@@ -18,6 +18,7 @@ import 'scripts/sidebar.js';
 import { mediaQuery } from 'scripts/mediaQueries.js';
 import 'scripts/mobile-header.js';
 import './scripts/mobile-seq'
+import './scripts/scroll-test'
 
 const BREAKPOINT = 1280;
 

@@ -1,18 +1,5 @@
 .scroll-test {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  overflow-x: hidden;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-
-  &__screen {
-    height: 100%;
-    scroll-snap-align: start;
-
-    border: 5px dashed black;
+  &__block {
+    height: 500vh;
   }
 }
