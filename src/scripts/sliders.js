@@ -196,7 +196,15 @@ const BREAKPOINT = 1280;
   
             }
             break;
+          
+          case 141:
+            slider_options = {
+              ...slider_options,
   
+              // loop: true,
+  
+            }
+            break;
   
           case 160:
             slider_options = {
