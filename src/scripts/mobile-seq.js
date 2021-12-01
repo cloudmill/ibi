@@ -1,9 +1,19 @@
+import { mediaQuery, BREAKPOINT } from './mediaQuery'
+import { DOMContentLoaded, load } from './event'
+import { sendSignal, onSignal } from './signal'
+
 import swipeDetect from 'swipe-detect'
 import { signal } from './communication'
 
-const BREAKPOINT = {
-  TABLET: 1024,
-}
+DOMContentLoaded.then(async () => {
+  if (document.querySelector('[data-mobile-seq]')) {
+    if (!mediaQuery(BREAKPOINT.TABLET)) {
+      await load
+
+      
+    }
+  }
+})
 
 window.addEventListener('DOMContentLoaded', () => {
   if (!matchMedia(`(min-width: ${BREAKPOINT.TABLET}px)`).matches) {
