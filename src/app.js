@@ -1450,23 +1450,12 @@ var updateMySticky
 }
 
 // Видео в отзыве на странице До и после
-
 {
-  $(() => {
-    const videoPreview = $('.video-preview');
-    const previewImg = videoPreview.find('.video-preview__img');
-    const video = videoPreview.find('.video-preview__video');
-
-    console.log(video);
-    // video.hide();
-  
-    if (videoPreview.length) {
-      previewImg.on('click', () => {
-        previewImg.hide();
-        video.show();
-        // video.postMessage('{"event": "command", "func": "playVideo", "args": ""}', "*");
-        video.playVideo();
-      })
-    }
+  $(document).on('click', '.video-preview__img', function() {
+    var $video = $('#video'),
+      src = $video.attr('src');
+   
+    $video.attr('src', src + '&autoplay=1');
+    $('.video-preview__img').hide();
   })
 }
