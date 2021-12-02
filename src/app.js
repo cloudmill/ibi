@@ -658,29 +658,28 @@ var updateMySticky
 // prosthetics filter
 {
   $(() => {
-    const filterPros = $('.prosthetic-slider__filter');
-    const filterBtn = filterPros.find('.development__names-item');
-    // const filterSlide = $('.prosthetic-slider__slide');
+    const filter = $('.prosthetic-slider__filter');
+    const filterBtn = filter.find('.development__names-item');
+    const sliders = $('.prosthetic-slider__container').find('.slider');
+    const controls = $('.prosthetic-slider__controls').find('.slider-control');
 
-    const sliders = $('.prosthetic-slider__container').find('.swiper-container');
+    if (filter.length) {
+      filter.on('click', event => {
 
-    if (filterBtn.length) {
-      filterPros.on('click', event => {
-        filterBtn.toggleClass('development__names-item--active');
+        if ( $(event.target).closest(filterBtn).length ) {
 
-        sliders.toggleClass('prosthetic-slider--active');
+          const activeBtn = $(event.target).closest(filterBtn);
+          const indexBtn = filterBtn.index(activeBtn);
 
-        // const activeBtn = $(event.target).closest(filterBtn);
-        // activeBtn.addClass('development__names-item--active');
+          filterBtn.removeClass('development__names-item--active');
+          sliders.removeClass('prosthetic-slider--active');
+          controls.removeClass('slider-control--active');
 
-        // const currentId = activeBtn.data('filter-id');
+          activeBtn.addClass('development__names-item--active');
+          $(sliders[indexBtn]).addClass('prosthetic-slider--active');
+          $(controls[indexBtn]).addClass('slider-control--active');
 
-        // filterSlide.css('display', 'none');
-        // const currentSlides = $(`[data-slide-id="${currentId}"]`);
-
-        // console.log(currentSlides);
-        
-        // currentSlides.css('display', 'block');
+        }
       })
     }
   })
