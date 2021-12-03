@@ -33,7 +33,8 @@ DOMContentLoaded.then(async () => {
         return getY() + getRect(ELEMENT.SEQ).bottom - getRect(ELEMENT.SEQ_FULLSCREEN).height
       }
 
-      const OVERFLOW_DELAY = 1000 / 15
+      const FPS = 15
+      const STOP_DELAY = 1000 / FPS
 
       // ! STATE
 
@@ -43,9 +44,7 @@ DOMContentLoaded.then(async () => {
           AFTER: 'AFTER',
 
           PRE: 'PRE',
-          
-          POST_NO_TOUCH: 'POST_NO_TOUCH',
-          POST_TOUCH: 'POST_TOUCH',
+          POST: 'POST',
           
           START: 0,
           END: 18,
@@ -73,7 +72,7 @@ DOMContentLoaded.then(async () => {
         SWIPE_UP: 'SWIPE_UP',
         SWIPE_DOWN: 'SWIPE_DOWN',
 
-        OVERFLOW_DELAY: 'OVERFLOW_DELAY',
+        STOP_DELAY: 'STOP_DELAY',
       }
 
       const INITIAL_STATE = {
@@ -89,6 +88,10 @@ DOMContentLoaded.then(async () => {
 
         switch (action) {
           case ACTION.TOUCH:
+            if (state.point === VALUE.POINT.START) {
+              ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart())
+            }
+
             return {
               ...state,
 
@@ -96,10 +99,10 @@ DOMContentLoaded.then(async () => {
             }
             break
           case ACTION.NO_TOUCH:
-            if (state.point === VALUE.POINT.PRE_TOUCH) {
+            if (state.point === VALUE.POINT.PRE || state.point === VALUE.POINT.POST) {
               setTimeout(() => {
-                sendSignal('mobile-seq:action', ACTION.OVERFLOW_DELAY)
-              }, OVERFLOW_DELAY)
+                sendSignal('mobile-seq:action', ACTION.STOP_DELAY)
+              }, STOP_DELAY)
             }
 
             return {
@@ -110,6 +113,14 @@ DOMContentLoaded.then(async () => {
             break
         
           case ACTION.SWIPE_UP:
+            if (state.point === VALUE.POINT.START) {
+              return {
+                ...state,
+
+                point: state.point + 1,
+                lock: VALUE.LOCK.YES,
+              }
+            }
             break
           case ACTION.SWIPE_DOWN:
             break
@@ -120,8 +131,8 @@ DOMContentLoaded.then(async () => {
 
             if (state.touch === VALUE.TOUCH.NO) {
               setTimeout(() => {
-                sendSignal('mobile-seq:action', ACTION.OVERFLOW_DELAY)
-              }, OVERFLOW_DELAY)
+                sendSignal('mobile-seq:action', ACTION.STOP_DELAY)
+              }, STOP_DELAY)
             }
 
             return {
@@ -138,7 +149,7 @@ DOMContentLoaded.then(async () => {
             }
             break
         
-          case ACTION.OVERFLOW_DELAY:
+          case ACTION.STOP_DELAY:
             ELEMENT.EXPAND_SCROLL.style.overflow = ''
 
             return {
@@ -154,7 +165,7 @@ DOMContentLoaded.then(async () => {
 
       // ! EVENTS
 
-      window.addEventListener('touchstart', e => state = reducer(state, e.touches.length ? ACTION.TOUCH : null))
+      window.addEventListener('touchstart', e => state = reducer(state, state.touch === VALUE.TOUCH.NO && e.touches.length ? ACTION.TOUCH : null))
       window.addEventListener('touchend', e => state = reducer(state, !e.touches.length ? ACTION.NO_TOUCH : null))
 
       swipeDetect(window, dir => {
@@ -168,7 +179,7 @@ DOMContentLoaded.then(async () => {
         }
       }, 0)
 
-      ELEMENT.EXPAND_SCROLL.addEventListener('scroll', () => .
+      ELEMENT.EXPAND_SCROLL.addEventListener('scroll', () => {
         switch (state.point) {
           case VALUE.POINT.BEFORE:
             state = reducer(state, getY() >= getStart() + 1 ? ACTION.HIT_ABOVE : null)
