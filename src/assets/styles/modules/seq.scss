@@ -145,7 +145,7 @@
 
     width: calc(#{$col-part-d} * 3);
 
-    transition: $transition;
+    transition: 0.25s;
 
     @media (max-width: #{$breakpoint-t - 1px}) {
       position: static;
