@@ -1,3 +1,5 @@
+import swipeDetect from 'swipe-detect'
+
 window.addEventListener('DOMContentLoaded', () => {
   const scrollTest = document.querySelector('.scroll-test')
 
@@ -8,12 +10,32 @@ window.addEventListener('DOMContentLoaded', () => {
 
     let wait = false
 
+    const pre = document.createElement('pre')
+    pre.style.cssText = `
+      position: fixed;
+      z-index: 1000000000;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      pointer-events: none;
+
+      color: green;
+    `
+    document.body.append(pre)
+    setInterval(() => {
+      pre.innerHTML = JSON.stringify({
+        flag,
+        touch,
+        wait,
+      }, null, '\t')
+    })
+
     window.addEventListener('touchstart', e => {
       if (e.touches.length) {
         touch = true
       }
     })
-
     window.addEventListener('touchend', e => {
       if (!e.touches.length) {
         touch = false
@@ -38,15 +60,21 @@ window.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, edgeYOffset)
         
         document.body.style.overflow = 'hidden'
+
+        if (touch) {
+          wait = true
+        }
         
         setTimeout(() => {
           if (!touch) {
             document.body.style.overflow = ''
-          } else {
-            wait = true
+
+            wait = false
           }
         }, 1000 / 15)
       }
     })
+
+    swipeDetect(window, console.log, 0)
   }
 })
