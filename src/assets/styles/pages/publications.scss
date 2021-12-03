@@ -24,16 +24,29 @@
   }
 
   &--mobile {
-    padding-top: 20px;
-
+    padding: 20px 0 0 20px;
+    margin: 0 -20px 0 -20px;
     display: block;
+
+    overflow-x: scroll;
+    @include scrollbar-hidden();
+
     @media (min-width: $breakpoint) {
       display: none;
     }
 
-    .articles-authors__item{
+    .articles-authors__list {
+      
+    }
+
+    .articles-authors__item {
       margin: 0;
       height: auto;
+      flex: none;
+
+      &:not(:first-child) {
+        margin-left: 20px;
+      }
     }
   }
 
@@ -93,40 +106,35 @@
   }
 
   &__list {
-    // @media (max-width: $breakpoint - 1px) {
-    //   display: flex;
-    //   width: 100%;
-    //   overflow-x: auto;
-    // }
+
     display: flex;
     width: 100%;
-    // overflow-x: auto;
 
-    // @media (max-width: $breakpoint - 1px) {
-    //   padding-left: 20px;
-    // }
+    &-column {
+      @media (min-width: $breakpoint) {
+        display: flex;
+        flex-direction: column;
+
+        .articles-authors__item:not(:first-child) {
+          margin-top: 40px;
+        }
+        .articles-authors__item:last-child {
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   &__item {
     transition: $transition;
     height: 92px;
 
+
+
     &:last-child {
       margin-right: 40px;
     }
-    // @media (min-width: $breakpoint) {
-      // border: 1px solid $color-gray-border;
-      // padding: 10px;
 
-    //   &:not(:first-child) {
-    //     margin-top: 20px;
-    //   }
-    // }
-    // @media (max-width: $breakpoint - 1px) {
-    //   &:not(:first-child) {
-    //     margin-left: calc(#{$col-gap-m});
-    //   }
-    // }
   }
 
   &__filter-item {

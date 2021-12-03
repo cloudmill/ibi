@@ -111,6 +111,16 @@
     &-item {
       margin-bottom: 10px;
 
+      a {
+        transition: $transition;
+      }
+
+      &:hover {
+        a {
+          color: $color-main;
+        }
+      }
+
       :last-child {
         margin-bottom: 0;
       }

@@ -30,6 +30,11 @@
   .nav__item::before {
     top: 10px;
   }
+  .marker-center.nav__item::before {
+    @media (min-width: $breakpoint-l + 1px) {
+      top: 18px;
+    }
+  }
 
   .mission__spoiler {
     border: none;
@@ -544,49 +549,61 @@
   background-color: transparent;
 }
 
-.prosthetic-slider__container {
+
+
+.prosthetic-slider__controls {
   position: relative;
+  width: 150px;
+  height: 70px;
+
+  @media (max-width: $breakpoint - 1px) {
+    display: none;
+  }
+
+  .slider-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: $transition;
+
+    &--active {
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+}
+
+.prosthetic-slider__container {
+  width: calc(#{$col-part-d} * 9);
+  display: grid;
+  grid-template-areas: 'z';
+
   margin-right: -40px;
-  height: 350px;
 
   @media (max-width: $breakpoint - 1px) {
     margin-right: -20px;
     height: 220px;
   }
 
-  // @media (max-width: $breakpoint-m - 1px) {
-  //   margin-right: -20px;
-  //   height: 20px;
-  // }
-
-  .swiper-container {
-    // display: none;
-
-    height: 350px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    
-
+  .slider {
+    display: block;
+    grid-area: z;
     opacity: 0;
-    z-index: -1;
+    pointer-events: none;
+    width: calc(#{$col-part-d} * 9);
 
     transition: $transition;
 
     @media (max-width: $breakpoint - 1px) {
-      height: 220px;
+      width: calc(#{$col-part-m} * 4);
     }
-
-    // @media (max-width: $breakpoint-m - 1px) {
-    //   height: 250px;
-    // }
   }
 
   .prosthetic-slider--active {
-    // display: block;
     opacity: 1;
-    z-index: 1;
+    pointer-events: all;
   }
 }
 

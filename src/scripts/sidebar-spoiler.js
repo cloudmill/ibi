@@ -12,11 +12,11 @@
 
     if (spoilerArrow.length !== 0) {
       
-      console.log('halo1');
+      // console.log('halo1');
 
       spoilerArrow.on('click', event => {
 
-        console.log('halo2');
+        // console.log('halo2');
 
         let currentSpoiler = $(event.target).closest('.sidebar-nav-spoiler');
         let currentSpoilerDrop = currentSpoiler.find('.sidebar-nav-spoiler__drop');
