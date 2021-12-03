@@ -35,6 +35,8 @@ DOMContentLoaded.then(async () => {
 
       const FPS = 15
 
+      const STOP_DELAY = 1000 / FPS
+
       const TRANSITION_DURATION = 250
 
       // ! STATE
