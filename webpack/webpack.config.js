@@ -55,12 +55,12 @@ module.exports = env => {
 					loader: 'json-loader'
 				},
 				{
-					test: /\.js$/,
+					test: /\.(js|ts)$/,
 					exclude: [/node_modules/],
 					use: [
 						{
 							loader: 'babel-loader',
-							options: {presets: ['@babel/preset-env']}
+							options: {presets: ['@babel/preset-env', '@babel/preset-typescript']}
 						}
 					]
 				},
