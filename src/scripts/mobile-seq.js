@@ -123,11 +123,12 @@ DOMContentLoaded.then(async () => {
       let state = INITIAL_STATE;
 
       let prevAction = null
+      let actionCounter = 0
 
       const reducer = (state, action) => {
         action && console.log(action);
         if (action && action !== prevAction) {
-          wow.innerHTML = action + '\n' + wow.innerHTML
+          wow.innerHTML = ++actionCounter + ' ' + action + '\n' + wow.innerHTML
           prevAction = action
         }
 
