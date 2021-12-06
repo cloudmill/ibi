@@ -10,16 +10,6 @@ DOMContentLoaded.then(async () => {
 
       // ! DATA & METHODS
 
-      const wow = document.createElement('div')
-      wow.style.cssText = `
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-
-        color: red;
-      `
-
       const ELEMENT = {
         EXPAND_SCROLL: document.querySelector(".expand__scroll"),
 
@@ -46,50 +36,27 @@ DOMContentLoaded.then(async () => {
         );
       }
 
-      const getDir = (() => {
-        let prevY = null;
-        let nextY = getY();
-
-        return () => {
-          prevY = nextY;
-          nextY = getY();
-
-          return prevY < nextY ? "down" : "up";
-        };
-      })();
-
-      const FPS = 15;
-
-      const DELAY = 1000 / FPS;
-
-      const TRANSITION_DURATION = 250;
-
       // ! STATE
 
       const VALUE = {
         POINT: {
           BEFORE: "BEFORE",
-          AFTER: "AFTER",
-
-          PRE: "PRE",
-          POST: "POST",
-
           START: 0,
           END: 18,
-        },
-        LOCK: {
-          YES: "YES",
-          NO: "NO",
-        },
-        TOUCH: {
-          YES: "YES",
-          NO: "NO",
+          AFTER: "AFTER",
         },
         TRANSITION: {
-          YES: "YES",
           NO: "NO",
+          YES: "YES",
         },
       };
+
+      const INITIAL_STATE = {
+        point: VALUE.POINT.BEFORE,
+        transition: VALUE.TRANSITION.NO,
+      };
+
+      let state = INITIAL_STATE;
 
       const ACTION = {
         HIT_ABOVE: "HIT_ABOVE",
@@ -98,175 +65,26 @@ DOMContentLoaded.then(async () => {
         OUT_ABOVE: "OUT_ABOVE",
         OUT_BELOW: "OUT_BELOW",
 
-        SCROLL_UP: "SCROLL_UP",
-        SCROLL_DOWN: "SCROLL_DOWN",
-
-        TOUCH: "TOUCH",
-        NO_TOUCH: "NO_TOUCH",
-
         SWIPE_UP: "SWIPE_UP",
         SWIPE_DOWN: "SWIPE_DOWN",
-
-        TRANSITION_END: "TRANSITION_END",
-
-        PRE_END: "PRE_END",
-        POST_END: "POST_END",
       };
-
-      const INITIAL_STATE = {
-        point: VALUE.POINT.BEFORE,
-        lock: VALUE.LOCK.NO,
-        touch: VALUE.TOUCH.NO,
-        transition: VALUE.TRANSITION.NO,
-      };
-
-      let state = INITIAL_STATE;
-
-      let prevAction = null
-      let actionCounter = 0
 
       const reducer = (state, action) => {
-        action && console.log(action);
-        if (action && action !== prevAction) {
-          wow.innerHTML = ++actionCounter + ' ' + action + '\n' + wow.innerHTML
-          prevAction = action
-        }
+        console.log("reducer:", action);
 
         switch (action) {
-          case ACTION.TOUCH:
-            if (state.point === VALUE.POINT.START) {
-              ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
-            }
-
-            if (state.point === VALUE.POINT.END) {
-              ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
-            }
-
-            return {
-              ...state,
-
-              touch: VALUE.TOUCH.YES,
-            };
-            break;
-          case ACTION.NO_TOUCH:
-            if (state.point === VALUE.POINT.PRE) {
-              setTimeout(() => {
-                sendSignal("mobile-seq:action", ACTION.PRE_END);
-              }, DELAY);
-            }
-
-            if (state.point === VALUE.POINT.POST) {
-              setTimeout(() => {
-                sendSignal("mobile-seq:action", ACTION.POST_END);
-              }, DELAY);
-            }
-
-            return {
-              ...state,
-
-              touch: VALUE.TOUCH.NO,
-            };
-            break;
-
-          case ACTION.SWIPE_UP:
-            if (state.transition === VALUE.TRANSITION.NO) {
-              if (
-                state.point >= VALUE.POINT.START &&
-                state.point < VALUE.POINT.END
-              ) {
-                sendSignal("mobile-seq:transition", {
-                  from: state.point,
-                  to: state.point + 1,
-
-                  onComplete: () => {
-                    sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
-                  },
-                });
-              }
-
-              if (state.point === VALUE.POINT.START) {
-                return {
-                  ...state,
-
-                  point: state.point + 1,
-                  lock: VALUE.LOCK.YES,
-                  transition: VALUE.TRANSITION.YES,
-                };
-              }
-
-              if (
-                state.point > VALUE.POINT.START &&
-                state.point < VALUE.POINT.END
-              ) {
-                return {
-                  ...state,
-
-                  point: state.point + 1,
-                  transition: VALUE.TRANSITION.YES,
-                };
-              }
-            }
-            break;
-          case ACTION.SWIPE_DOWN:
-            if (state.transition === VALUE.TRANSITION.NO) {
-              if (
-                state.point > VALUE.POINT.START &&
-                state.point <= VALUE.POINT.END
-              ) {
-                sendSignal("mobile-seq:transition", {
-                  from: state.point,
-                  to: state.point - 1,
-
-                  onComplete: () => {
-                    sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
-                  },
-                });
-              }
-
-              if (state.point === VALUE.POINT.END) {
-                return {
-                  ...state,
-
-                  point: state.point - 1,
-                  lock: VALUE.LOCK.YES,
-                  transition: VALUE.TRANSITION.YES,
-                };
-              }
-
-              if (
-                state.point > VALUE.POINT.START &&
-                state.point < VALUE.POINT.END
-              ) {
-                return {
-                  ...state,
-
-                  point: state.point - 1,
-                  transition: VALUE.TRANSITION.YES,
-                };
-              }
-            }
-            break;
-
           case ACTION.HIT_ABOVE:
             return {
               ...state,
 
-              point:
-                state.touch === VALUE.TOUCH.YES
-                  ? VALUE.POINT.PRE
-                  : VALUE.POINT.START,
+              point: VALUE.POINT.START,
             };
-            break;
           case ACTION.HIT_BELOW:
             return {
               ...state,
 
-              point:
-                state.touch === VALUE.TOUCH.YES
-                  ? VALUE.POINT.POST
-                  : VALUE.POINT.END,
+              point: VALUE.POINT.END,
             };
-            break;
 
           case ACTION.OUT_ABOVE:
             return {
@@ -274,99 +92,58 @@ DOMContentLoaded.then(async () => {
 
               point: VALUE.POINT.BEFORE,
             };
-            break;
           case ACTION.OUT_BELOW:
             return {
               ...state,
 
               point: VALUE.POINT.AFTER,
             };
-            break;
 
-          case ACTION.TRANSITION_END:
-            if (state.transition === VALUE.TRANSITION.YES) {
-              if (
-                state.point > VALUE.POINT.START &&
-                state.point < VALUE.POINT.END
-              ) {
-                return {
-                  ...state,
+          case ACTION.SWIPE_UP:
+            if (
+              state.point === VALUE.POINT.START &&
+              state.transition === VALUE.TRANSITION.NO
+            ) {
+              // вызов анимации
 
-                  transition: VALUE.TRANSITION.NO,
-                };
-              }
-
-              if (
-                state.point === VALUE.POINT.START ||
-                state.point === VALUE.POINT.END
-              ) {
-                return {
-                  ...state,
-
-                  lock: VALUE.LOCK.NO,
-                  transition: VALUE.TRANSITION.NO,
-                };
-              }
-            }
-            break;
-
-          case ACTION.PRE_END:
-            if (state.point === VALUE.POINT.PRE) {
               return {
                 ...state,
 
-                point: VALUE.POINT.START,
+                point: state.point + 1,
+                transition: VALUE.TRANSITION.YES,
               };
             }
-            break;
-          case ACTION.POST_END:
-            if (state.point === VALUE.POINT.POST) {
-              return {
-                ...state,
-
-                point: VALUE.POINT.END,
-              };
-            }
-            break;
-
-          case ACTION.SCROLL_UP:
-            if (
-              state.point === VALUE.POINT.PRE ||
-              state.point === VALUE.POINT.START
-            ) {
-              ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
-            }
-            break;
-          case ACTION.SCROLL_DOWN:
-            if (
-              state.point === VALUE.POINT.POST ||
-              state.point === VALUE.POINT.END
-            ) {
-              ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
-            }
-            break;
         }
 
-        return state;
+        return { ...state };
       };
 
       // ! EVENTS
 
-      window.addEventListener(
-        "touchstart",
-        (e) =>
-          (state = reducer(
-            state,
-            state.touch === VALUE.TOUCH.NO && e.touches.length
-              ? ACTION.TOUCH
-              : null
-          ))
-      );
-      window.addEventListener(
-        "touchend",
-        (e) =>
-          (state = reducer(state, !e.touches.length ? ACTION.NO_TOUCH : null))
-      );
+      ELEMENT.EXPAND_SCROLL.addEventListener("scroll", () => {
+        switch (state.point) {
+          case VALUE.POINT.BEFORE:
+            if (getY() >= getStart() + 1) {
+              state = reducer(state, ACTION.HIT_ABOVE);
+            }
+            break;
+          case VALUE.POINT.START:
+            if (getY() <= getStart() - 1) {
+              state = reducer(state, ACTION.OUT_ABOVE);
+            }
+            break;
+          case VALUE.POINT.END:
+            if (getY() >= getEnd() + 1) {
+              state = reducer(state, ACTION.OUT_BELOW);
+            }
+            break;
+          case VALUE.POINT.AFTER:
+            if (getY() <= getEnd() - 1) {
+              state = reducer(state, ACTION.HIT_BELOW);
+            }
+            break;
+        }
+      });
 
       swipeDetect(
         window,
@@ -383,67 +160,6 @@ DOMContentLoaded.then(async () => {
         0
       );
 
-      ELEMENT.EXPAND_SCROLL.addEventListener("scroll", () => {
-        switch (state.point) {
-          case VALUE.POINT.BEFORE:
-            state = reducer(
-              state,
-              getY() >= getStart() + 1 ? ACTION.HIT_ABOVE : null
-            );
-            break;
-          case VALUE.POINT.PRE:
-          case VALUE.POINT.START:
-            state = reducer(
-              state,
-              getY() <= getStart() - 1 ? ACTION.OUT_ABOVE : null
-            );
-            break;
-          case VALUE.POINT.POST:
-          case VALUE.POINT.END:
-            state = reducer(
-              state,
-              getY() >= getEnd() + 1 ? ACTION.OUT_BELOW : null
-            );
-            break;
-          case VALUE.POINT.AFTER:
-            state = reducer(
-              state,
-              getY() <= getEnd() - 1 ? ACTION.HIT_BELOW : null
-            );
-            break;
-        }
-
-        switch (getDir()) {
-          case "up":
-            state = reducer(state, ACTION.SCROLL_UP);
-            break;
-          case "down":
-            state = reducer(state, ACTION.SCROLL_DOWN);
-            break;
-        }
-      });
-
-      window.addEventListener(
-        "touchmove",
-        (e) => {
-          if (state.lock === VALUE.LOCK.YES) {
-            try {
-              e.preventDefault();
-            } catch (err) {
-              console.error(err);
-            }
-          }
-        },
-        {
-          passive: false,
-        }
-      );
-
-      onSignal(
-        "mobile-seq:action",
-        (action) => (state = reducer(state, action))
-      );
-
       // ! LOGGING
 
       const pre = document.createElement("pre");
@@ -453,17 +169,17 @@ DOMContentLoaded.then(async () => {
         top: 0;
         left: 0;
         right: 0;
-        
+
         pointer-events: none;
 
-        color: green;
+        color: red;
       `;
-      document.body.append(pre);
 
       setInterval(() => {
         pre.innerHTML = JSON.stringify(state, null, "\t");
-        pre.append(wow)
       });
+
+      document.body.append(pre);
     }
   }
 });
