@@ -16,7 +16,10 @@
   @media (max-width: #{$breakpoint - 1px}) {
     width: auto;
   }
-  height: 100000vh; // ?
+  height: 2000vh;
+  @media (max-width: #{$breakpoint-t - 1px}) {
+    height: 100000vh;
+  }
   
   &__fullscreen {
     position: -webkit-sticky;

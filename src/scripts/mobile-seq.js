@@ -114,8 +114,6 @@ DOMContentLoaded.then(async () => {
       let state = INITIAL_STATE;
 
       const reducer = (state, action) => {
-        action && console.log(action);
-
         switch (action) {
           case ACTION.TOUCH:
             if (state.point === VALUE.POINT.START) {
