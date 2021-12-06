@@ -429,23 +429,23 @@ DOMContentLoaded.then(async () => {
 
       // ! LOGGING
 
-      // const pre = document.createElement("pre");
-      // pre.style.cssText = `
-      //   position: fixed;
-      //   z-index: 1000000000;
-      //   top: 0;
-      //   left: 0;
-      //   right: 0;
+      const pre = document.createElement("pre");
+      pre.style.cssText = `
+        position: fixed;
+        z-index: 1000000000;
+        top: 0;
+        left: 0;
+        right: 0;
         
-      //   pointer-events: none;
+        pointer-events: none;
 
-      //   color: green;
-      // `;
-      // document.body.append(pre);
+        color: green;
+      `;
+      document.body.append(pre);
 
-      // setInterval(() => {
-      //   pre.innerHTML = JSON.stringify(state, null, "\t");
-      // });
+      setInterval(() => {
+        pre.innerHTML = JSON.stringify(state, null, "\t");
+      });
     }
   }
 });
