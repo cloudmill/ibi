@@ -10,6 +10,16 @@ DOMContentLoaded.then(async () => {
 
       // ! DATA & METHODS
 
+      const wow = document.createElement('div')
+      wow.style.cssText = `
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        color: red;
+      `
+
       const ELEMENT = {
         EXPAND_SCROLL: document.querySelector(".expand__scroll"),
 
@@ -112,8 +122,14 @@ DOMContentLoaded.then(async () => {
 
       let state = INITIAL_STATE;
 
+      let prevAction = null
+
       const reducer = (state, action) => {
         action && console.log(action);
+        if (action && action !== prevAction) {
+          wow.innerHTML = action + '\n' + wow.innerHTML
+          prevAction = action
+        }
 
         switch (action) {
           case ACTION.TOUCH:
@@ -445,6 +461,7 @@ DOMContentLoaded.then(async () => {
 
       setInterval(() => {
         pre.innerHTML = JSON.stringify(state, null, "\t");
+        pre.append(wow)
       });
     }
   }
