@@ -1,4 +1,5 @@
 import { signal } from "scripts/communication.js";
+import { sendSignal, onSignal } from "./signal";
 
 window.addEventListener("DOMContentLoaded", async () => {
   const seq = document.querySelector(".seq");
@@ -417,7 +418,9 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     /* SCROLL */
     function handleScroll() {
-      updateProgress();
+      if (getMediaQuery(BREAKPOINT.TABLET).matches) {
+        updateProgress();
+      }
       updateCanvas();
       updateText();
       updateHeader();
@@ -455,6 +458,42 @@ window.addEventListener("DOMContentLoaded", async () => {
       if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         updateMenu();
       }
+    });
+
+    /* MOBILE SEQ */
+    onSignal("mobile-seq:transition", ({ from, to, onComplete }) => {
+      const TRANSITION_DURATION =
+        parseFloat(
+          getComputedStyle(document.querySelector(".seq__texts--mobile"))
+            .transitionDuration
+        ) * 1000;
+
+      function draw(progress) {
+        prevProgress = nextProgress;
+
+        const section = 1 / (texts.length - 1);
+        nextProgress = from * section + progress * section * (to - from);
+
+        handleScroll();
+      }
+
+      draw(0);
+
+      const start = performance.now();
+      requestAnimationFrame(function frame() {
+        const progress = Math.min(
+          (performance.now() - start) / TRANSITION_DURATION,
+          1
+        );
+
+        draw(progress);
+
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          onComplete();
+        }
+      });
     });
   }
 });

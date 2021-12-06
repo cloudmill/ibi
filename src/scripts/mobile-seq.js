@@ -2,7 +2,6 @@ import { mediaQuery, BREAKPOINT } from "./mediaQuery";
 import { DOMContentLoaded, load } from "./event";
 import { sendSignal, onSignal } from "./signal";
 import swipeDetect from "swipe-detect";
-import { get } from "jquery";
 
 DOMContentLoaded.then(async () => {
   if (document.querySelector("[data-mobile-seq]")) {
@@ -114,6 +113,8 @@ DOMContentLoaded.then(async () => {
       let state = INITIAL_STATE;
 
       const reducer = (state, action) => {
+        action && console.log(action);
+
         switch (action) {
           case ACTION.TOUCH:
             if (state.point === VALUE.POINT.START) {
@@ -156,14 +157,14 @@ DOMContentLoaded.then(async () => {
                 state.point >= VALUE.POINT.START &&
                 state.point < VALUE.POINT.END
               ) {
-                sendSignal("mobile-seq:next", {
+                sendSignal("mobile-seq:transition", {
                   from: state.point,
-                  timeout: TRANSITION_DURATION,
-                });
+                  to: state.point + 1,
 
-                setTimeout(() => {
-                  sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
-                }, TRANSITION_DURATION);
+                  onComplete: () => {
+                    sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
+                  },
+                });
               }
 
               if (state.point === VALUE.POINT.START) {
@@ -195,14 +196,14 @@ DOMContentLoaded.then(async () => {
                 state.point > VALUE.POINT.START &&
                 state.point <= VALUE.POINT.END
               ) {
-                sendSignal("mobile-seq:prev", {
+                sendSignal("mobile-seq:transition", {
                   from: state.point,
-                  timeout: TRANSITION_DURATION,
-                });
+                  to: state.point - 1,
 
-                setTimeout(() => {
-                  sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
-                }, TRANSITION_DURATION);
+                  onComplete: () => {
+                    sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
+                  },
+                });
               }
 
               if (state.point === VALUE.POINT.END) {
@@ -310,14 +311,20 @@ DOMContentLoaded.then(async () => {
               };
             }
             break;
-            
+
           case ACTION.SCROLL_UP:
-            if (state.point === VALUE.POINT.PRE || state.point === VALUE.POINT.START) {
+            if (
+              state.point === VALUE.POINT.PRE ||
+              state.point === VALUE.POINT.START
+            ) {
               ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
             }
             break;
           case ACTION.SCROLL_DOWN:
-            if (state.point === VALUE.POINT.POST || state.point === VALUE.POINT.END) {
+            if (
+              state.point === VALUE.POINT.POST ||
+              state.point === VALUE.POINT.END
+            ) {
               ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
             }
             break;
