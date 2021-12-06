@@ -37,6 +37,18 @@ DOMContentLoaded.then(async () => {
         );
       }
 
+      const getDir = (() => {
+        let prevY = null;
+        let nextY = getY();
+
+        return () => {
+          prevY = nextY;
+          nextY = getY();
+
+          return prevY < nextY ? "down" : "up";
+        };
+      })();
+
       const FPS = 15;
 
       const DELAY = 1000 / FPS;
@@ -76,6 +88,9 @@ DOMContentLoaded.then(async () => {
 
         OUT_ABOVE: "OUT_ABOVE",
         OUT_BELOW: "OUT_BELOW",
+
+        SCROLL_UP: "SCROLL_UP",
+        SCROLL_DOWN: "SCROLL_DOWN",
 
         TOUCH: "TOUCH",
         NO_TOUCH: "NO_TOUCH",
@@ -297,6 +312,17 @@ DOMContentLoaded.then(async () => {
               };
             }
             break;
+            
+          case ACTION.SCROLL_UP:
+            if (state.point === VALUE.POINT.PRE || state.point === VALUE.POINT.START) {
+              ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+            }
+            break;
+          case ACTION.SCROLL_DOWN:
+            if (state.point === VALUE.POINT.POST || state.point === VALUE.POINT.END) {
+              ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+            }
+            break;
         }
 
         return state;
@@ -367,10 +393,10 @@ DOMContentLoaded.then(async () => {
 
         switch (getDir()) {
           case "up":
-            // state = reducer(state, ACTION.SCROLL_UP);
+            state = reducer(state, ACTION.SCROLL_UP);
             break;
           case "down":
-            // state = reducer(state, ACTION.SCROLL_DOWN);
+            state = reducer(state, ACTION.SCROLL_DOWN);
             break;
         }
       });
