@@ -197,6 +197,13 @@ DOMContentLoaded.then(async () => {
           case ACTION.NO_TOUCH:
             switch (state.point) {
               case VALUE.POINT.PRE:
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+
+                setTimeout(() => {
+                  sendSignal("mobile-seq:action", ACTION.STOP_END);
+                }, DELAY);
+
                 return {
                   ...state,
 
