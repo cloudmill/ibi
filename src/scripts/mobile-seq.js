@@ -91,7 +91,11 @@ DOMContentLoaded.then(async () => {
         STOP_END: "STOP_DELAY",
       };
 
+      let curAction = null
+
       const reducer = (state, action) => {
+        curAction = action
+
         console.log("reducer:", action);
 
         switch (action) {
@@ -310,7 +314,7 @@ DOMContentLoaded.then(async () => {
       `;
 
       setInterval(() => {
-        pre.innerHTML = JSON.stringify(state, null, "\t");
+        pre.innerHTML = JSON.stringify(state, null, "\t") + '\ny: ' + getY() + '\nlast action: ' + curAction;
       });
 
       document.body.append(pre);
