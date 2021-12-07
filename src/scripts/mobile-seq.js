@@ -36,6 +36,10 @@ DOMContentLoaded.then(async () => {
         );
       }
 
+      const FPS = 15;
+
+      const DELAY = 1000 / FPS;
+
       // ! STATE
 
       const VALUE = {
@@ -54,12 +58,17 @@ DOMContentLoaded.then(async () => {
           NO: "NO",
           YES: "YES",
         },
+        LOCK: {
+          NO: "NO",
+          YES: "YES",
+        },
       };
 
       const INITIAL_STATE = {
         point: VALUE.POINT.BEFORE,
         transition: VALUE.TRANSITION.NO,
         touch: VALUE.TOUCH.NO,
+        lock: VALUE.LOCK.NO,
       };
 
       let state = INITIAL_STATE;
@@ -78,6 +87,8 @@ DOMContentLoaded.then(async () => {
 
         NO_TOUCH: "NO_TOUCH",
         TOUCH: "TOUCH",
+
+        STOP_END: "STOP_DELAY",
       };
 
       const reducer = (state, action) => {
@@ -127,11 +138,19 @@ DOMContentLoaded.then(async () => {
                 },
               });
 
+              ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+              ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+
+              setTimeout(() => {
+                sendSignal("mobile-seq:action", ACTION.STOP_END);
+              }, DELAY);
+
               return {
                 ...state,
 
                 point: state.point + 1,
                 transition: VALUE.TRANSITION.YES,
+                lock: VALUE.LOCK.YES,
               };
             }
 
@@ -162,6 +181,10 @@ DOMContentLoaded.then(async () => {
 
               touch: VALUE.TOUCH.YES,
             };
+
+          case ACTION.STOP_END:
+            ELEMENT.EXPAND_SCROLL.style.overflow = "";
+            break;
         }
 
         return { ...state };
@@ -172,6 +195,22 @@ DOMContentLoaded.then(async () => {
       onSignal(
         "mobile-seq:action",
         (action) => (state = reducer(state, action))
+      );
+
+      window.addEventListener(
+        "touchmove",
+        (e) => {
+          if (state.lock === VALUE.LOCK.YES) {
+            try {
+              e.preventDefault();
+            } catch (e) {
+              console.log(e);
+            }
+          }
+        },
+        {
+          passive: false,
+        }
       );
 
       swipeDetect(
