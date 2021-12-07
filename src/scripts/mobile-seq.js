@@ -74,6 +74,8 @@ DOMContentLoaded.then(async () => {
 
         switch (action) {
           case ACTION.HIT_ABOVE:
+            ELEMENT.EXPAND_SCROLL.style.overflow = 'hidden'
+
             return {
               ...state,
 
