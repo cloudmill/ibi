@@ -10,6 +10,10 @@ DOMContentLoaded.then(async () => {
 
       // ! DATA & METHODS
 
+      const LOGGING = true;
+
+      let curAction = null;
+
       const ELEMENT = {
         EXPAND_SCROLL: document.querySelector(".expand__scroll"),
 
@@ -48,6 +52,7 @@ DOMContentLoaded.then(async () => {
           PRE: "PRE",
           START: 0,
           END: 18,
+          POST: "POST",
           AFTER: "AFTER",
         },
         TRANSITION: {
@@ -91,12 +96,12 @@ DOMContentLoaded.then(async () => {
         STOP_END: "STOP_DELAY",
       };
 
-      let curAction = null;
-
       const reducer = (state, action) => {
-        curAction = action;
+        if (LOGGING) {
+          console.log("reducer:", action);
 
-        console.log("reducer:", action);
+          curAction = action;
+        }
 
         switch (action) {
           case ACTION.HIT_ABOVE:
@@ -112,7 +117,10 @@ DOMContentLoaded.then(async () => {
             return {
               ...state,
 
-              point: VALUE.POINT.END,
+              point:
+                state.touch === VALUE.TOUCH.NO
+                  ? VALUE.POINT.END
+                  : VALUE.POINT.POST,
             };
 
           case ACTION.OUT_ABOVE:
@@ -129,8 +137,27 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.SWIPE_UP:
+            if (
+              state.point === VALUE.POINT.POST ||
+              state.point === VALUE.POINT.END
+            ) {
+              ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+            }
+
             if (state.transition === VALUE.TRANSITION.NO) {
               if (state.point === VALUE.POINT.START) {
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+
+                setTimeout(() => {
+                  sendSignal("mobile-seq:action", ACTION.STOP_END);
+                }, DELAY);
+              }
+
+              if (
+                state.point >= VALUE.POINT.START &&
+                state.point < VALUE.POINT.END
+              ) {
                 sendSignal("mobile-seq:transition", {
                   from: state.point,
                   to: state.point + 1,
@@ -140,26 +167,41 @@ DOMContentLoaded.then(async () => {
                   },
                 });
 
-                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
-                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
-
-                setTimeout(() => {
-                  sendSignal("mobile-seq:action", ACTION.STOP_END);
-                }, DELAY);
-
                 return {
                   ...state,
 
                   point: state.point + 1,
+                  lock:
+                    state.point === VALUE.POINT.START
+                      ? VALUE.LOCK.YES
+                      : state.lock,
                   transition: VALUE.TRANSITION.YES,
-                  lock: VALUE.LOCK.YES,
                 };
               }
             }
             break;
           case ACTION.SWIPE_DOWN:
+            if (
+              state.point === VALUE.POINT.PRE ||
+              state.point === VALUE.POINT.START
+            ) {
+              ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+            }
+
             if (state.transition === VALUE.TRANSITION.NO) {
-              if (state.point === VALUE.POINT.START + 1) {
+              if (state.point === VALUE.POINT.END) {
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+
+                setTimeout(() => {
+                  sendSignal("mobile-seq:action", ACTION.STOP_END);
+                }, DELAY);
+              }
+
+              if (
+                state.point > VALUE.POINT.START &&
+                state.point <= VALUE.POINT.END
+              ) {
                 sendSignal("mobile-seq:transition", {
                   from: state.point,
                   to: state.point - 1,
@@ -173,6 +215,10 @@ DOMContentLoaded.then(async () => {
                   ...state,
 
                   point: state.point - 1,
+                  lock:
+                    state.point === VALUE.POINT.END
+                      ? VALUE.LOCK.YES
+                      : state.lock,
                   transition: VALUE.TRANSITION.YES,
                 };
               }
@@ -180,14 +226,18 @@ DOMContentLoaded.then(async () => {
             break;
 
           case ACTION.TRANSITION_END:
-            if (state.point === VALUE.POINT.START) {
+            if (
+              state.point === VALUE.POINT.START ||
+              state.point === VALUE.POINT.END
+            ) {
               return {
                 ...state,
 
-                transition: VALUE.TRANSITION.NO,
                 lock: VALUE.LOCK.NO,
+                transition: VALUE.TRANSITION.NO,
               };
             }
+
             return {
               ...state,
 
@@ -195,21 +245,37 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.NO_TOUCH:
-            if (state.point === VALUE.POINT.PRE) {
-              ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
-              ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+            switch (state.point) {
+              case VALUE.POINT.PRE:
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
-              setTimeout(() => {
-                sendSignal("mobile-seq:action", ACTION.STOP_END);
-              }, DELAY);
+                setTimeout(() => {
+                  sendSignal("mobile-seq:action", ACTION.STOP_END);
+                }, DELAY);
 
-              return {
-                ...state,
+                return {
+                  ...state,
 
-                point: VALUE.POINT.START,
-                touch: VALUE.TOUCH.NO,
-              };
+                  point: VALUE.POINT.START,
+                  touch: VALUE.TOUCH.NO,
+                };
+              case VALUE.POINT.POST:
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+
+                setTimeout(() => {
+                  sendSignal("mobile-seq:action", ACTION.STOP_END);
+                }, DELAY);
+
+                return {
+                  ...state,
+
+                  point: VALUE.POINT.END,
+                  touch: VALUE.TOUCH.NO,
+                };
             }
+
             return {
               ...state,
 
@@ -244,7 +310,9 @@ DOMContentLoaded.then(async () => {
             try {
               e.preventDefault();
             } catch (e) {
-              console.log(e);
+              if (LOGGING) {
+                console.log(e);
+              }
             }
           }
         },
@@ -306,29 +374,31 @@ DOMContentLoaded.then(async () => {
 
       // ! LOGGING
 
-      const pre = document.createElement("pre");
-      pre.style.cssText = `
-        position: fixed;
-        z-index: 1000000000;
-        top: 0;
-        left: 0;
-        right: 0;
+      if (LOGGING) {
+        const pre = document.createElement("pre");
+        pre.style.cssText = `
+          position: fixed;
+          z-index: 1000000000;
+          top: 0;
+          left: 0;
+          right: 0;
+  
+          pointer-events: none;
+  
+          color: red;
+        `;
 
-        pointer-events: none;
+        setInterval(() => {
+          pre.innerHTML =
+            JSON.stringify(state, null, "\t") +
+            "\ny: " +
+            getY() +
+            "\nlast action: " +
+            curAction;
+        });
 
-        color: red;
-      `;
-
-      setInterval(() => {
-        pre.innerHTML =
-          JSON.stringify(state, null, "\t") +
-          "\ny: " +
-          getY() +
-          "\nlast action: " +
-          curAction;
-      });
-
-      document.body.append(pre);
+        document.body.append(pre);
+      }
     }
   }
 });
