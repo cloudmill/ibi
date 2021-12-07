@@ -125,8 +125,8 @@
     line-height: 140%;
     color: $color-main;
 
-    @media (min-width: $breakpoint-l + 1px) {
-      font-size: 30px;
-    }
+    // @media (min-width: $breakpoint-l + 1px) {
+    //   font-size: 30px;
+    // }
   }
 }
