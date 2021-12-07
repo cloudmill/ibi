@@ -79,6 +79,7 @@
     "sticky-sidebar": "^3.3.1",
     "swipe-detect": "^1.0.1",
     "swiper": "^6.6.1",
+    "vanilla-swipe": "^2.3.0",
     "velocity-animate": "^1.5.2"
   }
 }

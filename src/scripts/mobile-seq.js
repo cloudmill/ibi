@@ -1,7 +1,7 @@
 import { mediaQuery, BREAKPOINT } from "./mediaQuery";
 import { DOMContentLoaded, load } from "./event";
 import { sendSignal, onSignal } from "./signal";
-import swipeDetect from "swipe-detect";
+import VanillaSwipe from "vanilla-swipe";
 
 DOMContentLoaded.then(async () => {
   if (document.querySelector("[data-mobile-seq]")) {
@@ -91,10 +91,10 @@ DOMContentLoaded.then(async () => {
         STOP_END: "STOP_DELAY",
       };
 
-      let curAction = null
+      let curAction = null;
 
       const reducer = (state, action) => {
-        curAction = action
+        curAction = action;
 
         console.log("reducer:", action);
 
@@ -246,20 +246,19 @@ DOMContentLoaded.then(async () => {
         }
       );
 
-      swipeDetect(
-        window,
-        (dir) => {
-          switch (dir) {
-            case "up":
+      new VanillaSwipe({
+        element: window,
+        onSwiping: (e, { directionY }) => {
+          switch (directionY) {
+            case "TOP":
               state = reducer(state, ACTION.SWIPE_UP);
               break;
-            case "down":
+            case "BOTTOM":
               state = reducer(state, ACTION.SWIPE_DOWN);
               break;
           }
         },
-        0
-      );
+      }).init();
 
       window.addEventListener("touchstart", (e) => {
         if (state.touch === VALUE.TOUCH.NO) {
@@ -314,7 +313,12 @@ DOMContentLoaded.then(async () => {
       `;
 
       setInterval(() => {
-        pre.innerHTML = JSON.stringify(state, null, "\t") + '\ny: ' + getY() + '\nlast action: ' + curAction;
+        pre.innerHTML =
+          JSON.stringify(state, null, "\t") +
+          "\ny: " +
+          getY() +
+          "\nlast action: " +
+          curAction;
       });
 
       document.body.append(pre);
