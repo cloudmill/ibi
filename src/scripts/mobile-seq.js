@@ -41,6 +41,7 @@ DOMContentLoaded.then(async () => {
       const VALUE = {
         POINT: {
           BEFORE: "BEFORE",
+          PRE: "PRE",
           START: 0,
           END: 18,
           AFTER: "AFTER",
@@ -49,11 +50,16 @@ DOMContentLoaded.then(async () => {
           NO: "NO",
           YES: "YES",
         },
+        TOUCH: {
+          NO: "NO",
+          YES: "YES",
+        },
       };
 
       const INITIAL_STATE = {
         point: VALUE.POINT.BEFORE,
         transition: VALUE.TRANSITION.NO,
+        touch: VALUE.TOUCH.NO,
       };
 
       let state = INITIAL_STATE;
@@ -67,6 +73,11 @@ DOMContentLoaded.then(async () => {
 
         SWIPE_UP: "SWIPE_UP",
         SWIPE_DOWN: "SWIPE_DOWN",
+
+        TRANSITION_END: "TRANSITION_END",
+
+        NO_TOUCH: "NO_TOUCH",
+        TOUCH: "TOUCH",
       };
 
       const reducer = (state, action) => {
@@ -74,12 +85,13 @@ DOMContentLoaded.then(async () => {
 
         switch (action) {
           case ACTION.HIT_ABOVE:
-            ELEMENT.EXPAND_SCROLL.style.overflow = 'hidden'
-
             return {
               ...state,
 
-              point: VALUE.POINT.START,
+              point:
+                state.touch === VALUE.TOUCH.NO
+                  ? VALUE.POINT.START
+                  : VALUE.POINT.PRE,
             };
           case ACTION.HIT_BELOW:
             return {
@@ -106,7 +118,14 @@ DOMContentLoaded.then(async () => {
               state.point === VALUE.POINT.START &&
               state.transition === VALUE.TRANSITION.NO
             ) {
-              // вызов анимации
+              sendSignal("mobile-seq:transition", {
+                from: state.point,
+                to: state.point + 1,
+
+                onComplete: () => {
+                  sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
+                },
+              });
 
               return {
                 ...state,
@@ -115,12 +134,71 @@ DOMContentLoaded.then(async () => {
                 transition: VALUE.TRANSITION.YES,
               };
             }
+
+          case ACTION.TRANSITION_END:
+            return {
+              ...state,
+
+              transition: VALUE.TRANSITION.NO,
+            };
+
+          case ACTION.NO_TOUCH:
+            if (state.point === VALUE.POINT.PRE) {
+              return {
+                ...state,
+
+                point: VALUE.POINT.START,
+                touch: VALUE.TOUCH.NO,
+              };
+            }
+            return {
+              ...state,
+
+              touch: VALUE.TOUCH.NO,
+            };
+          case ACTION.TOUCH:
+            return {
+              ...state,
+
+              touch: VALUE.TOUCH.YES,
+            };
         }
 
         return { ...state };
       };
 
       // ! EVENTS
+
+      onSignal(
+        "mobile-seq:action",
+        (action) => (state = reducer(state, action))
+      );
+
+      swipeDetect(
+        window,
+        (dir) => {
+          switch (dir) {
+            case "up":
+              state = reducer(state, ACTION.SWIPE_UP);
+              break;
+            case "down":
+              state = reducer(state, ACTION.SWIPE_DOWN);
+              break;
+          }
+        },
+        0
+      );
+
+      window.addEventListener("touchstart", (e) => {
+        if (state.touch === VALUE.TOUCH.NO) {
+          state = reducer(state, ACTION.TOUCH);
+        }
+      });
+      window.addEventListener("touchend", (e) => {
+        if (!e.touches.length) {
+          state = reducer(state, ACTION.NO_TOUCH);
+        }
+      });
 
       ELEMENT.EXPAND_SCROLL.addEventListener("scroll", () => {
         switch (state.point) {
@@ -130,6 +208,7 @@ DOMContentLoaded.then(async () => {
             }
             break;
           case VALUE.POINT.START:
+          case VALUE.POINT.PRE:
             if (getY() <= getStart() - 1) {
               state = reducer(state, ACTION.OUT_ABOVE);
             }
@@ -146,21 +225,6 @@ DOMContentLoaded.then(async () => {
             break;
         }
       });
-
-      swipeDetect(
-        window,
-        (dir) => {
-          switch (dir) {
-            case "up":
-              state = reducer(state, ACTION.SWIPE_UP);
-              break;
-            case "down":
-              state = reducer(state, ACTION.SWIPE_DOWN);
-              break;
-          }
-        },
-        0
-      );
 
       // ! LOGGING
 
