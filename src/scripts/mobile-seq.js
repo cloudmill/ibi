@@ -105,6 +105,13 @@ DOMContentLoaded.then(async () => {
 
         switch (action) {
           case ACTION.HIT_ABOVE:
+            ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+            ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+
+            setTimeout(() => {
+              sendSignal("mobile-seq:action", ACTION.STOP_END);
+            }, DELAY);
+
             return {
               ...state,
 
@@ -114,6 +121,13 @@ DOMContentLoaded.then(async () => {
                   : VALUE.POINT.PRE,
             };
           case ACTION.HIT_BELOW:
+            ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+            ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+
+            setTimeout(() => {
+              sendSignal("mobile-seq:action", ACTION.STOP_END);
+            }, DELAY);
+
             return {
               ...state,
 
