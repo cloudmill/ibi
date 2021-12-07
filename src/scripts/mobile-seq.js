@@ -195,13 +195,22 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.NO_TOUCH:
-            if (state.point === VALUE.POINT.PRE) {
-              return {
-                ...state,
+            switch (state.point) {
+              case VALUE.POINT.PRE:
+                return {
+                  ...state,
 
-                point: VALUE.POINT.START,
-                touch: VALUE.TOUCH.NO,
-              };
+                  point: VALUE.POINT.START,
+                  touch: VALUE.TOUCH.NO,
+                };
+              case VALUE.POINT.START:
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+
+                setTimeout(() => {
+                  sendSignal("mobile-seq:action", ACTION.STOP_END);
+                }, DELAY);
+                break;
             }
             return {
               ...state,
@@ -246,6 +255,17 @@ DOMContentLoaded.then(async () => {
         }
       );
 
+      window.addEventListener("touchstart", (e) => {
+        if (state.touch === VALUE.TOUCH.NO) {
+          state = reducer(state, ACTION.TOUCH);
+        }
+      });
+      window.addEventListener("touchend", (e) => {
+        if (!e.touches.length) {
+          state = reducer(state, ACTION.NO_TOUCH);
+        }
+      });
+
       new VanillaSwipe({
         element: window,
         onSwiping: (e, { directionY }) => {
@@ -259,17 +279,6 @@ DOMContentLoaded.then(async () => {
           }
         },
       }).init();
-
-      window.addEventListener("touchstart", (e) => {
-        if (state.touch === VALUE.TOUCH.NO) {
-          state = reducer(state, ACTION.TOUCH);
-        }
-      });
-      window.addEventListener("touchend", (e) => {
-        if (!e.touches.length) {
-          state = reducer(state, ACTION.NO_TOUCH);
-        }
-      });
 
       ELEMENT.EXPAND_SCROLL.addEventListener("scroll", () => {
         switch (state.point) {
