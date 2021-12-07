@@ -462,6 +462,12 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     /* MOBILE SEQ */
     onSignal("mobile-seq:transition", ({ from, to, onComplete }) => {
+      const textsArr = Array.from(texts);
+      console.log(textsArr);
+      const dist =
+        (+textsArr[to].dataset.frame + 1) / images.length -
+        +textsArr[from].dataset.frame / images.length;
+
       const TRANSITION_DURATION =
         parseFloat(
           getComputedStyle(document.querySelector(".seq__texts--mobile"))
@@ -471,8 +477,8 @@ window.addEventListener("DOMContentLoaded", async () => {
       function draw(progress) {
         prevProgress = nextProgress;
 
-        const section = 1 / (texts.length - 1);
-        nextProgress = from * section + progress * section * (to - from);
+        nextProgress =
+          +textsArr[from].dataset.frame / images.length + dist * progress;
 
         handleScroll();
       }

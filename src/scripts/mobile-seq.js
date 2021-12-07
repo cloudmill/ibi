@@ -10,7 +10,7 @@ DOMContentLoaded.then(async () => {
 
       // ! DATA & METHODS
 
-      const LOGGING = true;
+      const LOGGING = false;
 
       let curAction = null;
 
