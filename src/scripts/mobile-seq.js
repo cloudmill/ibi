@@ -125,36 +125,65 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.SWIPE_UP:
-            if (
-              state.point === VALUE.POINT.START &&
-              state.transition === VALUE.TRANSITION.NO
-            ) {
-              sendSignal("mobile-seq:transition", {
-                from: state.point,
-                to: state.point + 1,
+            if (state.transition === VALUE.TRANSITION.NO) {
+              if (state.point === VALUE.POINT.START) {
+                sendSignal("mobile-seq:transition", {
+                  from: state.point,
+                  to: state.point + 1,
 
-                onComplete: () => {
-                  sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
-                },
-              });
+                  onComplete: () => {
+                    sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
+                  },
+                });
 
-              ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
-              ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
-              setTimeout(() => {
-                sendSignal("mobile-seq:action", ACTION.STOP_END);
-              }, DELAY);
+                setTimeout(() => {
+                  sendSignal("mobile-seq:action", ACTION.STOP_END);
+                }, DELAY);
 
+                return {
+                  ...state,
+
+                  point: state.point + 1,
+                  transition: VALUE.TRANSITION.YES,
+                  lock: VALUE.LOCK.YES,
+                };
+              }
+            }
+            break;
+          case ACTION.SWIPE_DOWN:
+            if (state.transition === VALUE.TRANSITION.NO) {
+              if (state.point === VALUE.POINT.START + 1) {
+                sendSignal("mobile-seq:transition", {
+                  from: state.point,
+                  to: state.point - 1,
+
+                  onComplete: () => {
+                    sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
+                  },
+                });
+
+                return {
+                  ...state,
+
+                  point: state.point - 1,
+                  transition: VALUE.TRANSITION.YES,
+                };
+              }
+            }
+            break;
+
+          case ACTION.TRANSITION_END:
+            if (state.point === VALUE.POINT.START) {
               return {
                 ...state,
 
-                point: state.point + 1,
-                transition: VALUE.TRANSITION.YES,
-                lock: VALUE.LOCK.YES,
+                transition: VALUE.TRANSITION.NO,
+                lock: VALUE.LOCK.NO,
               };
             }
-
-          case ACTION.TRANSITION_END:
             return {
               ...state,
 
