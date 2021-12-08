@@ -463,7 +463,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     /* MOBILE SEQ */
     onSignal("mobile-seq:transition", ({ from, to, onComplete }) => {
       const textsArr = Array.from(texts);
-      console.log(textsArr);
       const dist =
         (+textsArr[to].dataset.frame + 1) / images.length -
         +textsArr[from].dataset.frame / images.length;

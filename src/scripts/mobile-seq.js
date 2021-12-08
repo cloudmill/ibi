@@ -189,6 +189,10 @@ DOMContentLoaded.then(async () => {
                     sendSignal("mobile-seq:action", ACTION.STOP_END);
                   }, DELAY);
                 }
+
+                if (state.point === VALUE.POINT.END - 1) {
+                  console.log('wowwwowwooww')
+                }
   
                 if (
                   state.point >= VALUE.POINT.START &&
@@ -228,7 +232,7 @@ DOMContentLoaded.then(async () => {
   
               if (state.transition === VALUE.TRANSITION.NO) {
                 if (state.point === VALUE.POINT.END) {
-                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
                   ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
   
                   setTimeout(() => {
