@@ -10,15 +10,17 @@ DOMContentLoaded.then(async () => {
 
       // ! DATA & METHODS
 
-      const LOGGING = false;
+      const LOGGING = true;
 
-      let curAction = null;
+      let lastAction = null;
 
       const ELEMENT = {
         EXPAND_SCROLL: document.querySelector(".expand__scroll"),
 
         SEQ: document.querySelector(".seq"),
         SEQ_FULLSCREEN: document.querySelector(".seq__fullscreen"),
+
+        CONTENT: document.querySelector(".implantation-main-content"),
       };
 
       function getY() {
@@ -43,6 +45,8 @@ DOMContentLoaded.then(async () => {
       const FPS = 15;
 
       const DELAY = 1000 / FPS;
+
+      let contentMargin;
 
       // ! STATE
 
@@ -108,7 +112,7 @@ DOMContentLoaded.then(async () => {
         if (LOGGING) {
           console.log("reducer:", action);
 
-          curAction = action;
+          lastAction = action;
         }
 
         switch (action) {
@@ -179,21 +183,23 @@ DOMContentLoaded.then(async () => {
               ) {
                 ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
               }
-  
+
               if (state.transition === VALUE.TRANSITION.NO) {
                 if (state.point === VALUE.POINT.START) {
                   ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
                   ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
-  
+
                   setTimeout(() => {
                     sendSignal("mobile-seq:action", ACTION.STOP_END);
                   }, DELAY);
                 }
 
                 if (state.point === VALUE.POINT.END - 1) {
-                  console.log('wowwwowwooww')
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+
+                  ELEMENT.CONTENT.style.marginTop = `${contentMargin}px`;
                 }
-  
+
                 if (
                   state.point >= VALUE.POINT.START &&
                   state.point < VALUE.POINT.END
@@ -201,15 +207,15 @@ DOMContentLoaded.then(async () => {
                   sendSignal("mobile-seq:transition", {
                     from: state.point,
                     to: state.point + 1,
-  
+
                     onComplete: () => {
                       sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
                     },
                   });
-  
+
                   return {
                     ...state,
-  
+
                     point: state.point + 1,
                     lock:
                       state.point === VALUE.POINT.START
@@ -227,19 +233,21 @@ DOMContentLoaded.then(async () => {
                 state.point === VALUE.POINT.PRE ||
                 state.point === VALUE.POINT.START
               ) {
-                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
               }
-  
+
               if (state.transition === VALUE.TRANSITION.NO) {
                 if (state.point === VALUE.POINT.END) {
-                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
                   ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
-  
+
                   setTimeout(() => {
                     sendSignal("mobile-seq:action", ACTION.STOP_END);
                   }, DELAY);
+
+                  ELEMENT.CONTENT.style.marginTop = "0px";
                 }
-  
+
                 if (
                   state.point > VALUE.POINT.START &&
                   state.point <= VALUE.POINT.END
@@ -247,15 +255,15 @@ DOMContentLoaded.then(async () => {
                   sendSignal("mobile-seq:transition", {
                     from: state.point,
                     to: state.point - 1,
-  
+
                     onComplete: () => {
                       sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
                     },
                   });
-  
+
                   return {
                     ...state,
-  
+
                     point: state.point - 1,
                     lock:
                       state.point === VALUE.POINT.END
@@ -341,6 +349,12 @@ DOMContentLoaded.then(async () => {
 
       // ! EVENTS
 
+      onSignal("mobile-seq:margin", (margin) => {
+        contentMargin = margin;
+
+        ELEMENT.CONTENT.style.marginTop = "0px";
+      });
+
       onSignal("mobile-seq:menu", (isOpen) => {
         state = reducer(state, isOpen ? ACTION.MENU_OPEN : ACTION.MENU_CLOSE);
       });
@@ -353,7 +367,10 @@ DOMContentLoaded.then(async () => {
       window.addEventListener(
         "touchmove",
         (e) => {
-          if (state.lock === VALUE.LOCK.YES && state.menu === VALUE.MENU.CLOSE) {
+          if (
+            state.lock === VALUE.LOCK.YES &&
+            state.menu === VALUE.MENU.CLOSE
+          ) {
             try {
               e.preventDefault();
             } catch (e) {
@@ -432,16 +449,21 @@ DOMContentLoaded.then(async () => {
   
           pointer-events: none;
   
+          font-size: 12px;
           color: red;
         `;
 
         setInterval(() => {
-          pre.innerHTML =
-            JSON.stringify(state, null, "\t") +
-            "\ny: " +
-            getY() +
-            "\nlast action: " +
-            curAction;
+          pre.innerHTML = JSON.stringify(
+            {
+              state,
+              y: getY(),
+              lastAction,
+              contentMargin,
+            },
+            null,
+            "\t"
+          );
         });
 
         document.body.append(pre);
