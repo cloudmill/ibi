@@ -162,21 +162,7 @@ try {
           referencePoints: [
             [55.731309, 37.612539],
             [55.732433, 37.616144],
-          ],
-          params: {
-            routingMode: "pedestrian"
-          }
-        }, {
-          boundsAutoApply: true,
-          routeActiveStrokeColor: "#29A5B1",
-          wayPointVisible: false,
-        });
-        map.geoObjects.add(multiRoute);
-  
-        var multiRoute = new ymaps.multiRouter.MultiRoute({
-          referencePoints: [
             'Москва, метро Полянка',
-            [55.732433, 37.616144],
           ],
           params: {
             routingMode: "pedestrian"
