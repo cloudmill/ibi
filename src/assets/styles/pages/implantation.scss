@@ -1,5 +1,4 @@
 .implantation {
-
   &__inner {
     margin-top: 40px;
     @media (min-width: $breakpoint) {
@@ -36,7 +35,6 @@
 }
 
 .files {
-
   &__list {
     display: flex;
     align-items: stretch;
@@ -125,12 +123,10 @@
   }
 
   &__item {
-
     @media (min-width: $breakpoint) {
       position: absolute;
     }
     @media (max-width: $breakpoint) {
-      
       &:first-child {
         margin-top: 40px;
       }
@@ -231,5 +227,11 @@
 
   @media (min-width: $breakpoint) {
     margin-bottom: 120px;
+  }
+}
+
+.implantation-main-content {
+  @media (max-width: ($breakpoint-t - 1px)) {
+    transition: margin-top 0.5s;
   }
 }

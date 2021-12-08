@@ -305,6 +305,23 @@ window.addEventListener("DOMContentLoaded", async () => {
         under.append(textsContainer);
       }
     }
+    function changeText(toNext) {
+      const textsArray = Array.from(texts);
+
+      const prevText = textsContainer.querySelector("." + TEXT_ACTIVE_CLASS);
+      const prevTextIndex = textsArray.findIndex((text) => text === prevText);
+
+      const nextTextIndex = Math.min(
+        Math.max(0, prevTextIndex + (toNext ? 1 : -1)),
+        textsArray.length - 1
+      );
+      const nextText = textsArray[nextTextIndex];
+
+      prevText.classList.remove(TEXT_ACTIVE_CLASS);
+      nextText.classList.add(TEXT_ACTIVE_CLASS);
+
+      textsContainer.style.transform = `translateY(-${100 * nextTextIndex}%)`;
+    }
 
     /* HEADER */
     const header = document.querySelector(".header");
@@ -422,7 +439,9 @@ window.addEventListener("DOMContentLoaded", async () => {
         updateProgress();
       }
       updateCanvas();
-      updateText();
+      if (getMediaQuery(BREAKPOINT.TABLET).matches) {
+        updateText();
+      }
       updateHeader();
       if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
         updateNavigation();
@@ -462,6 +481,8 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     /* MOBILE SEQ */
     onSignal("mobile-seq:transition", ({ from, to, onComplete }) => {
+      changeText(from < to);
+
       const textsArr = Array.from(texts);
       const dist =
         (+textsArr[to].dataset.frame + 1) / images.length -
