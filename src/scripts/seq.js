@@ -345,7 +345,7 @@ window.addEventListener("DOMContentLoaded", async () => {
           header.classList.remove("header--seq");
           mobileHeaderPanel.classList.remove("mobile-header__panel--show");
         }
-      } else {
+      } else if (getMediaQuery(BREAKPOINT.TABLET).matches) {
         // seq -> after
         if (prevProgress < 1 && nextProgress >= 1) {
           header.classList.remove("header--open");
@@ -359,7 +359,10 @@ window.addEventListener("DOMContentLoaded", async () => {
       }
     }
     function initHeader() {
-      if (!getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+      if (
+        getMediaQuery(BREAKPOINT.TABLET).matches &&
+        !getMediaQuery(BREAKPOINT.DEFAULT).matches
+      ) {
         header.classList.add("header--open");
         mobileHeaderPanel.classList.add("mobile-header__panel--show");
       }

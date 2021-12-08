@@ -93,6 +93,14 @@ if (!mediaQuery.matches) {
       initScreen();
 
       // ui events
+      onSignal("mobile-seq:panel", (isShow) => {
+        if (isShow) {
+          elements.panel.addClass(CLASS.PANEL.SHOW);
+        } else {
+          elements.panel.removeClass(CLASS.PANEL.SHOW);
+        }
+      });
+
       elements.menuClose.on("click", () => {
         // mobile seq
         {
