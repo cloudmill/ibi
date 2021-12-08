@@ -233,7 +233,7 @@ DOMContentLoaded.then(async () => {
                 state.point === VALUE.POINT.PRE ||
                 state.point === VALUE.POINT.START
               ) {
-                ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
               }
 
               if (state.transition === VALUE.TRANSITION.NO) {
@@ -246,6 +246,10 @@ DOMContentLoaded.then(async () => {
                   }, DELAY);
 
                   ELEMENT.CONTENT.style.marginTop = "0px";
+                }
+
+                if (state.point === VALUE.POINT.START + 1) {
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
                 }
 
                 if (
