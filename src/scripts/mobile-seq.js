@@ -472,6 +472,7 @@ DOMContentLoaded.then(async () => {
               lastAction,
               contentMargin,
               block: ELEMENT.EXPAND_SCROLL.style.overflow,
+              start: getStart(),
             },
             null,
             "\t"
