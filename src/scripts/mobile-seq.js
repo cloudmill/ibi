@@ -10,7 +10,8 @@ DOMContentLoaded.then(async () => {
 
       // ! DATA & METHODS
 
-      const LOGGING = process.env.NODE_ENV === "development";
+      // const LOGGING = process.env.NODE_ENV === "development";
+      const LOGGING = true;
 
       let lastAction = null;
 
@@ -153,6 +154,8 @@ DOMContentLoaded.then(async () => {
               sendSignal("mobile-seq:action", ACTION.STOP_END);
             }, DELAY);
 
+            sendSignal('mobile-seq:panel', true)
+
             return {
               ...state,
 
@@ -169,6 +172,8 @@ DOMContentLoaded.then(async () => {
               point: VALUE.POINT.BEFORE,
             };
           case ACTION.OUT_BELOW:
+            sendSignal('mobile-seq:panel', false)
+
             return {
               ...state,
 
@@ -352,6 +357,8 @@ DOMContentLoaded.then(async () => {
       };
 
       // ! EVENTS
+
+      sendSignal("mobile-seq:panel", true);
 
       onSignal("mobile-seq:margin", (margin) => {
         contentMargin = margin;
