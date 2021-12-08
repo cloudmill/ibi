@@ -67,6 +67,10 @@ DOMContentLoaded.then(async () => {
           NO: "NO",
           YES: "YES",
         },
+        MENU: {
+          OPEN: "OPEN",
+          CLOSE: "CLOSE",
+        },
       };
 
       const INITIAL_STATE = {
@@ -74,6 +78,7 @@ DOMContentLoaded.then(async () => {
         transition: VALUE.TRANSITION.NO,
         touch: VALUE.TOUCH.NO,
         lock: VALUE.LOCK.NO,
+        menu: VALUE.MENU.CLOSE,
       };
 
       let state = INITIAL_STATE;
@@ -94,6 +99,9 @@ DOMContentLoaded.then(async () => {
         TOUCH: "TOUCH",
 
         STOP_END: "STOP_DELAY",
+
+        MENU_OPEN: "MENU_OPEN",
+        MENU_CLOSE: "MENU_CLOSE",
       };
 
       const reducer = (state, action) => {
@@ -104,6 +112,19 @@ DOMContentLoaded.then(async () => {
         }
 
         switch (action) {
+          case ACTION.MENU_OPEN:
+            return {
+              ...state,
+
+              menu: VALUE.MENU.OPEN,
+            };
+          case ACTION.MENU_CLOSE:
+            return {
+              ...state,
+
+              menu: VALUE.MENU.CLOSE,
+            };
+
           case ACTION.HIT_ABOVE:
             ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
             ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
@@ -151,90 +172,94 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.SWIPE_UP:
-            if (
-              state.point === VALUE.POINT.POST ||
-              state.point === VALUE.POINT.END
-            ) {
-              ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
-            }
-
-            if (state.transition === VALUE.TRANSITION.NO) {
-              if (state.point === VALUE.POINT.START) {
-                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
-                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
-
-                setTimeout(() => {
-                  sendSignal("mobile-seq:action", ACTION.STOP_END);
-                }, DELAY);
-              }
-
+            if (state.menu === VALUE.MENU.CLOSE) {
               if (
-                state.point >= VALUE.POINT.START &&
-                state.point < VALUE.POINT.END
+                state.point === VALUE.POINT.POST ||
+                state.point === VALUE.POINT.END
               ) {
-                sendSignal("mobile-seq:transition", {
-                  from: state.point,
-                  to: state.point + 1,
-
-                  onComplete: () => {
-                    sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
-                  },
-                });
-
-                return {
-                  ...state,
-
-                  point: state.point + 1,
-                  lock:
-                    state.point === VALUE.POINT.START
-                      ? VALUE.LOCK.YES
-                      : state.lock,
-                  transition: VALUE.TRANSITION.YES,
-                };
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+              }
+  
+              if (state.transition === VALUE.TRANSITION.NO) {
+                if (state.point === VALUE.POINT.START) {
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+                  ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+  
+                  setTimeout(() => {
+                    sendSignal("mobile-seq:action", ACTION.STOP_END);
+                  }, DELAY);
+                }
+  
+                if (
+                  state.point >= VALUE.POINT.START &&
+                  state.point < VALUE.POINT.END
+                ) {
+                  sendSignal("mobile-seq:transition", {
+                    from: state.point,
+                    to: state.point + 1,
+  
+                    onComplete: () => {
+                      sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
+                    },
+                  });
+  
+                  return {
+                    ...state,
+  
+                    point: state.point + 1,
+                    lock:
+                      state.point === VALUE.POINT.START
+                        ? VALUE.LOCK.YES
+                        : state.lock,
+                    transition: VALUE.TRANSITION.YES,
+                  };
+                }
               }
             }
             break;
           case ACTION.SWIPE_DOWN:
-            if (
-              state.point === VALUE.POINT.PRE ||
-              state.point === VALUE.POINT.START
-            ) {
-              ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
-            }
-
-            if (state.transition === VALUE.TRANSITION.NO) {
-              if (state.point === VALUE.POINT.END) {
-                ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
-                ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
-
-                setTimeout(() => {
-                  sendSignal("mobile-seq:action", ACTION.STOP_END);
-                }, DELAY);
-              }
-
+            if (state.menu === VALUE.MENU.CLOSE) {
               if (
-                state.point > VALUE.POINT.START &&
-                state.point <= VALUE.POINT.END
+                state.point === VALUE.POINT.PRE ||
+                state.point === VALUE.POINT.START
               ) {
-                sendSignal("mobile-seq:transition", {
-                  from: state.point,
-                  to: state.point - 1,
-
-                  onComplete: () => {
-                    sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
-                  },
-                });
-
-                return {
-                  ...state,
-
-                  point: state.point - 1,
-                  lock:
-                    state.point === VALUE.POINT.END
-                      ? VALUE.LOCK.YES
-                      : state.lock,
-                  transition: VALUE.TRANSITION.YES,
-                };
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+              }
+  
+              if (state.transition === VALUE.TRANSITION.NO) {
+                if (state.point === VALUE.POINT.END) {
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+                  ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+  
+                  setTimeout(() => {
+                    sendSignal("mobile-seq:action", ACTION.STOP_END);
+                  }, DELAY);
+                }
+  
+                if (
+                  state.point > VALUE.POINT.START &&
+                  state.point <= VALUE.POINT.END
+                ) {
+                  sendSignal("mobile-seq:transition", {
+                    from: state.point,
+                    to: state.point - 1,
+  
+                    onComplete: () => {
+                      sendSignal("mobile-seq:action", ACTION.TRANSITION_END);
+                    },
+                  });
+  
+                  return {
+                    ...state,
+  
+                    point: state.point - 1,
+                    lock:
+                      state.point === VALUE.POINT.END
+                        ? VALUE.LOCK.YES
+                        : state.lock,
+                    transition: VALUE.TRANSITION.YES,
+                  };
+                }
               }
             }
             break;
@@ -312,6 +337,10 @@ DOMContentLoaded.then(async () => {
 
       // ! EVENTS
 
+      onSignal("mobile-seq:menu", (isOpen) => {
+        state = reducer(state, isOpen ? ACTION.MENU_OPEN : ACTION.MENU_CLOSE);
+      });
+
       onSignal(
         "mobile-seq:action",
         (action) => (state = reducer(state, action))
@@ -320,7 +349,7 @@ DOMContentLoaded.then(async () => {
       window.addEventListener(
         "touchmove",
         (e) => {
-          if (state.lock === VALUE.LOCK.YES) {
+          if (state.lock === VALUE.LOCK.YES && state.menu === VALUE.MENU.CLOSE) {
             try {
               e.preventDefault();
             } catch (e) {
