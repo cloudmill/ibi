@@ -183,10 +183,10 @@ DOMContentLoaded.then(async () => {
           case ACTION.SWIPE_UP:
             if (state.menu === VALUE.MENU.CLOSE) {
               if (
-                state.point === VALUE.POINT.POST ||
-                state.point === VALUE.POINT.END
+                state.point === VALUE.POINT.PRE ||
+                state.point === VALUE.POINT.START
               ) {
-                // ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
               }
 
               if (state.transition === VALUE.TRANSITION.NO) {
@@ -235,10 +235,10 @@ DOMContentLoaded.then(async () => {
           case ACTION.SWIPE_DOWN:
             if (state.menu === VALUE.MENU.CLOSE) {
               if (
-                state.point === VALUE.POINT.PRE ||
-                state.point === VALUE.POINT.START
+                state.point === VALUE.POINT.POST ||
+                state.point === VALUE.POINT.END
               ) {
-                // ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
               }
 
               if (state.transition === VALUE.TRANSITION.NO) {
