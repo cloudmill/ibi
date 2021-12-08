@@ -154,7 +154,7 @@ DOMContentLoaded.then(async () => {
               sendSignal("mobile-seq:action", ACTION.STOP_END);
             }, DELAY);
 
-            sendSignal('mobile-seq:panel', true)
+            sendSignal("mobile-seq:panel", true);
 
             return {
               ...state,
@@ -172,7 +172,7 @@ DOMContentLoaded.then(async () => {
               point: VALUE.POINT.BEFORE,
             };
           case ACTION.OUT_BELOW:
-            sendSignal('mobile-seq:panel', false)
+            sendSignal("mobile-seq:panel", false);
 
             return {
               ...state,
@@ -473,6 +473,9 @@ DOMContentLoaded.then(async () => {
               contentMargin,
               block: ELEMENT.EXPAND_SCROLL.style.overflow,
               start: getStart(),
+              panel: document
+                .querySelector(".mobile-header__panel")
+                .classList.contains(".mobile-header__panel--show"),
             },
             null,
             "\t"
