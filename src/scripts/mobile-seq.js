@@ -475,7 +475,7 @@ DOMContentLoaded.then(async () => {
               start: getStart(),
               panel: document
                 .querySelector(".mobile-header__panel")
-                .classList.contains(".mobile-header__panel--show"),
+                .classList.contains("mobile-header__panel--show"),
             },
             null,
             "\t"
