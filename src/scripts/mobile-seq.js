@@ -10,7 +10,7 @@ DOMContentLoaded.then(async () => {
 
       // ! DATA & METHODS
 
-      const LOGGING = true;
+      const LOGGING = process.env.NODE_ENV === "development";
 
       let lastAction = null;
 
