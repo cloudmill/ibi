@@ -131,8 +131,8 @@ try {
           },
           {
             iconLayout: "default#image",
-            iconImageHref: "assets/images/placemark.svg",
-            // iconImageHref: "/local/templates/main/assets/images/placemark.svg",
+            //iconImageHref: "assets/images/placemark.svg",
+            iconImageHref: "/local/templates/main/assets/images/placemark.svg",
             iconImageSize: [markWidth, markHeight],
             iconImageOffset: [-markWidth / 2, -80],
 
@@ -157,6 +157,35 @@ try {
             map.setZoom(18);
           }
         });
+
+
+      var multiRoute = new ymaps.multiRouter.MultiRoute({
+        referencePoints: [
+          [55.731309, 37.612539],
+          [55.732433, 37.616144],
+        ],
+        params: {
+          routingMode: "pedestrian"
+        }
+      }, {
+        boundsAutoApply: true,
+        routeActiveStrokeColor: "#29A5B1",
+      });
+      map.geoObjects.add(multiRoute);
+
+      var multiRoute = new ymaps.multiRouter.MultiRoute({
+        referencePoints: [
+          'Москва, метро Полянка',
+          [55.732433, 37.616144],
+        ],
+        params: {
+          routingMode: "pedestrian"
+        }
+      }, {
+        boundsAutoApply: true,
+        routeActiveStrokeColor: "#29A5B1",
+      });
+      map.geoObjects.add(multiRoute);
     }
   });
 } catch (err) {
