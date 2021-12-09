@@ -158,21 +158,23 @@ try {
           }
         });
 
-        var multiRoute = new ymaps.multiRouter.MultiRoute({
-          referencePoints: [
-            [55.731309, 37.612539],
-            [55.732433, 37.616144],
-            'Москва, метро Полянка',
-          ],
-          params: {
-            routingMode: "pedestrian"
-          }
-        }, {
-          boundsAutoApply: true,
-          routeActiveStrokeColor: "#29A5B1",
-          wayPointVisible: false,
-        });
-        map.geoObjects.add(multiRoute);
+      var multiRoute = new ymaps.multiRouter.MultiRoute({
+        referencePoints: [
+          [55.731309, 37.612539],
+          [55.733241, 37.616043],
+          'Москва, метро Полянка',
+        ],
+        params: {
+          routingMode: "pedestrian"
+        }
+      }, {
+        boundsAutoApply: true,
+        routeActiveStrokeColor: "#29A5B1",
+        wayPointVisible: false,
+        wayPointColor: "#29A5B1",
+        pinVisible: false,
+      });
+      map.geoObjects.add(multiRoute);
     }
   });
 } catch (err) {
