@@ -11,7 +11,7 @@ DOMContentLoaded.then(async () => {
       // ! DATA & METHODS
 
       // const LOGGING = process.env.NODE_ENV === "development";
-      const LOGGING = false;
+      const LOGGING = true;
 
       let lastAction = null;
 
@@ -23,7 +23,7 @@ DOMContentLoaded.then(async () => {
 
         CONTENT: document.querySelector(".implantation-main-content"),
 
-        TITLE: document.querySelector(".title.title--seq"),
+        PANEL: document.querySelector(".mobile-header__panel"),
       };
 
       function getY() {
@@ -133,14 +133,12 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.HIT_ABOVE:
-            ELEMENT.TITLE.style.opacity = 0;
+            ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+            ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
-            // ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
-            // ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
-
-            // setTimeout(() => {
-            //   sendSignal("mobile-seq:action", ACTION.STOP_END);
-            // }, DELAY);
+            setTimeout(() => {
+              sendSignal("mobile-seq:action", ACTION.STOP_END);
+            }, DELAY);
 
             return {
               ...state,
@@ -151,12 +149,12 @@ DOMContentLoaded.then(async () => {
                   : VALUE.POINT.PRE,
             };
           case ACTION.HIT_BELOW:
-            // ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
-            // ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+            ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+            ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
-            // setTimeout(() => {
-            //   sendSignal("mobile-seq:action", ACTION.STOP_END);
-            // }, DELAY);
+            setTimeout(() => {
+              sendSignal("mobile-seq:action", ACTION.STOP_END);
+            }, DELAY);
 
             sendSignal("mobile-seq:panel", true);
 
@@ -170,8 +168,6 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.OUT_ABOVE:
-            ELEMENT.TITLE.style.opacity = "";
-
             return {
               ...state,
 
@@ -364,7 +360,7 @@ DOMContentLoaded.then(async () => {
 
       // ! EVENTS
 
-      ELEMENT.TITLE.style.transition = "0.1s";
+      ELEMENT.PANEL.style.backgroundColor = "#F1FBFD";
 
       sendSignal("mobile-seq:panel", true);
 
