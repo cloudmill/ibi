@@ -11,7 +11,7 @@ DOMContentLoaded.then(async () => {
       // ! DATA & METHODS
 
       // const LOGGING = process.env.NODE_ENV === "development";
-      const LOGGING = true;
+      const LOGGING = false;
 
       let lastAction = null;
 
@@ -45,14 +45,11 @@ DOMContentLoaded.then(async () => {
         );
       }
 
-      const FPS = 5;
+      const FPS = 15;
 
       const DELAY = 1000 / FPS;
 
       let contentMargin;
-
-      let start = getStart()
-      let end = getEnd()
 
       // ! STATE
 
@@ -138,12 +135,12 @@ DOMContentLoaded.then(async () => {
           case ACTION.HIT_ABOVE:
             ELEMENT.TITLE.style.opacity = 0;
 
-            ELEMENT.EXPAND_SCROLL.scrollTo(0, start);
-            ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+            // ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
+            // ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
-            setTimeout(() => {
-              sendSignal("mobile-seq:action", ACTION.STOP_END);
-            }, DELAY);
+            // setTimeout(() => {
+            //   sendSignal("mobile-seq:action", ACTION.STOP_END);
+            // }, DELAY);
 
             return {
               ...state,
@@ -154,7 +151,7 @@ DOMContentLoaded.then(async () => {
                   : VALUE.POINT.PRE,
             };
           case ACTION.HIT_BELOW:
-            ELEMENT.EXPAND_SCROLL.scrollTo(0, end);
+            ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
             ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
             setTimeout(() => {
@@ -173,7 +170,7 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.OUT_ABOVE:
-            ELEMENT.TITLE.style.opacity = '';
+            ELEMENT.TITLE.style.opacity = "";
 
             return {
               ...state,
@@ -195,12 +192,12 @@ DOMContentLoaded.then(async () => {
                 state.point === VALUE.POINT.PRE ||
                 state.point === VALUE.POINT.START
               ) {
-                ELEMENT.EXPAND_SCROLL.scrollTo(0, start);
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
               }
 
               if (state.transition === VALUE.TRANSITION.NO) {
                 if (state.point === VALUE.POINT.START) {
-                  ELEMENT.EXPAND_SCROLL.scrollTo(0, start);
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
                   ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
                   setTimeout(() => {
@@ -209,7 +206,7 @@ DOMContentLoaded.then(async () => {
                 }
 
                 if (state.point === VALUE.POINT.END - 1) {
-                  ELEMENT.EXPAND_SCROLL.scrollTo(0, end);
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
 
                   ELEMENT.CONTENT.style.marginTop = `${contentMargin}px`;
                 }
@@ -247,12 +244,12 @@ DOMContentLoaded.then(async () => {
                 state.point === VALUE.POINT.POST ||
                 state.point === VALUE.POINT.END
               ) {
-                ELEMENT.EXPAND_SCROLL.scrollTo(0, end);
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
               }
 
               if (state.transition === VALUE.TRANSITION.NO) {
                 if (state.point === VALUE.POINT.END) {
-                  ELEMENT.EXPAND_SCROLL.scrollTo(0, end);
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
                   ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
                   setTimeout(() => {
@@ -263,7 +260,7 @@ DOMContentLoaded.then(async () => {
                 }
 
                 if (state.point === VALUE.POINT.START + 1) {
-                  ELEMENT.EXPAND_SCROLL.scrollTo(0, start);
+                  ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
                 }
 
                 if (
@@ -316,7 +313,7 @@ DOMContentLoaded.then(async () => {
           case ACTION.NO_TOUCH:
             switch (state.point) {
               case VALUE.POINT.PRE:
-                ELEMENT.EXPAND_SCROLL.scrollTo(0, start);
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
                 ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
                 setTimeout(() => {
@@ -330,7 +327,7 @@ DOMContentLoaded.then(async () => {
                   touch: VALUE.TOUCH.NO,
                 };
               case VALUE.POINT.POST:
-                ELEMENT.EXPAND_SCROLL.scrollTo(0, end);
+                ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
                 ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
                 setTimeout(() => {
@@ -435,23 +432,23 @@ DOMContentLoaded.then(async () => {
       ELEMENT.EXPAND_SCROLL.addEventListener("scroll", () => {
         switch (state.point) {
           case VALUE.POINT.BEFORE:
-            if (getY() >= start + 1) {
+            if (getY() >= getStart() + 1) {
               state = reducer(state, ACTION.HIT_ABOVE);
             }
             break;
           case VALUE.POINT.START:
           case VALUE.POINT.PRE:
-            if (getY() <= start - 1) {
+            if (getY() <= getStart() - 1) {
               state = reducer(state, ACTION.OUT_ABOVE);
             }
             break;
           case VALUE.POINT.END:
-            if (getY() >= end + 1) {
+            if (getY() >= getEnd() + 1) {
               state = reducer(state, ACTION.OUT_BELOW);
             }
             break;
           case VALUE.POINT.AFTER:
-            if (getY() <= end - 1) {
+            if (getY() <= getEnd() - 1) {
               state = reducer(state, ACTION.HIT_BELOW);
             }
             break;
