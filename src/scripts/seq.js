@@ -55,6 +55,26 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
     await loadImages();
 
+    if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+      const h =
+        document.querySelector(".seq__bottom").getBoundingClientRect().height -
+        130;
+      const w =
+        (document.querySelector(".seq__bottom").getBoundingClientRect().width -
+          80) *
+        (1245 / 1840);
+      const ratio = w / h
+
+      const image = images[0];
+      const imageRatio = image.width / image.height;
+
+      if (ratio >= imageRatio) {
+        document.querySelector('.seq__background').style.height = `${h}px`
+      } else {
+        document.querySelector('.seq__background').style.height = `${image.height * (w / image.width)}px`;
+      }
+    }
+
     /* LOAD WINDOW */
     await loadWindow;
 
@@ -107,6 +127,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       const renderZoneWidth = canvas.width * (1245 / 1840);
       const renderZoneHeight = canvas.height;
       const renderZoneRatio = renderZoneWidth / renderZoneHeight;
+      console.log(renderZoneWidth, renderZoneHeight);
 
       let renderWidth;
       let renderHeight;
