@@ -11,7 +11,7 @@ DOMContentLoaded.then(async () => {
       // ! DATA & METHODS
 
       // const LOGGING = process.env.NODE_ENV === "development";
-      const LOGGING = true;
+      const LOGGING = false;
 
       let lastAction = null;
 
@@ -151,12 +151,12 @@ DOMContentLoaded.then(async () => {
                   : VALUE.POINT.PRE,
             };
           case ACTION.HIT_BELOW:
-            ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
-            ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
+            // ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
+            // ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
-            setTimeout(() => {
-              sendSignal("mobile-seq:action", ACTION.STOP_END);
-            }, DELAY);
+            // setTimeout(() => {
+            //   sendSignal("mobile-seq:action", ACTION.STOP_END);
+            // }, DELAY);
 
             sendSignal("mobile-seq:panel", true);
 
@@ -364,7 +364,7 @@ DOMContentLoaded.then(async () => {
 
       // ! EVENTS
 
-      ELEMENT.TITLE.style.transition = "0.25s";
+      ELEMENT.TITLE.style.transition = "0.1s";
 
       sendSignal("mobile-seq:panel", true);
 
