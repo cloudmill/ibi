@@ -14,8 +14,8 @@ try {
       const map = new ymaps.Map(
         "map",
         {
-          center: [55.732433, 37.616144],
-          zoom: 14,
+          center: [55.733209, 37.616029],
+          zoom: 19,
           controls: [],
         },
         {
@@ -154,27 +154,42 @@ try {
         })
         .then(() => {
           if ($(".placemarks__item").length === 1) {
-            map.setZoom(18);
+            map.setZoom(15);
           }
         });
+
 
       var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: [
           [55.731309, 37.612539],
           [55.733241, 37.616043],
-          'Москва, метро Полянка',
         ],
         params: {
           routingMode: "pedestrian"
         }
       }, {
-        boundsAutoApply: true,
         routeActiveStrokeColor: "#29A5B1",
         wayPointVisible: false,
         wayPointColor: "#29A5B1",
-        pinVisible: false,
+        pinVisible:false,
       });
       map.geoObjects.add(multiRoute);
+      var multiRoute = new ymaps.multiRouter.MultiRoute({
+        referencePoints: [
+          'Москва, метро Полянка',
+          [55.733241, 37.616043],
+        ],
+        params: {
+          routingMode: "pedestrian"
+        }
+      }, {
+        routeActiveStrokeColor: "#29A5B1",
+        wayPointVisible: false,
+        wayPointColor: "#29A5B1",
+        pinVisible:false,
+      });
+      map.geoObjects.add(multiRoute);
+      map.setCenter([55.734310, 37.616059]);
     }
   });
 } catch (err) {
