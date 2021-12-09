@@ -11,7 +11,7 @@ DOMContentLoaded.then(async () => {
       // ! DATA & METHODS
 
       // const LOGGING = process.env.NODE_ENV === "development";
-      const LOGGING = false;
+      const LOGGING = true;
 
       let lastAction = null;
 
@@ -45,7 +45,7 @@ DOMContentLoaded.then(async () => {
         );
       }
 
-      const FPS = 15;
+      const FPS = 5;
 
       const DELAY = 1000 / FPS;
 
