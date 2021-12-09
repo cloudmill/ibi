@@ -22,6 +22,8 @@ DOMContentLoaded.then(async () => {
         SEQ_FULLSCREEN: document.querySelector(".seq__fullscreen"),
 
         CONTENT: document.querySelector(".implantation-main-content"),
+
+        TITLE: document.querySelector(".title.title--seq"),
       };
 
       function getY() {
@@ -131,6 +133,8 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.HIT_ABOVE:
+            ELEMENT.TITLE.style.opacity = 0;
+
             ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
             ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
@@ -166,6 +170,8 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.OUT_ABOVE:
+            ELEMENT.TITLE.style.opacity = '';
+
             return {
               ...state,
 
@@ -357,6 +363,8 @@ DOMContentLoaded.then(async () => {
       };
 
       // ! EVENTS
+
+      ELEMENT.TITLE.style.transition = "0.25s";
 
       sendSignal("mobile-seq:panel", true);
 
