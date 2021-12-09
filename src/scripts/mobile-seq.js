@@ -11,7 +11,7 @@ DOMContentLoaded.then(async () => {
       // ! DATA & METHODS
 
       // const LOGGING = process.env.NODE_ENV === "development";
-      const LOGGING = true;
+      const LOGGING = false;
 
       let lastAction = null;
 
@@ -22,6 +22,8 @@ DOMContentLoaded.then(async () => {
         SEQ_FULLSCREEN: document.querySelector(".seq__fullscreen"),
 
         CONTENT: document.querySelector(".implantation-main-content"),
+
+        PANEL: document.querySelector(".mobile-header__panel"),
       };
 
       function getY() {
@@ -357,6 +359,8 @@ DOMContentLoaded.then(async () => {
       };
 
       // ! EVENTS
+
+      ELEMENT.PANEL.style.backgroundColor = "#F1FBFD";
 
       sendSignal("mobile-seq:panel", true);
 
