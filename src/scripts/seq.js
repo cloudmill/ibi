@@ -63,15 +63,37 @@ window.addEventListener("DOMContentLoaded", async () => {
         (document.querySelector(".seq__bottom").getBoundingClientRect().width -
           80) *
         (1245 / 1840);
-      const ratio = w / h
+      const ratio = w / h;
 
       const image = images[0];
       const imageRatio = image.width / image.height;
 
       if (ratio >= imageRatio) {
-        document.querySelector('.seq__background').style.height = `${h}px`
+        document.querySelector(".seq__background").style.height = `${h}px`;
       } else {
-        document.querySelector('.seq__background').style.height = `${image.height * (w / image.width)}px`;
+        document.querySelector(".seq__background").style.height = `${
+          image.height * (w / image.width)
+        }px`;
+      }
+    } else if (getMediaQuery(BREAKPOINT.TABLET).matches) {
+      const h =
+        document.querySelector(".seq__bottom").getBoundingClientRect().height -
+        40;
+      const w =
+        document.querySelector(".seq__bottom").getBoundingClientRect().width /
+        2;
+
+      const ratio = w / h;
+
+      const image = images[0];
+      const imageRatio = image.width / image.height;
+
+      if (ratio >= imageRatio) {
+        document.querySelector(".seq__background").style.height = `${h}px`;
+      } else {
+        document.querySelector(".seq__background").style.height = `${
+          image.height * (w / image.width)
+        }px`;
       }
     }
 
@@ -124,23 +146,39 @@ window.addEventListener("DOMContentLoaded", async () => {
       const image = images[imageIndex];
       const imageRatio = image.width / image.height;
 
-      const renderZoneWidth = canvas.width * (1245 / 1840);
-      const renderZoneHeight = canvas.height;
-      const renderZoneRatio = renderZoneWidth / renderZoneHeight;
-      console.log(renderZoneWidth, renderZoneHeight);
-
       let renderWidth;
       let renderHeight;
       let renderX;
       let renderY;
 
-      if (getMediaQuery(BREAKPOINT.TABLET).matches) {
+      if (getMediaQuery(BREAKPOINT.DEFAULT).matches) {
+        const renderZoneWidth = canvas.width * (1245 / 1840);
+        const renderZoneHeight = canvas.height;
+        const renderZoneRatio = renderZoneWidth / renderZoneHeight;
+
         if (renderZoneRatio >= imageRatio) {
           renderHeight = renderZoneHeight;
           renderWidth = image.width * (renderHeight / image.height);
 
           renderY = 0;
-          // renderX = (renderZoneWidth / 2) - (renderWidth / 2)
+          renderX = 0;
+        } else {
+          renderWidth = renderZoneWidth;
+          renderHeight = image.height * (renderWidth / image.width);
+
+          renderX = 0;
+          renderY = renderZoneHeight - renderHeight;
+        }
+      } else if (getMediaQuery(BREAKPOINT.TABLET).matches) {
+        const renderZoneWidth = canvas.width / 2;
+        const renderZoneHeight = canvas.height;
+        const renderZoneRatio = renderZoneWidth / renderZoneHeight;
+
+        if (renderZoneRatio >= imageRatio) {
+          renderHeight = renderZoneHeight;
+          renderWidth = image.width * (renderHeight / image.height);
+
+          renderY = 0;
           renderX = 0;
         } else {
           renderWidth = renderZoneWidth;
