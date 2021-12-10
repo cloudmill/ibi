@@ -60,13 +60,25 @@
     .articles-authors__item{
       margin: 0;
       height: auto;
+      padding: 0;
+    }
+
+    .articles-authors__container {
+      padding-top: 0;
+      margin-right: 0;
     }
   }
 
   &__container {
-    overflow: visible;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding-left: 20px;
+
     @media (min-width: $breakpoint) {
       padding-top: 20px;
+      padding-left: 0;
+      margin-right: -40px;
+      margin-left: 0;
     }
   }
 
@@ -127,14 +139,21 @@
 
   &__item {
     transition: $transition;
-    height: 92px;
+    // height: 92px;
+    padding: 16px 16px 16px 8px;
 
-
+    &--active {
+      background: rgba(41, 165, 177, 0.1);
+      border: 1px solid $color-main;
+    }
 
     &:last-child {
       margin-right: 40px;
     }
 
+    .button-svg {
+      height: auto;
+    }
   }
 
   &__filter-item {
@@ -153,14 +172,14 @@
     }
   }
 
-  &__item--active {
-    background-color: $color-main;
-    color: #fff;
+  // &__item--active {
+  //   background-color: $color-main;
+  //   color: #fff;
 
-    .article-author__prof {
-      color: #fff;
-    }
-  }
+  //   .article-author__prof {
+  //     color: #fff;
+  //   }
+  // }
 
   .team-filter__reset {
     margin-top: 30px;
@@ -252,6 +271,8 @@
   &__prof {
     transition: $transition;
     margin-top: 5px;
+    margin-bottom: 15px;
+
     @media (min-width: $breakpoint) {
       margin-top: 10px;
 

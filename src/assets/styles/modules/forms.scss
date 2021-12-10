@@ -185,6 +185,11 @@
 
       margin: 8px 0 0 20px;
 
+      transform-origin: center;
+      transition: $transition;
+
+      @import '../components/button-animation';
+
       // margin-left: 20px;
       // margin-right: 0;
 
@@ -198,6 +203,12 @@
 
       &-ico {
         width: 51px;
+
+        path {
+          transform-origin: center;
+          transition: $transition;
+        }
+
         // height: 45px;
         @media (min-width: $breakpoint) {
           // width: calc(#{$col-part-d} - 20px);
