@@ -14,6 +14,10 @@ $IMAGE_HEIGHT: 1080px;
   height: 100%;
   display: block;
 
+  &__image {
+    transform: translateX(#{((1920 * (1600 / 914)) - 3360) / 2}px);
+  }
+
   &--in-main-page {
     @media (max-width: 1279px) {
       display: none;
