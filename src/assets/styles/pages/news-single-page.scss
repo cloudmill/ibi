@@ -311,15 +311,24 @@
 
     width: $size-m;
     height: $size-m;
+
     @media (min-width: $breakpoint-l + 1px) {
       width: $size-d;
       height: $size-d;
     }
+
     border: 1px solid $color-main;
 
+    svg path {
+      fill: $color-main;
+      transition: $transition;
+    }
+
+    &:hover {
       svg path {
-        fill: $color-main;
+        fill: #fff;
       }
+    }
   }
 }
 
