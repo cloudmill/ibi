@@ -3,6 +3,9 @@
 .news-subscribe {
   position: relative;
   margin: 160px 0;
+
+  min-height: 160px;
+
   @media (max-width: $breakpoint - 1px) {
     margin: 60px 0;
   }
