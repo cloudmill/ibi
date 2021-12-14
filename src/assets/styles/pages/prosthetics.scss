@@ -490,7 +490,19 @@
 
   &__filter {
     display: flex;
-    
+
+    @media (max-width: $breakpoint - 1px) {
+      margin: 0 -20px;
+      padding: 0 20px;
+
+      overflow-x: scroll;
+
+      @include scrollbar-hidden();
+
+      .development__names-item {
+        white-space: nowrap;
+      }
+    }
   }
 }
 
@@ -607,3 +619,11 @@
   }
 }
 
+.prosthetics-operations {
+  .swiper-container {
+    @media (max-width: $breakpoint - 1px) {
+      margin: 0 -20px;
+      padding-left: 20px;
+    }
+  }
+}
