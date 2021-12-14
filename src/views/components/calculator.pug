@@ -26,37 +26,55 @@
             img.tooth-clean(src=`assets/images/calc/teeth${i++}.png`, alt="")
     .calc__teeth-box-mob
       .calc__teeth-row-mob
+        -
+          var index = 0
+          //- for (var index = 0; index < 32; index++)
+
         .calc-mob-jaw-ico
           img(src="assets/images/calc/mob/upper-jaw.png", alt="")
         .calc__mob-left-column
-          - for (let i=1; i<9; i++)
+          -
+            var num1 = [18, 17, 16, 15, 14, 13, 12, 11]
+
+          each num in num1
             button.tooth-button.tooth-button-mob
-              .tooth-button-number 11
-              img.tooth-removed(src=`assets/images/svg/calc/mob/removed${i}.svg`, alt="")
-              img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${i}.svg`, alt="")
-              img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
+              .tooth-button-number #{num}
+              img.tooth-removed(src=`assets/images/svg/calc/mob/removed${index + 1}.svg`, alt="")
+              img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${index + 1}.svg`, alt="")
+              img.tooth-clean(src=`assets/images/calc/mob/tooth${index++ + 1}.png`, alt="")
         .calc__mob-right-column
-          - for (let i=9; i<17; i++)
+          -
+            var num2 = [21, 22, 23, 24, 25, 26, 27, 28]
+
+          each num in num2
             button.tooth-button.tooth-button-mob
-              .tooth-button-number 1
-              img.tooth-removed(src=`assets/images/svg/calc/mob/removed${i}.svg`, alt="")
-              img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${i}.svg`, alt="")
-              img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
+              .tooth-button-number #{num}
+              img.tooth-removed(src=`assets/images/svg/calc/mob/removed${index + 1}.svg`, alt="")
+              img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${index + 1}.svg`, alt="")
+              img.tooth-clean(src=`assets/images/calc/mob/tooth${index++ + 1}.png`, alt="")
       .calc__teeth-row-mob
         .calc-mob-jaw-ico
           img(src="assets/images/calc/mob/upper-jaw2.png", alt="")
         .calc__mob-left-column
-          - for (let i=17; i<25; i++)
+          -
+            var num3 = [48, 47, 46, 45, 44, 43, 42, 41]
+
+          each num in num3
             button.tooth-button.tooth-button-mob
-              img.tooth-removed(src=`assets/images/svg/calc/mob/removed${i}.svg`, alt="")
-              img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${i}.svg`, alt="")
-              img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
+              .tooth-button-number #{num}
+              img.tooth-removed(src=`assets/images/svg/calc/mob/removed${index + 1}.svg`, alt="")
+              img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${index + 1}.svg`, alt="")
+              img.tooth-clean(src=`assets/images/calc/mob/tooth${index++ + 1}.png`, alt="")
         .calc__mob-right-column
-          - for (let i=25; i<33; i++)
+          -
+            var num4 = [31, 32, 33, 34, 35, 36, 37, 38]
+
+          each num in num4
             button.tooth-button.tooth-button-mob
-              img.tooth-removed(src=`assets/images/svg/calc/mob/removed${i}.svg`, alt="")
-              img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${i}.svg`, alt="")
-              img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
+              .tooth-button-number #{num}
+              img.tooth-removed(src=`assets/images/svg/calc/mob/removed${index + 1}.svg`, alt="")
+              img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${index + 1}.svg`, alt="")
+              img.tooth-clean(src=`assets/images/calc/mob/tooth${index++ + 1}.png`, alt="")
     .calc__right-col
       .calc__txt.calc__txt--left Левая часть
       .calc__bracket
