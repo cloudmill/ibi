@@ -78,6 +78,10 @@ DOMContentLoaded.then(async () => {
           OPEN: "OPEN",
           CLOSE: "CLOSE",
         },
+        FREE: {
+          NO: "NO",
+          YES: "YES",
+        },
       };
 
       const INITIAL_STATE = {
@@ -86,6 +90,7 @@ DOMContentLoaded.then(async () => {
         touch: VALUE.TOUCH.NO,
         lock: VALUE.LOCK.NO,
         menu: VALUE.MENU.CLOSE,
+        free: VALUE.FREE.YES,
       };
 
       let state = INITIAL_STATE;
@@ -208,6 +213,7 @@ DOMContentLoaded.then(async () => {
                 }
 
                 if (
+                  state.free === VALUE.FREE.YES &&
                   state.point >= VALUE.POINT.START &&
                   state.point < VALUE.POINT.END
                 ) {
@@ -229,6 +235,7 @@ DOMContentLoaded.then(async () => {
                         ? VALUE.LOCK.YES
                         : state.lock,
                     transition: VALUE.TRANSITION.YES,
+                    free: VALUE.FREE.NO,
                   };
                 }
               }
@@ -260,6 +267,7 @@ DOMContentLoaded.then(async () => {
                 }
 
                 if (
+                  state.free === VALUE.FREE.YES &&
                   state.point > VALUE.POINT.START &&
                   state.point <= VALUE.POINT.END
                 ) {
@@ -281,6 +289,7 @@ DOMContentLoaded.then(async () => {
                         ? VALUE.LOCK.YES
                         : state.lock,
                     transition: VALUE.TRANSITION.YES,
+                    free: VALUE.FREE.NO,
                   };
                 }
               }
@@ -307,6 +316,10 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.NO_TOUCH:
+            if (state.free === VALUE.FREE.NO) {
+              state.free = VALUE.FREE.YES;
+            }
+
             switch (state.point) {
               case VALUE.POINT.PRE:
                 ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
