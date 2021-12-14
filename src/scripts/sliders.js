@@ -1,21 +1,6 @@
+import { data } from 'jquery';
 import Swiper from 'swiper/bundle';
 
-// lab slider on the main page
-
-{
-  $(() => {
-    const slider = $('.index-lab-slider');
-    const titles = slider.find('.block__nav-item');
-    const btns = slider.find('.slider-control__item');
-
-    if (btns.length) {
-      btns.on('click', () => {
-        console.log(111);
-        titles.toggleClass('block__nav-item--active');
-      })
-    }
-  })
-}
 
 // slider
 
@@ -149,7 +134,24 @@ const BREAKPOINT = 1280;
               
               loop: true,
               allowTouchMove: false,
+
+              on: {
+                slideChangeTransitionStart: (() => {
+                  let isStart = true
+                  
+                  return () => {
+                    if (isStart) {
+                      isStart = false
+                    } else {
+                      $('.block__nav-item').toggleClass('block__nav-item--active');
+                      // console.log(1435234);
+                    }
+                  }
+                })(),
+              }
             }
+
+
             break;
   
           case 100:
@@ -233,8 +235,30 @@ const BREAKPOINT = 1280;
             break;
   
         }
-  
+
         const slider_swiper = new Swiper(slider_el[0], slider_options);
+
+        if (slider_id == 21) {
+          
+          const titles = $('.index-lab-slider').find('.block__nav-item');
+
+          console.log(titles);
+
+          $(window).on('click', function (event) {
+
+            if ($(event.target).closest('.block__nav-item').length) {
+
+              if (!$(event.target).closest('.block__nav-item').hasClass('block__nav-item--active')) {
+
+                // titles.toggleClass('block__nav-item--active');
+    
+                slider_swiper.slideNext();
+    
+                // console.log('yoyoyoy');
+              }
+            }
+          })
+        }
 
         // console.log(slider_swiper);
 
@@ -244,12 +268,12 @@ const BREAKPOINT = 1280;
         slider_prev.on('click', () => {
           slider_swiper.slidePrev();
 
-          console.log(slider_swiper);
+          // console.log(slider_swiper);
         });
         slider_next.on('click', () => {
           slider_swiper.slideNext();
 
-          console.log(slider_swiper);
+          // console.log(slider_swiper);
         });
       });
     }
@@ -260,10 +284,7 @@ const BREAKPOINT = 1280;
 {
   $(() => {
     const swiperThumbs = new Swiper('.development__names', {
-      // freeMode: false,
-      // loop: true,
       slidesPerView: 'auto',
-      // initialSlide: 0,
       slideToClickedSlide: true,
 
       spaceBetween: 0,
@@ -276,29 +297,13 @@ const BREAKPOINT = 1280;
     })
     const swiperSlider = new Swiper('.development__desc', {
       loop: true,
-      // freeMode: false,
       spaceBetween: 0,
       slidesPerView: 1,
-      // initialSlide: 0,
 
       thumbs: {
         swiper: swiperThumbs,
       },
-
-      // spaceBetween: 0,
-  
-      // breakpoints: {
-      //   [BREAKPOINT]: {
-      //     spaceBetween: 0,
-      //   },
-      // },
-
-      // controller: {
-      //   control: swiperThumbs
-      // },
     })
-    // swiperThumbs.controller.control = swiperSlider;
-    // swiperSlider.controller.control = swiperThumbs;
 
     const btnPrev = $('.lab-btn-prev');
     const btnNext = $('.lab-btn-next');
@@ -313,6 +318,32 @@ const BREAKPOINT = 1280;
     })
   })
 }
+
+// lab slider on the main page
+
+// {
+//   $(() => {
+//     const sliderBlock = $('.index-lab-slider');
+//     const titles = sliderBlock.find('.block__nav-item');
+    
+//     const slider = sliderBlock.find('.swiper-container')
+
+//     if (sliderBlock.length) {
+//       $(window).on('click', function (event) {
+
+//         if ($(event.target).closest('.block__nav-item').length) {
+//           if (!$(event.target).closest('.block__nav-item').hasClass('block__nav-item--active')) {
+//             titles.toggleClass('block__nav-item--active');
+
+//             // 21.slideNext();
+
+//             console.log('hello');
+//           }
+//         }
+//       })
+//     }
+//   })
+// }
 
 // Mission slider
 {
