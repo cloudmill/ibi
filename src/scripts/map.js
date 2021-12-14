@@ -171,7 +171,7 @@ try {
         routeActiveStrokeColor: "#36edff",
         wayPointVisible: false,
         wayPointColor: "#36edff",
-        pinVisible:false,
+        pinVisible: false,
       });
       map.geoObjects.add(multiRoute);
       var multiRoute = new ymaps.multiRouter.MultiRoute({
@@ -186,7 +186,7 @@ try {
         routeActiveStrokeColor: "#36edff",
         wayPointVisible: false,
         wayPointColor: "#36edff",
-        pinVisible:false,
+        pinVisible: false,
       });
       map.geoObjects.add(multiRoute);
       map.setCenter([55.734310, 37.616059]);
@@ -195,3 +195,31 @@ try {
 } catch (err) {
   console.error(err)
 }
+
+
+ymaps.ready(function () {
+  if (!ymaps.panorama.isSupported()) {
+    return;
+  }
+
+  var markerData = {
+    src: {
+      'default': '/local/templates/main/assets/images/placemark.svg',
+      hovered: '/local/templates/main/assets/images/placemark.svg'
+    },
+    position: [-2, -0.8, 0.2]
+  };
+
+  ymaps.panorama.locate([55.733237, 37.616190]).done(
+    function (panoramas) {
+      // Убеждаемся, что найдена хотя бы одна панорама.
+      if (panoramas.length > 0) {
+        var player = new ymaps.panorama.Player(
+          'mapPan',
+          panoramas[0], {
+          direction: [194, 7]
+        });
+
+      }
+    });
+});
