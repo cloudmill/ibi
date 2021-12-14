@@ -168,9 +168,9 @@ try {
           routingMode: "pedestrian"
         }
       }, {
-        routeActiveStrokeColor: "#29A5B1",
+        routeActiveStrokeColor: "#36edff",
         wayPointVisible: false,
-        wayPointColor: "#29A5B1",
+        wayPointColor: "#36edff",
         pinVisible:false,
       });
       map.geoObjects.add(multiRoute);
@@ -183,9 +183,9 @@ try {
           routingMode: "pedestrian"
         }
       }, {
-        routeActiveStrokeColor: "#29A5B1",
+        routeActiveStrokeColor: "#36edff",
         wayPointVisible: false,
-        wayPointColor: "#29A5B1",
+        wayPointColor: "#36edff",
         pinVisible:false,
       });
       map.geoObjects.add(multiRoute);
