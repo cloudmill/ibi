@@ -31,12 +31,14 @@
         .calc__mob-left-column
           - for (let i=1; i<9; i++)
             button.tooth-button.tooth-button-mob
+              .tooth-button-number 11
               img.tooth-removed(src=`assets/images/svg/calc/mob/removed${i}.svg`, alt="")
               img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${i}.svg`, alt="")
               img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")
         .calc__mob-right-column
           - for (let i=9; i<17; i++)
             button.tooth-button.tooth-button-mob
+              .tooth-button-number 1
               img.tooth-removed(src=`assets/images/svg/calc/mob/removed${i}.svg`, alt="")
               img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${i}.svg`, alt="")
               img.tooth-clean(src=`assets/images/calc/mob/tooth${i}.png`, alt="")

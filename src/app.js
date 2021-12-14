@@ -1402,11 +1402,13 @@ var updateMySticky;
   $(() => {
     $(window).on("click", (event) => {
       const tooth = $(event.target).closest(".tooth-button");
+      const num = tooth.find('.number');
 
       if (tooth.length) {
         if (tooth.hasClass("tooth-button--destroyed")) {
           tooth.removeClass("tooth-button--destroyed");
           tooth.addClass("tooth-button--removed");
+
         } else if (tooth.hasClass("tooth-button--removed")) {
           tooth.removeClass("tooth-button--removed");
         } else {
