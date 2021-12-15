@@ -30,7 +30,7 @@
     }
 
     &--small {
-      height: 94px;
+      height: 44px;
 
       .header__inner {
         padding: 3px 0;
@@ -43,6 +43,9 @@
         transform: translateY(0);
         opacity: 1;
         pointer-events: all;
+      }
+      &.mobile-header__panel--big {
+        height: 94px;
       }
     }
 

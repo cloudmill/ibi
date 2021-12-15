@@ -3,7 +3,8 @@ import { mediaQuery } from './mediaQueries';
 $(window).on('load', () => {
 
   if ((!mediaQuery.matches) && $('.implant-price-page').length) {
-    console.log('salamula');
+
+    $('.mobile-header__panel').addClass('mobile-header__panel--big');
 
     const headerHeight = $('.header').height();
     const list = $('.category--mobile');
