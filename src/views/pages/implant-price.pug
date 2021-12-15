@@ -11,7 +11,7 @@ block header
 
   
 block content
-  section.section.section--gradient
+  section.section.section--gradient.implant-price-page
       .row
         .row__col
           .section__inner.section__inner--top
@@ -28,17 +28,17 @@ block content
                         |Стоимость
                   .category.category--column
                     ul.category__list
-                      li.category__item
-                        a.category__link(href="#one-tooth") 
+                      li.category__item.category-price.category__item--active(data-scroll="#q1")
+                        a.category__link
                           |Один зуб
-                      li.category__item.category__item--active
-                        a.category__link(href="#three-teeth") 
+                      li.category__item.category-price(data-scroll="#q2")
+                        a.category__link
                           |От 3-ех до 5 сегметов
-                      li.category__item
-                        a.category__link(href="#one-jaw") 
+                      li.category__item.category-price(data-scroll="#q3")
+                        a.category__link
                           |На одной челюсти
-                      li.category__item 
-                        a.category__link(href="#two-jaws") 
+                      li.category__item.category-price(data-scroll="#q4")
+                        a.category__link
                           |На двух челюстях
                   .price__note Стоимость может меняться в зависимости клинического состояния зубов
                   button.vacancies-list__extra-btn.price__btn(data-scroll-trigger=0)
@@ -53,17 +53,17 @@ block content
                 |Стоимость
               .category.category--mobile
                 ul.category__list
-                  li.category__item
-                    a.category__link(href="#one-tooth") 
+                  li.category__item.category-price.category__item--active(data-scroll="#q1")
+                    a.category__link
                       |Один зуб
-                  li.category__item.category__item--active
-                    a.category__link(href="#three-teeth") 
+                  li.category__item.category-price(data-scroll="#q2")
+                    a.category__link
                       |От 3-ех до 5 сегметов
-                  li.category__item 
-                    a.category__link(href="#one-jaw") 
+                  li.category__item.category-price(data-scroll="#q3")
+                    a.category__link
                       |На одной челюсти
-                  li.category__item 
-                    a.category__link(href="#two-jaws") 
+                  li.category__item.category-price(data-scroll="#q4")
+                    a.category__link
                       |На двух челюстях
 
               .price.price--mobile
@@ -73,7 +73,7 @@ block content
                   |Получить точный расчет
                   
               //- .article
-              .price-item.mt80-40
+              .price-item.mt80-40(data-section id="q1")
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
                 a.price-item__ttl(name="one-tooth") Установка одного имплантата ONEWAY BIOMED
@@ -89,7 +89,7 @@ block content
                           |постоянная коронка из диоксида циркония (срок изготовления 3 дня)
                     p  
                       |Любая из выбранных конструкций фиксируется на постоянный японский цемент Fuji+.
-              .price-item
+              .price-item(data-section id="q2")
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
                 a.price-item__ttl(name="three-teeth") Проведение операции на сегменте от 3-х до 5-ти зубов Strategic Implant + протезирование несъемным мостовидным протезом
@@ -99,7 +99,7 @@ block content
                     li Имплантаты устанавливаются в местах отсутствующих или удаленных зубов
                     li При восстановлении сегмента (3-5 зубов) рекомендуется устанавливать диоксид циркониевые (постоянные) или металлоакриловые (условно-временные) зубные мосты
                     li Диоксид циркониевые зубы на имплантатах Strategic implant являются постоянными конструкциями
-              .price-item
+              .price-item(data-section id="q3")
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
                 a.price-item__ttl(name="one-jaw") Проведение операции на одной челюсти Strategic Implant + протезирование несъемным мостовидным протезом
@@ -110,7 +110,7 @@ block content
                     li Используется принцип установки 10-12 имплантатов на верхнюю челюсть и 8-10 на нижнюю
                     li Сразу же после имплантации получаем оттиски для изготовление будущих зубов
                     li В зависимости от клинической ситуации могут быть изготовлены метоллоакриловые или металлокомпозитные зубы
-              .price-item
+              .price-item(data-section id="q4")
                 .price-item__img
                   img(src="assets/images/0price.jpg", alt="")
                 a.price-item__ttl(name="two-jaws") Проведение операции двух челюстей strategic implant + протезирование несъемным мостовидным протезомпроведение операции двух челюстей Strategic Implant + протезирование несъемным мостовидным протезом

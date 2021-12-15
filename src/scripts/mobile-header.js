@@ -12,6 +12,7 @@ if (!mediaQuery.matches) {
       const CLASS = {
         PANEL: {
           HIDE: "mobile-header__panel--hide",
+          SMALL: "mobile-header__panel--small",
           BACKGROUND: "mobile-header__panel--background",
           SHOW: "mobile-header__panel--show",
         },
@@ -50,13 +51,13 @@ if (!mediaQuery.matches) {
           curScrollY = getScrollY();
 
           if (prevScrollY < curScrollY) {
-            elements.panel.addClass(CLASS.PANEL.HIDE);
+            elements.panel.addClass(CLASS.PANEL.SMALL);
           } else {
-            elements.panel.removeClass(CLASS.PANEL.HIDE);
+            elements.panel.removeClass(CLASS.PANEL.SMALL);
           }
 
           if (curScrollY < 1) {
-            elements.panel.removeClass(CLASS.PANEL.HIDE);
+            elements.panel.removeClass(CLASS.PANEL.SMALL);
           }
         };
       })();
@@ -147,7 +148,7 @@ if (!mediaQuery.matches) {
         // panel
         {
           if (elements.menu.hasClass(CLASS.MENU.OPEN)) {
-            elements.panel.removeClass(CLASS.PANEL.HIDE);
+            elements.panel.removeClass(CLASS.PANEL.SMALL);
             elements.panel.addClass(CLASS.PANEL.BACKGROUND);
           } else {
             if (getScrollY() < 1) {

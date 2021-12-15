@@ -20,6 +20,7 @@ import "scripts/mobile-header.js";
 import "./scripts/mobile-seq";
 import "./scripts/scroll-test";
 import { sendSignal } from "./scripts/signal";
+import "./scripts/anchor-links";
 
 const BREAKPOINT = 1280;
 

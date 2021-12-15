@@ -22,10 +22,28 @@
     left: 0;
 
     height: var(--panel-height);
+    // height: auto;
     transition: $transition;
 
     &--hide {
       transform: translateY(-100%);
+    }
+
+    &--small {
+      height: 94px;
+
+      .header__inner {
+        padding: 3px 0;
+      }
+      .header__logo-svg {
+        width: 109px;
+      }
+
+      &.mobile-header__panel .mobile-header__price-tabs {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
     }
 
     &--background {
@@ -35,6 +53,26 @@
     &--show {
       transform: translateY(0);
     }
+
+    .category--mobile {
+      padding: 10px 20px;
+      margin: 0;
+      overflow-x: scroll;
+
+      // transform: translateY(-100%);
+      // opacity: 0;
+      // pointer-events: none;
+      // transition: .5s;
+    }
+  }
+
+  &__price-tabs {
+    position: relative;
+    z-index: 2;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
   }
 
   &__menu {
