@@ -347,27 +347,41 @@
       width: 100%;
       overflow-x: auto;
       counter-reset: index;
+      padding-bottom: 3px;
     }
 
     #{$comp}__item {
       padding-left: 20px;
       position: relative;
 
+      padding-bottom: 5px;
+      border-bottom: 1px solid transparent;
+
       &::before {
         counter-increment: index;
         content: counter(index) ". ";
         position: absolute;
-        top: 4px;
+        top: 1px;
         @media (min-width: $breakpoint) {
           top: 0;
         }
         left: 0;
 
-        @include fsl(14px, 160%);
+        font-size: 14px;
+        line-height: 160%;
         @media (min-width: $breakpoint) {
-          @include fsl(18px);
+          font-size: 18px;
         }
       }
+    }
+
+    #{$comp}__item--active {
+      border-color: $color-main;
+    }
+
+    #{$comp}__link {
+      padding-bottom: 0;
+      border: 0;
     }
   }
 
@@ -419,14 +433,14 @@
         margin-left: 0;
       }
 
-      &--active {
-        padding-bottom: 0;
-        border: 0;
-        #{$comp}__link {
-          padding-bottom: 5px;
-          border-bottom: 1px solid $color-main;
-        }
-      }
+      // &--active {
+      //   padding-bottom: 0;
+      //   border: 0;
+      //   #{$comp}__link {
+      //     padding-bottom: 5px;
+      //     border-bottom: 1px solid $color-main;
+      //   }
+      // }
     }
   }
 
@@ -444,25 +458,25 @@
 
   &__item {
 
-    padding-bottom: 5px;
+    // padding-bottom: 5px;
     width: auto;
 
-    border-bottom: 1px solid transparent;
+    // border-bottom: 1px solid transparent;
     
     @media (min-width: $breakpoint) {
       // margin-left: 40px;
       margin-top: 20px;
     }
     @media (max-width: $breakpoint - 1px) {
-      &:not(:first-child) {
-        margin-left: 20px;
+      &:not(:last-child) {
+        margin-right: 20px;
       }
     }
 
-    &:not(:first-child) {
-      margin-left: 30px;
+    &:not(:last-child) {
+      margin-right: 30px;
       @media (min-width: $breakpoint-xl) {
-        margin-left: 40px;
+        margin-right: 40px;
       }
     }
 
@@ -477,24 +491,26 @@
 
     &--active {
       color: $color-main;
-      border-bottom: 1px solid $color-main;
+      // border-color: $color-main;
 
       #{$comp}__link {
         color: $color-main;
+        border-color: $color-main;
       }
     }
   }
 
   &__link {
     position: relative;
-    @include fsl(14px, 160%);
+    font-size: 14px;
+    line-height: 160%;
     @media (min-width: $breakpoint) {
-      @include fsl(16px);
+      font-size: 18px;
     }
-    @media (min-width: $breakpoint-xl) {
-      @include fsl(18px);
-    }
+    
     white-space: nowrap;
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent;
     transition: $transition;
   }
 }
