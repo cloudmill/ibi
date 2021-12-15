@@ -35,10 +35,6 @@
       display: none;
     }
 
-    .articles-authors__list {
-      
-    }
-
     .articles-authors__item {
       margin: 0;
       height: auto;
@@ -400,6 +396,10 @@
       .category__link {
         margin-right: 20px;
       }
+    }
+
+    .category__list {
+      padding-bottom: 4px;
     }
 
     @media (min-width: $breakpoint) {
