@@ -80,17 +80,24 @@
   }
 
   .single-news__head {
-    margin-bottom: 0;
+    
+    @media (min-width: $breakpoint) {
+      margin-bottom: 0;
+    }
+
     @media (max-width: $breakpoint - 1px) {
-      display: none;
+      // display: none;
+      .single-news__back-link {
+        margin-bottom: 0;
+      }
     }
   }
 
   .section__block.section__block--small.mt65 {
     margin-top: 65px;
   
-    @media (max-width: $breakpoint) {
-      margin-top: 40px;
+    @media (max-width: $breakpoint - 1px) {
+      margin-top: 20px;
     }
   }
 }

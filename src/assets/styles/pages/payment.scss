@@ -111,3 +111,20 @@
     }
   }
 }
+
+.payment-txt-block {
+  margin-top: 40px;
+
+  @media (min-width: $breakpoint) {
+    margin-top: 160px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 160%;
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+    }
+  }
+}
