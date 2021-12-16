@@ -451,6 +451,22 @@
       position: static;
     }
   }
+
+  &__btn:hover {
+    .button-svg {
+      path {
+        &:nth-child(1) {
+          transform: rotate(30deg);
+          fill: $color-main;
+        }
+
+        &:nth-child(3) {
+          fill: $color-white;
+          transform: translateX(10px);
+        }
+      }
+    }
+  }
 }
 
 // Стили для форм с несколькими полями
