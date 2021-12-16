@@ -1,62 +1,62 @@
 import { event } from "jquery";
 
 // form response
-{
-  $(() => {
-    const form = $('.form');
+// {
+//   $(() => {
+//     const form = $('.form');
 
-    if (form.length !== 0) {
+//     if (form.length !== 0) {
 
-      const response = $('.response');
-      const responseButton = $('.response__btn');
-      const formButton = $('.form__btn');
-      const formTitle = $('.form-title')
+//       const response = $('.response');
+//       const responseButton = $('.response__btn');
+//       const formButton = $('.form__btn');
+//       const formTitle = $('.form-title')
 
-      formButton.on('click', function (event) {
-        event.preventDefault();
-        form.addClass('form--hidden');
-        response.addClass('response--active');
-        formTitle.addClass('display-none');
-        // $('.provider__row').addClass('provider__row--active');
-      });
+//       formButton.on('click', function (event) {
+//         event.preventDefault();
+//         form.addClass('form--hidden');
+//         response.addClass('response--active');
+//         formTitle.addClass('display-none');
+//         // $('.provider__row').addClass('provider__row--active');
+//       });
 
-      responseButton.on('click', function () {
-        form.removeClass('form--hidden');
-        response.removeClass('response--active');
-        formTitle.removeClass('display-none');
-        // $('.provider__row').removeClass('provider__row--active');
-      });
-    }
-  });
-};
+//       responseButton.on('click', function () {
+//         form.removeClass('form--hidden');
+//         response.removeClass('response--active');
+//         formTitle.removeClass('display-none');
+//         // $('.provider__row').removeClass('provider__row--active');
+//       });
+//     }
+//   });
+// };
 
 // form response new
 
-// $('[data-send-form]').submit(function (e) {
-//   e.preventDefault();
+$('[data-send-form]').submit(function (e) {
+  e.preventDefault();
 
-//   const form = $('.form');
-//   const response = $('.response');
-//   const responseButton = $('.response__btn');
-//   const formButton = $('.form__btn');
-//   const formTitle = $('.form-title')
+  const form = $('.form');
+  const response = $('.response');
+  const responseButton = $('.response__btn');
+  const formButton = $('.form__btn');
+  const formTitle = $('.form-title')
 
-//   setTimeout(() => {
-//     if (!$(this).find('.parsley-error').length) {
-//       console.log('error');
-//       form.addClass('form--hidden');
-//       response.addClass('response--active');
-//       formTitle.addClass('display-none');
-//     }
-//   }, 0);
+  setTimeout(() => {
+    if (!$(this).find('.parsley-error').length) {
+      console.log('error');
+      form.addClass('form--hidden');
+      response.addClass('response--active');
+      formTitle.addClass('display-none');
+    }
+  }, 0);
 
-//   responseButton.on('click', function () {
-//     form.removeClass('form--hidden');
-//     response.removeClass('response--active');
-//     formTitle.removeClass('display-none');
-//   });
+  responseButton.on('click', function () {
+    form.removeClass('form--hidden');
+    response.removeClass('response--active');
+    formTitle.removeClass('display-none');
+  });
   
-// })
+})
 
 // tel mask
 
