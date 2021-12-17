@@ -249,31 +249,21 @@ const BREAKPOINT = 1280;
             if ($(event.target).closest('.block__nav-item').length) {
 
               if (!$(event.target).closest('.block__nav-item').hasClass('block__nav-item--active')) {
-
-                // titles.toggleClass('block__nav-item--active');
     
                 slider_swiper.slideNext();
-    
-                // console.log('yoyoyoy');
               }
             }
           })
         }
-
-        // console.log(slider_swiper);
 
         const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
         const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
   
         slider_prev.on('click', () => {
           slider_swiper.slidePrev();
-
-          // console.log(slider_swiper);
         });
         slider_next.on('click', () => {
           slider_swiper.slideNext();
-
-          // console.log(slider_swiper);
         });
       });
     }
