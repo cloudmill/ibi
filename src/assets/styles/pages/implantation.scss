@@ -44,6 +44,8 @@
       overflow-x: auto;
       margin-left: -20px;
       padding: 0 20px;
+
+      @include scrollbar-hidden;
     }
   }
 
@@ -63,6 +65,16 @@
 
     &:not(:first-child) {
       margin-left: 20px;
+    }
+
+    svg {
+      width: 30px;
+      height: 38px;
+
+      @media (min-width: $breakpoint) {
+        width: 48px;
+        height: 59px;
+      }
     }
   }
 }
