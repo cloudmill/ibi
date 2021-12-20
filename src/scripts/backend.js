@@ -506,6 +506,12 @@ function publicFilter() {
       let tag_id = tag.data("id"),
         key = tag.data("key");
 
+      state2 = [];
+
+      $("[data-type=js-public-filter-authors]").removeClass(
+        "articles-authors__item--active"
+      );
+
       if (tag_id) {
         tag_id = JSON.parse(tag_id);
         console.log(tag_id);
