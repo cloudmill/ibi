@@ -44,8 +44,21 @@ block content
             .container
               h1.title
                 |Мероприятия
-              .section__block.section__block--small
+
+              .team-filter.team-filter-mobile
+                ul.team-filter__container
+                  li.team-filter__item.team-filter__item--active(data-id="doctor") #вебинар
+                  li.team-filter__item(data-id="dentist") #оффлайн
+                  li.team-filter__item(data-id="admin") #конференция
+                  li.team-filter__item(data-id="coordinator") #курсы
+                  li.team-filter__item(data-id="coordinator") #повышение квалификации
+                button.team-filter__reset
+                  +reset-svg('team-filter__reset-ico')
+                  |Сбросить
+
+              .events-page
                 //- .container
+                
                 ul.about__list
                   include ../components/event-list-card
                   include ../components/event-list-card

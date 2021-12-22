@@ -140,3 +140,11 @@
   }
   
 }
+
+.events-page {
+  margin-top: 20px;
+
+  @media (min-width: $breakpoint) {
+    margin-top: 120px;
+  }
+}
