@@ -203,7 +203,7 @@
         font-size: 22px;
         // word-break: break-all;
 
-        @media (max-width: $breakpoint - 1px) {
+        @media (max-width: ($breakpoint - 1px)) {
           font-size: 16px;
           align-self: flex-start;
         }
@@ -212,6 +212,12 @@
       svg {
         align-self: flex-end;
         min-width: 60px;
+
+        @media (max-width: ($breakpoint - 1px)) {
+          min-width: unset;
+          width: 30px;
+          height: 34px;
+        }
       }
     }
 
@@ -312,7 +318,8 @@
   margin: 160px 0 60px;
 
   @media (max-width: $breakpoint - 1px) {
-    font-size: 22px;
+    // font-size: 22px;
+    font-size: 18px;
     margin: 60px 0 20px;
   }
 }
@@ -323,7 +330,8 @@
   margin: 120px 0 60px;
 
   @media (max-width: $breakpoint - 1px) {
-    font-size: 22px;
+    // font-size: 22px;
+    font-size: 18px;
     margin: 40px 0 20px;
   }
 }
