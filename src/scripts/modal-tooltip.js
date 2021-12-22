@@ -3,6 +3,7 @@ $(() => {
 
   if (btns.length) {
     const CLASS_OPEN = 'vacancy--modal-open'
+    const body = $('.body')
       
     const state = {
       id: null,
@@ -17,6 +18,8 @@ $(() => {
 
         const modal = $(`#${state.id}`)
         modal.addClass(CLASS_OPEN)
+        body.addClass('hidden')
+
       } else if (state.id) {
         const modal = $(`#${state.id}`)
         const form = modal.find('.modal-forms__form')
@@ -25,7 +28,7 @@ $(() => {
 
         if (!targetInForm.length) {
           modal.removeClass(CLASS_OPEN)
-
+          body.removeClass('hidden')
           state.id = null
         }
       }
