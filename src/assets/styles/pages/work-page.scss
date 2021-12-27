@@ -1,3 +1,14 @@
+.work-page-title {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+  width: 100%;
+
+  @media (min-width: $breakpoint) {
+    font-size: 40px;
+  }
+}
+
 .work-card {
   padding-top: 20px;
   @media (min-width: $breakpoint) {

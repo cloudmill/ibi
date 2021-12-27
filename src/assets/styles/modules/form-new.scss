@@ -23,6 +23,15 @@
     @media (max-width: $breakpoint - 1px) {
       width: 100%;
     }
+
+    @media (min-width: $breakpoint) {
+      &:first-child .form-new__label {
+        height: 80px;
+      }
+      &:last-child .form-new__label {
+        height: 240px;
+      }
+    }
   }
 
   &__label {
