@@ -78,6 +78,10 @@ function forms() {
       data: data,
       success: function (r) {
         if (r.success === true) {
+          form.find("[data-clear=clear-input]").each(function () {
+            $(this).val('');
+
+          });
           form.addClass("form--hidden");
           formResponse.addClass("response--active");
         }
