@@ -10,7 +10,29 @@ $(function () {
   showMore();
   servSectionFilterTypes();
   forms();
+  changeLang();
 });
+
+function changeLang() {
+  $(document).on("click", "[data-type=change-lang]", function (e) {
+    let thisObj = $(this),
+      lang = thisObj.text(),
+      pathname = $(location).attr('pathname'),
+      newPath = ('');
+    
+    if (lang == 'En') {
+      newPath = "/en" + pathname;
+    }
+    
+    if (lang == 'Ru') {
+      newPath = pathname.replace("/en","");
+    }
+
+    if (newPath) {
+      window.location.href = newPath;
+    }
+  });
+}
 
 function forms() {
   $(document).on("submit", "[data-type=js-form]", function (e) {
