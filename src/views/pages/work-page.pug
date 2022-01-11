@@ -183,6 +183,8 @@ block content
     .container 
       .section__inner
 
+        
+
         ul.mission__spoilers.work-page-review
           li.mission__spoilers-item
             .mission__spoiler
@@ -204,16 +206,16 @@ block content
                       .review__col
                         p
                           |Хочу выразить благодарность замечательному врачу Блаватской Дарье Васильевне.У нее очень лёгкие и добрые руки!
-                
+              
               .mission__spoiler-drop
 
-                .video-preview
-
-                  <iframe id="video" src="https://www.youtube.com/embed/O6zUpjtU6hE?rel=0&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                .video-preview(data-video)
+                  
+                  .video-preview__frame#player
 
                   .video-preview__img
                     +previewVideoBtn
-                    img(src="assets/images/works-review.jpg", alt="")
+                    img(src="https://img.youtube.com/vi/O6zUpjtU6hE/maxresdefault.jpg", alt="")
 
                   
 

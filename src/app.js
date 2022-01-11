@@ -22,6 +22,7 @@ import "./scripts/scroll-test";
 import { sendSignal } from "./scripts/signal";
 import "./scripts/anchor-links";
 import "./scripts/tab-nav";
+import "./scripts/YTvideo";
 
 const BREAKPOINT = 1280;
 
@@ -1554,12 +1555,12 @@ var updateMySticky;
 }
 
 // Видео в отзыве на странице До и после
-{
-  $(document).on("click", ".video-preview__img", function () {
-    var $video = $("#video"),
-      src = $video.attr("src");
+// {
+//   $(document).on("click", ".video-preview__img", function () {
+//     var $video = $("#video"),
+//       src = $video.attr("src");
 
-    $video.attr("src", src + "&autoplay=1");
-    $(".video-preview__img").hide();
-  });
-}
+//     $video.attr("src", src + "&autoplay=1");
+//     $(".video-preview__img").hide();
+//   });
+// }
