@@ -1,8 +1,7 @@
 $(window).on('load', () => {
-
   const video = document.querySelector('[data-video]');
 
-  if (video.length !== 0) {
+  if (video) {
     let videoId = $('#player').attr('data-video-id');
 
     console.log(videoId);
