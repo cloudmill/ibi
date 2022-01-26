@@ -318,18 +318,10 @@
       margin-right: 25px;
     }
     &-head {
-      // @media (max-width: $breakpoint - 1px) {
-      //   flex-direction: row;
-      // }
       @media (max-width: 374px) {
-        display: none;
+        margin-right: 10px;
+        font-size: 10px;
       }
-
-      // .header__phone-link {
-      //   @media (max-width: $breakpoint-m - 1px) {
-      //     display: none;
-      //   }
-      // }
     }
   }
   &__phone-link {

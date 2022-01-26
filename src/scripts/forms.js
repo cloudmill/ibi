@@ -55,7 +55,6 @@ $('[data-send-form]').submit(function (e) {
     response.removeClass('response--active');
     formTitle.removeClass('display-none');
   });
-  
 })
 
 // tel mask
