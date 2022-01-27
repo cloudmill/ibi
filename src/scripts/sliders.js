@@ -135,6 +135,14 @@ const BREAKPOINT = 1280;
               loop: true,
               allowTouchMove: false,
 
+              speed: 100,
+
+              breakpoints: {
+                [BREAKPOINT]: {
+                  spaceBetween: 500,
+                },
+              },
+
               on: {
                 slideChangeTransitionStart: (() => {
                   let isStart = true
@@ -239,10 +247,6 @@ const BREAKPOINT = 1280;
         const slider_swiper = new Swiper(slider_el[0], slider_options);
 
         if (slider_id == 21) {
-          
-          const titles = $('.index-lab-slider').find('.block__nav-item');
-
-          // console.log(titles);
 
           $(window).on('click', function (event) {
 
