@@ -135,13 +135,13 @@ const BREAKPOINT = 1280;
               loop: true,
               allowTouchMove: false,
 
-              speed: 100,
+              // speed: 100,
 
-              breakpoints: {
-                [BREAKPOINT]: {
-                  spaceBetween: 500,
-                },
-              },
+              // breakpoints: {
+              //   [BREAKPOINT]: {
+              //     spaceBetween: 500,
+              //   },
+              // },
 
               on: {
                 slideChangeTransitionStart: (() => {

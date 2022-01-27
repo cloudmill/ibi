@@ -190,6 +190,16 @@
     @media (min-width: $breakpoint) {
       padding: 160px 0;
     }
+    @media (max-width: ($breakpoint - 1px)) {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+
+      .container {
+        width: 100%;
+      }
+    }
   }
   &__slide-title {
     @media (min-width: $breakpoint) {
@@ -237,21 +247,18 @@
     position: absolute;
     z-index: -1;
     bottom: 50px;
-    // @media (min-width: $breakpoint-m) {
-    //   bottom: 25px;
-    // }
-    @media (min-width: $breakpoint) {
-      bottom: 60px;
-    }
-    left: 50%;
-    transform: translateX(-50%);
 
     max-width: 300px;
-    @media (min-width: $breakpoint-m) {
-      max-width: 325px;
-    }
+    
     @media (min-width: $breakpoint) {
       max-width: 606px;
+      bottom: 60px;
+
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media (min-width: $breakpoint-m) {
+      max-width: 325px;
     }
   }
   &__slide-nav {
