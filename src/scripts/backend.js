@@ -1,3 +1,4 @@
+import { each } from "jquery";
 import "parsleyjs";
 
 $(function () {
@@ -11,7 +12,18 @@ $(function () {
   servSectionFilterTypes();
   forms();
   changeLang();
+  formAgain();
 });
+
+function formAgain() {
+  $(document).on("click", "[data-type=form-again]", function (e) {
+    console.log('formAgain');
+
+    $(".form--hidden").each(function () {
+      $(this).removeClass('form--hidden');
+    });
+  });
+}
 
 function changeLang() {
   $(document).on("click", "[data-type=change-lang]", function (e) {
@@ -19,13 +31,13 @@ function changeLang() {
       lang = thisObj.text(),
       pathname = $(location).attr('pathname'),
       newPath = ('');
-    
+
     if (lang == 'En') {
       newPath = "/en" + pathname;
     }
-    
+
     if (lang == 'Ru') {
-      newPath = pathname.replace("/en","");
+      newPath = pathname.replace("/en", "");
     }
 
     if (newPath) {
