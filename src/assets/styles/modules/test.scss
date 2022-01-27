@@ -265,6 +265,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      z-index: 9;
     }
   }
 
@@ -338,8 +340,14 @@
       #{$comp}__nav-link {
         color: $color-main;
 
-        @media (max-width: $breakpoint - 1px) {
+        @media (max-width: ($breakpoint - 1px)) {
           @include fsl (16px, 140%)
+        }
+        @media (max-width: ($breakpoint-m - 1px)) {
+          @include fsl (13px, 140%)
+        }
+        @media (max-width: 374px) {
+          @include fsl (12px, 140%)
         }
       }
     }
@@ -347,8 +355,14 @@
   &__nav-link {
     @include fsl(20px, 140%);
 
-    @media (max-width: $breakpoint - 1px) {
+    @media (max-width: ($breakpoint - 1px)) {
       @include fsl (12px, 140%)
+    }
+    @media (max-width: ($breakpoint-m - 1px)) {
+      @include fsl (11px, 140%)
+    }
+    @media (max-width: 374px) {
+      @include fsl (10px, 140%)
     }
   }
 
