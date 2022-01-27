@@ -135,28 +135,20 @@ const BREAKPOINT = 1280;
               loop: true,
               allowTouchMove: false,
 
-              // speed: 100,
-
-              // breakpoints: {
-              //   [BREAKPOINT]: {
-              //     spaceBetween: 500,
-              //   },
-              // },
-
-              on: {
-                slideChangeTransitionStart: (() => {
-                  let isStart = true
+              // on: {
+              //   slideChangeTransitionStart: (() => {
+              //     let isStart = true
                   
-                  return () => {
-                    if (isStart) {
-                      isStart = false
-                    } else {
-                      $('.block__nav-item').toggleClass('block__nav-item--active');
-                      // console.log(1435234);
-                    }
-                  }
-                })(),
-              }
+              //     return () => {
+              //       if (isStart) {
+              //         isStart = false
+              //       } else {
+              //         $('.block__nav-item').toggleClass('block__nav-item--active');
+              //         // console.log(1435234);
+              //       }
+              //     }
+              //   })(),
+              // }
             }
 
 
@@ -246,19 +238,19 @@ const BREAKPOINT = 1280;
 
         const slider_swiper = new Swiper(slider_el[0], slider_options);
 
-        if (slider_id == 21) {
+        // if (slider_id == 21) {
 
-          $(window).on('click', function (event) {
+        //   $(window).on('click', function (event) {
 
-            if ($(event.target).closest('.block__nav-item').length) {
+        //     if ($(event.target).closest('.block__nav-item').length) {
 
-              if (!$(event.target).closest('.block__nav-item').hasClass('block__nav-item--active')) {
+        //       if (!$(event.target).closest('.block__nav-item').hasClass('block__nav-item--active')) {
     
-                slider_swiper.slideNext();
-              }
-            }
-          })
-        }
+        //         slider_swiper.slideNext();
+        //       }
+        //     }
+        //   })
+        // }
 
         const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
         const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
