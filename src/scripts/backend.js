@@ -17,7 +17,7 @@ $(function () {
 
 function formAgain() {
   $(document).on("click", "[data-type=form-again]", function (e) {
-    console.log('formAgain');
+    // console.log('formAgain');
 
     $(".form--hidden").each(function () {
       $(this).removeClass('form--hidden');
@@ -48,7 +48,7 @@ function changeLang() {
 
 function forms() {
   $(document).on("submit", "[data-type=js-form]", function (e) {
-    console.log("form feedback");
+    // console.log("form feedback");
     e.preventDefault();
 
     let form = $(this),
@@ -61,11 +61,11 @@ function forms() {
       removed = [],
       data = {};
 
-    console.log(eventType);
+    // console.log(eventType);
 
     if (eventType == 'FILE') {
 
-      console.log('- if FILE -');
+      // console.log('- if FILE -');
 
       data = new FormData();
       contentType = false;
@@ -74,7 +74,7 @@ function forms() {
       let file = form.find("[data-type=file]"),
         fileData = file.prop('files')[0];
 
-      console.log(fileData);
+      // console.log(fileData);
 
       data.append("file", fileData);
 
@@ -101,7 +101,7 @@ function forms() {
       }
     });
 
-    console.log(data);
+    // console.log(data);
 
     $.ajax({
       type: "POST",
@@ -134,7 +134,7 @@ function showMore() {
       container = thisObj.parents("[data-type-container=main-items-container]"),
       itemsContainer = container.find("[data-container=items]");
 
-    console.log("show more");
+    // console.log("show more");
 
     if (tags) {
       tags = JSON.parse(tags);
@@ -157,8 +157,8 @@ function showMore() {
         if (pathArr[2] == "library") {
           let itemsContainerLib = $(document).find("[data-container=items]");
 
-          console.log(itemsContainerLib);
-          console.log($(r));
+          // console.log(itemsContainerLib);
+          // console.log($(r));
 
           itemsContainerLib.append($(r));
           if (responsePageNav) {
@@ -167,8 +167,8 @@ function showMore() {
         } else if (pathArr[2] == "events") {
           let itemsContainerEv = $(document).find("[data-container=items]");
 
-          console.log(itemsContainerEv);
-          console.log($(r));
+          // console.log(itemsContainerEv);
+          // console.log($(r));
 
           itemsContainerEv.append($(r));
           if (responsePageNav) {
@@ -177,8 +177,8 @@ function showMore() {
         } else if (pathArr[1] == "publications") {
           let itemsContainerEv = $(document).find("[data-container=items]");
 
-          console.log(itemsContainerEv);
-          console.log($(r));
+          // console.log(itemsContainerEv);
+          // console.log($(r));
 
           itemsContainerEv.append($(r));
           if (responsePageNav) {
@@ -398,17 +398,17 @@ function libraryFilter() {
 }
 
 function bafFilter() {
-  console.log("bafFilter");
+  // console.log("bafFilter");
   $("[data-type=js-baf-filter-tag]").on("click", function (e) {
     e.preventDefault();
-    console.log("bafFilter click tag");
+    // console.log("bafFilter click tag");
     $(this).toggleClass("team-filter__item--active");
 
     ajaxbafList();
   });
 
   $("[data-type=js-baf-filter-clear]").on("click", function (e) {
-    console.log("bafFilter click tag");
+    // console.log("bafFilter click tag");
     e.preventDefault();
 
     $("[data-type=js-baf-filter-tag]").each(function () {
@@ -421,7 +421,7 @@ function bafFilter() {
   });
 
   function ajaxbafList() {
-    console.log("bafFilter ajax");
+    // console.log("bafFilter ajax");
     let tags = [],
       bafList = $("[data-type=js-baf-list]");
 
@@ -431,7 +431,7 @@ function bafFilter() {
       }
     });
 
-    console.log(tags);
+    // console.log(tags);
 
     $.ajax({
       method: "POST",
@@ -447,17 +447,17 @@ function bafFilter() {
 }
 
 function faqFilter() {
-  console.log("faqFilter");
+  // console.log("faqFilter");
   $("[data-type=js-faq-filter-tag]").on("click", function (e) {
     e.preventDefault();
-    console.log("faqFilter click tag");
+    // console.log("faqFilter click tag");
     $(this).toggleClass("team-filter__item--active");
 
     ajaxfaqList();
   });
 
   $("[data-type=js-faq-filter-clear]").on("click", function (e) {
-    console.log("faqFilter click tag");
+    // console.log("faqFilter click tag");
     e.preventDefault();
 
     $("[data-type=js-faq-filter-tag]").each(function () {
@@ -470,7 +470,7 @@ function faqFilter() {
   });
 
   function ajaxfaqList() {
-    console.log("faqFilter ajax");
+    // console.log("faqFilter ajax");
     let tags = [],
       faqList = $("[data-type=js-faq-list]");
 
@@ -480,7 +480,7 @@ function faqFilter() {
       }
     });
 
-    console.log(tags);
+    // console.log(tags);
 
     $.ajax({
       method: "POST",
@@ -552,10 +552,10 @@ function publicFilter() {
 
       if (tag_id) {
         tag_id = JSON.parse(tag_id);
-        console.log(tag_id);
+        // console.log(tag_id);
       }
 
-      console.log(tag_id);
+      // console.log(tag_id);
 
       if (inState(tag_id)) {
         state2 = state2.filter((id) => id !== tag_id);
@@ -589,8 +589,8 @@ function publicFilter() {
   function ajaxLib() {
     let publicList = $("[data-type=js-public-list]");
 
-    console.log(state);
-    console.log(state2);
+    // console.log(state);
+    // console.log(state2);
 
     $.ajax({
       method: "POST",
@@ -617,7 +617,7 @@ function publicFilter() {
 }
 
 function servSectionFilterTypes() {
-  console.log("services Section Filter Types");
+  // console.log("services Section Filter Types");
   $("[data-type=js-sec-serv-filter-tag]").on("click", function (e) {
     e.preventDefault();
     $("[data-type=js-sec-serv-filter-tag]").each(function () {
@@ -626,7 +626,7 @@ function servSectionFilterTypes() {
       }
     });
 
-    console.log("click Section Filter Types");
+    // console.log("click Section Filter Types");
     $(this).addClass("development__names-item--active");
 
     let tag = $(".development__names-item--active").html();

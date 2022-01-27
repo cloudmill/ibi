@@ -4,7 +4,7 @@ $(window).on('load', () => {
   if (video) {
     let videoId = $('#player').attr('data-video-id');
 
-    console.log(videoId);
+    // console.log(videoId);
 
     var player;
     function onYouTubeIframeAPIReady() {

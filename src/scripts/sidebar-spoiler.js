@@ -6,7 +6,7 @@
     // const navSpoilerDrop = navSpoilerList.find('.sidebar-nav-spoiler__drop');
     const spoilerArrow = navSpoilerList.find('.sidebar-nav-spoiler__arrow');
 
-    console.log(spoilerArrow);
+    // console.log(spoilerArrow);
 
     // console.log(() => {navSpoilerList.getBoundingClientRect()});
 

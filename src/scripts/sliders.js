@@ -242,7 +242,7 @@ const BREAKPOINT = 1280;
           
           const titles = $('.index-lab-slider').find('.block__nav-item');
 
-          console.log(titles);
+          // console.log(titles);
 
           $(window).on('click', function (event) {
 

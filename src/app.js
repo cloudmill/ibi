@@ -37,7 +37,7 @@ const BREAKPOINT = 1280;
         const state = {
           id: null,
           leave(event) {
-            console.log(event);
+            // console.log(event);
           },
           close: function () {
             $(`[data-modal-id="${this.id}"]`).removeAttr("data-modal-active");
@@ -287,7 +287,7 @@ const BREAKPOINT = 1280;
       window.addEventListener(
         "sticky:update",
         () => {
-          console.log("+-=");
+          // console.log("+-=");
           sticky.update();
         },
         {
@@ -496,7 +496,7 @@ var updateMySticky;
 
         switch (state.mode) {
           case "fixed":
-            console.log("fixed");
+            // console.log("fixed");
 
             sticky.css("opacity", 0);
             sticky.css("pointer-events", "none");
@@ -507,7 +507,7 @@ var updateMySticky;
             stickyFixed.css("pointer-events", "");
             break;
           case "bottom":
-            console.log("bottom");
+            // console.log("bottom");
 
             sticky.css("opacity", 0);
             sticky.css("pointer-events", "none");
@@ -518,7 +518,7 @@ var updateMySticky;
             stickyBottom.css("pointer-events", "");
             break;
           default:
-            console.log("default");
+            // console.log("default");
 
             stickyFixed.css("opacity", 0);
             stickyFixed.css("pointer-events", "none");
@@ -681,29 +681,33 @@ var updateMySticky;
       const block = $(this);
 
       const scrollArea = block.find(".block__scroll");
-      let scrollProgress = getScrollProgress(scrollArea);
 
-      const scrollbarThumb = block.find(".block__scrollbar-thumb");
+      if (scrollArea.length) {
+        let scrollProgress = getScrollProgress(scrollArea);
 
-      const slide1 = block.find(".block__slide--1");
-      const slide2 = block.find(".block__slide--2");
-
-      updateScrollbarThumb(scrollbarThumb, scrollProgress);
-
-      const updateAll = () => {
-        updateSlide1(slide1, scrollProgress, 0.2, 0.75);
-        updateSlide2(slide2, scrollProgress, 0.25, 0.8);
-      };
-
-      updateAll();
-
-      scrollArea.on("scroll", () => {
-        scrollProgress = getScrollProgress(scrollArea);
-
+        const scrollbarThumb = block.find(".block__scrollbar-thumb");
+  
+        const slide1 = block.find(".block__slide--1");
+        const slide2 = block.find(".block__slide--2");
+  
         updateScrollbarThumb(scrollbarThumb, scrollProgress);
-
+  
+        const updateAll = () => {
+          updateSlide1(slide1, scrollProgress, 0.2, 0.75);
+          updateSlide2(slide2, scrollProgress, 0.25, 0.8);
+        };
+  
         updateAll();
-      });
+  
+        scrollArea.on("scroll", () => {
+          scrollProgress = getScrollProgress(scrollArea);
+  
+          updateScrollbarThumb(scrollbarThumb, scrollProgress);
+  
+          updateAll();
+        });
+      }
+      
     });
   });
 }
@@ -770,7 +774,7 @@ var updateMySticky;
           state.isMultiLine = !topEqual(firstItemY, lastItemY);
         }
 
-        console.log(state);
+        // console.log(state);
       }
 
       // init state
@@ -1096,11 +1100,11 @@ var updateMySticky;
         }
 
         function simpleAnimation() {
-          console.log(1);
+          // console.log(1);
         }
 
         function complexAnimation() {
-          console.log(2);
+          // console.log(2);
         }
 
         return animation;
@@ -1229,7 +1233,7 @@ var updateMySticky;
         pointsDelta.push(pointDelta);
       }
 
-      console.log(points, pointsDelta);
+      // console.log(points, pointsDelta);
 
       function update() {
         const currentColorStart = {
@@ -1441,16 +1445,16 @@ var updateMySticky;
   const ovo = document.querySelector(".ovo");
 
   if (ovo) {
-    console.log("ovo");
+    // console.log("ovo");
 
     const block = document.querySelector("#block");
     const button = document.querySelector("#button");
 
-    console.log(block.style.color === "");
+    // console.log(block.style.color === "");
 
     const observer = new MutationObserver(() => {
-      console.log("update");
-      console.log(block.style.color === "");
+      // console.log("update");
+      // console.log(block.style.color === "");
     });
     observer.observe(block, {
       attributes: true,
@@ -1458,7 +1462,7 @@ var updateMySticky;
 
     setTimeout(() => {
       button.addEventListener("click", () => {
-        console.log(123);
+        // console.log(123);
 
         block.style.color = "";
       });
@@ -1468,9 +1472,14 @@ var updateMySticky;
 
 // bazal margin
 {
-  if (!mediaQuery.matches) {
+  const seq = $('.seq');
+
+  if (!mediaQuery.matches && seq.length) {
     try {
       function seqMargin() {
+
+        // console.log(123);
+
         const heightText = $(
           ".seq__texts--mobile .seq__text--last"
         )[0].getBoundingClientRect().height;
@@ -1493,7 +1502,7 @@ var updateMySticky;
         }, 1000);
       });
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   }
 }
@@ -1532,7 +1541,7 @@ var updateMySticky;
 
       if (trigger.length) {
         const id = trigger.data("scroll-trigger");
-        console.log(id);
+        // console.log(id);
         const target = document.querySelector(`[data-scroll-target="${id}"]`);
 
         $("html, body").animate(

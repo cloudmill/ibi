@@ -43,7 +43,7 @@ $('[data-send-form]').submit(function (e) {
 
   setTimeout(() => {
     if (!$(this).find('.parsley-error').length) {
-      console.log('error');
+      // console.log('error');
       form.addClass('form--hidden');
       response.addClass('response--active');
       formTitle.addClass('display-none');

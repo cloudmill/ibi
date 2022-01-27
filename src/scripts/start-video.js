@@ -6,9 +6,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const comp = document.querySelector('.start-video')
 
   if (comp) {
-    console.log('Компонент видео найден')
-    console.log('Десктоп', mediaQuery.matches)
-    console.log('Сенсорное устройство', isTouchDevice)
+    // console.log('Компонент видео найден')
+    // console.log('Десктоп', mediaQuery.matches)
+    // console.log('Сенсорное устройство', isTouchDevice)
     if (mediaQuery.matches && !isTouchDevice) {
       // [desktop]
       // data
@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
             if (containerAspect > VIDEO_ASPECT) {
               const newHeight = containerSize.width / VIDEO_ASPECT
 
-              console.log('upppdate', newHeight);
+              // console.log('upppdate', newHeight);
   
               newStyle = {
                 maxHeight: 'none',
@@ -126,7 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
         let enabled = true
 
         return () => {
-          console.log('sv:resize', enabled)
+          // console.log('sv:resize', enabled)
 
           if (enabled) {
             enabled = false
@@ -140,10 +140,10 @@ window.addEventListener('DOMContentLoaded', () => {
   
       // events
       initSource(() => {
-        console.log('Видео компонент инициализирован')
+        // console.log('Видео компонент инициализирован')
 
         comp.addEventListener('error', event => {
-          console.log('Ошибка видео компонента', event)
+          // console.log('Ошибка видео компонента', event)
         })
 
         comp.addEventListener('canplaythrough', () => {

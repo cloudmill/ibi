@@ -118,7 +118,7 @@ DOMContentLoaded.then(async () => {
 
       const reducer = (state, action) => {
         if (LOGGING) {
-          console.log("reducer:", action);
+          // console.log("reducer:", action);
 
           lastAction = action;
         }
@@ -403,7 +403,7 @@ DOMContentLoaded.then(async () => {
               e.preventDefault();
             } catch (e) {
               if (LOGGING) {
-                console.log(e);
+                // console.log(e);
               }
             }
           }
