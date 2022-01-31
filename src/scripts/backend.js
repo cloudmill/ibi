@@ -13,7 +13,19 @@ $(function () {
   forms();
   changeLang();
   formAgain();
+  fileUpload();
 });
+
+function fileUpload() {
+  $(document).on("change", "[data-type=file]", function (e) {
+    let filename = $(this).val().replace(/.*\\/, ""),
+      ans = "<div class='form-new__file'>" + filename + "</div>";
+
+    console.log(filename);
+
+    $("[data-type=file-ans]").append(ans);
+  });
+}
 
 function formAgain() {
   $(document).on("click", "[data-type=form-again]", function (e) {
