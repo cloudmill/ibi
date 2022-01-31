@@ -465,7 +465,8 @@
     width: 100%;
     @media (min-width: $breakpoint) {
       // width: 575px;
-      height: 360px;
+      // height: 360px;
+      height: auto;
     }
     @media (max-width: $breakpoint - 1px) {
       min-height: 212px;
@@ -484,6 +485,23 @@
       @media (max-width: $breakpoint - 1px) {
         max-width: 30px;
         height: 34px;
+      }
+    }
+
+    .card__bottom {
+      @media (min-width: $breakpoint) {
+        margin-top: 100px;
+      }
+    }
+
+    .tags__list {
+      width: calc(#{$col-part-d} * 3);
+      flex-wrap: wrap;
+      overflow: hidden;
+      max-height: 21px;
+
+      @media (max-width: $breakpoint - 1px) {
+        width: calc(#{$col-part-m} * 3);
       }
     }
   }

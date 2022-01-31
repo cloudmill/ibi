@@ -1573,3 +1573,107 @@ var updateMySticky;
 //     $(".video-preview__img").hide();
 //   });
 // }
+
+// обрезка заголовков и абзацев
+{
+  $(window).on('load', () => {
+
+    if (('.text-crop').length) {
+      $('.text-crop').each(function () {
+        const comp = $(this);
+        const title = comp.find('.title-crop');
+        const desc = comp.find('.card__text');
+  
+        const originalTitleText = title.text();
+        const originalDescText = desc.text();
+  
+        let lineCount = 4;
+  
+        function getDescLineHeight() {
+          if (title.hasClass('first-news__date')) {
+            return mediaQuery.matches ? 44 : 19.8
+          }
+          if (title.hasClass('news__title')) {
+            return mediaQuery.matches ? 55.2 : 32.2
+          }
+  
+          return mediaQuery.matches ? 22.4 : 16.8
+        }
+  
+        let descLineHeight = getDescLineHeight()
+        mediaQuery.addListener(() => {
+          lineHeight = getDescLineHeight()
+        })
+  
+        function updateDesc() {
+          desc.text(originalDescText)
+  
+          let lineHeight = descLineHeight;
+  
+          if (desc.height() > (lineHeight * lineCount)) {
+            let newText = originalDescText
+  
+            while (desc.height() > (lineHeight * lineCount)) {
+              newText = newText.substring(0, newText.length - 1).trim()
+  
+              desc.text(newText)
+            }
+  
+            newText = newText.substring(0, newText.length - 5).trim() + '...'
+            desc.text(newText)
+          }
+        }
+  
+        function getTitleLineHeight() {
+          return mediaQuery.matches ? 36.4 : 25.2
+        }
+  
+        let titleLineHeight = getTitleLineHeight()
+        mediaQuery.addListener(() => {
+          lineHeight = getTitleLineHeight()
+        })
+  
+        function updateTitle() {
+          title.text(originalTitleText)
+  
+          let lineHeight = titleLineHeight;
+  
+          if (title.height() > (lineHeight * lineCount)) {
+            let newText = originalTitleText
+  
+            while (title.height() > (lineHeight * lineCount)) {
+              newText = newText.substring(0, newText.length - 1).trim()
+  
+              title.text(newText)
+            }
+  
+            newText = newText.substring(0, newText.length - 5).trim() + '...'
+            title.text(newText)
+          }
+        }
+        
+        if (title.length) {
+          updateTitle()
+        }
+        if (desc.length) {
+          updateDesc()
+        }
+  
+        window.addEventListener('resize', handleResize, {
+          once: true,
+        })
+  
+        function handleResize() {
+          updateDesc()
+          updateTitle()
+  
+          setTimeout(() => {
+            window.addEventListener('resize', handleResize, {
+              once: true,
+            })
+          }, 1000)
+        }
+      })
+    }
+  })
+}
