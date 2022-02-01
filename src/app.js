@@ -1516,9 +1516,15 @@ var updateMySticky;
       const group = $(this).data("fancyboxx");
 
       const items = [];
+      items.push(this.getAttribute("data-href"))
+
       $(`[data-fancyboxx="${group}"]`).each(function () {
         items.push(this.getAttribute("data-href"));
       });
+
+      if (items[0] === items[1]) {
+        items.splice(0, 1)
+      }
 
       $.fancybox.open(
         items.map((item) => ({ src: item })),
