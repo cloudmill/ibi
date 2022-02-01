@@ -249,6 +249,10 @@
     bottom: 50px;
 
     max-width: 300px;
+
+    @media (min-width: $breakpoint-m) {
+      max-width: 325px;
+    }
     
     @media (min-width: $breakpoint) {
       max-width: 606px;
@@ -256,9 +260,6 @@
 
       left: 50%;
       transform: translateX(-50%);
-    }
-    @media (min-width: $breakpoint-m) {
-      max-width: 325px;
     }
   }
   &__slide-nav {
@@ -388,14 +389,14 @@
   &__image {
     background-color: #CCE3E5;
     width: 100%;
-    @media (max-width: $breakpoint - 1px) {
+    @media (max-width: ($breakpoint - 1px)) {
       width: calc(100% + 40px);
       position: relative;
       left: -20px;
     }
     height: 550px;
 
-    @media (max-width: $breakpoint-m - 1px) {
+    @media (max-width: ($breakpoint-m - 1px)) {
       height: 356px;
     }
   }

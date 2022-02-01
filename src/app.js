@@ -1588,12 +1588,11 @@ var updateMySticky;
         }
         if (comp.hasClass('news__title')) {
           lineHeight = mediaQuery.matches ? 56 : 25.2;
-        }
-        if (comp.hasClass('events-list-ttl')) {
           lineCount = 3;
         }
         if (comp.hasClass('operation-card__desc-text')) {
-          lineHeight = 22.4; 
+          lineHeight = 22.4;
+          lineCount = 2;
         }
 
 
