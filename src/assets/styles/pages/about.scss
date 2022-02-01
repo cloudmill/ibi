@@ -176,20 +176,23 @@
     @media (min-width: $breakpoint-m) {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      // justify-content: space-between;
       align-items: stretch;
     }
-
-    @media (min-width: $breakpoint) {
-      margin-top: -$grid-gap-d;
-      margin-left: -$grid-gap-d;
-      
+    @media (min-width: $breakpoint-m) {
+      margin-top: -$col-gap-m;
+      margin-left: -$col-gap-m;
     }
+    @media (min-width: $breakpoint) {
+      margin-top: -$col-gap-d;
+      margin-left: -$col-gap-d;
+    }
+    
   }
   &__grid-item {
     @media (min-width: $breakpoint-m) {
       margin-top: $col-gap-m;
-      // margin-left: $col-gap-m;
+      margin-left: $col-gap-m;
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m})
     }
 
@@ -200,7 +203,7 @@
     }
 
     &:not(:first-child) {
-      @media (max-width: $breakpoint - 1px) {
+      @media (max-width: ($breakpoint-m - 1px)) {
         margin-top: 10px;
       }
     }
