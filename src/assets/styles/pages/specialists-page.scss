@@ -228,19 +228,34 @@
       // }
     }
 
-    .news__title {
+    .news__block-title {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       width: calc(#{$col-part-d} * 5 + #{$col-gap-d});
+      padding-left: 40px;
       
       @media (max-width: $breakpoint - 1px) {
         width: calc(#{$col-part-m} * 2 - 37px);
+        padding-left: 0;
+
+        .specialists-events__tags {
+          display: none;
+        }
       }
 
       @media (max-width: $breakpoint-m - 1px) {
         width: 100%;
         margin-bottom: 20px;
+        order: -1;
+      }
+
+      .news__title {
+        padding-left: 0;
+
+        @media (max-width: $breakpoint-m - 1px) {
+          margin-bottom: 0;
+        }
       }
     }
 

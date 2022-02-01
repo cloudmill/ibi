@@ -1563,109 +1563,65 @@ var updateMySticky;
   });
 }
 
-// Видео в отзыве на странице До и после
-// {
-//   $(document).on("click", ".video-preview__img", function () {
-//     var $video = $("#video"),
-//       src = $video.attr("src");
+// обрезка заголовков и абзацев new
 
-//     $video.attr("src", src + "&autoplay=1");
-//     $(".video-preview__img").hide();
-//   });
-// }
-
-// обрезка заголовков и абзацев
 {
   $(window).on('load', () => {
 
     if (('.text-crop').length) {
+
       $('.text-crop').each(function () {
         const comp = $(this);
-        const title = comp.find('.title-crop');
-        const desc = comp.find('.card__text');
-  
-        const originalTitleText = title.text();
-        const originalDescText = desc.text();
-  
+
+        let originalText = comp.text();
         let lineCount = 4;
-  
-        function getDescLineHeight() {
-          if (title.hasClass('first-news__date')) {
-            return mediaQuery.matches ? 44 : 19.8
-          }
-          if (title.hasClass('news__title')) {
-            return mediaQuery.matches ? 55.2 : 32.2
-          }
-  
-          return mediaQuery.matches ? 22.4 : 16.8
+        let lineHeight;
+
+        if (comp.hasClass('card__title')) {
+          lineHeight = mediaQuery.matches ? 36.4 : 25.2;
         }
+        if (comp.hasClass('card__text')) {
+          lineHeight = mediaQuery.matches ? 22.4 : 16.8;
+        }
+        if (comp.hasClass('first-news__title')) {
+          lineHeight = mediaQuery.matches ? 44 : 19.8;
+        }
+        if (comp.hasClass('news__title')) {
+          lineHeight = mediaQuery.matches ? 56 : 25.2;
+        }
+        if (comp.hasClass('events-list-ttl')) {
+          lineCount = 3;
+        }
+        if (comp.hasClass('operation-card__desc-text')) {
+          lineHeight = 22.4; 
+        }
+
+
+        function updateText() {
+          comp.text(originalText);
   
-        let descLineHeight = getDescLineHeight()
-        mediaQuery.addListener(() => {
-          lineHeight = getDescLineHeight()
-        })
+          if (comp.height() > (lineHeight * lineCount)) {
+            let newText = originalText
   
-        function updateDesc() {
-          desc.text(originalDescText)
-  
-          let lineHeight = descLineHeight;
-  
-          if (desc.height() > (lineHeight * lineCount)) {
-            let newText = originalDescText
-  
-            while (desc.height() > (lineHeight * lineCount)) {
+            while (comp.height() > (lineHeight * lineCount)) {
               newText = newText.substring(0, newText.length - 1).trim()
   
-              desc.text(newText)
+              comp.text(newText)
             }
   
             newText = newText.substring(0, newText.length - 5).trim() + '...'
-            desc.text(newText)
+            comp.text(newText)
           }
         }
-  
-        function getTitleLineHeight() {
-          return mediaQuery.matches ? 36.4 : 25.2
-        }
-  
-        let titleLineHeight = getTitleLineHeight()
-        mediaQuery.addListener(() => {
-          lineHeight = getTitleLineHeight()
-        })
-  
-        function updateTitle() {
-          title.text(originalTitleText)
-  
-          let lineHeight = titleLineHeight;
-  
-          if (title.height() > (lineHeight * lineCount)) {
-            let newText = originalTitleText
-  
-            while (title.height() > (lineHeight * lineCount)) {
-              newText = newText.substring(0, newText.length - 1).trim()
-  
-              title.text(newText)
-            }
-  
-            newText = newText.substring(0, newText.length - 5).trim() + '...'
-            title.text(newText)
-          }
-        }
-        
-        if (title.length) {
-          updateTitle()
-        }
-        if (desc.length) {
-          updateDesc()
-        }
-  
+
+        updateText()
+
         window.addEventListener('resize', handleResize, {
           once: true,
         })
   
         function handleResize() {
-          updateDesc()
-          updateTitle()
+          updateText()
   
           setTimeout(() => {
             window.addEventListener('resize', handleResize, {

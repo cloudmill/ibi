@@ -362,6 +362,9 @@
   &__nav-link {
     @include fsl(20px, 140%);
 
+    -moz-user-select: none;
+    user-select: none;
+
     @media (max-width: ($breakpoint - 1px)) {
       @include fsl (12px, 140%)
     }
