@@ -1516,12 +1516,16 @@ var updateMySticky;
       const group = $(this).data("fancyboxx");
 
       const items = [];
-      items.push(this.getAttribute("data-href"))
 
+      // добавляем в начало фотку по которой кликнули
+      items.push(this.getAttribute("data-href"));
+
+      // добавляем все фотки
       $(`[data-fancyboxx="${group}"]`).each(function () {
         items.push(this.getAttribute("data-href"));
       });
 
+      // если первая и вторая фотка совпадают удаляем первую
       if (items[0] === items[1]) {
         items.splice(0, 1)
       }
