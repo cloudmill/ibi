@@ -192,15 +192,50 @@ block content
                 +reset-svg('team-filter__reset-ico')
                 |Сбросить
             .research 
-              ul.research__list 
-                - for (i = 0; i < 8; i++)
-                  li.research__item 
+              ul.research__list
+                li.research__item 
                     a.card.card--research(href='#')
                       .card__top
                         h3.card__title.text-crop
                           |Обучение Strategic Implant в Новосибирске Обучение Strategic Implant в Новосибирске Обучение Strategic Implant в Новосибирске Обучение Strategic Implant в Новосибирске Обучение Strategic Implant в Новосибирске Обучение Strategic Implant в Новосибирске Обучение Strategic Implant в Новосибирске
                         p.card__text.text-crop
                           |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации. IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации. IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации. IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации. IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
+                      .card__bottom
+                        .card__row
+                          .card__col
+                            .tags
+                              ul.tags__list
+                                li.tags__item
+                                  .tags__tag
+                                    |#кейсы
+                                li.tags__item
+                                  .tags__tag
+                                    |#исследования
+                                li.tags__item
+                                  .tags__tag
+                                    |#центр
+                                li.tags__item
+                                  .tags__tag
+                                    |#кейсы
+                                li.tags__item
+                                  .tags__tag
+                                    |#исследования
+                                li.tags__item
+                                  .tags__tag
+                                    |#центр
+                            .card__date
+                              |28 января 2021
+                          .card__col
+                            .card__image.mission__missions-links-link
+                              +svg-link(class='card__svg button-svg')
+                - for (i = 0; i < 8; i++)
+                  li.research__item 
+                    a.card.card--research(href='#')
+                      .card__top
+                        h3.card__title.text-crop
+                          |Обучение Strategic Implant в Новосибирске
+                        p.card__text.text-crop
+                          |IBI Lab — современная цифровая зуботехническая лаборатория на базе Института Базальной Имплантации.
                       .card__bottom
                         .card__row
                           .card__col

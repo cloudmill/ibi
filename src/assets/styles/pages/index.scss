@@ -451,7 +451,8 @@
   height: 280px;
   @media (min-width: $breakpoint) {
     width: 546px;
-    height: 360px;
+    // height: 360px;
+    height: 375px;
   }
   display: flex;
   flex-direction: column;
@@ -465,8 +466,8 @@
     width: 100%;
     @media (min-width: $breakpoint) {
       // width: 575px;
-      // height: 360px;
-      height: auto;
+      height: 375px;
+      // height: auto;
     }
     @media (max-width: $breakpoint - 1px) {
       min-height: 212px;
@@ -488,11 +489,11 @@
       }
     }
 
-    .card__bottom {
-      @media (min-width: $breakpoint) {
-        margin-top: 100px;
-      }
-    }
+    // .card__bottom {
+    //   @media (min-width: $breakpoint) {
+    //     margin-top: 100px;
+    //   }
+    // }
 
     .tags__list {
       width: calc(#{$col-part-d} * 3);
@@ -960,6 +961,9 @@
   }
   &__img {
     max-height: 268px;
+    object-fit: cover;
+    width: 100%;
+
     @media (max-width: 374px) {
       max-height: unset;
       height: 100%;
@@ -1002,10 +1006,10 @@
   
   &__info {
     @media (max-width: $breakpoint - 1px) {
-      padding-right: 35px;
+      padding-right: 30px;
     }
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     @media (max-width: $breakpoint - 1px) {
       justify-content: space-between;
     }
