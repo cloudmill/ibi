@@ -412,6 +412,12 @@
     @media (min-width: $breakpoint) {
       margin-top: 80px;
     }
+
+    .swiper-slide {
+      @media (min-width: $breakpoint) {
+        height: auto;
+      }
+    }
   }
 
   &__link {
