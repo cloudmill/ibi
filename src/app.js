@@ -1575,70 +1575,74 @@ var updateMySticky;
 
 // обрезка заголовков и абзацев new
 
-// {
-//   $(window).on('load', () => {
+{
+  $(window).on('load', () => {
 
-//     if (('.text-crop').length) {
+    if (('.text-crop').length) {
 
-//       $('.text-crop').each(function () {
-//         const comp = $(this);
+      $('.text-crop').each(function () {
+        const comp = $(this);
 
-//         let originalText = comp.text();
-//         let lineCount = 4;
-//         let lineHeight;
+        let originalText = comp.text();
+        let lineCount = 4;
+        let lineHeight;
 
-//         if (comp.hasClass('card__title')) {
-//           lineHeight = mediaQuery.matches ? 36.4 : 25.2;
-//         }
-//         if (comp.hasClass('card__text')) {
-//           lineHeight = mediaQuery.matches ? 22.4 : 16.8;
-//         }
-//         if (comp.hasClass('first-news__title')) {
-//           lineHeight = mediaQuery.matches ? 44 : 19.8;
-//         }
-//         if (comp.hasClass('news__title')) {
-//           lineHeight = mediaQuery.matches ? 56 : 25.2;
-//           lineCount = 3;
-//         }
-//         if (comp.hasClass('operation-card__desc-text')) {
-//           lineHeight = 22.4;
-//           lineCount = 2;
-//         }
+        if (comp.hasClass('card__title')) {
+          lineHeight = mediaQuery.matches ? 36.4 : 25.2;
+        }
+        if (comp.hasClass('card__text')) {
+          lineHeight = mediaQuery.matches ? 22.4 : 16.8;
+        }
+        if (comp.hasClass('first-news__title')) {
+          lineHeight = mediaQuery.matches ? 44 : 19.8;
+        }
+        if (comp.hasClass('news__title')) {
+          lineHeight = mediaQuery.matches ? 56 : 25.2;
+          lineCount = 3;
+        }
+        if (comp.hasClass('card-news-mobile__title')) {
+          lineHeight = 19.8;
+          lineCount = 3;
+        }
+        if (comp.hasClass('operation-card__desc-text')) {
+          lineHeight = 22.4;
+          lineCount = 2;
+        }
 
 
-//         function updateText() {
-//           comp.text(originalText);
+        function updateText() {
+          comp.text(originalText);
   
-//           if (comp.height() > (lineHeight * lineCount)) {
-//             let newText = originalText
+          if (comp.height() > (lineHeight * lineCount)) {
+            let newText = originalText
   
-//             while (comp.height() > (lineHeight * lineCount)) {
-//               newText = newText.substring(0, newText.length - 1).trim()
+            while (comp.height() > (lineHeight * lineCount)) {
+              newText = newText.substring(0, newText.length - 1).trim()
   
-//               comp.text(newText)
-//             }
+              comp.text(newText)
+            }
   
-//             newText = newText.substring(0, newText.length - 5).trim() + '...'
-//             comp.text(newText)
-//           }
-//         }
+            newText = newText.substring(0, newText.length - 5).trim() + '...'
+            comp.text(newText)
+          }
+        }
 
-//         updateText()
+        updateText()
 
-//         window.addEventListener('resize', handleResize, {
-//           once: true,
-//         })
+        window.addEventListener('resize', handleResize, {
+          once: true,
+        })
   
-//         function handleResize() {
-//           updateText()
+        function handleResize() {
+          updateText()
   
-//           setTimeout(() => {
-//             window.addEventListener('resize', handleResize, {
-//               once: true,
-//             })
-//           }, 1000)
-//         }
-//       })
-//     }
-//   })
-// }
+          setTimeout(() => {
+            window.addEventListener('resize', handleResize, {
+              once: true,
+            })
+          }, 1000)
+        }
+      })
+    }
+  })
+}
