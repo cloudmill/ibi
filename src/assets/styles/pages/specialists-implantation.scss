@@ -92,7 +92,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  // width: 100%;
+  width: 100%;
 
   @media (max-width: $breakpoint - 1px) {
     justify-content: flex-start;

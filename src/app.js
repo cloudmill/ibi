@@ -594,10 +594,26 @@ var updateMySticky;
               });
             });
         } else {
-          spoiler.toggleClass("mission__spoiler--active");
-          spoiler_drop.slideToggle({
-            progress: updateMySticky,
-          });
+
+          if ($('.faq-spoiler').length) {
+            if (!spoiler.hasClass("mission__spoiler--active")) {
+              setTimeout(() => {
+                spoiler.addClass("mission__spoiler--active");
+                spoiler_drop.slideDown({
+                  progress: updateMySticky,
+                });
+              }, );
+            }
+  
+            spoilers.removeClass("mission__spoiler--active");
+            spoilers.find(".mission__spoiler-drop").slideUp(500);
+          } else {
+            spoiler.toggleClass("mission__spoiler--active");
+            spoiler_drop.slideToggle({
+              progress: updateMySticky,
+            });
+          }
+          
 
           if (spoiler[0].hasAttribute("data-seq")) {
             setTimeout(() =>
