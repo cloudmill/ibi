@@ -129,16 +129,23 @@ const BREAKPOINT = 1280;
 
       // клик по кнопке вызова модального окна (открытие-закрытие)
       navModalButton.on("click", function () {
+
         if (vacancyCallback.hasClass("vacancy--modal-open")) {
+
           // если модальное окно открыто - закрываем
           vacancyCallback.removeClass("vacancy--modal-open"); // обновляем модификатор header (шапка, контейнер модальных окон)
+
           // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
+
           body.removeClass("body-fixed");
         } else {
+
           // открывыем, аналогично (выше)
           vacancyCallback.addClass("vacancy--modal-open");
+
           // navModalButton.addClass('button-modal--active');
-          // body.addClass('body-fixed'); // блокируем скролл
+          body.addClass('body-fixed'); // блокируем скролл
+
         }
       });
 
@@ -151,7 +158,7 @@ const BREAKPOINT = 1280;
         ) {
           vacancyCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');
-          // body.removeClass('body-fixed');
+          body.removeClass('body-fixed');
         }
       });
     }
@@ -173,13 +180,16 @@ const BREAKPOINT = 1280;
         if (headerCallback.hasClass("vacancy--modal-open")) {
           // если модальное окно открыто - закрываем
           headerCallback.removeClass("vacancy--modal-open"); // обновляем модификатор header (шапка, контейнер модальных окон)
+
           // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
-          // body.removeClass('body-fixed');
+
+          body.removeClass('body-fixed');
         } else {
           // открывыем, аналогично (выше)
           headerCallback.addClass("vacancy--modal-open");
+
           // navModalButton.addClass('button-modal--active');
-          // body.addClass('body-fixed'); // блокируем скролл
+          body.addClass('body-fixed'); // блокируем скролл
         }
       });
 
@@ -192,7 +202,7 @@ const BREAKPOINT = 1280;
         ) {
           headerCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');
-          // body.removeClass('body-fixed');
+          body.removeClass('body-fixed');
         }
       });
     }
@@ -1525,7 +1535,7 @@ var updateMySticky;
 
 // fancybox
 {
-  $(() => {
+  $(window).on('load', () => {
     $("[data-fancyboxx]").on("click", function (e) {
       e.preventDefault();
 
