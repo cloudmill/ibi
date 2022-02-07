@@ -42,14 +42,39 @@ $('[data-send-form]').submit(function (e) {
   const formButton = $('.form__btn');
   const formTitle = $('.form-title')
 
-  setTimeout(() => {
-    if (!$(this).find('.parsley-error').length) {
-      // console.log('error');
-      form.addClass('form--hidden');
-      response.addClass('response--active');
-      formTitle.addClass('display-none');
+  if ($('[data-calc-form]').length) {
+
+    $('.calc').removeClass('calc-error')
+
+    if (!$('.tooth-button').hasClass('tooth-button--destroyed') || !$('.tooth-button').hasClass('tooth-button--removed')) {
+
+      $('.calc').addClass('calc-error')
+
     }
-  }, 0);
+
+    setTimeout(() => {
+      if (!$(this).find('.parsley-error').length && 
+          ($('.tooth-button').hasClass('tooth-button--destroyed') || 
+          $('.tooth-button').hasClass('tooth-button--removed'))) {
+        
+        form.addClass('form--hidden');
+        response.addClass('response--active');
+        formTitle.addClass('display-none');
+        $('.calc').removeClass('calc-error');
+
+      }
+    }, 0);
+
+  } else {
+    setTimeout(() => {
+      if (!$(this).find('.parsley-error').length) {
+        // console.log('error');
+        form.addClass('form--hidden');
+        response.addClass('response--active');
+        formTitle.addClass('display-none');
+      }
+    }, 0);
+  }
 
   responseButton.on('click', function () {
     form.removeClass('form--hidden');
@@ -272,7 +297,7 @@ $('[data-send-form]').submit(function (e) {
           files.push(file);
         }
 
-        console.log(inputFile.val());
+        // console.log(inputFile.val());
 
         newFiles.forEach(file => {
           const fileElement = $(
@@ -290,7 +315,7 @@ $('[data-send-form]').submit(function (e) {
               $(this).remove();
               files.splice(indexToRemove, 1);
             }
-            console.log(inputFile.val());
+            // console.log(inputFile.val());
           });
 
           $('[data-response-button]').on('click', function () {
