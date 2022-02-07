@@ -1,4 +1,4 @@
-.form-new
+.form-new.form-2col
 
   form.form(data-parsley-validate="" data-send-form="")
 
@@ -14,38 +14,13 @@
 
       label.form-new__add-file.form-new__add-file--desktop(for="")
         .form-new__add-file-row1
-          input(type="file" multiple)
+          input.file-input.file-input--desktop(type="file" multiple)
           button(type="button")
             +add-file-svg('transfer-consult__add-file-ico')
             |Прикрепить файл
           p Снимки, ретнген, заключение врача
 
-        .form-new__add-file-row2
-          .form-new__file 
-            |protez01.jpg
-            span
-          .form-new__file 
-            |file.jpg
-            span
-          .form-new__file
-            |protez01.jpg
-            span
-          .form-new__file
-            |file.jpg
-            span
-
-          .form-new__file 
-            |protez01.jpg
-            span
-          .form-new__file 
-            |file.jpg
-            span
-          .form-new__file
-            |protez01.jpg
-            span
-          .form-new__file
-            |file.jpg
-            span
+        .form-new__add-file-row2.files-container--desktop
 
     .form-new__col
 
@@ -53,26 +28,13 @@
         textarea.form-new__input.form-new__textarea(name="", cols="30", rows="3" placeholder="Дополнительная информация")
       
       label.form-new__add-file.form-new__add-file--mobile(for="")
-        input(type="file" multiple)
+        input.file-input.file-input--mobile(type="file" multiple)
         button(type="button")
           +add-file-svg('transfer-consult__add-file-ico')
           |Прикрепить файл
         p Снимки, ретнген, заключение врача
 
-        .form-new__add-file-row2
-          .form-new__file 
-            |protez01.jpg
-            span
-          .form-new__file 
-            |file.jpg
-            span
-          .form-new__file
-            |protez01.jpg
-            span
-          .form-new__file
-            |file.jpg
-            span
-        
+        .form-new__add-file-row2.files-container--mobile
       
       label.form-new__checkbox
         input(type="checkbox" id="checkbox" required="" checked="checked")
@@ -89,7 +51,7 @@
     h2 Спасибо, что связались с нами.
       br
       |Мы ответим в ближайшее  время.
-    .mission__missions-links-link.response__btn
+    .mission__missions-links-link.response__btn(data-response-button)
       +arrow-link-svg('news__link-ico button-svg')
       .mission__missions-links-text
         |Отправить еще

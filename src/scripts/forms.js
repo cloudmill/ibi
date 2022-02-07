@@ -1,4 +1,5 @@
 import { event } from "jquery";
+import { mediaQuery } from './mediaQueries';
 
 // form response
 // {
@@ -238,4 +239,64 @@ $('[data-send-form]').submit(function (e) {
       $(event.target).closest(label3).addClass('input-focus');
     }
   })
+}
+
+// input file
+{
+  $(() => {
+    if ($('.file-input').length !== 0) {
+      let inputFile;
+      let filesContainer;
+
+      if ($('.form-2col').length) {
+        if (mediaQuery.matches) {
+          filesContainer = $('.files-container--desktop');
+          inputFile = $('.file-input--desktop');
+        } else {
+          filesContainer = $('.files-container--mobile');
+          inputFile = $('.file-input--mobile');
+        }
+      } else {
+        filesContainer = $('.form-new__add-file-row2');
+        inputFile = $('.file-input');
+      }
+
+      let files = [];
+
+      inputFile.on('change', function () {
+        const newFiles = [];
+
+        for (let index = 0; index < inputFile[0].files.length; index++) {
+          const file = inputFile[0].files[index];
+          newFiles.push(file);
+          files.push(file);
+        }
+
+        newFiles.forEach(file => {
+          const fileElement = $(
+            `<div class="form-new__file">${file.name}<span class="file-mark"></span></div>`
+          );
+          fileElement.data('fileData', file);
+          filesContainer.append(fileElement);
+
+          $('.form-new__file').on('click', function (event) {
+            const target = $(event.target);
+            const fileMark = target.closest('.file-mark')
+            const indexToRemove = files.indexOf($(this).data('fileData'));
+
+            if (fileMark.length === 1) {
+              $(this).remove();
+              files.splice(indexToRemove, 1);
+            }
+          });
+
+          $('[data-response-button]').on('click', function () {
+            files.length = 0
+            fileElement.remove()
+            // console.log(files);
+          })
+        });
+      });
+    }
+  });
 }
