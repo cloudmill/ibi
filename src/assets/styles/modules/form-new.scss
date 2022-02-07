@@ -325,3 +325,16 @@
     border: 1px solid #E62B3E;
   }
 }
+
+.form-2col {
+  @media (min-width: $breakpoint) {
+    .form-new__label {
+      &::before {
+        bottom: 34px;
+      }
+      &::after {
+        bottom: 33px;
+      }
+    }
+  }
+}
