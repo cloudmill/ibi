@@ -231,10 +231,10 @@
     color: #E62B3E;
     position: absolute;
     bottom: -30px;
-    left: 20px;
+    right: 20px;
 
     @media (min-width: $breakpoint) {
-      left: 0;
+      right: 0;
     }
   }
 }
