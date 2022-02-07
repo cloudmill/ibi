@@ -128,6 +128,7 @@ function forms() {
             $(this).val('');
 
           });
+          $("[data-type=file-ans]").empty();
           form.addClass("form--hidden");
           formResponse.addClass("response--active");
         }
