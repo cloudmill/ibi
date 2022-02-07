@@ -122,7 +122,7 @@ const BREAKPOINT = 1280;
               breakpoints: {
                 [BREAKPOINT]: {
                   spaceBetween: 40,
-                  allowTouchMove: false,
+                  // allowTouchMove: false,
                   centeredSlides: false,
                 },
               },
