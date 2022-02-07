@@ -14,21 +14,8 @@ $(function () {
   changeLang();
   formAgain();
   fileUpload();
-  delFile();
 });
 
-function delFile() {
-  $(document).on("click", "[data-type=del-file]", function (e) {
-    let index = $(this).attr("index"),
-      file = $(document).find("[data-type=file]"),
-      fileDataR = file[0].files[0],
-      fileData = file.prop('files');
-
-    console.log(fileDataR);
-
-    console.log(fileData);
-  });
-}
 
 function fileUpload() {
   $(document).on("change", "[data-type=file]", function (e) {
@@ -51,6 +38,10 @@ function formAgain() {
 
     $(".form--hidden").each(function () {
       $(this).removeClass('form--hidden');
+    });
+
+    $(".response--active").each(function () {
+      $(this).removeClass('response--active');
     });
   });
 }
@@ -83,6 +74,7 @@ function forms() {
 
     let form = $(this),
       formResponse = form.siblings("[data-type=form-response]"),
+      formTtl = form.siblings("[data-type=form-ttl]"),
       url = form.attr("data-url"),
       eventType = form.attr("data-event-type"),
       contentType = "application/x-www-form-urlencoded; charset=UTF-8",
@@ -148,6 +140,7 @@ function forms() {
           });
           $("[data-type=file-ans]").empty();
           form.addClass("form--hidden");
+          formTtl.addClass("form--hidden");
           formResponse.addClass("response--active");
         }
       },
