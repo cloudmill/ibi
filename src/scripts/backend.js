@@ -13,24 +13,7 @@ $(function () {
   forms();
   changeLang();
   formAgain();
-  fileUpload();
 });
-
-
-function fileUpload() {
-  $(document).on("change", "[data-type=file]", function (e) {
-    let filename = $(this).val().replace(/.*\\/, ""),
-      indexFile = 0;
-
-    $(".form-new__file").each(function () {
-      indexFile = indexFile + 1;
-    });
-
-    let ans = "<div data-index-del='" + indexFile + "' class='form-new__file'>" + filename + "<span data-type='del-file' data-index='" + indexFile + "'></span></div>";
-
-    $("[data-type=file-ans]").append(ans);
-  });
-}
 
 function formAgain() {
   $(document).on("click", "[data-type=form-again]", function (e) {
