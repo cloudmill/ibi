@@ -272,6 +272,8 @@ $('[data-send-form]').submit(function (e) {
           files.push(file);
         }
 
+        console.log(inputFile.val());
+
         newFiles.forEach(file => {
           const fileElement = $(
             `<div class="form-new__file">${file.name}<span class="file-mark"></span></div>`
@@ -288,6 +290,7 @@ $('[data-send-form]').submit(function (e) {
               $(this).remove();
               files.splice(indexToRemove, 1);
             }
+            console.log(inputFile.val());
           });
 
           $('[data-response-button]').on('click', function () {
