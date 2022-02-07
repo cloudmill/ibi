@@ -197,7 +197,7 @@
   }
 
   &__file {
-    padding-right: 25px;
+    // padding-right: 25px;
     position: relative;
     display: flex;
     align-items: center;
@@ -207,24 +207,31 @@
       margin-right: 20px;
     }
 
-    &::after, &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      height: 20px;
-      width: 1px;
-      background-color: #000;
+    span {
+      margin-left: 5px;
       cursor: pointer;
+      display: block;
+      width: 20px;
+      height: 20px;
 
-      // top: 0;
-      right: 7px;
-    }
-    &::after {
-      transform: rotate(45deg);
-    }
-    &::before {
-      transform: rotate(135deg);
+      &::after, &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 20px;
+        width: 1px;
+        background-color: #000;
+  
+        // top: 0;
+        right: 7px;
+      }
+      &::after {
+        transform: rotate(45deg);
+      }
+      &::before {
+        transform: rotate(135deg);
+      }
     }
   }
 
