@@ -14,14 +14,32 @@ $(function () {
   changeLang();
   formAgain();
   fileUpload();
+  delFile();
 });
+
+function delFile() {
+  $(document).on("click", "[data-type=del-file]", function (e) {
+    let index = $(this).attr("index"),
+      file = $(document).find("[data-type=file]"),
+      fileDataR = file[0].files[0],
+      fileData = file.prop('files');
+
+    console.log(fileDataR);
+
+    console.log(fileData);
+  });
+}
 
 function fileUpload() {
   $(document).on("change", "[data-type=file]", function (e) {
     let filename = $(this).val().replace(/.*\\/, ""),
-      ans = "<div class='form-new__file'>" + filename + "</div>";
+      indexFile = 0;
 
-    console.log(filename);
+    $(".form-new__file").each(function () {
+      indexFile = indexFile + 1;
+    });
+
+    let ans = "<div data-index-del='" + indexFile + "' class='form-new__file'>" + filename + "<span data-type='del-file' data-index='" + indexFile + "'></span></div>";
 
     $("[data-type=file-ans]").append(ans);
   });
