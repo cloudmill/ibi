@@ -52,6 +52,10 @@ function formAgain() {
     $(".form--hidden").each(function () {
       $(this).removeClass('form--hidden');
     });
+
+    $(".response--active").each(function () {
+      $(this).removeClass('response--active');
+    });
   });
 }
 
@@ -83,6 +87,7 @@ function forms() {
 
     let form = $(this),
       formResponse = form.siblings("[data-type=form-response]"),
+      formTtl = form.siblings("[data-type=form-ttl]"),
       url = form.attr("data-url"),
       eventType = form.attr("data-event-type"),
       contentType = "application/x-www-form-urlencoded; charset=UTF-8",
@@ -148,6 +153,7 @@ function forms() {
           });
           $("[data-type=file-ans]").empty();
           form.addClass("form--hidden");
+          formTtl.addClass("form--hidden");
           formResponse.addClass("response--active");
         }
       },
