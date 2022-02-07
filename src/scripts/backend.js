@@ -14,21 +14,8 @@ $(function () {
   changeLang();
   formAgain();
   fileUpload();
-  delFile();
 });
 
-function delFile() {
-  $(document).on("click", "[data-type=del-file]", function (e) {
-    let index = $(this).attr("index"),
-      file = $(document).find("[data-type=file]"),
-      fileDataR = file[0].files[0],
-      fileData = file.prop('files');
-
-    console.log(fileDataR);
-
-    console.log(fileData);
-  });
-}
 
 function fileUpload() {
   $(document).on("change", "[data-type=file]", function (e) {
