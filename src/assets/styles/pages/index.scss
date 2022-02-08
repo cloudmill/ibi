@@ -187,25 +187,26 @@
     height: 100%;
     display: flex;
     align-items: center;
-    @media (max-width: 374px) {
-      height: 152px;
+    height: 152px;
+    @media (min-width: $breakpoint-m) {
+      height: 337px;
+    }
+    @media (min-width: $breakpoint) {
+      height: 600px;
     }
   }
   &__mid-img {
     max-width: calc(100vw - #{$col-pad-m} * 2);
-    max-height: 152px;
+    // max-height: 152px;
     object-fit: cover;
-    @media (min-width: $breakpoint-m) {
-      max-height: 337px;
-    }
+    height: 100%;
+    
     @media (min-width: $breakpoint) {
       max-width: calc(100vw - #{$col-pad-d} * 2);
-      max-height: 600px;
     }
     @media (max-width: 374px) {
       max-width: calc(100vw - #{$col-pad-m} * 3);
-      max-height: unset;
-      height: 100%;
+      // max-height: unset;
     }
 
     // implatation
