@@ -305,7 +305,7 @@
   &__item {
     width: calc(100% / 3 - 30px);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
 
     @media (max-width: $breakpoint-m - 1px) {

@@ -415,9 +415,7 @@
     }
 
     .swiper-slide {
-      @media (min-width: $breakpoint) {
-        height: auto;
-      }
+      height: auto;
     }
   }
 
