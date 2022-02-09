@@ -13,7 +13,25 @@ $(function () {
   forms();
   changeLang();
   formAgain();
+  changeFile();
 });
+
+function changeFile() {
+  $(document).on("change", "[data-type=file]", function (e) {
+    $.ajax({
+      type: "POST",
+      url: '/local/templates/main/include/ajax/multi_file.php',
+      dataType: "json",
+      processData: false,
+      success: function (r) {
+        if (r.success === true) {
+
+        }
+      },
+    });
+
+  });
+}
 
 function formAgain() {
   $(document).on("click", "[data-type=form-again]", function (e) {
@@ -79,7 +97,7 @@ function forms() {
       let file = form.find("[data-type=file]"),
         fileData = file.prop('files')[0];
 
-      // console.log(fileData);
+      //console.log(fileData);
 
       data.append("file", fileData);
 
@@ -119,9 +137,14 @@ function forms() {
         if (r.success === true) {
           form.find("[data-clear=clear-input]").each(function () {
             $(this).val('');
-
           });
-          $("[data-type=file-ans]").empty();
+          $(document).find(".tooth-button--destroyed").each(function () {
+            $(this).removeClass('tooth-button--destroyed');
+          });
+          $(document).find(".tooth-button--removed").each(function () {
+            $(this).removeClass('tooth-button--removed');
+          });
+          $(document).find(".form-new__add-file-row2").empty();
           form.addClass("form--hidden");
           formTtl.addClass("form--hidden");
           formResponse.addClass("response--active");
