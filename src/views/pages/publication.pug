@@ -129,6 +129,23 @@ block content
                     img.article__img(src="assets/images/article-1.jpg", alt="")
                     .article__label 
                       |Стоматологический кабинет ИБИ
+                  .single-news__txt 
+                    p
+                      |Жалобы потребителей, связанные со стоматологическими имплантатами, поступившие от стоматологов и  хирургов  во всем мире, были проанализированы производителем имплантатов в течение определенного периода.
+                    p
+                      |Частота«жалоб, связанныхсимплантатами»по сравнению с«количеством проданных имплантатов» показывает, что имплантаты с полированной эндооссальной поверхностью, предназначенные для протоколов немедленной нагрузки, а также одиночные имплантаты вызывают существенно меньше жалоб клиентов по сравнению с традиционными 2-этапнымисистемами (р&lt;0,001) с грубой поверхностью (пескоструйная обработка/ протравка) (р&lt;0,001) и большим эндооссальным диаметром. Поскольку мы планировали опубликовать эти данные и собирали их тщательным образом, данное исследование является перспективным.
+                    p
+                      |Ключевые слова: жалобы, связанные с имплантатами, поверхность имплантата, конструкция имплантата, немедленная нагрузка
+
+                  .article__inner
+                    .video-preview(data-video)
+                  
+                      .video-preview__frame#player(data-video-id="O6zUpjtU6hE")
+
+                      .video-preview__img
+                        +previewVideoBtn
+                        img(src="https://img.youtube.com/vi/O6zUpjtU6hE/maxresdefault.jpg", alt="")
+
                   h3.article__title 
                     |Обучение Strategic Implant
                   .article__wrapper 
@@ -207,3 +224,6 @@ block content
                                   .card__image.mission__missions-links-link
                                     +svg-link(class='card__svg button-svg')
             include ../components/form-subscription
+
+block scripts
+  script(src="https://www.youtube.com/iframe_api")
