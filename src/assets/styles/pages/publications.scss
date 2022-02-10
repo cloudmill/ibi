@@ -351,10 +351,15 @@
     display: block;
 
     #{$comp}__list {
-      width: 100%;
+      // width: 100%;
       overflow-x: auto;
       counter-reset: index;
       padding-bottom: 3px;
+
+      @media (max-width: $breakpoint - 1px) {
+        margin: 0 -20px;
+        padding: 0 20px 3px;
+      }
     }
 
     #{$comp}__item {
@@ -378,6 +383,12 @@
         line-height: 160%;
         @media (min-width: $breakpoint) {
           font-size: 18px;
+        }
+      }
+
+      &:last-child {
+        @media (max-width: ($breakpoint - 1px)) {
+          margin-right: calc(100vw - 51.25px);
         }
       }
     }
