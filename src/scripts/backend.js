@@ -61,6 +61,16 @@ function formAgain() {
     $(".response--active").each(function () {
       $(this).removeClass('response--active');
     });
+
+    $(document).find("[data-clear=clear-input]").each(function () {
+      $(this).val('');
+    });
+    $(document).find(".tooth-button--destroyed").each(function () {
+      $(this).removeClass('tooth-button--destroyed');
+    });
+    $(document).find(".tooth-button--removed").each(function () {
+      $(this).removeClass('tooth-button--removed');
+    });
   });
 }
 
@@ -157,7 +167,7 @@ function forms() {
       data: data,
       success: function (r) {
         if (r.success === true) {
-          form.find("[data-clear=clear-input]").each(function () {
+          $(document).find("[data-clear=clear-input]").each(function () {
             $(this).val('');
           });
           $(document).find(".tooth-button--destroyed").each(function () {
