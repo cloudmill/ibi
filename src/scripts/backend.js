@@ -27,9 +27,19 @@ function publicVideo() {
 
 function changeFile() {
   $(document).on("change", "[data-type=file]", function (e) {
+    let fileData = $(this).prop('files')[0],
+      data = {};
+
+    data = new FormData();
+
+    data.append("file", fileData);
+
+    console.log(data);
+
     $.ajax({
       type: "POST",
       url: '/local/templates/main/include/ajax/multi_file.php',
+      data: data,
       dataType: "json",
       processData: false,
       success: function (r) {
