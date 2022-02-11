@@ -14,7 +14,16 @@ $(function () {
   changeLang();
   formAgain();
   changeFile();
+  publicVideo();
 });
+
+function publicVideo() {
+  $(document).ready(function () {
+    let video = $(document).find('[data-type=video-block]');
+
+    $(document).find('[data-type=video-block-inner]').html(video);
+  });
+}
 
 function changeFile() {
   $(document).on("change", "[data-type=file]", function (e) {
