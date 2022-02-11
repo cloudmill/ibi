@@ -27,14 +27,11 @@ function publicVideo() {
 
 function changeFile() {
   $(document).on("change", "[data-type=file]", function (e) {
-    let fileData = $(this).prop('files')[0],
-      data = {};
+    const data = new FormData();
 
-    data = new FormData();
-
-    data.append("file", fileData);
-
-    console.log(data);
+    $.each($('[data-type=file]')[0].files, function(key, input) {
+      data.append('file[]', input);
+    });
 
     $.ajax({
       type: "POST",
@@ -42,6 +39,7 @@ function changeFile() {
       data: data,
       dataType: "json",
       processData: false,
+      contentType: false,
       success: function (r) {
         if (r.success === true) {
 
