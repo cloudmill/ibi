@@ -186,5 +186,10 @@
   &__img {
     width: 100%;
     display: block;
+
+    @media (min-width: $breakpoint) {
+      object-fit: cover;
+      height: 278px;
+    }
   }
 }

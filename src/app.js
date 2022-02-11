@@ -1607,6 +1607,7 @@ var updateMySticky;
     if (('.text-crop').length) {
 
       $('.text-crop').each(function () {
+
         const comp = $(this);
 
         let originalText = comp.text();
@@ -1635,14 +1636,14 @@ var updateMySticky;
           lineCount = 2;
         }
 
+        if (comp.hasClass('dates-slide__text') && mediaQuery.matches) {
 
-        function updateText() {
           comp.text(originalText);
   
-          if (comp.height() > (lineHeight * lineCount)) {
+          if (comp.height() > 278) {
             let newText = originalText
   
-            while (comp.height() > (lineHeight * lineCount)) {
+            while (comp.height() > 278) {
               newText = newText.substring(0, newText.length - 1).trim()
   
               comp.text(newText)
@@ -1651,23 +1652,40 @@ var updateMySticky;
             newText = newText.substring(0, newText.length - 5).trim() + '...'
             comp.text(newText)
           }
-        }
-
-        updateText()
-
-        window.addEventListener('resize', handleResize, {
-          once: true,
-        })
+        } else {
+          function updateText() {
+            comp.text(originalText);
+    
+            if (comp.height() > (lineHeight * lineCount)) {
+              let newText = originalText
+    
+              while (comp.height() > (lineHeight * lineCount)) {
+                newText = newText.substring(0, newText.length - 1).trim()
+    
+                comp.text(newText)
+              }
+    
+              newText = newText.substring(0, newText.length - 5).trim() + '...'
+              comp.text(newText)
+            }
+          }
   
-        function handleResize() {
           updateText()
   
-          setTimeout(() => {
-            window.addEventListener('resize', handleResize, {
-              once: true,
-            })
-          }, 1000)
-        }
+          window.addEventListener('resize', handleResize, {
+            once: true,
+          })
+    
+          function handleResize() {
+            updateText()
+    
+            setTimeout(() => {
+              window.addEventListener('resize', handleResize, {
+                once: true,
+              })
+            }, 1000)
+          }
+        }        
       })
     }
   })
