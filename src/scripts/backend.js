@@ -29,7 +29,7 @@ function changeFile() {
   $(document).on("change", "[data-type=file]", function (e) {
     const data = new FormData();
 
-    $.each($('[data-type=file]')[0].files, function(key, input) {
+    $.each($('[data-type=file]')[0].files, function (key, input) {
       data.append('file[]', input);
     });
 
@@ -97,9 +97,14 @@ function forms() {
       eventType = form.attr("data-event-type"),
       contentType = "application/x-www-form-urlencoded; charset=UTF-8",
       processData = true,
+      calcBlock = $(document).find(".calc"),
       destroyed = [],
       removed = [],
       data = {};
+
+    if (calcBlock.hasClass("calc-error")) {
+      return false;
+    }
 
     // console.log(eventType);
 
