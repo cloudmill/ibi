@@ -1430,7 +1430,7 @@ var updateMySticky;
   });
 }
 
-// Калькулятор с зубами
+// Калькулятор с зубами (calc)
 {
   $(() => {
     $(window).on("click", (event) => {
@@ -1446,6 +1446,7 @@ var updateMySticky;
           tooth.removeClass("tooth-button--removed");
         } else {
           tooth.addClass("tooth-button--destroyed");
+          $('.calc').removeClass('calc-error')
         }
       }
     });
