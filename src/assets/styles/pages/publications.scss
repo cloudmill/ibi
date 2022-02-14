@@ -352,7 +352,7 @@
 
     #{$comp}__list {
       // width: 100%;
-      overflow-x: auto;
+      overflow-x: scroll;
       counter-reset: index;
       padding-bottom: 3px;
 
@@ -387,8 +387,14 @@
       }
 
       &:last-child {
+        display: none;
         @media (max-width: ($breakpoint - 1px)) {
-          margin-right: calc(100vw - 51.25px);
+          display: block;
+          margin-left: calc(100vw - 51.25px);
+
+          &::before {
+            display: none;
+          }
         }
       }
     }
