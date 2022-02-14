@@ -1218,8 +1218,10 @@
     @include scrollbar-hidden();
 
     @media (max-width: $breakpoint - 1px) {
-      width: calc(100% + 20px);
+      // width: calc(100% + 20px);
       overflow-x: scroll;
+      margin: 40px -20px 0;
+      padding-left: 20px;
     }
   }
   
