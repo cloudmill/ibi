@@ -13,7 +13,7 @@ $(function () {
   forms();
   changeLang();
   formAgain();
-  changeFile();
+  // changeFile();
   publicVideo();
 });
 
@@ -97,7 +97,7 @@ function changeLang() {
 
 function forms() {
   $(document).on("submit", "[data-type=js-form]", function (e) {
-    // console.log("form feedback");
+    console.log("form submit");
     e.preventDefault();
 
     let form = $(this),
@@ -116,22 +116,16 @@ function forms() {
       return false;
     }
 
-    // console.log(eventType);
-
     if (eventType == 'FILE') {
-
-      // console.log('- if FILE -');
-
       data = new FormData();
       contentType = false;
       processData = false;
 
-      let file = form.find("[data-type=file]"),
-        fileData = file.prop('files')[0];
+      const file = form.find("[data-type=file]");
 
-      //console.log(fileData);
-
-      data.append("file", fileData);
+      $.each(file[0].files, function (key, input) {
+        data.append('file[]', input);
+      });
 
       $("[data-type=tooth]").each(function () {
         if ($(this).hasClass("tooth-button--destroyed")) {
@@ -155,8 +149,6 @@ function forms() {
         data[field] = val;
       }
     });
-
-    // console.log(data);
 
     $.ajax({
       type: "POST",
