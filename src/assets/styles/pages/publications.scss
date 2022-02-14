@@ -392,10 +392,7 @@
       @media (max-width: ($breakpoint - 1px)) {
         display: block;
         margin-left: calc(100vw - 180px);
-
-        &::before {
-          display: none;
-        }
+        // width: calc(100vw - 180px);
       }
     }
 
