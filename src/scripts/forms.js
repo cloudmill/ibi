@@ -46,9 +46,11 @@ $('[data-send-form]').submit(function (e) {
 
     $('.calc').removeClass('calc-error')
 
-    if (!$('.tooth-button').hasClass('tooth-button--destroyed') || !$('.tooth-button').hasClass('tooth-button--removed')) {
+    if (!$('.tooth-button').hasClass('tooth-button--destroyed') && !$('.tooth-button').hasClass('tooth-button--removed')) {
 
       $('.calc').addClass('calc-error')
+
+      console.log(111)
 
     }
 
