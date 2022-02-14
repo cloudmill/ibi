@@ -385,16 +385,16 @@
           font-size: 18px;
         }
       }
+    }
 
-      &:last-child {
-        display: none;
-        @media (max-width: ($breakpoint - 1px)) {
-          display: block;
-          margin-left: calc(100vw - 51.25px);
+    .extra-space {
+      display: none;
+      @media (max-width: ($breakpoint - 1px)) {
+        display: block;
+        margin-left: calc(100vw - 180px);
 
-          &::before {
-            display: none;
-          }
+        &::before {
+          display: none;
         }
       }
     }
