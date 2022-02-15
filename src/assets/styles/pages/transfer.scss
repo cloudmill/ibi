@@ -387,9 +387,9 @@
       opacity: 0.4;
 
       width: calc(#{$col-part-d} * 4);
-      @media (max-width: $breakpoint-l - 1px) {
-        padding-left: 20px;
-      }
+      
+      padding-left: 20px;
+      
       @media (max-width: $breakpoint - 1px) {
         font-size: 12px;
 

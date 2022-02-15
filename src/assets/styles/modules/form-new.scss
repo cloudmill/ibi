@@ -71,7 +71,8 @@
 
   &__input {
     border: none;
-    // border-bottom: 1px solid $color-gray-border;
+    border-bottom: 1px solid transparent;
+    height: 45px;
     width: 100%;
     font-family: Manrope;
     font-weight: 500;
@@ -85,6 +86,7 @@
 
     @media (max-width: $breakpoint - 1px) {
       font-size: 16px;
+      height: 43px;
     }
   }
 
@@ -240,7 +242,7 @@
 
   &__textarea {
     resize: none;
-    height: 222px;
+    height: 205px;
 
     @media (max-width: $breakpoint - 1px) {
       height: 80px;
@@ -330,13 +332,23 @@
 }
 
 .form-2col {
-  @media (min-width: $breakpoint) {
-    .form-new__label {
-      &::before {
-        bottom: 34px;
+  .form-new__label {
+    &::before, &::after {
+      top: 44px;
+      bottom: unset;
+
+      @media (max-width: $breakpoint - 1px) {
+        top: 42px;
       }
-      &::after {
-        bottom: 33px;
+    }
+  }
+
+  .form-new__textarea-label {
+    &::before, &::after {
+      top: 204px;
+  
+      @media (max-width: $breakpoint - 1px) {
+        top: 79px;
       }
     }
   }
