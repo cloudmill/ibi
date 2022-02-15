@@ -702,3 +702,28 @@
     }
   }
 }
+
+
+@media (min-width: $breakpoint) {
+
+  [data-tooth-id="18"] .tooth-removed, [data-tooth-id="17"] .tooth-removed {
+    bottom: 4px;
+  }
+
+  [data-tooth-id="15"] .tooth-removed, [data-tooth-id="14"] .tooth-removed, [data-tooth-id="21"] .tooth-removed, [data-tooth-id="25"] .tooth-removed {
+    bottom: 3px;
+  }
+
+  [data-tooth-id="26"] .tooth-removed {
+    right: 1px;
+  }
+
+  [data-tooth-id="48"] .tooth-removed {
+    left: 1px;
+  }
+
+  [data-tooth-id="11"] .tooth-removed {
+    bottom: 5px;
+    right: 1px;
+  }
+}
