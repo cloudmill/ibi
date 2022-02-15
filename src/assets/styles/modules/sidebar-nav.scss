@@ -40,11 +40,8 @@
 .sidebar-nav-spoiler {
   $comp: &;
 
-  margin: 20px 0 20px;
-
-  &:first-child {
-    margin-top: 0;
-  }
+  // margin: 20px 0 20px;
+  
 
   &--current {
     .nav__link{
@@ -63,9 +60,9 @@
       transform: rotate(180deg);
     }
 
-    #{$comp}__drop {
-      display: block;
-    }
+    // #{$comp}__drop {
+    //   display: block;
+    // }
   }
 
   &__button {
@@ -74,6 +71,8 @@
     justify-content: space-between;
     cursor: pointer;
     transition: $transition;
+
+    padding-bottom: 20px;
 
     &:hover {
       .nav__link {
@@ -106,10 +105,13 @@
 
   &__drop {
     display: none;
-    padding: 10px 0 0 60px;
+    padding-left: 60px;
+    padding-bottom: 30px;
 
     &-item {
-      margin-bottom: 10px;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
 
       a {
         transition: $transition;
@@ -119,10 +121,6 @@
         a {
           color: $color-main;
         }
-      }
-
-      :last-child {
-        margin-bottom: 0;
       }
 
       .nav__link {
