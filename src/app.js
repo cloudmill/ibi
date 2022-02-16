@@ -154,7 +154,10 @@ const BREAKPOINT = 1280;
         if (
           vacancyCallback.hasClass("vacancy--modal-open") && // если модальное окно открыто
           $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
-          $(event.target).closest(".modal-forms__form").length === 0 // + клик не по модальному окну
+          $(event.target).closest(".modal-forms__form").length === 0 &&// + клик не по модальному окну
+
+          $(event.target).closest('.file-mark').length === 0
+
         ) {
           vacancyCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');
