@@ -21,7 +21,7 @@ import "./scripts/mobile-seq";
 import "./scripts/scroll-test";
 import { sendSignal } from "./scripts/signal";
 import "./scripts/anchor-links";
-import "./scripts/tab-nav";
+// import "./scripts/tab-nav";
 import "./scripts/YTvideo";
 
 const BREAKPOINT = 1280;
