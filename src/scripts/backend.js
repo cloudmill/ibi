@@ -14,10 +14,19 @@ $(function () {
   changeLang();
   formAgain();
   // changeFile();
-  publicVideo();
+  snippetVideo();
+  snippetMat();
 });
 
-function publicVideo() {
+function snippetMat() {
+  $(document).ready(function () {
+    let mat = $(document).find('[data-type=mat-block]');
+
+    $(document).find('[data-type=mat-block-inner]').html(mat);
+  });
+}
+
+function snippetVideo() {
   $(document).ready(function () {
     let video = $(document).find('[data-type=video-block]');
 
