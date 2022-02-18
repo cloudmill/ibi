@@ -1,0 +1,234 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block content 
+  div(style='position: relative;')
+    div(style='position: relative; z-index: 1;')
+      section.section.section--gradient 
+        .row 
+          .row__col 
+            //- .section__inner.section__inner--top 
+            //-   .nav.nav--small
+            //-     .nav__container
+            //-       nav.nav__nav.my-sticky(data-my-sticky-bottom="my-sticky-bottom")
+            //-         ul.nav__list
+            //-           li.nav__item.nav__item--active
+            //-             a.nav__link(href='#')
+            //-               |Металлоакриловый несъемный мостовидный протез
+            //-           each item in ['Металлокомпозитный несъемный мостовидный протез', 'Керамокомпозитный несъемный мостовидный протез', 'Цельный диоксид-циркониевый мостовидный протез (PRETTAU Zircon)', 'Металлокомпозитный несъемный мостовидный протез', 'Металлокерамический мост на сегмент', 'Временный полимерный мост ПММА на сегмент']
+            //-             li.nav__item
+            //-               a.nav__link(href='#')
+            //-                 |#{item}
+          .row__col 
+            .section__inner.section__inner--top
+              .developments
+                .container 
+                  h1.title.title--s.letter-spacing6
+                    |Металлоакриловый несъемный мостовидный протез
+                  .developments__category.letter-spacing1
+                    |Для восстановление одной или двух челюстей
+                  .prosthetics-img
+                    .prosthetics-img__price 37 500 ₽
+                    img(src="assets/images/prosthetics-img.jpg", alt="")
+                  .developments__content 
+                    p 
+                      |Этот вид протезирования обычно используется при первичном или временном протезировании. Срок службы при нормальной эксплуатации и обслуживании составляет 2-3 года.
+                    p 
+                      |Это довольно известная конструкция и повсеместно применяемая в протезировании на базальных имплантатах, но в ИБИ протокол изготовления этого моста усовершенствован и позволяет изготовить даже первичный, временный мост оптимальным и высококачественным. 
+      // materials
+      section.section 
+        .row 
+          .row__col
+          .row__col
+            .materials 
+              .container 
+                .materials__row 
+                  .materials__col
+                    h3.materials__title
+                      |Материалы
+                    ul.materials__list 
+                      li.materials__item
+                        .materials__number
+                          .materials__icon
+                            +item-svg
+                            .materials__index 
+                              |1
+                        .materials__text 
+                          |Гарнитурные зубы компании Ivoclar Vivadent (Лихтенштейн), длительной эксплуатации, имеющие 3 степени прозрачности
+                      li.materials__item
+                        .materials__number
+                          .materials__icon 
+                            +item-svg
+                            .materials__index 
+                              |2
+                        .materials__text 
+                          |Десневая часть моста выполняется швейцарским акрилом Candulor
+                          p.materials__subtext 
+                            |Инертен, не выделяет продуктов реакции акрила. Отсутствиет выраженная гигроскопичность (минимально впитывает в себя органику, относительно прочих акриловых материалов).
+                  .materials__col
+                    .materials__layout 
+                      .materials__image
+                      .materials__img 
+                        .materials__icon
+                          +item-svg('materials__svg')
+                          .materials__index 
+                            |1
+                      .materials__img.materials__img--md
+                        .materials__icon
+                          +item-svg('materials__svg')
+                          .materials__index 
+                            |2
+              .section__inner 
+                .container 
+                  h3.materials__title.materials__title--small
+                    |Технология
+                  .developments 
+                    ul.developments__list
+                      li.developments__item 
+                        .developments__text 
+                          |Металлоакриловый мост обрел цифровой протокол изготовления и исключил неточности, допускаемые в «руколепной» версии данного изделия.
+                      li.developments__item 
+                        .developments__text 
+                          |Все модели пациента, полученные после установки имплантатов позиционируются исключительно при помощи специальных аппаратов австрийской фирмы 
+                          span.tooltip
+                            |Amann Girrbach AG
+                            +tooltip-svg('tooltip__icon')
+                            .tooltip__content 
+                              |
+                          |.
+                      li.developments__item 
+                        .developments__text 
+                          |Цифровой протокол исключает работу «на глаз». При этом модели проходят этап специального сканирования на зуботехническом 
+                          span.tooltip(data-modal-tooltip-id="modal-tooltip-1")
+                            |сканере Shining 3D 
+                            +tooltip-svg('tooltip__icon')
+                            .tooltip__content
+                              |
+                          |и дальнейшая работа происходит в компьютерной, зуботехнической программе Exoсad.
+              
+              .section__inner.section__inner--bot.new-service-video
+                .container
+                  .developments 
+                    .developments__content 
+                      .video-preview(data-video)
+                        
+                        .video-preview__frame#player(data-video-id="O6zUpjtU6hE")
+
+                        .video-preview__img
+                          +previewVideoBtn
+                          img(src="https://img.youtube.com/vi/O6zUpjtU6hE/maxresdefault.jpg", alt="")
+
+              
+              .section__inner.section__inner--bot 
+                .container 
+                  .developments 
+                    .developments__content 
+                      .developments__photo.developments__photo--md
+                      .developments__wrapper 
+                        .materials__text 
+                          |Условно-временный металлоакриловый мост изготовленный в лаборатории Института Базальной Имплантации обеспечивает комфорт, эстетику и главное правильную протетическую реабилитацию прикуса и височнонижнечелюстного сустава уже с первых дней эксплуатации. Металлоакриловый мост изготовленный в ИБИ относится к конструкциям длительной эксплуатации.
+
+              .container.news-subscribe.member-page-ask.display-flex(data-calc-form="")
+                h2.news-subscribe__title.member-page-ask__title.member-page-ask__title--md
+                  |Получить персональную стратегию имплантации
+                .calc-wrapper.mb80-60
+                  include ../components/calculator
+                include ../components/form-2col-add-file
+
+    div(style='position: absolute; z-index: 2; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none;')
+      .row(style='height: 100%;')
+        .row__col.sidebar
+          .sidebar__container
+            .sidebar__sidebar
+              .sidebar__sidebar-inner.sidebar__sidebar-inner--pointer-events--all
+                ul.nav__list
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler--current.sidebar-nav-spoiler__button
+                      a.nav__link(href="")
+                        |Протезирование
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики', 'Коронки металлокерамические', 'Коронки циркониевые KATANA', 'Коронки циркониевые под нанесение керамики', 'Коронки циркониевые Prettau', 'Винир (люминир)', 'Накладкициркониевые KATANA', 'Безметалловые вкладки']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler__button
+                      a.nav__link(href="")
+                        |Диагностика
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler__button
+                      a.nav__link(href="")
+                        |Профилактика
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler__button
+                      a.nav__link(href="")
+                        |Удаление зубов
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler__button
+                      a.nav__link(href="")
+                        |Лечение зубов
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+        .row__col
+
+  // next page
+  section#my-sticky-bottom.next-page
+    .row 
+      .row__col
+        .next-page__container
+          .next-page__nav 
+            |Следующий тип конструкции
+      .row__col
+        .container 
+          .next-page__nav.next-page__nav--mobile 
+            |Следующий тип конструкции
+          h3.next-page__title
+            |Цельный диоксид-циркониевый мост (PRETTAU Zircon) на сегмент
+          .next-page__button
+            .mission 
+              .mission__missions-links-container
+                a.mission__missions-links-link(href='#')
+                  +svg-link.mission__missions-links-svg.button-svg
+                  .mission__missions-links-text
+                    span.mission__missions-links-span
+                      |Перейти к описанию
+
+    
+
+block scripts
+  script(src="https://www.youtube.com/iframe_api")
