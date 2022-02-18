@@ -306,3 +306,17 @@
   }
 }
 
+.new-service-video {
+  // width: calc(#{$col-part-d} * 7 - #{$col-gap-d});
+
+  .video-preview, .video-preview__img {
+    height: 250px;
+
+    @media (min-width: $breakpoint-m) {
+      height: 400px;
+    }
+    @media (min-width: $breakpoint) {
+      height: 500px;
+    }
+  } 
+}
