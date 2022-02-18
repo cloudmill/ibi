@@ -178,8 +178,9 @@ function forms() {
             $(this).removeClass('tooth-button--removed');
           });
           $(document).find(".form-new__add-file-row2").empty();
-          form.addClass("form--hidden");
+          $(document).find('[data-form-hidden=true]').addClass("form--hidden");
           formTtl.addClass("form--hidden");
+          $(document).find('[data-form-hidden=true]').siblings("[data-type=form-response]").addClass("response--active");
           formResponse.addClass("response--active");
         }
       },
