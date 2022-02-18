@@ -137,6 +137,16 @@ const BREAKPOINT = 1280;
           // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
 
           body.removeClass("body-fixed");
+
+          console.log(555);
+
+          vacancyCallback.find('.news-subscribe__form-email').removeClass('parsley-error');
+          vacancyCallback.find('.parsley-errors-list').css('opacity', '0');
+
+          vacancyCallback.find('.form').removeClass('form--hidden');
+          vacancyCallback.find('.response').removeClass('response--active');
+          vacancyCallback.find('.news-subscribe__form-email').val('');
+
         } else {
           // открывыем, аналогично (выше)
           vacancyCallback.addClass("vacancy--modal-open");
@@ -144,6 +154,10 @@ const BREAKPOINT = 1280;
           // navModalButton.addClass('button-modal--active');
           body.addClass("body-fixed"); // блокируем скролл
         }
+      });
+
+      $('.vacancy-modal-btn').on('click', () => {
+        vacancyCallback.find('.parsley-errors-list').css('opacity', '1')
       });
 
       // клик вне модального окна (закрытие)
@@ -157,6 +171,13 @@ const BREAKPOINT = 1280;
           vacancyCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');
           body.removeClass("body-fixed");
+
+          vacancyCallback.find('.news-subscribe__form-email').removeClass('parsley-error');
+          vacancyCallback.find('.parsley-errors-list').css('opacity', '0');
+
+          vacancyCallback.find('.form').removeClass('form--hidden');
+          vacancyCallback.find('.response').removeClass('response--active');
+          vacancyCallback.find('.news-subscribe__form-email').val('');
         }
       });
     }
@@ -182,6 +203,14 @@ const BREAKPOINT = 1280;
           // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
 
           body.removeClass("body-fixed");
+
+          headerCallback.find('.form').removeClass('form--hidden');
+          headerCallback.find('.response').removeClass('response--active');
+          headerCallback.find('.news-subscribe__form-email').val('');
+
+          headerCallback.find('.news-subscribe__form-email').removeClass('parsley-error');
+          headerCallback.find('.parsley-errors-list').css('opacity', '0');
+
         } else {
           // открывыем, аналогично (выше)
           headerCallback.addClass("vacancy--modal-open");
@@ -189,6 +218,10 @@ const BREAKPOINT = 1280;
           // navModalButton.addClass('button-modal--active');
           body.addClass("body-fixed"); // блокируем скролл
         }
+      });
+
+      $('.modal-btn').on('click', () => {
+        headerCallback.find('.parsley-errors-list').css('opacity', '1')
       });
 
       // клик вне модального окна (закрытие)
@@ -201,6 +234,13 @@ const BREAKPOINT = 1280;
           headerCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');
           body.removeClass("body-fixed");
+          
+          headerCallback.find('.form').removeClass('form--hidden');
+          headerCallback.find('.response').removeClass('response--active');
+          headerCallback.find('.news-subscribe__form-email').val('');
+
+          headerCallback.find('.news-subscribe__form-email').removeClass('parsley-error');
+          headerCallback.find('.parsley-errors-list').css('opacity', '0');
         }
       });
     }
