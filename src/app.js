@@ -23,6 +23,7 @@ import { sendSignal } from "./scripts/signal";
 import "./scripts/anchor-links";
 // import "./scripts/tab-nav";
 import "./scripts/YTvideo";
+import { Files } from "./scripts/Files";
 
 const BREAKPOINT = 1280;
 
@@ -129,9 +130,7 @@ const BREAKPOINT = 1280;
 
       // клик по кнопке вызова модального окна (открытие-закрытие)
       navModalButton.on("click", function () {
-
         if (vacancyCallback.hasClass("vacancy--modal-open")) {
-
           // если модальное окно открыто - закрываем
           vacancyCallback.removeClass("vacancy--modal-open"); // обновляем модификатор header (шапка, контейнер модальных окон)
 
@@ -139,13 +138,11 @@ const BREAKPOINT = 1280;
 
           body.removeClass("body-fixed");
         } else {
-
           // открывыем, аналогично (выше)
           vacancyCallback.addClass("vacancy--modal-open");
 
           // navModalButton.addClass('button-modal--active');
-          body.addClass('body-fixed'); // блокируем скролл
-
+          body.addClass("body-fixed"); // блокируем скролл
         }
       });
 
@@ -154,14 +151,12 @@ const BREAKPOINT = 1280;
         if (
           vacancyCallback.hasClass("vacancy--modal-open") && // если модальное окно открыто
           $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
-          $(event.target).closest(".modal-forms__form").length === 0 &&// + клик не по модальному окну
-
-          $(event.target).closest('.file-mark').length === 0
-
+          $(event.target).closest(".modal-forms__form").length === 0 && // + клик не по модальному окну
+          $(event.target).closest(".file-mark").length === 0
         ) {
           vacancyCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');
-          body.removeClass('body-fixed');
+          body.removeClass("body-fixed");
         }
       });
     }
@@ -186,13 +181,13 @@ const BREAKPOINT = 1280;
 
           // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
 
-          body.removeClass('body-fixed');
+          body.removeClass("body-fixed");
         } else {
           // открывыем, аналогично (выше)
           headerCallback.addClass("vacancy--modal-open");
 
           // navModalButton.addClass('button-modal--active');
-          body.addClass('body-fixed'); // блокируем скролл
+          body.addClass("body-fixed"); // блокируем скролл
         }
       });
 
@@ -205,7 +200,7 @@ const BREAKPOINT = 1280;
         ) {
           headerCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');
-          body.removeClass('body-fixed');
+          body.removeClass("body-fixed");
         }
       });
     }
@@ -607,17 +602,16 @@ var updateMySticky;
               });
             });
         } else {
-
-          if ($('.faq-spoiler').length) {
+          if ($(".faq-spoiler").length) {
             if (!spoiler.hasClass("mission__spoiler--active")) {
               setTimeout(() => {
                 spoiler.addClass("mission__spoiler--active");
                 spoiler_drop.slideDown({
                   progress: updateMySticky,
                 });
-              }, );
+              });
             }
-  
+
             spoilers.removeClass("mission__spoiler--active");
             spoilers.find(".mission__spoiler-drop").slideUp(500);
           } else {
@@ -626,7 +620,6 @@ var updateMySticky;
               progress: updateMySticky,
             });
           }
-          
 
           if (spoiler[0].hasAttribute("data-seq")) {
             setTimeout(() =>
@@ -715,28 +708,27 @@ var updateMySticky;
         let scrollProgress = getScrollProgress(scrollArea);
 
         const scrollbarThumb = block.find(".block__scrollbar-thumb");
-  
+
         const slide1 = block.find(".block__slide--1");
         const slide2 = block.find(".block__slide--2");
-  
+
         updateScrollbarThumb(scrollbarThumb, scrollProgress);
-  
+
         const updateAll = () => {
           updateSlide1(slide1, scrollProgress, 0.2, 0.75);
           updateSlide2(slide2, scrollProgress, 0.25, 0.8);
         };
-  
+
         updateAll();
-  
+
         scrollArea.on("scroll", () => {
           scrollProgress = getScrollProgress(scrollArea);
-  
+
           updateScrollbarThumb(scrollbarThumb, scrollProgress);
-  
+
           updateAll();
         });
       }
-      
     });
   });
 }
@@ -1438,18 +1430,17 @@ var updateMySticky;
   $(() => {
     $(window).on("click", (event) => {
       const tooth = $(event.target).closest(".tooth-button");
-      const num = tooth.find('.number');
+      const num = tooth.find(".number");
 
       if (tooth.length) {
         if (tooth.hasClass("tooth-button--destroyed")) {
           tooth.removeClass("tooth-button--destroyed");
           tooth.addClass("tooth-button--removed");
-
         } else if (tooth.hasClass("tooth-button--removed")) {
           tooth.removeClass("tooth-button--removed");
         } else {
           tooth.addClass("tooth-button--destroyed");
-          $('.calc').removeClass('calc-error')
+          $(".calc").removeClass("calc-error");
         }
       }
     });
@@ -1502,12 +1493,11 @@ var updateMySticky;
 
 // bazal margin
 {
-  const seq = $('.seq');
+  const seq = $(".seq");
 
   if (!mediaQuery.matches && seq.length) {
     try {
       function seqMargin() {
-
         // console.log(123);
 
         const heightText = $(
@@ -1539,7 +1529,7 @@ var updateMySticky;
 
 // fancybox
 {
-  $(window).on('load', () => {
+  $(window).on("load", () => {
     $("[data-fancyboxx]").on("click", function (e) {
       e.preventDefault();
 
@@ -1557,7 +1547,7 @@ var updateMySticky;
 
       // если первая и вторая фотка совпадают удаляем первую
       if (items[0] === items[1]) {
-        items.splice(0, 1)
+        items.splice(0, 1);
       }
 
       $.fancybox.open(
@@ -1606,91 +1596,107 @@ var updateMySticky;
 // обрезка заголовков и абзацев new
 
 {
-  $(window).on('load', () => {
-
-    if (('.text-crop').length) {
-
-      $('.text-crop').each(function () {
-
+  $(window).on("load", () => {
+    if (".text-crop".length) {
+      $(".text-crop").each(function () {
         const comp = $(this);
 
         let originalText = comp.text();
         let lineCount = 4;
         let lineHeight;
 
-        if (comp.hasClass('card__title')) {
+        if (comp.hasClass("card__title")) {
           lineHeight = mediaQuery.matches ? 36.4 : 25.2;
         }
-        if (comp.hasClass('card__text')) {
+        if (comp.hasClass("card__text")) {
           lineHeight = mediaQuery.matches ? 22.4 : 16.8;
         }
-        if (comp.hasClass('first-news__title')) {
+        if (comp.hasClass("first-news__title")) {
           lineHeight = mediaQuery.matches ? 44 : 19.8;
         }
-        if (comp.hasClass('news__title')) {
+        if (comp.hasClass("news__title")) {
           lineHeight = mediaQuery.matches ? 56 : 25.2;
           lineCount = 3;
         }
-        if (comp.hasClass('card-news-mobile__title')) {
+        if (comp.hasClass("card-news-mobile__title")) {
           lineHeight = 19.8;
           lineCount = 3;
         }
-        if (comp.hasClass('operation-card__desc-text')) {
+        if (comp.hasClass("operation-card__desc-text")) {
           lineHeight = 22.4;
           lineCount = 2;
         }
 
-        if (comp.hasClass('dates-slide__text') && mediaQuery.matches) {
-
+        if (comp.hasClass("dates-slide__text") && mediaQuery.matches) {
           comp.text(originalText);
-  
+
           if (comp.height() > 278) {
-            let newText = originalText
-  
+            let newText = originalText;
+
             while (comp.height() > 278) {
-              newText = newText.substring(0, newText.length - 1).trim()
-  
-              comp.text(newText)
+              newText = newText.substring(0, newText.length - 1).trim();
+
+              comp.text(newText);
             }
-  
-            newText = newText.substring(0, newText.length - 5).trim() + '...'
-            comp.text(newText)
+
+            newText = newText.substring(0, newText.length - 5).trim() + "...";
+            comp.text(newText);
           }
         } else {
           function updateText() {
             comp.text(originalText);
-    
-            if (comp.height() > (lineHeight * lineCount)) {
-              let newText = originalText
-    
-              while (comp.height() > (lineHeight * lineCount)) {
-                newText = newText.substring(0, newText.length - 1).trim()
-    
-                comp.text(newText)
+
+            if (comp.height() > lineHeight * lineCount) {
+              let newText = originalText;
+
+              while (comp.height() > lineHeight * lineCount) {
+                newText = newText.substring(0, newText.length - 1).trim();
+
+                comp.text(newText);
               }
-    
-              newText = newText.substring(0, newText.length - 5).trim() + '...'
-              comp.text(newText)
+
+              newText = newText.substring(0, newText.length - 5).trim() + "...";
+              comp.text(newText);
             }
           }
-  
-          updateText()
-  
-          window.addEventListener('resize', handleResize, {
+
+          updateText();
+
+          window.addEventListener("resize", handleResize, {
             once: true,
-          })
-    
+          });
+
           function handleResize() {
-            updateText()
-    
+            updateText();
+
             setTimeout(() => {
-              window.addEventListener('resize', handleResize, {
+              window.addEventListener("resize", handleResize, {
                 once: true,
-              })
-            }, 1000)
+              });
+            }, 1000);
           }
-        }        
-      })
+        }
+      });
     }
-  })
+  });
+}
+
+{
+  const test = document.querySelector(".test");
+
+  if (test) {
+    const input = document.querySelector("[data-files-input]");
+    const container = document.querySelector("[data-files-container]");
+
+    const files = new Files(
+      input,
+      container,
+      (fileName, fileId) => `
+      <div>
+        ${fileName}
+        <button data-files-remove=${fileId}>X</button>
+      </div>
+      `
+    );
+  }
 }
