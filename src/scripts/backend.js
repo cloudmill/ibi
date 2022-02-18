@@ -71,6 +71,8 @@ function formAgain() {
       $(this).removeClass('response--active');
     });
 
+    $(document).find("[data-type=form-ttl]").removeClass("form--hidden");
+
     $(document).find("[data-clear=clear-input]").each(function () {
       $(this).val('');
     });
