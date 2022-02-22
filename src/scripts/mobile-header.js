@@ -50,14 +50,16 @@ if (!mediaQuery.matches) {
           prevScrollY = curScrollY;
           curScrollY = getScrollY();
 
-          if (prevScrollY < curScrollY) {
-            elements.panel.addClass(CLASS.PANEL.SMALL);
-          } else {
-            elements.panel.removeClass(CLASS.PANEL.SMALL);
-          }
+          if (state.mobileSeq && !state.mobileSeq.inSeq) {
+            if (prevScrollY < curScrollY) {
+              elements.panel.addClass(CLASS.PANEL.SMALL);
+            } else {
+              elements.panel.removeClass(CLASS.PANEL.SMALL);
+            }
 
-          if (curScrollY < 1) {
-            elements.panel.removeClass(CLASS.PANEL.SMALL);
+            if (curScrollY < 1) {
+              elements.panel.removeClass(CLASS.PANEL.SMALL);
+            }
           }
         };
       })();
@@ -202,6 +204,28 @@ if (!mediaQuery.matches) {
             state.curScreen = nextScreen;
           }, ANIMATION_DURATION);
         }
+      });
+
+      onSignal("mobile-seq:mobile-header", () => {
+        state.mobileSeq = {
+          inSeq: false,
+        };
+      });
+      onSignal("mobile-seq:mobile-header:HIT_ABOVE", () => {
+        elements.panel.addClass(CLASS.PANEL.SMALL);
+        state.mobileSeq.inSeq = true;
+      });
+      onSignal("mobile-seq:mobile-header:HIT_BELOW", () => {
+        elements.panel.addClass(CLASS.PANEL.SMALL);
+        state.mobileSeq.inSeq = true;
+      });
+      onSignal("mobile-seq:mobile-header:OUT_ABOVE", () => {
+        elements.panel.removeClass(CLASS.PANEL.SMALL);
+        state.mobileSeq.inSeq = false;
+      });
+      onSignal("mobile-seq:mobile-header:OUT_BELOW", () => {
+        elements.panel.removeClass(CLASS.PANEL.SMALL);
+        state.mobileSeq.inSeq = false;
       });
     }
   });

@@ -8,6 +8,8 @@ DOMContentLoaded.then(async () => {
     if (!mediaQuery(BREAKPOINT.TABLET)) {
       await load;
 
+      sendSignal("mobile-seq:mobile-header");
+
       // ! DATA & METHODS
 
       // const LOGGING = process.env.NODE_ENV === "development";
@@ -117,6 +119,8 @@ DOMContentLoaded.then(async () => {
       };
 
       const reducer = (state, action) => {
+        sendSignal(`mobile-seq:mobile-header:${action}`);
+
         if (LOGGING) {
           // console.log("reducer:", action);
 

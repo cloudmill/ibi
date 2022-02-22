@@ -274,7 +274,6 @@ $("[data-send-form]").submit(function (e) {
         } else {
           filesContainer = $(".files-container--mobile");
           inputFile = $(".file-input--mobile");
-          console.log(111);
         }
       } else {
         filesContainer = $(".form-new__add-file-row2");
