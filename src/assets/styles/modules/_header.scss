@@ -302,9 +302,9 @@
     @media (min-width: $breakpoint-xl) {
       margin-right: 20px;
     }
-    @media (max-width: $breakpoint - 1px) {
-      display: none;
-    }
+    // @media (max-width: $breakpoint - 1px) {
+    //   display: none;
+    // }
     @media (max-width: $breakpoint - 1px) {
       display: block;
       width: auto;
@@ -313,6 +313,7 @@
       padding: 0;
       margin-right: 40px;
       font-size: 14px;
+      line-height: normal;
     }
     @media (max-width: $breakpoint-m - 1px) {
       margin-right: 25px;

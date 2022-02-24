@@ -346,6 +346,13 @@
       width: calc((100% - #{$col-gap-d}) / 2);
     }
     flex-shrink: 0;
+
+    .mission__missions-links-container:not(:first-child) {
+      margin-top: 20px;
+      @media (min-width: $breakpoint) {
+        margin-top: 40px;
+      }
+    }
   }
 
   // background main page

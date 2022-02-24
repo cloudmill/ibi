@@ -25,10 +25,10 @@
 }
 
 .implantation-blockquote {
-  margin: 125px 0 160px;
+  margin: 125px 0 60px;
 
   @media (max-width: $breakpoint - 1px) {
-    margin: 125px 0 60px;
+    margin: 125px 0 30px;
   }
 
   @include blockquote-italic;
@@ -245,5 +245,13 @@
 .implantation-main-content {
   @media (max-width: ($breakpoint-t - 1px)) {
     transition: margin-top 0.25s;
+  }
+
+  .mission__missions-links-link {
+    margin-bottom: 30px;
+
+    @media (min-width: $breakpoint) {
+      margin-bottom: 60px;
+    }
   }
 }

@@ -200,8 +200,6 @@ const BREAKPOINT = 1280;
           // если модальное окно открыто - закрываем
           headerCallback.removeClass("vacancy--modal-open"); // обновляем модификатор header (шапка, контейнер модальных окон)
 
-          // navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
-
           body.removeClass("body-fixed");
 
           headerCallback.find('.form').removeClass('form--hidden');
@@ -224,12 +222,18 @@ const BREAKPOINT = 1280;
         headerCallback.find('.parsley-errors-list').css('opacity', '1')
       });
 
+      $('[data-consult-btn]').on('click', () => {
+        headerCallback.addClass("vacancy--modal-open");
+        body.addClass("body-fixed");
+      })
+
       // клик вне модального окна (закрытие)
       $(window).on("click", (event) => {
         if (
           headerCallback.hasClass("vacancy--modal-open") && // если модальное окно открыто
           $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
-          $(event.target).closest(".modal-forms__form").length === 0 // + клик не по модальному окну
+          $(event.target).closest(".modal-forms__form").length === 0 && // + клик не по модальному окну
+          $(event.target).closest("[data-consult-btn]").length === 0
         ) {
           headerCallback.removeClass("vacancy--modal-open");
           // navModalButton.removeClass('button-modal--active');

@@ -217,7 +217,14 @@ block content
                             +rhomb-svg
                           p.advantages__text 
                             |Операция проходит под местным обезболиванием, которого достаточно. Общий наркоз никогда не&nbsp;проходит для организма бесследно и&nbsp;важно его избегать там, где это возможно. Местная анестезия работает локально, без грубого влияния на&nbsp;общее состояние организма. Наши врачи подберут эффективный препарат, подходящий вам индивидуально.
-          .guarantee.mt160
+                            
+          .container.advantages-consult
+            button.mission__missions-links-link(data-consult-btn)
+              +svg-link.mission__missions-links-svg.button-svg
+              .mission__missions-links-text
+                span.mission__missions-links-span 
+                  |Записаться на консультацию
+          .guarantee
             .container
               include ../components/guarantee-img
               include ../components/guarantee-contract

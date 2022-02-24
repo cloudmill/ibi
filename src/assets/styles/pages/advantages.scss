@@ -304,3 +304,11 @@
 .border-top-none {
   border-top: none;
 }
+
+.advantages-consult {
+  margin: 0 0 40px;
+
+  @media (min-width: $breakpoint) {
+    margin: 80px 0;
+  }
+}
