@@ -140,13 +140,13 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.HIT_ABOVE:
+            sendSignal(`mobile-seq:mobile-header:${action}`);
+
             ELEMENT.EXPAND_SCROLL.scrollTo(0, getStart());
             ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
             setTimeout(() => {
               sendSignal("mobile-seq:action", ACTION.STOP_END);
-
-              sendSignal(`mobile-seq:mobile-header:${action}`);
             }, DELAY);
 
             return {
@@ -158,13 +158,13 @@ DOMContentLoaded.then(async () => {
                   : VALUE.POINT.PRE,
             };
           case ACTION.HIT_BELOW:
+            sendSignal(`mobile-seq:mobile-header:${action}`);
+
             ELEMENT.EXPAND_SCROLL.scrollTo(0, getEnd());
             ELEMENT.EXPAND_SCROLL.style.overflow = "hidden";
 
             setTimeout(() => {
               sendSignal("mobile-seq:action", ACTION.STOP_END);
-
-              sendSignal(`mobile-seq:mobile-header:${action}`);
             }, DELAY);
 
             sendSignal("mobile-seq:panel", true);
@@ -187,9 +187,9 @@ DOMContentLoaded.then(async () => {
               point: VALUE.POINT.BEFORE,
             };
           case ACTION.OUT_BELOW:
-            sendSignal("mobile-seq:panel", false);
-
             sendSignal(`mobile-seq:mobile-header:${action}`);
+
+            sendSignal("mobile-seq:panel", false);
 
             return {
               ...state,
