@@ -308,8 +308,8 @@
   }
   &__phone-call {
     margin-right: 10px;
-    transition: $transition;
-    
+    transition: .5s linear;
+
     @media (min-width: $breakpoint-xl) {
       margin-right: 20px;
     }
