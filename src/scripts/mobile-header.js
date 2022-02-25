@@ -158,6 +158,10 @@ if (!mediaQuery.matches) {
             } else {
               elements.panel.addClass(CLASS.PANEL.BACKGROUND);
             }
+
+            if (state.mobileSeq.inSeq) {
+              elements.panel.addClass(CLASS.PANEL.SMALL);
+            }
           }
 
           $(elements.panel).toggleClass(CLASS.PANEL.SHOW);
