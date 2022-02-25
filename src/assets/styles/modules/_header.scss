@@ -116,6 +116,15 @@
   &__logo-svg {
     width: auto;
     max-height: 100%;
+    transition: $transition;
+
+    @media (max-width: $breakpoint - 1px) {
+      width: 130px;
+    }
+
+    & * {
+      transition: $transition;
+    }
   }
 
   &__panel {
