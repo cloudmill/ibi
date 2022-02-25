@@ -18,7 +18,7 @@ if (!mediaQuery.matches) {
         },
         MENU: {
           OPEN: "mobile-header__menu--open",
-        },
+        }, 
       };
       const ANIMATION_DURATION = 500;
 
@@ -50,7 +50,7 @@ if (!mediaQuery.matches) {
           prevScrollY = curScrollY;
           curScrollY = getScrollY();
 
-          if (state.mobileSeq && !state.mobileSeq.inSeq) {
+          if (!state.mobileSeq || !state.mobileSeq.inSeq) {
             if (prevScrollY < curScrollY) {
               elements.panel.addClass(CLASS.PANEL.SMALL);
             } else {
