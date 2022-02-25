@@ -299,6 +299,7 @@
   }
   &__phone-call {
     margin-right: 10px;
+    transition: $transition;
     @media (min-width: $breakpoint-xl) {
       margin-right: 20px;
     }
@@ -312,7 +313,7 @@
       order: 0;
       padding: 0;
       margin-right: 40px;
-      font-size: 14px;
+      font-size: 12px;
       line-height: normal;
     }
     @media (max-width: $breakpoint-m - 1px) {

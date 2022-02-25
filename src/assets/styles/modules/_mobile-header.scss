@@ -47,6 +47,12 @@
       &.mobile-header__panel--big {
         height: 94px;
       }
+
+      .header__phone-call {
+        @media (max-width: $breakpoint - 1px) {
+          font-size: 10px;
+        }
+      }
     }
 
     &--background {
