@@ -51,7 +51,8 @@
       .header__phone-call {
         @media (max-width: $breakpoint - 1px) {
           // font-size: 10px;
-          @include fsl(10px)
+          // @include fsl(10px)
+          transform: scale(.83);
         }
       }
     }
