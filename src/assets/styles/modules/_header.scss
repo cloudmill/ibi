@@ -308,7 +308,7 @@
   }
   &__phone-call {
     margin-right: 10px;
-    transition: .5s ease-out;
+    transition: $transition;
 
     @media (min-width: $breakpoint-xl) {
       margin-right: 20px;
