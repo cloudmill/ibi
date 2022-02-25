@@ -119,8 +119,6 @@ DOMContentLoaded.then(async () => {
       };
 
       const reducer = (state, action) => {
-        sendSignal(`mobile-seq:mobile-header:${action}`);
-
         if (LOGGING) {
           // console.log("reducer:", action);
 
@@ -147,6 +145,8 @@ DOMContentLoaded.then(async () => {
 
             setTimeout(() => {
               sendSignal("mobile-seq:action", ACTION.STOP_END);
+
+              sendSignal(`mobile-seq:mobile-header:${action}`);
             }, DELAY);
 
             return {
@@ -163,6 +163,8 @@ DOMContentLoaded.then(async () => {
 
             setTimeout(() => {
               sendSignal("mobile-seq:action", ACTION.STOP_END);
+
+              sendSignal(`mobile-seq:mobile-header:${action}`);
             }, DELAY);
 
             sendSignal("mobile-seq:panel", true);
@@ -177,6 +179,8 @@ DOMContentLoaded.then(async () => {
             };
 
           case ACTION.OUT_ABOVE:
+            sendSignal(`mobile-seq:mobile-header:${action}`);
+
             return {
               ...state,
 
@@ -184,6 +188,8 @@ DOMContentLoaded.then(async () => {
             };
           case ACTION.OUT_BELOW:
             sendSignal("mobile-seq:panel", false);
+
+            sendSignal(`mobile-seq:mobile-header:${action}`);
 
             return {
               ...state,
