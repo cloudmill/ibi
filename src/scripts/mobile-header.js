@@ -18,7 +18,7 @@ if (!mediaQuery.matches) {
         },
         MENU: {
           OPEN: "mobile-header__menu--open",
-        }, 
+        },
       };
       const ANIMATION_DURATION = 500;
 
@@ -159,7 +159,7 @@ if (!mediaQuery.matches) {
               elements.panel.addClass(CLASS.PANEL.BACKGROUND);
             }
 
-            if (state.mobileSeq.inSeq) {
+            if (state.mobileSeq && state.mobileSeq.inSeq) {
               elements.panel.addClass(CLASS.PANEL.SMALL);
             }
           }
