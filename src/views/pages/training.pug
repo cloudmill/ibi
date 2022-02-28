@@ -10,104 +10,134 @@ block header
 
 
 block content
-  section.section.section--gradient
-      .row
-        .row__col
-          .section__inner--top
-            .nav
-              .nav__container
-                nav.nav__nav.my-sticky
-                  ul.nav__list.prosthetics-nav
-                    each item in ['Strategic Implant']
-                      li.nav__item
-                        a.nav__link(href='#')
+  div(style='position: relative;')
+    div(style='position: relative; z-index: 1;')
+      section.section.section--gradient
+          .row
+            .row__col
+              //- .section__inner--top
+                .nav
+                  .nav__container
+                    nav.nav__nav.my-sticky
+                      ul.nav__list.prosthetics-nav
+                        each item in ['Strategic Implant']
+                          li.nav__item
+                            a.nav__link(href='#')
+                              |#{item}
+                        li.mission__spoiler(data-spoiler-group='1')
+                          .nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
+                            a.nav__link(href='#')
+                              |Обучение
+                            .news-spoiler__image
+                              +arrow-svg('header__drop-svg')
+                          .mission__spoiler-drop.news-spoiler__drop
+                            nav.news-spoiler__nav.prosthetics-spoiler__drop
+                              ul
+                                each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                                  li.news-spoiler__nav-item
+                                    a.nav__link(href='#')
+                                      |#{item}
+                        each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
+                          li.nav__item
+                            a.nav__link(href='#')
+                              |#{item}
+            .row__col
+              .section__inner--top
+                .container
+                  h1.title
+                    |Обучение
+                  .training-parts
+                    img.training-main-img(src="assets/images/0price.jpg", alt="")
+
+                    .legal-support__desc.training-subtitle
+                      |Обучение методике базальной имплантации состоит из теоретической и практической части.
+                    .spec-implant-block.training-list 
+                      h2.spec-implant-block__ttl.training-list__ttl Теоретическая часть
+                      .spec-implant-block__desc.training-list__desc.single-news__txt
+                        ul
+                          li Подробный разбор протокола эффективного протезирования
+                          li Зуботехническое изготовление основных типов конструкций.
+                    .spec-implant-block.training-list
+                      h2.spec-implant-block__ttl.training-list__ttl Практическая часть
+                      .spec-implant-block__desc.training-list__desc.single-news__txt
+                        ul
+                          li Установка базальных имплантатов на композитных макетах полученных по реальным КТ исследованиям
+                          li Изготавление ортопедических конструкций в зуботехнической лаборатории по полученным оттискам
+      section.section__inner.section--blue-light
+        .row
+          .row__col
+          .row__col
+            .container.training-stages
+              h3.training-stages__ttl Этапы обучения
+              .transfer-numbers__wrapper
+                a.transfer-numbers__item(href="")
+                  .transfer-numbers__count
+                    .transfer-numbers__big
+                      p 1
+                    .transfer-numbers__desc.mission__missions-links-link
+                      .transfer-numbers__desc-ttl Хирургический этап
+                      +arrow-link-svg('button-svg')
+                a.transfer-numbers__item(href="")
+                  .transfer-numbers__count
+                    .transfer-numbers__big
+                      p 2
+                    .transfer-numbers__desc.mission__missions-links-link
+                      .transfer-numbers__desc-ttl Зуботехнический этап
+                      +arrow-link-svg('button-svg')
+                a.transfer-numbers__item(href="")
+                  .transfer-numbers__count
+                    .transfer-numbers__big
+                      p 3
+                    .transfer-numbers__desc.mission__missions-links-link
+                      .transfer-numbers__desc-ttl Ортопедический этап
+                      +arrow-link-svg('button-svg')
+              .training-cards
+                h3.training-cards__ttl Требования к специалистам
+                .training-cards__txt *Носит рекомендательный характер
+                .training-cards__row
+                  .training-cards__item
+                    +training-ico1
+                    p Действующий сертификат государственного образца — стоматология хирургическая, ортопедическая
+                  .training-cards__item
+                    +training-ico2
+                    p Стаж работы по сертификату не менее 3 лет
+
+      section.section
+        .row
+          .row__col
+          .row__col
+            .container.news-subscribe.member-page-ask.display-flex
+              h2.news-subscribe__title.member-page-ask__title.form-title Оставить заявку на обучение
+              include ../components/right-form
+    div(style='position: absolute; z-index: 2; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none;')
+      .row(style='height: 100%;')
+        .row__col.sidebar
+          .sidebar__container
+            .sidebar__sidebar
+              .sidebar__sidebar-inner.sidebar__sidebar-inner--pointer-events--all
+                ul.nav__list
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler__button
+                      a.nav__link(href="")
+                        |Strategic Implant
+                  .sidebar-nav-spoiler
+                    li.nav__item.sidebar-nav-spoiler--current.sidebar-nav-spoiler__button
+                      a.nav__link(href="")
+                        |Обучение
+                      .sidebar-nav-spoiler__arrow
+                        +arrow-svg
+                    .sidebar-nav-spoiler__drop
+                      ul
+                        each item in ['Коронки циркониевые', 'Оклюзивные накладки', 'Культевая вкладка', 'Накладкициркониевые Prettau', 'Накладкициркониевые под нанесение керамики']
+                          li.sidebar-nav-spoiler__drop-item
+                            a.nav__link(href='#')
+                              |#{item}
+                  each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
+                    .sidebar-nav-spoiler
+                      li.nav__item.sidebar-nav-spoiler__button
+                        a.nav__link(href="")
                           |#{item}
-                    li.mission__spoiler(data-spoiler-group='1')
-                      .nav__item.nav__item--active.mission__spoiler-button.news-spoiler__button
-                        a.nav__link(href='#')
-                          |Обучение
-                        .news-spoiler__image
-                          +arrow-svg('header__drop-svg')
-                      .mission__spoiler-drop.news-spoiler__drop
-                        nav.news-spoiler__nav.prosthetics-spoiler__drop
-                          ul
-                            each item in ['Хирургический этап', 'Ортопедический этап', 'Зуботехнический этап']
-                              li.news-spoiler__nav-item
-                                a.nav__link(href='#')
-                                  |#{item}
-                    each item in ['Мероприятия', 'Библиотека', 'Юридическая помощь']
-                      li.nav__item
-                        a.nav__link(href='#')
-                          |#{item}
         .row__col
-          .section__inner--top
-            .container
-              h1.title
-                |Обучение
-              .training-parts
-                img.training-main-img(src="assets/images/0price.jpg", alt="")
-
-                .legal-support__desc.training-subtitle
-                  |Обучение методике базальной имплантации состоит из теоретической и практической части.
-                .spec-implant-block.training-list 
-                  h2.spec-implant-block__ttl.training-list__ttl Теоретическая часть
-                  .spec-implant-block__desc.training-list__desc.single-news__txt
-                    ul
-                      li Подробный разбор протокола эффективного протезирования
-                      li Зуботехническое изготовление основных типов конструкций.
-                .spec-implant-block.training-list
-                  h2.spec-implant-block__ttl.training-list__ttl Практическая часть
-                  .spec-implant-block__desc.training-list__desc.single-news__txt
-                    ul
-                      li Установка базальных имплантатов на композитных макетах полученных по реальным КТ исследованиям
-                      li Изготавление ортопедических конструкций в зуботехнической лаборатории по полученным оттискам
-  section.section__inner.section--blue-light
-    .row
-      .row__col
-      .row__col
-        .container.training-stages
-          h3.training-stages__ttl Этапы обучения
-          .transfer-numbers__wrapper
-            a.transfer-numbers__item(href="")
-              .transfer-numbers__count
-                .transfer-numbers__big
-                  p 1
-                .transfer-numbers__desc.mission__missions-links-link
-                  .transfer-numbers__desc-ttl Хирургический этап
-                  +arrow-link-svg('button-svg')
-            a.transfer-numbers__item(href="")
-              .transfer-numbers__count
-                .transfer-numbers__big
-                  p 2
-                .transfer-numbers__desc.mission__missions-links-link
-                  .transfer-numbers__desc-ttl Зуботехнический этап
-                  +arrow-link-svg('button-svg')
-            a.transfer-numbers__item(href="")
-              .transfer-numbers__count
-                .transfer-numbers__big
-                  p 3
-                .transfer-numbers__desc.mission__missions-links-link
-                  .transfer-numbers__desc-ttl Ортопедический этап
-                  +arrow-link-svg('button-svg')
-          .training-cards
-            h3.training-cards__ttl Требования к специалистам
-            .training-cards__txt *Носит рекомендательный характер
-            .training-cards__row
-              .training-cards__item
-                +training-ico1
-                p Действующий сертификат государственного образца — стоматология хирургическая, ортопедическая
-              .training-cards__item
-                +training-ico2
-                p Стаж работы по сертификату не менее 3 лет
-
-  section.section
-    .row
-      .row__col
-      .row__col
-        .container.news-subscribe.member-page-ask.display-flex
-          h2.news-subscribe__title.member-page-ask__title.form-title Оставить заявку на обучение
-          include ../components/right-form
-
 //- block footer
 //-   +footer({
 //-     attrs: {
