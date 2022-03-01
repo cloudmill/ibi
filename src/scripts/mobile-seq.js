@@ -60,7 +60,7 @@ DOMContentLoaded.then(async () => {
           BEFORE: "BEFORE",
           PRE: "PRE",
           START: 0,
-          END: 18,
+          END: 16,
           POST: "POST",
           AFTER: "AFTER",
         },

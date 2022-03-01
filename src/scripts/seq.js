@@ -547,15 +547,6 @@ window.addEventListener("DOMContentLoaded", async () => {
 
       const textsArr = Array.from(texts);
 
-      console.log(
-        textsArr,
-        to,
-        from,
-        textsArr[to],
-        textsArr[from],
-        images.length
-      );
-
       const dist =
         (+textsArr[to].dataset.frame + 1) / images.length -
         +textsArr[from].dataset.frame / images.length;
