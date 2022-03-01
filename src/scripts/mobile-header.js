@@ -198,8 +198,11 @@ if (!mediaQuery.matches) {
               nextScreen.addClass("mobile-header__screen--from--right");
               break;
           }
-
+          nextScreen.css("opacity", "0");
           elements.menu.append(nextScreen);
+          setTimeout(() => {
+            nextScreen.css("opacity", "");
+          });
 
           setTimeout(() => {
             state.isScreenAnimation = false;

@@ -124,7 +124,7 @@
     overflow-x: hidden;
     overflow-y: auto;
 
-    transition: $transition;
+    // transition: $transition;
 
     @include scrollbar-hidden();
 
