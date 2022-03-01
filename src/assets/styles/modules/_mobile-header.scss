@@ -36,7 +36,8 @@
         padding: 3px 0;
       }
       .header__logo-svg {
-        width: 109px;
+        // width: 109px;
+        transform: scale(0.8);
       }
 
       &.mobile-header__panel .mobile-header__price-tabs {
