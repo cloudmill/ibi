@@ -208,6 +208,11 @@
       line-height: 22px;
     }
 
+    @media (max-width: 374px) {
+      font-size: 11px;
+      line-height: 20px;
+    }
+
     &--active {
       pointer-events: all;
 
@@ -233,6 +238,10 @@
       @media (max-width: #{$breakpoint - 1px}) {
         font-size: 14px;
         line-height: 20px;
+      }
+
+      @media (max-width: 374px) {
+        font-size: 11px;
       }
 
       &::before {
@@ -265,11 +274,15 @@
       font-size: 30px;
       line-height: 42px;
 
-      @media (max-width: $breakpoint - 1px) {
+      @media (max-width: #{$breakpoint - 1px}) {
         margin-bottom: 10px;
 
         font-size: 18px;
         line-height: 25px;
+      }
+
+      @media (max-width: 374px) {
+        font-size: 16px;
       }
     }
   }
