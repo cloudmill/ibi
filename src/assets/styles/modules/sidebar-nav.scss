@@ -44,9 +44,6 @@
   
 
   &--current {
-    .nav__link{
-      color: $color-main;
-    }
     &::before {
       opacity: 1;
       top: unset;
@@ -117,6 +114,7 @@
         transition: $transition;
       }
 
+      &--active,
       &:hover {
         a {
           color: $color-main;
