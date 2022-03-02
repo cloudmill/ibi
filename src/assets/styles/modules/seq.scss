@@ -157,10 +157,6 @@
 
     transition: 0.25s;
 
-    @media (max-width: #{$breakpoint - 1px}) {
-      right: $col-pad-m;
-      width: calc(50% - #{$col-pad-m * 2});
-    }
 
     @media (max-width: #{$breakpoint-t - 1px}) {
       position: static;
