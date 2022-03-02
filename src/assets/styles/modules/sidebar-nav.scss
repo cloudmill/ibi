@@ -70,12 +70,6 @@
     transition: $transition;
 
     padding-bottom: 20px;
-
-    &:hover {
-      .nav__link {
-        color: $color-main;
-      }
-    }
   }
 
   &__arrow {
@@ -97,6 +91,10 @@
       path {
         fill: #fff;
       }
+    }
+
+    &:hover {
+      background-color: $color-main;
     }
   }
 
