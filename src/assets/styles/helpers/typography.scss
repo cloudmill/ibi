@@ -119,14 +119,4 @@
       color: $color-main;
     }
   }
-  .nav__item.nav__item--active .nav__link {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 140%;
-    color: $color-main;
-
-    // @media (min-width: $breakpoint-l + 1px) {
-    //   font-size: 30px;
-    // }
-  }
 }

@@ -16,6 +16,10 @@
 
     &__image {
         transition: .5s linear;
+
+        &:hover {
+          background-color: $color-main !important;
+        }
     }
 
     &__button {

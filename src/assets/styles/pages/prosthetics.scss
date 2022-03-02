@@ -22,11 +22,6 @@
     background-color: unset;
   }
 
-  .nav__item--active .nav__link {
-    font-size: 18px;
-    line-height: unset;
-  }
-
   .nav__item::before {
     top: 10px;
   }
@@ -50,10 +45,6 @@
       // padding-left: 40px;
       // padding-top: 20px;
       padding: 0 0 0 40px;
-    }
-  
-    .nav__item--active .nav__link {
-      font-size: 18px;
     }
   
     .news-spoiler__button .news-spoiler__image {
