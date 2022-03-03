@@ -31,11 +31,12 @@ block content
               |Уникальная технология, позволяющая провести операцию 
               span в самых сложных клинических ситуациях
               |, вне зависимости от объема костной ткани.
-            button.mission__missions-links-link(data-consult-btn)
-              +svg-link.mission__missions-links-svg.button-svg
-              .mission__missions-links-text
-                span.mission__missions-links-span 
-                  |Записаться на консультацию
+            .mission__missions-links-link.callback-button-wrapper.callback-button-wrapper--alt
+              .callback-button.vacancies-list__extra-btn.vacancies-list__extra-btn--md
+                +arrow-link-svg('extra-btn button-extra-svg')
+                span.vacancies-list__extra-span
+                  span
+                    |Записаться на консультацию
             section.implantation-faq
               h3.title-h3 Популярные вопросы о методе
               ul.mission__spoilers.mission__spoilers--margin-top.faq-spoiler

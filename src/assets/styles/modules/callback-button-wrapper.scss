@@ -1,0 +1,9 @@
+.callback-button-wrapper {
+  display: flex;
+
+  &--alt {
+    .callback-button {
+      margin-top: 0 !important;
+    }
+  }
+}

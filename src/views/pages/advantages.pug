@@ -219,11 +219,12 @@ block content
                             |Операция проходит под местным обезболиванием, которого достаточно. Общий наркоз никогда не&nbsp;проходит для организма бесследно и&nbsp;важно его избегать там, где это возможно. Местная анестезия работает локально, без грубого влияния на&nbsp;общее состояние организма. Наши врачи подберут эффективный препарат, подходящий вам индивидуально.
                             
           .container.advantages-consult
-            button.mission__missions-links-link(data-consult-btn)
-              +svg-link.mission__missions-links-svg.button-svg
-              .mission__missions-links-text
-                span.mission__missions-links-span 
-                  |Записаться на консультацию
+            .mission__missions-links-link.callback-button-wrapper.callback-button-wrapper--alt
+              .callback-button.vacancies-list__extra-btn.vacancies-list__extra-btn--md
+                +arrow-link-svg('extra-btn button-extra-svg')
+                span.vacancies-list__extra-span
+                  span
+                    |Записаться на консультацию
           .guarantee
             .container
               include ../components/guarantee-img
