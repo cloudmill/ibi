@@ -119,8 +119,10 @@ function forms() {
       contentType = "application/x-www-form-urlencoded; charset=UTF-8",
       processData = true,
       calcBlock = $(document).find(".calc"),
-      destroyed = [],
-      removed = [],
+      destroyedTop = [],
+      destroyedBot = [],
+      removedTop = [],
+      removedBot = [],
       data = {};
 
     if (calcBlock.hasClass("calc-error")) {
@@ -140,14 +142,26 @@ function forms() {
 
       $("[data-type=tooth]").each(function () {
         if ($(this).hasClass("tooth-button--destroyed")) {
-          destroyed.push($(this).attr("data-tooth-id"));
+          if ($(this).hasClass("tooth-button--top")) {
+            destroyedTop.push($(this).attr("data-tooth-id"));
+          }
+          if ($(this).hasClass("tooth-button--bot")) {
+            destroyedBot.push($(this).attr("data-tooth-id"));
+          }
         }
         if ($(this).hasClass("tooth-button--removed")) {
-          removed.push($(this).attr("data-tooth-id"));
+          if ($(this).hasClass("tooth-button--top")) {
+            removedTop.push($(this).attr("data-tooth-id"));
+          }
+          if ($(this).hasClass("tooth-button--bot")) {
+            removedBot.push($(this).attr("data-tooth-id"));
+          }
         }
       });
-      data.append('UF_DESTROYED', destroyed);
-      data.append('UF_REMOVED', removed);
+      data.append('UF_DESTROYED_TOP', destroyedTop);
+      data.append('UF_REMOVED_TOP', removedTop);
+      data.append('UF_DESTROYED_BOT', destroyedBot);
+      data.append('UF_REMOVED_BOT', removedBot);
     }
 
     form.find("[data-type=get-field]").each(function () {
