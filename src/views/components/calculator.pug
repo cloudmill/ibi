@@ -13,14 +13,14 @@
       .calc__teeth-row
         - var i = 1
         each toothId in ['18', '17', '16', '15', '14', '13', '12', '11', '21', '22', '23', '24', '25', '26', '27', '28']
-          button.tooth-button(data-tooth-id=toothId)
+          button.tooth-button.tooth-button--top(data-tooth-id=toothId)
             img.tooth-removed(src=`assets/images/svg/calc/removed${i}.svg`, alt="")
             img.tooth-destroyed(src=`assets/images/calc/destroyed${i}.png`, alt="")
             img.tooth-clean(src=`assets/images/calc/teeth${i++}.png`, alt="")
       .calc__teeth-row
         - var i = 17
         each toothId in ['48', '47', '46', '45', '44', '43', '42', '41', '31', '32', '33', '34', '35', '36', '37', '38']
-          button.tooth-button(data-tooth-id=toothId)
+          button.tooth-button.tooth-button--bot(data-tooth-id=toothId)
             img.tooth-removed(src=`assets/images/svg/calc/removed${i}.svg`, alt="")
             img.tooth-destroyed(src=`assets/images/calc/destroyed${i}.png`, alt="")
             img.tooth-clean(src=`assets/images/calc/teeth${i++}.png`, alt="")
@@ -37,7 +37,7 @@
             var num1 = [18, 17, 16, 15, 14, 13, 12, 11]
 
           each num in num1
-            button.tooth-button.tooth-button-mob
+            button.tooth-button.tooth-button-mob.tooth-button--top
               .tooth-button-number #{num}
               img.tooth-removed(src=`assets/images/svg/calc/mob/removed${index + 1}.svg`, alt="")
               img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${index + 1}.svg`, alt="")
@@ -47,7 +47,7 @@
             var num2 = [21, 22, 23, 24, 25, 26, 27, 28]
 
           each num in num2
-            button.tooth-button.tooth-button-mob
+            button.tooth-button.tooth-button-mob.tooth-button--top
               .tooth-button-number #{num}
               img.tooth-removed(src=`assets/images/svg/calc/mob/removed${index + 1}.svg`, alt="")
               img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${index + 1}.svg`, alt="")
@@ -60,7 +60,7 @@
             var num3 = [48, 47, 46, 45, 44, 43, 42, 41]
 
           each num in num3
-            button.tooth-button.tooth-button-mob
+            button.tooth-button.tooth-button-mob.tooth-button--bot
               .tooth-button-number #{num}
               img.tooth-removed(src=`assets/images/svg/calc/mob/removed${index + 1}.svg`, alt="")
               img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${index + 1}.svg`, alt="")
@@ -70,7 +70,7 @@
             var num4 = [31, 32, 33, 34, 35, 36, 37, 38]
 
           each num in num4
-            button.tooth-button.tooth-button-mob
+            button.tooth-button.tooth-button-mob.tooth-button--bot
               .tooth-button-number #{num}
               img.tooth-removed(src=`assets/images/svg/calc/mob/removed${index + 1}.svg`, alt="")
               img.tooth-destroyed(src=`assets/images/svg/calc/mob/destroyed${index + 1}.svg`, alt="")
