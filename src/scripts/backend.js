@@ -28,34 +28,11 @@ function snippetMat() {
 
 function snippetVideo() {
   $(document).ready(function () {
-    let video = $(document).find('[data-type=video-block]');
-
-    $(document).find('[data-type=video-block-inner]').html(video);
-  });
-}
-
-function changeFile() {
-  $(document).on("change", "[data-type=file]", function (e) {
-    const data = new FormData();
-
-    $.each($('[data-type=file]')[0].files, function (key, input) {
-      data.append('file[]', input);
+    $('[data-type=video-block-inner]').each(function (index, value) {
+      let video = $(document).find('[data-type=video-block-' + index + ']');
+      $(this).html(video);
     });
-
-    $.ajax({
-      type: "POST",
-      url: '/local/templates/main/include/ajax/multi_file.php',
-      data: data,
-      dataType: "json",
-      processData: false,
-      contentType: false,
-      success: function (r) {
-        if (r.success === true) {
-
-        }
-      },
-    });
-
+    
   });
 }
 
