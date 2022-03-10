@@ -553,6 +553,9 @@
     @media (min-width: $breakpoint) {
       @include fsl(26px);
     }
+    
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
   &__text {
     margin-top: 10px;
@@ -564,6 +567,9 @@
     @media (min-width: $breakpoint) {
       @include fsl(16px);
     }
+
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
 
   &__row {
@@ -743,6 +749,9 @@
     margin-top: 20px;
 
     @include fsl(18px, 110%);
+
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 
   &__row {
@@ -1124,6 +1133,9 @@
     margin-top: 10px;
 
     @include fsl(16px, 140%);
+
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
   &__bottom {
@@ -1282,4 +1294,14 @@
 
 .index-lab-slider {
   position: relative;
+}
+
+.text-crop {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
 }

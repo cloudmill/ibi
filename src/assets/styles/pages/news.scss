@@ -135,6 +135,9 @@
     @media (max-width: $breakpoint-m - 1px) {
       width: auto;
     }
+
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
 
   &__img {
@@ -301,6 +304,9 @@
       padding-left: 0;
       margin-bottom: 60px;
     }
+
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
   
   &__link {
