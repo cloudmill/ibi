@@ -24,6 +24,7 @@
     height: var(--panel-height);
     // height: auto;
     transition: $transition;
+    background: #DBF3F7;
 
     &--hide {
       transform: translateY(-100%);
