@@ -6,7 +6,6 @@ $(window).on('load', () => {
 
     $('.mobile-header__panel').addClass('mobile-header__panel--big');
 
-    // const headerHeight = $('.header').height();
     const list = $('.category--mobile');
 
     // nav links in header
@@ -25,11 +24,8 @@ $(window).on('load', () => {
     const HEADER_SMALL = 44
     const PADDING_DIF = 10
 
-    console.log(listOffset);
-
     $(window).on('scroll', function () {
       const scrollPos = this.pageYOffset;
-      console.log(scrollPos);
 
       if ((scrollPos + HEADER_SMALL) > listOffset + PADDING_DIF) {
         $('.mobile-header__price-tabs').addClass('show');
