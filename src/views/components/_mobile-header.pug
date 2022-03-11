@@ -1,6 +1,6 @@
 mixin mobile-header
   header.mobile-header
-    .mobile-header__panel
+    .mobile-header__panel(class=(attributes.isMobileBg ? "mobile-header__panel--blue" : ""))
       //- button.mobile-header__menu-close(data-screen-id=0) toggle menu
       .header__header
         .container
