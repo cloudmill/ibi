@@ -441,6 +441,10 @@
     @media (min-width: $breakpoint) {
       display: none;
     }
+
+    &.hidden {
+      opacity: 0;
+    }
   }
 
   &--column {

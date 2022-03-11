@@ -6,7 +6,7 @@ $(window).on('load', () => {
 
     $('.mobile-header__panel').addClass('mobile-header__panel--big');
 
-    const headerHeight = $('.header').height();
+    // const headerHeight = $('.header').height();
     const list = $('.category--mobile');
 
     // nav links in header
@@ -19,21 +19,26 @@ $(window).on('load', () => {
       headerPanel.append(clone)
     }
   
-    // const listOffset = list.offset().top
+    const listOffset = list.offset().top
+    // header height
+    const HEADER_BIG = 78
+    const HEADER_SMALL = 44
+    const PADDING_DIF = 10
 
-    // $(window).on('scroll', function () {
-    //   const scrollPos = this.pageYOffset;
+    console.log(listOffset);
 
-    //   if ((scrollPos + 65) > listOffset) {
-    //     list.addClass('hidden')
-    //     $('.header').addClass('header--show');
-    //   }
+    $(window).on('scroll', function () {
+      const scrollPos = this.pageYOffset;
+      console.log(scrollPos);
 
-    //   if ((scrollPos + headerHeight) < listOffset) {
-    //     list.removeClass('hidden')
-    //     $('.header').removeClass('header--show')
-    //   }
-    // });
+      if ((scrollPos + HEADER_SMALL) > listOffset + PADDING_DIF) {
+        $('.mobile-header__price-tabs').addClass('show');
+      }
+
+      if ((scrollPos + HEADER_BIG) < listOffset + PADDING_DIF) {
+        $('.mobile-header__price-tabs').removeClass('show')
+      }
+    });
   }
   
   if ($('.implant-price-page').length) {

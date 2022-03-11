@@ -40,14 +40,14 @@
         transform: scale(0.8);
       }
 
-      &.mobile-header__panel .mobile-header__price-tabs {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
-      }
-      &.mobile-header__panel--big {
-        height: 94px;
-      }
+      // &.mobile-header__panel .mobile-header__price-tabs {
+      //   transform: translateY(0);
+      //   opacity: 1;
+      //   pointer-events: all;
+      // }
+      // &.mobile-header__panel--big {
+      //   height: 94px;
+      // }
 
       .header__phone-call {
         @media (max-width: $breakpoint - 1px) {
@@ -81,10 +81,16 @@
   &__price-tabs {
     position: relative;
     z-index: 2;
-    transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
-    transition: .5s;
+    // transition: .5s;
+
+    background-color: $color-blue-light;
+
+    &.show {
+      opacity: 1;
+      pointer-events: all;
+    }
   }
 
   &__menu {
