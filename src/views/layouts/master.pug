@@ -25,6 +25,14 @@ html(lang='ru')
 
     meta(name="format-detection", content="telephone=no")
     meta(name="format-detection", content="address=no")
+
+    link(rel="icon", type='image/png' href="assets/images/favicon-16x16.png" sizes='16x16')
+    link(rel="icon", type='image/png' href="assets/images/favicon-32x32.png" sizes='32x32')
+    link(rel="shortcut icon" href="assets/images/favicon.ico")
+
+    link(rel="apple-touch-icon" href="assets/images/svg/appletouch_180_180.svg")
+
+    meta(property='og:image' content='assets/images/opengraph.jpg')
   
   body.body(class=[isSeq ? 'body--seq' : undefined] data-mobile-seq=isSeq)
     block preloader
