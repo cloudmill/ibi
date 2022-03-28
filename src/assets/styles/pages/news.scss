@@ -2,70 +2,69 @@
 
 // Выпадающее меню
 .news-spoiler {
-    display: block;
-    border: none;
-    border-bottom: 1px solid $color-gray-border;
+  display: block;
+  border: none;
+  border-bottom: 1px solid $color-gray-border;
 
-    @media (min-width: $breakpoint) {
-        display: none;
+  @media (min-width: $breakpoint) {
+    display: none;
+  }
+
+  &__drop {
+    padding: 0 0 40px 0;
+  }
+
+  &__image {
+    transition: 0.5s linear;
+
+    &:not(.header__drop-image):hover {
+      background-color: $color-main !important;
     }
+  }
 
-    &__drop {
-        padding: 0 0 40px 0;
-    }
+  &__button {
+    align-items: center;
+    padding: 20px 2px 10px 0;
+  }
 
-    &__image {
-        transition: .5s linear;
+  .mission__spoiler-button {
+    background-color: transparent;
+  }
 
-        &:hover {
-          background-color: $color-main !important;
+  &__nav {
+    &-item {
+      margin-bottom: 10px;
+
+      a {
+        transition: $transition;
+      }
+
+      &:hover {
+        a {
+          color: $color-main;
         }
+      }
     }
 
-    &__button {
-        align-items: center;
-        padding: 20px 2px 10px 0;
+    &-item:last-child {
+      margin-bottom: 0;
     }
-
-    .mission__spoiler-button {
-        background-color: transparent;
-    }
-
-    &__nav {
-        
-        &-item {
-            margin-bottom: 10px;
-
-            a {
-              transition: $transition;
-            }
-
-            &:hover {
-              a {
-                color: $color-main;
-              }
-            }
-        }
-
-        &-item:last-child {
-            margin-bottom: 0;
-        }
-    }
+  }
 }
 
 .mission__spoiler--active {
-    .news-spoiler__image {
-        transform: rotate(180deg);
-        transition: .5s linear;
+  .news-spoiler__image {
+    transform: rotate(180deg);
+    transition: 0.5s linear;
 
-        path {
-            fill: $color-main;
-          }
+    path {
+      fill: $color-main;
     }
+  }
 
-    .news-spoiler__drop {
-        background-color: unset;
-    }
+  .news-spoiler__drop {
+    background-color: unset;
+  }
 }
 
 // Блок с большой первой новостью
@@ -87,7 +86,7 @@
     background-color: $color-white;
   }
 
-  @import '../components/_button-animation';
+  @import "../components/_button-animation";
 
   &__desc {
     display: flex;
@@ -144,10 +143,10 @@
     position: relative;
     width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
     @media (max-width: $breakpoint - 1px) {
-        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
     }
     @media (max-width: $breakpoint-m - 1px) {
-        width: 100%;
+      width: 100%;
     }
 
     img {
@@ -184,22 +183,22 @@
     width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
 
     @media (max-width: $breakpoint - 1px) {
-        justify-content: flex-start;
-        margin: auto 0 0;
+      justify-content: flex-start;
+      margin: auto 0 0;
 
-        .mission__missions-links-text {
-            display: none;
-        }
+      .mission__missions-links-text {
+        display: none;
+      }
     }
 
     @media (max-width: $breakpoint-m - 1px) {
-    display: none;
+      display: none;
     }
   }
 }
 
 .first-news:hover {
-    background-color: #CDF5FA;
+  background-color: #cdf5fa;
 }
 
 // Блок со списком новостей
@@ -231,15 +230,15 @@
       margin-bottom: 40px;
     }
 
-    @import '../components/_button-animation';
+    @import "../components/_button-animation";
   }
 
   &-box:hover {
     .news__title {
       color: $color-main;
-    }  
+    }
   }
-  
+
   &__date {
     flex-shrink: 0;
     width: calc((#{$col-part-d} * 3 - #{$col-gap-d}) / 2);
@@ -268,7 +267,7 @@
       order: -1;
       height: 100%;
     }
-    
+
     @media (max-width: $breakpoint-m - 1px) {
       order: 1;
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
@@ -285,7 +284,7 @@
       }
     }
   }
-  
+
   &__title {
     width: calc(#{$col-part-d} * 4 + #{$col-gap-d});
     padding-left: 40px;
@@ -308,7 +307,7 @@
     -webkit-line-clamp: 3;
     line-clamp: 3;
   }
-  
+
   &__link {
     width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
     align-self: flex-start;
@@ -333,7 +332,7 @@
     }
   }
 }
-  
+
 .news-show-more {
   display: flex;
   justify-content: center;
@@ -353,7 +352,7 @@
     @include f-1();
     font-weight: 400;
     background: transparent;
-    border: 1px solid #CCE3E6;
+    border: 1px solid #cce3e6;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
@@ -368,8 +367,6 @@
     .mission__missions-links-text {
       margin-left: 0;
     }
-
-
   }
 
   &-ico {
@@ -379,7 +376,7 @@
       width: 44px;
       height: 39px;
     }
-  
+
     .arrow-rotate {
       transform-origin: center;
       transform: rotate(90deg) scale(1.5);
