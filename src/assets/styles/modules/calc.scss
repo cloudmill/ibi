@@ -7,8 +7,8 @@
 
 .calc {
   width: 100%;
-  background-color: #C0E4E8;
-  border: 1px solid #C0E4E8;
+  background-color: #c0e4e8;
+  border: 1px solid #c0e4e8;
 
   padding: 30px 40px 120px;
 
@@ -51,12 +51,85 @@
     }
 
     img:last-child {
-     margin-left: 30px; 
+      margin-left: 30px;
     }
 
     &-mob {
       @media (min-width: $breakpoint) {
         display: none;
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+    }
+    &-container {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-left: 30px;
+      }
+    }
+    &-item {
+      display: flex;
+        
+      &:nth-child(2) {
+        margin-left: 6px;
+      }
+      &:nth-child(3) {
+        margin-left: 10px;
+      }
+    }
+    &-text {
+      padding-top: 10px;
+      max-width: 94px;
+
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.2;
+      color: #738688;
+    }
+  }
+
+  &__legend {
+    display: flex;
+
+    @media (min-width: 1280px) {
+      display: none;
+    }
+
+    &-item {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-left: 14px;
+      }
+    }
+    &-subitem {
+      display: flex;
+
+      &:nth-child(2) {
+        margin-left: 5px;
+      }
+      &:nth-child(3) {
+        margin-left: 10px;
+      }
+    }
+    &-svg {
+      max-width: 29px;
+      max-height: 29px;
+    }
+    &-text {
+      padding-top: 7px;
+      max-width: 94px;
+
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 120%;
+      color: #738688;
+
+      @media (max-width: 390px) {
+        font-size: 10px;
       }
     }
   }
@@ -176,12 +249,13 @@
       border-radius: 40px;
       display: flex;
       align-items: center;
-      
+
       padding: 4px 15px 4px 4px;
       margin-right: 10px;
       margin-bottom: 10px;
 
-      .tooth-destroyed-txt, .tooth-removed-txt {
+      .tooth-destroyed-txt,
+      .tooth-removed-txt {
         font-size: 14px;
         line-height: 120%;
       }
@@ -207,8 +281,8 @@
     }
 
     &-circle {
-      border: 1px solid #E62B3E;
-      color: #E62B3E;
+      border: 1px solid #e62b3e;
+      color: #e62b3e;
       border-radius: 50%;
 
       width: 32px;
@@ -223,12 +297,12 @@
 }
 
 .calc-error {
-  border: 1px solid #E62B3E;
+  border: 1px solid #e62b3e;
   position: relative;
 
   &::after {
-    content: 'Зубы не выбраны';
-    color: #E62B3E;
+    content: "Зубы не выбраны";
+    color: #e62b3e;
     position: absolute;
     bottom: -30px;
     right: 20px;
@@ -282,7 +356,7 @@
   }
   .tooth-button-number {
     opacity: 1;
-    color: #E65B69;
+    color: #e65b69;
   }
 }
 
@@ -294,7 +368,7 @@
   .tooth-clean {
     opacity: 0;
   }
-  
+
   .tooth-destroyed {
     display: none;
   }
@@ -369,7 +443,7 @@
 //     top: 30%;
 //     left: -20px;
 //   }
-// } 
+// }
 
 .tooth-button-number {
   position: absolute;
@@ -377,15 +451,13 @@
   // left: -15px;
 }
 
-
 // Верхняя челюсть, выравнивание зубов
 
 .calc__teeth-row-mob:first-child {
-
   .calc__mob-left-column {
     .tooth-button-mob:nth-child(8) {
       margin: 0 0 0 auto;
-  
+
       .tooth-button-number {
         top: -15px;
         left: 5px;
@@ -393,14 +465,14 @@
     }
     .tooth-button-mob:nth-child(7) {
       margin: -25px 30px 0 auto;
-  
+
       .tooth-button-number {
         top: -15px;
       }
     }
     .tooth-button-mob:nth-child(6) {
       margin: -15px 50px 0 auto;
-  
+
       .tooth-button-number {
         top: -12px;
         left: -8px;
@@ -408,14 +480,14 @@
     }
     .tooth-button-mob:nth-child(5) {
       margin: -5px 62px 0 auto;
-  
+
       .tooth-button-number {
         left: -15px;
       }
     }
     .tooth-button-mob:nth-child(4) {
       margin: -5px 70px 0 auto;
-  
+
       .tooth-button-number {
         left: -17px;
         top: 5px;
@@ -423,11 +495,11 @@
     }
     .tooth-button-mob:nth-child(3) {
       margin: 0 75px 0 auto;
-  
+
       .tooth-destroyed {
         left: 2px;
       }
-  
+
       .tooth-button-number {
         left: -15px;
         top: 5px;
@@ -435,7 +507,7 @@
     }
     .tooth-button-mob:nth-child(2) {
       margin: 0 75px 0 auto;
-  
+
       .tooth-button-number {
         left: -17px;
         top: 8px;
@@ -443,7 +515,7 @@
     }
     .tooth-button-mob:nth-child(1) {
       margin: 0 73px 0 auto;
-  
+
       .tooth-button-number {
         left: -18px;
         top: 7px;
@@ -454,7 +526,7 @@
   .calc__mob-right-column {
     .tooth-button-mob:nth-child(1) {
       margin-bottom: -3px;
-  
+
       .tooth-button-number {
         top: -15px;
         left: 20px;
@@ -462,7 +534,7 @@
     }
     .tooth-button-mob:nth-child(2) {
       margin: -25px auto 0 30px;
-  
+
       .tooth-button-number {
         left: 30px;
         top: -10px;
@@ -470,7 +542,7 @@
     }
     .tooth-button-mob:nth-child(3) {
       margin: -15px auto 0 50px;
-  
+
       .tooth-button-number {
         left: 35px;
         top: -5px;
@@ -478,14 +550,14 @@
     }
     .tooth-button-mob:nth-child(4) {
       margin: -5px auto 0 62px;
-  
+
       .tooth-button-number {
         left: 40px;
       }
     }
     .tooth-button-mob:nth-child(5) {
       margin: -5px auto 0 70px;
-  
+
       .tooth-button-number {
         left: 42px;
         top: 5px;
@@ -493,7 +565,7 @@
     }
     .tooth-button-mob:nth-child(6) {
       margin: 0 auto 0 75px;
-  
+
       .tooth-button-number {
         left: 43px;
         top: 5px;
@@ -501,7 +573,7 @@
     }
     .tooth-button-mob:nth-child(7) {
       margin: 0 auto 0 75px;
-  
+
       .tooth-button-number {
         left: 43px;
         top: 7px;
@@ -509,7 +581,7 @@
     }
     .tooth-button-mob:nth-child(8) {
       margin: 0 auto 0 73px;
-  
+
       .tooth-button-number {
         left: 43px;
         top: 9px;
@@ -517,7 +589,6 @@
     }
   }
 }
-
 
 // Нижняя челюсть, выравнивание зубов
 
@@ -541,7 +612,6 @@
     }
 
     .tooth-button-mob:nth-child(2) {
-
       .tooth-destroyed {
         left: 2px;
       }
@@ -685,7 +755,7 @@
 
     .tooth-button-mob:nth-child(7) {
       margin: 0 auto 0 75px;
-  
+
       .tooth-button-number {
         left: 40px;
         top: 10px;
@@ -703,14 +773,16 @@
   }
 }
 
-
 @media (min-width: $breakpoint) {
-
-  [data-tooth-id="18"] .tooth-removed, [data-tooth-id="17"] .tooth-removed {
+  [data-tooth-id="18"] .tooth-removed,
+  [data-tooth-id="17"] .tooth-removed {
     bottom: 4px;
   }
 
-  [data-tooth-id="15"] .tooth-removed, [data-tooth-id="14"] .tooth-removed, [data-tooth-id="21"] .tooth-removed, [data-tooth-id="25"] .tooth-removed {
+  [data-tooth-id="15"] .tooth-removed,
+  [data-tooth-id="14"] .tooth-removed,
+  [data-tooth-id="21"] .tooth-removed,
+  [data-tooth-id="25"] .tooth-removed {
     bottom: 3px;
   }
 
