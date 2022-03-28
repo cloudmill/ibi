@@ -108,7 +108,6 @@ $("[data-send-form]").submit(function (e) {
         }
       }
     };
-
     // Обработка вписанного вручную номера
     var onPhoneInput = function (e) {
       var input = e.target,
@@ -147,7 +146,17 @@ $("[data-send-form]").submit(function (e) {
       } else {
         formattedInputValue = "+" + inputNumbersValue.substring(0, 16);
       }
-      input.value = formattedInputValue;
+      if (/^\+0+/g.test(formattedInputValue)) {
+        const result = formattedInputValue.replace(/^\+0+/g, "");
+
+        if (result.length > 0) {
+          input.value = `+${result}`;
+        } else {
+          input.value = "";
+        }
+      } else {
+        input.value = formattedInputValue.replace(/^\+0+/g, "");
+      }
     };
     var onPhoneKeyDown = function (e) {
       // Удаление первого символа после удаления номера
