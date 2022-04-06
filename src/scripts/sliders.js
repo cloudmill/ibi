@@ -285,6 +285,7 @@ const BREAKPOINT = 1280;
       loop: true,
       spaceBetween: 0,
       slidesPerView: 1,
+      autoHeight: true,
 
       thumbs: {
         swiper: swiperThumbs,
@@ -407,4 +408,3 @@ const BREAKPOINT = 1280;
     }
   });
 }
-
