@@ -115,7 +115,8 @@
 
     &__wrapper {
       flex-direction: unset;
-      justify-content: space-between;
+      // justify-content: space-between;
+      flex-wrap: wrap;
 
       @media (max-width: $breakpoint - 1px) {
         flex-wrap: wrap;
@@ -136,7 +137,7 @@
       }
 
       @media (max-width: $breakpoint-m - 1px) {
-        width: 100%
+        width: 100%;
       }
 
       @import '../components/_button-animation';
@@ -156,10 +157,14 @@
       @media (max-width: $breakpoint - 1px) {
         margin-bottom: calc(#{$col-gap-m});
         width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+
+        margin-left: $col-gap-m;
       }
 
       @media (max-width: $breakpoint-m - 1px) {
-        width: 100%
+        width: 100%;
+
+        margin-left: 0;
       }
 
       .transfer-numbers__count .transfer-numbers__desc {
@@ -168,6 +173,24 @@
         @media (max-width: $breakpoint-m - 1px) {
           padding: 20px 10px 10px 0;
         }
+      }
+    }
+
+    &__item:not(:first-child) {
+      @media (min-width: $breakpoint) {
+        margin-left: $col-gap-d;
+      }
+    }
+
+    &__item:nth-child(3n + 4) {
+      @media (min-width: $breakpoint) {
+        margin-left: 0;
+      }
+    }
+
+    &__item:nth-child(1n + 4) {
+      @media (min-width: $breakpoint) {
+        margin-top: $col-gap-d;
       }
     }
 

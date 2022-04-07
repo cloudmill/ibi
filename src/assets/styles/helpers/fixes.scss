@@ -82,6 +82,20 @@
   }
 }
 
+.vacancies-list--margin-fix {
+  .vacancies-list__spoilers {
+    margin-bottom: 60px;
+
+    @media (min-width: $breakpoint) {
+      margin-bottom: 160px;
+    }
+  }
+
+  .vacancies-list__extra {
+    margin-top: 0;
+  }
+}
+
 .vacancies-list__extra-txt.mb40-mob {
   @media (max-width: $breakpoint - 1px) {
     margin-bottom: 40px;
@@ -165,6 +179,7 @@
 
 .no-pointer {
   cursor: default !important;
+  pointer-events: none !important;
 }
 
 button.mission__missions-links-link {
