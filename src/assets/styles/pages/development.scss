@@ -146,6 +146,10 @@
         padding-bottom: 60px;
       }
     }
+
+    & + p {
+      margin-top: 0 !important;
+    }
   }
 
   &__list {
