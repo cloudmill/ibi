@@ -391,12 +391,12 @@
   }
   &--slide-width-auto {
     .swiper-slide {
-      width: auto;
+      width: auto !important;
     }
   }
   &--slide-height-max {
     .swiper-slide {
-      height: auto;
+      height: auto !important;
     }
   }
 }
