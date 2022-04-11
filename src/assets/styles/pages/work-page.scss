@@ -119,7 +119,7 @@
       @media (min-width: $breakpoint) {
         width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
       }
-      @media (max-width: $breakpoint) {
+      @media (max-width: $breakpoint - 1px) {
         margin-top: 5px;
       }
     }
@@ -136,6 +136,20 @@
     @include fsl(14px, 140%);
     @media (min-width: $breakpoint) {
       @include fsl(16px);
+    }
+  }
+
+  &--margin-fix {
+    .section__inner {
+      padding-bottom: 0;
+    }
+
+    .title {
+      margin-top: 160px;
+
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 60px;
+      }
     }
   }
 }
