@@ -218,6 +218,15 @@ const BREAKPOINT = 1280;
   
             }
             break;
+
+          case 143:
+            slider_options = {
+              ...slider_options,
+  
+              centeredSlides: true,
+  
+            }
+            break;
   
           case 160:
             slider_options = {
