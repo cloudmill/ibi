@@ -194,6 +194,10 @@
     @media (min-width: $breakpoint) {
       height: 600px;
     }
+
+    &.license-slide {
+      height: auto !important;
+    }
   }
   &__mid-img {
     max-width: calc(100vw - #{$col-pad-m} * 2);

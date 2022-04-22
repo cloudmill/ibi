@@ -131,10 +131,16 @@
   z-index: 0;
 }
 .dates-slide {
-  @media (min-width: $breakpoint) {
+  @media (min-width: $breakpoint-m) {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: stretch;
+  }
+
+  @media (min-width: $breakpoint) {
+    flex-wrap: nowrap;
+    // align-items: stretch;
+    align-items: flex-start;
   }
 
   &__item {
@@ -143,19 +149,40 @@
     }
 
     &:nth-child(1) {
-      @media (min-width: $breakpoint) {
-        display: flex;
-        align-items: flex-end;
+      @media (min-width: $breakpoint-m) and (max-width: $breakpoint - 1px) {
+        order: 1;
+        width: 100%;
+        padding-left: calc(#{$col-part-m} * 2);
+      }
 
-        text-align: left;
+      @media (min-width: $breakpoint) {
+        // display: flex;
+        // align-items: flex-end;
+
+        // text-align: left;
+
+        display: none;
       }
       order: 2;
     }
     &:nth-child(2) {
       order: 3;
+
+      @media (min-width: $breakpoint-m) and (max-width: $breakpoint - 1px) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
     }
     &:nth-child(3) {
       order: 1;
+
+      @media (min-width: $breakpoint-m) and (max-width: $breakpoint - 1px) {
+        width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      }
+
+      @media (min-width: $breakpoint) {
+        display: flex;
+        width: calc(#{$col-part-d} * 4);
+      }
     }
 
     &:not(:first-child) {
@@ -179,6 +206,10 @@
       min-height: 47px;
     }
 
+    @media (min-width: $breakpoint-m) and (max-width: $breakpoint - 1px) {
+      text-align: left;
+    }
+
     color: $color-main;
     text-align: right;
   }
@@ -188,8 +219,23 @@
     display: block;
 
     @media (min-width: $breakpoint) {
-      object-fit: cover;
-      height: 278px;
+      width: calc(#{$col-part-d} * 3 - #{$col-gap-d});
+    }
+
+    // @media (min-width: $breakpoint) {
+    //   object-fit: cover;
+    //   height: 278px;
+    // }
+  }
+
+  &__date-col {
+    width: calc(#{$col-part-d} + #{$col-gap-d});
+    display: flex;
+    align-items: flex-end;
+    padding-left: $col-gap-d;
+
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
     }
   }
 }
