@@ -1018,16 +1018,26 @@
     @media (min-width: $breakpoint) {
       display: flex;
       justify-content: space-between;
+
+      flex-wrap: wrap;
     }
   }
   &__top-col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        margin-right: $col-gap-d;
+      }
+    }
+
     &:nth-child(2) {
       @media (max-width: $breakpoint - 1px) {
         margin-top: 15px;
       }
-      @media (min-width: $breakpoint) {
-        margin-left: $col-gap-d;
-      }
+      // @media (min-width: $breakpoint) {
+      //   margin-left: $col-gap-d;
+      // }
     }
   }
   
