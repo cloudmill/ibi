@@ -128,31 +128,30 @@ const BREAKPOINT = 1280;
               },
             }
             break;
-          case 21:
-            slider_options = {
-              ...slider_options,
+
+          // case 21:
+          //   slider_options = {
+          //     ...slider_options,
               
-              loop: true,
-              allowTouchMove: false,
+          //     loop: true,
+          //     allowTouchMove: false,
 
-              // on: {
-              //   slideChangeTransitionStart: (() => {
-              //     let isStart = true
+          //     on: {
+          //       slideChangeTransitionStart: (() => {
+          //         let isStart = true
                   
-              //     return () => {
-              //       if (isStart) {
-              //         isStart = false
-              //       } else {
-              //         $('.block__nav-item').toggleClass('block__nav-item--active');
-              //         // console.log(1435234);
-              //       }
-              //     }
-              //   })(),
-              // }
-            }
-
-
-            break;
+          //         return () => {
+          //           if (isStart) {
+          //             isStart = false
+          //           } else {
+          //             $('.block__nav-item').toggleClass('block__nav-item--active');
+          //             // console.log(1435234);
+          //           }
+          //         }
+          //       })(),
+          //     }
+          //   }
+          //   break;
   
           case 100:
             slider_options = {
