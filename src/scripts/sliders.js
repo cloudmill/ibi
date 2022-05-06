@@ -129,29 +129,29 @@ const BREAKPOINT = 1280;
             }
             break;
 
-          // case 21:
-          //   slider_options = {
-          //     ...slider_options,
+          case 21:
+            slider_options = {
+              ...slider_options,
               
-          //     loop: true,
-          //     allowTouchMove: false,
+              loop: true,
+              allowTouchMove: false,
 
-          //     on: {
-          //       slideChangeTransitionStart: (() => {
-          //         let isStart = true
+              on: {
+                slideChangeTransitionStart: (() => {
+                  let isStart = true
                   
-          //         return () => {
-          //           if (isStart) {
-          //             isStart = false
-          //           } else {
-          //             $('.block__nav-item').toggleClass('block__nav-item--active');
-          //             // console.log(1435234);
-          //           }
-          //         }
-          //       })(),
-          //     }
-          //   }
-          //   break;
+                  return () => {
+                    if (isStart) {
+                      isStart = false
+                    } else {
+                      $('.block__nav-item').toggleClass('block__nav-item--active');
+                      // console.log(1435234);
+                    }
+                  }
+                })(),
+              }
+            }
+            break;
   
           case 100:
             slider_options = {
@@ -246,19 +246,19 @@ const BREAKPOINT = 1280;
 
         const slider_swiper = new Swiper(slider_el[0], slider_options);
 
-        // if (slider_id == 21) {
+        if (slider_id == 21) {
 
-        //   $(window).on('click', function (event) {
+          $(window).on('click', function (event) {
 
-        //     if ($(event.target).closest('.block__nav-item').length) {
+            if ($(event.target).closest('.block__nav-item').length) {
 
-        //       if (!$(event.target).closest('.block__nav-item').hasClass('block__nav-item--active')) {
+              if (!$(event.target).closest('.block__nav-item').hasClass('block__nav-item--active')) {
     
-        //         slider_swiper.slideNext();
-        //       }
-        //     }
-        //   })
-        // }
+                slider_swiper.slideNext();
+              }
+            }
+          })
+        }
 
         const slider_prev = $(`[data-slider-button="${slider_prev_id}"]`);
         const slider_next = $(`[data-slider-button="${slider_next_id}"]`);
