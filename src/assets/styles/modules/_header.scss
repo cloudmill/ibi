@@ -148,8 +148,13 @@
     &--large {
       #{$component}__items-item {
         &:not(:first-child) {
-          margin-left: 35px;
+          @media (min-width: $breakpoint) {
+            margin-left: 25px;
+          }
           @media (min-width: $breakpoint-l) {
+            margin-left: 35px;
+          }
+          @media (min-width: $breakpoint-ll) {
             margin-left: 60px;
           }
           @media (max-width: $breakpoint-m - 1px) {
@@ -362,11 +367,91 @@
   // ?
   &__button {
     display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    transition: $transition;
+
+    &-txt {
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: inline-block;
+        // font-weight: 500;
+        // font-size: 18px;
+        // line-height: 140%;
+        transition: $transition;
+        margin-right: 20px;
+      }
+    }
+
+    &:hover {
+      .header__button-txt {
+        color: #28A5B1;
+      }
+      .header__button-image {
+        &::before,
+        &::after {
+          @media (min-width: $breakpoint) {
+
+            background-color: #28A5B1;
+          }
+        }
+      }
+    }
+
+    &[data-modal-active] {
+
+      .header__button-txt {
+        color: #28A5B1;
+      }
+
+      .header__button-button {
+
+        @media (max-width: $breakpoint - 1px) {
+          background-color: $color-main;
+        }
+
+        #{$component}__button-image {
+          $size: 24px;
+          width: $size;
+          height: $size;
+          @media (max-width: $breakpoint - 1px) {
+            $size: 13px;
+            width: $size;
+            height: $size;
+          }
+
+          &::before,
+          &::after {
+            @media (min-width: $breakpoint) {
+              right: 1px;
+
+              width: 31px;
+
+              background-color: #28A5B1;
+            }
+
+            @media (max-width: $breakpoint - 1px) {
+              background-color: $color-white;
+            }
+
+          }
+          &::before {
+            transform: rotate(-45deg);
+          }
+          &::after {
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+
   }
   &__button-button {
-    $size: 70px;
-    width: $size;
-    height: $size;
+    // $size: 70px;
+    // width: $size;
+    // height: $size;
+    width: 30px;
     @media (max-width: $breakpoint - 1px) {
       $size: 38px;
       width: $size;
@@ -374,18 +459,21 @@
     }
     display: flex;
 
-    background-color: $color-white;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: $transition;
+    @media (max-width: $breakpoint - 1px) {
+      background-color: $color-white;
+      border-radius: 50%;
+    }
+
+    // cursor: pointer;
+    // transition: $transition;
 
     &[data-modal-active] {
-      background-color: $color-main;
+
+      @media (max-width: $breakpoint - 1px) {
+        background-color: $color-main;
+      }
 
       #{$component}__button-image {
-        $size: 24px;
-        width: $size;
-        height: $size;
         @media (max-width: $breakpoint - 1px) {
           $size: 13px;
           width: $size;
@@ -394,13 +482,11 @@
 
         &::before,
         &::after {
-          @media (min-width: $breakpoint) {
-            right: 1px;
 
-            width: 31px;
+          @media (max-width: $breakpoint - 1px) {
+            background-color: $color-white;
           }
 
-          background-color: $color-white;
         }
         &::before {
           transform: rotate(-45deg);
@@ -469,5 +555,36 @@
 .header-lang-drop {
   @media (max-width: $breakpoint - 1px) {
     display: none;
+  }
+}
+
+.consult-btn {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #fff;
+  padding: 13px 20px;
+  background: #28A5B1;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+
+  margin-left: 20px;
+  @media (min-width: $breakpoint-xl) {
+    margin-left: 40px;
+  }
+
+  &-inner {
+    overflow: hidden;
+  }
+
+  &-span {
+    transition: $transition;
+  }
+
+  &:hover {
+    .consult-btn-span {
+      animation: MoveUpInitial 0.3s forwards, MoveUpEnd 0.3s forwards 0.3s;
+    }
   }
 }

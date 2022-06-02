@@ -40,12 +40,18 @@ mixin header(opts={linkLogo: true})
                   .header__items.header__items--large.header__container
                     .header__items-item
                       .header__phone.header__phone-head
-                        a.header__phone-call.header__phone-call-head.header__text.callback-button(href='#')
-                          |Записаться
-                          br
-                          |на консультацию
+                        //- a.header__phone-call.header__phone-call-head.header__text.callback-button(href='#')
+                        //-   |Записаться
+                        //-   br
+                        //-   |на консультацию
+
                         a.header__phone-link.header__text.header__link(href='tel:84994906349')
                           |8 499 490 63 49
+
+                        button.consult-btn.callback-button
+                          .consult-btn-inner
+                            .consult-btn-span Консультация
+
                     .header__items-item.header-lang-drop
                       .header__drop.mission__spoiler
                         .header__drop-button.mission__spoiler-button
@@ -58,8 +64,11 @@ mixin header(opts={linkLogo: true})
                             |En
 
                     .header__items-item.header__items-item--mobile
-                      .header__button
-                        .header__button-button(data-modal-button='3')
+                      .header__button(data-modal-button='3')
+                        
+                        span.header__button-txt.header__text Меню
+
+                        .header__button-button
                           .header__button-image
     .header__modals
       .header-modal.header-modal--desktop(data-modal-id='1')
