@@ -110,6 +110,7 @@
       display: flex;
       align-items: stretch;
       justify-content: space-between;
+      width: calc(#{$col-part-d} * 9 - #{$col-gap-d});
     }
   }
 
@@ -117,7 +118,8 @@
     flex-shrink: 0;
     &:nth-child(1) {
       @media (min-width: $breakpoint) {
-        width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+        width: calc(#{$col-part-d} * 5);
+        padding-right: $col-gap-d;
       }
     }
     &:nth-child(2) {
