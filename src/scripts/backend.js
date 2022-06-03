@@ -16,7 +16,17 @@ $(function () {
   // changeFile();
   snippetVideo();
   snippetMat();
+  snippetSlider();
+  snippetDopTextImg();
 });
+
+function snippetSlider() {
+  $(document).ready(function () {
+    let mat = $(document).find('[data-type=slider-block]');
+
+    $(document).find('[data-type=slider-block-inner]').html(mat);
+  });
+}
 
 function snippetMat() {
   $(document).ready(function () {
@@ -26,13 +36,21 @@ function snippetMat() {
   });
 }
 
+function snippetDopTextImg() {
+  $(document).ready(function () {
+    let mat = $(document).find('[data-type=dop-text-img-block]');
+
+    $(document).find('[data-type=dop-txt-img-block-inner]').html(mat);
+  });
+}
+
 function snippetVideo() {
   $(document).ready(function () {
     $('[data-type=video-block-inner]').each(function (index, value) {
       let video = $(document).find('[data-type=video-block-' + index + ']');
       $(this).html(video);
     });
-    
+
   });
 }
 
