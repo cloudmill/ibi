@@ -102,6 +102,12 @@
   }
 }
 
+.new-service-slider {
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 9 - #{$col-gap-d}) !important;
+  }
+}
+
 .materials {
   $comp: &;
 
