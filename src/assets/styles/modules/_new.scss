@@ -284,6 +284,8 @@
   }
 
   &__item {
+    user-select: none;
+
     &:not(:first-child) {
       margin-left: 10px;
       @media (max-width: $breakpoint - 1px) {
