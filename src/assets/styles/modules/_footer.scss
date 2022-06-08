@@ -116,6 +116,23 @@
 
   &__socials {
     display: flex;
+
+    &.in-footer {
+      
+      flex-wrap: wrap;
+
+      @media (min-width: $breakpoint) {
+        max-width: calc(#{$col-part-d} * 5 - #{$col-gap-d} * 3);
+      }
+
+      .footer__socials-item {
+        margin: 0 10px 10px 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
   }
   &__socials-item {
     &:not(:first-child) {

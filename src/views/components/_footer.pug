@@ -34,7 +34,17 @@ mixin footer(opts={linkLogo: true})
               br
               |корп. 1
           .footer__block
-            ul.footer__socials
+            ul.footer__socials.in-footer
+              li.footer__socials-item
+                a.footer__socials-link(href='#')
+                  +svg-tg.footer__socials-svg
+              li.footer__socials-item
+                a.footer__socials-link(href='#')
+                  +svg-ok.footer__socials-svg
+              li.footer__socials-item
+                a.footer__socials-link(href='#')
+                  +svg-zen.footer__socials-svg
+
               li.footer__socials-item
                 a.footer__socials-link(href='#')
                   +svg-fb.footer__socials-svg
@@ -84,7 +94,17 @@ mixin footer(opts={linkLogo: true})
                         p.footer__links-caption
                           |По любым вопросам
                   .footer__col
-                    ul.footer__socials
+                    ul.footer__socials.in-footer
+                      li.footer__socials-item
+                        a.footer__socials-link(href='#')
+                          +svg-tg.footer__socials-svg
+                      li.footer__socials-item
+                        a.footer__socials-link(href='#')
+                          +svg-ok.footer__socials-svg
+                      li.footer__socials-item
+                        a.footer__socials-link(href='#')
+                          +svg-zen.footer__socials-svg
+
                       li.footer__socials-item
                         a.footer__socials-link(href='#')
                           +svg-fb.footer__socials-svg
