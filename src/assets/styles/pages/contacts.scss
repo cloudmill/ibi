@@ -96,6 +96,18 @@
 
     @media (max-width: $breakpoint-m - 1px) {
       margin-top: 15px;
+
+      .footer__socials {
+        flex-wrap: wrap;
+      }
+
+      .footer__socials-item {
+        margin: 0 10px 10px 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
     }
 
     &-link {
